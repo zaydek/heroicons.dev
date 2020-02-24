@@ -11,6 +11,8 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
+    "tailwind-dev": "yarn tailwind build src/tailwind.css -o src/tailwind.generated.css",
+    "prestart": "yarn tailwind-dev",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -30,5 +32,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "debug.css": "https://github.com/codex-src/debug.css",
+    "eslint": "^6.8.0",
+    "tailwindcss": "^1.2.0"
   }
 }
