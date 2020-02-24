@@ -15,6 +15,7 @@
     "tailwind-prod": "yarn postcss src/tailwind.css --output src/tailwind.generated.css --env production",
     "prestart": "yarn tailwind-dev",
     "start": "react-scripts start",
+    "prebuild": "yarn tailwind-prod",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
