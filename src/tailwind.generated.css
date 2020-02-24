@@ -3742,6 +3742,10 @@ video {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+.font-poppins {
+  font-family: Poppins, sans-serif;
+}
+
 .font-hairline {
   font-weight: 100;
 }
@@ -10497,6 +10501,14 @@ video {
   letter-spacing: 0.1em;
 }
 
+.-tracking-0\.5 {
+  letter-spacing: -0.0125em;
+}
+
+.tracking-0\.5 {
+  letter-spacing: 0.0125em;
+}
+
 .select-none {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -13285,6 +13297,16 @@ video {
 .duration-1000 {
   -webkit-transition-duration: 1000ms;
           transition-duration: 1000ms;
+}
+
+.tnum {
+  font-feature-settings: "tnum";
+}
+
+.emoji {
+  font-size: 1.2em;
+  line-height: 1;
+  vertical-align: -0.1em;
 }
 
 @media (min-width: 640px) {
@@ -16409,6 +16431,10 @@ video {
 
   .sm\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .sm\:font-poppins {
+    font-family: Poppins, sans-serif;
   }
 
   .sm\:font-hairline {
@@ -23166,6 +23192,14 @@ video {
     letter-spacing: 0.1em;
   }
 
+  .sm\:-tracking-0\.5 {
+    letter-spacing: -0.0125em;
+  }
+
+  .sm\:tracking-0\.5 {
+    letter-spacing: 0.0125em;
+  }
+
   .sm\:select-none {
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -29023,6 +29057,10 @@ video {
 
   .md\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .md\:font-poppins {
+    font-family: Poppins, sans-serif;
   }
 
   .md\:font-hairline {
@@ -35780,6 +35818,14 @@ video {
     letter-spacing: 0.1em;
   }
 
+  .md\:-tracking-0\.5 {
+    letter-spacing: -0.0125em;
+  }
+
+  .md\:tracking-0\.5 {
+    letter-spacing: 0.0125em;
+  }
+
   .md\:select-none {
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -41637,6 +41683,10 @@ video {
 
   .lg\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .lg\:font-poppins {
+    font-family: Poppins, sans-serif;
   }
 
   .lg\:font-hairline {
@@ -48394,6 +48444,14 @@ video {
     letter-spacing: 0.1em;
   }
 
+  .lg\:-tracking-0\.5 {
+    letter-spacing: -0.0125em;
+  }
+
+  .lg\:tracking-0\.5 {
+    letter-spacing: 0.0125em;
+  }
+
   .lg\:select-none {
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -54251,6 +54309,10 @@ video {
 
   .xl\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .xl\:font-poppins {
+    font-family: Poppins, sans-serif;
   }
 
   .xl\:font-hairline {
@@ -61006,6 +61068,14 @@ video {
 
   .xl\:tracking-widest {
     letter-spacing: 0.1em;
+  }
+
+  .xl\:-tracking-0\.5 {
+    letter-spacing: -0.0125em;
+  }
+
+  .xl\:tracking-0\.5 {
+    letter-spacing: 0.0125em;
   }
 
   .xl\:select-none {

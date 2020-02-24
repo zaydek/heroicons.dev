@@ -288,16 +288,12 @@ import { ReactComponent as ZoomIn_sm } from "svg/solid-sm/sm-zoom-in.svg"
 import { ReactComponent as ZoomOut_sm } from "svg/solid-sm/sm-zoom-out.svg"
 /* eslint-enable react/jsx-pascal-case */
 
-import "./tailwind.generated.css"
 import "debug.css"
+import "./tailwind.generated.css"
 
-const Icon = ({ svg: SVG, ...props }) => (
-	<SVG {...props} />
-)
-
-const IconPane = ({ svg, text, ...props }) => (
-	<div className="m-px relative flex-shrink-0 flex flex-col justify-center items-center w-40 h-40 text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-md hover:shadow-md hover:z-30 transition duration-150 ease-in-out">
-		<Icon className="w-8 h-8" svg={svg} />
+const IconPane = ({ outline_md: A, solid_sm: B, text, ...props }) => (
+	<div className="m-1 relative flex-shrink-0 flex flex-col justify-center items-center w-40 h-40 text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded shadow hover:shadow-lg hover:z-30 transition duration-150 ease-in-out">
+		<A className="w-8 h-8" />
 		<div className="p-3 absolute x-inset-0 bottom-0">
 			<p className="font-semibold text-center text-sm leading-tight">
 				{text}
@@ -309,583 +305,168 @@ const IconPane = ({ svg, text, ...props }) => (
 const App = props => (
 	<div className="px-6 flex flex-row justify-center bg-gray-100 min-h-full">
 		<div className="-m-px py-24 w-full max-w-screen-lg">
-			<h1 className="font-bold text-5xl">
+			<h1 className="font-semibold font-poppins tracking-tight text-5xl">
 				Heroicons viewer{" "}
-				<div className="inline-block w-8 h-8 align-text-middle text-indigo-500">
-					<LightningBolt_sm />
-				</div>
+				<span className="px-2 py-1 align-text-top tnum font-extrabold font-mono text-sm text-white bg-indigo-500 rounded shadow">
+					0.1
+				</span>
 			</h1>
-			<div className="h-2" />
-			<h2 className="font-semibold text-2xl text-gray-900">
-				An <a className="hover:underline text-indigo-500">MIT-licensed</a>, <a className="hover:underline text-indigo-500">open source</a> iconset by <a className="hover:underline text-indigo-500">Adam Wathan</a> and <a className="hover:underline text-indigo-500">Steve Schover</a><br />
-				Viewer created by <a className="hover:underline text-indigo-500">Zaydek Michels-Gualtieri</a>. <a className="hover:underline text-indigo-500">Source here</a>.
+			<h2 className="my-2 font-semibold text-2xl text-gray-900 -tracking-0.5">
+				MIT-licensed, <a className="text-indigo-500 hover:underline">open source iconset</a> by <a className="text-indigo-500 hover:underline">Steve Schoger</a> and <a className="text-indigo-500 hover:underline">Adam Wathan</a><br />
+				<a className="text-indigo-500 hover:underline">Viewer</a> created by <a className="text-indigo-500 hover:underline">Zaydek Michels-Gualtieri</a> <span className="emoji">👋</span>
 			</h2>
-			<div className="h-8" />
-			<h3 className="font-medium text-lg text-gray-900">
-				<strong className="font-500">Note:</strong> These icons were <em>just</em> released and may have bugs. Please <a className="hover:underline text-indigo-500">create an issue here</a> to report a bug related to an icon. And please <a className="hover:underline text-indigo-500">create an issue here</a> to report a bug related to this viewer.
-			</h3>
-			<div className="h-8" />
-			<div className="flex flex-row flex-wrap items-start">
-				<IconPane
-					svg={Adjustments_md}
-					text="adjustments"
-				/>
-				<IconPane
-					svg={Annotation_md}
-					text="annotation"
-				/>
-				<IconPane
-					svg={Archive_md}
-					text="archive"
-				/>
-				<IconPane
-					svg={ArrowCircleDown_md}
-					text="arrow-circle-down"
-				/>
-				<IconPane
-					svg={ArrowCircleLeft_md}
-					text="arrow-circle-left"
-				/>
-				<IconPane
-					svg={ArrowCircleRight_md}
-					text="arrow-circle-right"
-				/>
-				<IconPane
-					svg={ArrowCircleUp_md}
-					text="arrow-circle-up"
-				/>
-				<IconPane
-					svg={ArrowDown_md}
-					text="arrow-down"
-				/>
-				<IconPane
-					svg={ArrowLeft_md}
-					text="arrow-left"
-				/>
-				<IconPane
-					svg={ArrowNarrowDown_md}
-					text="arrow-narrow-down"
-				/>
-				<IconPane
-					svg={ArrowNarrowLeft_md}
-					text="arrow-narrow-left"
-				/>
-				<IconPane
-					svg={ArrowNarrowRight_md}
-					text="arrow-narrow-right"
-				/>
-				<IconPane
-					svg={ArrowNarrowUp_md}
-					text="arrow-narrow-up"
-				/>
-				<IconPane
-					svg={ArrowRight_md}
-					text="arrow-right"
-				/>
-				<IconPane
-					svg={ArrowUp_md}
-					text="arrow-up"
-				/>
-				<IconPane
-					svg={AtSymbol_md}
-					text="at-symbol"
-				/>
-				<IconPane
-					svg={Bell_md}
-					text="bell"
-				/>
-				<IconPane
-					svg={BookOpen_md}
-					text="book-open"
-				/>
-				<IconPane
-					svg={Bookmark_md}
-					text="bookmark"
-				/>
-				<IconPane
-					svg={Briefcase_md}
-					text="briefcase"
-				/>
-				<IconPane
-					svg={Calendar_md}
-					text="calendar"
-				/>
-				<IconPane
-					svg={Camera_md}
-					text="camera"
-				/>
-				<IconPane
-					svg={Cash_md}
-					text="cash"
-				/>
-				<IconPane
-					svg={ChartPie_md}
-					text="chart-pie"
-				/>
-				<IconPane
-					svg={Chat_md}
-					text="chat"
-				/>
-				<IconPane
-					svg={CheckCircle_md}
-					text="check-circle"
-				/>
-				<IconPane
-					svg={Check_md}
-					text="check"
-				/>
-				<IconPane
-					svg={CheveronDown_md}
-					text="cheveron-down"
-				/>
-				<IconPane
-					svg={CheveronLeft_md}
-					text="cheveron-left"
-				/>
-				<IconPane
-					svg={CheveronRight_md}
-					text="cheveron-right"
-				/>
-				<IconPane
-					svg={CheveronUp_md}
-					text="cheveron-up"
-				/>
-				<IconPane
-					svg={ClipboardCheck_md}
-					text="clipboard-check"
-				/>
-				<IconPane
-					svg={ClipboardCopy_md}
-					text="clipboard-copy"
-				/>
-				<IconPane
-					svg={ClipboardList_md}
-					text="clipboard-list"
-				/>
-				<IconPane
-					svg={Clipboard_md}
-					text="clipboard"
-				/>
-				<IconPane
-					svg={Clock_md}
-					text="clock"
-				/>
-				<IconPane
-					svg={CloudDownload_md}
-					text="cloud-download"
-				/>
-				<IconPane
-					svg={CloudUpload_md}
-					text="cloud-upload"
-				/>
-				<IconPane
-					svg={Code_md}
-					text="code"
-				/>
-				<IconPane
-					svg={Cog_md}
-					text="cog"
-				/>
-				<IconPane
-					svg={Collection_md}
-					text="collection"
-				/>
-				<IconPane
-					svg={ColorSwatch_md}
-					text="color-swatch"
-				/>
-				<IconPane
-					svg={CreditCard_md}
-					text="credit-card"
-				/>
-				<IconPane
-					svg={CurrencyDollar_md}
-					text="currency-dollar"
-				/>
-				<IconPane
-					svg={CurrencyEuro_md}
-					text="currency-euro"
-				/>
-				<IconPane
-					svg={CurrencyPound_md}
-					text="currency-pound"
-				/>
-				<IconPane
-					svg={CurrencyRupee_md}
-					text="currency-rupee"
-				/>
-				<IconPane
-					svg={CurrencyYen_md}
-					text="currency-yen"
-				/>
-				<IconPane
-					svg={DocumentAdd_md}
-					text="document-add"
-				/>
-				<IconPane
-					svg={DocumentDownload_md}
-					text="document-download"
-				/>
-				<IconPane
-					svg={DocumentDuplicate_md}
-					text="document-duplicate"
-				/>
-				<IconPane
-					svg={DocumentRemove_md}
-					text="document-remove"
-				/>
-				<IconPane
-					svg={Document_md}
-					text="document"
-				/>
-				<IconPane
-					svg={DotsCircleHorizontal_md}
-					text="dots-circle-horizontal"
-				/>
-				<IconPane
-					svg={DotsHorizontal_md}
-					text="dots-horizontal"
-				/>
-				<IconPane
-					svg={DotsVertical_md}
-					text="dots-vertical"
-				/>
-				<IconPane
-					svg={Download_md}
-					text="download"
-				/>
-				<IconPane
-					svg={Duplicate_md}
-					text="duplicate"
-				/>
-				<IconPane
-					svg={EmojiHappy_md}
-					text="emoji-happy"
-				/>
-				<IconPane
-					svg={EmojiSad_md}
-					text="emoji-sad"
-				/>
-				<IconPane
-					svg={ExclamationCircle_md}
-					text="exclamation-circle"
-				/>
-				<IconPane
-					svg={Exclamation_md}
-					text="exclamation"
-				/>
-				<IconPane
-					svg={ExternalLink_md}
-					text="external-link"
-				/>
-				<IconPane
-					svg={Eye_md}
-					text="eye"
-				/>
-				<IconPane
-					svg={Filter_md}
-					text="filter"
-				/>
-				<IconPane
-					svg={Flag_md}
-					text="flag"
-				/>
-				<IconPane
-					svg={Folder_md}
-					text="folder"
-				/>
-				<IconPane
-					svg={GlobeAlt_md}
-					text="globe-alt"
-				/>
-				<IconPane
-					svg={Globe_md}
-					text="globe"
-				/>
-				<IconPane
-					svg={Hashtag_md}
-					text="hashtag"
-				/>
-				<IconPane
-					svg={Heart_md}
-					text="heart"
-				/>
-				<IconPane
-					svg={Home_md}
-					text="home"
-				/>
-				<IconPane
-					svg={InboxIn_md}
-					text="inbox-in"
-				/>
-				<IconPane
-					svg={Inbox_md}
-					text="inbox"
-				/>
-				<IconPane
-					svg={InformationCircle_md}
-					text="information-circle"
-				/>
-				<IconPane
-					svg={LightBulb_md}
-					text="light-bulb"
-				/>
-				<IconPane
-					svg={LightningBolt_md}
-					text="lightning-bolt"
-				/>
-				<IconPane
-					svg={Link_md}
-					text="link"
-				/>
-				<IconPane
-					svg={LocationMarker_md}
-					text="location-marker"
-				/>
-				<IconPane
-					svg={LockClosed_md}
-					text="lock-closed"
-				/>
-				<IconPane
-					svg={LockOpen_md}
-					text="lock-open"
-				/>
-				<IconPane
-					svg={MailOpen_md}
-					text="mail-open"
-				/>
-				<IconPane
-					svg={Mail_md}
-					text="mail"
-				/>
-				<IconPane
-					svg={MenuAlt1_md}
-					text="menu-alt-1"
-				/>
-				<IconPane
-					svg={MenuAlt2_md}
-					text="menu-alt-2"
-				/>
-				<IconPane
-					svg={MenuAlt3_md}
-					text="menu-alt-3"
-				/>
-				<IconPane
-					svg={MenuAlt4_md}
-					text="menu-alt-4"
-				/>
-				<IconPane
-					svg={Menu_md}
-					text="menu"
-				/>
-				<IconPane
-					svg={MinusCircle_md}
-					text="minus-circle"
-				/>
-				<IconPane
-					svg={Moon_md}
-					text="moon"
-				/>
-				<IconPane
-					svg={OfficeBuilding_md}
-					text="office-building"
-				/>
-				<IconPane
-					svg={PaperClip_md}
-					text="paper-clip"
-				/>
-				<IconPane
-					svg={PencilAlt_md}
-					text="pencil-alt"
-				/>
-				<IconPane
-					svg={Pencil_md}
-					text="pencil"
-				/>
-				<IconPane
-					svg={PhoneIncoming_md}
-					text="phone-incoming"
-				/>
-				<IconPane
-					svg={PhoneOutgoing_md}
-					text="phone-outgoing"
-				/>
-				<IconPane
-					svg={Phone_md}
-					text="phone"
-				/>
-				<IconPane
-					svg={Photograph_md}
-					text="photograph"
-				/>
-				<IconPane
-					svg={PlusCircle_md}
-					text="plus-circle"
-				/>
-				<IconPane
-					svg={Plus_md}
-					text="plus"
-				/>
-				<IconPane
-					svg={Printer_md}
-					text="printer"
-				/>
-				<IconPane
-					svg={Qrcode_md}
-					text="qrcode"
-				/>
-				<IconPane
-					svg={QuestionMarkCircle_md}
-					text="question-mark-circle"
-				/>
-				<IconPane
-					svg={ReceiptRefund_md}
-					text="receipt-refund"
-				/>
-				<IconPane
-					svg={Refresh_md}
-					text="refresh"
-				/>
-				<IconPane
-					svg={Reply_md}
-					text="reply"
-				/>
-				<IconPane
-					svg={Scale_md}
-					text="scale"
-				/>
-				<IconPane
-					svg={Search_md}
-					text="search"
-				/>
-				<IconPane
-					svg={Selector_md}
-					text="selector"
-				/>
-				<IconPane
-					svg={Share_md}
-					text="share"
-				/>
-				<IconPane
-					svg={ShieldCheck_md}
-					text="shield-check"
-				/>
-				<IconPane
-					svg={ShieldExclamation_md}
-					text="shield-exclamation"
-				/>
-				<IconPane
-					svg={SortAscending_md}
-					text="sort-ascending"
-				/>
-				<IconPane
-					svg={SortDescending_md}
-					text="sort-descending"
-				/>
-				<IconPane
-					svg={Sparkles_md}
-					text="sparkles"
-				/>
-				<IconPane
-					svg={Sun_md}
-					text="sun"
-				/>
-				<IconPane
-					svg={SwitchHorizontal_md}
-					text="switch-horizontal"
-				/>
-				<IconPane
-					svg={SwitchVertical_md}
-					text="switch-vertical"
-				/>
-				<IconPane
-					svg={Tag_md}
-					text="tag"
-				/>
-				<IconPane
-					svg={Template_md}
-					text="template"
-				/>
-				<IconPane
-					svg={Ticket_md}
-					text="ticket"
-				/>
-				<IconPane
-					svg={Translate_md}
-					text="translate"
-				/>
-				<IconPane
-					svg={Trash_md}
-					text="trash"
-				/>
-				<IconPane
-					svg={TrendingDown_md}
-					text="trending-down"
-				/>
-				<IconPane
-					svg={TrendingUp_md}
-					text="trending-up"
-				/>
-				<IconPane
-					svg={Upload_md}
-					text="upload"
-				/>
-				<IconPane
-					svg={UserAdd_md}
-					text="user-add"
-				/>
-				<IconPane
-					svg={UserCircle_md}
-					text="user-circle"
-				/>
-				<IconPane
-					svg={UserGroup_md}
-					text="user-group"
-				/>
-				<IconPane
-					svg={UserRemove_md}
-					text="user-remove"
-				/>
-				<IconPane
-					svg={User_md}
-					text="user"
-				/>
-				<IconPane
-					svg={Users_md}
-					text="users"
-				/>
-				<IconPane
-					svg={ViewBoards_md}
-					text="view-boards"
-				/>
-				<IconPane
-					svg={ViewList_md}
-					text="view-list"
-				/>
-				<IconPane
-					svg={VolumeOff_md}
-					text="volume-off"
-				/>
-				<IconPane
-					svg={VolumeUp_md}
-					text="volume-up"
-				/>
-				<IconPane
-					svg={XCircle_md}
-					text="x-circle"
-				/>
-				<IconPane
-					svg={X_md}
-					text="x"
-				/>
-				<IconPane
-					svg={ZoomIn_md}
-					text="zoom-in"
-				/>
-				<IconPane
-					svg={ZoomOut_md}
-					text="zoom-out"
-				/>
+			<div className="p-4 my-12 flex flex-row items-center bg-white rounded shadow">
+				<div className="m-4 mr-6 flex-shrink-0">
+					<ExclamationCircle_md className="p-px w-8 h-8 text-indigo-500" />
+				</div>
+				<h3 className="font-medium text-lg text-gray-900 leading-relaxed">
+					<strong>Note:</strong> These icons were <a className="font-semibold text-indigo-500 hover:underline">just released</a> and may have bugs. Please <a className="font-semibold text-indigo-500 hover:underline">create an issue here</a> to report a bug related to an icon. And please <a className="font-semibold text-indigo-500 hover:underline">create an issue here</a> to report a bug related to this viewer.
+				</h3>
+			</div>
+			<h2 className="my-4 font-semibold text-lg text-gray-900">
+				Outline/Medium icons (other sizes are not released yet)
+			</h2>
+			<div className="-m-1 flex flex-row flex-wrap items-start">
+				<IconPane outline_md={Adjustments_md} solid_sm={Adjustments_sm} text="adjustments" />
+				<IconPane outline_md={Annotation_md} solid_sm={Annotation_sm} text="annotation" />
+				<IconPane outline_md={Archive_md} solid_sm={Archive_sm} text="archive" />
+				<IconPane outline_md={ArrowCircleDown_md} solid_sm={ArrowCircleDown_sm} text="arrow-circle-down" />
+				<IconPane outline_md={ArrowCircleLeft_md} solid_sm={ArrowCircleLeft_sm} text="arrow-circle-left" />
+				<IconPane outline_md={ArrowCircleRight_md} solid_sm={ArrowCircleRight_sm} text="arrow-circle-right" />
+				<IconPane outline_md={ArrowCircleUp_md} solid_sm={ArrowCircleUp_sm} text="arrow-circle-up" />
+				<IconPane outline_md={ArrowDown_md} solid_sm={ArrowDown_sm} text="arrow-down" />
+				<IconPane outline_md={ArrowLeft_md} solid_sm={ArrowLeft_sm} text="arrow-left" />
+				<IconPane outline_md={ArrowNarrowDown_md} solid_sm={ArrowNarrowDown_sm} text="arrow-narrow-down" />
+				<IconPane outline_md={ArrowNarrowLeft_md} solid_sm={ArrowNarrowLeft_sm} text="arrow-narrow-left" />
+				<IconPane outline_md={ArrowNarrowRight_md} solid_sm={ArrowNarrowRight_sm} text="arrow-narrow-right" />
+				<IconPane outline_md={ArrowNarrowUp_md} solid_sm={ArrowNarrowUp_sm} text="arrow-narrow-up" />
+				<IconPane outline_md={ArrowRight_md} solid_sm={ArrowRight_sm} text="arrow-right" />
+				<IconPane outline_md={ArrowUp_md} solid_sm={ArrowUp_sm} text="arrow-up" />
+				<IconPane outline_md={AtSymbol_md} solid_sm={AtSymbol_sm} text="at-symbol" />
+				<IconPane outline_md={Bell_md} solid_sm={Bell_sm} text="bell" />
+				<IconPane outline_md={BookOpen_md} solid_sm={BookOpen_sm} text="book-open" />
+				<IconPane outline_md={Bookmark_md} solid_sm={Bookmark_sm} text="bookmark" />
+				<IconPane outline_md={Briefcase_md} solid_sm={Briefcase_sm} text="briefcase" />
+				<IconPane outline_md={Calendar_md} solid_sm={Calendar_sm} text="calendar" />
+				<IconPane outline_md={Camera_md} solid_sm={Camera_sm} text="camera" />
+				<IconPane outline_md={Cash_md} solid_sm={Cash_sm} text="cash" />
+				<IconPane outline_md={ChartPie_md} solid_sm={ChartPie_sm} text="chart-pie" />
+				<IconPane outline_md={Chat_md} solid_sm={Chat_sm} text="chat" />
+				<IconPane outline_md={CheckCircle_md} solid_sm={CheckCircle_sm} text="check-circle" />
+				<IconPane outline_md={Check_md} solid_sm={Check_sm} text="check" />
+				<IconPane outline_md={CheveronDown_md} solid_sm={CheveronDown_sm} text="cheveron-down" />
+				<IconPane outline_md={CheveronLeft_md} solid_sm={CheveronLeft_sm} text="cheveron-left" />
+				<IconPane outline_md={CheveronRight_md} solid_sm={CheveronRight_sm} text="cheveron-right" />
+				<IconPane outline_md={CheveronUp_md} solid_sm={CheveronUp_sm} text="cheveron-up" />
+				<IconPane outline_md={ClipboardCheck_md} solid_sm={ClipboardCheck_sm} text="clipboard-check" />
+				<IconPane outline_md={ClipboardCopy_md} solid_sm={ClipboardCopy_sm} text="clipboard-copy" />
+				<IconPane outline_md={ClipboardList_md} solid_sm={ClipboardList_sm} text="clipboard-list" />
+				<IconPane outline_md={Clipboard_md} solid_sm={Clipboard_sm} text="clipboard" />
+				<IconPane outline_md={Clock_md} solid_sm={Clock_sm} text="clock" />
+				<IconPane outline_md={CloudDownload_md} solid_sm={CloudDownload_sm} text="cloud-download" />
+				<IconPane outline_md={CloudUpload_md} solid_sm={CloudUpload_sm} text="cloud-upload" />
+				<IconPane outline_md={Code_md} solid_sm={Code_sm} text="code" />
+				<IconPane outline_md={Cog_md} solid_sm={Cog_sm} text="cog" />
+				<IconPane outline_md={Collection_md} solid_sm={Collection_sm} text="collection" />
+				<IconPane outline_md={ColorSwatch_md} solid_sm={ColorSwatch_sm} text="color-swatch" />
+				<IconPane outline_md={CreditCard_md} solid_sm={CreditCard_sm} text="credit-card" />
+				<IconPane outline_md={CurrencyDollar_md} solid_sm={CurrencyDollar_sm} text="currency-dollar" />
+				<IconPane outline_md={CurrencyEuro_md} solid_sm={CurrencyEuro_sm} text="currency-euro" />
+				<IconPane outline_md={CurrencyPound_md} solid_sm={CurrencyPound_sm} text="currency-pound" />
+				<IconPane outline_md={CurrencyRupee_md} solid_sm={CurrencyRupee_sm} text="currency-rupee" />
+				<IconPane outline_md={CurrencyYen_md} solid_sm={CurrencyYen_sm} text="currency-yen" />
+				<IconPane outline_md={DocumentAdd_md} solid_sm={DocumentAdd_sm} text="document-add" />
+				<IconPane outline_md={DocumentDownload_md} solid_sm={DocumentDownload_sm} text="document-download" />
+				<IconPane outline_md={DocumentDuplicate_md} solid_sm={DocumentDuplicate_sm} text="document-duplicate" />
+				<IconPane outline_md={DocumentRemove_md} solid_sm={DocumentRemove_sm} text="document-remove" />
+				<IconPane outline_md={Document_md} solid_sm={Document_sm} text="document" />
+				<IconPane outline_md={DotsCircleHorizontal_md} solid_sm={DotsCircleHorizontal_sm} text="dots-circle-horizontal" />
+				<IconPane outline_md={DotsHorizontal_md} solid_sm={DotsHorizontal_sm} text="dots-horizontal" />
+				<IconPane outline_md={DotsVertical_md} solid_sm={DotsVertical_sm} text="dots-vertical" />
+				<IconPane outline_md={Download_md} solid_sm={Download_sm} text="download" />
+				<IconPane outline_md={Duplicate_md} solid_sm={Duplicate_sm} text="duplicate" />
+				<IconPane outline_md={EmojiHappy_md} solid_sm={EmojiHappy_sm} text="emoji-happy" />
+				<IconPane outline_md={EmojiSad_md} solid_sm={EmojiSad_sm} text="emoji-sad" />
+				<IconPane outline_md={ExclamationCircle_md} solid_sm={ExclamationCircle_sm} text="exclamation-circle" />
+				<IconPane outline_md={Exclamation_md} solid_sm={Exclamation_sm} text="exclamation" />
+				<IconPane outline_md={ExternalLink_md} solid_sm={ExternalLink_sm} text="external-link" />
+				<IconPane outline_md={Eye_md} solid_sm={Eye_sm} text="eye" />
+				<IconPane outline_md={Filter_md} solid_sm={Filter_sm} text="filter" />
+				<IconPane outline_md={Flag_md} solid_sm={Flag_sm} text="flag" />
+				<IconPane outline_md={Folder_md} solid_sm={Folder_sm} text="folder" />
+				<IconPane outline_md={GlobeAlt_md} solid_sm={GlobeAlt_sm} text="globe-alt" />
+				<IconPane outline_md={Globe_md} solid_sm={Globe_sm} text="globe" />
+				<IconPane outline_md={Hashtag_md} solid_sm={Hashtag_sm} text="hashtag" />
+				<IconPane outline_md={Heart_md} solid_sm={Heart_sm} text="heart" />
+				<IconPane outline_md={Home_md} solid_sm={Home_sm} text="home" />
+				<IconPane outline_md={InboxIn_md} solid_sm={InboxIn_sm} text="inbox-in" />
+				<IconPane outline_md={Inbox_md} solid_sm={Inbox_sm} text="inbox" />
+				<IconPane outline_md={InformationCircle_md} solid_sm={InformationCircle_sm} text="information-circle" />
+				<IconPane outline_md={LightBulb_md} solid_sm={LightBulb_sm} text="light-bulb" />
+				<IconPane outline_md={LightningBolt_md} solid_sm={LightningBolt_sm} text="lightning-bolt" />
+				<IconPane outline_md={Link_md} solid_sm={Link_sm} text="link" />
+				<IconPane outline_md={LocationMarker_md} solid_sm={LocationMarker_sm} text="location-marker" />
+				<IconPane outline_md={LockClosed_md} solid_sm={LockClosed_sm} text="lock-closed" />
+				<IconPane outline_md={LockOpen_md} solid_sm={LockOpen_sm} text="lock-open" />
+				<IconPane outline_md={MailOpen_md} solid_sm={MailOpen_sm} text="mail-open" />
+				<IconPane outline_md={Mail_md} solid_sm={Mail_sm} text="mail" />
+				<IconPane outline_md={MenuAlt1_md} solid_sm={MenuAlt1_sm} text="menu-alt-1" />
+				<IconPane outline_md={MenuAlt2_md} solid_sm={MenuAlt2_sm} text="menu-alt-2" />
+				<IconPane outline_md={MenuAlt3_md} solid_sm={MenuAlt3_sm} text="menu-alt-3" />
+				<IconPane outline_md={MenuAlt4_md} solid_sm={MenuAlt4_sm} text="menu-alt-4" />
+				<IconPane outline_md={Menu_md} solid_sm={Menu_sm} text="menu" />
+				<IconPane outline_md={MinusCircle_md} solid_sm={MinusCircle_sm} text="minus-circle" />
+				<IconPane outline_md={Moon_md} solid_sm={Moon_sm} text="moon" />
+				<IconPane outline_md={OfficeBuilding_md} solid_sm={OfficeBuilding_sm} text="office-building" />
+				<IconPane outline_md={PaperClip_md} solid_sm={PaperClip_sm} text="paper-clip" />
+				<IconPane outline_md={PencilAlt_md} solid_sm={PencilAlt_sm} text="pencil-alt" />
+				<IconPane outline_md={Pencil_md} solid_sm={Pencil_sm} text="pencil" />
+				<IconPane outline_md={PhoneIncoming_md} solid_sm={PhoneIncoming_sm} text="phone-incoming" />
+				<IconPane outline_md={PhoneOutgoing_md} solid_sm={PhoneOutgoing_sm} text="phone-outgoing" />
+				<IconPane outline_md={Phone_md} solid_sm={Phone_sm} text="phone" />
+				<IconPane outline_md={Photograph_md} solid_sm={Photograph_sm} text="photograph" />
+				<IconPane outline_md={PlusCircle_md} solid_sm={PlusCircle_sm} text="plus-circle" />
+				<IconPane outline_md={Plus_md} solid_sm={Plus_sm} text="plus" />
+				<IconPane outline_md={Printer_md} solid_sm={Printer_sm} text="printer" />
+				<IconPane outline_md={Qrcode_md} solid_sm={Qrcode_sm} text="qrcode" />
+				<IconPane outline_md={QuestionMarkCircle_md} solid_sm={QuestionMarkCircle_sm} text="question-mark-circle" />
+				<IconPane outline_md={ReceiptRefund_md} solid_sm={ReceiptRefund_sm} text="receipt-refund" />
+				<IconPane outline_md={Refresh_md} solid_sm={Refresh_sm} text="refresh" />
+				<IconPane outline_md={Reply_md} solid_sm={Reply_sm} text="reply" />
+				<IconPane outline_md={Scale_md} solid_sm={Scale_sm} text="scale" />
+				<IconPane outline_md={Search_md} solid_sm={Search_sm} text="search" />
+				<IconPane outline_md={Selector_md} solid_sm={Selector_sm} text="selector" />
+				<IconPane outline_md={Share_md} solid_sm={Share_sm} text="share" />
+				<IconPane outline_md={ShieldCheck_md} solid_sm={ShieldCheck_sm} text="shield-check" />
+				<IconPane outline_md={ShieldExclamation_md} solid_sm={ShieldExclamation_sm} text="shield-exclamation" />
+				<IconPane outline_md={SortAscending_md} solid_sm={SortAscending_sm} text="sort-ascending" />
+				<IconPane outline_md={SortDescending_md} solid_sm={SortDescending_sm} text="sort-descending" />
+				<IconPane outline_md={Sparkles_md} solid_sm={Sparkles_sm} text="sparkles" />
+				<IconPane outline_md={Sun_md} solid_sm={Sun_sm} text="sun" />
+				<IconPane outline_md={SwitchHorizontal_md} solid_sm={SwitchHorizontal_sm} text="switch-horizontal" />
+				<IconPane outline_md={SwitchVertical_md} solid_sm={SwitchVertical_sm} text="switch-vertical" />
+				<IconPane outline_md={Tag_md} solid_sm={Tag_sm} text="tag" />
+				<IconPane outline_md={Template_md} solid_sm={Template_sm} text="template" />
+				<IconPane outline_md={Ticket_md} solid_sm={Ticket_sm} text="ticket" />
+				<IconPane outline_md={Translate_md} solid_sm={Translate_sm} text="translate" />
+				<IconPane outline_md={Trash_md} solid_sm={Trash_sm} text="trash" />
+				<IconPane outline_md={TrendingDown_md} solid_sm={TrendingDown_sm} text="trending-down" />
+				<IconPane outline_md={TrendingUp_md} solid_sm={TrendingUp_sm} text="trending-up" />
+				<IconPane outline_md={Upload_md} solid_sm={Upload_sm} text="upload" />
+				<IconPane outline_md={UserAdd_md} solid_sm={UserAdd_sm} text="user-add" />
+				<IconPane outline_md={UserCircle_md} solid_sm={UserCircle_sm} text="user-circle" />
+				<IconPane outline_md={UserGroup_md} solid_sm={UserGroup_sm} text="user-group" />
+				<IconPane outline_md={UserRemove_md} solid_sm={UserRemove_sm} text="user-remove" />
+				<IconPane outline_md={User_md} solid_sm={User_sm} text="user" />
+				<IconPane outline_md={Users_md} solid_sm={Users_sm} text="users" />
+				<IconPane outline_md={ViewBoards_md} solid_sm={ViewBoards_sm} text="view-boards" />
+				<IconPane outline_md={ViewList_md} solid_sm={ViewList_sm} text="view-list" />
+				<IconPane outline_md={VolumeOff_md} solid_sm={VolumeOff_sm} text="volume-off" />
+				<IconPane outline_md={VolumeUp_md} solid_sm={VolumeUp_sm} text="volume-up" />
+				<IconPane outline_md={XCircle_md} solid_sm={XCircle_sm} text="x-circle" />
+				<IconPane outline_md={X_md} solid_sm={X_sm} text="x" />
+				<IconPane outline_md={ZoomIn_md} solid_sm={ZoomIn_sm} text="zoom-in" />
+				<IconPane outline_md={ZoomOut_md} solid_sm={ZoomOut_sm} text="zoom-out" />
 			</div>
 		</div>
 		{/* <CSSDebugger /> */}
