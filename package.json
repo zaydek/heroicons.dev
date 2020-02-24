@@ -11,6 +11,7 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
+    "lint": "yarn eslint --ignore-pattern=build --ignore-pattern=\"**/*.min.js\" .",
     "tailwind-dev": "yarn tailwind build src/tailwind.css -o src/tailwind.generated.css",
     "tailwind-prod": "yarn postcss src/tailwind.css --output src/tailwind.generated.css --env production",
     "prestart": "yarn tailwind-dev",
