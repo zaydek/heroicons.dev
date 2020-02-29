@@ -5,10 +5,10 @@ import React from "react"
 const IconPane = ({ outline_md: A, solid_sm: B, text, ...props }) => (
 	<div className="relative" style={{ paddingBottom: "100%" }}>
 		<div className="absolute inset-0">
-			<div className="relative flex flex-col justify-center items-center h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded shadow hover:z-30 transition duration-150 ease-in-out">
-				<A className="w-10 h-10" />
+			<div className="relative flex flex-col justify-center items-center h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-md shadow hover:z-30 transition duration-150 ease-in-out">
+				<A className="w-8 h-8" />
 				<div className="p-4 absolute x-inset-0 bottom-0">
-					<p className="whitespace-pre text-center font-semibold text-sm leading-tight text-gray-800">
+					<p className="whitespace-pre text-center font-semibold text-sm leading-tight">
 						{text}
 					</p>
 				</div>
@@ -27,15 +27,19 @@ const IconPane = ({ outline_md: A, solid_sm: B, text, ...props }) => (
 // </div>
 
 const App = props => (
-	<div className="px-6 py-32 flex flex-row justify-center bg-gray-100 min-h-full">
+	<div className="px-6 py-24 flex flex-row justify-center bg-gray-100 min-h-full">
 		<div className="w-full max-w-screen-lg">
-			<h1 className="my-6 mt-0 font-semibold font-poppins tracking-tight text-5xl">
+			<h1 className="mb-3 font-semibold font-poppins tracking-tight text-5xl">
 				Heroicons viewer
 			</h1>
-			<h2 className="my-6 font-medium text-2xl -tracking-px">
-				MIT-licensed, <a className="text-indigo-500 hover:underline">open source iconset</a> by <a className="text-indigo-500 hover:underline">Steve Schoger</a> and <a className="text-indigo-500 hover:underline">Adam Wathan</a><br />
-				<a className="text-indigo-500 hover:underline">Viewer</a> created by <a className="text-indigo-500 hover:underline">Zaydek Michels-Gualtieri</a> <span className="emoji">👋</span>
-			</h2>
+			<div className="my-3 px-6 py-4 flex flex-row items-center bg-white rounded-md shadow">
+				<div className="ml-3 mr-6 flex-shrink-0">
+					<Hero.QuestionMarkCircle_sm className="w-6 h-6 text-indigo-600" />
+				</div>
+				<h2 className="font-medium text-xl -tracking-px">
+					<a className="text-indigo-500 hover:underline">Open source icons</a> by <a className="text-indigo-500 hover:underline">Steve Schoger</a> and <a className="text-indigo-500 hover:underline">Adam Wathan</a>. <a className="text-indigo-500 hover:underline">Viewer</a> created by <a className="text-indigo-500 hover:underline">Zaydek MG</a>.{"\u00a0\u00a0"}<span className="text-emoji">👋</span>
+				</h2>
+			</div>
 			<h2 className="mt-12 mb-3 font-medium text-lg">
 				Outline/Medium icons
 			</h2>
