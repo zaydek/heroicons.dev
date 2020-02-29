@@ -5,6 +5,7 @@
 
 This is a WIP frontend for the newly released [Heroicons iconset](https://github.com/refactoringui/heroicons) by RefactoringUI/Adam Wathan/Steve Schoger.
 
+- [x] Custom domain (https://heroicons.dev)
 - [x] Search
 - [x] Click to copy to the clipboard
 - [x] Responsive
