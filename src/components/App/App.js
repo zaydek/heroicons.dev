@@ -1,6 +1,5 @@
-import * as Hero from "components/heroicons"
-import CSSDebugger from "components/CSSDebugger"
 import IconGrid from "./IconGrid" // FIXME
+import originalIcons from "./originalIcons" // FIXME
 import React from "react"
 
 const IconPane = ({ outline_md: Icon, /* solid_sm: B, */ text: originalText, ...props }) => {
@@ -36,160 +35,22 @@ const IconPane = ({ outline_md: Icon, /* solid_sm: B, */ text: originalText, ...
 	)
 }
 
-const searchInfo = [
-	"adjustments",
-	"annotation",
-	"archive",
-	"arrow-circle-down",
-	"arrow-circle-left",
-	"arrow-circle-right",
-	"arrow-circle-up",
-	"arrow-down",
-	"arrow-left",
-	"arrow-narrow-down",
-	"arrow-narrow-left",
-	"arrow-narrow-right",
-	"arrow-narrow-up",
-	"arrow-right",
-	"arrow-up",
-	"at-symbol",
-	"bell",
-	"book-open",
-	"bookmark",
-	"briefcase",
-	"calendar",
-	"camera",
-	"cash",
-	"chart-pie",
-	"chat",
-	"check-circle",
-	"check",
-	"cheveron-down",
-	"cheveron-left",
-	"cheveron-right",
-	"cheveron-up",
-	"clipboard-check",
-	"clipboard-copy",
-	"clipboard-list",
-	"clipboard",
-	"clock",
-	"cloud-download",
-	"cloud-upload",
-	"code",
-	"cog",
-	"collection",
-	"color-swatch",
-	"credit-card",
-	"currency-dollar",
-	"currency-euro",
-	"currency-pound",
-	"currency-rupee",
-	"currency-yen",
-	"document-add",
-	"document-download",
-	"document-duplicate",
-	"document-remove",
-	"document",
-	"dots-circle-horizontal",
-	"dots-horizontal",
-	"dots-vertical",
-	"download",
-	"duplicate",
-	"emoji-happy",
-	"emoji-sad",
-	"exclamation-circle",
-	"exclamation",
-	"external-link",
-	"eye",
-	"filter",
-	"flag",
-	"folder",
-	"globe-alt",
-	"globe",
-	"hashtag",
-	"heart",
-	"home",
-	"inbox-in",
-	"inbox",
-	"information-circle",
-	"light-bulb",
-	"lightning-bolt",
-	"link",
-	"location-marker",
-	"lock-closed",
-	"lock-open",
-	"mail-open",
-	"mail",
-	"menu-alt-1",
-	"menu-alt-2",
-	"menu-alt-3",
-	"menu-alt-4",
-	"menu",
-	"minus-circle",
-	"moon",
-	"office-building",
-	"paper-clip",
-	"pencil-alt",
-	"pencil",
-	"phone-incoming",
-	"phone-outgoing",
-	"phone",
-	"photograph",
-	"plus-circle",
-	"plus",
-	"printer",
-	"qrcode",
-	"question-mark-circle",
-	"receipt-refund",
-	"refresh",
-	"reply",
-	"scale",
-	"search",
-	"selector",
-	"share",
-	"shield-check",
-	"shield-exclamation",
-	"sort-ascending",
-	"sort-descending",
-	"sparkles",
-	"sun",
-	"switch-horizontal",
-	"switch-vertical",
-	"tag",
-	"template",
-	"ticket",
-	"translate",
-	"trash",
-	"trending-down",
-	"trending-up",
-	"upload",
-	"user-add",
-	"user-circle",
-	"user-group",
-	"user-remove",
-	"user",
-	"users",
-	"view-boards",
-	"view-list",
-	"volume-off",
-	"volume-up",
-	"x-circle",
-	"x",
-	"zoom-in",
-	"zoom-out",
-]
-
 const App = props => {
+	const [icons, setIcons] = React.useState([])
 	const [value, setValue] = React.useState("")
 
-	React.useEffect(() => {
-		const id = setTimeout(() => {
-			// ...
-		}, 100)
-		return () => {
-			clearTimeout(id)
-		}
-	}, [value])
+	React.useLayoutEffect(() => {
+		setIcons(originalIcons)
+	}, [])
+
+	// React.useEffect(() => {
+	// 	// const id = setTimeout(() => {
+	// 	//
+	// 	// }, 100)
+	// 	// return () => {
+	// 	// 	clearTimeout(id)
+	// 	// }
+	// }, [value])
 
 	return (
 		<div className="px-6 py-24 flex flex-row justify-center bg-gray-100 min-h-full">
@@ -199,13 +60,17 @@ const App = props => {
 					Heroicons viewer
 				</h1>
 				<h2 className="font-medium text-xl -tracking-px">
-					MIT-licensed, <a className="text-indigo-500 hover:underline">open source icons</a> by <a className="text-indigo-500 hover:underline">Steve Schoger</a> and <a className="text-indigo-500 hover:underline">Adam Wathan</a>. <a className="text-indigo-500 hover:underline">Viewer</a> created by <a className="text-indigo-500 hover:underline">Zaydek MG</a>.{"\u00a0\u00a0"}<span className="text-emoji">👋</span>
+					MIT-licensed,{" "}
+					<a className="text-indigo-500 hover:underline" href="https://github.com/refactoringui/heroicons">open source icons</a> by{" "}
+					<a className="text-indigo-500 hover:underline" href="https://twitter.com/steveschoger">Steve Schoger</a> and{" "}
+					<a className="text-indigo-500 hover:underline" href="https://twitter.com/adamwathan">Adam Wathan</a>. Viewer created by{" "}
+					<a className="text-indigo-500 hover:underline" href="https://twitter.com/username_ZAYDEK">Zaydek MG</a>.{"\u00a0\u00a0"}<span className="text-emoji">👋</span>
 				</h2>
 				<div className="-mx-6 my-6 p-6 pb-0 sticky top-0 z-40 bg-gray-100">
 					<input className="px-6 py-4 block w-full text-xl bg-white rounded-lg shadow active:shadow-outline outline-none transition duration-150 ease-in-out" type="text" placeholder="Search 140 icons…" value={value} onChange={e => setValue(e.target.value)} />
 	 			</div>
 				<div className="mt-6">
-					<IconGrid />
+					<IconGrid icons={icons} />
 				</div>
 
 			</div>
