@@ -61,17 +61,16 @@ const App = props => {
 				</h1>
 				<h2 className="text-center font-medium text-xl -tracking-px">
 					<a className="text-indigo-500 hover:underline" href="https://github.com/refactoringui/heroicons">Open source icons</a> by{" "}
-					<a className="text-indigo-500 hover:underline" href="https://twitter.com/steveschoger">Steve Schoger</a> and{" "}
-					<a className="text-indigo-500 hover:underline" href="https://twitter.com/adamwathan">Adam Wathan</a><br />
+					<a className="text-indigo-500 hover:underline" href="https://twitter.com/steveschoger">Steve S<span className="sm:hidden">.</span><span className="hidden sm:inline">choger</span></a> and{" "}
+					<a className="text-indigo-500 hover:underline" href="https://twitter.com/adamwathan">Adam W<span className="sm:hidden">.</span><span className="hidden sm:inline">athan</span></a><br />
 					Viewer by{" "}
-					<a className="text-indigo-500 hover:underline" href="https://twitter.com/username_ZAYDEK">Zaydek Michels-Gualtieri</a>{"\u00a0\u00a0"}
-					<span className="text-emoji">👋</span>
+					<a className="text-indigo-500 hover:underline" href="https://twitter.com/username_ZAYDEK">Zaydek M<span className="sm:hidden">.</span><span className="hidden sm:inline">ichels-</span>G<span className="sm:hidden">.</span><span className="hidden sm:inline">ualtieri</span></a>
 				</h2>
 
-				<div className="-mx-6 mt-12 mb-6 p-6 pb-0 sticky top-0 z-40 bg-gray-100">
-					<div className="px-6 py-4 flex flex-row items-center bg-white rounded-lg shadow-hero active:shadow-outline transition duration-150 ease-in-out">
-						<Hero.Search_md className="mr-4 w-6 h-6 text-gray-500" />
-						<input className="w-full h-full text-xl outline-none" type="text" placeholder="Search 140 icons…" value={value} onChange={e => setValue(e.target.value)} />
+				<div className="-mx-6 mt-12 mb-6 p-6 pb-0 sticky top-0 bg-gray-100 z-40">
+					<div className="relative px-6 py-4 flex flex-row items-center">
+						<Hero.Search_md className="mr-4 w-6 h-6 text-gray-500 z-10 pointer-events-none" />
+						<input className="pl-16 absolute inset-0 w-full h-full text-xl bg-white rounded-lg outline-none shadow-hero focus:shadow-outline transition duration-150 ease-in-out" type="text" placeholder="Search 140 icons…" value={value} onChange={e => setValue(e.target.value)} />
 					</div>
 	 			</div>
 				<div className="mt-6">

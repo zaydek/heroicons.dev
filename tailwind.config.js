@@ -41,6 +41,18 @@ module.exports = {
 				"-px": "-0.0125em",
 				"px":  "0.0125em",
 			},
+			// https://feathericons.com
+			strokeWidth: {
+				hairline:  1,    // 100
+				thin:      1.33, // 200
+				light:     1.67, // 300
+				normal:    2,    // 400
+				medium:    2.33, // 500
+				semibold:  2.67, // 600
+				bold:      3,    // 700
+				extrabold: 3.33, // 800
+				black:     4,    // 900
+			},
 		},
 	},
 	variants: {
