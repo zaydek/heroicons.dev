@@ -52,6 +52,14 @@ const App = props => {
 		// }
 	}, [value])
 
+	const handleKeyDown = e => {
+		if (e.keyCode !== 27) {
+			// No-op
+			return
+		}
+		setValue("")
+	}
+
 	return (
 		<div className="px-6 py-24 flex flex-row justify-center bg-gray-100 min-h-full">
 			<div className="w-full max-w-screen-lg">
@@ -70,7 +78,7 @@ const App = props => {
 				<div className="-mx-6 mt-12 mb-6 p-6 pb-0 sticky top-0 bg-gray-100 z-40">
 					<div className="relative px-6 py-4 flex flex-row items-center">
 						<Hero.Search_md className="mr-4 w-6 h-6 text-gray-500 z-10 pointer-events-none" />
-						<input className="pl-16 absolute inset-0 w-full h-full text-xl bg-white rounded-lg outline-none shadow-hero focus:shadow-outline transition duration-150 ease-in-out" type="text" placeholder="Search 140 icons…" value={value} onChange={e => setValue(e.target.value)} />
+						<input className="pl-16 absolute inset-0 w-full h-full text-xl bg-white rounded-lg outline-none shadow-hero focus:shadow-outline transition duration-150 ease-in-out" type="text" placeholder="Search 140 icons…" value={value} onKeyDown={handleKeyDown} onChange={e => setValue(e.target.value)} />
 					</div>
 	 			</div>
 				<div className="mt-6">
