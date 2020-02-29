@@ -264,6 +264,7 @@ const originalIcons = [
 		outline: Hero.CurrencyDollar_md,
 		solid: Hero.CurrencyDollar_sm,
 		// tags: "",
+		buggy: true,
 	},
 	{
 		name: "currency-euro",
@@ -540,6 +541,7 @@ const originalIcons = [
 		outline: Hero.Moon_md,
 		solid: Hero.Moon_sm,
 		// tags: "",
+		buggy: true,
 	},
 	{
 		name: "office-building",
@@ -582,6 +584,7 @@ const originalIcons = [
 		outline: Hero.Phone_md,
 		solid: Hero.Phone_sm,
 		// tags: "",
+		buggy: true,
 	},
 	{
 		name: "photograph",
@@ -726,6 +729,7 @@ const originalIcons = [
 		outline: Hero.Ticket_md,
 		solid: Hero.Ticket_sm,
 		// tags: "",
+		buggy: true,
 	},
 	{
 		name: "translate",
