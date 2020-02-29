@@ -34,17 +34,12 @@ const IconPane = ({ outline: Outline, /* solid: Solid, */ text: originalText, ..
 	)
 }
 
-const IconGrid = React.memo(props => (
+const IconView = React.memo(props => (
 	<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
 		{props.icons.map(each => (
-			<IconPane
-				key={each.name}
-				outline={each.outline}
-				solid={each.solid}
-				text={each.name}
-			/>
+			<IconPane key={each.name} outline={each.outline} solid={each.solid} text={each.name} />
 		))}
 	</div>
 ))
 
-export default IconGrid
+export default IconView
