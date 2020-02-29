@@ -10,7 +10,7 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [x] Click to copy to the clipboard
 - [x] Responsive
 - [ ] Dark mode
-- [ ] Support for solid icons
+- [x] Support for solid icons
 
 **Contributes are welcome!** Built using Create React App and Tailwind CSS. Uses PurgeCSS for production.
 
