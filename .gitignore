@@ -9,4 +9,4 @@ yarn-error.log
 
 # Production
 /build
-/src/tailwind.generated.css
+tailwind.generated.css

@@ -5,12 +5,15 @@
 
 @tailwind utilities;
 
-.tnum {
+.font-tnum {
 	font-feature-settings: "tnum";
 }
 
-.emoji {
+.text-emoji {
 	font-size: 1.2em;
 	line-height: 1;
 	vertical-align: -0.1em;
 }
+
+.-text-px { font-size: 0.9375rem; } /* 15px */
+.text-px  { font-size: 1.0625rem; } /* 17px */
