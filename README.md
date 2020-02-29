@@ -1,6 +1,6 @@
 # Heroicons viewer
 
-👉 https://heroicons.dev
+👉 https://heroicons.dev<br>
 👉 https://github.com/refactoringui/heroicons
 
 This is a WIP frontend for the newly released [Heroicons iconset](https://github.com/refactoringui/heroicons) by RefactoringUI/Adam Wathan/Steve Schoger.
