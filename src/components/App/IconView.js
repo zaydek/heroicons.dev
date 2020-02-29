@@ -13,8 +13,8 @@ const IconPane = ({ outline: Outline, /* solid: Solid, */ text: originalText, ..
 			setTimeout(() => {
 				setText(originalText)
 			}, 1e3)
-		}, () => {
-			// console.log()
+		}).catch(error => {
+			console.warn({ error })
 		})
 	}
 
@@ -22,9 +22,9 @@ const IconPane = ({ outline: Outline, /* solid: Solid, */ text: originalText, ..
 		<div className="relative" style={{ paddingBottom: "100%" }} onClick={handleClick}>
 			<div className="absolute inset-0">
 				<div className="relative flex flex-col justify-center items-center h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-lg shadow hover:z-30 transition duration-150 ease-in-out">
-					<Outline ref={ref} className="p-px w-8 h-8" />
-					<div className="p-4 absolute x-inset-0 bottom-0">
-						<p className="whitespace-pre text-center font-semibold text-sm">
+					<Outline ref={ref} className="w-8 h-8" />
+					<div className="mb-3 absolute x-inset-0 bottom-0">
+						<p className="text-center font-semibold -text-px">
 							{text}
 						</p>
 					</div>

@@ -42,6 +42,7 @@
     "babel-eslint": "^10.0.3",
     "debug.css": "https://github.com/codex-src/debug.css",
     "eslint": "^6.8.0",
+    "firebase-tools": "^7.14.0",
     "postcss-cli": "^7.1.0",
     "tailwindcss": "^1.2.0"
   }

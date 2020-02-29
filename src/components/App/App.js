@@ -3,39 +3,6 @@ import IconView from "./IconView" // FIXME
 import originalIcons from "./originalIcons" // FIXME
 import React from "react"
 
-const IconPane = ({ outline_md: Icon, /* solid_sm: B, */ text: originalText, ...props }) => {
-	const ref = React.useRef()
-
-	const [text, setText] = React.useState(originalText)
-
-	const handleClick = e => {
-		const { outerHTML }= ref.current
-		navigator.clipboard.writeText(outerHTML).then(() => {
-			setText("copied!")
-			setTimeout(() => {
-				setText(originalText)
-			}, 1e3)
-		}, () => {
-			// console.log()
-		})
-	}
-
-	return (
-		<div className="relative" style={{ paddingBottom: "100%" }} onClick={handleClick}>
-			<div className="absolute inset-0">
-				<div className="relative flex flex-col justify-center items-center h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-lg shadow hover:z-30 transition duration-150 ease-in-out">
-					<Icon ref={ref} className="p-px w-8 h-8" />
-					<div className="p-4 absolute x-inset-0 bottom-0">
-						<p className="whitespace-pre text-center font-semibold text-sm">
-							{text}
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	)
-}
-
 const MICRO_DELAY = 25
 
 const App = props => {
@@ -61,18 +28,18 @@ const App = props => {
 	}
 
 	return (
-		<div className="px-6 py-24 flex flex-row justify-center bg-gray-100 min-h-full">
+		<div className="px-6 py-32 flex flex-row justify-center bg-gray-100 min-h-full">
 			<div className="w-full max-w-screen-lg">
 
 				<h1 className="text-center font-bold font-sans-round tracking-tighter text-5xl">
 					Heroicons viewer
 				</h1>
 				<h2 className="text-center font-medium text-xl -tracking-px">
-					<a className="text-indigo-500 hover:underline" href="https://github.com/refactoringui/heroicons">Open source icons</a> by{" "}
-					<a className="text-indigo-500 hover:underline" href="https://twitter.com/steveschoger">Steve S<span className="sm:hidden">.</span><span className="hidden sm:inline">choger</span></a> and{" "}
-					<a className="text-indigo-500 hover:underline" href="https://twitter.com/adamwathan">Adam W<span className="sm:hidden">.</span><span className="hidden sm:inline">athan</span></a><br />
+					<a className="text-indigo-500" href="https://github.com/refactoringui/heroicons">Open source icons</a> by{" "}
+					<a className="text-indigo-500" href="https://twitter.com/steveschoger">Steve S<span className="sm:hidden">.</span><span className="hidden sm:inline">choger</span></a> and{" "}
+					<a className="text-indigo-500" href="https://twitter.com/adamwathan">Adam W<span className="sm:hidden">.</span><span className="hidden sm:inline">athan</span></a><br />
 					Viewer by{" "}
-					<a className="text-indigo-500 hover:underline" href="https://twitter.com/username_ZAYDEK">Zaydek M<span className="sm:hidden">.</span><span className="hidden sm:inline">ichels-</span>G<span className="sm:hidden">.</span><span className="hidden sm:inline">ualtieri</span></a>
+					<a className="text-indigo-500" href="https://twitter.com/username_ZAYDEK">Zaydek M<span className="sm:hidden">.</span><span className="hidden sm:inline">ichels-</span>G<span className="sm:hidden">.</span><span className="hidden sm:inline">ualtieri</span></a>
 				</h2>
 
 				<div className="-mx-6 mt-12 mb-6 p-6 pb-0 sticky top-0 bg-gray-100 z-40">
