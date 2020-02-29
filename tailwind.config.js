@@ -3,6 +3,10 @@ const defaultTheme = require("tailwindcss/defaultTheme")
 module.exports = {
 	theme: {
 		extend: {
+			borderRadius: {
+				"xl":  "1rem",
+				"2xl": "2rem",
+			},
 			boxShadow: {
 				"hero-sm": `
 					0 0 0 1px rgba(0, 0, 0, 0.05),

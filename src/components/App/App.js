@@ -2,48 +2,57 @@ import * as Hero from "components/heroicons"
 import CSSDebugger from "components/CSSDebugger"
 import React from "react"
 
-const IconPane = ({ outline_md: A, solid_sm: B, text, ...props }) => (
-	<div className="relative" style={{ paddingBottom: "100%" }}>
-		<div className="absolute inset-0">
-			<div className="relative flex flex-col justify-center items-center h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-md shadow hover:z-30 transition duration-150 ease-in-out">
-				<A className="w-8 h-8" />
-				<div className="p-4 absolute x-inset-0 bottom-0">
-					<p className="whitespace-pre text-center font-semibold text-sm leading-tight">
-						{text}
-					</p>
+const IconPane = ({ outline_md: Icon, /* solid_sm: B, */ text: originalText, ...props }) => {
+	const ref = React.useRef()
+
+	const [text, setText] = React.useState(originalText)
+
+	const handleClick = e => {
+		const { outerHTML }= ref.current
+		navigator.clipboard.writeText(outerHTML).then(() => {
+			setText("copied!")
+			setTimeout(() => {
+				setText(originalText)
+			}, 1e3)
+		}, () => {
+			// console.log()
+		})
+	}
+
+	return (
+		<div className="relative" style={{ paddingBottom: "100%" }} onClick={handleClick}>
+			<div className="absolute inset-0">
+				<div className="relative flex flex-col justify-center items-center h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-lg shadow hover:z-30 transition duration-150 ease-in-out">
+					<Icon ref={ref} className="p-px w-8 h-8" />
+					<div className="p-4 absolute x-inset-0 bottom-0">
+						<p className="whitespace-pre text-center font-semibold text-sm">
+							{text}
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-)
-
-// <div className="p-4 my-12 flex flex-row items-center bg-white rounded shadow">
-// 	<div className="m-4 mr-6 flex-shrink-0">
-// 		<Hero.ExclamationCircle_md className="p-px w-8 h-8 text-indigo-500" />
-// 	</div>
-// 	<h3 className="font-medium text-lg text-gray-900 leading-relaxed">
-// 		<strong>Note:</strong> These icons were <a className="font-semibold text-indigo-500 hover:underline">just released</a> and may have bugs. Please <a className="font-semibold text-indigo-500 hover:underline">create an issue here</a> to report a bug related to an icon. And please <a className="font-semibold text-indigo-500 hover:underline">create an issue here</a> to report a bug related to this viewer.
-// 	</h3>
-// </div>
+	)
+}
 
 const App = props => (
 	<div className="px-6 py-24 flex flex-row justify-center bg-gray-100 min-h-full">
 		<div className="w-full max-w-screen-lg">
-			<h1 className="mb-3 font-semibold font-poppins tracking-tight text-5xl">
+
+			<h1 className="font-semibold font-poppins tracking-tight text-5xl">
 				Heroicons viewer
 			</h1>
-			<div className="my-3 px-6 py-4 flex flex-row items-center bg-white rounded-md shadow">
-				<div className="ml-3 mr-6 flex-shrink-0">
-					<Hero.QuestionMarkCircle_sm className="w-6 h-6 text-indigo-600" />
-				</div>
-				<h2 className="font-medium text-xl -tracking-px">
-					<a className="text-indigo-500 hover:underline">Open source icons</a> by <a className="text-indigo-500 hover:underline">Steve Schoger</a> and <a className="text-indigo-500 hover:underline">Adam Wathan</a>. <a className="text-indigo-500 hover:underline">Viewer</a> created by <a className="text-indigo-500 hover:underline">Zaydek MG</a>.{"\u00a0\u00a0"}<span className="text-emoji">👋</span>
-				</h2>
-			</div>
-			<h2 className="mt-12 mb-3 font-medium text-lg">
-				Outline/Medium icons
+			<h2 className="font-medium text-xl -tracking-px">
+				MIT-licensed, <a className="text-indigo-500 hover:underline">open source icons</a> by <a className="text-indigo-500 hover:underline">Steve Schoger</a> and <a className="text-indigo-500 hover:underline">Adam Wathan</a>. <a className="text-indigo-500 hover:underline">Viewer</a> created by <a className="text-indigo-500 hover:underline">Zaydek MG</a>.{"\u00a0\u00a0"}<span className="text-emoji">👋</span>
 			</h2>
-			<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
+			<div className="-mx-4 pt-6 sticky top-0 z-40 bg-gray-100">
+				<div className="mx-4 px-6 py-4 bg-white rounded-lg shadow hover:z-30 transition duration-150 ease-in-out">
+					<p className="text-xl tracking-px text-gray-500">
+						Search 140 icons
+					</p>
+				</div>
+			</div>
+			<div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
 				<IconPane outline_md={Hero.Adjustments_md} solid_sm={Hero.Adjustments_sm} text="adjustments" />
 				<IconPane outline_md={Hero.Annotation_md} solid_sm={Hero.Annotation_sm} text="annotation" />
 				<IconPane outline_md={Hero.Archive_md} solid_sm={Hero.Archive_sm} text="archive" />
@@ -185,6 +194,7 @@ const App = props => (
 				<IconPane outline_md={Hero.ZoomIn_md} solid_sm={Hero.ZoomIn_sm} text="zoom-in" />
 				<IconPane outline_md={Hero.ZoomOut_md} solid_sm={Hero.ZoomOut_sm} text="zoom-out" />
 			</div>
+
 		</div>
 		{/* <CSSDebugger /> */}
 	</div>
