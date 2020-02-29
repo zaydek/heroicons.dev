@@ -1,6 +1,6 @@
 # Heroicons viewer
 
-👉 https://heroicons-viewer.netlify.com<br />
+👉 https://heroicons.dev
 👉 https://github.com/refactoringui/heroicons
 
 This is a WIP frontend for the newly released [Heroicons iconset](https://github.com/refactoringui/heroicons) by RefactoringUI/Adam Wathan/Steve Schoger.
