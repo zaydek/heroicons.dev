@@ -35,7 +35,7 @@ module.exports = {
 			},
 			fontFamily: {
 				...defaultTheme.fontFamily,
-				poppins: "Poppins, sans-serif",
+				"sans-round": "'DM Sans', sans-serif",
 			},
 			letterSpacing: {
 				"-px": "-0.0125em",
