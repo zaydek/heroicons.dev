@@ -41,6 +41,10 @@ module.exports = {
 				"-px": "-0.0125em",
 				"px":  "0.0125em",
 			},
+			// https://youtube.com/watch?v=jl_tdhBxc_Y
+			spacing: {
+				"1/1": "100%",
+			},
 			// https://feathericons.com
 			strokeWidth: {
 				hairline:  1,    // 100

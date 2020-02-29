@@ -6,8 +6,19 @@ import React from "react"
 const MICRO_DELAY = 25
 
 const App = props => {
-	const [icons, setIcons] = React.useState([])
+	const ref = React.useRef()
+	const lhs = React.useRef()
+	const rhs = React.useRef()
+
 	const [value, setValue] = React.useState("")
+	const [solid, setSolid] = React.useState(false)
+	const [icons, setIcons] = React.useState(originalIcons)
+
+	React.useLayoutEffect(() => {
+		const l = lhs.current.getBoundingClientRect().width
+		const r = rhs.current.getBoundingClientRect().width
+		ref.current.style.padding = `0px ${r}px 0px ${l}px`
+	}, [])
 
 	React.useEffect(() => {
 		const id = setTimeout(() => {
@@ -32,9 +43,9 @@ const App = props => {
 			<div className="w-full max-w-screen-lg">
 
 				<h1 className="text-center font-bold font-sans-round tracking-tighter text-5xl">
-					Heroicons viewer
+					Heroicons
 				</h1>
-				<h2 className="text-center font-medium text-xl -tracking-px">
+				<h2 className="text-center font-medium text-xl -tracking-px leading-relaxed">
 					<a className="text-indigo-500" href="https://github.com/refactoringui/heroicons">Open source icons</a> by{" "}
 					<a className="text-indigo-500" href="https://twitter.com/steveschoger">Steve S<span className="sm:hidden">.</span><span className="hidden sm:inline">choger</span></a> and{" "}
 					<a className="text-indigo-500" href="https://twitter.com/adamwathan">Adam W<span className="sm:hidden">.</span><span className="hidden sm:inline">athan</span></a><br />
@@ -43,16 +54,36 @@ const App = props => {
 				</h2>
 
 				<div className="-mx-6 mt-12 mb-6 p-6 pb-0 sticky top-0 bg-gray-100 z-40">
-					<div className="relative px-6 py-4 flex flex-row justify-between items-center">
-						<Hero.Search_md className="w-6 h-6 text-gray-500 z-10 pointer-events-none" />
-						<input className="pl-16 absolute inset-0 w-full h-full text-xl bg-white rounded-lg outline-none shadow-hero focus:shadow-outline transition duration-150 ease-in-out" type="text" placeholder="Search 140 icons…" value={value} onKeyDown={handleKeyDown} onChange={e => setValue(e.target.value)} />
-						{value && (
-							<Hero.XCircle_sm className="w-6 h-6 text-gray-400 z-10" onClick={e => setValue("")} />
-						)}
+					<div className="relative flex flex-row justify-between items-center">
+
+						{/* LHS: */}
+						<div ref={lhs} className="px-6 py-4 z-10">
+							<Hero.Search_md className="w-6 h-6 text-gray-500" />
+						</div>
+
+						<div className="absolute inset-0">
+							<input ref={ref} className="w-full h-full text-xl bg-white rounded-lg outline-none shadow-hero focus:shadow-outline trans-150" type="text" placeholder="Search 140 icons…" value={value} onKeyDown={handleKeyDown} onChange={e => setValue(e.target.value)} />
+						</div>
+
+						{/* RHS: */}
+						<div ref={rhs} className="relative z-10">
+							<select className="pl-6 py-4 appearance-none text-xl bg-transparent rounded-l-none rounded-r-lg outline-none focus:shadow-outline cursor-pointer" style={{ paddingRight: "3.75rem" }} onChange={e => setSolid(e.target.value === "solid")}>
+								<option value="outline">
+									Outline
+								</option>
+								<option value="solid">
+									Solid
+								</option>
+							</select>
+							<div className="px-6 absolute right-0 inset-y-0 flex flex-row items-center pointer-events-none">
+								<Hero.Selector_md className="w-6 h-6 text-gray-500" />
+							</div>
+						</div>
+
 					</div>
 	 			</div>
 				<div className="mt-6">
-					<IconView icons={icons} />
+					<IconView icons={icons} solid={solid} />
 				</div>
 
 			</div>

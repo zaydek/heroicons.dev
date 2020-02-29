@@ -1,25 +1,26 @@
 import * as Hero from "components/heroicons"
 import React from "react"
 
-const IconPane = ({ outline: Outline, /* solid: Solid, */ name, ...props }) => {
+const IconPane = ({ outline: Outline, solid: Solid, ...props }) => {
 	const ref = React.useRef()
 
-	const [text, setText] = React.useState(name)
+	const [text, setText] = React.useState(props.name)
 
 	const handleClick = e => {
 		const { outerHTML } = ref.current
 		navigator.clipboard.writeText(outerHTML).then(() => {
 			setText("copied!")
 			setTimeout(() => {
-				setText(name) // Reset
+				setText(props.name) // Reset
 			}, 1e3)
 		}).catch(error => {
 			console.warn({ error })
 		})
 	}
 
+	const Icon = !props.prefersSolid ? Outline : Solid
 	return (
-		<div className="relative" style={{ paddingBottom: "100%" }} onClick={handleClick}>
+		<div className="pb-1/1 relative cursor-pointer" onClick={handleClick}>
 			<div className="absolute inset-0">
 				<div className="relative flex flex-col justify-center items-center h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-lg shadow hover:z-30 trans-150">
 					{props.buggy && (
@@ -27,7 +28,7 @@ const IconPane = ({ outline: Outline, /* solid: Solid, */ name, ...props }) => {
 							<Hero.Exclamation_sm className="w-6 h-6" />
 						</div>
 					)}
-					<Outline ref={ref} className="w-8 h-8" />
+					<Icon ref={ref} className="w-8 h-8" />
 					<div className="mb-3 absolute x-inset-0 bottom-0">
 						<p className="text-center font-semibold -text-px">
 							{text}
@@ -42,7 +43,7 @@ const IconPane = ({ outline: Outline, /* solid: Solid, */ name, ...props }) => {
 const IconView = React.memo(props => (
 	<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
 		{props.icons.map(each => (
-			<IconPane key={each.name} {...each} />
+			<IconPane key={each.name} {...each} prefersSolid={props.solid} />
 		))}
 	</div>
 ))
