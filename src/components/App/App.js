@@ -1,3 +1,4 @@
+import * as Hero from "components/heroicons"
 import IconGrid from "./IconGrid" // FIXME
 import originalIcons from "./originalIcons" // FIXME
 import React from "react"
@@ -58,7 +59,7 @@ const App = props => {
 				<h1 className="text-center font-bold font-sans-round tracking-tighter text-5xl">
 					Heroicons viewer
 				</h1>
-				<h2 className="text-center font-medium text-2xl -tracking-px">
+				<h2 className="text-center font-medium text-xl -tracking-px">
 					<a className="text-indigo-500 hover:underline" href="https://github.com/refactoringui/heroicons">Open source icons</a> by{" "}
 					<a className="text-indigo-500 hover:underline" href="https://twitter.com/steveschoger">Steve Schoger</a> and{" "}
 					<a className="text-indigo-500 hover:underline" href="https://twitter.com/adamwathan">Adam Wathan</a><br />
@@ -68,7 +69,10 @@ const App = props => {
 				</h2>
 
 				<div className="-mx-6 mt-12 mb-6 p-6 pb-0 sticky top-0 z-40 bg-gray-100">
-					<input className="px-6 py-4 block w-full text-xl bg-white rounded-lg shadow active:shadow-outline outline-none transition duration-150 ease-in-out" type="text" placeholder="Search 140 icons…" value={value} onChange={e => setValue(e.target.value)} />
+					<div className="px-6 py-4 flex flex-row items-center bg-white rounded-lg shadow-hero active:shadow-outline transition duration-150 ease-in-out">
+						<Hero.Search_md className="mr-4 w-6 h-6 text-gray-500" />
+						<input className="w-full h-full text-xl outline-none" type="text" placeholder="Search 140 icons…" value={value} onChange={e => setValue(e.target.value)} />
+					</div>
 	 			</div>
 				<div className="mt-6">
 					<IconGrid icons={icons} />
