@@ -36,22 +36,23 @@ const IconPane = ({ outline_md: Icon, /* solid_sm: B, */ text: originalText, ...
 	)
 }
 
+const MICRO_DELAY = 25
+
 const App = props => {
 	const [icons, setIcons] = React.useState([])
 	const [value, setValue] = React.useState("")
 
 	React.useEffect(() => {
-		const filteredIcons = originalIcons.filter(each => each.name.includes(value))
-		setIcons(filteredIcons)
-
-		// const id = setTimeout(() => {
-		//
-		// }, 100)
-		// return () => {
-		// 	clearTimeout(id)
-		// }
+		const id = setTimeout(() => {
+			const filteredIcons = originalIcons.filter(each => each.name.includes(value))
+			setIcons(filteredIcons)
+		}, MICRO_DELAY)
+		return () => {
+			clearTimeout(id)
+		}
 	}, [value])
 
+	// Escape key handler:
 	const handleKeyDown = e => {
 		if (e.keyCode !== 27) {
 			// No-op
