@@ -18,6 +18,8 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Tooltip for corrupted icons/link to original issue
 - [ ] Size options
 - [ ] Colors options
+- [ ] Catagories
+- [ ] Preview template/s (like FontAwesome)
 
 **Contributes are welcome!** Built using Create React App and Tailwind CSS, _of course_. Uses PurgeCSS for production.
 
