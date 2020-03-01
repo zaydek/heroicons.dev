@@ -15,14 +15,15 @@ const App = props => {
 	const [icons, setIcons] = React.useState(originalIcons)
 
 	React.useLayoutEffect(() => {
-		const l = lhs.current.getBoundingClientRect().width
-		const r = rhs.current.getBoundingClientRect().width
-		ref.current.style.padding = `0px ${r}px 0px ${l}px`
+		const w1 = lhs.current.getBoundingClientRect().width
+		const w2 = rhs.current.getBoundingClientRect().width
+		ref.current.style.padding = `0px ${w2}px 0px ${w1}px`
 	}, [])
 
 	React.useEffect(() => {
 		const id = setTimeout(() => {
-			const filteredIcons = originalIcons.filter(each => each.name.includes(value))
+			const query = value.toLowerCase()
+			const filteredIcons = originalIcons.filter(each => each.name.includes(query))
 			setIcons(filteredIcons)
 		}, MICRO_DELAY)
 		return () => {

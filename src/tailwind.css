@@ -1,0 +1,16 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+
+@tailwind utilities;
+
+.font-tnum {
+	font-feature-settings: "tnum";
+}
+
+.text-emoji {
+	font-size: 1.2em;
+	line-height: 1;
+	vertical-align: -0.1em;
+}
