@@ -42,22 +42,26 @@ const App = props => {
 		<div className="px-6 py-32 flex flex-row justify-center bg-gray-100 min-h-full">
 			<div className="w-full max-w-screen-lg">
 
-				<h1 className="text-center font-bold font-sans-round tracking-tighter text-5xl">
-					Heroicons
-				</h1>
-				<h2 className="text-center font-medium text-xl -tracking-px leading-relaxed">
-					<a className="text-indigo-500" href="https://github.com/refactoringui/heroicons">Open source icons</a> by{" "}
-					<a className="text-indigo-500" href="https://twitter.com/steveschoger">Steve S<span className="sm:hidden">.</span><span className="hidden sm:inline">choger</span></a> and{" "}
-					<a className="text-indigo-500" href="https://twitter.com/adamwathan">Adam W<span className="sm:hidden">.</span><span className="hidden sm:inline">athan</span></a><br />
-					Viewer by{" "}
-					<a className="text-indigo-500" href="https://twitter.com/username_ZAYDEK">Zaydek M<span className="sm:hidden">.</span><span className="hidden sm:inline">ichels-</span>G<span className="sm:hidden">.</span><span className="hidden sm:inline">ualtieri</span></a>
-				</h2>
+				<div className="mb-3">
+					<h1 className="text-center font-bold font-sans-round tracking-tighter text-5xl">
+						Heroicons
+					</h1>
+				</div>
+				<div className="my-3">
+					<h2 className="text-center font-medium text-xl -tracking-px leading-relaxed">
+						<a className="text-indigo-500" href="https://github.com/refactoringui/heroicons">Open source icons</a> by{" "}
+						<a className="text-indigo-500" href="https://twitter.com/steveschoger">Steve S<span className="sm:hidden">.</span><span className="hidden sm:inline">choger</span></a> and{" "}
+						<a className="text-indigo-500" href="https://twitter.com/adamwathan">Adam W<span className="sm:hidden">.</span><span className="hidden sm:inline">athan</span></a><br />
+						Viewer by{" "}
+						<a className="text-indigo-500" href="https://twitter.com/username_ZAYDEK">Zaydek M<span className="sm:hidden">.</span><span className="hidden sm:inline">ichels-</span>G<span className="sm:hidden">.</span><span className="hidden sm:inline">ualtieri</span></a>
+					</h2>
+				</div>
 
 				<div className="-mx-6 mt-12 mb-6 p-6 pb-0 sticky top-0 bg-gray-100 z-40">
 					<div className="relative flex flex-row justify-between items-center">
 
 						{/* LHS: */}
-						<div ref={lhs} className="px-6 py-4 z-10">
+						<div ref={lhs} className="px-6 z-10 pointer-events-none">
 							<Hero.Search_md className="w-6 h-6 text-gray-500" />
 						</div>
 
