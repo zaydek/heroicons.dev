@@ -72,17 +72,12 @@ const App = props => {
 						</div>
 
 						{/* RHS: */}
-						<div ref={rhs} className="relative z-10">
-							<select className="pl-6 py-4 appearance-none text-xl bg-transparent rounded-l-none rounded-r-lg outline-none focus:shadow-outline cursor-pointer" style={{ paddingRight: "3.75rem" }} onChange={e => setSolid(e.target.value === "solid")}>
-								<option value="outline">
-									Outline
-								</option>
-								<option value="solid">
-									Solid
-								</option>
-							</select>
+						<div ref={rhs} className="relative z-10 rounded-l-none rounded-r-lg">
+							<button className="pl-6 py-4 text-xl bg-transparent rounded-l-none rounded-r-lg focus:outline-none focus:shadow-outline trans-150 cursor-pointer w-40" style={{ paddingRight: "3.75rem" }} onClick={e => setSolid(!solid)}>
+								{ solid ? "Solid" : "Outline"}
+							</button>
 							<div className="px-6 absolute right-0 inset-y-0 flex flex-row items-center pointer-events-none">
-								<Hero.Selector_md className="w-6 h-6 text-gray-500" />
+								<Hero.SwitchHorizontal_md className="w-6 h-6 text-gray-500" />
 							</div>
 						</div>
 
