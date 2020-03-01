@@ -20,7 +20,7 @@ const IconPane = ({ outline: Outline, solid: Solid, ...props }) => {
 
 	const Icon = !props.prefersSolid ? Outline : Solid
 	return (
-		<div className="pb-1/1 relative cursor-pointer" onClick={handleClick}>
+		<button className="pb-1/1 relative cursor-pointer focus:outline-none focus:shadow-outline rounded-lg trans-150" onClick={handleClick}>
 			<div className="absolute inset-0">
 				<div className="relative flex flex-col justify-center items-center h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-lg shadow hover:z-30 trans-150">
 					{props.buggy && (
@@ -36,7 +36,7 @@ const IconPane = ({ outline: Outline, solid: Solid, ...props }) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</button>
 	)
 }
 
