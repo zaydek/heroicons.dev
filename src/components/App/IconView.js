@@ -28,8 +28,8 @@ const IconPane = ({ outline: Outline, solid: Solid, ...props }) => {
 							<Hero.Exclamation_sm className="w-6 h-6" />
 						</div>
 					)}
-					<Icon ref={ref} className="w-8 h-8" />
-					<div className="mb-3 absolute x-inset-0 bottom-0">
+					<Icon ref={ref} className="pt-6 w-8 h-8 flex-grow" />
+					<div className="mb-3 x-inset-0 bottom-0">
 						<p className="text-center font-semibold -text-px">
 							{text}
 						</p>
