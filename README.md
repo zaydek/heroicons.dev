@@ -20,6 +20,7 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Colors options
 - [ ] Catagories
 - [ ] Preview template/s (like FontAwesome)
+- [ ] Suggest an icon/feature
 
 **Contributes are welcome!** Built using Create React App and Tailwind CSS, _of course_. Uses PurgeCSS for production.
 
