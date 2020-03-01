@@ -15,6 +15,9 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Buttons to download source/repos (include star for repo)
 - [ ] Documentation for programmers
 - [ ] Social meta tags/image
+- [ ] Tooltip for corrupted icons/link to original issue
+- [ ] Size options
+- [ ] Colors options
 
 **Contributes are welcome!** Built using Create React App and Tailwind CSS, _of course_. Uses PurgeCSS for production.
 
