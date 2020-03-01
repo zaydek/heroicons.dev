@@ -15,11 +15,23 @@ const copyToClipboard = text => {
 
 	document.body.appendChild(fakeElem)
 
-	fakeElem.select()
+	if (isIOS()) {
+		const range = document.createRange()
+		const selection = window.getSelection()
+		range.selectNodeContents(fakeElem)
+		selection.removeAllRanges()
+		selection.addRange(range)
+		fakeElem.setSelectionRange(0, 999999)
+	} else {
+		fakeElem.select()
+	}
+
 	document.execCommand("copy")
 
 	document.body.removeChild(fakeElem)
 	fakeElem = null
 }
+
+const isIOS = () => navigator.userAgent.match(/ipad|iphone/i)
 
 export default copyToClipboard
