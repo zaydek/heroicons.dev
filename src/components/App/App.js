@@ -54,6 +54,8 @@ const App = props => {
 						<a className="text-indigo-500" href="https://twitter.com/adamwathan">Adam W<span className="sm:hidden">.</span><span className="hidden sm:inline">athan</span></a><br />
 						Viewer by{" "}
 						<a className="text-indigo-500" href="https://twitter.com/username_ZAYDEK">Zaydek M<span className="sm:hidden">.</span><span className="hidden sm:inline">ichels-</span>G<span className="sm:hidden">.</span><span className="hidden sm:inline">ualtieri</span></a>
+						<br />
+						<a className="text-indigo-500" href="https://github.com/codex-src/heroicons-viewer">Contribute</a> on GitHub
 					</h2>
 				</div>
 
