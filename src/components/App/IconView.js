@@ -22,7 +22,7 @@ const IconPane = ({ outline: Outline, solid: Solid, ...props }) => {
 	return (
 		<div className="pb-1/1 relative cursor-pointer" onClick={handleClick}>
 			<div className="absolute inset-0">
-				<div className="relative flex flex-col justify-center items-center h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-lg shadow hover:z-30 trans-150">
+				<div className={`relative flex flex-col justify-center items-center h-full hover:text-white rounded-lg shadow hover:z-30 trans-150 ${props.darkMode ? "text-white bg-gray-800 hover:bg-indigo-600" : "text-gray-800 bg-white hover:bg-indigo-500"}`}>
 					{props.buggy && (
 						<div className="p-3 absolute inset-0 flex flex-row justify-end text-red-500 hover:text-white z-10 trans-150">
 							<Hero.Exclamation_sm className="w-6 h-6" />
@@ -43,7 +43,7 @@ const IconPane = ({ outline: Outline, solid: Solid, ...props }) => {
 const IconView = React.memo(props => (
 	<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
 		{props.icons.map(each => (
-			<IconPane key={each.name} {...each} prefersSolid={props.solid} />
+			<IconPane key={each.name} {...each} prefersSolid={props.solid} darkMode={props.darkMode} />
 		))}
 	</div>
 ))
