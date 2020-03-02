@@ -7,20 +7,23 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 
 - [x] Custom domain (https://heroicons.dev)
 - [x] Search
+- [ ] Advanced search based on tags/concepts
 - [x] Click to copy to the clipboard
 - [x] Responsive
 - [ ] Dark mode
 - [x] Support for solid icons
 - [ ] Cypress-based tests
 - [ ] Buttons to download source/repos (include star for repo)
-- [ ] Documentation for programmers
+- [ ] Code documentation
 - [ ] Social tags/image
 - [ ] Tooltip for corrupted icons/link to original issue
+- [ ] Swap corrupted icons with historal repo (temporary fix)
 - [ ] Size options
 - [ ] Colors options
-- [ ] Catagories
-- [ ] Preview template/s (like FontAwesome)
+- [ ] Icon catagories
+- [ ] Preview templates (like FontAwesome)
 - [ ] Suggest an icon/feature
+- [ ] Monetize with Carbon Ads
 
 **Contributes are welcome!** Built using Create React App and Tailwind CSS, _of course_. Uses PurgeCSS for production.
 
