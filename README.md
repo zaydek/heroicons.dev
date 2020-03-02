@@ -24,6 +24,7 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Preview templates (like FontAwesome)
 - [ ] Suggest an icon/feature
 - [ ] Monetize with Carbon Ads
+- [ ] Add screenshots to the repo
 
 **Contributes are welcome!** Built using Create React App and Tailwind CSS, _of course_. Uses PurgeCSS for production.
 
