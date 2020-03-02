@@ -15,6 +15,7 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Cypress-based tests
 - [ ] Buttons to download source/repos (include star for repo)
 - [ ] Code documentation
+- [ ] Toggle copy to clipboard OR download (like Feather icons)
 - [ ] Social tags/image
 - [ ] Tooltip for corrupted icons/link to original issue
 - [ ] Swap corrupted icons with historal repo (temporary fix)
