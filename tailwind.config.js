@@ -2,6 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme")
 
 module.exports = {
 	theme: {
+		darkSelector: ".mode-dark",
 		extend: {
 			borderRadius: {
 				"xl":  "1rem",
@@ -61,6 +62,9 @@ module.exports = {
 	},
 	variants: {
 		zIndex: ["hover"],
+		backgroundColor: ["dark", "dark-hover", "dark-group-hover"],
+  		borderColor: ["dark", "dark-focus", "dark-focus-within"],
+  		textColor: ["dark", "dark-hover", "dark-active"],
 	},
-	plugins: [],
+	plugins: [require("tailwindcss-dark-mode")()],
 }

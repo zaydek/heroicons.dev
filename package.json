@@ -12,6 +12,7 @@
   },
   "scripts": {
     "lint": "yarn eslint --ignore-pattern=build --ignore-pattern=\"**/*.min.js\" .",
+    "lint:fix": "yarn eslint --fix --ignore-pattern=build --ignore-pattern=\"**/*.min.js\" .",
     "tailwind-dev": "yarn tailwind build src/stylesheets/tailwind.css -o src/stylesheets/tailwind.generated.css",
     "tailwind-prod": "yarn postcss src/stylesheets/tailwind.css --output src/stylesheets/tailwind.generated.css --env production",
     "prestart": "yarn tailwind-dev",
@@ -44,6 +45,7 @@
     "eslint": "^6.8.0",
     "firebase-tools": "^7.14.0",
     "postcss-cli": "^7.1.0",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "^1.2.0",
+    "tailwindcss-dark-mode": "^1.1.2"
   }
 }

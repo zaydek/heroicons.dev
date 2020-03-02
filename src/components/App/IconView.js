@@ -8,21 +8,24 @@ const IconPane = ({ outline: Outline, solid: Solid, ...props }) => {
 
 	const handleClick = e => {
 		const { outerHTML } = ref.current
-		navigator.clipboard.writeText(outerHTML).then(() => {
-			setText("copied!")
-			setTimeout(() => {
-				setText(props.name) // Reset
-			}, 1e3)
-		}).catch(error => {
-			console.warn({ error })
-		})
+		navigator.clipboard
+			.writeText(outerHTML)
+			.then(() => {
+				setText("copied!")
+				setTimeout(() => {
+					setText(props.name) // Reset
+				}, 1e3)
+			})
+			.catch(error => {
+				console.warn({ error })
+			})
 	}
 
 	const Icon = !props.prefersSolid ? Outline : Solid
 	return (
 		<div className="pb-1/1 relative cursor-pointer" onClick={handleClick}>
-			<div className="absolute inset-0">
-				<div className="relative flex flex-col justify-center items-center h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-lg shadow hover:z-30 trans-150">
+			<div className="absolute inset-0 ">
+				<div className="relative flex flex-col justify-center items-center h-full text-gray-800 hover:text-white bg-white dark:bg-gray-700 dark:text-white hover:bg-indigo-500 rounded-lg shadow hover:z-30 trans-150">
 					{props.buggy && (
 						<div className="p-3 absolute inset-0 flex flex-row justify-end text-red-500 hover:text-white z-10 trans-150">
 							<Hero.Exclamation_sm className="w-6 h-6" />
@@ -30,9 +33,7 @@ const IconPane = ({ outline: Outline, solid: Solid, ...props }) => {
 					)}
 					<Icon ref={ref} className="w-8 h-8" />
 					<div className="mb-3 absolute x-inset-0 bottom-0">
-						<p className="text-center font-semibold -text-px">
-							{text}
-						</p>
+						<p className="text-center font-semibold -text-px">{text}</p>
 					</div>
 				</div>
 			</div>
