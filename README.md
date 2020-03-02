@@ -18,7 +18,7 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Toggle copy to clipboard OR download (like Feather icons)
 - [ ] Social tags/image
 - [ ] Tooltip for corrupted icons/link to original issue
-- [ ] Swap corrupted icons with historal repo (temporary fix)
+- [ ] Swap or polyfill corrupted icons with historal repo (temporary fix)
 - [ ] Size options
 - [ ] Colors options
 - [ ] Icon catagories
