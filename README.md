@@ -25,6 +25,7 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Suggest an icon/feature
 - [ ] Monetize with Carbon Ads
 - [ ] Add screenshots to the repo
+- [ ] Add support for third-party brand icons like Simple Icons
 
 **Contributes are welcome!** Built using Create React App and Tailwind CSS, _of course_. Uses PurgeCSS for production.
 
