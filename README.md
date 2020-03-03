@@ -25,6 +25,7 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
   - [x] Fixed `currency-dollar` in the reference Figma file
 - [ ] Size options
 - [ ] Colors options
+- [ ] Add tooltip UI to explain copy to clipboard
 - [ ] Icon catagories
 - [ ] Preview templates (like FontAwesome)
 - [ ] Suggest an icon/feature
