@@ -1,7 +1,7 @@
 import * as Hero from "components/Heroicons"
 import Container from "./Container"
 import Search from "./Search"
-import IconView from "./IconView"
+import IconGrid from "./IconGrid"
 import originalIcons from "./originalIcons"
 import React from "react"
 import { ReactComponent as GitHubLogo } from "svg/github.svg"
@@ -75,9 +75,9 @@ const App = props => {
 			{/* </div> */}
 
 			{/* Etc. */}
-			<div className="h-6" />
+			<div className="h-12" />
 			<Search value={value} setValue={setValue} solid={solid} setSolid={setSolid} />
-			<IconView icons={icons} solid={solid} />
+			<IconGrid solid={solid} icons={icons} />
 
 		</Container>
 	)
