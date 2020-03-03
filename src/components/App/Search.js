@@ -88,7 +88,7 @@ const Search = ({ value, setValue, solid, setSolid, ...props }) => {
 
 				{/* End */}
 				<button ref={rhs} className="px-6 flex flex-row items-center rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10" onClick={e => setSolid(!solid)}>
-					<p className="w-16">
+					<p className="w-16 text-center">
 						{!solid ? (
 							"Outline"
 						) : (

@@ -46,18 +46,24 @@ const App = props => {
 					Open source icons
 				</a>{" "}
 				by{" "}
-				<a className="text-indigo-500" href="https://twitter.com/steveschoger">
-					Steve Schoger
-					{/* <TwitterLogo className="ml-2 -mt-1 inline-block w-5 h-5 text-twitter-blue" /> */}
+				<a className="mx-px text-indigo-500" href="https://twitter.com/steveschoger">
+					Steve S<span className="hidden md:inline">choger</span><span className="inline md:hidden">.</span>
+				</a>{" "}
+				and{" "}
+				<a className="mx-px text-indigo-500" href="https://twitter.com/adamwathan">
+					Adam W<span className="hidden md:inline">athan</span><span className="inline md:hidden">.</span>
 				</a>
 				<br />
-				<a className="text-indigo-500" href="https://github.com/codex-src/heroicons-viewer">
+				<a className="mx-px text-indigo-500" href="https://github.com/codex-src/heroicons-viewer">
 					Viewer
 				</a>{" "}
 				by{" "}
-				<a className="text-indigo-500" href="https://twitter.com/username_ZAYDEK">
-					Zaydek MG
-					{/* <TwitterLogo className="ml-2 -mt-1 inline-block w-5 h-5 text-twitter-blue" /> */}
+				<a className="mx-px text-indigo-500" href="https://twitter.com/username_ZAYDEK">
+					Zaydek
+				</a>{" "}
+				and{" "}
+				<a className="mx-px text-indigo-500" href="https://github.com/codex-src/heroicons-viewer">
+					the GitHub community
 				</a>
 			</h2>
 
