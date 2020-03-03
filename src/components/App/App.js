@@ -1,5 +1,5 @@
 import * as Hero from "components/Heroicons"
-import Container from "./Container"
+// import Container from "./Container"
 import Search from "./Search"
 import IconGrid from "./IconGrid"
 import originalIcons from "./originalIcons"
@@ -10,6 +10,14 @@ import { ReactComponent as TwitterLogo } from "svg/twitter.svg"
 // ;(() => {
 // 	document.body.classList.add("debug-css")
 // })()
+
+const Container = props => (
+	<div className="py-32 flex flex-row justify-center min-h-full bg-gray-100">
+		<div className="px-6 w-full max-w-screen-xl">
+			{props.children}
+		</div>
+	</div>
+)
 
 const App = props => {
 	const [value, setValue] = React.useState("")
@@ -74,9 +82,10 @@ const App = props => {
 			{/* 	</button> */}
 			{/* </div> */}
 
-			{/* Etc. */}
+			{/* Search, etc. */}
 			<div className="h-12" />
 			<Search value={value} setValue={setValue} solid={solid} setSolid={setSolid} />
+			<div className="h-6" />
 			<IconGrid solid={solid} icons={icons} />
 
 		</Container>

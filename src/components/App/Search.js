@@ -60,7 +60,8 @@ const Search = ({ value, setValue, solid, setSolid, ...props }) => {
 	}
 
 	return (
-		<div className="-mx-6 mb-6 p-6 pb-0 sticky top-0 bg-gray-100 z-40">
+		<div className="sticky top-0 z-40">
+			<div className="-mx-2 -mb-8 px-2 bg-gray-100" style={{ height: "calc((6 + 8) * 0.25rem)" }} />
 			<div className="relative flex flex-row justify-between h-16 text-xl tracking-px text-gray-800">
 
 				{/* Start */}
@@ -69,15 +70,17 @@ const Search = ({ value, setValue, solid, setSolid, ...props }) => {
 				</div>
 
 				{/* Search bar */}
-				<input
-					ref={ref}
-					className="absolute inset-0 w-full h-full bg-white rounded-lg-xl outline-none shadow-hero focus:shadow-outline trans-150"
-					type="text"
-					placeholder={placeholder}
-					value={value}
-					onKeyDown={handleKeyDown}
-					onChange={e => setValue(e.target.value)}
-				/>
+				<div className="absolute inset-0">
+					<input
+						ref={ref}
+						className="w-full h-full bg-white rounded-lg-xl outline-none shadow-hero focus:shadow-outline trans-150"
+						type="text"
+						placeholder={placeholder}
+						value={value}
+						onKeyDown={handleKeyDown}
+						onChange={e => setValue(e.target.value)}
+					/>
+				</div>
 
 				{/* End */}
 				<button ref={rhs} className="px-6 flex flex-row items-center rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10" onClick={e => setSolid(!solid)}>
