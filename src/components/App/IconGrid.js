@@ -35,11 +35,11 @@ const IconSurface = ({ outline: Outline, solid: Solid, ...props }) => {
 			<div className="absolute inset-0">
 				{/* NOTE: Use w/h-full because of button */}
 				<button className="relative flex flex-row justify-center items-center w-full h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-lg-xl shadow trans-150" onClick={handleClick}>
-					{/* {props.buggy && ( */}
-					{/* 	<div className="p-3 absolute inset-0 flex flex-row justify-end text-red-500 hover:text-white z-10 trans-150"> */}
-					{/* 		<Hero.ExclamationSolidSm className="w-6 h-6" /> */}
-					{/* 	</div> */}
-					{/* )} */}
+					{(props.prefersSolid && props.buggy) && (
+						<div className="p-3 absolute inset-0 flex flex-row justify-end text-red-500 hover:text-white z-10 trans-150">
+							<Hero.ExclamationSolidSm className="w-6 h-6" />
+						</div>
+					)}
 					<Icon ref={ref} className="w-10 h-10" />
 					<div className="my-4 absolute x-inset-0 bottom-0">
 						<p className="text-center font-semibold -text-px tracking-wide">

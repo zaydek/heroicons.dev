@@ -1,9 +1,8 @@
 import * as Hero from "components/Heroicons"
-// import Container from "./Container"
-import Search from "./Search"
 import IconGrid from "./IconGrid"
-import originalIcons from "./originalIcons"
+import originalIcons from "./helpers/icons"
 import React from "react"
+import Search from "./Search"
 import { ReactComponent as GitHubLogo } from "svg/github.svg"
 import { ReactComponent as TwitterLogo } from "svg/twitter.svg"
 
@@ -20,6 +19,8 @@ const Container = props => (
 )
 
 const App = props => {
+	// const [prefersSolid, setPrefersSolid] = React.useState(false)
+
 	const [value, setValue] = React.useState("")
 	const [solid, setSolid] = React.useState(false)
 	const [icons, setIcons] = React.useState(originalIcons)
