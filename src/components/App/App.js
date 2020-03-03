@@ -1,34 +1,78 @@
 import * as Hero from "components/Heroicons"
-import IconView from "./IconView" // FIXME
-import originalIcons from "./originalIcons" // FIXME
+import Container from "components/Container"
+import IconView from "./IconView"
+import originalIcons from "./originalIcons"
 import React from "react"
-
 import { ReactComponent as GitHubLogo } from "svg/github.svg"
 import { ReactComponent as TwitterLogo } from "svg/twitter.svg"
 
-const Container = props => (
-	<div className="py-32 flex flex-row justify-center bg-gray-100 min-h-full">
-		<div className="px-6 w-full max-w-screen-xl">
-			{props.children}
-		</div>
-	</div>
-)
+// ;(() => {
+// 	document.body.classList.add("debug-css")
+// })()
 
-// {/* <a className="text-indigo-500" href="https://github.com/codex-src/heroicons-viewer">Contribute</a> on GitHub */}
-const App = props => {
+const Search = ({ value, setValue, solid, setSolid, ...props }) => {
 	const ref = React.useRef()
 	const lhs = React.useRef()
 	const rhs = React.useRef()
-
-	const [value, setValue] = React.useState("")
-	const [solid, setSolid] = React.useState(false)
-	const [icons, setIcons] = React.useState(originalIcons)
 
 	React.useLayoutEffect(() => {
 		const w1 = lhs.current.getBoundingClientRect().width
 		const w2 = rhs.current.getBoundingClientRect().width
 		ref.current.style.padding = `0px ${w2}px 0px ${w1}px`
 	}, [])
+
+	const handleKeyDown = e => {
+		if (e.keyCode !== 27) {
+			// No-op
+			return
+		}
+		setValue("")
+	}
+
+	return (
+		<div className="-mx-6 mb-6 p-6 pb-0 sticky top-0 bg-gray-100 z-40">
+			<div className="relative flex flex-row justify-between h-16 text-xl tracking-px text-gray-800">
+
+				{/* LHS */}
+				<div ref={lhs} className="px-6 flex flex-row items-center rounded-l-lg-xl focus:outline-none z-10 pointer-events-none">
+					<Hero.SearchOutlineMd className="-mr-2 w-6 h-6 text-gray-400" />
+				</div>
+
+				{/* Search bar */}
+				<div className="absolute inset-0">
+					<input
+						ref={ref}
+						className="w-full h-full bg-white outline-none shadow-hero focus:shadow-outline trans-150"
+						style={{ borderRadius: "0.75rem" }}
+						type="text"
+						placeholder="Search 140 icons"
+						value={value}
+						onKeyDown={handleKeyDown}
+						onChange={e => setValue(e.target.value)}
+					/>
+				</div>
+
+				{/* RHS */}
+				<button ref={rhs} className="px-6 flex flex-row items-center rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10" onClick={e => setSolid(!solid)}>
+					<p className="w-16">
+						{!solid ? (
+							"Outline"
+						) : (
+							"Solid"
+						)}
+					</p>
+					<Hero.SwitchVerticalOutlineMd className="ml-4 w-6 h-6 text-gray-400" />
+				</button>
+
+			</div>
+		</div>
+	)
+}
+
+const App = props => {
+	const [value, setValue] = React.useState("")
+	const [solid, setSolid] = React.useState(false)
+	const [icons, setIcons] = React.useState(originalIcons)
 
 	React.useEffect(() => {
 		const id = setTimeout(() => {
@@ -40,14 +84,6 @@ const App = props => {
 			clearTimeout(id)
 		}
 	}, [value])
-
-	const handleKeyDown = e => {
-		if (e.keyCode !== 27) {
-			// No-op
-			return
-		}
-		setValue("")
-	}
 
 	return (
 		<Container>
@@ -65,67 +101,41 @@ const App = props => {
 				</a>{" "}
 				by{" "}
 				<a className="text-indigo-500" href="https://twitter.com/steveschoger">
-					Steve Schoger{" "}
-					<TwitterLogo className="-mt-1 mx-1 inline-block w-5 h-5 text-twitter-blue" />
+					Steve Schoger
+					<TwitterLogo className="ml-2 -mt-1 inline-block w-5 h-5 text-twitter-blue" />
 				</a>
 				<br />
 				<a className="text-indigo-500" href="https://github.com/codex-src/heroicons-viewer">
-					Web app
+					Viewer
 				</a>{" "}
 				by{" "}
 				<a className="text-indigo-500" href="https://twitter.com/username_ZAYDEK">
-					Zaydek MG{" "}
-					<TwitterLogo className="-mt-1 mx-1 inline-block w-5 h-5 text-twitter-blue" />
+					Zaydek MG
+					<TwitterLogo className="ml-2 -mt-1 inline-block w-5 h-5 text-twitter-blue" />
 				</a>
 			</h2>
 
 			{/* Buttons */}
+			{/* <div className="h-12" /> */}
+			{/* <div className="flex flex-row justify-center"> */}
+			{/* 	<button className="px-6 py-4 bg-white shadow" style={{ borderRadius: "0.75rem" }}> */}
+			{/* 		<p className="font-semibold text-lg text-indigo-500"> */}
+			{/* 			Get the icons! */}
+			{/* 		</p> */}
+			{/* 	</button> */}
+			{/* 	<div className="w-3" /> */}
+			{/* 	<button className="px-6 py-4 bg-white shadow" style={{ borderRadius: "0.75rem" }}> */}
+			{/* 		<p className="font-semibold text-lg text-indigo-500"> */}
+			{/* 			Contribute */}
+			{/* 			<GitHubLogo className="ml-3 inline-block w-5 h-5 text-black" /> */}
+			{/* 		</p> */}
+			{/* 	</button> */}
+			{/* </div> */}
+
+			{/* Etc. */}
 			<div className="h-12" />
-			<div className="flex flex-row justify-center">
-				<button className="px-6 py-4 bg-white shadow hover:shadow-md trans-150" style={{ borderRadius: "0.75rem" }}>
-					<p className="font-semibold text-lg text-indigo-500">
-						Get the icons
-					</p>
-				</button>
-				<div className="w-3" />
-				<button className="px-6 py-4 bg-white shadow hover:shadow-md trans-150" style={{ borderRadius: "0.75rem" }}>
-					<p className="font-semibold text-lg text-indigo-500">
-						Contribute
-						<GitHubLogo className="ml-3 inline-block w-5 h-5 text-black" />
-					</p>
-				</button>
-			</div>
-
-			{/* Search */}
-			<div className="h-6" />
-			<div className="-mx-6 mb-6 p-6 pb-0 sticky top-0 bg-gray-100 z-40">
-				<div className="relative flex flex-row justify-between items-center">
-
-					{/* LHS: */}
-					<div ref={lhs} className="px-6 z-10 pointer-events-none">
-						<Hero.SearchOutlineMd className="w-6 h-6 text-gray-500" />
-					</div>
-
-					<div className="absolute inset-0">
-						<input ref={ref} className="w-full h-full text-xl bg-white rounded-lg outline-none shadow-hero focus:shadow-outline trans-150" type="text" placeholder="Search 140 icons…" value={value} onKeyDown={handleKeyDown} onChange={e => setValue(e.target.value)} />
-					</div>
-
-					{/* RHS: */}
-					<div ref={rhs} className="relative z-10 rounded-l-none rounded-r-lg">
-						<button className="pl-6 py-4 text-xl bg-transparent rounded-l-none rounded-r-lg focus:outline-none focus:shadow-outline trans-150 cursor-pointer w-40" style={{ paddingRight: "3.75rem" }} onClick={e => setSolid(!solid)}>
-							{ solid ? "Solid" : "Outline"}
-						</button>
-						<div className="px-6 absolute right-0 inset-y-0 flex flex-row items-center pointer-events-none">
-              {/* <Hero.SwitchHorizontal_md className="w-6 h-6 text-gray-500" /> */}
-              <Hero.SelectorOutlineMd className="w-6 h-6 text-gray-500" />
-						</div>
-					</div>
-
-				</div>
- 			</div>
-			<div className="mt-6">
-				<IconView icons={icons} solid={solid} />
-			</div>
+			<Search value={value} setValue={setValue} solid={solid} setSolid={setSolid} />
+			<IconView icons={icons} solid={solid} />
 
 		</Container>
 	)

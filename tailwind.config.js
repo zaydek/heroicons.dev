@@ -4,8 +4,9 @@ module.exports = {
 	theme: {
 		extend: {
 			borderRadius: {
-				"xl":  "1rem",
-				"2xl": "2rem",
+				"lg-xl": "0.75rem",
+				"xl":    "1rem",
+				"2xl":   "2rem",
 			},
 			boxShadow: {
 				"hero-sm": `
@@ -34,7 +35,10 @@ module.exports = {
 				`,
 			},
 			colors: {
-				"twitter-blue": "#1da1f2",
+				"gray": {
+					...defaultTheme.colors.gray,
+					50: "#fbfdfe",
+				},
 				// https://material.io/design/color/the-color-system.html#tools-for-picking-colors
 				"md-blue-50":   { default: "#e3f2fd" },
 				"md-blue-100":  { default: "#bbdefb" },
@@ -60,6 +64,8 @@ module.exports = {
 				"md-gray-700":  { default: "#616161" },
 				"md-gray-800":  { default: "#424242" },
 				"md-gray-900":  { default: "#212121" },
+
+				"twitter-blue": "#1da1f2",
 			},
 			fontFamily: {
 				...defaultTheme.fontFamily,
