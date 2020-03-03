@@ -20,6 +20,8 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Social tags/image
 - [ ] Tooltip for corrupted icons/link to original issue
 - [ ] Swap or polyfill corrupted icons with historal repo (temporary fix)
+  - [x] Fixed `moon` in the reference Figma file
+  - [x] Fixed `currency-dollar` in the reference Figma file
 - [ ] Size options
 - [ ] Colors options
 - [ ] Icon catagories
@@ -27,7 +29,7 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Suggest an icon/feature
 - [ ] Monetize with Carbon Ads
 - [ ] Embed a Figma mockup to work off of
-  - [x] Created a reference Figma implementation here: https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-(2abb814)
+  - [x] Created a reference Figma file: https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-(2abb814)
 - [ ] Add screenshots to the repo
 - [ ] Add support for third-party brand icons like Simple Icons
 
