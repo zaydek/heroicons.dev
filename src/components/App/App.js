@@ -66,7 +66,7 @@ const App = props => {
 				by{" "}
 				<a className="text-indigo-500" href="https://twitter.com/steveschoger">
 					Steve Schoger{" "}
-					<TwitterLogo className="-mt-1 mx-1 inline-block w-5 h-5 text-blue-400" />
+					<TwitterLogo className="-mt-1 mx-1 inline-block w-5 h-5 text-twitter-blue" />
 				</a>
 				<br />
 				<a className="text-indigo-500" href="https://github.com/codex-src/heroicons-viewer">
@@ -75,22 +75,21 @@ const App = props => {
 				by{" "}
 				<a className="text-indigo-500" href="https://twitter.com/username_ZAYDEK">
 					Zaydek MG{" "}
-					<TwitterLogo className="-mt-1 mx-1 inline-block w-5 h-5 text-blue-400" />
+					<TwitterLogo className="-mt-1 mx-1 inline-block w-5 h-5 text-twitter-blue" />
 				</a>
 			</h2>
 
 			{/* Buttons */}
 			<div className="h-12" />
 			<div className="flex flex-row justify-center">
-				<button className="px-6 py-3 bg-indigo-500 rounded-xl shadow">
-					<p className="font-semibold text-lg tracking-px text-white">
-						Download
-						<Hero.DownloadSolidSm className="ml-3 inline-block w-5 h-5" />
+				<button className="px-6 py-4 bg-white shadow hover:shadow-md trans-150" style={{ borderRadius: "0.75rem" }}>
+					<p className="font-semibold text-lg text-indigo-500">
+						Get the icons
 					</p>
 				</button>
-				<div className="w-3 h-3" />
-				<button className="px-6 py-3 bg-white rounded-xl shadow">
-					<p className="font-semibold text-lg tracking-px text-indigo-500">
+				<div className="w-3" />
+				<button className="px-6 py-4 bg-white shadow hover:shadow-md trans-150" style={{ borderRadius: "0.75rem" }}>
+					<p className="font-semibold text-lg text-indigo-500">
 						Contribute
 						<GitHubLogo className="ml-3 inline-block w-5 h-5 text-black" />
 					</p>

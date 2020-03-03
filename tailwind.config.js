@@ -34,7 +34,7 @@ module.exports = {
 				`,
 			},
 			colors: {
-				twitter: "#1da1f2",
+				"twitter-blue": "#1da1f2",
 				// https://material.io/design/color/the-color-system.html#tools-for-picking-colors
 				"md-blue-50":   { default: "#e3f2fd" },
 				"md-blue-100":  { default: "#bbdefb" },
