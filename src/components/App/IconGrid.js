@@ -1,4 +1,3 @@
-import * as Hero from "components/Heroicons"
 import copyToClipboard from "./helpers/copyToClipboard"
 import React from "react"
 

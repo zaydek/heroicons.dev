@@ -1,14 +1,9 @@
-import * as Hero from "components/Heroicons"
 import IconGrid from "./IconGrid"
 import originalIcons from "./helpers/icons"
 import React from "react"
 import Search from "./Search"
-import { ReactComponent as GitHubLogo } from "svg/github.svg"
-import { ReactComponent as TwitterLogo } from "svg/twitter.svg"
 
-// ;(() => {
-// 	document.body.classList.add("debug-css")
-// })()
+// document.body.classList.add("debug-css")
 
 const Container = props => (
 	<div className="py-32 flex flex-row justify-center min-h-full bg-gray-100">

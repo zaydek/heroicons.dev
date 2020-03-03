@@ -17,7 +17,7 @@ const Search = ({ value, setValue, solid, setSolid, ...props }) => {
 			if (window.innerWidth < 640 + 24 +24) {
 				setPlaceholder(`Search ${COUNT} icons`)
 			} else {
-				setPlaceholder(`Search ${COUNT} icons (Press \"/\" to focus)`)
+				setPlaceholder(`Search ${COUNT} icons (Press "/" to focus)`)
 			}
 		}
 		handler() // Once
@@ -65,7 +65,8 @@ const Search = ({ value, setValue, solid, setSolid, ...props }) => {
 	return (
 		<div className="sticky top-0 z-40">
 			<div className="-mx-2 -mb-8 px-2 bg-gray-100" style={{ height: "calc((6 + 8) * 0.25rem)" }} />
-			<div className="relative flex flex-row justify-between h-16 text-xl tracking-px text-gray-800">
+			{/* NOTE: Do not use text-gray-800 */}
+			<div className="relative flex flex-row justify-between h-16 text-xl">
 
 				{/* Start */}
 				<div ref={lhs} className="px-6 flex flex-row items-center rounded-l-lg-xl focus:outline-none z-10 pointer-events-none">
