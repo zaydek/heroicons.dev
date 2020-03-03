@@ -216,12 +216,12 @@ const originalIcons = [
 		outline: Hero.CreditCardOutlineMd,
 		solid: Hero.CreditCardSolidSm,
 	},
-	{
-		name: "currency-dollar",
-		outline: Hero.CurrencyDollarOutlineMd,
-		solid: Hero.CurrencyDollarSolidSm,
-		buggy: true,
-	},
+	// {
+	// 	name: "currency-dollar",
+	// 	outline: Hero.CurrencyDollarOutlineMd,
+	// 	solid: Hero.CurrencyDollarSolidSm,
+	// 	buggy: true,
+	// },
 	{
 		name: "currency-euro",
 		outline: Hero.CurrencyEuroOutlineMd,
@@ -447,12 +447,12 @@ const originalIcons = [
 		outline: Hero.MinusCircleOutlineMd,
 		solid: Hero.MinusCircleSolidSm,
 	},
-	{
-		name: "moon",
-		outline: Hero.MoonOutlineMd,
-		solid: Hero.MoonSolidSm,
-		buggy: true,
-	},
+	// {
+	// 	name: "moon",
+	// 	outline: Hero.MoonOutlineMd,
+	// 	solid: Hero.MoonSolidSm,
+	// 	buggy: true,
+	// },
 	{
 		name: "office-building",
 		outline: Hero.OfficeBuildingOutlineMd,
@@ -483,12 +483,12 @@ const originalIcons = [
 		outline: Hero.PhoneOutgoingOutlineMd,
 		solid: Hero.PhoneOutgoingSolidSm,
 	},
-	{
-		name: "phone",
-		outline: Hero.PhoneOutlineMd,
-		solid: Hero.PhoneSolidSm,
-		buggy: true,
-	},
+	// {
+	// 	name: "phone",
+	// 	outline: Hero.PhoneOutlineMd,
+	// 	solid: Hero.PhoneSolidSm,
+	// 	buggy: true,
+	// },
 	{
 		name: "photograph",
 		outline: Hero.PhotographOutlineMd,
@@ -604,12 +604,12 @@ const originalIcons = [
 		outline: Hero.TemplateOutlineMd,
 		solid: Hero.TemplateSolidSm,
 	},
-	{
-		name: "ticket",
-		outline: Hero.TicketOutlineMd,
-		solid: Hero.TicketSolidSm,
-		buggy: true,
-	},
+	// {
+	// 	name: "ticket",
+	// 	outline: Hero.TicketOutlineMd,
+	// 	solid: Hero.TicketSolidSm,
+	// 	buggy: true,
+	// },
 	{
 		name: "translate",
 		outline: Hero.TranslateOutlineMd,

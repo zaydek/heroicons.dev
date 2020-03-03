@@ -1,20 +1,23 @@
 import * as Hero from "components/Heroicons"
+import originalIcons from "./helpers/icons"
 import React from "react"
+
+const COUNT = originalIcons.length
 
 const Search = ({ value, setValue, solid, setSolid, ...props }) => {
 	const ref = React.useRef() // Search bar
 	const lhs = React.useRef() // Start of search bar
 	const rhs = React.useRef() // End of search bar
 
-	const [placeholder, setPlaceholder] = React.useState("Search 140 icons")
+	const [placeholder, setPlaceholder] = React.useState("")
 
 	// Responsive placeholder:
 	React.useEffect(() => {
 		const handler = e => {
 			if (window.innerWidth < 1280) {
-				setPlaceholder("Search 140 icons")
+				setPlaceholder(`Search ${COUNT} icons`)
 			} else {
-				setPlaceholder("Search 140 icons (Press \"/\" to focus)")
+				setPlaceholder(`Search ${COUNT} icons (Press \"/\" to focus)`)
 			}
 		}
 		handler() // Once

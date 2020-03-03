@@ -80,6 +80,22 @@ module.exports = {
 				"1/1": "100%",
 			},
 		},
+		screens: {
+			xs: `${512 + 24 + 24}px`,
+			// => @media (min+width: 560px) { ... }
+
+			sm: `${640 + 24 + 24}px`,
+			// => @media (min+width: 688px) { ... }
+
+			md: `${768 + 24 + 24}px`,
+			// => @media (min+width: 816px) { ... }
+
+			lg: `${1024 + 24 + 24}px`,
+			// => @media (min+width: 1072px) { ... }
+
+			xl: `${1280 + 24 + 24}px`,
+			// => @media (min-width: 1328px) { ... }
+		},
 	},
 	variants: {},
 	plugins: [],

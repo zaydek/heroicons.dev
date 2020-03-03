@@ -34,12 +34,7 @@ const IconSurface = ({ outline: Outline, solid: Solid, ...props }) => {
 		<div className="pb-1/1 relative">
 			<div className="absolute inset-0">
 				{/* NOTE: Use w/h-full because of button */}
-				<button className="relative flex flex-row justify-center items-center w-full h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-lg-xl shadow trans-150" onClick={handleClick}>
-					{(props.prefersSolid && props.buggy) && (
-						<div className="p-3 absolute inset-0 flex flex-row justify-end text-red-500 hover:text-white z-10 trans-150">
-							<Hero.ExclamationSolidSm className="w-6 h-6" />
-						</div>
-					)}
+				<button className="flex flex-row justify-center items-center w-full h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-lg-xl focus:outline-none shadow trans-150" onClick={handleClick}>
 					<Icon ref={ref} className="w-10 h-10" />
 					<div className="my-4 absolute x-inset-0 bottom-0">
 						<p className="text-center font-semibold -text-px tracking-wide">
@@ -53,7 +48,7 @@ const IconSurface = ({ outline: Outline, solid: Solid, ...props }) => {
 }
 
 const IconGrid = React.memo(props => (
-	<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+	<div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
 		{props.icons.map(each => (
 			<IconSurface
 				key={each.name}
