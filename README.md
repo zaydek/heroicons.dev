@@ -29,9 +29,9 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Preview templates (like FontAwesome)
 - [ ] Suggest an icon/feature
 - [ ] Monetize with Carbon Ads
-  - [ ] Requires 10K page views/month
 - [ ] Embed a Figma mockup to work off of
   - [x] Created a reference Figma file: https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-(2abb814)
+- [ ] Create a Figma plugin
 - [ ] Add screenshots to the repo
 - [ ] Add support for third-party brand icons like Simple Icons
 - [ ] Add offline support
