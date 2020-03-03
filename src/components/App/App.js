@@ -3,6 +3,9 @@ import IconView from "./IconView" // FIXME
 import originalIcons from "./originalIcons" // FIXME
 import React from "react"
 
+import { ReactComponent as GitHubLogo } from "svg/github.svg"
+import { ReactComponent as TwitterLogo } from "svg/twitter.svg"
+
 const Container = props => (
 	<div className="py-32 flex flex-row justify-center bg-gray-100 min-h-full">
 		<div className="px-6 w-full max-w-screen-xl">
@@ -61,12 +64,14 @@ const App = props => {
 					Open source icons
 				</a>{" "}
 				by{" "}
-				<a className="text-indigo-500" href="https://twitter.com/steveschoger">
+				<a className="!inline-flex !flex-row !items-center text-indigo-500" href="https://twitter.com/steveschoger">
 					Steve S<span className="sm:hidden">.</span><span className="hidden sm:inline">choger</span>
+					{/* <TwitterLogo className="-mt-px mx-px p-px inline-block w-5 h-5 text-blue-500" /> */}
 				</a>{" "}
 				and{" "}
 				<a className="text-indigo-500" href="https://twitter.com/adamwathan">
-					Adam W<span className="sm:hidden">.</span><span className="hidden sm:inline">athan</span>{" "}
+					Adam W<span className="sm:hidden">.</span><span className="hidden sm:inline">athan</span>
+					{/* <TwitterLogo className="-mt-px mx-px p-px inline-block w-5 h-5 text-blue-500" /> */}
 				</a>
 				<br />
 				<a className="text-indigo-500" href="https://github.com/codex-src/heroicons-viewer">
@@ -75,6 +80,7 @@ const App = props => {
 				by{" "}
 				<a className="text-indigo-500" href="https://twitter.com/username_ZAYDEK">
 					Zaydek M<span className="sm:hidden">.</span><span className="hidden sm:inline">ichels-</span>G<span className="sm:hidden">.</span><span className="hidden sm:inline">ualtieri</span>
+					{/* <TwitterLogo className="-mt-px mx-px p-px inline-block w-5 h-5 text-blue-500" /> */}
 				</a>
 			</h2>
 
