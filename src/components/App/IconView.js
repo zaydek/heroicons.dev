@@ -31,7 +31,7 @@ const IconPane = ({ outline: Outline, solid: Solid, ...props }) => {
 	return (
 		<button className="pb-1/1 relative cursor-pointer focus:outline-none focus:shadow-outline rounded-lg trans-150" onClick={handleClick}>
 			<div className="absolute inset-0">
-				<div className="relative flex flex-col justify-center items-center h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-lg shadow hover:z-30 trans-150">
+				<div className="relative flex flex-col justify-center items-center h-full text-gray-800 hover:text-white bg-white hover:bg-md-blue-a200 rounded-lg shadow hover:z-30 trans-150">
 					{props.buggy && (
 						<div className="p-3 absolute inset-0 flex flex-row justify-end text-red-500 hover:text-white z-10 trans-150">
 							<Hero.ExclamationSolidSm className="w-6 h-6" />
