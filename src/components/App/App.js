@@ -15,10 +15,30 @@ const Search = ({ value, setValue, solid, setSolid, ...props }) => {
 	const lhs = React.useRef()
 	const rhs = React.useRef()
 
+	// Bind / to focus:
 	React.useLayoutEffect(() => {
-		const w1 = lhs.current.getBoundingClientRect().width
-		const w2 = rhs.current.getBoundingClientRect().width
-		ref.current.style.padding = `0px ${w2}px 0px ${w1}px`
+		const handler = e => {
+			if (document.activeElement === ref.current) {
+				// No-op
+				return
+			} else if (e.keyCode !== 191) {
+				// No-op
+				return
+			}
+			e.preventDefault()
+			ref.current.focus()
+		}
+		document.addEventListener("keydown", handler)
+		return () => {
+			document.removeEventListener("keydown", handler)
+		}
+	}, [])
+
+	// Dynamically compute/set padding:
+	React.useLayoutEffect(() => {
+		const paddingL = lhs.current.getBoundingClientRect().width
+		const paddingR = rhs.current.getBoundingClientRect().width
+		ref.current.style.padding = `0px ${paddingR / 16}rem 0px ${paddingL / 16}rem`
 	}, [])
 
 	const handleKeyDown = e => {
@@ -26,7 +46,7 @@ const Search = ({ value, setValue, solid, setSolid, ...props }) => {
 			// No-op
 			return
 		}
-		setValue("")
+		setValue("") // Reset
 	}
 
 	return (
@@ -45,7 +65,7 @@ const Search = ({ value, setValue, solid, setSolid, ...props }) => {
 						className="w-full h-full bg-white outline-none shadow-hero focus:shadow-outline trans-150"
 						style={{ borderRadius: "0.75rem" }}
 						type="text"
-						placeholder="Search 140 icons"
+						placeholder={"Search 140 icons (Press \"/\" to focus)"}
 						value={value}
 						onKeyDown={handleKeyDown}
 						onChange={e => setValue(e.target.value)}
@@ -102,7 +122,7 @@ const App = props => {
 				by{" "}
 				<a className="text-indigo-500" href="https://twitter.com/steveschoger">
 					Steve Schoger
-					<TwitterLogo className="ml-2 -mt-1 inline-block w-5 h-5 text-twitter-blue" />
+					{/* <TwitterLogo className="ml-2 -mt-1 inline-block w-5 h-5 text-twitter-blue" /> */}
 				</a>
 				<br />
 				<a className="text-indigo-500" href="https://github.com/codex-src/heroicons-viewer">
@@ -111,7 +131,7 @@ const App = props => {
 				by{" "}
 				<a className="text-indigo-500" href="https://twitter.com/username_ZAYDEK">
 					Zaydek MG
-					<TwitterLogo className="ml-2 -mt-1 inline-block w-5 h-5 text-twitter-blue" />
+					{/* <TwitterLogo className="ml-2 -mt-1 inline-block w-5 h-5 text-twitter-blue" /> */}
 				</a>
 			</h2>
 
@@ -133,7 +153,7 @@ const App = props => {
 			{/* </div> */}
 
 			{/* Etc. */}
-			<div className="h-12" />
+			<div className="h-6" />
 			<Search value={value} setValue={setValue} solid={solid} setSolid={setSolid} />
 			<IconView icons={icons} solid={solid} />
 
