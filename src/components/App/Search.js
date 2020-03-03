@@ -14,7 +14,7 @@ const Search = ({ value, setValue, solid, setSolid, ...props }) => {
 	// Responsive placeholder:
 	React.useEffect(() => {
 		const handler = e => {
-			if (window.innerWidth < 1280) {
+			if (window.innerWidth < 640 + 24 +24) {
 				setPlaceholder(`Search ${COUNT} icons`)
 			} else {
 				setPlaceholder(`Search ${COUNT} icons (Press \"/\" to focus)`)
@@ -76,7 +76,7 @@ const Search = ({ value, setValue, solid, setSolid, ...props }) => {
 				<div className="absolute inset-0">
 					<input
 						ref={ref}
-						className="w-full h-full bg-white rounded-lg-xl outline-none shadow-hero focus:shadow-outline trans-150"
+						className="w-full h-full bg-white rounded-lg-xl outline-none shadow focus:shadow-outline trans-150"
 						type="text"
 						placeholder={placeholder}
 						value={value}

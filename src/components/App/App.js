@@ -48,7 +48,7 @@ const App = props => {
 			<div className="h-3" />
 			<h2 className="text-center font-medium text-xl -tracking-px leading-relaxed text-gray-800">
 				<a className="text-indigo-500" href="https://github.com/refactoringui/heroicons">
-					Free, open source icons
+					Open source icons
 				</a>{" "}
 				by{" "}
 				<a className="text-indigo-500" href="https://twitter.com/steveschoger">

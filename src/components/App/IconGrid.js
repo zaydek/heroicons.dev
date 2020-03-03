@@ -34,10 +34,10 @@ const IconSurface = ({ outline: Outline, solid: Solid, ...props }) => {
 		<div className="pb-1/1 relative">
 			<div className="absolute inset-0">
 				{/* NOTE: Use w/h-full because of button */}
-				<button className="flex flex-row justify-center items-center w-full h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-lg-xl focus:outline-none shadow trans-150" onClick={handleClick}>
-					<Icon ref={ref} className="w-10 h-10" />
-					<div className="my-4 absolute x-inset-0 bottom-0">
-						<p className="text-center font-semibold -text-px tracking-wide">
+				<button className="flex flex-row justify-center items-center w-full h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-lg-xl focus:outline-none shadow focus:shadow-outline trans-150" onClick={handleClick}>
+					<Icon ref={ref} className="w-8 h-8" />
+					<div className="m-3 absolute inset-x-0 bottom-0">
+						<p className="text-center font-ibm-plex-mono font-semibold text-sm leading-snug">
 							{text}
 						</p>
 					</div>

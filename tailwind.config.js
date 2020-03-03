@@ -70,6 +70,7 @@ module.exports = {
 			fontFamily: {
 				...defaultTheme.fontFamily,
 				"dm-sans": "'DM Sans', sans-serif",
+				"ibm-plex-mono": "'IBM Plex Mono', monospace",
 			},
 			letterSpacing: {
 				"-px": "-0.0125em",
