@@ -1,4 +1,4 @@
-import * as Hero from "components/Icons"
+import * as Hero from "components/Heroicons"
 import IconView from "./IconView" // FIXME
 import originalIcons from "./originalIcons" // FIXME
 import React from "react"
