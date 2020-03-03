@@ -84,8 +84,17 @@ const App = props => {
 				</a>
 			</h2>
 
-			{/* Search */}
 			<div className="h-12" />
+			<div className="flex flex-row justify-center">
+				<button className="px-4 py-3 flex flex-row justify-center items-center rounded-lg shadow-xs">
+					<p className="font-semibold text-lg text-md-blue-a200">
+						Download
+					</p>
+				</button>
+			</div>
+
+			{/* Search */}
+			<div className="h-6" />
 			<div className="-mx-6 mb-6 p-6 pb-0 sticky top-0 bg-gray-100 z-40">
 				<div className="relative flex flex-row justify-between items-center">
 

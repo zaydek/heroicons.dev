@@ -1,0 +1,32 @@
+/* https://codepen.io/zaydek/pen/yLyoVao */
+a {
+	color:           inherit;
+	text-decoration: none;
+}
+button {
+	padding:         0;
+	text-align:      inherit;
+	font:            inherit;
+	letter-spacing:  inherit;
+	color:           inherit;
+	background:      none;
+	border:          none;
+}
+input {
+	padding:         0;
+	font:            inherit;
+	letter-spacing:  inherit;
+	color:           inherit;
+	background:      none;
+	border:          none;
+}
+textarea {
+	padding:         0;
+	vertical-align:  middle;
+	font:            inherit;
+	letter-spacing:  inherit;
+	color:           inherit;
+	background:      none;
+	border:          none;
+	resize:          none;
+}
