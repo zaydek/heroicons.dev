@@ -1,7 +1,5 @@
 {
   "name": "heroicons-viewer",
-  "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -15,11 +13,11 @@
     "tailwind-dev": "yarn tailwind build src/stylesheets/tailwind.css -o src/stylesheets/tailwind.generated.css",
     "tailwind-prod": "yarn postcss src/stylesheets/tailwind.css --output src/stylesheets/tailwind.generated.css --env production",
     "prestart": "yarn tailwind-dev",
-    "start": "react-scripts start",
+    "start": "yarn react-scripts start",
     "prebuild": "yarn tailwind-prod",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "yarn react-scripts build",
+    "test": "yarn react-scripts test",
+    "eject": "yarn react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,9 +37,7 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.0.6",
     "autoprefixer": "^9.7.4",
-    "babel-eslint": "^10.0.3",
     "debug.css": "https://github.com/codex-src/debug.css",
-    "eslint": "^6.8.0",
     "firebase-tools": "^7.14.0",
     "postcss-cli": "^7.1.0",
     "tailwindcss": "^1.2.0"

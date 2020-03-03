@@ -1,4 +1,4 @@
-import * as Hero from "components/heroicons"
+import * as Hero from "components/Icons"
 import IconView from "./IconView" // FIXME
 import originalIcons from "./originalIcons" // FIXME
 import React from "react"
@@ -15,14 +15,15 @@ const App = props => {
 	const [icons, setIcons] = React.useState(originalIcons)
 
 	React.useLayoutEffect(() => {
-		const l = lhs.current.getBoundingClientRect().width
-		const r = rhs.current.getBoundingClientRect().width
-		ref.current.style.padding = `0px ${r}px 0px ${l}px`
+		const w1 = lhs.current.getBoundingClientRect().width
+		const w2 = rhs.current.getBoundingClientRect().width
+		ref.current.style.padding = `0px ${w2}px 0px ${w1}px`
 	}, [])
 
 	React.useEffect(() => {
 		const id = setTimeout(() => {
-			const filteredIcons = originalIcons.filter(each => each.name.includes(value))
+			const query = value.toLowerCase()
+			const filteredIcons = originalIcons.filter(each => each.name.includes(query))
 			setIcons(filteredIcons)
 		}, MICRO_DELAY)
 		return () => {
@@ -64,7 +65,7 @@ const App = props => {
 
 						{/* LHS: */}
 						<div ref={lhs} className="px-6 z-10 pointer-events-none">
-							<Hero.Search_md className="w-6 h-6 text-gray-500" />
+							<Hero.SearchOutlineMd className="w-6 h-6 text-gray-500" />
 						</div>
 
 						<div className="absolute inset-0">
@@ -77,7 +78,8 @@ const App = props => {
 								{ solid ? "Solid" : "Outline"}
 							</button>
 							<div className="px-6 absolute right-0 inset-y-0 flex flex-row items-center pointer-events-none">
-								<Hero.SwitchHorizontal_md className="w-6 h-6 text-gray-500" />
+                {/* <Hero.SwitchHorizontal_md className="w-6 h-6 text-gray-500" /> */}
+                <Hero.SelectorOutlineMd className="w-6 h-6 text-gray-500" />
 							</div>
 						</div>
 
