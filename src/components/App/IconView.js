@@ -1,5 +1,6 @@
 import * as Hero from "components/Heroicons"
 import React from "react"
+import copyToClipboard from "../../copyToClipboard"
 
 const IconPane = ({ outline: Outline, solid: Solid, ...props }) => {
 	const ref = React.useRef()
@@ -8,14 +9,22 @@ const IconPane = ({ outline: Outline, solid: Solid, ...props }) => {
 
 	const handleClick = e => {
 		const { outerHTML } = ref.current
-		navigator.clipboard.writeText(outerHTML).then(() => {
+		if (navigator.clipboard) {
+			navigator.clipboard.writeText(outerHTML).then(() => {
+				setText("copied!")
+				setTimeout(() => {
+					setText(props.name) // Reset
+				}, 1e3)
+			}).catch(error => {
+				console.warn({ error })
+			})
+		} else {
+			copyToClipboard(outerHTML)
 			setText("copied!")
 			setTimeout(() => {
 				setText(props.name) // Reset
 			}, 1e3)
-		}).catch(error => {
-			console.warn({ error })
-		})
+		}
 	}
 
 	const Icon = !props.prefersSolid ? Outline : Solid
