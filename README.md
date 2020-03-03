@@ -17,7 +17,7 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Buttons to download source/repos (include star for repo)
 - [ ] Code documentation
 - [ ] Toggle copy to clipboard OR download (like Feather icons)
-- [ ] Social tags/image
+- [x] Social tags/image
 - [ ] Tooltip for corrupted icons/link to original issue
 - [ ] Swap or polyfill corrupted icons with historal repo (temporary fix)
   - [x] Fixed `moon` in the reference Figma file
