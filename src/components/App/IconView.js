@@ -1,6 +1,6 @@
 import * as Hero from "components/Heroicons"
+import copyToClipboard from "./helpers/copyToClipboard"
 import React from "react"
-import copyToClipboard from "../../copyToClipboard"
 
 const IconPane = ({ outline: Outline, solid: Solid, ...props }) => {
 	const ref = React.useRef()
@@ -9,21 +9,19 @@ const IconPane = ({ outline: Outline, solid: Solid, ...props }) => {
 
 	const handleClick = e => {
 		const { outerHTML } = ref.current
-		if (navigator.clipboard) {
-			navigator.clipboard.writeText(outerHTML).then(() => {
-				setText("copied!")
-				setTimeout(() => {
-					setText(props.name) // Reset
-				}, 1e3)
-			}).catch(error => {
-				console.warn({ error })
-			})
-		} else {
+		if (!navigator.clipboard) {
 			copyToClipboard(outerHTML)
 			setText("copied!")
 			setTimeout(() => {
-				setText(props.name) // Reset
+				setText(props.name)
 			}, 1e3)
+		} else {
+			navigator.clipboard.writeText(outerHTML).then(() => {
+				setText("copied!")
+				setTimeout(() => {
+					setText(props.name)
+				}, 1e3)
+			})
 		}
 	}
 
