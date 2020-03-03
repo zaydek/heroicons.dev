@@ -12,6 +12,7 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [x] Responsive
 - [ ] Dark mode
 - [x] Support for solid icons
+- [ ] Remove warning symbol for solid icons
 - [ ] Cypress-based tests
 - [ ] Buttons to download source/repos (include star for repo)
 - [ ] Code documentation
