@@ -1,1 +1,1 @@
-export * from "./heroicons"
+export * from "./Heroicons"

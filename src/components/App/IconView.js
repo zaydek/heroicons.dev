@@ -1,4 +1,4 @@
-import * as Hero from "components/heroicons"
+import * as Hero from "components/Heroicons"
 import React from "react"
 
 const IconPane = ({ outline: Outline, solid: Solid, ...props }) => {
@@ -25,7 +25,7 @@ const IconPane = ({ outline: Outline, solid: Solid, ...props }) => {
 				<div className="relative flex flex-col justify-center items-center h-full text-gray-800 hover:text-white bg-white hover:bg-indigo-500 rounded-lg shadow hover:z-30 trans-150">
 					{props.buggy && (
 						<div className="p-3 absolute inset-0 flex flex-row justify-end text-red-500 hover:text-white z-10 trans-150">
-							<Hero.Exclamation_sm className="w-6 h-6" />
+							<Hero.ExclamationSolidSm className="w-6 h-6" />
 						</div>
 					)}
 					<Icon ref={ref} className="w-8 h-8" />

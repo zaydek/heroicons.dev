@@ -1,4 +1,4 @@
-import * as Hero from "components/heroicons"
+import * as Hero from "components/Icons"
 import IconView from "./IconView" // FIXME
 import originalIcons from "./originalIcons" // FIXME
 import React from "react"
@@ -63,7 +63,7 @@ const App = props => {
 
 						{/* LHS: */}
 						<div ref={lhs} className="px-6 z-10 pointer-events-none">
-							<Hero.Search_md className="w-6 h-6 text-gray-500" />
+							<Hero.SearchOutlineMd className="w-6 h-6 text-gray-500" />
 						</div>
 
 						<div className="absolute inset-0">
@@ -81,7 +81,7 @@ const App = props => {
 								</option>
 							</select>
 							<div className="px-6 absolute right-0 inset-y-0 flex flex-row items-center pointer-events-none">
-								<Hero.Selector_md className="w-6 h-6 text-gray-500" />
+								<Hero.SelectorOutlineMd className="w-6 h-6 text-gray-500" />
 							</div>
 						</div>
 
