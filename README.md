@@ -13,7 +13,8 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Dark mode
 - [x] Support for solid icons
 - [ ] Remove warning symbol for solid icons
-- [ ] Cypress-based tests
+- [ ] Cypress-based e2e tests
+  - [x] https://github.com/codex-src/heroicons-viewer-cypress
 - [ ] Buttons to download source/repos (include star for repo)
 - [ ] Code documentation
 - [ ] Toggle copy to clipboard OR download (like Feather icons)
