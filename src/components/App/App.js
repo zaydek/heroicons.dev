@@ -3,7 +3,13 @@ import IconView from "./IconView" // FIXME
 import originalIcons from "./originalIcons" // FIXME
 import React from "react"
 
-const MICRO_DELAY = 25
+const Container = props => (
+	<div className="py-32 flex flex-row justify-center bg-gray-100 min-h-full">
+		<div className="px-6 w-full max-w-screen-xl">
+			{props.children}
+		</div>
+	</div>
+)
 
 const App = props => {
 	const ref = React.useRef()
@@ -25,7 +31,7 @@ const App = props => {
 			const query = value.toLowerCase()
 			const filteredIcons = originalIcons.filter(each => each.name.includes(query))
 			setIcons(filteredIcons)
-		}, MICRO_DELAY)
+		}, 25)
 		return () => {
 			clearTimeout(id)
 		}
@@ -40,57 +46,55 @@ const App = props => {
 	}
 
 	return (
-		<div className="px-6 py-32 flex flex-row justify-center bg-gray-100 min-h-full">
-			<div className="w-full max-w-screen-lg">
+		<Container>
 
-				<div className="mb-3">
-					<h1 className="text-center font-bold font-sans-round tracking-tighter text-5xl">
-						Heroicons
-					</h1>
-				</div>
-				<div className="my-3">
-					<h2 className="text-center font-medium text-xl -tracking-px leading-relaxed">
-						<a className="text-indigo-500" href="https://github.com/refactoringui/heroicons">Open source icons</a> by{" "}
-						<a className="text-indigo-500" href="https://twitter.com/steveschoger">Steve S<span className="sm:hidden">.</span><span className="hidden sm:inline">choger</span></a> and{" "}
-						<a className="text-indigo-500" href="https://twitter.com/adamwathan">Adam W<span className="sm:hidden">.</span><span className="hidden sm:inline">athan</span></a><br />
-						Viewer by{" "}
-						<a className="text-indigo-500" href="https://twitter.com/username_ZAYDEK">Zaydek M<span className="sm:hidden">.</span><span className="hidden sm:inline">ichels-</span>G<span className="sm:hidden">.</span><span className="hidden sm:inline">ualtieri</span></a>
-						<br />
-						<a className="text-indigo-500" href="https://github.com/codex-src/heroicons-viewer">Contribute</a> on GitHub
-					</h2>
-				</div>
-
-				<div className="-mx-6 mt-12 mb-6 p-6 pb-0 sticky top-0 bg-gray-100 z-40">
-					<div className="relative flex flex-row justify-between items-center">
-
-						{/* LHS: */}
-						<div ref={lhs} className="px-6 z-10 pointer-events-none">
-							<Hero.SearchOutlineMd className="w-6 h-6 text-gray-500" />
-						</div>
-
-						<div className="absolute inset-0">
-							<input ref={ref} className="w-full h-full text-xl bg-white rounded-lg outline-none shadow-hero focus:shadow-outline trans-150" type="text" placeholder="Search 140 icons…" value={value} onKeyDown={handleKeyDown} onChange={e => setValue(e.target.value)} />
-						</div>
-
-						{/* RHS: */}
-						<div ref={rhs} className="relative z-10 rounded-l-none rounded-r-lg">
-							<button className="pl-6 py-4 text-xl bg-transparent rounded-l-none rounded-r-lg focus:outline-none focus:shadow-outline trans-150 cursor-pointer w-40" style={{ paddingRight: "3.75rem" }} onClick={e => setSolid(!solid)}>
-								{ solid ? "Solid" : "Outline"}
-							</button>
-							<div className="px-6 absolute right-0 inset-y-0 flex flex-row items-center pointer-events-none">
-                {/* <Hero.SwitchHorizontal_md className="w-6 h-6 text-gray-500" /> */}
-                <Hero.SelectorOutlineMd className="w-6 h-6 text-gray-500" />
-							</div>
-						</div>
-
-					</div>
-	 			</div>
-				<div className="mt-6">
-					<IconView icons={icons} solid={solid} />
-				</div>
-
+			<div className="mb-3">
+				<h1 className="text-center font-bold font-sans-round tracking-tighter text-5xl">
+					Heroicons
+				</h1>
 			</div>
-		</div>
+			<div className="my-3">
+				<h2 className="text-center font-medium text-xl -tracking-px leading-relaxed">
+					<a className="text-indigo-500" href="https://github.com/refactoringui/heroicons">Open source icons</a> by{" "}
+					<a className="text-indigo-500" href="https://twitter.com/steveschoger">Steve S<span className="sm:hidden">.</span><span className="hidden sm:inline">choger</span></a> and{" "}
+					<a className="text-indigo-500" href="https://twitter.com/adamwathan">Adam W<span className="sm:hidden">.</span><span className="hidden sm:inline">athan</span></a><br />
+					Viewer by{" "}
+					<a className="text-indigo-500" href="https://twitter.com/username_ZAYDEK">Zaydek M<span className="sm:hidden">.</span><span className="hidden sm:inline">ichels-</span>G<span className="sm:hidden">.</span><span className="hidden sm:inline">ualtieri</span></a>
+					<br />
+					<a className="text-indigo-500" href="https://github.com/codex-src/heroicons-viewer">Contribute</a> on GitHub
+				</h2>
+			</div>
+
+			<div className="-mx-6 mt-12 mb-6 p-6 pb-0 sticky top-0 bg-gray-100 z-40">
+				<div className="relative flex flex-row justify-between items-center">
+
+					{/* LHS: */}
+					<div ref={lhs} className="px-6 z-10 pointer-events-none">
+						<Hero.SearchOutlineMd className="w-6 h-6 text-gray-500" />
+					</div>
+
+					<div className="absolute inset-0">
+						<input ref={ref} className="w-full h-full text-xl bg-white rounded-lg outline-none shadow-hero focus:shadow-outline trans-150" type="text" placeholder="Search 140 icons…" value={value} onKeyDown={handleKeyDown} onChange={e => setValue(e.target.value)} />
+					</div>
+
+					{/* RHS: */}
+					<div ref={rhs} className="relative z-10 rounded-l-none rounded-r-lg">
+						<button className="pl-6 py-4 text-xl bg-transparent rounded-l-none rounded-r-lg focus:outline-none focus:shadow-outline trans-150 cursor-pointer w-40" style={{ paddingRight: "3.75rem" }} onClick={e => setSolid(!solid)}>
+							{ solid ? "Solid" : "Outline"}
+						</button>
+						<div className="px-6 absolute right-0 inset-y-0 flex flex-row items-center pointer-events-none">
+              {/* <Hero.SwitchHorizontal_md className="w-6 h-6 text-gray-500" /> */}
+              <Hero.SelectorOutlineMd className="w-6 h-6 text-gray-500" />
+						</div>
+					</div>
+
+				</div>
+ 			</div>
+			<div className="mt-6">
+				<IconView icons={icons} solid={solid} />
+			</div>
+
+		</Container>
 	)
 }
 
