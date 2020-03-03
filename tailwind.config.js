@@ -33,9 +33,36 @@ module.exports = {
 					0 25px 50px -12px rgba(0, 0, 0, 0.25)
 				`,
 			},
+			colors: {
+				// https://material.io/design/color/the-color-system.html#tools-for-picking-colors
+				"md-blue-50":   { default: "#e3f2fd" },
+				"md-blue-100":  { default: "#bbdefb" },
+				"md-blue-200":  { default: "#90caf9" },
+				"md-blue-300":  { default: "#64b5f6" },
+				"md-blue-400":  { default: "#42a5f5" },
+				"md-blue-500":  { default: "#2196f3" },
+				"md-blue-600":  { default: "#1e88e5" },
+				"md-blue-700":  { default: "#1976d2" },
+				"md-blue-800":  { default: "#1565c0" },
+				"md-blue-900":  { default: "#0d47a1" },
+				"md-blue-a100": { default: "#82b1ff" },
+				"md-blue-a200": { default: "#448aff" },
+				"md-blue-a400": { default: "#2979ff" },
+				"md-blue-a700": { default: "#2962ff" },
+				"md-gray-50":   { default: "#fafafa" },
+				"md-gray-100":  { default: "#f5f5f5" },
+				"md-gray-200":  { default: "#eeeeee" },
+				"md-gray-300":  { default: "#e0e0e0" },
+				"md-gray-400":  { default: "#bdbdbd" },
+				"md-gray-500":  { default: "#9e9e9e" },
+				"md-gray-600":  { default: "#757575" },
+				"md-gray-700":  { default: "#616161" },
+				"md-gray-800":  { default: "#424242" },
+				"md-gray-900":  { default: "#212121" },
+			},
 			fontFamily: {
 				...defaultTheme.fontFamily,
-				"sans-round": "'DM Sans', sans-serif",
+				"dm-sans": "'DM Sans', sans-serif",
 			},
 			letterSpacing: {
 				"-px": "-0.0125em",
@@ -45,22 +72,8 @@ module.exports = {
 			spacing: {
 				"1/1": "100%",
 			},
-			// https://feathericons.com
-			strokeWidth: {
-				hairline:  1,    // 100
-				thin:      1.33, // 200
-				light:     1.67, // 300
-				normal:    2,    // 400
-				medium:    2.33, // 500
-				semibold:  2.67, // 600
-				bold:      3,    // 700
-				extrabold: 3.33, // 800
-				black:     4,    // 900
-			},
 		},
 	},
-	variants: {
-		zIndex: ["hover"],
-	},
+	variants: {},
 	plugins: [],
 }
