@@ -14,7 +14,7 @@ const Container = props => (
 	</div>
 )
 
-// {/* <a className="text-md-blue-a200" href="https://github.com/codex-src/heroicons-viewer">Contribute</a> on GitHub */}
+// {/* <a className="text-indigo-500" href="https://github.com/codex-src/heroicons-viewer">Contribute</a> on GitHub */}
 const App = props => {
 	const ref = React.useRef()
 	const lhs = React.useRef()
@@ -60,35 +60,39 @@ const App = props => {
 			{/* H2 */}
 			<div className="h-3" />
 			<h2 className="text-center font-medium text-xl -tracking-px leading-relaxed text-gray-800">
-				<a className="text-md-blue-a200" href="https://github.com/refactoringui/heroicons">
+				<a className="text-indigo-500" href="https://github.com/refactoringui/heroicons">
 					Free, open source icons
 				</a>{" "}
 				by{" "}
-				<a className="text-md-blue-a200" href="https://twitter.com/steveschoger">
+				<a className="text-indigo-500" href="https://twitter.com/steveschoger">
 					Steve Schoger{" "}
-					<TwitterLogo className="-mt-1 mx-1 inline-block w-5 h-5 text-blue-500" />
+					<TwitterLogo className="-mt-1 mx-1 inline-block w-5 h-5 text-blue-400" />
 				</a>
-				{/* and{" "} */}
-				{/* <a className="text-md-blue-a200" href="https://twitter.com/adamwathan"> */}
-				{/* 	Adam W<span className="sm:hidden">.</span><span className="hidden sm:inline">athan</span>{" "} */}
-				{/* 	<TwitterLogo className="-mt-1 mx-1 inline-block w-5 h-5 text-blue-500" /> */}
-				{/* </a> */}
 				<br />
-				<a className="text-md-blue-a200" href="https://github.com/codex-src/heroicons-viewer">
+				<a className="text-indigo-500" href="https://github.com/codex-src/heroicons-viewer">
 					Web app
 				</a>{" "}
 				by{" "}
-				<a className="text-md-blue-a200" href="https://twitter.com/username_ZAYDEK">
+				<a className="text-indigo-500" href="https://twitter.com/username_ZAYDEK">
 					Zaydek MG{" "}
-					<TwitterLogo className="-mt-1 mx-1 inline-block w-5 h-5 text-blue-500" />
+					<TwitterLogo className="-mt-1 mx-1 inline-block w-5 h-5 text-blue-400" />
 				</a>
 			</h2>
 
+			{/* Buttons */}
 			<div className="h-12" />
 			<div className="flex flex-row justify-center">
-				<button className="px-4 py-3 flex flex-row justify-center items-center rounded-lg shadow-xs">
-					<p className="font-semibold text-lg text-md-blue-a200">
+				<button className="px-6 py-3 bg-indigo-500 rounded-xl shadow">
+					<p className="font-semibold text-lg tracking-px text-white">
 						Download
+						<Hero.DownloadSolidSm className="ml-3 inline-block w-5 h-5" />
+					</p>
+				</button>
+				<div className="w-3 h-3" />
+				<button className="px-6 py-3 bg-white rounded-xl shadow">
+					<p className="font-semibold text-lg tracking-px text-indigo-500">
+						Contribute
+						<GitHubLogo className="ml-3 inline-block w-5 h-5 text-black" />
 					</p>
 				</button>
 			</div>
