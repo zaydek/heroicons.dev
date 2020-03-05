@@ -37,6 +37,6 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Add support for third-party brand icons like Simple Icons
 - [ ] Add offline support
 
-**Contributes are welcome!** Built using Create React App and Tailwind CSS, _of course_. Uses PurgeCSS for production.
+**Contributions are welcome!** Built using Create React App and Tailwind CSS, _of course_. Uses PurgeCSS for production.
 
 [See this issue](https://github.com/refactoringui/heroicons/issues/2#issue-570090097) for more context.
