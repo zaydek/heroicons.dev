@@ -35,7 +35,7 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Create a Figma plugin
 - [ ] Add screenshots to the repo
 - [ ] Add support for third-party brand icons like Simple Icons
-- [ ] Add offline support
+- [ ] Add offline support (possible via Firestore)
 
 **Contributions are welcome!** Built using Create React App and Tailwind CSS, _of course_. Uses PurgeCSS for production.
 
