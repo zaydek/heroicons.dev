@@ -18,7 +18,7 @@ const IconSurface = ({ outline: Outline, solid: Solid, ...props }) => {
 			try {
 				await navigator.clipboard.writeText(outerHTML)
 			} catch (error) {
-				console.warn({ error })
+				console.error(error)
 				return // Eager return
 			}
 		}

@@ -53,8 +53,10 @@ const App = props => {
 				<div className="flex flex-row justify-center">
 					<h1 className="relative font-dm-sans font-bold text-5xl tracking-tighter leading-none dark:text-white trans-150">
 						Heroicons
-						<div className="-mb-4 absolute left-full bottom-full">
-							<DarkModeIcon className="w-6 h-6 cursor-pointer dark:text-white trans-150" onClick={e => setDarkMode(!darkMode)} />
+						<div className="-mb-6 absolute left-full bottom-full">
+							<button onPointerDown={e => e.preventDefault()} onClick={e => setDarkMode(!darkMode)}>
+								<DarkModeIcon className="w-6 h-6" />
+							</button>
 						</div>
 					</h1>
 				</div>
