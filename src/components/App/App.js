@@ -4,6 +4,8 @@ import originalIcons from "./helpers/icons"
 import React from "react"
 import Search from "./Search"
 import useDarkMode from "hooks/useDarkMode"
+import { ReactComponent as GitHubLogo } from "svg/github.svg"
+import { ReactComponent as FigmaLogo } from "svg/figma.svg"
 
 // document.body.classList.add("debug-css")
 
@@ -86,24 +88,31 @@ const App = props => {
 				</h2>
 
 				{/* Buttons */}
-				{/* <div className="h-12" /> */}
-				{/* <div className="flex flex-row justify-center"> */}
-				{/* 	<button className="px-6 py-4 bg-white rounded-lg-xl shadow"> */}
-				{/* 		<p className="font-semibold text-lg text-indigo-500"> */}
-				{/* 			Get the icons! */}
-				{/* 		</p> */}
-				{/* 	</button> */}
-				{/* 	<div className="w-3" /> */}
-				{/* 	<button className="px-6 py-4 bg-white rounded-lg-xl shadow"> */}
-				{/* 		<p className="font-semibold text-lg text-indigo-500"> */}
-				{/* 			Contribute */}
-				{/* 			<GitHubLogo className="ml-3 inline-block w-5 h-5 text-black" /> */}
-				{/* 		</p> */}
-				{/* 	</button> */}
-				{/* </div> */}
+				<div className="h-12" />
+				<div className="flex flex-col xs:flex-row justify-center">
+					{/* <button className="px-6 py-4 dark:text-white bg-white dark:bg-gray-800 rounded-lg-xl shadow"> */}
+					{/* 	<p className="font-semibold text-lg"> */}
+					{/* 		Get the icons! */}
+					{/* 	</p> */}
+					{/* </button> */}
+					{/* <div className="w-3" /> */}
+					<a className="px-6 py-4 text-gray-800 dark:text-white bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg-xl shadow hover:shadow-md trans-300" href="https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-2abb814">
+						<p className="text-center sm:text-left font-medium text-lg">
+							Open in Figma
+							<FigmaLogo className="ml-3 -mt-1 inline-block w-5 h-5" />
+						</p>
+					</a>
+					<div className="w-3 h-3" />
+					<a className="px-6 py-4 text-gray-800 dark:text-white bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg-xl shadow hover:shadow-md trans-300" href="https://github.com/refactoringui/heroicons">
+						<p className="text-center sm:text-left font-medium text-lg">
+							Open in GitHub
+							<GitHubLogo className="ml-3 -mt-1 inline-block w-5 h-5" />
+						</p>
+					</a>
+				</div>
 
 				{/* Search, etc. */}
-				<div className="h-12" />
+				<div className="h-6" />
 				<Search query={query} setQuery={setQuery} solid={solid} setSolid={setSolid} />
 				<div className="h-6" />
 				<IconGrid solid={solid} icons={icons} />
