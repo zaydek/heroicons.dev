@@ -22,7 +22,7 @@ function useDarkMode() {
 	}, [])
 
 	// Update body.dark-mode:
-	React.useEffect(() => {
+	React.useLayoutEffect(() => {
 		if (!darkMode) {
 			document.body.classList.remove("dark-mode")
 		} else {
