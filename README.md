@@ -10,19 +10,14 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Advanced search based on tags/concepts
 - [x] Click to copy to the clipboard
 - [x] Responsive
-- [ ] Dark mode
+- [x] Dark mode
 - [x] Support for solid icons
-- [ ] Remove warning symbol for solid icons
 - [ ] Cypress-based e2e tests
   - [x] https://github.com/codex-src/heroicons-viewer-cypress
-- [ ] Buttons to download source/repos (include star for repo)
+- [x] Buttons to download source/repos
 - [ ] Code documentation
 - [ ] Toggle copy to clipboard OR download (like Feather icons)
 - [x] Social tags/image
-- [ ] Tooltip for corrupted icons/link to original issue
-- [ ] Swap or polyfill corrupted icons with historal repo (temporary fix)
-  - [x] Fixed `moon` in the reference Figma file
-  - [x] Fixed `currency-dollar` in the reference Figma file
 - [ ] Size options
 - [ ] Colors options
 - [ ] Add tooltip UI to explain copy to clipboard
@@ -30,7 +25,7 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Preview templates (like FontAwesome)
 - [ ] Suggest an icon/feature
 - [ ] Monetize with Carbon Ads
-- [ ] Embed a Figma mockup to work off of
+- [x] Embed a Figma mockup to work off of
   - [x] Created a reference Figma file: https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-(2abb814)
 - [ ] Create a Figma plugin
 - [ ] Add screenshots to the repo
