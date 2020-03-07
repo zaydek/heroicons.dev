@@ -3,7 +3,7 @@
 👉 https://heroicons.dev<br>
 👉 https://github.com/refactoringui/heroicons
 
-This is a WIP frontend for the newly released [Heroicons iconset](https://github.com/refactoringui/heroicons) by RefactoringUI/Adam Wathan/Steve Schoger.
+This is a WIP frontend for the newly released [Heroicons iconset](https://github.com/refactoringui/heroicons) by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](https://twitter.com/adamwathan).
 
 - [x] Custom domain (https://heroicons.dev)
 - [x] Search
