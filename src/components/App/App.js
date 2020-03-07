@@ -1,5 +1,4 @@
 import * as constants from "__constants"
-import * as Hero from "components/Heroicons"
 import DarkModeIcon from "./DarkModeIcon"
 import firebase from "__firebase"
 import IconGrid from "./IconGrid"
@@ -64,7 +63,7 @@ const App = props => {
 	}, [query])
 
 	return (
-		<div className="py-40 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900 trans-150">
+		<div className="py-32 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900 trans-150">
 			<div className="px-6 w-full max-w-screen-lg">
 
 				{/* H1 */}
