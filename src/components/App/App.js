@@ -68,7 +68,7 @@ const App = props => {
 
 				{/* H1 */}
 				<div className="flex flex-row justify-center">
-					<h1 className="relative font-dm-sans font-bold text-5xl tracking-tighter leading-none dark:text-white trans-150">
+					<h1 className="relative font-dm-sans font-bold  text-5xl tracking-tighter leading-none text-black dark:text-white trans-150">
 						Heroicons
 						<div className="-mb-6 absolute left-full bottom-full">
 							<button
@@ -86,7 +86,7 @@ const App = props => {
 
 				{/* H2 */}
 				<div className="h-3" />
-				<h2 className="-mx-px text-center font-medium text-xl -tracking-px leading-relaxed text-gray-800 dark:text-white trans-150">
+				<h2 className="-mx-px text-center font-medium text-xl -tracking-px leading-relaxed text-gray-800 dark:text-gray-100 trans-150">
 					<a className="mx-px text-indigo-500" href="https://github.com/refactoringui/heroicons" onClick={e => ga.logEvent(constants.GA_GITHUB_HEROICONS)}>
 						Open source icons
 					</a>{" "}
@@ -115,16 +115,16 @@ const App = props => {
 				{/* Buttons */}
 				<div className="h-12" />
 				<div className="flex flex-col xs:flex-row justify-center">
-					<a className="px-6 py-4 text-gray-800 dark:text-white bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline trans-150" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-2abb814" onClick={e => ga.logEvent(constants.GA_FIGMA)}>
+					<a className="px-6 py-4 text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline trans-150" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-2abb814" onClick={e => ga.logEvent(constants.GA_FIGMA)}>
 						<p className="text-center sm:text-left font-medium text-lg">
-							Open in Figma
+							Open Figma
 							<FigmaLogo className="ml-3 -mt-1 inline-block w-5 h-5" />
 						</p>
 					</a>
 					<div className="w-3 h-3" />
-					<a className="px-6 py-4 text-gray-800 dark:text-white bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline trans-150" href="https://github.com/refactoringui/heroicons" onClick={e => ga.logEvent(constants.GA_GITHUB_HEROICONS)}>
+					<a className="px-6 py-4 text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline trans-150" href="https://github.com/refactoringui/heroicons" onClick={e => ga.logEvent(constants.GA_GITHUB_HEROICONS)}>
 						<p className="text-center sm:text-left font-medium text-lg">
-							Open in GitHub
+							Open GitHub
 							<GitHubLogo className="ml-3 -mt-1 inline-block w-5 h-5" />
 						</p>
 					</a>

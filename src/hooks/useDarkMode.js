@@ -14,7 +14,7 @@ function useDarkMode() {
 		const handler = () => {
 			setDarkMode(media.matches)
 		}
-		handler()
+		handler() // Once
 		media.addListener(handler)
 		return () => {
 			media.removeListener(handler)

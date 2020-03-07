@@ -1,15 +1,6 @@
 import copyToClipboard from "./helpers/copyToClipboard"
+import Icon from "./Icon"
 import React from "react"
-
-const Icon = React.forwardRef(({ prefersSolid, outline, solid, ...props }, ref) => {
-	let Component = null
-	if (prefersSolid) {
-		Component = outline
-	} else {
-		Component = solid
-	}
-	return <Component ref={ref} {...props} />
-})
 
 const IconSurface = props => {
 	const ref = React.useRef()
