@@ -102,36 +102,36 @@ module.exports = {
 	// https://tailwindcss.com/docs/configuring-variants/#default-variants-reference
 	variants: {
 		textColor: [
+			"dark",          // Added - dark mode
 			"responsive",
 			"hover",
 			"focus",
 			"active",        // Added
 			"disabled",      // Added
-			"dark",          // Added - dark mode
 			"dark:hover",    // Added - dark mode
 			"dark:focus",    // Added - dark mode
 			"dark:active",   // Added - dark mode
 			"dark:disabled", // Added - dark mode
 		],
 		backgroundColor: [
+			"dark",          // Added - dark mode
 			"responsive",
 			"hover",
 			"focus",
 			"active",        // Added
 			"disabled",      // Added
-			"dark",          // Added - dark mode
 			"dark:hover",    // Added - dark mode
 			"dark:focus",    // Added - dark mode
 			"dark:active",   // Added - dark mode
 			"dark:disabled", // Added - dark mode
 		],
 		boxShadow: [
+			"dark",          // Added - dark mode
 			"responsive",
 			"hover",
 			"focus",
 			"active",        // Added
 			"disabled",      // Added
-			"dark",          // Added - dark mode
 			"dark:hover",    // Added - dark mode
 			"dark:focus",    // Added - dark mode
 			"dark:active",   // Added - dark mode

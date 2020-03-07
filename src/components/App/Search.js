@@ -64,20 +64,20 @@ const Search = ({ query, setQuery, solid, setSolid, ...props }) => {
 
 	return (
 		<div className="sticky top-0 z-40">
-			<div className="-mx-2 -mb-8 px-2 bg-gray-100" style={{ height: "calc((6 + 8) * 0.25rem)" }} />
+			<div className="-mx-2 -mb-8 px-2 bg-gray-100 dark:bg-gray-900" style={{ height: "calc((6 + 8) * 0.25rem)" }} />
 			{/* NOTE: Do not use text-gray-800 */}
 			<div className="relative flex flex-row justify-between h-16 text-xl">
 
 				{/* Start */}
 				<div ref={lhs} className="px-6 flex flex-row items-center rounded-l-lg-xl focus:outline-none z-10 pointer-events-none">
-					<Hero.SearchOutlineMd className="-mr-2 w-6 h-6 text-gray-400" />
+					<Hero.SearchOutlineMd className="-mr-2 w-6 h-6 text-gray-400 dark:text-gray-600" />
 				</div>
 
 				{/* Search bar */}
 				<div className="absolute inset-0">
 					<input
 						ref={ref}
-						className="w-full h-full bg-white rounded-lg-xl outline-none shadow focus:shadow-outline trans-150"
+						className="w-full h-full dark:text-gray-200 bg-white dark:bg-gray-800 rounded-lg-xl outline-none shadow focus:shadow-outline trans-150"
 						type="text"
 						placeholder={placeholder}
 						value={query}
@@ -88,14 +88,14 @@ const Search = ({ query, setQuery, solid, setSolid, ...props }) => {
 
 				{/* End */}
 				<button ref={rhs} className="px-6 flex flex-row items-center rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10" onClick={e => setSolid(!solid)}>
-					<p className="w-16 text-center">
+					<p className="w-16 text-center dark:text-gray-200">
 						{!solid ? (
 							"Outline"
 						) : (
 							"Solid"
 						)}
 					</p>
-					<Hero.SwitchVerticalOutlineMd className="ml-4 w-6 h-6 text-gray-400" />
+					<Hero.SwitchVerticalOutlineMd className="ml-4 w-6 h-6 text-gray-400 dark:text-gray-600" />
 				</button>
 
 			</div>
