@@ -91,7 +91,7 @@ const Search = ({ query, setQuery, solid, setSolid, ...props }) => {
 				{/* End */}
 				<button ref={rhs} className="px-6 flex flex-row items-center rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10 trans-150" onPointerDown={e => e.preventDefault()} onClick={e => setSolid(!solid)}>
 					<p className="w-16 text-center text-gray-800 dark:text-gray-200 trans-150">
-						{!solid ? "Outline" : "Solid"}
+						{!solid ? "Solid" : "Outline"}
 					</p>
 					<Hero.SwitchVerticalOutlineMd className="ml-4 w-6 h-6 text-gray-400 dark:text-gray-600 trans-150" />
 				</button>
