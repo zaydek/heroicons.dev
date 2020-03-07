@@ -81,6 +81,7 @@ module.exports = {
 				"1/1": "100%",
 			},
 		},
+		// https://tailwindcss.com/docs/breakpoints
 		screens: {
 			xs: `${512 + 24 + 24}px`,
 			// => @media (min+width: 560px) { ... }
@@ -98,6 +99,75 @@ module.exports = {
 			// => @media (min-width: 1328px) { ... }
 		},
 	},
-	variants: {},
-	plugins: [],
+	// https://tailwindcss.com/docs/configuring-variants/#default-variants-reference
+	variants: {
+		textColor: [
+			"responsive",
+			"hover",
+			"focus",
+			"active",        // Added
+			"disabled",      // Added
+			"dark",          // Added - dark mode
+			"dark:hover",    // Added - dark mode
+			"dark:focus",    // Added - dark mode
+			"dark:active",   // Added - dark mode
+			"dark:disabled", // Added - dark mode
+		],
+		backgroundColor: [
+			"responsive",
+			"hover",
+			"focus",
+			"active",        // Added
+			"disabled",      // Added
+			"dark",          // Added - dark mode
+			"dark:hover",    // Added - dark mode
+			"dark:focus",    // Added - dark mode
+			"dark:active",   // Added - dark mode
+			"dark:disabled", // Added - dark mode
+		],
+		boxShadow: [
+			"responsive",
+			"hover",
+			"focus",
+			"active",        // Added
+			"disabled",      // Added
+			"dark",          // Added - dark mode
+			"dark:hover",    // Added - dark mode
+			"dark:focus",    // Added - dark mode
+			"dark:active",   // Added - dark mode
+			"dark:disabled", // Added - dark mode
+		],
+	},
+	plugins: [
+		// https://github.com/danestves/tailwindcss-darkmode
+		((flag = "dark-mode", prefix = "dark") => {
+			return ({ addVariant, e }) => {
+				addVariant(prefix, ({ modifySelectors, separator }) => {
+					modifySelectors(({ className }) => {
+						return `.${flag} .${e(`${prefix}${separator}${className}`)}`
+					})
+				})
+				addVariant(`${prefix}:hover`, ({ modifySelectors, separator }) => {
+					modifySelectors(({ className }) => {
+						return `.${flag} .${e(`${prefix}:hover${separator}${className}`)}:hover`
+					})
+				})
+				addVariant(`${prefix}:focus`, ({ modifySelectors, separator }) => {
+					modifySelectors(({ className }) => {
+						return `.${flag} .${e(`${prefix}:focus${separator}${className}`)}:focus`
+					})
+				})
+				addVariant(`${prefix}:active`, ({ modifySelectors, separator }) => {
+					modifySelectors(({ className }) => {
+						return `.${flag} .${e(`${prefix}:active${separator}${className}`)}:active`
+					})
+				})
+				addVariant(`${prefix}:disabled`, ({ modifySelectors, separator }) => {
+					modifySelectors(({ className }) => {
+						return `.${flag} .${e(`${prefix}:disabled${separator}${className}`)}:disabled`
+					})
+				})
+			}
+		})(),
+	],
 }

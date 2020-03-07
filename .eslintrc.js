@@ -15,7 +15,7 @@ module.exports = {
 		"array-bracket-newline":            1, // enforce linebreaks after opening and before closing array brackets
 		"array-bracket-spacing":            1, // enforce consistent spacing inside array brackets
 		"array-element-newline":            [1, "consistent"], // enforce line breaks after each array element
-		"arrow-body-style":                 1, // require braces around arrow function bodies
+		"arrow-body-style":                 0, // require braces around arrow function bodies
 		"arrow-parens":                     [1, "as-needed"], // require parentheses around arrow function arguments
 		"arrow-spacing":                    1, // enforce consistent spacing before and after the arrow in arrow functions
 		"block-spacing":                    0, // disallow or enforce spaces inside of blocks after opening block and before closing block
@@ -115,4 +115,3 @@ module.exports = {
 		"no-nested-ternary":                2, // disallow nested ternary expressions
 	},
 }
-
