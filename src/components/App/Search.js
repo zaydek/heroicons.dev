@@ -4,7 +4,7 @@ import React from "react"
 
 const COUNT = originalIcons.length
 
-const Search = ({ value, setValue, solid, setSolid, ...props }) => {
+const Search = ({ query, setQuery, solid, setSolid, ...props }) => {
 	const ref = React.useRef() // Search bar
 	const lhs = React.useRef() // Start of search bar
 	const rhs = React.useRef() // End of search bar
@@ -59,7 +59,7 @@ const Search = ({ value, setValue, solid, setSolid, ...props }) => {
 			// No-op
 			return
 		}
-		setValue("") // Reset
+		setQuery("") // Reset
 	}
 
 	return (
@@ -80,9 +80,9 @@ const Search = ({ value, setValue, solid, setSolid, ...props }) => {
 						className="w-full h-full bg-white rounded-lg-xl outline-none shadow focus:shadow-outline trans-150"
 						type="text"
 						placeholder={placeholder}
-						value={value}
+						value={query}
 						onKeyDown={handleKeyDown}
-						onChange={e => setValue(e.target.value)}
+						onChange={e => setQuery(e.target.value)}
 					/>
 				</div>
 

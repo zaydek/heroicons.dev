@@ -13,23 +13,47 @@ const Container = props => (
 	</div>
 )
 
-const App = props => {
-	// const [prefersSolid, setPrefersSolid] = React.useState(false)
+function useDarkMode() {
+	const [darkMode, setDarkMode] = React.useState(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches)
 
-	const [value, setValue] = React.useState("")
+	// Listen for dark mode:
+	//
+	// TODO: Refactor to useDarkMode
+	React.useEffect(() => {
+		if (!window.matchMedia) {
+			// No-op
+			return
+		}
+		const media = window.matchMedia("(prefers-color-scheme: dark)")
+		const handler = () => {
+			setDarkMode(media.matches)
+		}
+		handler()
+		media.addListener(handler)
+		return () => {
+			media.removeListener(handler)
+		}
+	}, [])
+
+	return [darkMode, setDarkMode]
+}
+
+const App = props => {
+	const [query, setQuery] = React.useState("")
 	const [solid, setSolid] = React.useState(false)
 	const [icons, setIcons] = React.useState(originalIcons)
 
+	// Query:
 	React.useEffect(() => {
 		const id = setTimeout(() => {
-			const query = value.toLowerCase()
-			const filteredIcons = originalIcons.filter(each => each.name.includes(query))
+			const search = query.toLowerCase()
+			const filteredIcons = originalIcons.filter(each => each.name.includes(search))
 			setIcons(filteredIcons)
 		}, 25)
 		return () => {
 			clearTimeout(id)
 		}
-	}, [value])
+	}, [query])
 
 	return (
 		<Container>
@@ -86,7 +110,7 @@ const App = props => {
 
 			{/* Search, etc. */}
 			<div className="h-12" />
-			<Search value={value} setValue={setValue} solid={solid} setSolid={setSolid} />
+			<Search query={query} setQuery={setQuery} solid={solid} setSolid={setSolid} />
 			<div className="h-6" />
 			<IconGrid solid={solid} icons={icons} />
 
