@@ -1,8 +1,9 @@
+import * as Hero from "components/Heroicons"
 import IconGrid from "./IconGrid"
 import originalIcons from "./helpers/icons"
-import useDarkMode from "hooks/useDarkMode"
 import React from "react"
 import Search from "./Search"
+import useDarkMode from "hooks/useDarkMode"
 
 // document.body.classList.add("debug-css")
 
@@ -13,7 +14,7 @@ const App = props => {
 	const [solid, setSolid] = React.useState(false)
 	const [icons, setIcons] = React.useState(originalIcons)
 
-	// Dark mode overflow:
+	// Background overflow:
 	React.useEffect(() => {
 		if (!darkMode) {
 			// bg-gray-100
@@ -24,26 +25,35 @@ const App = props => {
 		}
 	}, [darkMode])
 
-	// Query:
+	// Debounce query (25ms):
 	React.useEffect(() => {
 		const id = setTimeout(() => {
 			const queryLower = query.toLowerCase()
-			const filteredIcons = originalIcons.filter(each => each.name.includes(queryLower))
-			setIcons(filteredIcons)
+			const subset = originalIcons.filter(each => each.name.includes(queryLower))
+			setIcons(subset)
 		}, 25)
 		return () => {
 			clearTimeout(id)
 		}
 	}, [query])
 
+	let DarkModeIcon = null
+	if (!darkMode) {
+		DarkModeIcon = Hero.SunSolidSm
+	} else {
+		DarkModeIcon = Hero.SunOutlineMd
+	}
 	return (
 		<div className="py-32 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900">
 			<div className="px-6 w-full max-w-screen-lg">
 
 				{/* H1 */}
-				<h1 className="text-center font-dm-sans font-bold text-5xl tracking-tighter dark:text-white">
-					Heroicons
-				</h1>
+				<div className="flex flex-row justify-center">
+					<h1 className="!text-center font-dm-sans font-bold text-5xl tracking-tighter dark:text-white">
+						Heroicons
+					</h1>
+					<DarkModeIcon className="w-6 h-6 cursor-pointer dark:text-white" onClick={e => setDarkMode(!darkMode)} />
+				</div>
 
 				{/* H2 */}
 				<div className="h-3" />

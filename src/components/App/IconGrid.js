@@ -32,7 +32,6 @@ const IconSurface = ({ outline: Outline, solid: Solid, ...props }) => {
 	return (
 		<div className="pb-1/1 relative">
 			<div className="absolute inset-0">
-				{/* NOTE: Use w/h-full because of button */}
 				<button className="flex flex-row justify-center items-center w-full h-full text-gray-800 dark:text-white hover:text-white bg-white dark:bg-gray-800 hover:bg-indigo-500 focus:bg-indigo-500 rounded-lg-xl focus:outline-none shadow trans-150" onPointerDown={e => e.preventDefault()} onClick={handleClick}>
 					<Icon ref={ref} className="w-8 h-8" />
 					<div className="m-3 absolute inset-x-0 bottom-0">
