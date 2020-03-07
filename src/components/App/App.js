@@ -44,15 +44,17 @@ const App = props => {
 		DarkModeIcon = Hero.SunOutlineMd
 	}
 	return (
-		<div className="py-32 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900">
+		<div className="py-40 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900">
 			<div className="px-6 w-full max-w-screen-lg">
 
 				{/* H1 */}
 				<div className="flex flex-row justify-center">
-					<h1 className="!text-center font-dm-sans font-bold text-5xl tracking-tighter dark:text-white">
+					<h1 className="relative font-dm-sans font-bold text-5xl tracking-tighter leading-none dark:text-white">
 						Heroicons
+						<div className="-mb-4 absolute left-full bottom-full">
+							<DarkModeIcon className="w-6 h-6 cursor-pointer dark:text-white" onClick={e => setDarkMode(!darkMode)} />
+						</div>
 					</h1>
-					<DarkModeIcon className="w-6 h-6 cursor-pointer dark:text-white" onClick={e => setDarkMode(!darkMode)} />
 				</div>
 
 				{/* H2 */}

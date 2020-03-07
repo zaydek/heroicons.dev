@@ -72,6 +72,10 @@ module.exports = {
 				"dm-sans": "'DM Sans', sans-serif",
 				"ibm-plex-mono": "'IBM Plex Mono', monospace",
 			},
+			inset: {
+				"1/2":  "50%",
+				"full": "100%",
+			},
 			letterSpacing: {
 				"-px": "-0.0125em",
 				"px":  "0.0125em",
