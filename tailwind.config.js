@@ -106,69 +106,68 @@ module.exports = {
 	// https://tailwindcss.com/docs/configuring-variants/#default-variants-reference
 	variants: {
 		textColor: [
-			"dark",          // Added - dark mode
-			"responsive",
+			"dark",
+			// "responsive",
 			"hover",
+			"hover:dark",
 			"focus",
-			"active",        // Added
-			"disabled",      // Added
-			"dark:hover",    // Added - dark mode
-			"dark:focus",    // Added - dark mode
-			"dark:active",   // Added - dark mode
-			"dark:disabled", // Added - dark mode
+			"focus:dark",
+			"active",
+			"active:dark",
+			"disabled",
+			"disabled:dark",
 		],
 		backgroundColor: [
-			"dark",          // Added - dark mode
-			"responsive",
+			"dark",
+			// "responsive",
 			"hover",
+			"hover:dark",
 			"focus",
-			"active",        // Added
-			"disabled",      // Added
-			"dark:hover",    // Added - dark mode
-			"dark:focus",    // Added - dark mode
-			"dark:active",   // Added - dark mode
-			"dark:disabled", // Added - dark mode
+			"focus:dark",
+			"active",
+			"active:dark",
+			"disabled",
+			"disabled:dark",
 		],
 		boxShadow: [
-			"dark",          // Added - dark mode
-			"responsive",
+			"dark",
+			// "responsive",
 			"hover",
+			"hover:dark",
 			"focus",
-			"active",        // Added
-			"disabled",      // Added
-			"dark:hover",    // Added - dark mode
-			"dark:focus",    // Added - dark mode
-			"dark:active",   // Added - dark mode
-			"dark:disabled", // Added - dark mode
+			"focus:dark",
+			"active",
+			"active:dark",
+			"disabled",
+			"disabled:dark",
 		],
 	},
 	plugins: [
-		// https://github.com/danestves/tailwindcss-darkmode
 		((flag = "dark-mode", prefix = "dark") => {
 			return ({ addVariant, e }) => {
-				addVariant(prefix, ({ modifySelectors, separator }) => {
+				addVariant(prefix, ({ modifySelectors }) => {
 					modifySelectors(({ className }) => {
-						return `.${flag} .${e(`${prefix}${separator}${className}`)}`
+						return `.${flag} .${e(`${prefix}:${className}`)}`
 					})
 				})
-				addVariant(`${prefix}:hover`, ({ modifySelectors, separator }) => {
+				addVariant(`hover:${prefix}`, ({ modifySelectors }) => {
 					modifySelectors(({ className }) => {
-						return `.${flag} .${e(`${prefix}:hover${separator}${className}`)}:hover`
+						return `.${flag} .${e(`hover:${prefix}:${className}`)}:hover`
 					})
 				})
-				addVariant(`${prefix}:focus`, ({ modifySelectors, separator }) => {
+				addVariant(`focus:${prefix}`, ({ modifySelectors }) => {
 					modifySelectors(({ className }) => {
-						return `.${flag} .${e(`${prefix}:focus${separator}${className}`)}:focus`
+						return `.${flag} .${e(`focus:${prefix}:${className}`)}:focus`
 					})
 				})
-				addVariant(`${prefix}:active`, ({ modifySelectors, separator }) => {
+				addVariant(`active:${prefix}`, ({ modifySelectors }) => {
 					modifySelectors(({ className }) => {
-						return `.${flag} .${e(`${prefix}:active${separator}${className}`)}:active`
+						return `.${flag} .${e(`active:${prefix}:${className}`)}:active`
 					})
 				})
-				addVariant(`${prefix}:disabled`, ({ modifySelectors, separator }) => {
+				addVariant(`disabled:${prefix}`, ({ modifySelectors }) => {
 					modifySelectors(({ className }) => {
-						return `.${flag} .${e(`${prefix}:disabled${separator}${className}`)}:disabled`
+						return `.${flag} .${e(`disabled:${prefix}:${className}`)}:disabled`
 					})
 				})
 			}
