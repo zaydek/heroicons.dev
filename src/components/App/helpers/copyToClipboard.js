@@ -5,14 +5,13 @@ function testIOS() {
 // https://github.com/codex-src/heroicons-viewer/pull/4
 function copyToClipboard(data) {
 	const textarea = document.createElement("textarea")
-	textarea.style.position = "absolute" // eslint-disable-line no-multi-spaces
-	textarea.style.left     = "-9999px"  // eslint-disable-line no-multi-spaces
-	textarea.style.top      = "-9999px"  // eslint-disable-line no-multi-spaces
-	textarea.value          = data       // eslint-disable-line no-multi-spaces
+	textarea.style.position = "absolute"
+	textarea.style.left = "-9999px"
+	textarea.style.top = "-9999px"
+	textarea.value = data
 	document.body.appendChild(textarea)
 	const selection = document.getSelection()
 	if (testIOS()) {
-		// const selection = document.getSelection()
 		const range = document.createRange()
 		range.selectNodeContents(textarea)
 		selection.removeAllRanges()

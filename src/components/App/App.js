@@ -70,7 +70,7 @@ const App = props => {
 				<div className="flex flex-row justify-center">
 					<h1 className="relative font-dm-sans font-bold  text-5xl tracking-tighter leading-none text-black dark:text-white trans-150">
 						Heroicons
-						<div className="-mb-6 absolute left-full bottom-full">
+						<div className="-mb-8 absolute left-full bottom-full">
 							<button
 								onPointerDown={e => e.preventDefault()}
 								onClick={e => {
@@ -78,7 +78,7 @@ const App = props => {
 									ga.logEvent(constants.GA_DARK_MODE)
 								}}
 							>
-								<DarkModeIcon className="w-6 h-6" darkMode={darkMode} />
+								<DarkModeIcon className="p-px w-8 h-8" darkMode={darkMode} />
 							</button>
 						</div>
 					</h1>
@@ -117,15 +117,15 @@ const App = props => {
 				<div className="flex flex-col xs:flex-row justify-center">
 					<a className="px-6 py-4 text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline trans-150" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-2abb814" onClick={e => ga.logEvent(constants.GA_FIGMA)}>
 						<p className="text-center sm:text-left font-medium text-lg">
-							Open Figma
-							<FigmaLogo className="ml-3 -mt-1 inline-block w-5 h-5" />
+							Open in Figma
+							<FigmaLogo className="ml-3 -mt-1 inline-block w-6 h-6" />
 						</p>
 					</a>
 					<div className="w-3 h-3" />
 					<a className="px-6 py-4 text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline trans-150" href="https://github.com/refactoringui/heroicons" onClick={e => ga.logEvent(constants.GA_GITHUB_HEROICONS)}>
 						<p className="text-center sm:text-left font-medium text-lg">
-							Open GitHub
-							<GitHubLogo className="ml-3 -mt-1 inline-block w-5 h-5" />
+							Open in GitHub
+							<GitHubLogo className="ml-3 -mt-1 inline-block w-6 h-6 text-black dark:text-white trans-150" />
 						</p>
 					</a>
 				</div>
