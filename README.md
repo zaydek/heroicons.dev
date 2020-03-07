@@ -11,6 +11,7 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [x] Click to copy to the clipboard
 - [x] Responsive
 - [x] Dark mode
+  - [ ] Initialize outline icons for light mode, solid icons for dark mode
 - [x] Support for solid icons
 - [ ] Cypress-based e2e tests
   - [x] https://github.com/codex-src/heroicons-viewer-cypress
