@@ -21,6 +21,8 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [x] Social tags/image
 - [ ] Size options
 - [ ] Colors options
+- [ ] Remember the search query
+	- [ ] E.g. https://feathericons.com/?query=layers
 - [ ] Add tooltip UI to explain copy to clipboard
 - [ ] Icon catagories
 - [ ] Preview templates (like FontAwesome)
