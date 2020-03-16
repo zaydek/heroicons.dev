@@ -3,7 +3,7 @@
 👉 https://heroicons.dev<br>
 👉 https://github.com/refactoringui/heroicons
 
-_Need React-ready Heroicons? You can use this library we also developed: https://github.com/codex-src/react-heroicons._
+_Need React-ready Heroicons? You can use this library I also developed: https://github.com/codex-src/react-heroicons._
 
 This is a WIP frontend for the newly released [Heroicons iconset](https://github.com/refactoringui/heroicons) by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](https://twitter.com/adamwathan).
 
