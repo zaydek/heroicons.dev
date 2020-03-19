@@ -1,8 +1,8 @@
 import copyToClipboard from "./helpers/copyToClipboard"
-import Icon from "./Icon"
+import Icon from "components/Icon"
 import React from "react"
 
-const IconSurface = props => {
+const IconCard = ({ prefersSolid, outline, solid, ...props }) => {
 	const ref = React.useRef()
 
 	const [text, setText] = React.useState(props.name)
@@ -36,9 +36,7 @@ const IconSurface = props => {
 					<Icon
 						ref={ref}
 						className="w-8 h-8"
-						prefersSolid={props.prefersSolid}
-						outline={props.outline}
-						solid={props.solid}
+						svg={!prefersSolid ? outline : solid}
 					/>
 					<div className="m-3 absolute inset-x-0 bottom-0">
 						<p className="text-center font-ibm-plex-mono font-semibold text-sm leading-snug">
@@ -51,13 +49,15 @@ const IconSurface = props => {
 	)
 }
 
-const IconGrid = React.memo(props => (
-	<div style={{ minHeight: "calc(100vh - 8rem - 5.5rem - 1.5rem)" /* py-32 - <Search> - h-6 */ }}>
+const IconGrid = React.memo(({ icons, solid, ...props }) => (
+	<div style={{ minHeight: "calc(100vh - 6rem - 5.5rem - 1.5rem)" /* 100vh - py-20 - <Search> - h-6 */ }}>
 		<div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
-			{props.icons.map(each => (
-				<IconSurface
+			{icons.map(each => (
+				// NOTE: Alias solid to prefersSolid because so as
+				// to not interfere with solid (icon)
+				<IconCard
 					key={each.name}
-					prefersSolid={props.solid}
+					prefersSolid={solid}
 					{...each}
 				/>
 			))}

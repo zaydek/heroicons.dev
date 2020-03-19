@@ -1,4 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme")
+const plugin = require("tailwindcss/plugin")
 
 module.exports = {
 	theme: {
@@ -143,7 +144,7 @@ module.exports = {
 		],
 	},
 	plugins: [
-		((flag = "dark-mode", prefix = "dark") => {
+		plugin(((flag = "dark-mode", prefix = "dark") => {
 			return ({ addVariant, e }) => {
 				addVariant(prefix, ({ modifySelectors }) => {
 					modifySelectors(({ className }) => {
@@ -171,6 +172,6 @@ module.exports = {
 					})
 				})
 			}
-		})(),
+		})()),
 	],
 }

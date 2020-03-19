@@ -1,23 +1,25 @@
 import * as constants from "__constants"
-import DarkModeIcon from "./DarkModeIcon"
+import * as Hero from "react-heroicons"
+import * as Icons from "svgs"
 import firebase from "__firebase"
+import Icon from "components/Icon"
 import IconGrid from "./IconGrid"
 import originalIcons from "./helpers/icons"
 import React from "react"
 import Search from "./Search"
 import useDarkMode from "hooks/useDarkMode"
-import { ReactComponent as FigmaLogo } from "svg/figma.svg"
-import { ReactComponent as GitHubLogo } from "svg/github.svg"
 
 const ga = firebase.analytics()
 
-// document.body.classList.add("debug-css")
+const DarkModeIcon = ({ darkMode, ...props }) => (
+	<Icon svg={!darkMode ? Hero.SunOutlineMd : Hero.SunSolidSm} {...props} />
+)
 
 const App = props => {
 	const [darkMode, setDarkMode] = useDarkMode()
 
 	const [query, setQuery] = React.useState("")
-	const [solid, setSolid] = React.useState(false)
+	const [solid, setSolid] = React.useState(darkMode)
 	const [icons, setIcons] = React.useState(originalIcons)
 
 	React.useEffect(
@@ -63,7 +65,7 @@ const App = props => {
 	}, [query])
 
 	return (
-		<div className="py-32 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900 trans-150">
+		<div className="py-24 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900 trans-150">
 			<div className="px-6 w-full max-w-screen-lg">
 
 				{/* H1 */}
@@ -118,14 +120,14 @@ const App = props => {
 					<a className="px-6 py-4 text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline trans-150" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-2abb814" onClick={e => ga.logEvent(constants.GA_FIGMA)}>
 						<p className="text-center sm:text-left font-medium text-lg">
 							Open in Figma
-							<FigmaLogo className="ml-3 -mt-1 inline-block w-6 h-6" />
+							<Icons.Figma className="ml-3 -mt-1 inline-block w-6 h-6" />
 						</p>
 					</a>
 					<div className="w-3 h-3" />
 					<a className="px-6 py-4 text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline trans-150" href="https://github.com/refactoringui/heroicons" onClick={e => ga.logEvent(constants.GA_GITHUB_HEROICONS)}>
 						<p className="text-center sm:text-left font-medium text-lg">
 							Open in GitHub
-							<GitHubLogo className="ml-3 -mt-1 inline-block w-6 h-6 text-black dark:text-white trans-150" />
+							<Icons.GitHub className="ml-3 -mt-1 inline-block w-6 h-6 text-black dark:text-white trans-150" />
 						</p>
 					</a>
 				</div>

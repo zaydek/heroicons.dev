@@ -7,6 +7,7 @@
     "firebase": "^7.10.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-heroicons": "https://github.com/codex-src/react-heroicons",
     "react-scripts": "3.4.0"
   },
   "scripts": {

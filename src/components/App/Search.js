@@ -1,8 +1,7 @@
-import * as Hero from "components/Heroicons"
+import * as Hero from "react-heroicons"
+import Icon from "components/Icon"
 import originalIcons from "./helpers/icons"
 import React from "react"
-
-const COUNT = originalIcons.length
 
 const Search = ({ query, setQuery, solid, setSolid, ...props }) => {
 	const ref = React.useRef() // Search bar
@@ -15,9 +14,9 @@ const Search = ({ query, setQuery, solid, setSolid, ...props }) => {
 	React.useEffect(() => {
 		const handler = e => {
 			if (window.innerWidth < 640 + 24 * 2) {
-				setPlaceholder(`Search ${COUNT} icons`)
+				setPlaceholder(`Search ${originalIcons.length} icons`)
 			} else {
-				setPlaceholder(`Search ${COUNT} icons (Press "/" to focus)`)
+				setPlaceholder(`Search ${originalIcons.length} icons (Press "/" to focus)`)
 			}
 		}
 		handler() // Once
@@ -74,7 +73,7 @@ const Search = ({ query, setQuery, solid, setSolid, ...props }) => {
 
 				{/* Search bar */}
 				<div className="absolute inset-0">
-					{/* Layered shadow for dark mode */}
+					{/* Layered box-shadow for dark mode */}
 					<div className="h-full rounded-lg-xl dark:shadow-md trans-150">
 						<input
 							ref={ref}
@@ -90,10 +89,10 @@ const Search = ({ query, setQuery, solid, setSolid, ...props }) => {
 
 				{/* End */}
 				<button ref={rhs} className="px-6 flex flex-row items-center rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10 trans-150" onPointerDown={e => e.preventDefault()} onClick={e => setSolid(!solid)}>
-					<p className="w-16 text-center text-gray-800 dark:text-gray-200 trans-150">
-						{!solid ? "Solid" : "Outline"}
+					<p className="mx-2 text-center text-gray-800 dark:text-gray-200 trans-150">
+						{!solid ? "Outline" : "Solid"}
 					</p>
-					<Hero.SwitchVerticalOutlineMd className="ml-4 w-6 h-6 text-gray-400 dark:text-gray-600 trans-150" />
+					<Icon className="ml-2 w-6 h-6 text-gray-800 dark:text-gray-200 trans-150" svg={!solid ? Hero.PlusCircleOutlineMd : Hero.PlusCircleSolidSm} />
 				</button>
 
 			</div>
