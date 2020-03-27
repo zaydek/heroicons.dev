@@ -39,14 +39,14 @@ const IconCard = ({ status, prefersSolid, outline, solid, ...props }) => {
 						className="w-8 h-8"
 						svg={!prefersSolid ? outline : solid}
 					/>
-					<div className="m-3 absolute inset-0 flex flex-row justify-center items-end">
+					<div className="p-3 absolute inset-0 flex flex-row justify-center items-end">
 						<p className="text-center font-ibm-plex-mono font-semibold text-xs leading-snug">
 							{text}
 						</p>
 					</div>
 					{status && (
-						<div className="m-3 absolute inset-0 flex flex-row justify-end items-start">
-							<p className="px-2 py-px font-ibm-plex-mono font-bold text-xs tracking-widest leading-snug text-indigo-500 dark:text-white bg:transparent dark:bg-indigo-500 rounded-full transform scale-90 origin-top-right">
+						<div className="p-3 absolute inset-0 flex flex-row justify-end items-start">
+							<p className="px-2 py-px font-ibm-plex-mono font-bold text-xs tracking-widest leading-snug text-white bg-indigo-500 rounded-full transform scale-90 origin-top-right">
 								NEW
 							</p>
 						</div>
