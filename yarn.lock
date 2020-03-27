@@ -10847,7 +10847,7 @@ react-error-overlay@^6.0.6:
 
 "react-heroicons@https://github.com/codex-src/react-heroicons":
   version "0.1.0"
-  resolved "https://github.com/codex-src/react-heroicons#544a777ee4be7843f5faf0e2a91ef3a25943222e"
+  resolved "https://github.com/codex-src/react-heroicons#05fc4ecef492a1401461bf0fc0c729760da0d3e2"
   dependencies:
     "@testing-library/jest-dom" "^4.2.4"
     "@testing-library/react" "^9.3.2"
