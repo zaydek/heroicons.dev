@@ -15,7 +15,7 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [x] Click to copy to the clipboard
 - [x] Responsive
 - [x] Dark mode
-  - [ ] Initialize outline icons for light mode, solid icons for dark mode
+  - [x] Initialize outline icons for light mode, solid icons for dark mode
 - [x] Support for solid icons
 - [ ] Cypress-based e2e tests
   - [x] https://github.com/codex-src/heroicons-viewer-cypress
@@ -30,8 +30,7 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] Add tooltip UI to explain copy to clipboard
 - [ ] Icon catagories
 - [ ] Preview templates (like FontAwesome)
-- [ ] Suggest an icon/feature
-- [ ] Monetize with Carbon Ads
+- [ ] Suggest an icon/features
 - [x] Embed a Figma mockup to work off of
   - [x] Created a reference Figma file: https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-(2abb814)
 - [ ] Create a Figma plugin
