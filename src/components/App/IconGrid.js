@@ -7,6 +7,7 @@ const IconCard = ({ status, prefersSolid, outline, solid, ...props }) => {
 
 	const [text, setText] = React.useState(props.name)
 
+	// TODO: Add paper-clip icon to copied!
 	const handleClick = async e => {
 		const { outerHTML } = ref.current
 		if (!navigator.clipboard) {
@@ -60,8 +61,6 @@ const IconGrid = React.memo(({ icons, solid, ...props }) => (
 	<div style={{ minHeight: "calc(100vh - 6rem - 5.5rem - 1.5rem)" /* 100vh - py-20 - <Search> - h-6 */ }}>
 		<div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
 			{icons.map(each => (
-				// NOTE: Alias solid to prefersSolid because so as
-				// to not interfere with solid (icon)
 				<IconCard
 					key={each.name}
 					prefersSolid={solid}

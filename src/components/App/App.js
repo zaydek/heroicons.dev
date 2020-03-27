@@ -51,8 +51,6 @@ const App = props => {
 	}, [darkMode])
 
 	// Debounce query (25ms):
-	//
-	// TODO: Extract to useDebounce(fn, debounceMs)
 	React.useEffect(() => {
 		const id = setTimeout(() => {
 			const queryLower = query.toLowerCase()
@@ -70,9 +68,11 @@ const App = props => {
 
 				{/* H1 */}
 				<div className="flex flex-row justify-center">
-					<h1 className="relative font-dm-sans font-bold  text-5xl tracking-tighter leading-none text-black dark:text-white trans-150">
+					<h1 className="relative font-dm-sans font-bold text-5xl tracking-tighter leading-none text-black dark:text-white trans-150">
 						Heroicons
 						<div className="-mb-8 absolute left-full bottom-full">
+							{/* TODO: Add second dark mode button to
+							search bar */}
 							<button
 								onPointerDown={e => e.preventDefault()}
 								onClick={e => {
