@@ -7,6 +7,8 @@ _Need React-ready Heroicons? You can use this library I also developed: https://
 
 This is a WIP frontend for the newly released [Heroicons iconset](https://github.com/refactoringui/heroicons) by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](https://twitter.com/adamwathan).
 
+<!--
+
 **Planned features:**
 
 - [x] Custom domain (https://heroicons.dev)
@@ -39,6 +41,8 @@ This is a WIP frontend for the newly released [Heroicons iconset](https://github
 - [ ] React-version of click-copy
 	- [x] https://github.com/codex-src/react-heroicons
 - [ ] Add offline support (possible via Firestore)
+
+-->
 
 **Contributions are welcome!** Built using Create React App and Tailwind CSS, _of course_. Uses PurgeCSS for production.
 
