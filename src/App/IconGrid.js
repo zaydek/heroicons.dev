@@ -21,7 +21,7 @@ const IconCard = ({ status, prefersSolid, outline, solid, ...props }) => {
 				await navigator.clipboard.writeText(outerHTML)
 			} catch (error) {
 				console.error(error)
-				return // Eager return
+				return
 			}
 		}
 		setText("copied!")
@@ -33,20 +33,20 @@ const IconCard = ({ status, prefersSolid, outline, solid, ...props }) => {
 	return (
 		<div className="pb-1/1 relative">
 			<div className="absolute inset-0">
-				<button className="flex flex-row justify-center items-center w-full h-full text-gray-800 dark:text-gray-100 hover:text-gray-100 bg-white dark:bg-gray-800 hover:bg-indigo-500 rounded-lg-xl focus:outline-none shadow focus:shadow-outline transition duration-150" onPointerDown={e => e.preventDefault()} onClick={handleClick}>
+				<button className="p-3 flex flex-row justify-center items-center w-full h-full text-gray-800 dark:text-gray-100 hover:text-gray-100 bg-white dark:bg-gray-800 hover:bg-indigo-500 rounded-lg-xl focus:outline-none shadow focus:shadow-outline transition duration-150" onPointerDown={e => e.preventDefault()} onClick={handleClick}>
 					<Icon
 						ref={ref}
 						className="w-8 h-8"
 						svg={!prefersSolid ? outline : solid}
 					/>
-					<div className="p-3 absolute inset-0 flex flex-row justify-center items-end">
-						<p className="text-center font-ibm-plex-mono font-semibold text-xs leading-snug">
+					<div className="p-2 absolute inset-0 flex flex-row justify-center items-end">
+						<p className="text-center font-ibm-plex-mono font-semibold text-sm leading-snug">
 							{text}
 						</p>
 					</div>
 					{status && (
-						<div className="p-3 absolute inset-0 flex flex-row justify-end items-start">
-							<p className="px-2 py-px font-ibm-plex-mono font-bold text-xs tracking-widest leading-snug text-white bg-indigo-500 rounded-full transform scale-90 origin-top-right">
+						<div className="p-2 absolute inset-0 flex flex-row justify-end items-start">
+							<p className="px-2 py-px font-ibm-plex-mono font-bold text-sm tracking-widest leading-snug text-white bg-indigo-500 rounded-full transform scale-90 origin-top-right">
 								NEW
 							</p>
 						</div>
