@@ -35,7 +35,7 @@ const IconCard = React.memo(({ status, outline, solid, ...props }) => {
 	return (
 		<div className="pb-1/1 relative">
 			<div className="absolute inset-0">
-				<button className="p-3 flex flex-row justify-center items-center w-full h-full text-gray-800 dark:text-gray-100 hover:text-gray-100 bg-white dark:bg-gray-800 hover:bg-indigo-500 rounded-lg-xl focus:outline-none shadow focus:shadow-outline transition duration-300" onPointerDown={e => e.preventDefault()} onClick={handleClick}>
+				<button className="p-3 flex flex-row justify-center items-center w-full h-full text-gray-800 dark:text-gray-100 hover:text-gray-100 bg-white dark:bg-gray-800 hover:bg-indigo-500 rounded-lg-xl focus:outline-none shadow focus:shadow-outline transition duration-150" onPointerDown={e => e.preventDefault()} onClick={handleClick}>
 					<Icon
 						ref={ref}
 						className="w-8 h-8"

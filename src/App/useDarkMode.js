@@ -24,12 +24,25 @@ function useDarkMode() {
 	}, [])
 
 	// Update <body>:
+	const mounted = React.useRef()
 	React.useLayoutEffect(() => {
-		if (!darkMode) {
-			document.body.classList.remove("dark-mode")
-		} else {
-			document.body.classList.add("dark-mode")
+		const handler = () => {
+			if (!darkMode) {
+				document.body.classList.remove("dark-mode")
+			} else {
+				document.body.classList.add("dark-mode")
+			}
 		}
+		// useLayoutEffect:
+		if (!mounted.current) {
+			handler()
+			mounted.current = false
+			return
+		}
+		// useEffect:
+		setTimeout(() => {
+			handler()
+		}, 0)
 	}, [darkMode])
 
 	// Update <html>:

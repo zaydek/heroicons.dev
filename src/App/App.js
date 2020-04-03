@@ -57,12 +57,12 @@ const App = props => {
 			icons,
 			setIcons,
  		}}>
-			<div className="py-24 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900 transition duration-300">
+			<div className="py-24 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900 transition duration-150">
 				<div className="px-6 w-full max-w-screen-lg">
 
 					{/* H1 */}
 					<div className="flex flex-row justify-center">
-						<h1 className="relative font-dm-sans font-bold text-5xl tracking-tighter leading-none text-black dark:text-white transition duration-300">
+						<h1 className="relative font-dm-sans font-bold text-5xl tracking-tighter leading-none text-black dark:text-white transition duration-150">
 							Heroicons
 							<div className="-mb-8 absolute left-full bottom-full">
 								<button
@@ -82,7 +82,7 @@ const App = props => {
 
 					{/* H2 */}
 					<div className="h-3" />
-					<h2 className="-mx-px text-center font-medium text-xl leading-relaxed text-gray-800 dark:text-gray-100 transition duration-300">
+					<h2 className="-mx-px text-center font-medium text-xl leading-relaxed text-gray-800 dark:text-gray-100 transition duration-150">
 						<a className="mx-px text-indigo-500" href="https://github.com/refactoringui/heroicons" onClick={e => ga.logEvent(constants.GA_GITHUB_HEROICONS)}>
 							Open source icons
 						</a>{" "}
@@ -111,18 +111,18 @@ const App = props => {
 					{/* Buttons */}
 					<div className="h-12" />
 					<div className="flex flex-col xs:flex-row justify-center">
-						<a className="px-6 py-4 flex flex-row justify-center items-center text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline transition duration-300" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-2abb814" onClick={e => ga.logEvent(constants.GA_FIGMA)}>
+						<a className="px-6 py-4 flex flex-row justify-center items-center text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline transition duration-150" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-2abb814" onClick={e => ga.logEvent(constants.GA_FIGMA)}>
 							<p className="font-medium text-lg">
 								Open Figma
 							</p>
 							<Icons.Figma className="ml-3 -mt-1 w-6 h-6" />
 						</a>
 						<div className="w-3 h-3" />
-						<a className="px-6 py-4 flex flex-row justify-center items-center text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline transition duration-300" href="https://github.com/refactoringui/heroicons" onClick={e => ga.logEvent(constants.GA_GITHUB_HEROICONS)}>
+						<a className="px-6 py-4 flex flex-row justify-center items-center text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline transition duration-150" href="https://github.com/refactoringui/heroicons" onClick={e => ga.logEvent(constants.GA_GITHUB_HEROICONS)}>
 							<p className="font-medium text-lg">
 								Open GitHub
 							</p>
-							<Icons.GitHub className="ml-3 -mt-1 w-6 h-6 text-black dark:text-white transition duration-300" />
+							<Icons.GitHub className="ml-3 -mt-1 w-6 h-6 text-black dark:text-white transition duration-150" />
 						</a>
 					</div>
 

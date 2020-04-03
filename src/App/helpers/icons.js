@@ -1,7 +1,5 @@
 import * as Hero from "react-heroicons"
 
-const a = [1]
-
 // "adjustments configure controls settings sliders",
 // "annotation box chat comment message square suggestion",
 // "archive bin",
@@ -57,7 +55,9 @@ const originalIcons = [
 	},
 	{
 		name:    "archive",
-		tags:    ["archive"],
+		tags:    [
+			"archive",
+		],
 		solid:   Hero.ArchiveSolidSm,
 		outline: Hero.ArchiveOutlineMd,
 	},
