@@ -54,7 +54,7 @@ function flatten(array) {
 //
 // TODO: Dedupe?
 function createTags(...tags) {
-	return flatten(tags)
+	return [...new Set(flatten(tags))]
 }
 
 // TODO: Dedupe array
