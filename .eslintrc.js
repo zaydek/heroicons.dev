@@ -12,7 +12,7 @@ module.exports = {
 	rules: {
 		"no-unused-vars":                   0, // disallow unused variables
 
-		"array-bracket-newline":            1, // enforce linebreaks after opening and before closing array brackets
+		"array-bracket-newline":            [1, "consistent"], // enforce linebreaks after opening and before closing array brackets
 		"array-bracket-spacing":            1, // enforce consistent spacing inside array brackets
 		"array-element-newline":            [1, "consistent"], // enforce line breaks after each array element
 		"arrow-body-style":                 0, // require braces around arrow function bodies
