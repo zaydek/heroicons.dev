@@ -7,6 +7,7 @@ import IconGrid from "./IconGrid"
 import originalIcons from "./helpers/icons"
 import React from "react"
 import SearchBar from "./SearchBar"
+import SearchTrie from "./helpers/SearchTrie"
 import useDarkMode from "./useDarkMode"
 
 const ga = firebase.analytics()
@@ -14,6 +15,8 @@ const ga = firebase.analytics()
 const DarkModeIcon = ({ darkMode, ...props }) => (
 	<Icon svg={!darkMode ? Hero.SunOutlineMd : Hero.SunSolidSm} {...props} />
 )
+
+const searchTrie = new SearchTrie(originalIcons)
 
 const App = props => {
 	const [darkMode, setDarkMode] = useDarkMode()
@@ -50,13 +53,21 @@ const App = props => {
 		document.documentElement.style.backgroundColor = backgroundColor
 	}, [darkMode])
 
-	// Debounce query (25ms):
+	// Debounce query (10ms):
+	const mounted = React.useRef()
 	React.useEffect(() => {
+		if (!mounted.current) {
+			mounted.current = true
+			return
+		}
 		const id = setTimeout(() => {
-			const queryLower = query.toLowerCase()
-			const subset = originalIcons.filter(each => each.name.includes(queryLower))
-			setIcons(subset)
-		}, 25)
+			const icons = searchTrie.search(query)
+			if (!icons) {
+				setIcons([])
+				return
+			}
+			setIcons(icons)
+		}, 10)
 		return () => {
 			clearTimeout(id)
 		}
