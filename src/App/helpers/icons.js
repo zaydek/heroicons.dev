@@ -49,37 +49,46 @@ function flatten(array) {
 	return flat
 }
 
+// Accepts an array of strings or arrays and recursively
+// flattens and dedupes them.
+//
+// TODO: Dedupe?
+function createTags(...tags) {
+	return flatten(tags)
+}
+
 // TODO: Dedupe array
 const categories = {
 
-	continuity: flatten([
+	continuity: [
 		"continuity",
 
 		"continue",
 		["back", "next"],
 		["backwards", "forwards"],
-	]),
+	],
 
-	direction: flatten([
+	direction: [
 		"direction",
 
+		"arrows",
 		["left", "right", "up", "down"], // Lsorted
-	]),
+	],
 
-	navigation: flatten([
+	navigation: [
 		"navigation",
 
 		["west", "east", "north", "south"], // Lsorted
-	]),
+	],
 
-	emotions: flatten([
+	emotions: [
 		"emotions",
 
 		["sad", "happy"], // Lsorted
 		["negative", "positive"], // Lsorted
-	]),
+	],
 
-	formatting: flatten([
+	formatting: [
 		["format", "formatting"],
 
 		"wysiwyg",
@@ -87,197 +96,215 @@ const categories = {
 		["horizontal", "vertical"], // Lsorted
 		["italic", "bold"], // Lsorted
 		["justify", "align"], // Lsorted
-	]),
+	],
 
-	darkMode: flatten([
+	darkMode: [
 		["dark mode", "dark-mode"],
-	]),
+
+		["moon", "sun"],
+		["night", "day"],
+	],
+
+	travel: [
+		"travel",
+
+		"vacation",
+	],
+
+	photography: [
+		"photography",
+
+		["camera", "photo"],
+	],
 
 }
+
+// "file",
+
+// "more",
+// "etc",
+
+// "commerce",
+// "bill",
+// "cent"
+// "coin",
+// "credit",
+// "currency",
+// "debit",
+// "dollar",
+// "exchange rate",
+// "money",
+
+// "pointer"
 
 const originalIcons = [
 	{
 		name:    "adjustments",
-		tags:    [
+		tags:    createTags(
 			"adjustments",
-
-			"configuration",
-			"configure",
-			"controls",
-			"preferences",
-			"settings",
-			"sliders",
-		],
+		),
 		solid:   Hero.AdjustmentsSolidSm,
 		outline: Hero.AdjustmentsOutlineMd,
 	},
 	{
 		name:    "annotation",
-		tags:    [
+		tags:    createTags(
 			"annotation",
-
-			"annotate",
-			"bubble",
-			"chat",
-			"comment",
-			"suggestion",
-		],
+		),
 		solid:   Hero.AnnotationSolidSm,
 		outline: Hero.AnnotationOutlineMd,
 	},
 	{
 		name:    "archive",
-		tags:    [
+		tags:    createTags(
 			"archive",
-
-			"bin",
-		],
+		),
 		solid:   Hero.ArchiveSolidSm,
 		outline: Hero.ArchiveOutlineMd,
 	},
 	{
 		name:    "arrow-circle-down",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"arrow-circle-down",
 			"arrow",
 			"circle",
 			"down",
-		],
+		),
 		solid:   Hero.ArrowCircleDownSolidSm,
 		outline: Hero.ArrowCircleDownOutlineMd,
 	},
 	{
 		name:    "arrow-circle-left",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"arrow-circle-left",
 			"arrow",
 			"circle",
 			"left",
-		],
+		),
 		solid:   Hero.ArrowCircleLeftSolidSm,
 		outline: Hero.ArrowCircleLeftOutlineMd,
 	},
 	{
 		name:    "arrow-circle-right",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"arrow-circle-right",
 			"arrow",
 			"circle",
 			"right",
-		],
+		),
 		solid:   Hero.ArrowCircleRightSolidSm,
 		outline: Hero.ArrowCircleRightOutlineMd,
 	},
 	{
 		name:    "arrow-circle-up",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"arrow-circle-up",
 			"arrow",
 			"circle",
 			"up",
-		],
+		),
 		solid:   Hero.ArrowCircleUpSolidSm,
 		outline: Hero.ArrowCircleUpOutlineMd,
 	},
 	{
 		name:    "arrow-down",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"arrow-down",
 			"arrow",
 			"down",
-		],
+		),
 		solid:   Hero.ArrowDownSolidSm,
 		outline: Hero.ArrowDownOutlineMd,
 	},
 	{
 		name:    "arrow-left",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"arrow-left",
 			"arrow",
 			"left",
-		],
+		),
 		solid:   Hero.ArrowLeftSolidSm,
 		outline: Hero.ArrowLeftOutlineMd,
 	},
 	{
 		name:    "arrow-narrow-down",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"arrow-narrow-down",
 			"arrow",
 			"narrow",
 			"down",
-		],
+		),
 		solid:   Hero.ArrowNarrowDownSolidSm,
 		outline: Hero.ArrowNarrowDownOutlineMd,
 	},
 	{
 		name:    "arrow-narrow-left",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"arrow-narrow-left",
 			"arrow",
 			"narrow",
 			"left",
-		],
+		),
 		solid:   Hero.ArrowNarrowLeftSolidSm,
 		outline: Hero.ArrowNarrowLeftOutlineMd,
 	},
 	{
 		name:    "arrow-narrow-right",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"arrow-narrow-right",
 			"arrow",
 			"narrow",
 			"right",
-		],
+		),
 		solid:   Hero.ArrowNarrowRightSolidSm,
 		outline: Hero.ArrowNarrowRightOutlineMd,
 	},
 	{
 		name:    "arrow-narrow-up",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"arrow-narrow-up",
 			"arrow",
 			"narrow",
 			"up",
-		],
+		),
 		solid:   Hero.ArrowNarrowUpSolidSm,
 		outline: Hero.ArrowNarrowUpOutlineMd,
 	},
 	{
 		name:    "arrow-right",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"arrow-right",
 			"arrow",
 			"right",
-		],
+		),
 		solid:   Hero.ArrowRightSolidSm,
 		outline: Hero.ArrowRightOutlineMd,
 	},
 	{
 		name:    "arrow-up",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"arrow-up",
 			"arrow",
 			"up",
-		],
+		),
 		solid:   Hero.ArrowUpSolidSm,
 		outline: Hero.ArrowUpOutlineMd,
 	},
 	{
 		name:    "at-symbol",
-		tags:    [
+		tags:    createTags(
 			"at-symbol",
 			"at",
 			"symbol",
@@ -285,13 +312,13 @@ const originalIcons = [
 			"address",
 			"email",
 			"mail",
-		],
+		),
 		solid:   Hero.AtSymbolSolidSm,
 		outline: Hero.AtSymbolOutlineMd,
 	},
 	{
 		name:    "badge-check",
-		tags:    [
+		tags:    createTags(
 			"badge-check",
 			"badge",
 			"check",
@@ -299,54 +326,54 @@ const originalIcons = [
 			"member",
 			"pro",
 			"verified",
-		],
+		),
 		solid:   Hero.BadgeCheckSolidSm,
 		outline: Hero.BadgeCheckOutlineMd,
 		status:  "new",
 	},
 	{
 		name:    "ban",
-		tags:    [
+		tags:    createTags(
 			"ban",
 
 			"cancel",
 			"enforce",
 			"restrict",
 			"stop",
-		],
+		),
 		solid:   Hero.BanSolidSm,
 		outline: Hero.BanOutlineMd,
 		status:  "new",
 	},
 	{
 		name:    "bell",
-		tags:    [
+		tags:    createTags(
 			"bell",
 
 			"alert",
 			"ding",
 			"notification",
 			"news",
-		],
+		),
 		solid:   Hero.BellSolidSm,
 		outline: Hero.BellOutlineMd,
 	},
 	{
 		name:    "bookmark",
-		tags:    [
+		tags:    createTags(
 			"bookmark",
 
 			"book",
 			"chapter",
 			"read",
 			"save",
-		],
+		),
 		solid:   Hero.BookmarkSolidSm,
 		outline: Hero.BookmarkOutlineMd,
 	},
 	{
 		name:    "book-open",
-		tags:    [
+		tags:    createTags(
 			"book-open",
 			"book",
 			"open",
@@ -355,13 +382,13 @@ const originalIcons = [
 			"diary",
 			"journal",
 			"read",
-		],
+		),
 		solid:   Hero.BookOpenSolidSm,
 		outline: Hero.BookOpenOutlineMd,
 	},
 	{
 		name:    "briefcase",
-		tags:    [
+		tags:    createTags(
 			"briefcase",
 
 			"bag",
@@ -370,1209 +397,1227 @@ const originalIcons = [
 			"journal",
 			"suitcase",
 			"travel",
-		],
+		),
 		solid:   Hero.BriefcaseSolidSm,
 		outline: Hero.BriefcaseOutlineMd,
 	},
 	{
 		name:    "calendar",
-		tags:    [
+		tags:    createTags(
 			"calendar",
-		],
+		),
 		solid:   Hero.CalendarSolidSm,
 		outline: Hero.CalendarOutlineMd,
 	},
 	{
 		name:    "camera",
-		tags:    [
+		tags:    createTags(
+			...categories.photography,
 			"camera",
-		],
+		),
 		solid:   Hero.CameraSolidSm,
 		outline: Hero.CameraOutlineMd,
 	},
 	{
 		name:    "cash",
-		tags:    [
+		tags:    createTags(
 			"cash",
-		],
+		),
 		solid:   Hero.CashSolidSm,
 		outline: Hero.CashOutlineMd,
 	},
 	{
 		name:    "chart-pie",
-		tags:    [
+		tags:    createTags(
 			"chart-pie",
 			"chart",
 			"pie",
-		],
+		),
 		solid:   Hero.ChartPieSolidSm,
 		outline: Hero.ChartPieOutlineMd,
 	},
 	{
 		name:    "chat-alt",
-		tags:    [
+		tags:    createTags(
 			"chat-alt",
 			"chat",
 			"alt",
-		],
+		),
 		solid:   Hero.ChatAltSolidSm,
 		outline: Hero.ChatAltOutlineMd,
 		status:  "new",
 	},
 	{
 		name:    "chat",
-		tags:    [
+		tags:    createTags(
 			"chat",
-		],
+		),
 		solid:   Hero.ChatSolidSm,
 		outline: Hero.ChatOutlineMd,
 	},
 	{
 		name:    "check-circle",
-		tags:    [
+		tags:    createTags(
 			"check-circle",
 			"check",
 			"circle",
-		],
+		),
 		solid:   Hero.CheckCircleSolidSm,
 		outline: Hero.CheckCircleOutlineMd,
 	},
 	{
 		name:    "check",
-		tags:    [
+		tags:    createTags(
 			"check",
-		],
+		),
 		solid:   Hero.CheckSolidSm,
 		outline: Hero.CheckOutlineMd,
 	},
 	{
 		name:    "cheveron-down",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"cheveron-down",
 			"cheveron",
 			"down",
-		],
+		),
 		solid:   Hero.CheveronDownSolidSm,
 		outline: Hero.CheveronDownOutlineMd,
 	},
 	{
 		name:    "cheveron-left",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"cheveron-left",
 			"cheveron",
 			"left",
-		],
+		),
 		solid:   Hero.CheveronLeftSolidSm,
 		outline: Hero.CheveronLeftOutlineMd,
 	},
 	{
 		name:    "cheveron-right",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"cheveron-right",
 			"cheveron",
 			"right",
-		],
+		),
 		solid:   Hero.CheveronRightSolidSm,
 		outline: Hero.CheveronRightOutlineMd,
 	},
 	{
 		name:    "cheveron-up",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"cheveron-up",
 			"cheveron",
 			"up",
-		],
+		),
 		solid:   Hero.CheveronUpSolidSm,
 		outline: Hero.CheveronUpOutlineMd,
 	},
 	{
 		name:    "clipboard-check",
-		tags:    [
+		tags:    createTags(
 			"clipboard-check",
 			"clipboard",
 			"check",
-		],
+		),
 		solid:   Hero.ClipboardCheckSolidSm,
 		outline: Hero.ClipboardCheckOutlineMd,
 	},
 	{
 		name:    "clipboard-copy",
-		tags:    [
+		tags:    createTags(
 			"clipboard-copy",
 			"clipboard",
 			"copy",
-		],
+		),
 		solid:   Hero.ClipboardCopySolidSm,
 		outline: Hero.ClipboardCopyOutlineMd,
 	},
 	{
 		name:    "clipboard-list",
-		tags:    [
+		tags:    createTags(
 			"clipboard-list",
 			"clipboard",
 			"list",
-		],
+		),
 		solid:   Hero.ClipboardListSolidSm,
 		outline: Hero.ClipboardListOutlineMd,
 	},
 	{
 		name:    "clipboard",
-		tags:    [
+		tags:    createTags(
 			"clipboard",
-		],
+		),
 		solid:   Hero.ClipboardSolidSm,
 		outline: Hero.ClipboardOutlineMd,
 	},
 	{
 		name:    "clock",
-		tags:    [
+		tags:    createTags(
 			"clock",
-		],
+		),
 		solid:   Hero.ClockSolidSm,
 		outline: Hero.ClockOutlineMd,
 	},
 	{
 		name:    "cloud-download",
-		tags:    [
+		tags:    createTags(
 			"cloud-download",
 			"cloud",
 			"download",
-		],
+		),
 		solid:   Hero.CloudDownloadSolidSm,
 		outline: Hero.CloudDownloadOutlineMd,
 	},
 	{
 		name:    "cloud-upload",
-		tags:    [
+		tags:    createTags(
 			"cloud-upload",
 			"cloud",
 			"upload",
-		],
+		),
 		solid:   Hero.CloudUploadSolidSm,
 		outline: Hero.CloudUploadOutlineMd,
 	},
 	{
 		name:    "code",
-		tags:    [
+		tags:    createTags(
 			"code",
-		],
+		),
 		solid:   Hero.CodeSolidSm,
 		outline: Hero.CodeOutlineMd,
 	},
 	{
 		name:    "cog",
-		tags:    [
+		tags:    createTags(
 			"cog",
-		],
+		),
 		solid:   Hero.CogSolidSm,
 		outline: Hero.CogOutlineMd,
 	},
 	{
 		name:    "collection",
-		tags:    [
+		tags:    createTags(
 			"collection",
-		],
+		),
 		solid:   Hero.CollectionSolidSm,
 		outline: Hero.CollectionOutlineMd,
 	},
 	{
 		name:    "color-swatch",
-		tags:    [
+		tags:    createTags(
 			"color-swatch",
 			"color",
 			"swatch",
-		],
+		),
 		solid:   Hero.ColorSwatchSolidSm,
 		outline: Hero.ColorSwatchOutlineMd,
 	},
 	{
 		name:    "credit-card",
-		tags:    [
+		tags:    createTags(
 			"credit-card",
 			"credit",
 			"card",
-		],
+		),
 		solid:   Hero.CreditCardSolidSm,
 		outline: Hero.CreditCardOutlineMd,
 	},
 	{
 		name:    "currency-dollar",
-		tags:    [
+		tags:    createTags(
 			"currency-dollar",
 			"currency",
 			"dollar",
-		],
+		),
 		solid:   Hero.CurrencyDollarSolidSm,
 		outline: Hero.CurrencyDollarOutlineMd,
 	},
 	{
 		name:    "currency-euro",
-		tags:    [
+		tags:    createTags(
 			"currency-euro",
 			"currency",
 			"euro",
-		],
+		),
 		solid:   Hero.CurrencyEuroSolidSm,
 		outline: Hero.CurrencyEuroOutlineMd,
 	},
 	{
 		name:    "currency-pound",
-		tags:    [
+		tags:    createTags(
 			"currency-pound",
 			"currency",
 			"pound",
-		],
+		),
 		solid:   Hero.CurrencyPoundSolidSm,
 		outline: Hero.CurrencyPoundOutlineMd,
 	},
 	{
 		name:    "currency-rupee",
-		tags:    [
+		tags:    createTags(
 			"currency-rupee",
 			"currency",
 			"rupee",
-		],
+		),
 		solid:   Hero.CurrencyRupeeSolidSm,
 		outline: Hero.CurrencyRupeeOutlineMd,
 	},
 	{
 		name:    "currency-yen",
-		tags:    [
+		tags:    createTags(
 			"currency-yen",
 			"currency",
 			"yen",
-		],
+		),
 		solid:   Hero.CurrencyYenSolidSm,
 		outline: Hero.CurrencyYenOutlineMd,
 	},
 	{
 		name:    "cursor-click",
-		tags:    [
+		tags:    createTags(
 			"cursor-click",
 			"cursor",
 			"click",
-		],
+		),
 		solid:   Hero.CursorClickSolidSm,
 		outline: Hero.CursorClickOutlineMd,
 		status:  "new",
 	},
 	{
 		name:    "document-add",
-		tags:    [
+		tags:    createTags(
 			"document-add",
 			"document",
 			"add",
-		],
+		),
 		solid:   Hero.DocumentAddSolidSm,
 		outline: Hero.DocumentAddOutlineMd,
 	},
 	{
 		name:    "document-download",
-		tags:    [
+		tags:    createTags(
 			"document-download",
 			"document",
 			"download",
-		],
+		),
 		solid:   Hero.DocumentDownloadSolidSm,
 		outline: Hero.DocumentDownloadOutlineMd,
 	},
 	{
 		name:    "document-duplicate",
-		tags:    [
+		tags:    createTags(
 			"document-duplicate",
 			"document",
 			"duplicate",
-		],
+		),
 		solid:   Hero.DocumentDuplicateSolidSm,
 		outline: Hero.DocumentDuplicateOutlineMd,
 	},
 	{
 		name:    "document-remove",
-		tags:    [
+		tags:    createTags(
 			"document-remove",
 			"document",
 			"remove",
-		],
+		),
 		solid:   Hero.DocumentRemoveSolidSm,
 		outline: Hero.DocumentRemoveOutlineMd,
 	},
 	{
 		name:    "document-report",
-		tags:    [
+		tags:    createTags(
 			"document-report",
 			"document",
 			"report",
-		],
+		),
 		solid:   Hero.DocumentReportSolidSm,
 		outline: Hero.DocumentReportOutlineMd,
 		status:  "new",
 	},
 	{
 		name:    "document",
-		tags:    [
+		tags:    createTags(
 			"document",
-		],
+		),
 		solid:   Hero.DocumentSolidSm,
 		outline: Hero.DocumentOutlineMd,
 	},
 	{
 		name:    "dots-circle-horizontal",
-		tags:    [
+		tags:    createTags(
 			"dots-circle-horizontal",
 			"dots",
 			"circle",
 			"horizontal",
-		],
+		),
 		solid:   Hero.DotsCircleHorizontalSolidSm,
 		outline: Hero.DotsCircleHorizontalOutlineMd,
 	},
 	{
 		name:    "dots-horizontal",
-		tags:    [
+		tags:    createTags(
 			"dots-horizontal",
 			"dots",
 			"horizontal",
-		],
+		),
 		solid:   Hero.DotsHorizontalSolidSm,
 		outline: Hero.DotsHorizontalOutlineMd,
 	},
 	{
 		name:    "dots-vertical",
-		tags:    [
+		tags:    createTags(
 			"dots-vertical",
 			"dots",
 			"vertical",
-		],
+		),
 		solid:   Hero.DotsVerticalSolidSm,
 		outline: Hero.DotsVerticalOutlineMd,
 	},
 	{
 		name:    "download",
-		tags:    [
+		tags:    createTags(
 			"download",
-		],
+		),
 		solid:   Hero.DownloadSolidSm,
 		outline: Hero.DownloadOutlineMd,
 	},
 	{
 		name:    "duplicate",
-		tags:    [
+		tags:    createTags(
 			"duplicate",
-		],
+		),
 		solid:   Hero.DuplicateSolidSm,
 		outline: Hero.DuplicateOutlineMd,
 	},
 	{
 		name:    "emoji-happy",
-		tags:    [
+		tags:    createTags(
 			...categories.emotions,
 			"emoji-happy",
 			"emoji",
 			"happy",
-		],
+		),
 		solid:   Hero.EmojiHappySolidSm,
 		outline: Hero.EmojiHappyOutlineMd,
 	},
 	{
 		name:    "emoji-sad",
-		tags:    [
+		tags:    createTags(
 			...categories.emotions,
 			"emoji-sad",
 			"emoji",
 			"sad",
-		],
+		),
 		solid:   Hero.EmojiSadSolidSm,
 		outline: Hero.EmojiSadOutlineMd,
 	},
 	{
 		name:    "exclamation-circle",
-		tags:    [
+		tags:    createTags(
 			"exclamation-circle",
 			"exclamation",
 			"circle",
-		],
+		),
 		solid:   Hero.ExclamationCircleSolidSm,
 		outline: Hero.ExclamationCircleOutlineMd,
 	},
 	{
 		name:    "exclamation",
-		tags:    [
+		tags:    createTags(
 			"exclamation",
-		],
+		),
 		solid:   Hero.ExclamationSolidSm,
 		outline: Hero.ExclamationOutlineMd,
 	},
 	{
 		name:    "external-link",
-		tags:    [
+		tags:    createTags(
 			"external-link",
 			"external",
 			"link",
-		],
+		),
 		solid:   Hero.ExternalLinkSolidSm,
 		outline: Hero.ExternalLinkOutlineMd,
 	},
 	{
 		name:    "eye",
-		tags:    [
+		tags:    createTags(
 			"eye",
-		],
+		),
 		solid:   Hero.EyeSolidSm,
 		outline: Hero.EyeOutlineMd,
 	},
 	{
 		name:    "filter",
-		tags:    [
+		tags:    createTags(
 			"filter",
-		],
+		),
 		solid:   Hero.FilterSolidSm,
 		outline: Hero.FilterOutlineMd,
 	},
 	{
 		name:    "flag",
-		tags:    [
+		tags:    createTags(
 			"flag",
-		],
+		),
 		solid:   Hero.FlagSolidSm,
 		outline: Hero.FlagOutlineMd,
 	},
 	{
 		name:    "folder",
-		tags:    [
+		tags:    createTags(
 			"folder",
-		],
+		),
 		solid:   Hero.FolderSolidSm,
 		outline: Hero.FolderOutlineMd,
 	},
 	{
 		name:    "globe-alt",
-		tags:    [
+		tags:    createTags(
 			"globe-alt",
 			"globe",
 			"alt",
-		],
+		),
 		solid:   Hero.GlobeAltSolidSm,
 		outline: Hero.GlobeAltOutlineMd,
 	},
 	{
 		name:    "globe",
-		tags:    [
+		tags:    createTags(
 			"globe",
-		],
+		),
 		solid:   Hero.GlobeSolidSm,
 		outline: Hero.GlobeOutlineMd,
 	},
 	{
 		name:    "hashtag",
-		tags:    [
+		tags:    createTags(
 			"hashtag",
-		],
+		),
 		solid:   Hero.HashtagSolidSm,
 		outline: Hero.HashtagOutlineMd,
 	},
 	{
 		name:    "heart",
-		tags:    [
+		tags:    createTags(
 			"heart",
-		],
+		),
 		solid:   Hero.HeartSolidSm,
 		outline: Hero.HeartOutlineMd,
 	},
 	{
 		name:    "home",
-		tags:    [
+		tags:    createTags(
 			"home",
-		],
+		),
 		solid:   Hero.HomeSolidSm,
 		outline: Hero.HomeOutlineMd,
 	},
 	{
 		name:    "inbox-in",
-		tags:    [
+		tags:    createTags(
 			"inbox-in",
 			"inbox",
 			"in",
-		],
+		),
 		solid:   Hero.InboxInSolidSm,
 		outline: Hero.InboxInOutlineMd,
 	},
 	{
 		name:    "inbox",
-		tags:    [
+		tags:    createTags(
 			"inbox",
-		],
+		),
 		solid:   Hero.InboxSolidSm,
 		outline: Hero.InboxOutlineMd,
 	},
 	{
 		name:    "information-circle",
-		tags:    [
+		tags:    createTags(
 			"information-circle",
 			"information",
 			"circle",
-		],
+		),
 		solid:   Hero.InformationCircleSolidSm,
 		outline: Hero.InformationCircleOutlineMd,
 	},
 	{
 		name:    "key",
-		tags:    [
+		tags:    createTags(
 			"key",
-		],
+		),
 		solid:   Hero.KeySolidSm,
 		outline: Hero.KeyOutlineMd,
 		status:  "new",
 	},
 	{
 		name:    "light-bulb",
-		tags:    [
+		tags:    createTags(
 			"light-bulb",
 			"light",
 			"bulb",
-		],
+		),
 		solid:   Hero.LightBulbSolidSm,
 		outline: Hero.LightBulbOutlineMd,
 	},
 	{
 		name:    "lightning-bolt",
-		tags:    [
+		tags:    createTags(
 			"lightning-bolt",
 			"lightning",
 			"bolt",
-		],
+		),
 		solid:   Hero.LightningBoltSolidSm,
 		outline: Hero.LightningBoltOutlineMd,
 	},
 	{
 		name:    "link",
-		tags:    [
+		tags:    createTags(
 			"link",
-		],
+		),
 		solid:   Hero.LinkSolidSm,
 		outline: Hero.LinkOutlineMd,
 	},
 	{
 		name:    "location-marker",
-		tags:    [
+		tags:    createTags(
 			"location-marker",
 			"location",
 			"marker",
-		],
+		),
 		solid:   Hero.LocationMarkerSolidSm,
 		outline: Hero.LocationMarkerOutlineMd,
 	},
 	{
 		name:    "lock-closed",
-		tags:    [
+		tags:    createTags(
 			"lock-closed",
 			"lock",
 			"closed",
-		],
+		),
 		solid:   Hero.LockClosedSolidSm,
 		outline: Hero.LockClosedOutlineMd,
 	},
 	{
 		name:    "lock-open",
-		tags:    [
+		tags:    createTags(
 			"lock-open",
 			"lock",
 			"open",
-		],
+		),
 		solid:   Hero.LockOpenSolidSm,
 		outline: Hero.LockOpenOutlineMd,
 	},
 	{
 		name:    "logout",
-		tags:    [
+		tags:    createTags(
 			"logout",
-		],
+		),
 		solid:   Hero.LogoutSolidSm,
 		outline: Hero.LogoutOutlineMd,
 		status:  "new",
 	},
 	{
 		name:    "mail-open",
-		tags:    [
+		tags:    createTags(
 			"mail-open",
 			"mail",
 			"open",
-		],
+		),
 		solid:   Hero.MailOpenSolidSm,
 		outline: Hero.MailOpenOutlineMd,
 	},
 	{
 		name:    "mail",
-		tags:    [
+		tags:    createTags(
 			"mail",
-		],
+		),
 		solid:   Hero.MailSolidSm,
 		outline: Hero.MailOutlineMd,
 	},
 	{
 		name:    "menu-alt-1",
-		tags:    [
+		tags:    createTags(
 			...categories.formatting,
 			"menu-alt-1",
 			"menu",
 			"alt",
 			"1",
-		],
+		),
 		solid:   Hero.MenuAlt1SolidSm,
 		outline: Hero.MenuAlt1OutlineMd,
 	},
 	{
 		name:    "menu-alt-2",
-		tags:    [
+		tags:    createTags(
 			...categories.formatting,
 			"menu-alt-2",
 			"menu",
 			"alt",
 			"2",
-		],
+		),
 		solid:   Hero.MenuAlt2SolidSm,
 		outline: Hero.MenuAlt2OutlineMd,
 	},
 	{
 		name:    "menu-alt-3",
-		tags:    [
+		tags:    createTags(
 			...categories.formatting,
 			"menu-alt-3",
 			"menu",
 			"alt",
 			"3",
-		],
+		),
 		solid:   Hero.MenuAlt3SolidSm,
 		outline: Hero.MenuAlt3OutlineMd,
 	},
 	{
 		name:    "menu-alt-4",
-		tags:    [
+		tags:    createTags(
 			...categories.formatting,
 			"menu-alt-4",
 			"menu",
 			"alt",
 			"4",
-		],
+		),
 		solid:   Hero.MenuAlt4SolidSm,
 		outline: Hero.MenuAlt4OutlineMd,
 	},
 	{
 		name:    "menu",
-		tags:    [
+		tags:    createTags(
 			...categories.formatting,
 			"menu",
-		],
+		),
 		solid:   Hero.MenuSolidSm,
 		outline: Hero.MenuOutlineMd,
 	},
 	{
 		name:    "microphone",
-		tags:    [
+		tags:    createTags(
 			"microphone",
-		],
+		),
 		solid:   Hero.MicrophoneSolidSm,
 		outline: Hero.MicrophoneOutlineMd,
 		status:  "new",
 	},
 	{
 		name:    "minus-circle",
-		tags:    [
+		tags:    createTags(
 			"minus-circle",
 			"minus",
 			"circle",
-		],
+		),
 		solid:   Hero.MinusCircleSolidSm,
 		outline: Hero.MinusCircleOutlineMd,
 	},
 	{
 		name:    "moon",
-		tags:    [
+		tags:    createTags(
 			...categories.darkMode,
 			"moon",
-		],
+		),
 		solid:   Hero.MoonSolidSm,
 		outline: Hero.MoonOutlineMd,
 	},
 	{
 		name:    "office-building",
-		tags:    [
+		tags:    createTags(
 			"office-building",
 			"office",
 			"building",
-		],
+		),
 		solid:   Hero.OfficeBuildingSolidSm,
 		outline: Hero.OfficeBuildingOutlineMd,
 	},
 	{
 		name:    "paper-clip",
-		tags:    [
+		tags:    createTags(
 			"paper-clip",
 			"paper",
 			"clip",
-		],
+		),
 		solid:   Hero.PaperClipSolidSm,
 		outline: Hero.PaperClipOutlineMd,
 	},
 	{
 		name:    "pencil-alt",
-		tags:    [
+		tags:    createTags(
 			"pencil-alt",
 			"pencil",
 			"alt",
-		],
+		),
 		solid:   Hero.PencilAltSolidSm,
 		outline: Hero.PencilAltOutlineMd,
 	},
 	{
 		name:    "pencil",
-		tags:    [
+		tags:    createTags(
 			"pencil",
-		],
+		),
 		solid:   Hero.PencilSolidSm,
 		outline: Hero.PencilOutlineMd,
 	},
 	{
 		name:    "phone-incoming",
-		tags:    [
+		tags:    createTags(
 			"phone-incoming",
 			"phone",
 			"incoming",
-		],
+		),
 		solid:   Hero.PhoneIncomingSolidSm,
 		outline: Hero.PhoneIncomingOutlineMd,
 	},
 	{
 		name:    "phone-outgoing",
-		tags:    [
+		tags:    createTags(
 			"phone-outgoing",
 			"phone",
 			"outgoing",
-		],
+		),
 		solid:   Hero.PhoneOutgoingSolidSm,
 		outline: Hero.PhoneOutgoingOutlineMd,
 	},
 	{
 		name:    "phone",
-		tags:    [
+		tags:    createTags(
 			"phone",
-		],
+		),
 		solid:   Hero.PhoneSolidSm,
 		outline: Hero.PhoneOutlineMd,
 	},
 	{
 		name:    "photograph",
-		tags:    [
+		tags:    createTags(
+			...categories.photography,
 			"photograph",
-		],
+		),
 		solid:   Hero.PhotographSolidSm,
 		outline: Hero.PhotographOutlineMd,
 	},
 	{
 		name:    "plus-circle",
-		tags:    [
+		tags:    createTags(
 			"plus-circle",
 			"plus",
 			"circle",
-		],
+		),
 		solid:   Hero.PlusCircleSolidSm,
 		outline: Hero.PlusCircleOutlineMd,
 	},
 	{
 		name:    "plus",
-		tags:    [
+		tags:    createTags(
 			"plus",
-		],
+		),
 		solid:   Hero.PlusSolidSm,
 		outline: Hero.PlusOutlineMd,
 	},
 	{
 		name:    "printer",
-		tags:    [
+		tags:    createTags(
 			"printer",
-		],
+		),
 		solid:   Hero.PrinterSolidSm,
 		outline: Hero.PrinterOutlineMd,
 	},
 	{
 		name:    "qrcode",
-		tags:    [
+		tags:    createTags(
 			"qrcode",
-		],
+		),
 		solid:   Hero.QRCodeSolidSm,
 		outline: Hero.QRCodeOutlineMd,
 	},
 	{
 		name:    "question-mark-circle",
-		tags:    [
+		tags:    createTags(
 			"question-mark-circle",
 			"question",
 			"mark",
 			"circle",
-		],
+		),
 		solid:   Hero.QuestionMarkCircleSolidSm,
 		outline: Hero.QuestionMarkCircleOutlineMd,
 	},
 	{
 		name:    "receipt-refund",
-		tags:    [
+		tags:    createTags(
 			"receipt-refund",
 			"receipt",
 			"refund",
-		],
+		),
 		solid:   Hero.ReceiptRefundSolidSm,
 		outline: Hero.ReceiptRefundOutlineMd,
 	},
 	{
 		name:    "refresh",
-		tags:    [
+		tags:    createTags(
 			"refresh",
-		],
+		),
 		solid:   Hero.RefreshSolidSm,
 		outline: Hero.RefreshOutlineMd,
 	},
 	{
 		name:    "reply",
-		tags:    [
+		tags:    createTags(
 			"reply",
-		],
+		),
 		solid:   Hero.ReplySolidSm,
 		outline: Hero.ReplyOutlineMd,
 	},
 	{
 		name:    "scale",
-		tags:    [
+		tags:    createTags(
 			"scale",
-		],
+		),
 		solid:   Hero.ScaleSolidSm,
 		outline: Hero.ScaleOutlineMd,
 	},
 	{
 		name:    "search",
-		tags:    [
+		tags:    createTags(
 			"search",
-		],
+		),
 		solid:   Hero.SearchSolidSm,
 		outline: Hero.SearchOutlineMd,
 	},
 	{
 		name:    "selector",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"selector",
-		],
+		),
 		solid:   Hero.SelectorSolidSm,
 		outline: Hero.SelectorOutlineMd,
 	},
 	{
 		name:    "share",
-		tags:    [
+		tags:    createTags(
 			"share",
-		],
+		),
 		solid:   Hero.ShareSolidSm,
 		outline: Hero.ShareOutlineMd,
 	},
 	{
 		name:    "shield-check",
-		tags:    [
+		tags:    createTags(
 			"shield-check",
 			"shield",
 			"check",
-		],
+		),
 		solid:   Hero.ShieldCheckSolidSm,
 		outline: Hero.ShieldCheckOutlineMd,
 	},
 	{
 		name:    "shield-exclamation",
-		tags:    [
+		tags:    createTags(
 			"shield-exclamation",
 			"shield",
 			"exclamation",
-		],
+		),
 		solid:   Hero.ShieldExclamationSolidSm,
 		outline: Hero.ShieldExclamationOutlineMd,
 	},
 	{
 		name:    "shopping-cart",
-		tags:    [
+		tags:    createTags(
 			"shopping-cart",
 			"shopping",
 			"cart",
-		],
+		),
 		solid:   Hero.ShoppingCartSolidSm,
 		outline: Hero.ShoppingCartOutlineMd,
 		status:  "new",
 	},
 	{
 		name:    "sort-ascending",
-		tags:    [
+		tags:    createTags(
+			...categories.formatting,
 			"sort-ascending",
 			"sort",
 			"ascending",
-		],
+		),
 		solid:   Hero.SortAscendingSolidSm,
 		outline: Hero.SortAscendingOutlineMd,
 	},
 	{
 		name:    "sort-descending",
-		tags:    [
+		tags:    createTags(
+			...categories.formatting,
 			"sort-descending",
 			"sort",
 			"descending",
-		],
+		),
 		solid:   Hero.SortDescendingSolidSm,
 		outline: Hero.SortDescendingOutlineMd,
 	},
 	{
 		name:    "sparkles",
-		tags:    [
+		tags:    createTags(
 			"sparkles",
-		],
+		),
 		solid:   Hero.SparklesSolidSm,
 		outline: Hero.SparklesOutlineMd,
 	},
 	{
 		name:    "speakerphone",
-		tags:    [
+		tags:    createTags(
 			"speakerphone",
-		],
+		),
 		solid:   Hero.SpeakerphoneSolidSm,
 		outline: Hero.SpeakerphoneOutlineMd,
 		status:  "new",
 	},
 	{
 		name:    "sun",
-		tags:    [
+		tags:    createTags(
 			...categories.darkMode,
 			"sun",
-		],
+		),
 		solid:   Hero.SunSolidSm,
 		outline: Hero.SunOutlineMd,
 	},
 	{
 		name:    "switch-horizontal",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"switch-horizontal",
 			"switch",
 			"horizontal",
-		],
+		),
 		solid:   Hero.SwitchHorizontalSolidSm,
 		outline: Hero.SwitchHorizontalOutlineMd,
 	},
 	{
 		name:    "switch-vertical",
-		tags:    [
+		tags:    createTags(
 			...categories.direction,
 			"switch-vertical",
 			"switch",
 			"vertical",
-		],
+		),
 		solid:   Hero.SwitchVerticalSolidSm,
 		outline: Hero.SwitchVerticalOutlineMd,
 	},
 	{
 		name:    "tag",
-		tags:    [
+		tags:    createTags(
 			"tag",
-		],
+		),
 		solid:   Hero.TagSolidSm,
 		outline: Hero.TagOutlineMd,
 	},
 	{
 		name:    "template",
-		tags:    [
+		tags:    createTags(
 			"template",
-		],
+		),
 		solid:   Hero.TemplateSolidSm,
 		outline: Hero.TemplateOutlineMd,
 	},
 	{
 		name:    "ticket",
-		tags:    [
+		tags:    createTags(
 			"ticket",
-		],
+		),
 		solid:   Hero.TicketSolidSm,
 		outline: Hero.TicketOutlineMd,
 	},
 	{
 		name:    "translate",
-		tags:    [
+		tags:    createTags(
 			"translate",
-		],
+		),
 		solid:   Hero.TranslateSolidSm,
 		outline: Hero.TranslateOutlineMd,
 	},
 	{
 		name:    "trash",
-		tags:    [
+		tags:    createTags(
 			"trash",
-		],
+		),
 		solid:   Hero.TrashSolidSm,
 		outline: Hero.TrashOutlineMd,
 	},
 	{
 		name:    "trending-down",
-		tags:    [
+		tags:    createTags(
 			"trending-down",
 			"trending",
 			"down",
-		],
+		),
 		solid:   Hero.TrendingDownSolidSm,
 		outline: Hero.TrendingDownOutlineMd,
 	},
 	{
 		name:    "trending-up",
-		tags:    [
+		tags:    createTags(
 			"trending-up",
 			"trending",
 			"up",
-		],
+		),
 		solid:   Hero.TrendingUpSolidSm,
 		outline: Hero.TrendingUpOutlineMd,
 	},
 	{
 		name:    "upload",
-		tags:    [
+		tags:    createTags(
 			"upload",
-		],
+		),
 		solid:   Hero.UploadSolidSm,
 		outline: Hero.UploadOutlineMd,
 	},
 	{
 		name:    "user-add",
-		tags:    [
+		tags:    createTags(
 			"user-add",
 			"user",
 			"add",
-		],
+		),
 		solid:   Hero.UserAddSolidSm,
 		outline: Hero.UserAddOutlineMd,
 	},
 	{
 		name:    "user-circle",
-		tags:    [
+		tags:    createTags(
 			"user-circle",
 			"user",
 			"circle",
-		],
+		),
 		solid:   Hero.UserCircleSolidSm,
 		outline: Hero.UserCircleOutlineMd,
 	},
 	{
 		name:    "user-group",
-		tags:    [
+		tags:    createTags(
 			"user-group",
 			"user",
 			"group",
-		],
+		),
 		solid:   Hero.UserGroupSolidSm,
 		outline: Hero.UserGroupOutlineMd,
 	},
 	{
 		name:    "user-remove",
-		tags:    [
+		tags:    createTags(
 			"user-remove",
 			"user",
 			"remove",
-		],
+		),
 		solid:   Hero.UserRemoveSolidSm,
 		outline: Hero.UserRemoveOutlineMd,
 	},
 	{
 		name:    "user",
-		tags:    [
+		tags:    createTags(
 			"user",
-		],
+		),
 		solid:   Hero.UserSolidSm,
 		outline: Hero.UserOutlineMd,
 	},
 	{
 		name:    "users",
-		tags:    [
+		tags:    createTags(
 			"users",
-		],
+		),
 		solid:   Hero.UsersSolidSm,
 		outline: Hero.UsersOutlineMd,
 	},
 	{
 		name:    "view-boards",
-		tags:    [
+		tags:    createTags(
 			"view-boards",
 			"view",
 			"boards",
-		],
+
+			"column",
+			"row",
+		),
 		solid:   Hero.ViewBoardsSolidSm,
 		outline: Hero.ViewBoardsOutlineMd,
 	},
 	{
 		name:    "view-list",
-		tags:    [
+		tags:    createTags(
 			"view-list",
 			"view",
 			"list",
-		],
+
+			"column",
+			"row",
+		),
 		solid:   Hero.ViewListSolidSm,
 		outline: Hero.ViewListOutlineMd,
 	},
 	{
 		name:    "volume-off",
-		tags:    [
+		tags:    createTags(
 			"volume-off",
 			"volume",
 			"off",
-		],
+
+			"sound",
+			"speaker",
+			["quiet", "loud"],
+		),
 		solid:   Hero.VolumeOffSolidSm,
 		outline: Hero.VolumeOffOutlineMd,
 	},
 	{
 		name:    "volume-up",
-		tags:    [
+		tags:    createTags(
 			"volume-up",
 			"volume",
 			"up",
-		],
+
+			"sound",
+			"speaker",
+			["quiet", "loud"],
+		),
 		solid:   Hero.VolumeUpSolidSm,
 		outline: Hero.VolumeUpOutlineMd,
 	},
 	{
 		name:    "x-circle",
-		tags:    [
+		tags:    createTags(
 			"x-circle",
 			"x",
 			"circle",
-		],
+		),
 		solid:   Hero.XCircleSolidSm,
 		outline: Hero.XCircleOutlineMd,
 	},
 	{
 		name:    "x",
-		tags:    [
+		tags:    createTags(
 			"x",
-		],
+		),
 		solid:   Hero.XSolidSm,
 		outline: Hero.XOutlineMd,
 	},
 	{
 		name:    "zoom-in",
-		tags:    [
+		tags:    createTags(
 			"zoom-in",
 			"zoom",
 			"in",
-		],
+		),
 		solid:   Hero.ZoomInSolidSm,
 		outline: Hero.ZoomInOutlineMd,
 	},
 	{
 		name:    "zoom-out",
-		tags:    [
+		tags:    createTags(
 			"zoom-out",
 			"zoom",
 			"out",
-		],
+		),
 		solid:   Hero.ZoomOutSolidSm,
 		outline: Hero.ZoomOutOutlineMd,
 	},
