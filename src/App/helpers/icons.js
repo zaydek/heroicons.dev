@@ -58,7 +58,7 @@ const categories = {
 		"continue",
 		["back", "next"],
 		["backwards", "forwards"],
-	])
+	]),
 
 	direction: flatten([
 		"direction",
