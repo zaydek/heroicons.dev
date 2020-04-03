@@ -69,13 +69,12 @@ const SearchBar = ({ query, setQuery, solid, setSolid, ...props }) => {
 			<div className="relative flex flex-row justify-between h-16 text-xl">
 
 				{/* Start */}
-				<div ref={lhs} className="px-6 flex flex-row items-center rounded-l-lg-xl focus:outline-none z-10 pointer-events-none">
-					<Hero.SearchOutlineMd className="-mr-2 w-6 h-6 text-gray-400 dark:text-gray-600 transition duration-150" />
+				<div ref={lhs} className="-mx-2 px-6 pr-2 flex flex-row items-center rounded-l-lg-xl focus:outline-none z-10 pointer-events-none">
+					<Hero.SearchOutlineMd className="mx-2 w-6 h-6 text-gray-400 dark:text-gray-600 transition duration-150" />
 				</div>
 
 				{/* Search bar */}
 				<div className="absolute inset-0">
-					{/* Layered box-shadow for dark mode */}
 					<div className="h-full rounded-lg-xl dark:shadow-md transition duration-150">
 						<input
 							ref={ref}

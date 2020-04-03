@@ -1,0 +1,6 @@
+input::placeholder {
+	color: #718096;
+}
+.dark-mode input::placeholder {
+	color: #cbd5e0;
+}
