@@ -36,11 +36,64 @@ import * as Hero from "react-heroicons"
 // "check clipboard copy done paste task todo",
 // "check clipboard copy done paste task todo",
 
+// TODO: Dedupe array
+const categories = {
+
+	// Back, next, etc.
+	continuity: [
+		"continuity",
+
+		"continue",
+		["back", "next"],
+		["backwards", "forwards"],
+	].flat(),
+
+	// Left, right, etc.
+	direction: [
+		"direction",
+
+		["left", "right", "up", "down"], // Lsorted
+	].flat(),
+
+	// West, east, etc.
+	navigation: [
+		"navigation",
+
+		["west", "east", "north", "south"], // Lsorted
+	].flat(),
+
+	// Happy, sad, etc.
+	emotions: [
+		"emotions",
+
+		["sad", "happy"], // Lsorted
+		["negative", "positive"], // Lsorted
+	].flat(),
+
+	formatting: [
+		["format", "formatting"],
+
+		"wysiwyg",
+		["column", "row"], // Lsorted
+		["horizontal", "vertical"], // Lsorted
+		["italic", "bold"], // Lsorted
+		["justify", "align"], // Lsorted
+	].flat(),
+
+}
+
 const originalIcons = [
 	{
 		name:    "adjustments",
 		tags:    [
 			"adjustments",
+
+			"configuration",
+			"configure",
+			"controls",
+			"preferences",
+			"settings",
+			"sliders",
 		],
 		solid:   Hero.AdjustmentsSolidSm,
 		outline: Hero.AdjustmentsOutlineMd,
@@ -49,6 +102,12 @@ const originalIcons = [
 		name:    "annotation",
 		tags:    [
 			"annotation",
+
+			"annotate",
+			"bubble",
+			"chat",
+			"comment",
+			"suggestion",
 		],
 		solid:   Hero.AnnotationSolidSm,
 		outline: Hero.AnnotationOutlineMd,
@@ -57,6 +116,8 @@ const originalIcons = [
 		name:    "archive",
 		tags:    [
 			"archive",
+
+			"bin",
 		],
 		solid:   Hero.ArchiveSolidSm,
 		outline: Hero.ArchiveOutlineMd,
@@ -64,6 +125,7 @@ const originalIcons = [
 	{
 		name:    "arrow-circle-down",
 		tags:    [
+			...categories.direction,
 			"arrow-circle-down",
 			"arrow",
 			"circle",
@@ -75,6 +137,7 @@ const originalIcons = [
 	{
 		name:    "arrow-circle-left",
 		tags:    [
+			...categories.direction,
 			"arrow-circle-left",
 			"arrow",
 			"circle",
@@ -86,6 +149,7 @@ const originalIcons = [
 	{
 		name:    "arrow-circle-right",
 		tags:    [
+			...categories.direction,
 			"arrow-circle-right",
 			"arrow",
 			"circle",
@@ -97,6 +161,7 @@ const originalIcons = [
 	{
 		name:    "arrow-circle-up",
 		tags:    [
+			...categories.direction,
 			"arrow-circle-up",
 			"arrow",
 			"circle",
@@ -108,6 +173,7 @@ const originalIcons = [
 	{
 		name:    "arrow-down",
 		tags:    [
+			...categories.direction,
 			"arrow-down",
 			"arrow",
 			"down",
@@ -118,6 +184,7 @@ const originalIcons = [
 	{
 		name:    "arrow-left",
 		tags:    [
+			...categories.direction,
 			"arrow-left",
 			"arrow",
 			"left",
@@ -128,6 +195,7 @@ const originalIcons = [
 	{
 		name:    "arrow-narrow-down",
 		tags:    [
+			...categories.direction,
 			"arrow-narrow-down",
 			"arrow",
 			"narrow",
@@ -139,6 +207,7 @@ const originalIcons = [
 	{
 		name:    "arrow-narrow-left",
 		tags:    [
+			...categories.direction,
 			"arrow-narrow-left",
 			"arrow",
 			"narrow",
@@ -150,6 +219,7 @@ const originalIcons = [
 	{
 		name:    "arrow-narrow-right",
 		tags:    [
+			...categories.direction,
 			"arrow-narrow-right",
 			"arrow",
 			"narrow",
@@ -161,6 +231,7 @@ const originalIcons = [
 	{
 		name:    "arrow-narrow-up",
 		tags:    [
+			...categories.direction,
 			"arrow-narrow-up",
 			"arrow",
 			"narrow",
@@ -172,6 +243,7 @@ const originalIcons = [
 	{
 		name:    "arrow-right",
 		tags:    [
+			...categories.direction,
 			"arrow-right",
 			"arrow",
 			"right",
@@ -182,6 +254,7 @@ const originalIcons = [
 	{
 		name:    "arrow-up",
 		tags:    [
+			...categories.direction,
 			"arrow-up",
 			"arrow",
 			"up",
@@ -195,6 +268,10 @@ const originalIcons = [
 			"at-symbol",
 			"at",
 			"symbol",
+
+			"address",
+			"email",
+			"mail",
 		],
 		solid:   Hero.AtSymbolSolidSm,
 		outline: Hero.AtSymbolOutlineMd,
@@ -205,6 +282,10 @@ const originalIcons = [
 			"badge-check",
 			"badge",
 			"check",
+
+			"member",
+			"pro",
+			"verified",
 		],
 		solid:   Hero.BadgeCheckSolidSm,
 		outline: Hero.BadgeCheckOutlineMd,
@@ -214,6 +295,11 @@ const originalIcons = [
 		name:    "ban",
 		tags:    [
 			"ban",
+
+			"cancel",
+			"enforce",
+			"restrict",
+			"stop",
 		],
 		solid:   Hero.BanSolidSm,
 		outline: Hero.BanOutlineMd,
@@ -223,6 +309,11 @@ const originalIcons = [
 		name:    "bell",
 		tags:    [
 			"bell",
+
+			"alert",
+			"ding",
+			"notification",
+			"news",
 		],
 		solid:   Hero.BellSolidSm,
 		outline: Hero.BellOutlineMd,
@@ -231,6 +322,11 @@ const originalIcons = [
 		name:    "bookmark",
 		tags:    [
 			"bookmark",
+
+			"book",
+			"chapter",
+			"read",
+			"save",
 		],
 		solid:   Hero.BookmarkSolidSm,
 		outline: Hero.BookmarkOutlineMd,
@@ -241,6 +337,11 @@ const originalIcons = [
 			"book-open",
 			"book",
 			"open",
+
+			"chapter",
+			"diary",
+			"journal",
+			"read",
 		],
 		solid:   Hero.BookOpenSolidSm,
 		outline: Hero.BookOpenOutlineMd,
@@ -249,6 +350,13 @@ const originalIcons = [
 		name:    "briefcase",
 		tags:    [
 			"briefcase",
+
+			"bag",
+			"business",
+			"diary",
+			"journal",
+			"suitcase",
+			"travel",
 		],
 		solid:   Hero.BriefcaseSolidSm,
 		outline: Hero.BriefcaseOutlineMd,
@@ -327,6 +435,7 @@ const originalIcons = [
 	{
 		name:    "cheveron-down",
 		tags:    [
+			...categories.direction,
 			"cheveron-down",
 			"cheveron",
 			"down",
@@ -337,6 +446,7 @@ const originalIcons = [
 	{
 		name:    "cheveron-left",
 		tags:    [
+			...categories.direction,
 			"cheveron-left",
 			"cheveron",
 			"left",
@@ -347,6 +457,7 @@ const originalIcons = [
 	{
 		name:    "cheveron-right",
 		tags:    [
+			...categories.direction,
 			"cheveron-right",
 			"cheveron",
 			"right",
@@ -357,6 +468,7 @@ const originalIcons = [
 	{
 		name:    "cheveron-up",
 		tags:    [
+			...categories.direction,
 			"cheveron-up",
 			"cheveron",
 			"up",
@@ -644,6 +756,7 @@ const originalIcons = [
 	{
 		name:    "emoji-happy",
 		tags:    [
+			...categories.emotions,
 			"emoji-happy",
 			"emoji",
 			"happy",
@@ -654,6 +767,7 @@ const originalIcons = [
 	{
 		name:    "emoji-sad",
 		tags:    [
+			...categories.emotions,
 			"emoji-sad",
 			"emoji",
 			"sad",
@@ -888,6 +1002,7 @@ const originalIcons = [
 	{
 		name:    "menu-alt-1",
 		tags:    [
+			...categories.formatting,
 			"menu-alt-1",
 			"menu",
 			"alt",
@@ -899,6 +1014,7 @@ const originalIcons = [
 	{
 		name:    "menu-alt-2",
 		tags:    [
+			...categories.formatting,
 			"menu-alt-2",
 			"menu",
 			"alt",
@@ -910,6 +1026,7 @@ const originalIcons = [
 	{
 		name:    "menu-alt-3",
 		tags:    [
+			...categories.formatting,
 			"menu-alt-3",
 			"menu",
 			"alt",
@@ -921,6 +1038,7 @@ const originalIcons = [
 	{
 		name:    "menu-alt-4",
 		tags:    [
+			...categories.formatting,
 			"menu-alt-4",
 			"menu",
 			"alt",
@@ -932,6 +1050,7 @@ const originalIcons = [
 	{
 		name:    "menu",
 		tags:    [
+			...categories.formatting,
 			"menu",
 		],
 		solid:   Hero.MenuSolidSm,
@@ -1128,6 +1247,7 @@ const originalIcons = [
 	{
 		name:    "selector",
 		tags:    [
+			...categories.direction,
 			"selector",
 		],
 		solid:   Hero.SelectorSolidSm,
@@ -1220,6 +1340,7 @@ const originalIcons = [
 	{
 		name:    "switch-horizontal",
 		tags:    [
+			...categories.direction,
 			"switch-horizontal",
 			"switch",
 			"horizontal",
@@ -1230,6 +1351,7 @@ const originalIcons = [
 	{
 		name:    "switch-vertical",
 		tags:    [
+			...categories.direction,
 			"switch-vertical",
 			"switch",
 			"vertical",
