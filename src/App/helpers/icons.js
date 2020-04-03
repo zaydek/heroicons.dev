@@ -36,41 +36,50 @@ import * as Hero from "react-heroicons"
 // "check clipboard copy done paste task todo",
 // "check clipboard copy done paste task todo",
 
+// Recurisvely flattens an array
+function flatten(array) {
+	const flat = []
+	for (let index = 0; index < array.length; index++) {
+		if (Array.isArray(array[index])) {
+			flat.push(...flatten(array[index]))
+			continue
+		}
+		flat.push(array[index])
+	}
+	return flat
+}
+
 // TODO: Dedupe array
 const categories = {
 
-	// Back, next, etc.
-	continuity: [
+	continuity: flatten([
 		"continuity",
 
 		"continue",
 		["back", "next"],
 		["backwards", "forwards"],
-	].flat(),
+	])
 
-	// Left, right, etc.
-	direction: [
+	direction: flatten([
 		"direction",
 
 		["left", "right", "up", "down"], // Lsorted
-	].flat(),
+	]),
 
-	// West, east, etc.
-	navigation: [
+	navigation: flatten([
 		"navigation",
 
 		["west", "east", "north", "south"], // Lsorted
-	].flat(),
+	]),
 
-	// Happy, sad, etc.
-	emotions: [
+	emotions: flatten([
 		"emotions",
 
 		["sad", "happy"], // Lsorted
 		["negative", "positive"], // Lsorted
-	].flat(),
+	]),
 
-	formatting: [
+	formatting: flatten([
 		["format", "formatting"],
 
 		"wysiwyg",
@@ -78,7 +87,11 @@ const categories = {
 		["horizontal", "vertical"], // Lsorted
 		["italic", "bold"], // Lsorted
 		["justify", "align"], // Lsorted
-	].flat(),
+	]),
+
+	darkMode: flatten([
+		["dark mode", "dark-mode"],
+	]),
 
 }
 
@@ -1078,6 +1091,7 @@ const originalIcons = [
 	{
 		name:    "moon",
 		tags:    [
+			...categories.darkMode,
 			"moon",
 		],
 		solid:   Hero.MoonSolidSm,
@@ -1332,6 +1346,7 @@ const originalIcons = [
 	{
 		name:    "sun",
 		tags:    [
+			...categories.darkMode,
 			"sun",
 		],
 		solid:   Hero.SunSolidSm,
