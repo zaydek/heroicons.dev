@@ -66,20 +66,22 @@ const SearchBar = props => {
 
 	return (
 		<div className="sticky top-0 z-40">
-			<div className="-mx-2 -mb-8 px-2 bg-gray-100 dark:bg-gray-900 transition duration-150" style={{ height: "calc(14 * 0.25rem)" }} />
+			<div className="-mx-2 -mb-8 px-2 bg-gray-100 dark:bg-gray-900 transition duration-300" style={{ height: "calc(14 * 0.25rem)" }} />
 			<div className="relative flex flex-row justify-between h-16 text-xl">
 
 				{/* Start */}
 				<div ref={lhs} className="-mx-2 px-6 pr-2 flex flex-row items-center rounded-l-lg-xl focus:outline-none z-10 pointer-events-none">
-					<Hero.SearchOutlineMd className="mx-2 w-6 h-6 text-gray-400 dark:text-gray-600 transition duration-150" />
+					<div className="px-2">
+						<Hero.SearchOutlineMd className="w-6 h-6 text-gray-400 dark:text-gray-600 transition duration-300" />
+					</div>
 				</div>
 
 				{/* Search bar */}
 				<div className="absolute inset-0">
-					<div className="h-full rounded-lg-xl dark:shadow-md transition duration-150">
+					<div className="h-full rounded-lg-xl dark:shadow-md transition duration-300">
 						<input
 							ref={ref}
-							className="w-full h-full text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded-lg-xl outline-none shadow dark:shadow-md focus:shadow-outline transition duration-150"
+							className="w-full h-full text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded-lg-xl outline-none shadow dark:shadow-md focus:shadow-outline transition duration-300"
 							type="text"
 							placeholder={placeholder}
 							value={ctx.query}
@@ -90,12 +92,12 @@ const SearchBar = props => {
 				</div>
 
 				{/* End */}
-				<div ref={rhs} className="-mx-2 px-6 flex flex-row items-center rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10 transition duration-150">
-					<button className="mx-2" onPointerDown={e => e.preventDefault()} onClick={e => ctx.setSolid(!ctx.solid)}>
-						<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!ctx.solid ? Hero.PlusCircleOutlineMd : Hero.PlusCircleSolidSm} />
+				<div ref={rhs} className="-mx-2 px-6 flex flex-row rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10 transition duration-300">
+					<button className="px-2" onPointerDown={e => e.preventDefault()} onClick={e => ctx.setSolid(!ctx.solid)}>
+						<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-300" svg={!ctx.solid ? Hero.PlusCircleOutlineMd : Hero.PlusCircleSolidSm} />
 					</button>
-					<button className="mx-2" onPointerDown={e => e.preventDefault()} onClick={e => ctx.setDarkMode(!ctx.darkMode)}>
-						<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!ctx.darkMode ? Hero.SunOutlineMd : Hero.SunSolidSm} />
+					<button className="px-2" onPointerDown={e => e.preventDefault()} onClick={e => ctx.setDarkMode(!ctx.darkMode)}>
+						<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-300" svg={!ctx.darkMode ? Hero.SunOutlineMd : Hero.SunSolidSm} />
 					</button>
 				</div>
 
