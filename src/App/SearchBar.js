@@ -63,21 +63,21 @@ const SearchBar = ({ query, setQuery, solid, setSolid, ...props }) => {
 
 	return (
 		<div className="sticky top-0 z-40">
-			<div className="-mx-2 -mb-8 px-2 bg-gray-100 dark:bg-gray-900 trans-150" style={{ height: "calc(14 * 0.25rem)" }} />
+			<div className="-mx-2 -mb-8 px-2 bg-gray-100 dark:bg-gray-900 transition duration-150" style={{ height: "calc(14 * 0.25rem)" }} />
 			<div className="relative flex flex-row justify-between h-16 text-xl">
 
 				{/* Start */}
 				<div ref={lhs} className="px-6 flex flex-row items-center rounded-l-lg-xl focus:outline-none z-10 pointer-events-none">
-					<Hero.SearchOutlineMd className="-mr-2 w-6 h-6 text-gray-400 dark:text-gray-600 trans-150" />
+					<Hero.SearchOutlineMd className="-mr-2 w-6 h-6 text-gray-400 dark:text-gray-600 transition duration-150" />
 				</div>
 
 				{/* Search bar */}
 				<div className="absolute inset-0">
 					{/* Layered box-shadow for dark mode */}
-					<div className="h-full rounded-lg-xl dark:shadow-md trans-150">
+					<div className="h-full rounded-lg-xl dark:shadow-md transition duration-150">
 						<input
 							ref={ref}
-							className="w-full h-full text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded-lg-xl outline-none shadow dark:shadow-md focus:shadow-outline trans-150"
+							className="w-full h-full text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded-lg-xl outline-none shadow dark:shadow-md focus:shadow-outline transition duration-150"
 							type="text"
 							placeholder={placeholder}
 							value={query}
@@ -88,11 +88,11 @@ const SearchBar = ({ query, setQuery, solid, setSolid, ...props }) => {
 				</div>
 
 				{/* End */}
-				<button ref={rhs} className="px-6 flex flex-row items-center rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10 trans-150" onPointerDown={e => e.preventDefault()} onClick={e => setSolid(!solid)}>
-					<p className="mx-2 text-center text-gray-800 dark:text-gray-200 trans-150">
+				<button ref={rhs} className="px-6 flex flex-row items-center rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10 transition duration-150" onPointerDown={e => e.preventDefault()} onClick={e => setSolid(!solid)}>
+					<p className="mx-2 text-center text-gray-800 dark:text-gray-200 transition duration-150">
 						{!solid ? "Outline" : "Solid"}
 					</p>
-					<Icon className="ml-2 w-6 h-6 text-gray-800 dark:text-gray-200 trans-150" svg={!solid ? Hero.PlusCircleOutlineMd : Hero.PlusCircleSolidSm} />
+					<Icon className="ml-2 w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!solid ? Hero.PlusCircleOutlineMd : Hero.PlusCircleSolidSm} />
 				</button>
 
 			</div>

@@ -27,7 +27,7 @@ class SearchTrie {
 	}
 	search(query) {
 		if (!query) {
-			return null
+			return this.dataset
 		}
 		let ref = this.trie
 		const queryLower = query.toLowerCase()
