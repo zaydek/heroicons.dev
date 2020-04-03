@@ -74,10 +74,10 @@ const App = props => {
 						<div className="-mb-8 absolute left-full bottom-full">
 							<button
 								onPointerDown={e => e.preventDefault()}
-								onClick={e => {
-									setDarkMode(!darkMode)
-									ga.logEvent(constants.GA_DARK_MODE)
-								}}
+								// onClick={e => {
+								// 	setDarkMode(!darkMode)
+								// 	ga.logEvent(constants.GA_DARK_MODE)
+								// }}
 							>
 								<DarkModeIcon className="p-px w-8 h-8" darkMode={darkMode} />
 							</button>

@@ -2,12 +2,18 @@ import * as Hero from "react-heroicons"
 import Icon from "./Icon"
 import originalIcons from "./helpers/icons"
 import React from "react"
+import useDarkMode from "./useDarkMode"
+
+// const DarkModeIcon = ({ darkMode, ...props }) => (
+// 	<Icon svg={!darkMode ? Hero.SunOutlineMd : Hero.SunSolidSm} {...props} />
+// )
 
 const SearchBar = ({ query, setQuery, solid, setSolid, ...props }) => {
 	const ref = React.useRef() // Search bar
 	const lhs = React.useRef() // Start of search bar
 	const rhs = React.useRef() // End of search bar
 
+	const [darkMode, setDarkMode] = useDarkMode()
 	const [placeholder, setPlaceholder] = React.useState("")
 
 	// Responsive placeholder:
@@ -88,12 +94,14 @@ const SearchBar = ({ query, setQuery, solid, setSolid, ...props }) => {
 				</div>
 
 				{/* End */}
-				<button ref={rhs} className="px-6 flex flex-row items-center rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10 transition duration-150" onPointerDown={e => e.preventDefault()} onClick={e => setSolid(!solid)}>
-					<p className="mx-2 text-center text-gray-800 dark:text-gray-200 transition duration-150">
-						{!solid ? "Outline" : "Solid"}
-					</p>
-					<Icon className="ml-2 w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!solid ? Hero.PlusCircleOutlineMd : Hero.PlusCircleSolidSm} />
-				</button>
+				<div ref={rhs} className="-mx-2 px-6 flex flex-row items-center rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10 transition duration-150">
+					<button className="mx-2" onPointerDown={e => e.preventDefault()} onClick={e => setSolid(!solid)}>
+						<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!solid ? Hero.PlusCircleOutlineMd : Hero.PlusCircleSolidSm} />
+					</button>
+					<button className="mx-2" onPointerDown={e => e.preventDefault()} onClick={e => setDarkMode(!darkMode)}>
+						<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!darkMode ? Hero.MoonOutlineMd : Hero.SunSolidSm} />
+					</button>
+				</div>
 
 			</div>
 		</div>
