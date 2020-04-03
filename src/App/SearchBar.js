@@ -1,15 +1,16 @@
 import * as Hero from "react-heroicons"
+import Context from "./Context"
 import Icon from "./Icon"
 import originalIcons from "./helpers/icons"
 import React from "react"
-import useDarkMode from "./useDarkMode"
 
-const SearchBar = ({ query, setQuery, solid, setSolid, ...props }) => {
+const SearchBar = props => {
+	const state = React.useContext(Context)
+
 	const ref = React.useRef() // Search bar
 	const lhs = React.useRef() // Start of search bar
 	const rhs = React.useRef() // End of search bar
 
-	const [darkMode, setDarkMode] = useDarkMode()
 	const [placeholder, setPlaceholder] = React.useState("")
 
 	// Responsive placeholder:
@@ -60,7 +61,7 @@ const SearchBar = ({ query, setQuery, solid, setSolid, ...props }) => {
 			// No-op
 			return
 		}
-		setQuery("") // Reset
+		state.setQuery("") // Reset
 	}
 
 	return (
@@ -81,20 +82,20 @@ const SearchBar = ({ query, setQuery, solid, setSolid, ...props }) => {
 							className="w-full h-full text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded-lg-xl outline-none shadow dark:shadow-md focus:shadow-outline transition duration-150"
 							type="text"
 							placeholder={placeholder}
-							value={query}
+							value={state.query}
 							onKeyDown={handleKeyDown}
-							onChange={e => setQuery(e.target.value)}
+							onChange={e => state.setQuery(e.target.value)}
 						/>
 					</div>
 				</div>
 
 				{/* End */}
 				<div ref={rhs} className="-mx-2 px-6 flex flex-row items-center rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10 transition duration-150">
-					<button className="mx-2" onPointerDown={e => e.preventDefault()} onClick={e => setSolid(!solid)}>
-						<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!solid ? Hero.PlusCircleOutlineMd : Hero.PlusCircleSolidSm} />
+					<button className="mx-2" onPointerDown={e => e.preventDefault()} onClick={e => state.setSolid(!state.solid)}>
+						<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!state.solid ? Hero.PlusCircleOutlineMd : Hero.PlusCircleSolidSm} />
 					</button>
-					<button className="mx-2" onPointerDown={e => e.preventDefault()} onClick={e => setDarkMode(!darkMode)}>
-						<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!darkMode ? Hero.SunOutlineMd : Hero.SunSolidSm} />
+					<button className="mx-2" onPointerDown={e => e.preventDefault()} onClick={e => state.setDarkMode(!state.darkMode)}>
+						<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!state.darkMode ? Hero.SunOutlineMd : Hero.SunSolidSm} />
 					</button>
 				</div>
 
