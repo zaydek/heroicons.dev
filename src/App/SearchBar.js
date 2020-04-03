@@ -4,10 +4,6 @@ import originalIcons from "./helpers/icons"
 import React from "react"
 import useDarkMode from "./useDarkMode"
 
-// const DarkModeIcon = ({ darkMode, ...props }) => (
-// 	<Icon svg={!darkMode ? Hero.SunOutlineMd : Hero.SunSolidSm} {...props} />
-// )
-
 const SearchBar = ({ query, setQuery, solid, setSolid, ...props }) => {
 	const ref = React.useRef() // Search bar
 	const lhs = React.useRef() // Start of search bar
@@ -99,7 +95,7 @@ const SearchBar = ({ query, setQuery, solid, setSolid, ...props }) => {
 						<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!solid ? Hero.PlusCircleOutlineMd : Hero.PlusCircleSolidSm} />
 					</button>
 					<button className="mx-2" onPointerDown={e => e.preventDefault()} onClick={e => setDarkMode(!darkMode)}>
-						<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!darkMode ? Hero.MoonOutlineMd : Hero.SunSolidSm} />
+						<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!darkMode ? Hero.SunOutlineMd : Hero.SunSolidSm} />
 					</button>
 				</div>
 

@@ -12,10 +12,6 @@ import useDarkMode from "./useDarkMode"
 
 const ga = firebase.analytics()
 
-const DarkModeIcon = ({ darkMode, ...props }) => (
-	<Icon svg={!darkMode ? Hero.SunOutlineMd : Hero.SunSolidSm} {...props} />
-)
-
 const searchTrie = new SearchTrie(originalIcons)
 
 const App = props => {
@@ -38,21 +34,6 @@ const App = props => {
 		[],
 	)
 
-	// Background overflow:
-	//
-	// TODO: Extract to useHTMLBackgroundColor(lightMode, darkMode)
-	React.useEffect(() => {
-		let backgroundColor = ""
-		if (!darkMode) {
-			// bg-gray-100
-			backgroundColor = "#f7fafc"
-		} else {
-			// bg-gray-900
-			backgroundColor = "#1a202c"
-		}
-		document.documentElement.style.backgroundColor = backgroundColor
-	}, [darkMode])
-
 	// Debounce query (10ms):
 	React.useEffect(() => {
 		const id = setTimeout(() => {
@@ -74,12 +55,12 @@ const App = props => {
 						<div className="-mb-8 absolute left-full bottom-full">
 							<button
 								onPointerDown={e => e.preventDefault()}
-								// onClick={e => {
-								// 	setDarkMode(!darkMode)
-								// 	ga.logEvent(constants.GA_DARK_MODE)
-								// }}
+								onClick={e => {
+									setDarkMode(!darkMode)
+									// ga.logEvent(constants.GA_DARK_MODE)
+								}}
 							>
-								<DarkModeIcon className="p-px w-8 h-8" darkMode={darkMode} />
+								<Icon className="p-px w-8 h-8" svg={!darkMode ? Hero.SunOutlineMd : Hero.SunSolidSm} />
 							</button>
 						</div>
 					</h1>

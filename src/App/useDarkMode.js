@@ -2,7 +2,9 @@ import React from "react"
 
 // https://codesandbox.io/s/dead-simple-usedarkmode-implementation-sl71k
 function useDarkMode() {
-	const [darkMode, setDarkMode] = React.useState(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches)
+	const [darkMode, setDarkMode] = React.useState(() => {
+		return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+	})
 
 	// Listen for dark mode (from the user):
 	React.useEffect(() => {
@@ -21,13 +23,26 @@ function useDarkMode() {
 		}
 	}, [])
 
-	// Update body.dark-mode:
+	// Update <body>:
 	React.useLayoutEffect(() => {
 		if (!darkMode) {
 			document.body.classList.remove("dark-mode")
 		} else {
 			document.body.classList.add("dark-mode")
 		}
+	}, [darkMode])
+
+	// Update <html>:
+	React.useEffect(() => {
+		let backgroundColor = ""
+		if (!darkMode) {
+			// bg-gray-100
+			backgroundColor = "#f7fafc"
+		} else {
+			// bg-gray-900
+			backgroundColor = "#1a202c"
+		}
+		document.documentElement.style.backgroundColor = backgroundColor
 	}, [darkMode])
 
 	return [darkMode, setDarkMode]
