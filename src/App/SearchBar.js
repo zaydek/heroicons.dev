@@ -1,9 +1,9 @@
 import * as Hero from "react-heroicons"
-import Icon from "components/Icon"
+import Icon from "./Icon"
 import originalIcons from "./helpers/icons"
 import React from "react"
 
-const Search = ({ query, setQuery, solid, setSolid, ...props }) => {
+const SearchBar = ({ query, setQuery, solid, setSolid, ...props }) => {
 	const ref = React.useRef() // Search bar
 	const lhs = React.useRef() // Start of search bar
 	const rhs = React.useRef() // End of search bar
@@ -100,4 +100,4 @@ const Search = ({ query, setQuery, solid, setSolid, ...props }) => {
 	)
 }
 
-export default Search
+export default SearchBar

@@ -1,5 +1,5 @@
 import copyToClipboard from "./helpers/copyToClipboard"
-import Icon from "components/Icon"
+import Icon from "./Icon"
 import React from "react"
 
 const IconCard = ({ status, prefersSolid, outline, solid, ...props }) => {

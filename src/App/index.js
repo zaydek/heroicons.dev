@@ -2,12 +2,12 @@ import * as constants from "__constants"
 import * as Hero from "react-heroicons"
 import * as Icons from "svgs"
 import firebase from "__firebase"
-import Icon from "components/Icon"
+import Icon from "./Icon"
 import IconGrid from "./IconGrid"
 import originalIcons from "./helpers/icons"
 import React from "react"
-import Search from "./Search"
-import useDarkMode from "hooks/useDarkMode"
+import SearchBar from "./SearchBar"
+import useDarkMode from "./useDarkMode"
 
 const ga = firebase.analytics()
 
@@ -134,7 +134,7 @@ const App = props => {
 
 				{/* Search */}
 				<div className="h-6" />
-				<Search query={query} setQuery={setQuery} solid={solid} setSolid={setSolid} />
+				<SearchBar query={query} setQuery={setQuery} solid={solid} setSolid={setSolid} />
 
 				{/* Icons */}
 				<div className="h-6" />
