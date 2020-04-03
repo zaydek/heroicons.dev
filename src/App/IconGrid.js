@@ -3,7 +3,7 @@ import copyToClipboard from "./helpers/copyToClipboard"
 import Icon from "./Icon"
 import React from "react"
 
-const IconCard = ({ status, outline, solid, ...props }) => {
+const IconCard = React.memo(({ status, outline, solid, ...props }) => {
 	const ref = React.useRef()
 
 	const ctx = React.useContext(Context)
@@ -57,7 +57,7 @@ const IconCard = ({ status, outline, solid, ...props }) => {
 			</div>
 		</div>
 	)
-}
+})
 
 const IconGrid = React.memo(props => {
 	const ctx = React.useContext(Context)
