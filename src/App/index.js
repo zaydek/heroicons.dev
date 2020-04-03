@@ -130,7 +130,7 @@ const App = props => {
 
 					{/* Icons */}
 					<div className="h-6" />
-					<IconGrid solid={solid} icons={icons} />
+					<IconGrid />
 
 				</div>
 			</div>

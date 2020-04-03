@@ -1,10 +1,12 @@
+import Context from "./Context"
 import copyToClipboard from "./helpers/copyToClipboard"
 import Icon from "./Icon"
 import React from "react"
 
-const IconCard = ({ status, prefersSolid, outline, solid, ...props }) => {
+const IconCard = ({ status, outline, solid, ...props }) => {
 	const ref = React.useRef()
 
+	const state = React.useContext(Context)
 	const [text, setText] = React.useState(props.name)
 
 	// TODO: Add paper-clip icon to copied!
@@ -37,7 +39,7 @@ const IconCard = ({ status, prefersSolid, outline, solid, ...props }) => {
 					<Icon
 						ref={ref}
 						className="w-8 h-8"
-						svg={!prefersSolid ? outline : solid}
+						svg={!state.solid ? outline : solid}
 					/>
 					<div className="p-2 absolute inset-0 flex flex-row justify-center items-end">
 						<p className="text-center font-ibm-plex-mono font-semibold text-sm leading-snug">
@@ -57,18 +59,18 @@ const IconCard = ({ status, prefersSolid, outline, solid, ...props }) => {
 	)
 }
 
-const IconGrid = React.memo(({ icons, solid, ...props }) => (
-	<div style={{ minHeight: "calc(100vh - 6rem - 5.5rem - 1.5rem)" /* 100vh - py-20 - <Search> - h-6 */ }}>
-		<div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
-			{icons.map(each => (
-				<IconCard
-					key={each.name}
-					prefersSolid={solid}
-					{...each}
-				/>
-			))}
+const IconGrid = React.memo(props => {
+	const state = React.useContext(Context)
+
+	return (
+		<div style={{ minHeight: "calc(100vh - 6rem - 5.5rem - 1.5rem)" /* 100vh - py-20 - <Search> - h-6 */ }}>
+			<div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
+				{state.icons.map(each => (
+					<IconCard key={each.name} {...each} />
+				))}
+			</div>
 		</div>
-	</div>
-))
+	)
+})
 
 export default IconGrid
