@@ -57,15 +57,18 @@ function createTags(...tags) {
 	return [...new Set(flatten(tags))]
 }
 
-// TODO: Dedupe array
 const categories = {
 
 	continuity: [
 		"continuity",
 
-		"continue",
-		["back", "next"],
-		["backwards", "forwards"],
+		["back", "next"], // Lsorted
+		["backwards", "forwards"], // Lsorted
+		["discontinue", "continue"], // Lsorted
+	],
+
+	arrows: [
+		"arrows",
 	],
 
 	direction: [
@@ -94,6 +97,7 @@ const categories = {
 		"wysiwyg",
 		["column", "row"], // Lsorted
 		["horizontal", "vertical"], // Lsorted
+		// DEPRECATE
 		["italic", "bold"], // Lsorted
 		["justify", "align"], // Lsorted
 	],
@@ -105,19 +109,92 @@ const categories = {
 		["night", "day"],
 	],
 
-	travel: [
-		"travel",
-
-		"vacation",
-	],
-
 	photography: [
 		"photography",
 
 		["camera", "photo"],
 	],
 
+	chatSync: [
+		["chat-sync", "chat", "synchronous"],
+
+		"comment",
+		"discuss",
+		"message",
+		"think",
+		"type",
+		"write",
+		["annotate", "annotation"],
+	],
+
+	chatAsync: [
+		["chat-async", "chatting", "asynchronous"],
+
+		"commenting",
+		"discussing",
+		"messaging",
+		"thinking",
+		"typing",
+		"writing",
+		"annotating",
+	],
+
+	//	file: [
+	//		"file",
+	//
+	//		"document",
+	//		"item",
+	//	]
+
+	email: [
+		"email",
+
+		"mail",
+		["at", "symbol", "at symbol"],
+		["email", "address", "email address"],
+	],
+
+	copypasta: [
+		"copypasta",
+
+		"clipboard",
+		"duplciate",
+		["cut", "copy", "paste"],
+	],
+
+	folder: [
+		"folder",
+
+		"archive",
+		"bin",
+		"storage",
+	],
+
+	settings: [
+		"settings",
+
+		"controls",
+		"preferences",
+	],
+
+	ellisis: [
+		"dots",
+		"ellisis",
+	],
+
+	more: [
+		"more",
+
+		"actions",
+		"options",
+	]
+
 }
+
+// registerIcon({
+// 	name: "...",
+// 	tags: "...",
+// })
 
 // "file",
 
@@ -141,7 +218,10 @@ const originalIcons = [
 	{
 		name:    "adjustments",
 		tags:    createTags(
+			...categories.settings,
 			"adjustments",
+
+			"sliders",
 		),
 		solid:   Hero.AdjustmentsSolidSm,
 		outline: Hero.AdjustmentsOutlineMd,
@@ -149,6 +229,7 @@ const originalIcons = [
 	{
 		name:    "annotation",
 		tags:    createTags(
+			...categories.chatSync,
 			"annotation",
 		),
 		solid:   Hero.AnnotationSolidSm,
@@ -157,6 +238,7 @@ const originalIcons = [
 	{
 		name:    "archive",
 		tags:    createTags(
+			...categories.folder,
 			"archive",
 		),
 		solid:   Hero.ArchiveSolidSm,
@@ -305,13 +387,10 @@ const originalIcons = [
 	{
 		name:    "at-symbol",
 		tags:    createTags(
+			...categories.email,
 			"at-symbol",
 			"at",
 			"symbol",
-
-			"address",
-			"email",
-			"mail",
 		),
 		solid:   Hero.AtSymbolSolidSm,
 		outline: Hero.AtSymbolOutlineMd,
@@ -324,7 +403,9 @@ const originalIcons = [
 			"check",
 
 			"member",
+			"official",
 			"pro",
+			"status",
 			"verified",
 		),
 		solid:   Hero.BadgeCheckSolidSm,
@@ -350,10 +431,10 @@ const originalIcons = [
 		tags:    createTags(
 			"bell",
 
-			"alert",
-			"ding",
-			"notification",
+			// Use plural form
+			"alerts",
 			"news",
+			"notifications",
 		),
 		solid:   Hero.BellSolidSm,
 		outline: Hero.BellOutlineMd,
@@ -365,8 +446,9 @@ const originalIcons = [
 
 			"book",
 			"chapter",
+			"diary",
+			"journal",
 			"read",
-			"save",
 		),
 		solid:   Hero.BookmarkSolidSm,
 		outline: Hero.BookmarkOutlineMd,
@@ -378,6 +460,7 @@ const originalIcons = [
 			"book",
 			"open",
 
+			"book",
 			"chapter",
 			"diary",
 			"journal",
@@ -393,8 +476,7 @@ const originalIcons = [
 
 			"bag",
 			"business",
-			"diary",
-			"journal",
+			"satchel",
 			"suitcase",
 			"travel",
 		),
@@ -405,6 +487,12 @@ const originalIcons = [
 		name:    "calendar",
 		tags:    createTags(
 			"calendar",
+
+			// Use plural form
+			"dates",
+			"events",
+			"schedule",
+			["days", "months", "years"],
 		),
 		solid:   Hero.CalendarSolidSm,
 		outline: Hero.CalendarOutlineMd,
@@ -420,9 +508,7 @@ const originalIcons = [
 	},
 	{
 		name:    "cash",
-		tags:    createTags(
-			"cash",
-		),
+		tags:    createTags("cash"),
 		solid:   Hero.CashSolidSm,
 		outline: Hero.CashOutlineMd,
 	},
@@ -432,6 +518,10 @@ const originalIcons = [
 			"chart-pie",
 			"chart",
 			"pie",
+
+			"data",
+			"statistics",
+			"stats",
 		),
 		solid:   Hero.ChartPieSolidSm,
 		outline: Hero.ChartPieOutlineMd,
@@ -439,6 +529,9 @@ const originalIcons = [
 	{
 		name:    "chat-alt",
 		tags:    createTags(
+			...categories.chatAsync,
+			...categories.chatSync,
+			...categories.ellisis,
 			"chat-alt",
 			"chat",
 			"alt",
@@ -450,6 +543,9 @@ const originalIcons = [
 	{
 		name:    "chat",
 		tags:    createTags(
+			...categories.chatAsync,
+			...categories.chatSync,
+			...categories.ellisis,
 			"chat",
 		),
 		solid:   Hero.ChatSolidSm,
@@ -467,15 +563,14 @@ const originalIcons = [
 	},
 	{
 		name:    "check",
-		tags:    createTags(
-			"check",
-		),
+		tags:    createTags("check"),
 		solid:   Hero.CheckSolidSm,
 		outline: Hero.CheckOutlineMd,
 	},
 	{
 		name:    "cheveron-down",
 		tags:    createTags(
+			...categories.arrows,
 			...categories.direction,
 			"cheveron-down",
 			"cheveron",
@@ -487,6 +582,7 @@ const originalIcons = [
 	{
 		name:    "cheveron-left",
 		tags:    createTags(
+			...categories.arrows,
 			...categories.direction,
 			"cheveron-left",
 			"cheveron",
@@ -498,6 +594,7 @@ const originalIcons = [
 	{
 		name:    "cheveron-right",
 		tags:    createTags(
+			...categories.arrows,
 			...categories.direction,
 			"cheveron-right",
 			"cheveron",
@@ -509,6 +606,7 @@ const originalIcons = [
 	{
 		name:    "cheveron-up",
 		tags:    createTags(
+			...categories.arrows,
 			...categories.direction,
 			"cheveron-up",
 			"cheveron",
@@ -520,6 +618,7 @@ const originalIcons = [
 	{
 		name:    "clipboard-check",
 		tags:    createTags(
+			...categories.copypasta,
 			"clipboard-check",
 			"clipboard",
 			"check",
@@ -530,6 +629,7 @@ const originalIcons = [
 	{
 		name:    "clipboard-copy",
 		tags:    createTags(
+			...categories.copypasta,
 			"clipboard-copy",
 			"clipboard",
 			"copy",
@@ -540,6 +640,7 @@ const originalIcons = [
 	{
 		name:    "clipboard-list",
 		tags:    createTags(
+			...categories.copypasta,
 			"clipboard-list",
 			"clipboard",
 			"list",
@@ -550,6 +651,7 @@ const originalIcons = [
 	{
 		name:    "clipboard",
 		tags:    createTags(
+			...categories.copypasta,
 			"clipboard",
 		),
 		solid:   Hero.ClipboardSolidSm,
@@ -557,9 +659,7 @@ const originalIcons = [
 	},
 	{
 		name:    "clock",
-		tags:    createTags(
-			"clock",
-		),
+		tags:    createTags("clock"),
 		solid:   Hero.ClockSolidSm,
 		outline: Hero.ClockOutlineMd,
 	},
@@ -585,15 +685,14 @@ const originalIcons = [
 	},
 	{
 		name:    "code",
-		tags:    createTags(
-			"code",
-		),
+		tags:    createTags("code"),
 		solid:   Hero.CodeSolidSm,
 		outline: Hero.CodeOutlineMd,
 	},
 	{
 		name:    "cog",
 		tags:    createTags(
+			...categories.settings,
 			"cog",
 		),
 		solid:   Hero.CogSolidSm,
@@ -601,9 +700,7 @@ const originalIcons = [
 	},
 	{
 		name:    "collection",
-		tags:    createTags(
-			"collection",
-		),
+		tags:    createTags("collection"),
 		solid:   Hero.CollectionSolidSm,
 		outline: Hero.CollectionOutlineMd,
 	},
@@ -711,6 +808,7 @@ const originalIcons = [
 	{
 		name:    "document-duplicate",
 		tags:    createTags(
+			...categories.copypasta,
 			"document-duplicate",
 			"document",
 			"duplicate",
@@ -741,15 +839,15 @@ const originalIcons = [
 	},
 	{
 		name:    "document",
-		tags:    createTags(
-			"document",
-		),
+		tags:    createTags("document"),
 		solid:   Hero.DocumentSolidSm,
 		outline: Hero.DocumentOutlineMd,
 	},
 	{
 		name:    "dots-circle-horizontal",
 		tags:    createTags(
+			...categories.ellisis,
+			...categories.more,
 			"dots-circle-horizontal",
 			"dots",
 			"circle",
@@ -761,6 +859,8 @@ const originalIcons = [
 	{
 		name:    "dots-horizontal",
 		tags:    createTags(
+			...categories.ellisis,
+			...categories.more,
 			"dots-horizontal",
 			"dots",
 			"horizontal",
@@ -771,6 +871,8 @@ const originalIcons = [
 	{
 		name:    "dots-vertical",
 		tags:    createTags(
+			...categories.ellisis,
+			...categories.more,
 			"dots-vertical",
 			"dots",
 			"vertical",
@@ -780,15 +882,14 @@ const originalIcons = [
 	},
 	{
 		name:    "download",
-		tags:    createTags(
-			"download",
-		),
+		tags:    createTags("download"),
 		solid:   Hero.DownloadSolidSm,
 		outline: Hero.DownloadOutlineMd,
 	},
 	{
 		name:    "duplicate",
 		tags:    createTags(
+			...categories.copypasta,
 			"duplicate",
 		),
 		solid:   Hero.DuplicateSolidSm,
@@ -801,6 +902,8 @@ const originalIcons = [
 			"emoji-happy",
 			"emoji",
 			"happy",
+
+			"feedback",
 		),
 		solid:   Hero.EmojiHappySolidSm,
 		outline: Hero.EmojiHappyOutlineMd,
@@ -812,6 +915,8 @@ const originalIcons = [
 			"emoji-sad",
 			"emoji",
 			"sad",
+
+			"feedback",
 		),
 		solid:   Hero.EmojiSadSolidSm,
 		outline: Hero.EmojiSadOutlineMd,
@@ -828,9 +933,7 @@ const originalIcons = [
 	},
 	{
 		name:    "exclamation",
-		tags:    createTags(
-			"exclamation",
-		),
+		tags:    createTags("exclamation"),
 		solid:   Hero.ExclamationSolidSm,
 		outline: Hero.ExclamationOutlineMd,
 	},
@@ -846,31 +949,26 @@ const originalIcons = [
 	},
 	{
 		name:    "eye",
-		tags:    createTags(
-			"eye",
-		),
+		tags:    createTags("eye"),
 		solid:   Hero.EyeSolidSm,
 		outline: Hero.EyeOutlineMd,
 	},
 	{
 		name:    "filter",
-		tags:    createTags(
-			"filter",
-		),
+		tags:    createTags("filter"),
 		solid:   Hero.FilterSolidSm,
 		outline: Hero.FilterOutlineMd,
 	},
 	{
 		name:    "flag",
-		tags:    createTags(
-			"flag",
-		),
+		tags:    createTags("flag"),
 		solid:   Hero.FlagSolidSm,
 		outline: Hero.FlagOutlineMd,
 	},
 	{
 		name:    "folder",
 		tags:    createTags(
+			...categories.folder,
 			"folder",
 		),
 		solid:   Hero.FolderSolidSm,
@@ -888,33 +986,25 @@ const originalIcons = [
 	},
 	{
 		name:    "globe",
-		tags:    createTags(
-			"globe",
-		),
+		tags:    createTags("globe"),
 		solid:   Hero.GlobeSolidSm,
 		outline: Hero.GlobeOutlineMd,
 	},
 	{
 		name:    "hashtag",
-		tags:    createTags(
-			"hashtag",
-		),
+		tags:    createTags("hashtag"),
 		solid:   Hero.HashtagSolidSm,
 		outline: Hero.HashtagOutlineMd,
 	},
 	{
 		name:    "heart",
-		tags:    createTags(
-			"heart",
-		),
+		tags:    createTags("heart"),
 		solid:   Hero.HeartSolidSm,
 		outline: Hero.HeartOutlineMd,
 	},
 	{
 		name:    "home",
-		tags:    createTags(
-			"home",
-		),
+		tags:    createTags("home"),
 		solid:   Hero.HomeSolidSm,
 		outline: Hero.HomeOutlineMd,
 	},
@@ -930,9 +1020,7 @@ const originalIcons = [
 	},
 	{
 		name:    "inbox",
-		tags:    createTags(
-			"inbox",
-		),
+		tags:    createTags("inbox"),
 		solid:   Hero.InboxSolidSm,
 		outline: Hero.InboxOutlineMd,
 	},
@@ -948,9 +1036,7 @@ const originalIcons = [
 	},
 	{
 		name:    "key",
-		tags:    createTags(
-			"key",
-		),
+		tags:    createTags("key"),
 		solid:   Hero.KeySolidSm,
 		outline: Hero.KeyOutlineMd,
 		status:  "new",
@@ -977,9 +1063,7 @@ const originalIcons = [
 	},
 	{
 		name:    "link",
-		tags:    createTags(
-			"link",
-		),
+		tags:    createTags("link"),
 		solid:   Hero.LinkSolidSm,
 		outline: Hero.LinkOutlineMd,
 	},
@@ -1015,9 +1099,7 @@ const originalIcons = [
 	},
 	{
 		name:    "logout",
-		tags:    createTags(
-			"logout",
-		),
+		tags:    createTags("logout"),
 		solid:   Hero.LogoutSolidSm,
 		outline: Hero.LogoutOutlineMd,
 		status:  "new",
@@ -1025,6 +1107,8 @@ const originalIcons = [
 	{
 		name:    "mail-open",
 		tags:    createTags(
+			...categories.chatSync,
+			...categories.email,
 			"mail-open",
 			"mail",
 			"open",
@@ -1035,6 +1119,8 @@ const originalIcons = [
 	{
 		name:    "mail",
 		tags:    createTags(
+			...categories.chatSync,
+			...categories.email,
 			"mail",
 		),
 		solid:   Hero.MailSolidSm,
@@ -1099,9 +1185,7 @@ const originalIcons = [
 	},
 	{
 		name:    "microphone",
-		tags:    createTags(
-			"microphone",
-		),
+		tags:    createTags("microphone"),
 		solid:   Hero.MicrophoneSolidSm,
 		outline: Hero.MicrophoneOutlineMd,
 		status:  "new",
@@ -1138,6 +1222,7 @@ const originalIcons = [
 	{
 		name:    "paper-clip",
 		tags:    createTags(
+			...categories.copypasta,
 			"paper-clip",
 			"paper",
 			"clip",
@@ -1157,9 +1242,7 @@ const originalIcons = [
 	},
 	{
 		name:    "pencil",
-		tags:    createTags(
-			"pencil",
-		),
+		tags:    createTags("pencil"),
 		solid:   Hero.PencilSolidSm,
 		outline: Hero.PencilOutlineMd,
 	},
@@ -1185,9 +1268,7 @@ const originalIcons = [
 	},
 	{
 		name:    "phone",
-		tags:    createTags(
-			"phone",
-		),
+		tags:    createTags("phone"),
 		solid:   Hero.PhoneSolidSm,
 		outline: Hero.PhoneOutlineMd,
 	},
@@ -1212,25 +1293,19 @@ const originalIcons = [
 	},
 	{
 		name:    "plus",
-		tags:    createTags(
-			"plus",
-		),
+		tags:    createTags("plus"),
 		solid:   Hero.PlusSolidSm,
 		outline: Hero.PlusOutlineMd,
 	},
 	{
 		name:    "printer",
-		tags:    createTags(
-			"printer",
-		),
+		tags:    createTags("printer"),
 		solid:   Hero.PrinterSolidSm,
 		outline: Hero.PrinterOutlineMd,
 	},
 	{
 		name:    "qrcode",
-		tags:    createTags(
-			"qrcode",
-		),
+		tags:    createTags("qrcode"),
 		solid:   Hero.QRCodeSolidSm,
 		outline: Hero.QRCodeOutlineMd,
 	},
@@ -1257,33 +1332,25 @@ const originalIcons = [
 	},
 	{
 		name:    "refresh",
-		tags:    createTags(
-			"refresh",
-		),
+		tags:    createTags("refresh"),
 		solid:   Hero.RefreshSolidSm,
 		outline: Hero.RefreshOutlineMd,
 	},
 	{
 		name:    "reply",
-		tags:    createTags(
-			"reply",
-		),
+		tags:    createTags("reply"),
 		solid:   Hero.ReplySolidSm,
 		outline: Hero.ReplyOutlineMd,
 	},
 	{
 		name:    "scale",
-		tags:    createTags(
-			"scale",
-		),
+		tags:    createTags("scale"),
 		solid:   Hero.ScaleSolidSm,
 		outline: Hero.ScaleOutlineMd,
 	},
 	{
 		name:    "search",
-		tags:    createTags(
-			"search",
-		),
+		tags:    createTags("search"),
 		solid:   Hero.SearchSolidSm,
 		outline: Hero.SearchOutlineMd,
 	},
@@ -1298,9 +1365,7 @@ const originalIcons = [
 	},
 	{
 		name:    "share",
-		tags:    createTags(
-			"share",
-		),
+		tags:    createTags("share"),
 		solid:   Hero.ShareSolidSm,
 		outline: Hero.ShareOutlineMd,
 	},
@@ -1361,15 +1426,18 @@ const originalIcons = [
 		name:    "sparkles",
 		tags:    createTags(
 			"sparkles",
+
+			"magic",
+			"space",
+			"stars",
+			"twinkle",
 		),
 		solid:   Hero.SparklesSolidSm,
 		outline: Hero.SparklesOutlineMd,
 	},
 	{
 		name:    "speakerphone",
-		tags:    createTags(
-			"speakerphone",
-		),
+		tags:    createTags("speakerphone"),
 		solid:   Hero.SpeakerphoneSolidSm,
 		outline: Hero.SpeakerphoneOutlineMd,
 		status:  "new",
@@ -1407,47 +1475,38 @@ const originalIcons = [
 	},
 	{
 		name:    "tag",
-		tags:    createTags(
-			"tag",
-		),
+		tags:    createTags("tag"),
 		solid:   Hero.TagSolidSm,
 		outline: Hero.TagOutlineMd,
 	},
 	{
 		name:    "template",
-		tags:    createTags(
-			"template",
-		),
+		tags:    createTags("template"),
 		solid:   Hero.TemplateSolidSm,
 		outline: Hero.TemplateOutlineMd,
 	},
 	{
 		name:    "ticket",
-		tags:    createTags(
-			"ticket",
-		),
+		tags:    createTags("ticket"),
 		solid:   Hero.TicketSolidSm,
 		outline: Hero.TicketOutlineMd,
 	},
 	{
 		name:    "translate",
-		tags:    createTags(
-			"translate",
-		),
+		tags:    createTags("translate"),
 		solid:   Hero.TranslateSolidSm,
 		outline: Hero.TranslateOutlineMd,
 	},
 	{
 		name:    "trash",
-		tags:    createTags(
-			"trash",
-		),
+		tags:    createTags("trash"),
 		solid:   Hero.TrashSolidSm,
 		outline: Hero.TrashOutlineMd,
 	},
 	{
 		name:    "trending-down",
 		tags:    createTags(
+			...categories.arrows,
 			"trending-down",
 			"trending",
 			"down",
@@ -1458,6 +1517,7 @@ const originalIcons = [
 	{
 		name:    "trending-up",
 		tags:    createTags(
+			...categories.arrows,
 			"trending-up",
 			"trending",
 			"up",
@@ -1467,9 +1527,7 @@ const originalIcons = [
 	},
 	{
 		name:    "upload",
-		tags:    createTags(
-			"upload",
-		),
+		tags:    createTags("upload"),
 		solid:   Hero.UploadSolidSm,
 		outline: Hero.UploadOutlineMd,
 	},
@@ -1515,17 +1573,13 @@ const originalIcons = [
 	},
 	{
 		name:    "user",
-		tags:    createTags(
-			"user",
-		),
+		tags:    createTags("user"),
 		solid:   Hero.UserSolidSm,
 		outline: Hero.UserOutlineMd,
 	},
 	{
 		name:    "users",
-		tags:    createTags(
-			"users",
-		),
+		tags:    createTags("users"),
 		solid:   Hero.UsersSolidSm,
 		outline: Hero.UsersOutlineMd,
 	},
@@ -1595,9 +1649,7 @@ const originalIcons = [
 	},
 	{
 		name:    "x",
-		tags:    createTags(
-			"x",
-		),
+		tags:    createTags("x"),
 		solid:   Hero.XSolidSm,
 		outline: Hero.XOutlineMd,
 	},

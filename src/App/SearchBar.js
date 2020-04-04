@@ -1,5 +1,6 @@
 import * as Hero from "react-heroicons"
 import Context from "./Context"
+import HeroiconsTitle from "./HeroiconsTitle"
 import Icon from "./Icon"
 import originalIcons from "./helpers/icons"
 import React from "react"
@@ -77,19 +78,21 @@ const SearchBar = props => {
 				</div>
 
 				{/* Search bar */}
-				<div className="absolute inset-0">
-					<div className="h-full rounded-lg-xl dark:shadow-md transition duration-150">
-						<input
-							ref={ref}
-							className="w-full h-full text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded-lg-xl outline-none shadow dark:shadow-md focus:shadow-outline transition duration-150"
-							type="text"
-							placeholder={placeholder}
-							value={ctx.query}
-							onKeyDown={handleKeyDown}
-							onChange={e => ctx.setQuery(e.target.value)}
-						/>
+				<HeroiconsTitle title={ctx.query && `${ctx.icons.length} results`}>
+					<div className="absolute inset-0">
+						<div className="h-full rounded-lg-xl dark:shadow-md transition duration-150">
+							<input
+								ref={ref}
+								className="w-full h-full text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded-lg-xl outline-none shadow dark:shadow-md focus:shadow-outline transition duration-150"
+								type="text"
+								placeholder={placeholder}
+								value={ctx.query}
+								onKeyDown={handleKeyDown}
+								onChange={e => ctx.setQuery(e.target.value)}
+							/>
+						</div>
 					</div>
-				</div>
+				</HeroiconsTitle>
 
 				{/* End */}
 				<div ref={rhs} className="-mx-2 px-6 flex flex-row rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10 transition duration-150">

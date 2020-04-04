@@ -3,7 +3,6 @@ class SearchTrie {
 	constructor(dataset, key = "tags") {
 		const trie = {}
 		for (let index = 0; index < dataset.length; index++) {
-			// TODO: Dedupe
 			const tags = dataset[index][key]
 			for (const tag of tags) {
 				let ref = trie
