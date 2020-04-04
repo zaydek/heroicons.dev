@@ -62,12 +62,6 @@ const categories = {
 	new: [
 		"new",
 	],
-
-	continuity: [
-		["back", "next"],
-		["backwards", "forwards"],
-		["discontinue", "continue"],
-	],
 	arrows: [
 		"arrows",
 	],
@@ -144,8 +138,6 @@ const categories = {
 	email: [
 		"email",
 		"mail",
-		["at", "symbol", "at symbol"],
-		// ["email", "address", "email address"],
 	],
 	copypasta: [
 		"clipboard",
@@ -216,6 +208,11 @@ const categories = {
 		"checkout",
 		"price tag",
 		"shopping cart",
+	],
+	share: [
+		"link",
+		"share",
+		"social",
 	],
 }
 
@@ -964,6 +961,7 @@ const originalIcons = [
 	{
 		name:    "external-link",
 		tags:    createTags(
+			...categories.share,
 			"external-link",
 			"external",
 			"link",
@@ -1074,6 +1072,8 @@ const originalIcons = [
 			"light-bulb",
 			"light",
 			"bulb",
+
+			"idea",
 		),
 		solid:   Hero.LightBulbSolidSm,
 		outline: Hero.LightBulbOutlineMd,
@@ -1084,13 +1084,18 @@ const originalIcons = [
 			"lightning-bolt",
 			"lightning",
 			"bolt",
+
+			"fast",
 		),
 		solid:   Hero.LightningBoltSolidSm,
 		outline: Hero.LightningBoltOutlineMd,
 	},
 	{
 		name:    "link",
-		tags:    createTags("link"),
+		tags:    createTags(
+			...categories.share,
+			"link",
+		),
 		solid:   Hero.LinkSolidSm,
 		outline: Hero.LinkOutlineMd,
 	},
@@ -1411,7 +1416,10 @@ const originalIcons = [
 	},
 	{
 		name:    "share",
-		tags:    createTags("share"),
+		tags:    createTags(
+			...categories.share,
+			"share",
+		),
 		solid:   Hero.ShareSolidSm,
 		outline: Hero.ShareOutlineMd,
 	},
