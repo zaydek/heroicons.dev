@@ -242,6 +242,14 @@ const categories = {
 		"verified",
 		"verify",
 	],
+	stats: [
+		"chart",
+		"data",
+		"report",
+		"spreadsheet",
+		"statistics",
+		"stats",
+	],
 }
 
 // TODO:
@@ -543,13 +551,10 @@ const originalIcons = [
 	{
 		name:    "chart-pie",
 		tags:    createTags(
+			...categories.stats,
 			"chart-pie",
 			"chart",
 			"pie",
-
-			"data",
-			"statistics",
-			"stats",
 		),
 		solid:   Hero.ChartPieSolidSm,
 		outline: Hero.ChartPieOutlineMd,
@@ -874,6 +879,7 @@ const originalIcons = [
 		name:    "document-report",
 		tags:    createTags(
 			...categories.new,
+			...categories.stats,
 			"document-report",
 			"document",
 			"report",
