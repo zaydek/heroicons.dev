@@ -131,11 +131,10 @@ const categories = {
 		"announcements",
 		"notifications",
 	],
-	// file: [
-	// 	"document",
-	// 	"file",
-	// 	"item",
-	// ],
+	file: [
+		"document",
+		"file",
+	],
 	email: [
 		"email",
 		"mail",
@@ -833,6 +832,7 @@ const originalIcons = [
 		name:    "document-add",
 		tags:    createTags(
 			...categories.add,
+			...categories.file,
 			"document-add",
 			"document",
 			"add",
@@ -843,6 +843,7 @@ const originalIcons = [
 	{
 		name:    "document-download",
 		tags:    createTags(
+			...categories.file,
 			"document-download",
 			"document",
 			"download",
@@ -854,6 +855,7 @@ const originalIcons = [
 		name:    "document-duplicate",
 		tags:    createTags(
 			...categories.copypasta,
+			...categories.file,
 			"document-duplicate",
 			"document",
 			"duplicate",
@@ -864,6 +866,7 @@ const originalIcons = [
 	{
 		name:    "document-remove",
 		tags:    createTags(
+			...categories.file,
 			"document-remove",
 			"document",
 			"remove",
@@ -874,6 +877,7 @@ const originalIcons = [
 	{
 		name:    "document-report",
 		tags:    createTags(
+			...categories.file,
 			...categories.new,
 			...categories.stats,
 			"document-report",
@@ -886,7 +890,10 @@ const originalIcons = [
 	},
 	{
 		name:    "document",
-		tags:    createTags("document"),
+		tags:    createTags(
+			...categories.file,
+			"document",
+		),
 		solid:   Hero.DocumentSolidSm,
 		outline: Hero.DocumentOutlineMd,
 	},
