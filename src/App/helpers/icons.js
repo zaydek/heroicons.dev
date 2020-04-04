@@ -144,6 +144,7 @@ const categories = {
 		"notifications",
 
 		"alerts",
+		"announcements",
 	],
 
 	//	file: [
@@ -581,7 +582,6 @@ const originalIcons = [
 	{
 		name:    "cheveron-down",
 		tags:    createTags(
-			...categories.arrows,
 			...categories.direction,
 			"cheveron-down",
 			"cheveron",
@@ -593,7 +593,6 @@ const originalIcons = [
 	{
 		name:    "cheveron-left",
 		tags:    createTags(
-			...categories.arrows,
 			...categories.direction,
 			"cheveron-left",
 			"cheveron",
@@ -605,7 +604,6 @@ const originalIcons = [
 	{
 		name:    "cheveron-right",
 		tags:    createTags(
-			...categories.arrows,
 			...categories.direction,
 			"cheveron-right",
 			"cheveron",
@@ -617,7 +615,6 @@ const originalIcons = [
 	{
 		name:    "cheveron-up",
 		tags:    createTags(
-			...categories.arrows,
 			...categories.direction,
 			"cheveron-up",
 			"cheveron",
@@ -1379,7 +1376,6 @@ const originalIcons = [
 	{
 		name:    "selector",
 		tags:    createTags(
-			...categories.direction,
 			"selector",
 		),
 		solid:   Hero.SelectorSolidSm,
@@ -1460,7 +1456,11 @@ const originalIcons = [
 	},
 	{
 		name:    "speakerphone",
-		tags:    createTags("speakerphone"),
+		tags:    createTags(
+			...categories.new,
+			...categories.notifications,
+			"speakerphone",
+		),
 		solid:   Hero.SpeakerphoneSolidSm,
 		outline: Hero.SpeakerphoneOutlineMd,
 		status:  "new",
@@ -1477,7 +1477,6 @@ const originalIcons = [
 	{
 		name:    "switch-horizontal",
 		tags:    createTags(
-			...categories.direction,
 			"switch-horizontal",
 			"switch",
 			"horizontal",
@@ -1488,7 +1487,6 @@ const originalIcons = [
 	{
 		name:    "switch-vertical",
 		tags:    createTags(
-			...categories.direction,
 			"switch-vertical",
 			"switch",
 			"vertical",
@@ -1529,7 +1527,6 @@ const originalIcons = [
 	{
 		name:    "trending-down",
 		tags:    createTags(
-			...categories.arrows,
 			"trending-down",
 			"trending",
 			"down",
@@ -1540,7 +1537,6 @@ const originalIcons = [
 	{
 		name:    "trending-up",
 		tags:    createTags(
-			...categories.arrows,
 			"trending-up",
 			"trending",
 			"up",
