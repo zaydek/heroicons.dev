@@ -190,9 +190,29 @@ const categories = {
 		"cursor",
 		"mouse",
 		"pointer",
+	],
+	plus: [
+		"add",
+		"create",
+		"edit",
+		"modify",
+		"save",
+		"update",
+	],
+	cross: [
+		"cancel",
+		"cross",
+		"deactivate",
+		"delete",
+		"destroy",
+		"minus",
+		"remove",
+		"x",
 	]
-
 }
+
+
+
 
 // registerIcon({
 // 	name: "...",
@@ -415,13 +435,9 @@ const originalIcons = [
 	{
 		name:    "ban",
 		tags:    createTags(
+			...categories.cross,
 			...categories.new,
 			"ban",
-
-			"cancel",
-			"enforce",
-			"restrict",
-			"stop",
 		),
 		solid:   Hero.BanSolidSm,
 		outline: Hero.BanOutlineMd,
@@ -784,6 +800,7 @@ const originalIcons = [
 	{
 		name:    "document-add",
 		tags:    createTags(
+			...categories.plus,
 			"document-add",
 			"document",
 			"add",
@@ -1201,6 +1218,7 @@ const originalIcons = [
 	{
 		name:    "minus-circle",
 		tags:    createTags(
+			...categories.cross,
 			"minus-circle",
 			"minus",
 			"circle",
@@ -1241,16 +1259,24 @@ const originalIcons = [
 	{
 		name:    "pencil-alt",
 		tags:    createTags(
+			...categories.plus,
 			"pencil-alt",
 			"pencil",
 			"alt",
+
+			"pen",
 		),
 		solid:   Hero.PencilAltSolidSm,
 		outline: Hero.PencilAltOutlineMd,
 	},
 	{
 		name:    "pencil",
-		tags:    createTags("pencil"),
+		tags:    createTags(
+			...categories.plus,
+			"pencil",
+
+			"pen",
+		),
 		solid:   Hero.PencilSolidSm,
 		outline: Hero.PencilOutlineMd,
 	},
@@ -1510,7 +1536,10 @@ const originalIcons = [
 	},
 	{
 		name:    "trash",
-		tags:    createTags("trash"),
+		tags:    createTags(
+			...categories.cross,
+			"trash",
+		),
 		solid:   Hero.TrashSolidSm,
 		outline: Hero.TrashOutlineMd,
 	},
@@ -1544,6 +1573,7 @@ const originalIcons = [
 		name:    "user-add",
 		tags:    createTags(
 			...categories.people,
+			...categories.plus,
 			"user-add",
 			"user",
 			"add",
@@ -1576,6 +1606,7 @@ const originalIcons = [
 	{
 		name:    "user-remove",
 		tags:    createTags(
+			...categories.cross,
 			...categories.people,
 			"user-remove",
 			"user",
@@ -1659,6 +1690,7 @@ const originalIcons = [
 	{
 		name:    "x-circle",
 		tags:    createTags(
+			...categories.cross,
 			"x-circle",
 			"x",
 			"circle",
@@ -1668,7 +1700,10 @@ const originalIcons = [
 	},
 	{
 		name:    "x",
-		tags:    createTags("x"),
+		tags:    createTags(
+			...categories.cross,
+			"x",
+		),
 		solid:   Hero.XSolidSm,
 		outline: Hero.XOutlineMd,
 	},
