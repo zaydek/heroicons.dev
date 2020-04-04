@@ -27,11 +27,16 @@ function useDarkMode() {
 	const mounted = React.useRef()
 	React.useLayoutEffect(() => {
 		const handler = () => {
+			document.body.classList.add("dark-mode-transition")
 			if (!darkMode) {
 				document.body.classList.remove("dark-mode")
 			} else {
 				document.body.classList.add("dark-mode")
 			}
+			// Applies CSS classes for up to one second:
+			setTimeout(() => {
+				document.body.classList.remove("dark-mode-transition")
+			}, 1e3)
 		}
 		// useLayoutEffect:
 		if (!mounted.current) {

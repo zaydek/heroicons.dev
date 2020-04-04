@@ -1,6 +1,10 @@
-input::placeholder {
-	color: #718096;
-}
-.dark-mode input::placeholder {
-	color: #cbd5e0;
+/* input::placeholder { */
+/* 	color: #718096; */
+/* } */
+/* .dark-mode input::placeholder { */
+/* 	color: #cbd5e0; */
+/* } */
+
+.dark-mode-transition .transition {
+	transition-duration: 300ms !important;
 }
