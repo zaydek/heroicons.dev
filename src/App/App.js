@@ -61,12 +61,14 @@ const App = props => {
 			<div className="py-24 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900 transition duration-150">
 				<div className="px-6 w-full max-w-screen-lg">
 
-					<div className="p-6 absolute inset-x-0 top-0 z-30">
+					{/* Carbon Ads */}
+					<div className="p-6 absolute inset-x-0 top-0 z-30 pointer-events-none">
 						<div className="flex flex-row justify-center lg:justify-end">
-							<CarbonAds className="text-gray-800 dark:text-gray-100 bg-gray-100 dark:bg-gray-900 transition" src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" />
+							<CarbonAds className="text-gray-800 dark:text-gray-100 bg-gray-100 dark:bg-gray-900 transition pointer-events-auto" src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" />
 						</div>
 					</div>
 
+					{/* Carbon Ads (responsive) */}
 					<div className="block lg:hidden" style={{ height: 100 }} />
 
 					{/* Header */}
@@ -122,14 +124,14 @@ const App = props => {
 					<div className="flex flex-col xs:flex-row justify-center">
 						<a className="px-6 py-4 flex flex-row justify-center items-center text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline transition duration-150" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-2abb814" onClick={e => ga.logEvent(constants.GA_FIGMA)}>
 							<p className="font-medium text-lg">
-								Open Figma
+								Open in Figma
 							</p>
 							<Icons.Figma className="ml-3 -mt-1 w-6 h-6" />
 						</a>
 						<div className="w-3 h-3" />
 						<a className="px-6 py-4 flex flex-row justify-center items-center text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline transition duration-150" href="https://github.com/refactoringui/heroicons" onClick={e => ga.logEvent(constants.GA_GITHUB_HEROICONS)}>
 							<p className="font-medium text-lg">
-								Open GitHub
+								Open in GitHub
 							</p>
 							<Icons.GitHub className="ml-3 -mt-1 w-6 h-6 text-black dark:text-white transition duration-150" />
 						</a>
