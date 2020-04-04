@@ -61,11 +61,15 @@ const App = props => {
 			<div className="py-24 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900 transition duration-150">
 				<div className="px-6 w-full max-w-screen-lg">
 
-					<div className="p-6 absolute right-0 top-0 z-50">
-						<CarbonAds className="text-gray-800 dark:text-gray-100 bg-gray-100 dark:bg-gray-900 transition" src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" />
+					<div className="p-6 absolute inset-x-0 top-0 z-30">
+						<div className="flex flex-row justify-center lg:justify-end">
+							<CarbonAds className="text-gray-800 dark:text-gray-100 bg-gray-100 dark:bg-gray-900 transition" src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" />
+						</div>
 					</div>
 
-					{/* H1 */}
+					<div className="block lg:hidden" style={{ height: 100 }} />
+
+					{/* Header */}
 					<div className="flex flex-row justify-center">
 						<h1 className="relative font-dm-sans font-bold text-5xl tracking-tighter leading-none text-black dark:text-white transition duration-150">
 							Heroicons
@@ -85,7 +89,7 @@ const App = props => {
 						</h1>
 					</div>
 
-					{/* H2 */}
+					{/* Subheader */}
 					<div className="h-3" />
 					<h2 className="-mx-px text-center font-medium text-xl leading-relaxed text-gray-800 dark:text-gray-100 transition duration-150">
 						<a className="mx-px text-indigo-500" href="https://github.com/refactoringui/heroicons" onClick={e => ga.logEvent(constants.GA_GITHUB_HEROICONS)}>

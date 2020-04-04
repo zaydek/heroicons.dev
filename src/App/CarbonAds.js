@@ -5,10 +5,10 @@ import "./CarbonAds.css"
 const CarbonAds = ({ className, src, ...props }) => {
 	const ref = React.useRef()
 
-	// Creates a Carbon Ads element for mounting to the DOM.
+	// Mounts Carbon Ads to the DOM.
 	//
 	// <script async type="text/javascript" src={src} id="_carbonads_js"></script>
-	React.useEffect(() => {
+	React.useLayoutEffect(() => {
 		const script = document.createElement("script")
 		script.async = true
 		script.src = src
@@ -25,7 +25,8 @@ const CarbonAds = ({ className, src, ...props }) => {
 		}, 1e3)
 	}, [])
 
-	return <div ref={ref} className={`opacity-0 transition duration-1000 ` + className} {...props} />
+	// eslint-disable-next-line no-useless-concat
+	return <div ref={ref} className={"opacity-0 transition duration-1000" + ` ${className}`} {...props} />
 }
 
 export default CarbonAds
