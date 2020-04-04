@@ -62,32 +62,43 @@ const categories = {
 	new: [
 		"new",
 	],
+
+	add: [
+		"add",
+		"create",
+	],
 	arrows: [
 		"arrows",
 	],
-	// direction: [
-	// 	"direction",
-	// 	["left", "right", "up", "down"],
-	// ],
-	navigation: [
-		"navigation",
-		["west", "east", "north", "south"],
+	chatAsync: [
+		"commenting",
+		"discussing",
+		"messaging",
+		"thinking",
+		"typing",
+		"writing",
+		// ["chatting", "asynchronous"],
 	],
-	emotions: [
-		"emoji",
-		"emotions",
-		"happy",
-		"negative",
-		"positive",
-		"sad",
+	chatSync: [
+		"comment",
+		"discuss",
+		"message",
+		"think",
+		"type",
+		"write",
+		// ["chat", "synchronous"],
 	],
-	formatting: [
-		"align",
-		"column",
-		"format",
-		"formatting",
-		"justify",
-		"row",
+	copypasta: [
+		"clipboard",
+		"duplciate",
+		"cut",
+		"copy",
+		"paste",
+	],
+	currency: [
+		"currency",
+		"exchange rate",
+		"money",
 	],
 	// TODO: Add a space category -- globe, globe-alt,
 	// sparkles, etc.
@@ -101,48 +112,42 @@ const categories = {
 		"start",
 		"sun",
 	],
-	photography: [
-		"camera",
-		"photo",
-		"photography",
-		"picture",
+	delete: [
+		"alert",
+		"cancel",
+		"deactivate",
+		"delete",
+		"destroy",
+		"minus",
+		"remove",
+		"warning",
+		"x",
 	],
-	chatSync: [
-		"comment",
-		"discuss",
-		"message",
-		"think",
-		"type",
-		"write",
-		["chat", "synchronous"],
+	edit: [
+		"edit",
+		"modify",
+		"save",
+		"update",
 	],
-	chatAsync: [
-		"commenting",
-		"discussing",
-		"messaging",
-		"thinking",
-		"typing",
-		"writing",
-		["chatting", "asynchronous"],
-	],
-	notifications: [
-		// NOTE: Do not use "new" -- reserved
-		"alerts",
-		"announcements",
-		"notifications",
-	],
-	file: [
-		"document",
-		"file",
+	ellisis: [
+		"dots",
+		"ellisis",
 	],
 	email: [
 		"email",
 		"mail",
 	],
-	copypasta: [
-		"clipboard",
-		"duplciate",
-		["cut", "copy", "paste"],
+	emotions: [
+		"emoji",
+		"emotions",
+		"happy",
+		"negative",
+		"positive",
+		"sad",
+	],
+	file: [
+		"document",
+		"file",
 	],
 	folder: [
 		"archive",
@@ -150,19 +155,32 @@ const categories = {
 		"folder",
 		"storage",
 	],
-	settings: [
-		"controls",
-		"preferences",
-		"settings",
+	formatting: [
+		"align",
+		"column",
+		"format",
+		"formatting",
+		"justify",
+		"row",
 	],
-	ellisis: [
-		"dots",
-		"ellisis",
+	layout: [
+		"column",
+		"grid",
+		"layout",
+		"row",
 	],
 	more: [
 		"actions",
 		"more",
 		"options",
+	],
+	notifications: [
+		"alerts",
+		"announcements",
+		"notifications",
+	],
+	password: [
+		"password",
 	],
 	people: [
 		"member",
@@ -176,39 +194,21 @@ const categories = {
 		"mobile",
 		"phone",
 	],
+	photography: [
+		"camera",
+		"photo",
+		"photography",
+		"picture",
+	],
 	pointer: [
 		"cursor",
 		"mouse",
 		"pointer",
 	],
-	add: [
-		// NOTE: Do not use "new" -- reserved
-		"add",
-		"create",
-	],
-	edit: [
-		"edit",
-		"modify",
-		"save",
-		"update",
-	],
-	delete: [
-		"alert",
-		"cancel",
-		"deactivate",
-		"delete",
-		"destroy",
-		"minus",
-		"remove",
-		"warning",
-		"x",
-	],
-	shopping: [
-		"buy",
-		"cart",
-		// "checkout",
-		"price tag",
-		"shopping cart",
+	settings: [
+		"controls",
+		"preferences",
+		"settings",
 	],
 	share: [
 		"anchor",
@@ -216,30 +216,11 @@ const categories = {
 		"share",
 		"social",
 	],
-	layout: [
-		"column",
-		"grid",
-		"layout",
-		"row",
-	],
-	currency: [
-		"currency",
-		"exchange rate",
-		"money",
-	],
-	"password": [
-		"password",
-	],
-	world: [
-		"earth",
-		"globe",
-		"planet",
-		"world",
-	],
-	verified: [
-		"check",
-		"verified",
-		"verify",
+	shopping: [
+		"buy",
+		"cart",
+		"price tag",
+		"shopping cart",
 	],
 	stats: [
 		"chart",
@@ -248,6 +229,17 @@ const categories = {
 		"spreadsheet",
 		"statistics",
 		"stats",
+	],
+	verified: [
+		"check",
+		"verified",
+		"verify",
+	],
+	world: [
+		"earth",
+		"globe",
+		"planet",
+		"world",
 	],
 }
 
@@ -1059,7 +1051,7 @@ const originalIcons = [
 		tags:    createTags(
 			"heart",
 
-			"like"
+			"like",
 		),
 		solid:   Hero.HeartSolidSm,
 		outline: Hero.HeartOutlineMd,
@@ -1153,6 +1145,7 @@ const originalIcons = [
 			"marker",
 
 			"company",
+			"navigation",
 		),
 		solid:   Hero.LocationMarkerSolidSm,
 		outline: Hero.LocationMarkerOutlineMd,
