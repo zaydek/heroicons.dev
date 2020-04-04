@@ -139,6 +139,13 @@ const categories = {
 		"annotating",
 	],
 
+	// NOTE: Do not use "new"
+	notifications: [
+		"notifications",
+
+		"alerts",
+	],
+
 	//	file: [
 	//		"file",
 	//
@@ -187,7 +194,11 @@ const categories = {
 
 		"actions",
 		"options",
-	]
+	],
+
+	new: [
+		"new",
+	],
 
 }
 
@@ -230,6 +241,7 @@ const originalIcons = [
 		name:    "annotation",
 		tags:    createTags(
 			...categories.chatSync,
+			...categories.notifications,
 			"annotation",
 		),
 		solid:   Hero.AnnotationSolidSm,
@@ -398,6 +410,7 @@ const originalIcons = [
 	{
 		name:    "badge-check",
 		tags:    createTags(
+			...categories.new,
 			"badge-check",
 			"badge",
 			"check",
@@ -415,6 +428,7 @@ const originalIcons = [
 	{
 		name:    "ban",
 		tags:    createTags(
+			...categories.new,
 			"ban",
 
 			"cancel",
@@ -429,12 +443,8 @@ const originalIcons = [
 	{
 		name:    "bell",
 		tags:    createTags(
+			...categories.notifications,
 			"bell",
-
-			// Use plural form
-			"alerts",
-			"news",
-			"notifications",
 		),
 		solid:   Hero.BellSolidSm,
 		outline: Hero.BellOutlineMd,
@@ -532,6 +542,7 @@ const originalIcons = [
 			...categories.chatAsync,
 			...categories.chatSync,
 			...categories.ellisis,
+			...categories.new,
 			"chat-alt",
 			"chat",
 			"alt",
@@ -777,6 +788,7 @@ const originalIcons = [
 	{
 		name:    "cursor-click",
 		tags:    createTags(
+			...categories.new,
 			"cursor-click",
 			"cursor",
 			"click",
@@ -829,6 +841,7 @@ const originalIcons = [
 	{
 		name:    "document-report",
 		tags:    createTags(
+			...categories.new,
 			"document-report",
 			"document",
 			"report",
@@ -1036,7 +1049,10 @@ const originalIcons = [
 	},
 	{
 		name:    "key",
-		tags:    createTags("key"),
+		tags:    createTags(
+			...categories.new,
+			"key",
+		),
 		solid:   Hero.KeySolidSm,
 		outline: Hero.KeyOutlineMd,
 		status:  "new",
@@ -1099,7 +1115,10 @@ const originalIcons = [
 	},
 	{
 		name:    "logout",
-		tags:    createTags("logout"),
+		tags:    createTags(
+			...categories.new,
+			"logout",
+		),
 		solid:   Hero.LogoutSolidSm,
 		outline: Hero.LogoutOutlineMd,
 		status:  "new",
@@ -1185,7 +1204,10 @@ const originalIcons = [
 	},
 	{
 		name:    "microphone",
-		tags:    createTags("microphone"),
+		tags:    createTags(
+			...categories.new,
+			"microphone",
+		),
 		solid:   Hero.MicrophoneSolidSm,
 		outline: Hero.MicrophoneOutlineMd,
 		status:  "new",
@@ -1392,6 +1414,7 @@ const originalIcons = [
 	{
 		name:    "shopping-cart",
 		tags:    createTags(
+			...categories.new,
 			"shopping-cart",
 			"shopping",
 			"cart",
