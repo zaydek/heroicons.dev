@@ -214,6 +214,12 @@ const categories = {
 		"share",
 		"social",
 	],
+	layout: [
+		"column",
+		"grid",
+		"layout",
+		"row",
+	],
 }
 
 // registerIcon({
@@ -1338,6 +1344,7 @@ const originalIcons = [
 	{
 		name:    "plus-circle",
 		tags:    createTags(
+			...categories.add,
 			"plus-circle",
 			"plus",
 			"circle",
@@ -1347,7 +1354,10 @@ const originalIcons = [
 	},
 	{
 		name:    "plus",
-		tags:    createTags("plus"),
+		tags:    createTags(
+			...categories.add,
+			"plus",
+		),
 		solid:   Hero.PlusSolidSm,
 		outline: Hero.PlusOutlineMd,
 	},
@@ -1392,19 +1402,28 @@ const originalIcons = [
 	},
 	{
 		name:    "reply",
-		tags:    createTags("reply"),
+		tags:    createTags(
+			...categories.email,
+			"reply",
+		),
 		solid:   Hero.ReplySolidSm,
 		outline: Hero.ReplyOutlineMd,
 	},
 	{
 		name:    "scale",
-		tags:    createTags("scale"),
+		tags:    createTags(
+			"scale",
+		),
 		solid:   Hero.ScaleSolidSm,
 		outline: Hero.ScaleOutlineMd,
 	},
 	{
 		name:    "search",
-		tags:    createTags("search"),
+		tags:    createTags(
+			"search",
+
+			"find",
+		),
 		solid:   Hero.SearchSolidSm,
 		outline: Hero.SearchOutlineMd,
 	},
@@ -1429,6 +1448,12 @@ const originalIcons = [
 			"shield-check",
 			"shield",
 			"check",
+
+			"badge",
+			"protect",
+			"protection",
+			"secure",
+			"security"
 		),
 		solid:   Hero.ShieldCheckSolidSm,
 		outline: Hero.ShieldCheckOutlineMd,
@@ -1439,6 +1464,12 @@ const originalIcons = [
 			"shield-exclamation",
 			"shield",
 			"exclamation",
+
+			"badge",
+			"protect",
+			"protection",
+			"secure",
+			"security"
 		),
 		solid:   Hero.ShieldExclamationSolidSm,
 		outline: Hero.ShieldExclamationOutlineMd,
@@ -1538,7 +1569,10 @@ const originalIcons = [
 	},
 	{
 		name:    "template",
-		tags:    createTags("template"),
+		tags:    createTags(
+			...categories.layout,
+			"template",
+		),
 		solid:   Hero.TemplateSolidSm,
 		outline: Hero.TemplateOutlineMd,
 	},
@@ -1668,12 +1702,10 @@ const originalIcons = [
 	{
 		name:    "view-boards",
 		tags:    createTags(
+			...categories.layout,
 			"view-boards",
 			"view",
 			"boards",
-
-			"column",
-			"row",
 		),
 		solid:   Hero.ViewBoardsSolidSm,
 		outline: Hero.ViewBoardsOutlineMd,
@@ -1681,12 +1713,10 @@ const originalIcons = [
 	{
 		name:    "view-list",
 		tags:    createTags(
+			...categories.layout,
 			"view-list",
 			"view",
 			"list",
-
-			"column",
-			"row",
 		),
 		solid:   Hero.ViewListSolidSm,
 		outline: Hero.ViewListOutlineMd,
