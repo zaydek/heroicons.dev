@@ -450,12 +450,6 @@ const originalIcons = [
 			"badge-check",
 			"badge",
 			"check",
-
-			"member",
-			"official",
-			"pro",
-			"status",
-			"verified",
 		),
 		solid:   Hero.BadgeCheckSolidSm,
 		outline: Hero.BadgeCheckOutlineMd,
@@ -748,6 +742,8 @@ const originalIcons = [
 			"color-swatch",
 			"color",
 			"swatch",
+
+			"3d",
 		),
 		solid:   Hero.ColorSwatchSolidSm,
 		outline: Hero.ColorSwatchOutlineMd,
@@ -983,7 +979,10 @@ const originalIcons = [
 	},
 	{
 		name:    "exclamation",
-		tags:    createTags("exclamation"),
+		tags:    createTags(
+			...categories.delete,
+			"exclamation",
+		),
 		solid:   Hero.ExclamationSolidSm,
 		outline: Hero.ExclamationOutlineMd,
 	},
@@ -1143,6 +1142,8 @@ const originalIcons = [
 			"location-marker",
 			"location",
 			"marker",
+
+			"company",
 		),
 		solid:   Hero.LocationMarkerSolidSm,
 		outline: Hero.LocationMarkerOutlineMd,
@@ -1298,6 +1299,8 @@ const originalIcons = [
 			"office-building",
 			"office",
 			"building",
+
+			"company",
 		),
 		solid:   Hero.OfficeBuildingSolidSm,
 		outline: Hero.OfficeBuildingOutlineMd,
@@ -1501,6 +1504,7 @@ const originalIcons = [
 	{
 		name:    "shield-exclamation",
 		tags:    createTags(
+			...categories.delete,
 			"shield-exclamation",
 			"shield",
 			"exclamation",
@@ -1624,8 +1628,6 @@ const originalIcons = [
 		tags:    createTags(
 			"ticket",
 
-			"cinema",
-			"film",
 			"movie",
 			"theater",
 		),
@@ -1656,6 +1658,7 @@ const originalIcons = [
 	{
 		name:    "trending-down",
 		tags:    createTags(
+			// ...categories.stats,
 			"trending-down",
 			"trending",
 			"down",
@@ -1670,6 +1673,7 @@ const originalIcons = [
 	{
 		name:    "trending-up",
 		tags:    createTags(
+			// ...categories.stats,
 			"trending-up",
 			"trending",
 			"up",
@@ -1717,6 +1721,8 @@ const originalIcons = [
 			"user-group",
 			"user",
 			"group",
+
+			"company",
 		),
 		solid:   Hero.UserGroupSolidSm,
 		outline: Hero.UserGroupOutlineMd,
@@ -1747,6 +1753,8 @@ const originalIcons = [
 		tags:    createTags(
 			...categories.people,
 			"users",
+
+			"company",
 		),
 		solid:   Hero.UsersSolidSm,
 		outline: Hero.UsersOutlineMd,
