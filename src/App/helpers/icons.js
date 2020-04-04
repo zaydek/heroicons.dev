@@ -210,6 +210,13 @@ const categories = {
 		"remove",
 		"x",
 	],
+	shopping: [
+		"buy",
+		"cart",
+		"checkout",
+		"price tag",
+		"shopping cart",
+	],
 }
 
 // registerIcon({
@@ -219,7 +226,6 @@ const categories = {
 
 // "file",
 
-// "commerce",
 // "bill",
 // "cent"
 // "coin",
@@ -1432,6 +1438,7 @@ const originalIcons = [
 	{
 		name:    "shopping-cart",
 		tags:    createTags(
+			...categories.shopping,
 			...categories.new,
 			"shopping-cart",
 			"shopping",
@@ -1514,7 +1521,10 @@ const originalIcons = [
 	},
 	{
 		name:    "tag",
-		tags:    createTags("tag"),
+		tags:    createTags(
+			...categories.shopping,
+			"tag",
+		),
 		solid:   Hero.TagSolidSm,
 		outline: Hero.TagOutlineMd,
 	},
@@ -1526,13 +1536,25 @@ const originalIcons = [
 	},
 	{
 		name:    "ticket",
-		tags:    createTags("ticket"),
+		tags:    createTags(
+			"ticket",
+
+			"cinema",
+			"film",
+			"movie",
+			"theater",
+		),
 		solid:   Hero.TicketSolidSm,
 		outline: Hero.TicketOutlineMd,
 	},
 	{
 		name:    "translate",
-		tags:    createTags("translate"),
+		tags:    createTags(
+			"translate",
+
+			"alphabet",
+			"language",
+		),
 		solid:   Hero.TranslateSolidSm,
 		outline: Hero.TranslateOutlineMd,
 	},
