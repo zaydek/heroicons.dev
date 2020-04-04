@@ -65,10 +65,10 @@ const categories = {
 	arrows: [
 		"arrows",
 	],
-	direction: [
-		"direction",
-		["left", "right", "up", "down"],
-	],
+	// direction: [
+	// 	"direction",
+	// 	["left", "right", "up", "down"],
+	// ],
 	navigation: [
 		"navigation",
 		["west", "east", "north", "south"],
@@ -293,7 +293,6 @@ const originalIcons = [
 	{
 		name:    "arrow-circle-down",
 		tags:    createTags(
-			...categories.direction,
 			"arrow-circle-down",
 			"arrow",
 			"circle",
@@ -305,7 +304,6 @@ const originalIcons = [
 	{
 		name:    "arrow-circle-left",
 		tags:    createTags(
-			...categories.direction,
 			"arrow-circle-left",
 			"arrow",
 			"circle",
@@ -317,7 +315,6 @@ const originalIcons = [
 	{
 		name:    "arrow-circle-right",
 		tags:    createTags(
-			...categories.direction,
 			"arrow-circle-right",
 			"arrow",
 			"circle",
@@ -329,7 +326,6 @@ const originalIcons = [
 	{
 		name:    "arrow-circle-up",
 		tags:    createTags(
-			...categories.direction,
 			"arrow-circle-up",
 			"arrow",
 			"circle",
@@ -341,7 +337,7 @@ const originalIcons = [
 	{
 		name:    "arrow-down",
 		tags:    createTags(
-			...categories.direction,
+			...categories.arrows,
 			"arrow-down",
 			"arrow",
 			"down",
@@ -352,7 +348,7 @@ const originalIcons = [
 	{
 		name:    "arrow-left",
 		tags:    createTags(
-			...categories.direction,
+			...categories.arrows,
 			"arrow-left",
 			"arrow",
 			"left",
@@ -363,7 +359,7 @@ const originalIcons = [
 	{
 		name:    "arrow-narrow-down",
 		tags:    createTags(
-			...categories.direction,
+			...categories.arrows,
 			"arrow-narrow-down",
 			"arrow",
 			"narrow",
@@ -375,7 +371,7 @@ const originalIcons = [
 	{
 		name:    "arrow-narrow-left",
 		tags:    createTags(
-			...categories.direction,
+			...categories.arrows,
 			"arrow-narrow-left",
 			"arrow",
 			"narrow",
@@ -387,7 +383,7 @@ const originalIcons = [
 	{
 		name:    "arrow-narrow-right",
 		tags:    createTags(
-			...categories.direction,
+			...categories.arrows,
 			"arrow-narrow-right",
 			"arrow",
 			"narrow",
@@ -399,7 +395,7 @@ const originalIcons = [
 	{
 		name:    "arrow-narrow-up",
 		tags:    createTags(
-			...categories.direction,
+			...categories.arrows,
 			"arrow-narrow-up",
 			"arrow",
 			"narrow",
@@ -411,7 +407,7 @@ const originalIcons = [
 	{
 		name:    "arrow-right",
 		tags:    createTags(
-			...categories.direction,
+			...categories.arrows,
 			"arrow-right",
 			"arrow",
 			"right",
@@ -422,7 +418,7 @@ const originalIcons = [
 	{
 		name:    "arrow-up",
 		tags:    createTags(
-			...categories.direction,
+			...categories.arrows,
 			"arrow-up",
 			"arrow",
 			"up",
@@ -601,7 +597,6 @@ const originalIcons = [
 	{
 		name:    "cheveron-down",
 		tags:    createTags(
-			...categories.direction,
 			"cheveron-down",
 			"cheveron",
 			"down",
@@ -612,7 +607,6 @@ const originalIcons = [
 	{
 		name:    "cheveron-left",
 		tags:    createTags(
-			...categories.direction,
 			"cheveron-left",
 			"cheveron",
 			"left",
@@ -623,7 +617,6 @@ const originalIcons = [
 	{
 		name:    "cheveron-right",
 		tags:    createTags(
-			...categories.direction,
 			"cheveron-right",
 			"cheveron",
 			"right",
@@ -634,7 +627,6 @@ const originalIcons = [
 	{
 		name:    "cheveron-up",
 		tags:    createTags(
-			...categories.direction,
 			"cheveron-up",
 			"cheveron",
 			"up",
@@ -1064,7 +1056,11 @@ const originalIcons = [
 	},
 	{
 		name:    "heart",
-		tags:    createTags("heart"),
+		tags:    createTags(
+			"heart",
+
+			"like"
+		),
 		solid:   Hero.HeartSolidSm,
 		outline: Hero.HeartOutlineMd,
 	},
@@ -1077,6 +1073,7 @@ const originalIcons = [
 	{
 		name:    "inbox-in",
 		tags:    createTags(
+			...categories.email,
 			"inbox-in",
 			"inbox",
 			"in",
@@ -1086,7 +1083,10 @@ const originalIcons = [
 	},
 	{
 		name:    "inbox",
-		tags:    createTags("inbox"),
+		tags:    createTags(
+			...categories.email,
+			"inbox",
+		),
 		solid:   Hero.InboxSolidSm,
 		outline: Hero.InboxOutlineMd,
 	},
@@ -1096,6 +1096,8 @@ const originalIcons = [
 			"information-circle",
 			"information",
 			"circle",
+
+			"help",
 		),
 		solid:   Hero.InformationCircleSolidSm,
 		outline: Hero.InformationCircleOutlineMd,
@@ -1419,7 +1421,11 @@ const originalIcons = [
 	},
 	{
 		name:    "qrcode",
-		tags:    createTags("qrcode"),
+		tags:    createTags(
+			"qrcode",
+
+			"code",
+		),
 		solid:   Hero.QRCodeSolidSm,
 		outline: Hero.QRCodeOutlineMd,
 	},
@@ -1448,13 +1454,17 @@ const originalIcons = [
 	},
 	{
 		name:    "refresh",
-		tags:    createTags("refresh"),
+		tags:    createTags(
+			...categories.arrows,
+			"refresh",
+		),
 		solid:   Hero.RefreshSolidSm,
 		outline: Hero.RefreshOutlineMd,
 	},
 	{
 		name:    "reply",
 		tags:    createTags(
+			...categories.arrows,
 			...categories.email,
 			"reply",
 		),
