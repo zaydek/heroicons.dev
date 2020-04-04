@@ -96,9 +96,11 @@ const SearchBar = props => {
 
 				{/* End */}
 				<div ref={rhs} className="-mx-2 px-6 flex flex-row rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10 transition duration-150">
+					{/* Icon mode */}
 					<button className="px-2" onPointerDown={e => e.preventDefault()} onClick={e => ctx.setSolid(!ctx.solid)}>
 						<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!ctx.solid ? Hero.PlusCircleOutlineMd : Hero.PlusCircleSolidSm} />
 					</button>
+					{/* Dark mode */}
 					<button className="px-2" onPointerDown={e => e.preventDefault()} onClick={e => ctx.setDarkMode(!ctx.darkMode)}>
 						<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!ctx.darkMode ? Hero.SunOutlineMd : Hero.SunSolidSm} />
 					</button>

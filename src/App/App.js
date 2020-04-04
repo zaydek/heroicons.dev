@@ -12,8 +12,8 @@ import SearchBar from "./SearchBar"
 import SearchTrie from "./helpers/SearchTrie"
 import useDarkMode from "./useDarkMode"
 
-import srcSchoger from "images/schoger.jpg"
-import srcWathan from "images/wathan.jpg"
+import srcAdamWathan from "images/adam-wathan.jpg"
+import srcSteveSchoger from "images/steve-schoger.jpg"
 import srcZaydek from "images/zaydek.png"
 
 const ga = firebase.analytics()
@@ -65,9 +65,21 @@ const App = props => {
 			<div className="py-24 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900 transition duration-150">
 				<div className="px-6 w-full max-w-screen-lg">
 
+					{/* ... */}
+					<div className="absolute inset-x-0 top-0 z-30 hidden lg:block pointer-events-none">
+						<div className="flex flex-row justify-start items-start">
+							<a className="p-3" href="https://github.com/codex-src/heroicons.dev" target="_blank">
+								<p className="font-medium text-gray-800 dark:text-gray-100 pointer-events-auto">
+									Like this? Star on GitHub!{" "}
+									<span className="emoji" aria-label="star" role="img">⭐️</span>
+								</p>
+							</a>
+						</div>
+					</div>
+
 					{/* Carbon Ads */}
 					<div className="p-6 absolute inset-x-0 top-0 z-30 pointer-events-none">
-						<div className="flex flex-row justify-center lg:justify-end">
+						<div className="flex flex-row justify-center lg:justify-end items-start">
 							<CarbonAds className="text-gray-800 dark:text-gray-100 bg-gray-100 dark:bg-gray-900 transition pointer-events-auto" src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" />
 						</div>
 					</div>
@@ -96,34 +108,28 @@ const App = props => {
 					</div>
 
 					{/* Subheader */}
-					<div className="h-3" />
-					<h2 className="-mx-px text-center font-medium text-xl leading-relaxed text-gray-800 dark:text-gray-100 transition duration-150">
-						<a className="mx-px text-indigo-500" href="https://github.com/refactoringui/heroicons" onClick={e => ga.logEvent(constants.GA_GITHUB_HEROICONS)}>
-							Open source icons
-						</a>{" "}
-						by{" "}
+					<div className="h-6" />
+					<h2 className="-mx-px text-center font-medium text-xl text-gray-800 dark:text-gray-100 leading-relaxed transition duration-150">
+						Icons by{" "}
 						<a className="mx-px text-indigo-500" href="https://twitter.com/steveschoger" onClick={e => ga.logEvent(constants.GA_TWITTER_STEVE)}>
-							<img className="-mt-px mx-2 inline-block w-6 h-6 rounded-full" src={srcSchoger} />
+							<img className="-mt-px mx-1 inline-block w-6 h-6 rounded-full shadow transform scale-110" src={srcSteveSchoger} alt="Steve Schoger" />{" "}
 							Steve S<span className="hidden md:inline">choger</span><span className="inline md:hidden">.</span>
 						</a>{" "}
 						and{" "}
 						<a className="mx-px text-indigo-500" href="https://twitter.com/adamwathan" onClick={e => ga.logEvent(constants.GA_TWITTER_ADAM)}>
-							<img className="-mt-px mx-2 inline-block w-6 h-6 rounded-full" src={srcWathan} />
+							<img className="-mt-px mx-1 inline-block w-6 h-6 rounded-full shadow transform scale-110" src={srcAdamWathan} alt="Adam Wathan" />{" "}
 							Adam W<span className="hidden md:inline">athan</span><span className="inline md:hidden">.</span>
 						</a>
 						<br />
-						<a className="mx-px text-indigo-500" href="https://github.com/codex-src/heroicons-viewer" onClick={e => ga.logEvent(constants.GA_GITHUB_HEROICONS_VIEWER)}>
-							Viewer
-						</a>{" "}
-						by{" "}
+						Web app by{" "}
 						<a className="mx-px text-indigo-500" href="https://twitter.com/username_ZAYDEK" onClick={e => ga.logEvent(constants.GA_TWITTER_ZAYDEK)}>
-							<img className="-mt-px mx-2 inline-block w-6 h-6 rounded-full" src={srcZaydek} />
+							<img className="-mt-px mx-1 inline-block w-6 h-6 rounded-full shadow transform scale-110" src={srcZaydek} alt="Zaydek" />{" "}
 							Zaydek
 						</a>{" "}
-						and{" "}
-						<a className="mx-px text-indigo-500" href="https://github.com/codex-src/heroicons-viewer" onClick={e => ga.logEvent(constants.GA_GITHUB_HEROICONS_VIEWER)}>
-							contributors on GitHub
-						</a>
+						{/* and{" "} */}
+						{/* <a className="mx-px text-indigo-500" href="https://github.com/codex-src/heroicons.dev" onClick={e => ga.logEvent(constants.GA_GITHUB_HEROICONS_VIEWER)}> */}
+						{/* 	contributors on GitHub */}
+						{/* </a> */}
 					</h2>
 
 					{/* Buttons */}

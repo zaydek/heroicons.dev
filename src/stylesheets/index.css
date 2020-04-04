@@ -9,3 +9,9 @@
 	transition-duration: 300ms !important;
 	/* transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important; */
 }
+
+.emoji {
+	vertical-align: -10%;
+	font-size: 120%;
+	line-height: 1;
+}
