@@ -61,8 +61,8 @@ const App = props => {
 			<div className="py-24 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900 transition duration-150">
 				<div className="px-6 w-full max-w-screen-lg">
 
-					<div className="p-6 absolute right-0 top-0">
-						<CarbonAds src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" />
+					<div className="p-6 absolute right-0 top-0 z-50">
+						<CarbonAds className="text-gray-800 dark:text-gray-100 bg-gray-100 dark:bg-gray-900 transition" src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" />
 					</div>
 
 					{/* H1 */}

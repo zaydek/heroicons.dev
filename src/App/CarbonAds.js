@@ -1,9 +1,8 @@
 import React from "react"
-import ReactDOM from "react-dom"
 
 import "./CarbonAds.css"
 
-const CarbonAds = ({ src, ...props }) => {
+const CarbonAds = ({ className, src, ...props }) => {
 	const ref = React.useRef()
 
 	// Creates a Carbon Ads element for mounting to the DOM.
@@ -17,7 +16,16 @@ const CarbonAds = ({ src, ...props }) => {
 		ref.current.appendChild(script)
 	}, [src])
 
-	return <div ref={ref} {...props} />
+	React.useEffect(() => {
+		setTimeout(() => {
+			ref.current.classList.add("opacity-100")
+			setTimeout(() => {
+				ref.current.classList.remove("opacity-0")
+			}, 0)
+		}, 1e3)
+	}, [])
+
+	return <div ref={ref} className={`opacity-0 transition duration-1000 ` + className} {...props} />
 }
 
 export default CarbonAds
