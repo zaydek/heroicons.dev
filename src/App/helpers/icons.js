@@ -193,13 +193,14 @@ const categories = {
 		"update",
 	],
 	delete: [
+		"alert",
 		"cancel",
-		"cross",
 		"deactivate",
 		"delete",
 		"destroy",
 		"minus",
 		"remove",
+		"warning",
 		"x",
 	],
 	shopping: [
@@ -210,6 +211,7 @@ const categories = {
 		"shopping cart",
 	],
 	share: [
+		"anchor",
 		"link",
 		"share",
 		"social",
@@ -220,6 +222,11 @@ const categories = {
 		"layout",
 		"row",
 	],
+	currency: [
+		"currency",
+		"exchange rate",
+		"money",
+	]
 }
 
 // registerIcon({
@@ -495,15 +502,7 @@ const originalIcons = [
 	},
 	{
 		name:    "briefcase",
-		tags:    createTags(
-			"briefcase",
-
-			"bag",
-			"business",
-			"satchel",
-			"suitcase",
-			"travel",
-		),
+		tags:    createTags("briefcase"),
 		solid:   Hero.BriefcaseSolidSm,
 		outline: Hero.BriefcaseOutlineMd,
 	},
@@ -512,10 +511,7 @@ const originalIcons = [
 		tags:    createTags(
 			"calendar",
 
-			// Use plural form
-			"dates",
 			"events",
-			"schedule",
 			["days", "months", "years"],
 		),
 		solid:   Hero.CalendarSolidSm,
@@ -532,7 +528,10 @@ const originalIcons = [
 	},
 	{
 		name:    "cash",
-		tags:    createTags("cash"),
+		tags:    createTags(
+			...categories.currency,
+			"cash",
+		),
 		solid:   Hero.CashSolidSm,
 		outline: Hero.CashOutlineMd,
 	},
@@ -738,6 +737,8 @@ const originalIcons = [
 	{
 		name:    "credit-card",
 		tags:    createTags(
+			...categories.currency,
+			...categories.shopping,
 			"credit-card",
 			"credit",
 			"card",
@@ -748,6 +749,8 @@ const originalIcons = [
 	{
 		name:    "currency-dollar",
 		tags:    createTags(
+			...categories.currency,
+			...categories.shopping,
 			"currency-dollar",
 			"currency",
 			"dollar",
@@ -758,6 +761,7 @@ const originalIcons = [
 	{
 		name:    "currency-euro",
 		tags:    createTags(
+			...categories.currency,
 			"currency-euro",
 			"currency",
 			"euro",
@@ -768,6 +772,7 @@ const originalIcons = [
 	{
 		name:    "currency-pound",
 		tags:    createTags(
+			...categories.currency,
 			"currency-pound",
 			"currency",
 			"pound",
@@ -778,6 +783,7 @@ const originalIcons = [
 	{
 		name:    "currency-rupee",
 		tags:    createTags(
+			...categories.currency,
 			"currency-rupee",
 			"currency",
 			"rupee",
@@ -788,6 +794,7 @@ const originalIcons = [
 	{
 		name:    "currency-yen",
 		tags:    createTags(
+			...categories.currency,
 			"currency-yen",
 			"currency",
 			"yen",
@@ -951,6 +958,7 @@ const originalIcons = [
 	{
 		name:    "exclamation-circle",
 		tags:    createTags(
+			...categories.delete,
 			"exclamation-circle",
 			"exclamation",
 			"circle",
@@ -1380,6 +1388,8 @@ const originalIcons = [
 			"question",
 			"mark",
 			"circle",
+
+			"help",
 		),
 		solid:   Hero.QuestionMarkCircleSolidSm,
 		outline: Hero.QuestionMarkCircleOutlineMd,
@@ -1411,9 +1421,7 @@ const originalIcons = [
 	},
 	{
 		name:    "scale",
-		tags:    createTags(
-			"scale",
-		),
+		tags:    createTags("scale"),
 		solid:   Hero.ScaleSolidSm,
 		outline: Hero.ScaleOutlineMd,
 	},
@@ -1449,11 +1457,12 @@ const originalIcons = [
 			"shield",
 			"check",
 
+			"authority",
 			"badge",
 			"protect",
 			"protection",
 			"secure",
-			"security"
+			"security",
 		),
 		solid:   Hero.ShieldCheckSolidSm,
 		outline: Hero.ShieldCheckOutlineMd,
@@ -1465,11 +1474,12 @@ const originalIcons = [
 			"shield",
 			"exclamation",
 
+			"authority",
 			"badge",
 			"protect",
 			"protection",
 			"secure",
-			"security"
+			"security",
 		),
 		solid:   Hero.ShieldExclamationSolidSm,
 		outline: Hero.ShieldExclamationOutlineMd,
@@ -1544,6 +1554,8 @@ const originalIcons = [
 			"switch-horizontal",
 			"switch",
 			"horizontal",
+
+			"swap",
 		),
 		solid:   Hero.SwitchHorizontalSolidSm,
 		outline: Hero.SwitchHorizontalOutlineMd,
@@ -1554,6 +1566,8 @@ const originalIcons = [
 			"switch-vertical",
 			"switch",
 			"vertical",
+
+			"swap",
 		),
 		solid:   Hero.SwitchVerticalSolidSm,
 		outline: Hero.SwitchVerticalOutlineMd,
@@ -1615,6 +1629,10 @@ const originalIcons = [
 			"trending-down",
 			"trending",
 			"down",
+
+			"stock",
+			"market",
+			"stock market",
 		),
 		solid:   Hero.TrendingDownSolidSm,
 		outline: Hero.TrendingDownOutlineMd,
@@ -1625,6 +1643,10 @@ const originalIcons = [
 			"trending-up",
 			"trending",
 			"up",
+
+			"stock",
+			"market",
+			"stock market",
 		),
 		solid:   Hero.TrendingUpSolidSm,
 		outline: Hero.TrendingUpOutlineMd,
@@ -1775,6 +1797,8 @@ const originalIcons = [
 			"zoom-in",
 			"zoom",
 			"in",
+
+			"magnify",
 		),
 		solid:   Hero.ZoomInSolidSm,
 		outline: Hero.ZoomInOutlineMd,
@@ -1785,6 +1809,8 @@ const originalIcons = [
 			"zoom-out",
 			"zoom",
 			"out",
+
+			"magnify",
 		),
 		solid:   Hero.ZoomOutSolidSm,
 		outline: Hero.ZoomOutOutlineMd,
