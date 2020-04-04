@@ -12,6 +12,10 @@ import SearchBar from "./SearchBar"
 import SearchTrie from "./helpers/SearchTrie"
 import useDarkMode from "./useDarkMode"
 
+import srcSchoger from "images/schoger.jpg"
+import srcWathan from "images/wathan.jpg"
+import srcZaydek from "images/zaydek.png"
+
 const ga = firebase.analytics()
 
 const searchTrie = new SearchTrie(originalIcons)
@@ -99,10 +103,12 @@ const App = props => {
 						</a>{" "}
 						by{" "}
 						<a className="mx-px text-indigo-500" href="https://twitter.com/steveschoger" onClick={e => ga.logEvent(constants.GA_TWITTER_STEVE)}>
+							<img className="-mt-px mx-2 inline-block w-6 h-6 rounded-full" src={srcSchoger} />
 							Steve S<span className="hidden md:inline">choger</span><span className="inline md:hidden">.</span>
 						</a>{" "}
 						and{" "}
 						<a className="mx-px text-indigo-500" href="https://twitter.com/adamwathan" onClick={e => ga.logEvent(constants.GA_TWITTER_ADAM)}>
+							<img className="-mt-px mx-2 inline-block w-6 h-6 rounded-full" src={srcWathan} />
 							Adam W<span className="hidden md:inline">athan</span><span className="inline md:hidden">.</span>
 						</a>
 						<br />
@@ -111,6 +117,7 @@ const App = props => {
 						</a>{" "}
 						by{" "}
 						<a className="mx-px text-indigo-500" href="https://twitter.com/username_ZAYDEK" onClick={e => ga.logEvent(constants.GA_TWITTER_ZAYDEK)}>
+							<img className="-mt-px mx-2 inline-block w-6 h-6 rounded-full" src={srcZaydek} />
 							Zaydek
 						</a>{" "}
 						and{" "}
