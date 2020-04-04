@@ -1,6 +1,7 @@
 import * as constants from "__constants"
 import * as Hero from "react-heroicons"
 import * as Icons from "svgs"
+import CarbonAds from "./CarbonAds"
 import Context from "./Context"
 import firebase from "__firebase"
 import Icon from "./Icon"
@@ -59,6 +60,10 @@ const App = props => {
  		}}>
 			<div className="py-24 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900 transition duration-150">
 				<div className="px-6 w-full max-w-screen-lg">
+
+					<div className="p-6 absolute right-0 top-0">
+						<CarbonAds src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" />
+					</div>
 
 					{/* H1 */}
 					<div className="flex flex-row justify-center">
