@@ -197,8 +197,17 @@ const categories = {
 		"options",
 	],
 
+	// Reserved
 	new: [
 		"new",
+	],
+
+	people: [
+		"people",
+
+		"member",
+		"person",
+		"user",
 	],
 
 }
@@ -922,6 +931,7 @@ const originalIcons = [
 		name:    "emoji-sad",
 		tags:    createTags(
 			...categories.emotions,
+			...categories.people,
 			"emoji-sad",
 			"emoji",
 			"sad",
@@ -1553,6 +1563,7 @@ const originalIcons = [
 	{
 		name:    "user-add",
 		tags:    createTags(
+			...categories.people,
 			"user-add",
 			"user",
 			"add",
@@ -1563,6 +1574,7 @@ const originalIcons = [
 	{
 		name:    "user-circle",
 		tags:    createTags(
+			...categories.people,
 			"user-circle",
 			"user",
 			"circle",
@@ -1573,6 +1585,7 @@ const originalIcons = [
 	{
 		name:    "user-group",
 		tags:    createTags(
+			...categories.people,
 			"user-group",
 			"user",
 			"group",
@@ -1583,6 +1596,7 @@ const originalIcons = [
 	{
 		name:    "user-remove",
 		tags:    createTags(
+			...categories.people,
 			"user-remove",
 			"user",
 			"remove",
@@ -1592,13 +1606,19 @@ const originalIcons = [
 	},
 	{
 		name:    "user",
-		tags:    createTags("user"),
+		tags:    createTags(
+			...categories.people,
+			"user",
+		),
 		solid:   Hero.UserSolidSm,
 		outline: Hero.UserOutlineMd,
 	},
 	{
 		name:    "users",
-		tags:    createTags("users"),
+		tags:    createTags(
+			...categories.people,
+			"users",
+		),
 		solid:   Hero.UsersSolidSm,
 		outline: Hero.UsersOutlineMd,
 	},
