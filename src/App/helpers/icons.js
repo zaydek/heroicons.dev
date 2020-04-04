@@ -113,7 +113,6 @@ const categories = {
 		"picture",
 	],
 	chatSync: [
-		"annotate",
 		"comment",
 		"discuss",
 		"message",
@@ -123,7 +122,6 @@ const categories = {
 		["chat", "synchronous"],
 	],
 	chatAsync: [
-		"annotating",
 		"commenting",
 		"discussing",
 		"messaging",
@@ -147,7 +145,7 @@ const categories = {
 		"email",
 		"mail",
 		["at", "symbol", "at symbol"],
-		["email", "address", "email address"],
+		// ["email", "address", "email address"],
 	],
 	copypasta: [
 		"clipboard",
@@ -191,15 +189,18 @@ const categories = {
 		"mouse",
 		"pointer",
 	],
-	plus: [
+	add: [
+		// NOTE: Do not use "new" -- reserved
 		"add",
 		"create",
+	],
+	edit: [
 		"edit",
 		"modify",
 		"save",
 		"update",
 	],
-	cross: [
+	delete: [
 		"cancel",
 		"cross",
 		"deactivate",
@@ -208,11 +209,8 @@ const categories = {
 		"minus",
 		"remove",
 		"x",
-	]
+	],
 }
-
-
-
 
 // registerIcon({
 // 	name: "...",
@@ -247,9 +245,11 @@ const originalIcons = [
 	{
 		name:    "annotation",
 		tags:    createTags(
-			...categories.chatSync,
 			...categories.notifications,
 			"annotation",
+
+			"subtitles",
+			"tooltip",
 		),
 		solid:   Hero.AnnotationSolidSm,
 		outline: Hero.AnnotationOutlineMd,
@@ -435,9 +435,11 @@ const originalIcons = [
 	{
 		name:    "ban",
 		tags:    createTags(
-			...categories.cross,
+			...categories.delete,
 			...categories.new,
 			"ban",
+
+			"disabled",
 		),
 		solid:   Hero.BanSolidSm,
 		outline: Hero.BanOutlineMd,
@@ -800,7 +802,7 @@ const originalIcons = [
 	{
 		name:    "document-add",
 		tags:    createTags(
-			...categories.plus,
+			...categories.add,
 			"document-add",
 			"document",
 			"add",
@@ -1129,7 +1131,6 @@ const originalIcons = [
 	{
 		name:    "mail-open",
 		tags:    createTags(
-			...categories.chatSync,
 			...categories.email,
 			"mail-open",
 			"mail",
@@ -1141,7 +1142,6 @@ const originalIcons = [
 	{
 		name:    "mail",
 		tags:    createTags(
-			...categories.chatSync,
 			...categories.email,
 			"mail",
 		),
@@ -1218,7 +1218,7 @@ const originalIcons = [
 	{
 		name:    "minus-circle",
 		tags:    createTags(
-			...categories.cross,
+			...categories.delete,
 			"minus-circle",
 			"minus",
 			"circle",
@@ -1259,12 +1259,14 @@ const originalIcons = [
 	{
 		name:    "pencil-alt",
 		tags:    createTags(
-			...categories.plus,
+			...categories.add,
+			...categories.edit,
 			"pencil-alt",
 			"pencil",
 			"alt",
 
 			"pen",
+			"write",
 		),
 		solid:   Hero.PencilAltSolidSm,
 		outline: Hero.PencilAltOutlineMd,
@@ -1272,10 +1274,12 @@ const originalIcons = [
 	{
 		name:    "pencil",
 		tags:    createTags(
-			...categories.plus,
+			...categories.add,
+			...categories.edit,
 			"pencil",
 
 			"pen",
+			"write",
 		),
 		solid:   Hero.PencilSolidSm,
 		outline: Hero.PencilOutlineMd,
@@ -1395,9 +1399,7 @@ const originalIcons = [
 	},
 	{
 		name:    "selector",
-		tags:    createTags(
-			"selector",
-		),
+		tags:    createTags("selector"),
 		solid:   Hero.SelectorSolidSm,
 		outline: Hero.SelectorOutlineMd,
 	},
@@ -1537,7 +1539,7 @@ const originalIcons = [
 	{
 		name:    "trash",
 		tags:    createTags(
-			...categories.cross,
+			...categories.delete,
 			"trash",
 		),
 		solid:   Hero.TrashSolidSm,
@@ -1573,7 +1575,7 @@ const originalIcons = [
 		name:    "user-add",
 		tags:    createTags(
 			...categories.people,
-			...categories.plus,
+			...categories.add,
 			"user-add",
 			"user",
 			"add",
@@ -1606,7 +1608,7 @@ const originalIcons = [
 	{
 		name:    "user-remove",
 		tags:    createTags(
-			...categories.cross,
+			...categories.delete,
 			...categories.people,
 			"user-remove",
 			"user",
@@ -1690,7 +1692,7 @@ const originalIcons = [
 	{
 		name:    "x-circle",
 		tags:    createTags(
-			...categories.cross,
+			...categories.delete,
 			"x-circle",
 			"x",
 			"circle",
@@ -1701,7 +1703,7 @@ const originalIcons = [
 	{
 		name:    "x",
 		tags:    createTags(
-			...categories.cross,
+			...categories.delete,
 			"x",
 		),
 		solid:   Hero.XSolidSm,
