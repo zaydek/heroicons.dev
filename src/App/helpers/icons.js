@@ -74,23 +74,23 @@ const categories = {
 		["west", "east", "north", "south"],
 	],
 	emotions: [
+		"emoji",
 		"emotions",
-		["negative", "positive"],
-		["sad", "happy"],
+		"happy",
+		"negative",
+		"positive",
+		"sad",
 	],
-
-	// FIXME
 	formatting: [
-		["format", "formatting"],
-
-		"wysiwyg",
-		["column", "row"],
-		["horizontal", "vertical"],
-		// DEPRECATE
-		["italic", "bold"],
-		["justify", "align"],
+		"align",
+		"column",
+		"format",
+		"formatting",
+		"justify",
+		"row",
 	],
-
+	// TODO: Add a space category -- globe, globe-alt,
+	// sparkles, etc.
 	darkMode: [
 		"dark mode",
 		"day",
@@ -98,6 +98,7 @@ const categories = {
 		"moon",
 		"night",
 		"sky",
+		"start",
 		"sun",
 	],
 	photography: [
@@ -206,7 +207,7 @@ const categories = {
 	shopping: [
 		"buy",
 		"cart",
-		"checkout",
+		// "checkout",
 		"price tag",
 		"shopping cart",
 	],
@@ -226,26 +227,29 @@ const categories = {
 		"currency",
 		"exchange rate",
 		"money",
-	]
+	],
+	"password": [
+		"password",
+	],
+	world: [
+		"earth",
+		"globe",
+		"planet",
+		"world",
+	],
+	verified: [
+		"check",
+		"verified",
+		"verify",
+	],
 }
 
+// TODO:
+//
 // registerIcon({
 // 	name: "...",
 // 	tags: "...",
 // })
-
-// "file",
-
-// "bill",
-// "cent"
-// "coin",
-// "credit",
-// "currency",
-// "debit",
-// "dollar",
-// "exchange rate",
-// "money",
-
 const originalIcons = [
 	{
 		name:    "adjustments",
@@ -434,6 +438,7 @@ const originalIcons = [
 		name:    "badge-check",
 		tags:    createTags(
 			...categories.new,
+			...categories.verified,
 			"badge-check",
 			"badge",
 			"check",
@@ -578,6 +583,7 @@ const originalIcons = [
 	{
 		name:    "check-circle",
 		tags:    createTags(
+			...categories.verified,
 			"check-circle",
 			"check",
 			"circle",
@@ -587,7 +593,10 @@ const originalIcons = [
 	},
 	{
 		name:    "check",
-		tags:    createTags("check"),
+		tags:    createTags(
+			...categories.verified,
+			"check",
+		),
 		solid:   Hero.CheckSolidSm,
 		outline: Hero.CheckOutlineMd,
 	},
@@ -679,7 +688,11 @@ const originalIcons = [
 	},
 	{
 		name:    "clock",
-		tags:    createTags("clock"),
+		tags:    createTags(
+			"clock",
+
+			"time",
+		),
 		solid:   Hero.ClockSolidSm,
 		outline: Hero.ClockOutlineMd,
 	},
@@ -935,8 +948,6 @@ const originalIcons = [
 			"emoji-happy",
 			"emoji",
 			"happy",
-
-			"feedback",
 		),
 		solid:   Hero.EmojiHappySolidSm,
 		outline: Hero.EmojiHappyOutlineMd,
@@ -949,8 +960,6 @@ const originalIcons = [
 			"emoji-sad",
 			"emoji",
 			"sad",
-
-			"feedback",
 		),
 		solid:   Hero.EmojiSadSolidSm,
 		outline: Hero.EmojiSadOutlineMd,
@@ -985,7 +994,12 @@ const originalIcons = [
 	},
 	{
 		name:    "eye",
-		tags:    createTags("eye"),
+		tags:    createTags(
+			...categories.password,
+			"eye",
+
+			"reveal",
+		),
 		solid:   Hero.EyeSolidSm,
 		outline: Hero.EyeOutlineMd,
 	},
@@ -1013,6 +1027,7 @@ const originalIcons = [
 	{
 		name:    "globe-alt",
 		tags:    createTags(
+			...categories.world,
 			"globe-alt",
 			"globe",
 			"alt",
@@ -1022,7 +1037,10 @@ const originalIcons = [
 	},
 	{
 		name:    "globe",
-		tags:    createTags("globe"),
+		tags:    createTags(
+			...categories.world,
+			"globe",
+		),
 		solid:   Hero.GlobeSolidSm,
 		outline: Hero.GlobeOutlineMd,
 	},
@@ -1126,9 +1144,12 @@ const originalIcons = [
 	{
 		name:    "lock-closed",
 		tags:    createTags(
+			...categories.password,
 			"lock-closed",
 			"lock",
 			"closed",
+
+			"secure",
 		),
 		solid:   Hero.LockClosedSolidSm,
 		outline: Hero.LockClosedOutlineMd,
@@ -1136,9 +1157,12 @@ const originalIcons = [
 	{
 		name:    "lock-open",
 		tags:    createTags(
+			...categories.password,
 			"lock-open",
 			"lock",
 			"open",
+
+			"secure",
 		),
 		solid:   Hero.LockOpenSolidSm,
 		outline: Hero.LockOpenOutlineMd,
@@ -1148,6 +1172,8 @@ const originalIcons = [
 		tags:    createTags(
 			...categories.new,
 			"logout",
+
+			"sign out",
 		),
 		solid:   Hero.LogoutSolidSm,
 		outline: Hero.LogoutOutlineMd,
@@ -1453,14 +1479,13 @@ const originalIcons = [
 	{
 		name:    "shield-check",
 		tags:    createTags(
+			...categories.verified,
 			"shield-check",
 			"shield",
 			"check",
 
 			"authority",
 			"badge",
-			"protect",
-			"protection",
 			"secure",
 			"security",
 		),
@@ -1476,8 +1501,6 @@ const originalIcons = [
 
 			"authority",
 			"badge",
-			"protect",
-			"protection",
 			"secure",
 			"security",
 		),
@@ -1606,6 +1629,7 @@ const originalIcons = [
 	{
 		name:    "translate",
 		tags:    createTags(
+			...categories.world,
 			"translate",
 
 			"alphabet",
