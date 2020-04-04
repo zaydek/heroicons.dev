@@ -65,11 +65,11 @@ const App = props => {
 			<div className="py-24 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900 transition duration-150">
 				<div className="px-6 w-full max-w-screen-lg">
 
-					{/* ... */}
+					{/* LHS: GitHub */}
 					<div className="absolute inset-x-0 top-0 z-30 hidden lg:block pointer-events-none">
 						<div className="flex flex-row justify-start items-start">
-							<a className="p-3" href="https://github.com/codex-src/heroicons.dev" target="_blank">
-								<p className="font-medium text-gray-800 dark:text-gray-100 pointer-events-auto">
+							<a className="p-3" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
+								<p className="font-medium text-gray-800 dark:text-gray-100 transition pointer-events-auto">
 									Like this? Star on GitHub!{" "}
 									<span className="emoji" aria-label="star" role="img">⭐️</span>
 								</p>
@@ -77,7 +77,7 @@ const App = props => {
 						</div>
 					</div>
 
-					{/* Carbon Ads */}
+					{/* RHS: Carbon Ads */}
 					<div className="p-6 absolute inset-x-0 top-0 z-30 pointer-events-none">
 						<div className="flex flex-row justify-center lg:justify-end items-start">
 							<CarbonAds className="text-gray-800 dark:text-gray-100 bg-gray-100 dark:bg-gray-900 transition pointer-events-auto" src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" />

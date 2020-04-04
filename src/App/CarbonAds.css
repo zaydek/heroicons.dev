@@ -1,6 +1,18 @@
+/* Added */
+.dark-mode-transition #carbonads {
+	opacity: 0%;
+
+	transition-duration: 75ms;
+	transition-timing-function: ease;
+}
+
 #carbonads {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
 	Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+	/* Added */
+	transition-duration: 1000ms;
+	transition-timing-function: ease;
 }
 
 #carbonads {
@@ -60,4 +72,8 @@
 	font-weight: 600;
 	font-size: 9px;
 	line-height: 1;
+
+	/* Added */
+	transition-duration: 300ms;
+	transition-timing-function: ease;
 }
