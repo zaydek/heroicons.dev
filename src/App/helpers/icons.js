@@ -58,157 +58,139 @@ function createTags(...tags) {
 }
 
 const categories = {
-
-	continuity: [
-		"continuity",
-
-		["back", "next"], // Lsorted
-		["backwards", "forwards"], // Lsorted
-		["discontinue", "continue"], // Lsorted
+	// Reserved
+	new: [
+		"new",
 	],
 
+	continuity: [
+		["back", "next"],
+		["backwards", "forwards"],
+		["discontinue", "continue"],
+	],
 	arrows: [
 		"arrows",
 	],
-
 	direction: [
 		"direction",
-
-		"arrows",
-		["left", "right", "up", "down"], // Lsorted
+		["left", "right", "up", "down"],
 	],
-
 	navigation: [
 		"navigation",
-
-		["west", "east", "north", "south"], // Lsorted
+		["west", "east", "north", "south"],
 	],
-
 	emotions: [
 		"emotions",
-
-		["sad", "happy"], // Lsorted
-		["negative", "positive"], // Lsorted
+		["negative", "positive"],
+		["sad", "happy"],
 	],
 
+	// FIXME
 	formatting: [
 		["format", "formatting"],
 
 		"wysiwyg",
-		["column", "row"], // Lsorted
-		["horizontal", "vertical"], // Lsorted
+		["column", "row"],
+		["horizontal", "vertical"],
 		// DEPRECATE
-		["italic", "bold"], // Lsorted
-		["justify", "align"], // Lsorted
+		["italic", "bold"],
+		["justify", "align"],
 	],
 
 	darkMode: [
-		["dark mode", "dark-mode"],
-
-		["moon", "sun"],
-		["night", "day"],
+		"dark mode",
+		"day",
+		"light mode",
+		"moon",
+		"night",
+		"sky",
+		"sun",
 	],
-
 	photography: [
+		"camera",
+		"photo",
 		"photography",
-
-		["camera", "photo"],
+		"picture",
 	],
-
 	chatSync: [
-		["chat-sync", "chat", "synchronous"],
-
+		"annotate",
 		"comment",
 		"discuss",
 		"message",
 		"think",
 		"type",
 		"write",
-		["annotate", "annotation"],
+		["chat", "synchronous"],
 	],
-
 	chatAsync: [
-		["chat-async", "chatting", "asynchronous"],
-
+		"annotating",
 		"commenting",
 		"discussing",
 		"messaging",
 		"thinking",
 		"typing",
 		"writing",
-		"annotating",
+		["chatting", "asynchronous"],
 	],
-
-	// NOTE: Do not use "new"
 	notifications: [
-		"notifications",
-
+		// NOTE: Do not use "new" -- reserved
 		"alerts",
 		"announcements",
+		"notifications",
 	],
-
-	//	file: [
-	//		"file",
-	//
-	//		"document",
-	//		"item",
-	//	]
-
+	// file: [
+	// 	"document",
+	// 	"file",
+	// 	"item",
+	// ],
 	email: [
 		"email",
-
 		"mail",
 		["at", "symbol", "at symbol"],
 		["email", "address", "email address"],
 	],
-
 	copypasta: [
-		"copypasta",
-
 		"clipboard",
 		"duplciate",
 		["cut", "copy", "paste"],
 	],
-
 	folder: [
-		"folder",
-
 		"archive",
 		"bin",
+		"folder",
 		"storage",
 	],
-
 	settings: [
-		"settings",
-
 		"controls",
 		"preferences",
+		"settings",
 	],
-
 	ellisis: [
 		"dots",
 		"ellisis",
 	],
-
 	more: [
-		"more",
-
 		"actions",
+		"more",
 		"options",
 	],
-
-	// Reserved
-	new: [
-		"new",
-	],
-
 	people: [
-		"people",
-
 		"member",
+		"people",
 		"person",
 		"user",
 	],
+	phone: [
+		"call",
+		"cell phone",
+		"mobile",
+		"phone",
+	],
+	pointer: [
+		"cursor",
+		"mouse",
+		"pointer",
+	]
 
 }
 
@@ -218,9 +200,6 @@ const categories = {
 // })
 
 // "file",
-
-// "more",
-// "etc",
 
 // "commerce",
 // "bill",
@@ -232,8 +211,6 @@ const categories = {
 // "dollar",
 // "exchange rate",
 // "money",
-
-// "pointer"
 
 const originalIcons = [
 	{
@@ -795,6 +772,7 @@ const originalIcons = [
 		name:    "cursor-click",
 		tags:    createTags(
 			...categories.new,
+			...categories.pointer,
 			"cursor-click",
 			"cursor",
 			"click",
@@ -918,6 +896,7 @@ const originalIcons = [
 		name:    "emoji-happy",
 		tags:    createTags(
 			...categories.emotions,
+			...categories.people,
 			"emoji-happy",
 			"emoji",
 			"happy",
@@ -1278,6 +1257,7 @@ const originalIcons = [
 	{
 		name:    "phone-incoming",
 		tags:    createTags(
+			...categories.phone,
 			"phone-incoming",
 			"phone",
 			"incoming",
@@ -1288,6 +1268,7 @@ const originalIcons = [
 	{
 		name:    "phone-outgoing",
 		tags:    createTags(
+			...categories.phone,
 			"phone-outgoing",
 			"phone",
 			"outgoing",
@@ -1297,7 +1278,10 @@ const originalIcons = [
 	},
 	{
 		name:    "phone",
-		tags:    createTags("phone"),
+		tags:    createTags(
+			...categories.phone,
+			"phone",
+		),
 		solid:   Hero.PhoneSolidSm,
 		outline: Hero.PhoneOutlineMd,
 	},
@@ -1432,7 +1416,6 @@ const originalIcons = [
 	{
 		name:    "sort-ascending",
 		tags:    createTags(
-			...categories.formatting,
 			"sort-ascending",
 			"sort",
 			"ascending",
@@ -1443,7 +1426,6 @@ const originalIcons = [
 	{
 		name:    "sort-descending",
 		tags:    createTags(
-			...categories.formatting,
 			"sort-descending",
 			"sort",
 			"descending",
@@ -1454,12 +1436,10 @@ const originalIcons = [
 	{
 		name:    "sparkles",
 		tags:    createTags(
+			...categories.darkMode,
 			"sparkles",
 
 			"magic",
-			"space",
-			"stars",
-			"twinkle",
 		),
 		solid:   Hero.SparklesSolidSm,
 		outline: Hero.SparklesOutlineMd,
