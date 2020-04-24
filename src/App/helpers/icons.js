@@ -243,13 +243,13 @@ const categories = {
 
 // createIcon("adjustments", Hero.AdjustmentsOutlineMd, Hero.AdjustmentsSolidSm)
 
-// Returns a new icon info object.
-function newIcon({ name, outline, solid, categories }) {
+function newIcon({ name, categories, outline, solid, status }) {
 	const info = {
 		name,
 		tags: registerTags(name, ...name.split("-"), ...categories),
 		outline,
 		solid,
+		status,
 	}
 	return info
 }
@@ -291,975 +291,975 @@ const originalIcons = [
 		outline: Hero.ArrowCircleRightOutlineMd,
 		solid: Hero.ArrowCircleRightSolidSm,
 	}),
-	{
+	newIcon({
 		name: "arrow-circle-up",
-		tags: registerTags("arrow-circle-up", "arrow", "circle", "up"),
+		categories: [],
 		outline: Hero.ArrowCircleUpOutlineMd,
 		solid: Hero.ArrowCircleUpSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "arrow-down",
-		tags: registerTags(...categories.arrows, "arrow-down", "arrow", "down"),
+		categories: [categories.arrows],
 		outline: Hero.ArrowDownOutlineMd,
 		solid: Hero.ArrowDownSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "arrow-left",
-		tags: registerTags(...categories.arrows, "arrow-left", "arrow", "left"),
+		categories: [categories.arrows],
 		outline: Hero.ArrowLeftOutlineMd,
 		solid: Hero.ArrowLeftSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "arrow-narrow-down",
-		tags: registerTags(...categories.arrows, "arrow-narrow-down", "arrow", "narrow", "down"),
+		categories: [categories.arrows],
 		outline: Hero.ArrowNarrowDownOutlineMd,
 		solid: Hero.ArrowNarrowDownSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "arrow-narrow-left",
-		tags: registerTags(...categories.arrows, "arrow-narrow-left", "arrow", "narrow", "left"),
+		categories: [categories.arrows],
 		outline: Hero.ArrowNarrowLeftOutlineMd,
 		solid: Hero.ArrowNarrowLeftSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "arrow-narrow-right",
-		tags: registerTags(...categories.arrows, "arrow-narrow-right", "arrow", "narrow", "right"),
+		categories: [categories.arrows],
 		outline: Hero.ArrowNarrowRightOutlineMd,
 		solid: Hero.ArrowNarrowRightSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "arrow-narrow-up",
-		tags: registerTags(...categories.arrows, "arrow-narrow-up", "arrow", "narrow", "up"),
+		categories: [categories.arrows],
 		outline: Hero.ArrowNarrowUpOutlineMd,
 		solid: Hero.ArrowNarrowUpSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "arrow-right",
-		tags: registerTags(...categories.arrows, "arrow-right", "arrow", "right"),
+		categories: [categories.arrows],
 		outline: Hero.ArrowRightOutlineMd,
 		solid: Hero.ArrowRightSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "arrow-up",
-		tags: registerTags(...categories.arrows, "arrow-up", "arrow", "up"),
+		categories: [categories.arrows],
 		outline: Hero.ArrowUpOutlineMd,
 		solid: Hero.ArrowUpSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "at-symbol",
-		tags: registerTags(...categories.email, "at-symbol", "at", "symbol"),
+		categories: [categories.email],
 		outline: Hero.AtSymbolOutlineMd,
 		solid: Hero.AtSymbolSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "badge-check",
-		tags: registerTags(...categories.verified, "badge-check", "badge", "check"),
+		categories: [categories.verified],
 		outline: Hero.BadgeCheckOutlineMd,
 		solid: Hero.BadgeCheckSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "ban",
-		tags: registerTags(...categories.delete, "ban", "disabled"),
+		categories: [categories.delete, "disabled"],
 		outline: Hero.BanOutlineMd,
 		solid: Hero.BanSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "bell",
-		tags: registerTags(...categories.notifications, "bell"),
+		categories: [categories.notifications],
 		outline: Hero.BellOutlineMd,
 		solid: Hero.BellSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "book-open",
-		tags: registerTags("book-open", "book", "open", "book", "chapter", "diary", "journal", "read"),
+		categories: ["book", "chapter", "diary", "journal", "read"],
 		outline: Hero.BookOpenOutlineMd,
 		solid: Hero.BookOpenSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "bookmark",
-		tags: registerTags("bookmark", "book", "chapter", "diary", "journal", "read"),
+		categories: ["book", "chapter", "diary", "journal", "read"],
 		outline: Hero.BookmarkOutlineMd,
 		solid: Hero.BookmarkSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "bookmark-alt",
-		tags: registerTags(...categories.new, "bookmark-alt", "bookmark", "alt", "book", "chapter", "diary", "journal", "read"),
+		categories: [categories.new, "book", "chapter", "diary", "journal", "read"],
 		outline: Hero.BookmarkAltOutlineMd,
 		solid: Hero.BookmarkAltSolidSm,
 		status: "new",
-	},
-	{
+	}),
+	newIcon({
 		name: "briefcase",
-		tags: registerTags("briefcase"),
+		categories: [],
 		outline: Hero.BriefcaseOutlineMd,
 		solid: Hero.BriefcaseSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "calendar",
-		tags: registerTags("calendar", "events", ["days", "months", "years"]),
+		categories: ["events", "days", "months", "years"],
 		outline: Hero.CalendarOutlineMd,
 		solid: Hero.CalendarSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "camera",
-		tags: registerTags(...categories.photography, "camera"),
+		categories: [categories.photography],
 		outline: Hero.CameraOutlineMd,
 		solid: Hero.CameraSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "cash",
-		tags: registerTags(...categories.currency, "cash"),
+		categories: [categories.currency],
 		outline: Hero.CashOutlineMd,
 		solid: Hero.CashSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "chart-bar",
-		tags: registerTags(...categories.new, ...categories.stats, "chart-bar", "chart", "bar"),
+		categories: [categories.new, categories.stats],
 		outline: Hero.ChartBarOutlineMd,
 		solid: Hero.ChartBarSolidSm,
 		status: "new",
-	},
-	{
+	}),
+	newIcon({
 		name: "chart-pie",
-		tags: registerTags(...categories.stats, "chart-pie", "chart", "pie"),
+		categories: [categories.stats],
 		outline: Hero.ChartPieOutlineMd,
 		solid: Hero.ChartPieSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "chart-square-bar",
-		tags: registerTags(...categories.new, ...categories.stats, "chart-square-bar", "chat", "square", "bar"),
+		categories: [categories.new, categories.stats],
 		outline: Hero.ChartSquareBarOutlineMd,
 		solid: Hero.ChartSquareBarSolidSm,
 		status: "new",
-	},
-	{
+	}),
+	newIcon({
 		name: "chat",
-		tags: registerTags(...categories.chatAsync, ...categories.chatSync, ...categories.ellisis, "chat"),
+		categories: [categories.chatAsync, categories.chatSync, categories.ellisis],
 		outline: Hero.ChatOutlineMd,
 		solid: Hero.ChatSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "chat-alt",
-		tags: registerTags(...categories.chatAsync, ...categories.chatSync, ...categories.ellisis, "chat-alt", "chat", "alt"),
+		categories: [categories.chatAsync, categories.chatSync, categories.ellisis],
 		outline: Hero.ChatAltOutlineMd,
 		solid: Hero.ChatAltSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "chat-alt-2",
-		tags: registerTags(...categories.new, ...categories.chatAsync, ...categories.chatSync, "chat-alt-2", "chat", "alt", "2"),
+		categories: [categories.new, categories.chatAsync, categories.chatSync],
 		outline: Hero.ChatAlt2OutlineMd,
 		solid: Hero.ChatAlt2SolidSm,
 		status: "new",
-	},
-	{
+	}),
+	newIcon({
 		name: "check",
-		tags: registerTags(...categories.verified, "check"),
+		categories: [categories.verified],
 		outline: Hero.CheckOutlineMd,
 		solid: Hero.CheckSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "check-circle",
-		tags: registerTags(...categories.verified, "check-circle", "check", "circle"),
+		categories: [categories.verified],
 		outline: Hero.CheckCircleOutlineMd,
 		solid: Hero.CheckCircleSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "cheveron-down",
-		tags: registerTags("cheveron-down", "cheveron", "down"),
+		categories: [],
 		outline: Hero.CheveronDownOutlineMd,
 		solid: Hero.CheveronDownSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "cheveron-left",
-		tags: registerTags("cheveron-left", "cheveron", "left"),
+		categories: [],
 		outline: Hero.CheveronLeftOutlineMd,
 		solid: Hero.CheveronLeftSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "cheveron-right",
-		tags: registerTags("cheveron-right", "cheveron", "right"),
+		categories: [],
 		outline: Hero.CheveronRightOutlineMd,
 		solid: Hero.CheveronRightSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "cheveron-up",
-		tags: registerTags("cheveron-up", "cheveron", "up"),
+		categories: [],
 		outline: Hero.CheveronUpOutlineMd,
 		solid: Hero.CheveronUpSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "clipboard",
-		tags: registerTags(...categories.copypasta, "clipboard"),
+		categories: [categories.copypasta],
 		outline: Hero.ClipboardOutlineMd,
 		solid: Hero.ClipboardSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "clipboard-check",
-		tags: registerTags(...categories.copypasta, "clipboard-check", "clipboard", "check"),
+		categories: [categories.copypasta],
 		outline: Hero.ClipboardCheckOutlineMd,
 		solid: Hero.ClipboardCheckSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "clipboard-copy",
-		tags: registerTags(...categories.copypasta, "clipboard-copy", "clipboard", "copy"),
+		categories: [categories.copypasta],
 		outline: Hero.ClipboardCopyOutlineMd,
 		solid: Hero.ClipboardCopySolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "clipboard-list",
-		tags: registerTags(...categories.copypasta, "clipboard-list", "clipboard", "list"),
+		categories: [categories.copypasta],
 		outline: Hero.ClipboardListOutlineMd,
 		solid: Hero.ClipboardListSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "clock",
-		tags: registerTags("clock", "time"),
+		categories: ["time"],
 		outline: Hero.ClockOutlineMd,
 		solid: Hero.ClockSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "cloud-download",
-		tags: registerTags("cloud-download", "cloud", "download"),
+		categories: [],
 		outline: Hero.CloudDownloadOutlineMd,
 		solid: Hero.CloudDownloadSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "cloud-upload",
-		tags: registerTags("cloud-upload", "cloud", "upload"),
+		categories: [],
 		outline: Hero.CloudUploadOutlineMd,
 		solid: Hero.CloudUploadSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "code",
-		tags: registerTags("code"),
+		categories: [],
 		outline: Hero.CodeOutlineMd,
 		solid: Hero.CodeSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "cog",
-		tags: registerTags(...categories.settings, "cog"),
+		categories: [categories.settings],
 		outline: Hero.CogOutlineMd,
 		solid: Hero.CogSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "collection",
-		tags: registerTags("collection"),
+		categories: [],
 		outline: Hero.CollectionOutlineMd,
 		solid: Hero.CollectionSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "color-swatch",
-		tags: registerTags("color-swatch", "color", "swatch", "3d"),
+		categories: ["3d"],
 		outline: Hero.ColorSwatchOutlineMd,
 		solid: Hero.ColorSwatchSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "credit-card",
-		tags: registerTags(...categories.currency, ...categories.shopping, "credit-card", "credit", "card"),
+		categories: [categories.currency, categories.shopping],
 		outline: Hero.CreditCardOutlineMd,
 		solid: Hero.CreditCardSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "currency-dollar",
-		tags: registerTags(...categories.currency, ...categories.shopping, "currency-dollar", "currency", "dollar"),
+		categories: [categories.currency, categories.shopping],
 		outline: Hero.CurrencyDollarOutlineMd,
 		solid: Hero.CurrencyDollarSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "currency-euro",
-		tags: registerTags(...categories.currency, "currency-euro", "currency", "euro"),
+		categories: [categories.currency],
 		outline: Hero.CurrencyEuroOutlineMd,
 		solid: Hero.CurrencyEuroSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "currency-pound",
-		tags: registerTags(...categories.currency, "currency-pound", "currency", "pound"),
+		categories: [categories.currency],
 		outline: Hero.CurrencyPoundOutlineMd,
 		solid: Hero.CurrencyPoundSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "currency-rupee",
-		tags: registerTags(...categories.currency, "currency-rupee", "currency", "rupee"),
+		categories: [categories.currency],
 		outline: Hero.CurrencyRupeeOutlineMd,
 		solid: Hero.CurrencyRupeeSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "currency-yen",
-		tags: registerTags(...categories.currency, "currency-yen", "currency", "yen"),
+		categories: [categories.currency],
 		outline: Hero.CurrencyYenOutlineMd,
 		solid: Hero.CurrencyYenSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "cursor-click",
-		tags: registerTags(...categories.pointer, "cursor-click", "cursor", "click"),
+		categories: [categories.pointer],
 		outline: Hero.CursorClickOutlineMd,
 		solid: Hero.CursorClickSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "desktop-computer",
-		tags: registerTags(...categories.new),
+		categories: [categories.new],
 		outline: Hero.DesktopComputerOutlineMd,
 		solid: Hero.DesktopComputerSolidSm,
 		status: "new",
-	},
-	{
+	}),
+	newIcon({
 		name: "document",
-		tags: registerTags(...categories.file, "document"),
+		categories: [categories.file],
 		outline: Hero.DocumentOutlineMd,
 		solid: Hero.DocumentSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "document-add",
-		tags: registerTags(...categories.add, ...categories.file, "document-add", "document", "add"),
+		categories: [categories.add, categories.file],
 		outline: Hero.DocumentAddOutlineMd,
 		solid: Hero.DocumentAddSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "document-download",
-		tags: registerTags(...categories.file, "document-download", "document", "download"),
+		categories: [categories.file],
 		outline: Hero.DocumentDownloadOutlineMd,
 		solid: Hero.DocumentDownloadSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "document-duplicate",
-		tags: registerTags(...categories.copypasta, ...categories.file, "document-duplicate", "document", "duplicate"),
+		categories: [categories.copypasta, categories.file],
 		outline: Hero.DocumentDuplicateOutlineMd,
 		solid: Hero.DocumentDuplicateSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "document-remove",
-		tags: registerTags(...categories.file, "document-remove", "document", "remove"),
+		categories: [categories.file],
 		outline: Hero.DocumentRemoveOutlineMd,
 		solid: Hero.DocumentRemoveSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "document-report",
-		tags: registerTags(...categories.file, ...categories.stats, "document-report", "document", "report"),
+		categories: [categories.file, categories.stats],
 		outline: Hero.DocumentReportOutlineMd,
 		solid: Hero.DocumentReportSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "dots-circle-horizontal",
-		tags: registerTags(...categories.ellisis, ...categories.more, "dots-circle-horizontal", "dots", "circle", "horizontal"),
+		categories: [categories.ellisis, categories.more],
 		outline: Hero.DotsCircleHorizontalOutlineMd,
 		solid: Hero.DotsCircleHorizontalSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "dots-horizontal",
-		tags: registerTags(...categories.ellisis, ...categories.more, "dots-horizontal", "dots", "horizontal"),
+		categories: [categories.ellisis, categories.more],
 		outline: Hero.DotsHorizontalOutlineMd,
 		solid: Hero.DotsHorizontalSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "dots-vertical",
-		tags: registerTags(...categories.ellisis, ...categories.more, "dots-vertical", "dots", "vertical"),
+		categories: [categories.ellisis, categories.more],
 		outline: Hero.DotsVerticalOutlineMd,
 		solid: Hero.DotsVerticalSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "download",
-		tags: registerTags("download"),
+		categories: [],
 		outline: Hero.DownloadOutlineMd,
 		solid: Hero.DownloadSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "duplicate",
-		tags: registerTags(...categories.copypasta, "duplicate"),
+		categories: [categories.copypasta],
 		outline: Hero.DuplicateOutlineMd,
 		solid: Hero.DuplicateSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "emoji-happy",
-		tags: registerTags(...categories.emotions, ...categories.people, "emoji-happy", "emoji", "happy"),
+		categories: [categories.emotions, categories.people, "face"],
 		outline: Hero.EmojiHappyOutlineMd,
 		solid: Hero.EmojiHappySolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "emoji-sad",
-		tags: registerTags(...categories.emotions, ...categories.people, "emoji-sad", "emoji", "sad"),
+		categories: [categories.emotions, categories.people, "face"],
 		outline: Hero.EmojiSadOutlineMd,
 		solid: Hero.EmojiSadSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "exclamation",
-		tags: registerTags(...categories.delete, "exclamation"),
+		categories: [categories.delete],
 		outline: Hero.ExclamationOutlineMd,
 		solid: Hero.ExclamationSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "exclamation-circle",
-		tags: registerTags(...categories.delete, "exclamation-circle", "exclamation", "circle"),
+		categories: [categories.delete],
 		outline: Hero.ExclamationCircleOutlineMd,
 		solid: Hero.ExclamationCircleSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "external-link",
-		tags: registerTags(...categories.share, "external-link", "external", "link"),
+		categories: [categories.share],
 		outline: Hero.ExternalLinkOutlineMd,
 		solid: Hero.ExternalLinkSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "eye",
-		tags: registerTags(...categories.password, "eye", "reveal"),
+		categories: [categories.password, "reveal"],
 		outline: Hero.EyeOutlineMd,
 		solid: Hero.EyeSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "eye-off",
-		tags: registerTags(...categories.new),
+		categories: [categories.new, categories.password, "reveal"],
 		outline: Hero.EyeOffOutlineMd,
 		solid: Hero.EyeOffSolidSm,
 		status: "new",
-	},
-	{
+	}),
+	newIcon({
 		name: "filter",
-		tags: registerTags("filter"),
+		categories: [],
 		outline: Hero.FilterOutlineMd,
 		solid: Hero.FilterSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "flag",
-		tags: registerTags("flag"),
+		categories: [],
 		outline: Hero.FlagOutlineMd,
 		solid: Hero.FlagSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "folder",
-		tags: registerTags(...categories.folder, "folder"),
+		categories: [categories.folder],
 		outline: Hero.FolderOutlineMd,
 		solid: Hero.FolderSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "globe",
-		tags: registerTags(...categories.world, "globe"),
+		categories: [categories.world],
 		outline: Hero.GlobeOutlineMd,
 		solid: Hero.GlobeSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "globe-alt",
-		tags: registerTags(...categories.world, "globe-alt", "globe", "alt"),
+		categories: [categories.world],
 		outline: Hero.GlobeAltOutlineMd,
 		solid: Hero.GlobeAltSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "hashtag",
-		tags: registerTags("hashtag"),
+		categories: [],
 		outline: Hero.HashtagOutlineMd,
 		solid: Hero.HashtagSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "heart",
-		tags: registerTags("heart", "like"),
+		categories: ["like"],
 		outline: Hero.HeartOutlineMd,
 		solid: Hero.HeartSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "home",
-		tags: registerTags("home"),
+		categories: [],
 		outline: Hero.HomeOutlineMd,
 		solid: Hero.HomeSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "inbox",
-		tags: registerTags(...categories.email, "inbox"),
+		categories: [categories.email],
 		outline: Hero.InboxOutlineMd,
 		solid: Hero.InboxSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "inbox-in",
-		tags: registerTags(...categories.email, "inbox-in", "inbox", "in"),
+		categories: [categories.email],
 		outline: Hero.InboxInOutlineMd,
 		solid: Hero.InboxInSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "information-circle",
-		tags: registerTags("information-circle", "information", "circle", "help"),
+		categories: ["help"],
 		outline: Hero.InformationCircleOutlineMd,
 		solid: Hero.InformationCircleSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "key",
-		tags: registerTags("key"),
+		categories: [],
 		outline: Hero.KeyOutlineMd,
 		solid: Hero.KeySolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "library",
-		tags: registerTags(...categories.new),
+		categories: [categories.new],
 		outline: Hero.LibraryOutlineMd,
 		solid: Hero.LibrarySolidSm,
 		status: "new",
-	},
-	{
+	}),
+	newIcon({
 		name: "light-bulb",
-		tags: registerTags("light-bulb", "light", "bulb", "idea"),
+		categories: ["idea"],
 		outline: Hero.LightBulbOutlineMd,
 		solid: Hero.LightBulbSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "lightning-bolt",
-		tags: registerTags("lightning-bolt", "lightning", "bolt", "fast"),
+		categories: ["fast"],
 		outline: Hero.LightningBoltOutlineMd,
 		solid: Hero.LightningBoltSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "link",
-		tags: registerTags(...categories.share, "link"),
+		categories: [categories.share],
 		outline: Hero.LinkOutlineMd,
 		solid: Hero.LinkSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "location-marker",
-		tags: registerTags("location-marker", "location", "marker", "company", "navigation"),
+		categories: ["company", "navigation"],
 		outline: Hero.LocationMarkerOutlineMd,
 		solid: Hero.LocationMarkerSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "lock-closed",
-		tags: registerTags(...categories.password, "lock-closed", "lock", "closed", "secure"),
+		categories: [categories.password, "secure"],
 		outline: Hero.LockClosedOutlineMd,
 		solid: Hero.LockClosedSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "lock-open",
-		tags: registerTags(...categories.password, "lock-open", "lock", "open", "secure"),
+		categories: [categories.password, "secure"],
 		outline: Hero.LockOpenOutlineMd,
 		solid: Hero.LockOpenSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "logout",
-		tags: registerTags("logout", "sign out"),
+		categories: ["sign out"],
 		outline: Hero.LogoutOutlineMd,
 		solid: Hero.LogoutSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "mail",
-		tags: registerTags(...categories.email, "mail"),
+		categories: [categories.email, "mail"],
 		outline: Hero.MailOutlineMd,
 		solid: Hero.MailSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "mail-open",
-		tags: registerTags(...categories.email, "mail-open", "mail", "open"),
+		categories: [categories.email],
 		outline: Hero.MailOpenOutlineMd,
 		solid: Hero.MailOpenSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "menu",
-		tags: registerTags(...categories.formatting, "menu"),
+		categories: [categories.formatting],
 		outline: Hero.MenuOutlineMd,
 		solid: Hero.MenuSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "menu-alt-1",
-		tags: registerTags(...categories.formatting, "menu-alt-1", "menu", "alt", "1"),
+		categories: [categories.formatting],
 		outline: Hero.MenuAlt1OutlineMd,
 		solid: Hero.MenuAlt1SolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "menu-alt-2",
-		tags: registerTags(...categories.formatting, "menu-alt-2", "menu", "alt", "2"),
+		categories: [categories.formatting],
 		outline: Hero.MenuAlt2OutlineMd,
 		solid: Hero.MenuAlt2SolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "menu-alt-3",
-		tags: registerTags(...categories.formatting, "menu-alt-3", "menu", "alt", "3"),
+		categories: [categories.formatting],
 		outline: Hero.MenuAlt3OutlineMd,
 		solid: Hero.MenuAlt3SolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "menu-alt-4",
-		tags: registerTags(...categories.formatting, "menu-alt-4", "menu", "alt", "4"),
+		categories: [categories.formatting],
 		outline: Hero.MenuAlt4OutlineMd,
 		solid: Hero.MenuAlt4SolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "microphone",
-		tags: registerTags("microphone"),
+		categories: [],
 		outline: Hero.MicrophoneOutlineMd,
 		solid: Hero.MicrophoneSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "minus-circle",
-		tags: registerTags(...categories.delete, "minus-circle", "minus", "circle"),
+		categories: [categories.delete],
 		outline: Hero.MinusCircleOutlineMd,
 		solid: Hero.MinusCircleSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "moon",
-		tags: registerTags(...categories.darkMode, "moon"),
+		categories: [categories.darkMode],
 		outline: Hero.MoonOutlineMd,
 		solid: Hero.MoonSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "newspaper",
-		tags: registerTags(...categories.new),
+		categories: [categories.new],
 		outline: Hero.NewspaperOutlineMd,
 		solid: Hero.NewspaperSolidSm,
 		status: "new",
-	},
-	{
+	}),
+	newIcon({
 		name: "office-building",
-		tags: registerTags("office-building", "office", "building", "company"),
+		categories: ["company"],
 		outline: Hero.OfficeBuildingOutlineMd,
 		solid: Hero.OfficeBuildingSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "paper-clip",
-		tags: registerTags(...categories.copypasta, "paper-clip", "paper", "clip"),
+		categories: [categories.copypasta],
 		outline: Hero.PaperClipOutlineMd,
 		solid: Hero.PaperClipSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "pause",
-		tags: registerTags(...categories.new),
+		categories: [categories.new],
 		outline: Hero.PauseOutlineMd,
 		solid: Hero.PauseSolidSm,
 		status: "new",
-	},
-	{
+	}),
+	newIcon({
 		name: "pencil",
-		tags: registerTags(...categories.add, ...categories.edit, "pencil", "pen", "write"),
+		categories: [categories.add, categories.edit, "pen", "write"],
 		outline: Hero.PencilOutlineMd,
 		solid: Hero.PencilSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "pencil-alt",
-		tags: registerTags(...categories.add, ...categories.edit, "pencil-alt", "pencil", "alt", "pen", "write"),
+		categories: [categories.add, categories.edit, "pen", "write"],
 		outline: Hero.PencilAltOutlineMd,
 		solid: Hero.PencilAltSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "phone",
-		tags: registerTags(...categories.phone, "phone"),
+		categories: [categories.phone],
 		outline: Hero.PhoneOutlineMd,
 		solid: Hero.PhoneSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "phone-incoming",
-		tags: registerTags(...categories.phone, "phone-incoming", "phone", "incoming"),
+		categories: [categories.phone],
 		outline: Hero.PhoneIncomingOutlineMd,
 		solid: Hero.PhoneIncomingSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "phone-outgoing",
-		tags: registerTags(...categories.phone, "phone-outgoing", "phone", "outgoing"),
+		categories: [categories.phone],
 		outline: Hero.PhoneOutgoingOutlineMd,
 		solid: Hero.PhoneOutgoingSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "photograph",
-		tags: registerTags(...categories.photography, "photograph"),
+		categories: [categories.photography],
 		outline: Hero.PhotographOutlineMd,
 		solid: Hero.PhotographSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "play",
-		tags: registerTags(...categories.new),
+		categories: [categories.new],
 		outline: Hero.PlayOutlineMd,
 		solid: Hero.PlaySolidSm,
 		status: "new",
-	},
-	{
+	}),
+	newIcon({
 		name: "plus",
-		tags: registerTags(...categories.add, "plus"),
+		categories: [categories.add],
 		outline: Hero.PlusOutlineMd,
 		solid: Hero.PlusSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "plus-circle",
-		tags: registerTags(...categories.add, "plus-circle", "plus", "circle"),
+		categories: [categories.add],
 		outline: Hero.PlusCircleOutlineMd,
 		solid: Hero.PlusCircleSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "printer",
-		tags: registerTags("printer"),
+		categories: [],
 		outline: Hero.PrinterOutlineMd,
 		solid: Hero.PrinterSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "qrcode",
-		tags: registerTags("qrcode", "code"),
+		categories: ["qr", "code", "barcode"],
 		outline: Hero.QRCodeOutlineMd,
 		solid: Hero.QRCodeSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "question-mark-circle",
-		tags: registerTags("question-mark-circle", "question", "mark", "circle", "help"),
+		categories: ["help"],
 		outline: Hero.QuestionMarkCircleOutlineMd,
 		solid: Hero.QuestionMarkCircleSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "receipt-refund",
-		tags: registerTags("receipt-refund", "receipt", "refund"),
+		categories: [],
 		outline: Hero.ReceiptRefundOutlineMd,
 		solid: Hero.ReceiptRefundSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "refresh",
-		tags: registerTags(...categories.arrows, "refresh"),
+		categories: [categories.arrows],
 		outline: Hero.RefreshOutlineMd,
 		solid: Hero.RefreshSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "reply",
-		tags: registerTags(...categories.arrows, ...categories.email, "reply"),
+		categories: [categories.arrows, categories.email],
 		outline: Hero.ReplyOutlineMd,
 		solid: Hero.ReplySolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "scale",
-		tags: registerTags("scale"),
+		categories: [],
 		outline: Hero.ScaleOutlineMd,
 		solid: Hero.ScaleSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "search",
-		tags: registerTags("search", "find"),
+		categories: ["find"],
 		outline: Hero.SearchOutlineMd,
 		solid: Hero.SearchSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "selector",
-		tags: registerTags("selector"),
+		categories: [],
 		outline: Hero.SelectorOutlineMd,
 		solid: Hero.SelectorSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "share",
-		tags: registerTags(...categories.share, "share"),
+		categories: [categories.share],
 		outline: Hero.ShareOutlineMd,
 		solid: Hero.ShareSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "shield-check",
-		tags: registerTags(...categories.verified, "shield-check", "shield", "check", "authority", "badge", "secure", "security"),
+		categories: [categories.verified, "authority", "badge", "secure", "security"],
 		outline: Hero.ShieldCheckOutlineMd,
 		solid: Hero.ShieldCheckSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "shield-exclamation",
-		tags: registerTags(...categories.delete, "shield-exclamation", "shield", "exclamation", "authority", "badge", "secure", "security"),
+		categories: [categories.delete, "authority", "badge", "secure", "security"],
 		outline: Hero.ShieldExclamationOutlineMd,
 		solid: Hero.ShieldExclamationSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "shopping-cart",
-		tags: registerTags(...categories.shopping, "shopping-cart", "shopping", "cart"),
+		categories: [categories.shopping],
 		outline: Hero.ShoppingCartOutlineMd,
 		solid: Hero.ShoppingCartSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "sort-ascending",
-		tags: registerTags("sort-ascending", "sort", "ascending"),
+		categories: ["list"],
 		outline: Hero.SortAscendingOutlineMd,
 		solid: Hero.SortAscendingSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "sort-descending",
-		tags: registerTags("sort-descending", "sort", "descending"),
+		categories: ["list"],
 		outline: Hero.SortDescendingOutlineMd,
 		solid: Hero.SortDescendingSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "sparkles",
-		tags: registerTags(...categories.darkMode, "sparkles", "magic"),
+		categories: [categories.darkMode, "magic"],
 		outline: Hero.SparklesOutlineMd,
 		solid: Hero.SparklesSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "speakerphone",
-		tags: registerTags(...categories.notifications, "speakerphone"),
+		categories: [categories.notifications],
 		outline: Hero.SpeakerphoneOutlineMd,
 		solid: Hero.SpeakerphoneSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "star",
-		tags: registerTags(...categories.new),
+		categories: [categories.new],
 		outline: Hero.StarOutlineMd,
 		solid: Hero.StarSolidSm,
 		status: "new",
-	},
-	{
+	}),
+	newIcon({
 		name: "stop",
-		tags: registerTags(...categories.new),
+		categories: [categories.new],
 		outline: Hero.StopOutlineMd,
 		solid: Hero.StopSolidSm,
 		status: "new",
-	},
-	{
+	}),
+	newIcon({
 		name: "sun",
-		tags: registerTags(...categories.darkMode, "sun"),
+		categories: [categories.darkMode],
 		outline: Hero.SunOutlineMd,
 		solid: Hero.SunSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "support",
-		tags: registerTags(...categories.new),
+		categories: [categories.new],
 		outline: Hero.SupportOutlineMd,
 		solid: Hero.SupportSolidSm,
 		status: "new",
-	},
-	{
+	}),
+	newIcon({
 		name: "switch-horizontal",
-		tags: registerTags("switch-horizontal", "switch", "horizontal", "swap"),
+		categories: [],
 		outline: Hero.SwitchHorizontalOutlineMd,
 		solid: Hero.SwitchHorizontalSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "switch-vertical",
-		tags: registerTags("switch-vertical", "switch", "vertical", "swap"),
+		categories: ["switch-vertical", "swap"],
 		outline: Hero.SwitchVerticalOutlineMd,
 		solid: Hero.SwitchVerticalSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "tag",
-		tags: registerTags(...categories.shopping, "tag"),
+		categories: [categories.shopping],
 		outline: Hero.TagOutlineMd,
 		solid: Hero.TagSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "template",
-		tags: registerTags(...categories.layout, "template"),
+		categories: [categories.layout],
 		outline: Hero.TemplateOutlineMd,
 		solid: Hero.TemplateSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "terminal",
-		tags: registerTags(...categories.new),
+		categories: [categories.new],
 		outline: Hero.TerminalOutlineMd,
 		solid: Hero.TerminalSolidSm,
 		status: "new",
-	},
-	{
+	}),
+	newIcon({
 		name: "ticket",
-		tags: registerTags("ticket", "movie", "theater"),
+		categories: ["movie", "theater"],
 		outline: Hero.TicketOutlineMd,
 		solid: Hero.TicketSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "translate",
-		tags: registerTags(...categories.world, "translate", "alphabet", "language"),
+		categories: [categories.world, "alphabet", "language"],
 		outline: Hero.TranslateOutlineMd,
 		solid: Hero.TranslateSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "trash",
-		tags: registerTags(...categories.delete, "trash"),
+		categories: [categories.delete],
 		outline: Hero.TrashOutlineMd,
 		solid: Hero.TrashSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "trending-down",
-		tags: registerTags("trending-down", "trending", "down", "stock", "market", "stock market"),
+		categories: ["stock", "market", "stock market"],
 		outline: Hero.TrendingDownOutlineMd,
 		solid: Hero.TrendingDownSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "trending-up",
-		tags: registerTags("trending-up", "trending", "up", "stock", "market", "stock market"),
+		categories: ["stock", "market", "stock market"],
 		outline: Hero.TrendingUpOutlineMd,
 		solid: Hero.TrendingUpSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "upload",
-		tags: registerTags("upload"),
+		categories: [],
 		outline: Hero.UploadOutlineMd,
 		solid: Hero.UploadSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "user",
-		tags: registerTags(...categories.people, "user"),
+		categories: [categories.people],
 		outline: Hero.UserOutlineMd,
 		solid: Hero.UserSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "user-add",
-		tags: registerTags(...categories.people, ...categories.add, "user-add", "user", "add"),
+		categories: [categories.people, categories.add],
 		outline: Hero.UserAddOutlineMd,
 		solid: Hero.UserAddSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "user-circle",
-		tags: registerTags(...categories.people, "user-circle", "user", "circle"),
+		categories: [categories.people],
 		outline: Hero.UserCircleOutlineMd,
 		solid: Hero.UserCircleSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "user-group",
-		tags: registerTags(...categories.people, "user-group", "user", "group", "company"),
+		categories: [categories.people, "group", "company"],
 		outline: Hero.UserGroupOutlineMd,
 		solid: Hero.UserGroupSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "user-remove",
-		tags: registerTags(...categories.delete, ...categories.people, "user-remove", "user", "remove"),
+		categories: [categories.delete, categories.people],
 		outline: Hero.UserRemoveOutlineMd,
 		solid: Hero.UserRemoveSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "users",
-		tags: registerTags(...categories.people, "users", "company"),
+		categories: [categories.people, "group", "company"],
 		outline: Hero.UsersOutlineMd,
 		solid: Hero.UsersSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "view-boards",
-		tags: registerTags(...categories.layout, "view-boards", "view", "boards"),
+		categories: [categories.layout],
 		outline: Hero.ViewBoardsOutlineMd,
 		solid: Hero.ViewBoardsSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "view-grid-add",
-		tags: registerTags(...categories.new),
+		categories: [categories.new],
 		outline: Hero.ViewGridAddOutlineMd,
 		solid: Hero.ViewGridAddSolidSm,
 		status: "new",
-	},
-	{
+	}),
+	newIcon({
 		name: "view-list",
-		tags: registerTags(...categories.layout, "view-list", "view", "list"),
+		categories: [categories.layout],
 		outline: Hero.ViewListOutlineMd,
 		solid: Hero.ViewListSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "volume-off",
-		tags: registerTags("volume-off", "volume", "off", "sound", "speaker", ["quiet", "loud"]),
+		categories: ["sound", "speaker", "quiet", "loud"],
 		outline: Hero.VolumeOffOutlineMd,
 		solid: Hero.VolumeOffSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "volume-up",
-		tags: registerTags("volume-up", "volume", "up", "sound", "speaker", ["quiet", "loud"]),
+		categories: ["sound", "speaker", "quiet", "loud"],
 		outline: Hero.VolumeUpOutlineMd,
 		solid: Hero.VolumeUpSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "x",
-		tags: registerTags(...categories.delete, "x"),
+		categories: [categories.delete, "x"],
 		outline: Hero.XOutlineMd,
 		solid: Hero.XSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "x-circle",
-		tags: registerTags(...categories.delete, "x-circle", "x", "circle"),
+		categories: [categories.delete],
 		outline: Hero.XCircleOutlineMd,
 		solid: Hero.XCircleSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "zoom-in",
-		tags: registerTags("zoom-in", "zoom", "in", "magnify"),
+		categories: ["magnify"],
 		outline: Hero.ZoomInOutlineMd,
 		solid: Hero.ZoomInSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "zoom-out",
-		tags: registerTags("zoom-out", "zoom", "out", "magnify"),
+		categories: ["magnify"],
 		outline: Hero.ZoomOutOutlineMd,
 		solid: Hero.ZoomOutSolidSm,
-	},
+	}),
 ]
 
 export default originalIcons
