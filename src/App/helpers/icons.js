@@ -39,7 +39,6 @@ const categories = {
 		"thinking",
 		"typing",
 		"writing",
-		// ["chatting", "asynchronous"],
 	],
 	chatSync: [
 		"comment",
@@ -48,7 +47,6 @@ const categories = {
 		"think",
 		"type",
 		"write",
-		// ["chat", "synchronous"],
 	],
 	copypasta: [
 		"clipboard",
@@ -205,6 +203,37 @@ const categories = {
 	],
 }
 
+// new
+// add
+// arrows
+// chatAsync
+// chatSync
+// copypasta
+// currency
+// darkMode
+// delete
+// edit
+// ellisis
+// email
+// emotions
+// file
+// folder
+// formatting
+// layout
+// more
+// notifications
+// password
+// people
+// phone
+// photography
+// pointer
+// settings
+// share
+// shopping
+// stats
+// verified
+// world
+
 // TODO:
 //
 // registerIcon({
@@ -212,43 +241,56 @@ const categories = {
 // 	tags: "...",
 // })
 
+// createIcon("adjustments", Hero.AdjustmentsOutlineMd, Hero.AdjustmentsSolidSm)
+
+// Returns a new icon info object.
+function newIcon({ name, outline, solid, categories }) {
+	const info = {
+		name,
+		tags: registerTags(name, ...name.split("-"), ...categories),
+		outline,
+		solid,
+	}
+	return info
+}
+
 const originalIcons = [
-	{
+	newIcon({
 		name: "adjustments",
-		tags: registerTags(...categories.settings, "adjustments", "sliders"),
+		categories: [categories.settings, "sliders"],
 		outline: Hero.AdjustmentsOutlineMd,
 		solid: Hero.AdjustmentsSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "annotation",
-		tags: registerTags(...categories.notifications, "annotation", "subtitles", "tooltip"),
+		categories: [categories.notifications, "subtitles", "tooltip"],
 		outline: Hero.AnnotationOutlineMd,
 		solid: Hero.AnnotationSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "archive",
-		tags: registerTags(...categories.folder, "archive"),
+		categories: [categories.folder],
 		outline: Hero.ArchiveOutlineMd,
 		solid: Hero.ArchiveSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "arrow-circle-down",
-		tags: registerTags("arrow-circle-down", "arrow", "circle", "down"),
+		categories: [],
 		outline: Hero.ArrowCircleDownOutlineMd,
 		solid: Hero.ArrowCircleDownSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "arrow-circle-left",
-		tags: registerTags("arrow-circle-left", "arrow", "circle", "left"),
+		categories: [],
 		outline: Hero.ArrowCircleLeftOutlineMd,
 		solid: Hero.ArrowCircleLeftSolidSm,
-	},
-	{
+	}),
+	newIcon({
 		name: "arrow-circle-right",
-		tags: registerTags("arrow-circle-right", "arrow", "circle", "right"),
+		categories: [],
 		outline: Hero.ArrowCircleRightOutlineMd,
 		solid: Hero.ArrowCircleRightSolidSm,
-	},
+	}),
 	{
 		name: "arrow-circle-up",
 		tags: registerTags("arrow-circle-up", "arrow", "circle", "up"),
@@ -341,7 +383,7 @@ const originalIcons = [
 	},
 	{
 		name: "bookmark-alt",
-		tags: registerTags(...categories.new),
+		tags: registerTags(...categories.new, "bookmark-alt", "bookmark", "alt", "book", "chapter", "diary", "journal", "read"),
 		outline: Hero.BookmarkAltOutlineMd,
 		solid: Hero.BookmarkAltSolidSm,
 		status: "new",
@@ -372,7 +414,7 @@ const originalIcons = [
 	},
 	{
 		name: "chart-bar",
-		tags: registerTags(...categories.new),
+		tags: registerTags(...categories.new, ...categories.stats, "chart-bar", "chart", "bar"),
 		outline: Hero.ChartBarOutlineMd,
 		solid: Hero.ChartBarSolidSm,
 		status: "new",
@@ -385,7 +427,7 @@ const originalIcons = [
 	},
 	{
 		name: "chart-square-bar",
-		tags: registerTags(...categories.new),
+		tags: registerTags(...categories.new, ...categories.stats, "chart-square-bar", "chat", "square", "bar"),
 		outline: Hero.ChartSquareBarOutlineMd,
 		solid: Hero.ChartSquareBarSolidSm,
 		status: "new",
@@ -404,7 +446,7 @@ const originalIcons = [
 	},
 	{
 		name: "chat-alt-2",
-		tags: registerTags(...categories.new),
+		tags: registerTags(...categories.new, ...categories.chatAsync, ...categories.chatSync, "chat-alt-2", "chat", "alt", "2"),
 		outline: Hero.ChatAlt2OutlineMd,
 		solid: Hero.ChatAlt2SolidSm,
 		status: "new",

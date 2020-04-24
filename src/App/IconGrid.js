@@ -39,7 +39,7 @@ const IconCard = React.memo(({ status, outline, solid, ...props }) => {
 				<button className="p-3 flex flex-row justify-center items-center w-full h-full text-gray-800 dark:text-gray-100 hover:text-gray-100 bg-white dark:bg-gray-800 hover:bg-indigo-500 rounded-lg-xl focus:outline-none shadow focus:shadow-outline transition duration-150" onPointerDown={e => e.preventDefault()} onClick={handleClick}>
 					<Icon
 						ref={ref}
-						className="w-8 h-8"
+						className="w-8 h-8 transform scale-95"
 						svg={!ctx.solid ? outline : solid}
 					/>
 					<div className="p-2 absolute inset-0 flex flex-row justify-center items-end">
@@ -49,7 +49,7 @@ const IconCard = React.memo(({ status, outline, solid, ...props }) => {
 					</div>
 					{status && (
 						<div className="p-2 absolute inset-0 flex flex-row justify-end items-start">
-							<p className="px-2 py-px font-ibm-plex-mono font-bold text-sm tracking-widest leading-snug text-white bg-indigo-500 rounded-full transform scale-90 origin-top-right">
+							<p className="px-2 py-px font-ibm-plex-mono font-bold text-xs tracking-widest leading-snug text-white bg-indigo-500 rounded-full">
 								NEW
 							</p>
 						</div>

@@ -51,11 +51,11 @@ const App = props => {
 					{/* LHS: GitHub */}
 					<div className="absolute inset-x-0 top-0 z-30 hidden lg:block pointer-events-none">
 						<div className="flex flex-row justify-start items-start">
-							<a className="p-3" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
+							<a className="p-3 flex flex-row items-center" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
 								<p className="font-medium text-gray-800 dark:text-gray-100 transition pointer-events-auto">
-									Like this? Star on GitHub!{" "}
-									<span className="emoji" aria-label="star" role="img">⭐️</span>
+									Love this? Star on GitHub!{" "}
 								</p>
+								<span className="emoji ml-2" aria-label="star" role="img">⭐️</span>
 							</a>
 						</div>
 					</div>
@@ -84,27 +84,30 @@ const App = props => {
 
 					{/* Subheader */}
 					<div className="h-6" />
-					<h2 className="-mx-px text-center font-medium text-xl text-gray-800 dark:text-gray-100 leading-relaxed transition duration-150">
-						Icons by{" "}
-						<a className="mx-px text-indigo-500" href="https://twitter.com/steveschoger">
-							<img className="-mt-px mx-1 inline-block w-6 h-6 rounded-full shadow transform scale-110" src={srcSteveSchoger} alt="Steve Schoger" />{" "}
-							Steve S<span className="hidden md:inline">choger</span><span className="inline md:hidden">.</span>
-						</a>{" "}
-						and{" "}
-						<a className="mx-px text-indigo-500" href="https://twitter.com/adamwathan">
-							<img className="-mt-px mx-1 inline-block w-6 h-6 rounded-full shadow transform scale-110" src={srcAdamWathan} alt="Adam Wathan" />{" "}
-							Adam W<span className="hidden md:inline">athan</span><span className="inline md:hidden">.</span>
-						</a>
-						<br />
-						Web app by{" "}
-						<a className="mx-px text-indigo-500" href="https://twitter.com/username_ZAYDEK">
-							<img className="-mt-px mx-1 inline-block w-6 h-6 rounded-full shadow transform scale-110" src={srcZaydek} alt="Zaydek" />{" "}
-							Zaydek
-						</a>
+					<h2 className="-mx-px text-center font-medium text-lg text-gray-800 dark:text-gray-100 transition duration-150">
+						<div>
+							Icons by{" "}
+							<a className="mx-px text-indigo-500" href="https://twitter.com/steveschoger">
+								<img className="-mt-px mx-1 inline-block w-8 h-8 rounded-full shadow transform scale-90" src={srcSteveSchoger} alt="Steve Schoger" />{" "}
+								Steve S<span className="hidden md:inline">choger</span><span className="inline md:hidden">.</span>
+							</a>{" "}
+							and{" "}
+							<a className="mx-px text-indigo-500" href="https://twitter.com/adamwathan">
+								<img className="-mt-px mx-1 inline-block w-8 h-8 rounded-full shadow transform scale-90" src={srcAdamWathan} alt="Adam Wathan" />{" "}
+								Adam W<span className="hidden md:inline">athan</span><span className="inline md:hidden">.</span>
+							</a>
+						</div>
+						<div className="mt-1">
+							Viewer by{" "}
+							<a className="mx-px text-indigo-500" href="https://twitter.com/username_ZAYDEK">
+								<img className="-mt-px mx-1 inline-block w-8 h-8 rounded-full shadow transform scale-90" src={srcZaydek} alt="Zaydek" />{" "}
+								Zaydek
+							</a>
+						</div>
 					</h2>
 
 					{/* Buttons */}
-					<div className="h-12" />
+					<div className="h-8" />
 					<div className="flex flex-col xs:flex-row justify-center">
 						<a className="px-6 py-4 flex flex-row justify-center items-center text-gray-800 dark:text-gray-100 bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline transition duration-150" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-2abb814">
 							<p className="font-medium text-lg">
