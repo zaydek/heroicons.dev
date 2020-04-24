@@ -11,16 +11,14 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
-    "lint": "yarn eslint --ignore-pattern=build --ignore-pattern=\"**/*.min.js\" .",
-    "tailwind-dev": "yarn tailwind build src/stylesheets/tailwind.css -o src/stylesheets/tailwind.generated.css",
-    "tailwind-prod": "yarn postcss src/stylesheets/tailwind.css --output src/stylesheets/tailwind.generated.css --env production",
-    "prestart": "yarn tailwind-dev",
-    "start": "yarn react-scripts start",
-    "prebuild": "yarn tailwind-prod",
-    "build": "yarn react-scripts build",
-    "firebase-build-deploy": "yarn build && yarn firebase deploy && yarn tailwind-dev",
-    "test": "yarn react-scripts test",
-    "eject": "yarn react-scripts eject"
+    "lint": "eslint --ignore-pattern=build --ignore-pattern=\"**/*.min.js\" .",
+    "start": "react-scripts start",
+    "tailwind-start": "tailwind build src/stylesheets/tailwind.css -o src/stylesheets/tailwind.generated.css",
+    "build": "react-scripts build",
+    "tailwind-build": "postcss src/stylesheets/tailwind.css --output src/stylesheets/tailwind.generated.css --env production",
+    "firebase-build-deploy": "yarn tailwind-build && yarn build && yarn firebase deploy && yarn tailwind-start",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
