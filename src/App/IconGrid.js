@@ -9,9 +9,10 @@ const IconCard = React.memo(({ status, outline, solid, ...props }) => {
 	const ctx = React.useContext(Context)
 	const [text, setText] = React.useState(props.name)
 
-	// TODO: Add paper-clip icon to copied!
 	const handleClick = async e => {
-		const { outerHTML } = ref.current
+		const copy = ref.current.cloneNode(true)
+		copy.removeAttribute("class")
+		const { outerHTML } = copy
 		if (!navigator.clipboard) {
 			copyToClipboard(outerHTML)
 			setText("copied!")
