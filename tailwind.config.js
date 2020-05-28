@@ -11,8 +11,8 @@ module.exports = {
 		extend: {
 			borderRadius: {
 				"lg-xl": "0.75rem",
-				xl:    "1rem",
-				"2xl":   "2rem",
+				"xl": "1rem",
+				"2xl": "2rem",
 			},
 			boxShadow: {
 				"hero-sm": `
@@ -82,11 +82,11 @@ module.exports = {
 			},
 			inset: {
 				"1/2": "50%",
-				full: "100%",
+				"full": "100%",
 			},
 			letterSpacing: {
 				"-px": "-0.0125em",
-				px:  "0.0125em",
+				"px": "0.0125em",
 			},
 			// https://youtube.com/watch?v=jl_tdhBxc_Y
 			spacing: {

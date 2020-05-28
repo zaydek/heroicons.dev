@@ -1,1265 +1,1224 @@
 import * as Hero from "react-heroicons"
 
-// Recurisvely flattens an array
-function flatten(array) {
-	const flat = []
-	for (let index = 0; index < array.length; index++) {
-		if (Array.isArray(array[index])) {
-			flat.push(...flatten(array[index]))
-			continue
-		}
-		flat.push(array[index])
-	}
-	return flat
-}
-
-// Registers tags; accepts an array of strings or arrays and
-// recursively flattens and dedupes them.
-function registerTags(...tags) {
-	return [...new Set(flatten(tags))]
-}
-
-const categories = {
-	// Reserved
-	new: [
-		"new",
-	],
-
-	add: [
-		"add",
-		"create",
-	],
-	arrows: [
-		"arrows",
-	],
-	chatAsync: [
-		"commenting",
-		"discussing",
-		"messaging",
-		"thinking",
-		"typing",
-		"writing",
-	],
-	chatSync: [
-		"comment",
-		"discuss",
-		"message",
-		"think",
-		"type",
-		"write",
-	],
-	copypasta: [
-		"clipboard",
-		"duplciate",
-		"cut",
-		"copy",
-		"paste",
-	],
-	currency: [
-		"currency",
-		"exchange rate",
-		"money",
-	],
-	// TODO: Add a space category -- globe, globe-alt,
-	// sparkles, etc.
-	darkMode: [
-		"dark mode",
-		"day",
-		"light mode",
-		"moon",
-		"night",
-		"sky",
-		"start",
-		"sun",
-	],
-	delete: [
-		"alert",
-		"cancel",
-		"deactivate",
-		"delete",
-		"destroy",
-		"minus",
-		"remove",
-		"warning",
-		"x",
-	],
-	edit: [
-		"edit",
-		"modify",
-		"save",
-		"update",
-	],
-	ellisis: [
-		"dots",
-		"ellisis",
-	],
-	email: [
-		"email",
-		"mail",
-	],
-	emotions: [
-		"emoji",
-		"emotions",
-		"happy",
-		"negative",
-		"positive",
-		"sad",
-	],
-	file: [
-		"document",
-		"file",
-	],
-	folder: [
-		"archive",
-		"bin",
-		"folder",
-		"storage",
-	],
-	formatting: [
-		"align",
-		"column",
-		"format",
-		"formatting",
-		"justify",
-		"row",
-	],
-	layout: [
-		"column",
-		"grid",
-		"layout",
-		"row",
-	],
-	more: [
-		"actions",
-		"more",
-		"options",
-	],
-	notifications: [
-		"alerts",
-		"announcements",
-		"notifications",
-	],
-	password: [
-		"password",
-	],
-	people: [
-		"member",
-		"people",
-		"person",
-		"user",
-	],
-	phone: [
-		"call",
-		"cell phone",
-		"mobile",
-		"phone",
-	],
-	photography: [
-		"camera",
-		"photo",
-		"photography",
-		"picture",
-	],
-	pointer: [
-		"cursor",
-		"mouse",
-		"pointer",
-	],
-	settings: [
-		"controls",
-		"preferences",
-		"settings",
-	],
-	share: [
-		"anchor",
-		"link",
-		"share",
-		"social",
-	],
-	shopping: [
-		"buy",
-		"cart",
-		"price tag",
-		"shopping cart",
-	],
-	stats: [
-		"chart",
-		"data",
-		"report",
-		"spreadsheet",
-		"statistics",
-		"stats",
-	],
-	verified: [
-		"check",
-		"verified",
-		"verify",
-	],
-	world: [
-		"earth",
-		"globe",
-		"planet",
-		"world",
-	],
-}
-
-// new
-// add
-// arrows
-// chatAsync
-// chatSync
-// copypasta
-// currency
-// darkMode
-// delete
-// edit
-// ellisis
-// email
-// emotions
-// file
-// folder
-// formatting
-// layout
-// more
-// notifications
-// password
-// people
-// phone
-// photography
-// pointer
-// settings
-// share
-// shopping
-// stats
-// verified
-// world
-
-// TODO:
+// - "hand"
+// - "puzzle"
+// - "thumb-down"
+// - "thumb-up"
+// - "view-grid"
+// x "arrows-expand"
+// x "fire"
+// x "folder-add"
+// x "folder-download"
+// x "folder-remove"
+// x "shopping-bag"
 //
-// registerIcon({
-// 	name: "...",
-// 	tags: "...",
-// })
-
-// createIcon("adjustments", Hero.AdjustmentsOutlineMd, Hero.AdjustmentsSolidSm)
-
-function newIcon({ name, categories, outline, solid, status }) {
-	const info = {
-		name,
-		tags: registerTags(name, ...name.split("-"), ...categories),
-		outline,
-		solid,
-		status,
-	}
-	return info
-}
+// https://github.com/refactoringui/heroicons/issues/55
 
 const originalIcons = [
-	newIcon({
+	{
+		tags: [],
 		name: "adjustments",
-		categories: [categories.settings, "sliders"],
 		outline: Hero.AdjustmentsOutlineMd,
 		solid: Hero.AdjustmentsSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "annotation",
-		categories: [categories.notifications, "subtitles", "tooltip"],
 		outline: Hero.AnnotationOutlineMd,
 		solid: Hero.AnnotationSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "archive",
-		categories: [categories.folder],
 		outline: Hero.ArchiveOutlineMd,
 		solid: Hero.ArchiveSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "arrow-circle-down",
-		categories: [],
 		outline: Hero.ArrowCircleDownOutlineMd,
 		solid: Hero.ArrowCircleDownSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "arrow-circle-left",
-		categories: [],
 		outline: Hero.ArrowCircleLeftOutlineMd,
 		solid: Hero.ArrowCircleLeftSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "arrow-circle-right",
-		categories: [],
 		outline: Hero.ArrowCircleRightOutlineMd,
 		solid: Hero.ArrowCircleRightSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "arrow-circle-up",
-		categories: [],
 		outline: Hero.ArrowCircleUpOutlineMd,
 		solid: Hero.ArrowCircleUpSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "arrow-down",
-		categories: [categories.arrows],
 		outline: Hero.ArrowDownOutlineMd,
 		solid: Hero.ArrowDownSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "arrow-left",
-		categories: [categories.arrows],
 		outline: Hero.ArrowLeftOutlineMd,
 		solid: Hero.ArrowLeftSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "arrow-narrow-down",
-		categories: [categories.arrows],
 		outline: Hero.ArrowNarrowDownOutlineMd,
 		solid: Hero.ArrowNarrowDownSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "arrow-narrow-left",
-		categories: [categories.arrows],
 		outline: Hero.ArrowNarrowLeftOutlineMd,
 		solid: Hero.ArrowNarrowLeftSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "arrow-narrow-right",
-		categories: [categories.arrows],
 		outline: Hero.ArrowNarrowRightOutlineMd,
 		solid: Hero.ArrowNarrowRightSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "arrow-narrow-up",
-		categories: [categories.arrows],
 		outline: Hero.ArrowNarrowUpOutlineMd,
 		solid: Hero.ArrowNarrowUpSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "arrow-right",
-		categories: [categories.arrows],
 		outline: Hero.ArrowRightOutlineMd,
 		solid: Hero.ArrowRightSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "arrow-up",
-		categories: [categories.arrows],
 		outline: Hero.ArrowUpOutlineMd,
 		solid: Hero.ArrowUpSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	// {
+	// 	tags: ["new"],
+	// 	name: "arrows-expand",
+	// 	outline: Hero.ArrowsExpandOutlineMd,
+	// 	solid: Hero.ArrowsExpandSolidSm,
+	// 	status: "new",
+	// },
+	{
+		tags: [],
 		name: "at-symbol",
-		categories: [categories.email],
 		outline: Hero.AtSymbolOutlineMd,
 		solid: Hero.AtSymbolSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "badge-check",
-		categories: [categories.verified],
 		outline: Hero.BadgeCheckOutlineMd,
 		solid: Hero.BadgeCheckSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "ban",
-		categories: [categories.delete, "disabled"],
 		outline: Hero.BanOutlineMd,
 		solid: Hero.BanSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "bell",
-		categories: [categories.notifications],
 		outline: Hero.BellOutlineMd,
 		solid: Hero.BellSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "book-open",
-		categories: ["book", "chapter", "diary", "journal", "read"],
 		outline: Hero.BookOpenOutlineMd,
 		solid: Hero.BookOpenSolidSm,
-	}),
-	newIcon({
-		name: "bookmark",
-		categories: ["book", "chapter", "diary", "journal", "read"],
-		outline: Hero.BookmarkOutlineMd,
-		solid: Hero.BookmarkSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "bookmark-alt",
-		categories: [categories.new, "book", "chapter", "diary", "journal", "read"],
 		outline: Hero.BookmarkAltOutlineMd,
 		solid: Hero.BookmarkAltSolidSm,
-		status: "new",
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
+		name: "bookmark",
+		outline: Hero.BookmarkOutlineMd,
+		solid: Hero.BookmarkSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
 		name: "briefcase",
-		categories: [],
 		outline: Hero.BriefcaseOutlineMd,
 		solid: Hero.BriefcaseSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "calendar",
-		categories: ["events", "days", "months", "years"],
 		outline: Hero.CalendarOutlineMd,
 		solid: Hero.CalendarSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "camera",
-		categories: [categories.photography],
 		outline: Hero.CameraOutlineMd,
 		solid: Hero.CameraSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "cash",
-		categories: [categories.currency],
 		outline: Hero.CashOutlineMd,
 		solid: Hero.CashSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "chart-bar",
-		categories: [categories.new, categories.stats],
 		outline: Hero.ChartBarOutlineMd,
 		solid: Hero.ChartBarSolidSm,
-		status: "new",
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "chart-pie",
-		categories: [categories.stats],
 		outline: Hero.ChartPieOutlineMd,
 		solid: Hero.ChartPieSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "chart-square-bar",
-		categories: [categories.new, categories.stats],
 		outline: Hero.ChartSquareBarOutlineMd,
 		solid: Hero.ChartSquareBarSolidSm,
-		status: "new",
-	}),
-	newIcon({
-		name: "chat",
-		categories: [categories.chatAsync, categories.chatSync, categories.ellisis],
-		outline: Hero.ChatOutlineMd,
-		solid: Hero.ChatSolidSm,
-	}),
-	newIcon({
-		name: "chat-alt",
-		categories: [categories.chatAsync, categories.chatSync, categories.ellisis],
-		outline: Hero.ChatAltOutlineMd,
-		solid: Hero.ChatAltSolidSm,
-	}),
-	newIcon({
-		name: "chat-alt-2",
-		categories: [categories.new, categories.chatAsync, categories.chatSync],
+		status: false,
+	},
+	{
+		tags: [],
+		name: "chat-alt2",
 		outline: Hero.ChatAlt2OutlineMd,
 		solid: Hero.ChatAlt2SolidSm,
-		status: "new",
-	}),
-	newIcon({
-		name: "check",
-		categories: [categories.verified],
-		outline: Hero.CheckOutlineMd,
-		solid: Hero.CheckSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
+		name: "chat-alt",
+		outline: Hero.ChatAltOutlineMd,
+		solid: Hero.ChatAltSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
+		name: "chat",
+		outline: Hero.ChatOutlineMd,
+		solid: Hero.ChatSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
 		name: "check-circle",
-		categories: [categories.verified],
 		outline: Hero.CheckCircleOutlineMd,
 		solid: Hero.CheckCircleSolidSm,
-	}),
-	newIcon({
-		name: "cheveron-down",
-		categories: [],
-		outline: Hero.CheveronDownOutlineMd,
-		solid: Hero.CheveronDownSolidSm,
-	}),
-	newIcon({
-		name: "cheveron-left",
-		categories: [],
-		outline: Hero.CheveronLeftOutlineMd,
-		solid: Hero.CheveronLeftSolidSm,
-	}),
-	newIcon({
-		name: "cheveron-right",
-		categories: [],
-		outline: Hero.CheveronRightOutlineMd,
-		solid: Hero.CheveronRightSolidSm,
-	}),
-	newIcon({
-		name: "cheveron-up",
-		categories: [],
-		outline: Hero.CheveronUpOutlineMd,
-		solid: Hero.CheveronUpSolidSm,
-	}),
-	newIcon({
-		name: "clipboard",
-		categories: [categories.copypasta],
-		outline: Hero.ClipboardOutlineMd,
-		solid: Hero.ClipboardSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
+		name: "check",
+		outline: Hero.CheckOutlineMd,
+		solid: Hero.CheckSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
+		name: "chevron-down",
+		outline: Hero.ChevronDownOutlineMd,
+		solid: Hero.ChevronDownSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
+		name: "chevron-left",
+		outline: Hero.ChevronLeftOutlineMd,
+		solid: Hero.ChevronLeftSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
+		name: "chevron-right",
+		outline: Hero.ChevronRightOutlineMd,
+		solid: Hero.ChevronRightSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
+		name: "chevron-up",
+		outline: Hero.ChevronUpOutlineMd,
+		solid: Hero.ChevronUpSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
 		name: "clipboard-check",
-		categories: [categories.copypasta],
 		outline: Hero.ClipboardCheckOutlineMd,
 		solid: Hero.ClipboardCheckSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "clipboard-copy",
-		categories: [categories.copypasta],
 		outline: Hero.ClipboardCopyOutlineMd,
 		solid: Hero.ClipboardCopySolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "clipboard-list",
-		categories: [categories.copypasta],
 		outline: Hero.ClipboardListOutlineMd,
 		solid: Hero.ClipboardListSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
+		name: "clipboard",
+		outline: Hero.ClipboardOutlineMd,
+		solid: Hero.ClipboardSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
 		name: "clock",
-		categories: ["time"],
 		outline: Hero.ClockOutlineMd,
 		solid: Hero.ClockSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "cloud-download",
-		categories: [],
 		outline: Hero.CloudDownloadOutlineMd,
 		solid: Hero.CloudDownloadSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "cloud-upload",
-		categories: [],
 		outline: Hero.CloudUploadOutlineMd,
 		solid: Hero.CloudUploadSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "code",
-		categories: [],
 		outline: Hero.CodeOutlineMd,
 		solid: Hero.CodeSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "cog",
-		categories: [categories.settings],
 		outline: Hero.CogOutlineMd,
 		solid: Hero.CogSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "collection",
-		categories: [],
 		outline: Hero.CollectionOutlineMd,
 		solid: Hero.CollectionSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "color-swatch",
-		categories: ["3d"],
 		outline: Hero.ColorSwatchOutlineMd,
 		solid: Hero.ColorSwatchSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "credit-card",
-		categories: [categories.currency, categories.shopping],
 		outline: Hero.CreditCardOutlineMd,
 		solid: Hero.CreditCardSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "currency-dollar",
-		categories: [categories.currency, categories.shopping],
 		outline: Hero.CurrencyDollarOutlineMd,
 		solid: Hero.CurrencyDollarSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "currency-euro",
-		categories: [categories.currency],
 		outline: Hero.CurrencyEuroOutlineMd,
 		solid: Hero.CurrencyEuroSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "currency-pound",
-		categories: [categories.currency],
 		outline: Hero.CurrencyPoundOutlineMd,
 		solid: Hero.CurrencyPoundSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "currency-rupee",
-		categories: [categories.currency],
 		outline: Hero.CurrencyRupeeOutlineMd,
 		solid: Hero.CurrencyRupeeSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "currency-yen",
-		categories: [categories.currency],
 		outline: Hero.CurrencyYenOutlineMd,
 		solid: Hero.CurrencyYenSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "cursor-click",
-		categories: [categories.pointer],
 		outline: Hero.CursorClickOutlineMd,
 		solid: Hero.CursorClickSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "desktop-computer",
-		categories: [categories.new],
 		outline: Hero.DesktopComputerOutlineMd,
 		solid: Hero.DesktopComputerSolidSm,
-		status: "new",
-	}),
-	newIcon({
-		name: "document",
-		categories: [categories.file],
-		outline: Hero.DocumentOutlineMd,
-		solid: Hero.DocumentSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "document-add",
-		categories: [categories.add, categories.file],
 		outline: Hero.DocumentAddOutlineMd,
 		solid: Hero.DocumentAddSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "document-download",
-		categories: [categories.file],
 		outline: Hero.DocumentDownloadOutlineMd,
 		solid: Hero.DocumentDownloadSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "document-duplicate",
-		categories: [categories.copypasta, categories.file],
 		outline: Hero.DocumentDuplicateOutlineMd,
 		solid: Hero.DocumentDuplicateSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "document-remove",
-		categories: [categories.file],
 		outline: Hero.DocumentRemoveOutlineMd,
 		solid: Hero.DocumentRemoveSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "document-report",
-		categories: [categories.file, categories.stats],
 		outline: Hero.DocumentReportOutlineMd,
 		solid: Hero.DocumentReportSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
+		name: "document",
+		outline: Hero.DocumentOutlineMd,
+		solid: Hero.DocumentSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
 		name: "dots-circle-horizontal",
-		categories: [categories.ellisis, categories.more],
 		outline: Hero.DotsCircleHorizontalOutlineMd,
 		solid: Hero.DotsCircleHorizontalSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "dots-horizontal",
-		categories: [categories.ellisis, categories.more],
 		outline: Hero.DotsHorizontalOutlineMd,
 		solid: Hero.DotsHorizontalSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "dots-vertical",
-		categories: [categories.ellisis, categories.more],
 		outline: Hero.DotsVerticalOutlineMd,
 		solid: Hero.DotsVerticalSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "download",
-		categories: [],
 		outline: Hero.DownloadOutlineMd,
 		solid: Hero.DownloadSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "duplicate",
-		categories: [categories.copypasta],
 		outline: Hero.DuplicateOutlineMd,
 		solid: Hero.DuplicateSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "emoji-happy",
-		categories: [categories.emotions, categories.people, "face"],
 		outline: Hero.EmojiHappyOutlineMd,
 		solid: Hero.EmojiHappySolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "emoji-sad",
-		categories: [categories.emotions, categories.people, "face"],
 		outline: Hero.EmojiSadOutlineMd,
 		solid: Hero.EmojiSadSolidSm,
-	}),
-	newIcon({
-		name: "exclamation",
-		categories: [categories.delete],
-		outline: Hero.ExclamationOutlineMd,
-		solid: Hero.ExclamationSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "exclamation-circle",
-		categories: [categories.delete],
 		outline: Hero.ExclamationCircleOutlineMd,
 		solid: Hero.ExclamationCircleSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
+		name: "exclamation",
+		outline: Hero.ExclamationOutlineMd,
+		solid: Hero.ExclamationSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
 		name: "external-link",
-		categories: [categories.share],
 		outline: Hero.ExternalLinkOutlineMd,
 		solid: Hero.ExternalLinkSolidSm,
-	}),
-	newIcon({
-		name: "eye",
-		categories: [categories.password, "reveal"],
-		outline: Hero.EyeOutlineMd,
-		solid: Hero.EyeSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "eye-off",
-		categories: [categories.new, categories.password, "reveal"],
 		outline: Hero.EyeOffOutlineMd,
 		solid: Hero.EyeOffSolidSm,
-		status: "new",
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
+		name: "eye",
+		outline: Hero.EyeOutlineMd,
+		solid: Hero.EyeSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
 		name: "filter",
-		categories: [],
 		outline: Hero.FilterOutlineMd,
 		solid: Hero.FilterSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "flag",
-		categories: [],
 		outline: Hero.FlagOutlineMd,
 		solid: Hero.FlagSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "folder",
-		categories: [categories.folder],
 		outline: Hero.FolderOutlineMd,
 		solid: Hero.FolderSolidSm,
-	}),
-	newIcon({
-		name: "globe",
-		categories: [categories.world],
-		outline: Hero.GlobeOutlineMd,
-		solid: Hero.GlobeSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "globe-alt",
-		categories: [categories.world],
 		outline: Hero.GlobeAltOutlineMd,
 		solid: Hero.GlobeAltSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
+		name: "globe",
+		outline: Hero.GlobeOutlineMd,
+		solid: Hero.GlobeSolidSm,
+		status: false,
+	},
+	{
+		tags: ["new"],
+		name: "hand",
+		outline: Hero.HandOutlineMd,
+		solid: Hero.HandSolidSm,
+		status: "new",
+	},
+	{
+		tags: [],
 		name: "hashtag",
-		categories: [],
 		outline: Hero.HashtagOutlineMd,
 		solid: Hero.HashtagSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "heart",
-		categories: ["like"],
 		outline: Hero.HeartOutlineMd,
 		solid: Hero.HeartSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "home",
-		categories: [],
 		outline: Hero.HomeOutlineMd,
 		solid: Hero.HomeSolidSm,
-	}),
-	newIcon({
-		name: "inbox",
-		categories: [categories.email],
-		outline: Hero.InboxOutlineMd,
-		solid: Hero.InboxSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "inbox-in",
-		categories: [categories.email],
 		outline: Hero.InboxInOutlineMd,
 		solid: Hero.InboxInSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
+		name: "inbox",
+		outline: Hero.InboxOutlineMd,
+		solid: Hero.InboxSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
 		name: "information-circle",
-		categories: ["help"],
 		outline: Hero.InformationCircleOutlineMd,
 		solid: Hero.InformationCircleSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "key",
-		categories: [],
 		outline: Hero.KeyOutlineMd,
 		solid: Hero.KeySolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "library",
-		categories: [categories.new],
 		outline: Hero.LibraryOutlineMd,
 		solid: Hero.LibrarySolidSm,
-		status: "new",
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "light-bulb",
-		categories: ["idea"],
 		outline: Hero.LightBulbOutlineMd,
 		solid: Hero.LightBulbSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "lightning-bolt",
-		categories: ["fast"],
 		outline: Hero.LightningBoltOutlineMd,
 		solid: Hero.LightningBoltSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "link",
-		categories: [categories.share],
 		outline: Hero.LinkOutlineMd,
 		solid: Hero.LinkSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "location-marker",
-		categories: ["company", "navigation"],
 		outline: Hero.LocationMarkerOutlineMd,
 		solid: Hero.LocationMarkerSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "lock-closed",
-		categories: [categories.password, "secure"],
 		outline: Hero.LockClosedOutlineMd,
 		solid: Hero.LockClosedSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "lock-open",
-		categories: [categories.password, "secure"],
 		outline: Hero.LockOpenOutlineMd,
 		solid: Hero.LockOpenSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "logout",
-		categories: ["sign out"],
 		outline: Hero.LogoutOutlineMd,
 		solid: Hero.LogoutSolidSm,
-	}),
-	newIcon({
-		name: "mail",
-		categories: [categories.email, "mail"],
-		outline: Hero.MailOutlineMd,
-		solid: Hero.MailSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "mail-open",
-		categories: [categories.email],
 		outline: Hero.MailOpenOutlineMd,
 		solid: Hero.MailOpenSolidSm,
-	}),
-	newIcon({
-		name: "menu",
-		categories: [categories.formatting],
-		outline: Hero.MenuOutlineMd,
-		solid: Hero.MenuSolidSm,
-	}),
-	newIcon({
-		name: "menu-alt-1",
-		categories: [categories.formatting],
+		status: false,
+	},
+	{
+		tags: [],
+		name: "mail",
+		outline: Hero.MailOutlineMd,
+		solid: Hero.MailSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
+		name: "menu-alt1",
 		outline: Hero.MenuAlt1OutlineMd,
 		solid: Hero.MenuAlt1SolidSm,
-	}),
-	newIcon({
-		name: "menu-alt-2",
-		categories: [categories.formatting],
+		status: false,
+	},
+	{
+		tags: [],
+		name: "menu-alt2",
 		outline: Hero.MenuAlt2OutlineMd,
 		solid: Hero.MenuAlt2SolidSm,
-	}),
-	newIcon({
-		name: "menu-alt-3",
-		categories: [categories.formatting],
+		status: false,
+	},
+	{
+		tags: [],
+		name: "menu-alt3",
 		outline: Hero.MenuAlt3OutlineMd,
 		solid: Hero.MenuAlt3SolidSm,
-	}),
-	newIcon({
-		name: "menu-alt-4",
-		categories: [categories.formatting],
+		status: false,
+	},
+	{
+		tags: [],
+		name: "menu-alt4",
 		outline: Hero.MenuAlt4OutlineMd,
 		solid: Hero.MenuAlt4SolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
+		name: "menu",
+		outline: Hero.MenuOutlineMd,
+		solid: Hero.MenuSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
 		name: "microphone",
-		categories: [],
 		outline: Hero.MicrophoneOutlineMd,
 		solid: Hero.MicrophoneSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "minus-circle",
-		categories: [categories.delete],
 		outline: Hero.MinusCircleOutlineMd,
 		solid: Hero.MinusCircleSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "moon",
-		categories: [categories.darkMode],
 		outline: Hero.MoonOutlineMd,
 		solid: Hero.MoonSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "newspaper",
-		categories: [categories.new],
 		outline: Hero.NewspaperOutlineMd,
 		solid: Hero.NewspaperSolidSm,
-		status: "new",
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "office-building",
-		categories: ["company"],
 		outline: Hero.OfficeBuildingOutlineMd,
 		solid: Hero.OfficeBuildingSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "paper-clip",
-		categories: [categories.copypasta],
 		outline: Hero.PaperClipOutlineMd,
 		solid: Hero.PaperClipSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "pause",
-		categories: [categories.new],
 		outline: Hero.PauseOutlineMd,
 		solid: Hero.PauseSolidSm,
-		status: "new",
-	}),
-	newIcon({
-		name: "pencil",
-		categories: [categories.add, categories.edit, "pen", "write"],
-		outline: Hero.PencilOutlineMd,
-		solid: Hero.PencilSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "pencil-alt",
-		categories: [categories.add, categories.edit, "pen", "write"],
 		outline: Hero.PencilAltOutlineMd,
 		solid: Hero.PencilAltSolidSm,
-	}),
-	newIcon({
-		name: "phone",
-		categories: [categories.phone],
-		outline: Hero.PhoneOutlineMd,
-		solid: Hero.PhoneSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
+		name: "pencil",
+		outline: Hero.PencilOutlineMd,
+		solid: Hero.PencilSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
 		name: "phone-incoming",
-		categories: [categories.phone],
 		outline: Hero.PhoneIncomingOutlineMd,
 		solid: Hero.PhoneIncomingSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "phone-outgoing",
-		categories: [categories.phone],
 		outline: Hero.PhoneOutgoingOutlineMd,
 		solid: Hero.PhoneOutgoingSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
+		name: "phone",
+		outline: Hero.PhoneOutlineMd,
+		solid: Hero.PhoneSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
 		name: "photograph",
-		categories: [categories.photography],
 		outline: Hero.PhotographOutlineMd,
 		solid: Hero.PhotographSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "play",
-		categories: [categories.new],
 		outline: Hero.PlayOutlineMd,
 		solid: Hero.PlaySolidSm,
-		status: "new",
-	}),
-	newIcon({
-		name: "plus",
-		categories: [categories.add],
-		outline: Hero.PlusOutlineMd,
-		solid: Hero.PlusSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "plus-circle",
-		categories: [categories.add],
 		outline: Hero.PlusCircleOutlineMd,
 		solid: Hero.PlusCircleSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
+		name: "plus",
+		outline: Hero.PlusOutlineMd,
+		solid: Hero.PlusSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
 		name: "printer",
-		categories: [],
 		outline: Hero.PrinterOutlineMd,
 		solid: Hero.PrinterSolidSm,
-	}),
-	newIcon({
-		name: "qrcode",
-		categories: ["qr", "code", "barcode"],
+		status: false,
+	},
+	{
+		tags: ["new"],
+		name: "puzzle",
+		outline: Hero.PuzzleOutlineMd,
+		solid: Hero.PuzzleSolidSm,
+		status: "new",
+	},
+	{
+		tags: [],
+		name: "q-r-code",
 		outline: Hero.QRCodeOutlineMd,
 		solid: Hero.QRCodeSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "question-mark-circle",
-		categories: ["help"],
 		outline: Hero.QuestionMarkCircleOutlineMd,
 		solid: Hero.QuestionMarkCircleSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "receipt-refund",
-		categories: [],
 		outline: Hero.ReceiptRefundOutlineMd,
 		solid: Hero.ReceiptRefundSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "refresh",
-		categories: [categories.arrows],
 		outline: Hero.RefreshOutlineMd,
 		solid: Hero.RefreshSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "reply",
-		categories: [categories.arrows, categories.email],
 		outline: Hero.ReplyOutlineMd,
 		solid: Hero.ReplySolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "scale",
-		categories: [],
 		outline: Hero.ScaleOutlineMd,
 		solid: Hero.ScaleSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "search",
-		categories: ["find"],
 		outline: Hero.SearchOutlineMd,
 		solid: Hero.SearchSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "selector",
-		categories: [],
 		outline: Hero.SelectorOutlineMd,
 		solid: Hero.SelectorSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "share",
-		categories: [categories.share],
 		outline: Hero.ShareOutlineMd,
 		solid: Hero.ShareSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "shield-check",
-		categories: [categories.verified, "authority", "badge", "secure", "security"],
 		outline: Hero.ShieldCheckOutlineMd,
 		solid: Hero.ShieldCheckSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "shield-exclamation",
-		categories: [categories.delete, "authority", "badge", "secure", "security"],
 		outline: Hero.ShieldExclamationOutlineMd,
 		solid: Hero.ShieldExclamationSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	// {
+	// 	tags: ["new"],
+	// 	name: "shopping-bag",
+	// 	outline: Hero.ShoppingBagOutlineMd,
+	// 	solid: Hero.ShoppingBagSolidSm,
+	// 	status: "new",
+	// },
+	{
+		tags: [],
 		name: "shopping-cart",
-		categories: [categories.shopping],
 		outline: Hero.ShoppingCartOutlineMd,
 		solid: Hero.ShoppingCartSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "sort-ascending",
-		categories: ["list"],
 		outline: Hero.SortAscendingOutlineMd,
 		solid: Hero.SortAscendingSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "sort-descending",
-		categories: ["list"],
 		outline: Hero.SortDescendingOutlineMd,
 		solid: Hero.SortDescendingSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "sparkles",
-		categories: [categories.darkMode, "magic"],
 		outline: Hero.SparklesOutlineMd,
 		solid: Hero.SparklesSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "speakerphone",
-		categories: [categories.notifications],
 		outline: Hero.SpeakerphoneOutlineMd,
 		solid: Hero.SpeakerphoneSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "star",
-		categories: [categories.new],
 		outline: Hero.StarOutlineMd,
 		solid: Hero.StarSolidSm,
-		status: "new",
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "stop",
-		categories: [categories.new],
 		outline: Hero.StopOutlineMd,
 		solid: Hero.StopSolidSm,
-		status: "new",
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "sun",
-		categories: [categories.darkMode],
 		outline: Hero.SunOutlineMd,
 		solid: Hero.SunSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "support",
-		categories: [categories.new],
 		outline: Hero.SupportOutlineMd,
 		solid: Hero.SupportSolidSm,
-		status: "new",
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "switch-horizontal",
-		categories: [],
 		outline: Hero.SwitchHorizontalOutlineMd,
 		solid: Hero.SwitchHorizontalSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "switch-vertical",
-		categories: ["switch-vertical", "swap"],
 		outline: Hero.SwitchVerticalOutlineMd,
 		solid: Hero.SwitchVerticalSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "tag",
-		categories: [categories.shopping],
 		outline: Hero.TagOutlineMd,
 		solid: Hero.TagSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "template",
-		categories: [categories.layout],
 		outline: Hero.TemplateOutlineMd,
 		solid: Hero.TemplateSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "terminal",
-		categories: [categories.new],
 		outline: Hero.TerminalOutlineMd,
 		solid: Hero.TerminalSolidSm,
+		status: false,
+	},
+	{
+		tags: ["new"],
+		name: "thumb-down",
+		outline: Hero.ThumbDownOutlineMd,
+		solid: Hero.ThumbDownSolidSm,
 		status: "new",
-	}),
-	newIcon({
+	},
+	{
+		tags: ["new"],
+		name: "thumb-up",
+		outline: Hero.ThumbUpOutlineMd,
+		solid: Hero.ThumbUpSolidSm,
+		status: "new",
+	},
+	{
+		tags: [],
 		name: "ticket",
-		categories: ["movie", "theater"],
 		outline: Hero.TicketOutlineMd,
 		solid: Hero.TicketSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "translate",
-		categories: [categories.world, "alphabet", "language"],
 		outline: Hero.TranslateOutlineMd,
 		solid: Hero.TranslateSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "trash",
-		categories: [categories.delete],
 		outline: Hero.TrashOutlineMd,
 		solid: Hero.TrashSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "trending-down",
-		categories: ["stock", "market", "stock market"],
 		outline: Hero.TrendingDownOutlineMd,
 		solid: Hero.TrendingDownSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "trending-up",
-		categories: ["stock", "market", "stock market"],
 		outline: Hero.TrendingUpOutlineMd,
 		solid: Hero.TrendingUpSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "upload",
-		categories: [],
 		outline: Hero.UploadOutlineMd,
 		solid: Hero.UploadSolidSm,
-	}),
-	newIcon({
-		name: "user",
-		categories: [categories.people],
-		outline: Hero.UserOutlineMd,
-		solid: Hero.UserSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "user-add",
-		categories: [categories.people, categories.add],
 		outline: Hero.UserAddOutlineMd,
 		solid: Hero.UserAddSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "user-circle",
-		categories: [categories.people],
 		outline: Hero.UserCircleOutlineMd,
 		solid: Hero.UserCircleSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "user-group",
-		categories: [categories.people, "group", "company"],
 		outline: Hero.UserGroupOutlineMd,
 		solid: Hero.UserGroupSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "user-remove",
-		categories: [categories.delete, categories.people],
 		outline: Hero.UserRemoveOutlineMd,
 		solid: Hero.UserRemoveSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
+		name: "user",
+		outline: Hero.UserOutlineMd,
+		solid: Hero.UserSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
 		name: "users",
-		categories: [categories.people, "group", "company"],
 		outline: Hero.UsersOutlineMd,
 		solid: Hero.UsersSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "view-boards",
-		categories: [categories.layout],
 		outline: Hero.ViewBoardsOutlineMd,
 		solid: Hero.ViewBoardsSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "view-grid-add",
-		categories: [categories.new],
 		outline: Hero.ViewGridAddOutlineMd,
 		solid: Hero.ViewGridAddSolidSm,
+		status: false,
+	},
+	{
+		tags: ["new"],
+		name: "view-grid",
+		outline: Hero.ViewGridOutlineMd,
+		solid: Hero.ViewGridSolidSm,
 		status: "new",
-	}),
-	newIcon({
+	},
+	{
+		tags: [],
 		name: "view-list",
-		categories: [categories.layout],
 		outline: Hero.ViewListOutlineMd,
 		solid: Hero.ViewListSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "volume-off",
-		categories: ["sound", "speaker", "quiet", "loud"],
 		outline: Hero.VolumeOffOutlineMd,
 		solid: Hero.VolumeOffSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "volume-up",
-		categories: ["sound", "speaker", "quiet", "loud"],
 		outline: Hero.VolumeUpOutlineMd,
 		solid: Hero.VolumeUpSolidSm,
-	}),
-	newIcon({
-		name: "x",
-		categories: [categories.delete, "x"],
-		outline: Hero.XOutlineMd,
-		solid: Hero.XSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "x-circle",
-		categories: [categories.delete],
 		outline: Hero.XCircleOutlineMd,
 		solid: Hero.XCircleSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
+		name: "x",
+		outline: Hero.XOutlineMd,
+		solid: Hero.XSolidSm,
+		status: false,
+	},
+	{
+		tags: [],
 		name: "zoom-in",
-		categories: ["magnify"],
 		outline: Hero.ZoomInOutlineMd,
 		solid: Hero.ZoomInSolidSm,
-	}),
-	newIcon({
+		status: false,
+	},
+	{
+		tags: [],
 		name: "zoom-out",
-		categories: ["magnify"],
 		outline: Hero.ZoomOutOutlineMd,
 		solid: Hero.ZoomOutSolidSm,
-	}),
+		status: false,
+	},
 ]
 
 export default originalIcons
