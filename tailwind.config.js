@@ -1,4 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme")
+const defaultVariants = require("./tailwind-variants")
 const plugin = require("tailwindcss/plugin")
 
 module.exports = {
@@ -10,7 +11,7 @@ module.exports = {
 		extend: {
 			borderRadius: {
 				"lg-xl": "0.75rem",
-				"xl":    "1rem",
+				xl:    "1rem",
 				"2xl":   "2rem",
 			},
 			boxShadow: {
@@ -18,7 +19,7 @@ module.exports = {
 					0 0 0 1px rgba(0, 0, 0, 0.05),
 					0 1px 2px 0 rgba(0, 0, 0, 0.05)
 				`,
-				"hero": `
+				hero: `
 					0 0 0 1px rgba(0, 0, 0, 0.05),
 					0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)
 				`,
@@ -40,10 +41,11 @@ module.exports = {
 				`,
 			},
 			colors: {
-				"gray": {
+				gray: {
 					...defaultTheme.colors.gray,
 					50: "#fbfdfe",
 				},
+
 				// https://gist.github.com/codex-zaydek/d3d1803f981fc8ed75fc0e4f481f6ecc
 				"md-blue-50":   { default: "#e3f2fd" },
 				"md-blue-100":  { default: "#bbdefb" },
@@ -70,7 +72,8 @@ module.exports = {
 				"md-gray-800":  { default: "#424242" },
 				"md-gray-900":  { default: "#212121" },
 
-				"twitter-blue": "#1da1f2",
+				"github-gray":  { default: "#24292e" },
+				"twitter-blue": { default: "#1da1f2" },
 			},
 			fontFamily: {
 				...defaultTheme.fontFamily,
@@ -78,12 +81,12 @@ module.exports = {
 				"ibm-plex-mono": "'IBM Plex Mono', monospace",
 			},
 			inset: {
-				"1/2":  "50%",
-				"full": "100%",
+				"1/2": "50%",
+				full: "100%",
 			},
 			letterSpacing: {
 				"-px": "-0.0125em",
-				"px":  "0.0125em",
+				px:  "0.0125em",
 			},
 			// https://youtube.com/watch?v=jl_tdhBxc_Y
 			spacing: {
@@ -92,60 +95,29 @@ module.exports = {
 		},
 		// https://tailwindcss.com/docs/breakpoints
 		screens: {
-			xs: `${512 + (6 * 4) * 2}px`,
+			xs: `${24 + 512 + 24}px`,
 			// => @media (min-width: 560px) { ... }
 
-			sm: `${640 + (6 * 4) * 2}px`,
+			sm: `${24 + 640 + 24}px`,
 			// => @media (min-width: 688px) { ... }
 
-			md: `${768 + (6 * 4) * 2}px`,
+			md: `${24 + 768 + 24}px`,
 			// => @media (min-width: 816px) { ... }
 
-			lg: `${1024 + (6 * 4) * 2}px`,
+			lg: `${24 + 1024 + 24}px`,
 			// => @media (min-width: 1072px) { ... }
 
-			xl: `${1280 + (6 * 4) * 2}px`,
+			xl: `${24 + 1280 + 24}px`,
 			// => @media (min-width: 1328px) { ... }
 		},
 	},
-	// https://tailwindcss.com/docs/configuring-variants/#default-variants-reference
+	// Add dark, hover:dark, and focus:dark:
 	variants: {
-		textColor: [
-			"dark",
-			// "responsive",
-			"hover",
-			"hover:dark",
-			"focus",
-			"focus:dark",
-			"active",
-			"active:dark",
-			"disabled",
-			"disabled:dark",
-		],
-		backgroundColor: [
-			"dark",
-			// "responsive",
-			"hover",
-			"hover:dark",
-			"focus",
-			"focus:dark",
-			"active",
-			"active:dark",
-			"disabled",
-			"disabled:dark",
-		],
-		boxShadow: [
-			"dark",
-			// "responsive",
-			"hover",
-			"hover:dark",
-			"focus",
-			"focus:dark",
-			"active",
-			"active:dark",
-			"disabled",
-			"disabled:dark",
-		],
+		...defaultVariants,
+		textColor: [...defaultVariants.textColor, "dark", "hover:dark", "focus:dark"],
+		backgroundColor: [...defaultVariants.backgroundColor, "dark", "hover:dark", "focus:dark"],
+		borderColor: [...defaultVariants.borderColor, "dark", "hover:dark", "focus:dark"],
+		boxShadow: [...defaultVariants.boxShadow, "dark", "hover:dark", "focus:dark"],
 	},
 	plugins: [
 		plugin(((flag = "dark-mode", prefix = "dark") => {
@@ -163,16 +135,6 @@ module.exports = {
 				addVariant(`focus:${prefix}`, ({ modifySelectors }) => {
 					modifySelectors(({ className }) => {
 						return `.${flag} .${e(`focus:${prefix}:${className}`)}:focus`
-					})
-				})
-				addVariant(`active:${prefix}`, ({ modifySelectors }) => {
-					modifySelectors(({ className }) => {
-						return `.${flag} .${e(`active:${prefix}:${className}`)}:active`
-					})
-				})
-				addVariant(`disabled:${prefix}`, ({ modifySelectors }) => {
-					modifySelectors(({ className }) => {
-						return `.${flag} .${e(`disabled:${prefix}:${className}`)}:disabled`
 					})
 				})
 			}
