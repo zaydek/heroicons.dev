@@ -1,47 +1,41 @@
 {
-  "name": "heroicons-viewer",
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "firebase": "^7.10.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-heroicons": "https://github.com/codex-src/react-heroicons",
-    "react-scripts": "3.4.0"
-  },
-  "scripts": {
-    "lint": "eslint --ignore-pattern=build --ignore-pattern=\"**/*.min.js\" .",
-    "start": "react-scripts start",
-    "tailwind-start": "tailwind build src/stylesheets/tailwind.css -o src/stylesheets/tailwind.generated.css",
-    "build": "react-scripts build",
-    "tailwind-build": "postcss src/stylesheets/tailwind.css --output src/stylesheets/tailwind.generated.css --env production",
-    "firebase-build-deploy": "yarn tailwind-build && yarn build && yarn firebase deploy && yarn tailwind-start",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.0.6",
-    "autoprefixer": "^9.7.4",
-    "debug.css": "https://github.com/codex-src/debug.css",
-    "firebase-tools": "^7.14.0",
-    "postcss-cli": "^7.1.0",
-    "serve": "^11.3.0",
-    "tailwindcss": "^1.2.0"
-  }
+	"name": "heroicons-viewer",
+	"dependencies": {
+		"firebase": "^7.14.5",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-heroicons": "https://github.com/codex-src/react-heroicons",
+		"react-scripts": "^3.4.1"
+	},
+	"scripts": {
+		"lint": "eslint --ignore-pattern=build --ignore-pattern=\"**/*.min.js\" .",
+		"start": "react-scripts start",
+		"tailwind-start": "tailwind build src/stylesheets/tailwind.css -o src/stylesheets/tailwind.generated.css",
+		"build": "react-scripts build",
+		"tailwind-build": "postcss src/stylesheets/tailwind.css --output src/stylesheets/tailwind.generated.css --env production",
+		"firebase-build-deploy": "yarn tailwind-build && yarn build && yarn firebase deploy && yarn tailwind-start",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"debug.css": "https://github.com/codex-src/debug.css",
+		"firebase-tools": "^8.4.0",
+		"serve": "^11.3.1",
+		"tailwindcss": "^1.4.6"
+	}
 }

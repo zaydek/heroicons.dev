@@ -10,8 +10,6 @@ module.exports = {
 	parser: "babel-eslint",
 	parserOptions: { sourceType: "module" },
 	rules: {
-		"no-unused-vars":                   0, // disallow unused variables
-
 		"array-bracket-newline":            [1, "consistent"], // enforce linebreaks after opening and before closing array brackets
 		"array-bracket-spacing":            1, // enforce consistent spacing inside array brackets
 		"array-element-newline":            [1, "consistent"], // enforce line breaks after each array element
@@ -81,12 +79,12 @@ module.exports = {
 		"padding-line-between-statements":  0, // require or disallow padding lines between statements
 		"prefer-arrow-callback":            0, // require using arrow functions for callbacks
 		"prefer-const":                     [1, { destructuring: "all" }], // require `const` declarations for variables that are never reassigned after declared
-		"prefer-destructuring":             [1, { object: true, array: false }], // require destructuring from arrays and/or objects
+		"prefer-destructuring":             0, // require destructuring from arrays and/or objects
 		"prefer-exponentiation-operator":   1, // disallow the use of `Math.pow` in favor of the `**` operator
 		"prefer-numeric-literals":          1, // disallow `parseInt()` and `Number.parseInt()` in favor of binary, octal, and hexadecimal literals
 		"prefer-object-spread":             1, // disallow using Object.assign with an object literal as the first argument and prefer the use of object spread instead.
-		"prefer-template":                  1, // require template literals instead of string concatenation
-		"quote-props":                      [1, "consistent-as-needed"], // require quotes around object literal property names
+		"prefer-template":                  0, // require template literals instead of string concatenation
+		"quote-props":                      [1, "as-needed"], // require quotes around object literal property names
 		"quotes":                           1, // enforce the consistent use of either backticks, double, or single quotes
 		"rest-spread-spacing":              1, // enforce spacing between rest and spread operators and their expressions
 		"semi":                             [1, "never"], // require or disallow semicolons instead of ASI
@@ -109,9 +107,5 @@ module.exports = {
 		"wrap-regex":                       0, // require parenthesis around regex literals
 		"yield-star-spacing":               0, // require or disallow spacing around the `*` in `yield*` expressions
 		"yoda":                             1, // require or disallow "Yoda" conditions
-
-		"init-declarations":                2, // require or disallow initialization in variable declarations
-		"max-statements-per-line":          2, // enforce a maximum number of statements allowed per line
-		"no-nested-ternary":                2, // disallow nested ternary expressions
 	},
 }
