@@ -9,10 +9,10 @@
 	},
 	"scripts": {
 		"lint": "eslint --ignore-pattern=build --ignore-pattern=\"**/*.min.js\" .",
-		"start": "react-scripts start",
 		"tailwind-start": "tailwind build src/stylesheets/tailwind.css -o src/stylesheets/tailwind.generated.css",
-		"build": "react-scripts build",
-		"tailwind-build": "postcss src/stylesheets/tailwind.css --output src/stylesheets/tailwind.generated.css --env production",
+		"start": "react-scripts start",
+		"tailwind-build": "NODE_ENV=production yarn tailwind-start",
+		"build": "yarn tailwind-build && react-scripts build",
 		"firebase-build-deploy": "yarn tailwind-build && yarn build && yarn firebase deploy && yarn tailwind-start",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"

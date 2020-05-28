@@ -83,7 +83,7 @@ const SearchBar = props => {
 						<div className="h-full rounded-lg-xl dark:shadow-md transition duration-150">
 							<input
 								ref={ref}
-								className="w-full h-full text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded-lg-xl outline-none shadow dark:shadow-md focus:shadow-outline transition duration-150"
+								className="w-full h-full text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline transition duration-150"
 								type="text"
 								placeholder={placeholder}
 								value={ctx.query}

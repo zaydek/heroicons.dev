@@ -54,9 +54,11 @@ const App = props => {
 						<div className="flex flex-row justify-start items-start">
 							<a className="p-3 flex flex-row items-center" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
 								<p className="font-medium text-gray-800 dark:text-gray-100 transition pointer-events-auto">
-									Love this? Star on GitHub!{" "}
+									Love this?{" "}
+									<span className="mx-1" aria-label="red heart" role="img">❤️</span>
+									Star on GitHub!{" "}
+									<span className="mx-1" aria-label="star" role="img">⭐️</span>
 								</p>
-								<span className="ml-2" aria-label="star" role="img">⭐️</span>
 							</a>
 						</div>
 					</div>
