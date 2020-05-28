@@ -33,6 +33,7 @@ const App = props => {
 		}
 	}, [query])
 
+	// TODO: Deprecate use of Context (React.createContext)
 	const { Provider } = Context
 	return (
 		<Provider value={{
@@ -55,7 +56,7 @@ const App = props => {
 								<p className="font-medium text-gray-800 dark:text-gray-100 transition pointer-events-auto">
 									Love this? Star on GitHub!{" "}
 								</p>
-								<span className="emoji ml-2" aria-label="star" role="img">⭐️</span>
+								<span className="ml-2" aria-label="star" role="img">⭐️</span>
 							</a>
 						</div>
 					</div>

@@ -1,15 +1,12 @@
-/* purgecss start ignore */
-@tailwind base;
-@tailwind components;
-/* purgecss end ignore */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-@tailwind utilities;
-
-/* .emoji { */
-/* 	vertical-align: -10%; */
-/* 	font-size: 120%; */
-/* 	line-height: 1; */
-/* } */
+[aria-label][role="img"] {
+	vertical-align: -10%;
+	font-size: 120%;
+	line-height: 1;
+}
 
 .-text-px { font-size: 0.9375rem; } /* 15px */
 .text-px  { font-size: 1.0625rem; } /* 17px */
