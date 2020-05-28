@@ -3,7 +3,7 @@ import copyToClipboard from "./helpers/copyToClipboard"
 import Icon from "./Icon"
 import React from "react"
 
-const IconCard = React.memo(({ status, outline, solid, ...props }) => {
+const IconCard = React.memo(({ outline, solid, statusNew, ...props }) => {
 	const ref = React.useRef()
 
 	const ctx = React.useContext(Context)
@@ -47,7 +47,7 @@ const IconCard = React.memo(({ status, outline, solid, ...props }) => {
 							{text}
 						</p>
 					</div>
-					{status && (
+					{statusNew && (
 						<div className="p-2 absolute inset-0 flex flex-row justify-end items-start">
 							<p className="px-2 py-px font-ibm-plex-mono font-bold text-xs tracking-widest leading-snug text-white bg-indigo-500 rounded-full">
 								NEW
