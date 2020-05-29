@@ -22,11 +22,6 @@ const App = props => {
 	const [query, setQuery] = React.useState("")
 	const [solid, setSolid] = React.useState(darkMode)
 	const [icons, setIcons] = React.useState(originalIcons)
-	// TODO: Add ability to define custom attributes in UI
-	const [attributesToCopy, setAttributesToCopy] = React.useState({
-		"class": "w-8 h-8",
-		"stroke-width": 2,
-	})
 
 	// Debounce query (10ms):
 	React.useEffect(() => {
@@ -50,7 +45,7 @@ const App = props => {
 			setSolid,
 			icons,
 			setIcons,
-		}}>
+ 		}}>
 			<div className="py-24 flex flex-row justify-center min-h-full bg-gray-100 dark:bg-gray-900 transition duration-150">
 				<div className="px-6 w-full max-w-screen-lg">
 
@@ -136,26 +131,9 @@ const App = props => {
 					<div className="h-6" />
 					<SearchBar />
 
-					{/* Attributes to Copy */}
-					<div className="grid grid-cols-2 gap-3 max-w-md mt-6 mb-3">
-						{Object.entries(attributesToCopy).map(([k, v]) => (
-							<div>
-								<label className="-mx-px text-center font-medium text-gray-800 dark:text-gray-100 leading-relaxed transition duration-150">{k}</label>
-								<div className="mt-1 h-12 rounded-lg-xl dark:shadow-md transition duration-150">
-									<input
-										className="w-full h-full px-6 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded-lg-xl outline-none shadow dark:shadow-md focus:shadow-outline transition duration-150"
-										key={k}
-										value={v}
-										onChange={e => setAttributesToCopy({ ...attributesToCopy, [k]: e.target.value })}
-									/>
-								</div>
-							</div>
-						))}
-					</div>
-
 					{/* Icons */}
 					<div className="h-6" />
-					<IconGrid attributesToCopy={attributesToCopy}/>
+					<IconGrid />
 
 				</div>
 			</div>
