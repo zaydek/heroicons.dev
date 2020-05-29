@@ -9,24 +9,30 @@ const IconCard = React.memo(({ outline, solid, statusNew, ...props }) => {
 	const ctx = React.useContext(Context)
 	const [text, setText] = React.useState(props.name)
 
-	const handleClick = async e => {
-		const copy = ref.current.cloneNode(true)
-		copy.removeAttribute("class")
-		const { outerHTML } = copy
+	// TODO: Add paper-clip icon to copied!
+	const handleClick = async () => {
+		const iconEl = ref.current.cloneNode(true)
+		Object.entries(props.attributesToCopy).forEach(([k, v]) => {
+			if (v) {
+				iconEl.setAttribute(k, v)
+			}	else {
+				iconEl.removeAttribute(k)
+			}
+		})
+		document.body.appendChild(iconEl)
+
 		if (!navigator.clipboard) {
-			copyToClipboard(outerHTML)
-			setText("copied!")
-			setTimeout(() => {
-				setText(props.name)
-			}, 1e3)
-		} else {
+			copyToClipboard(iconEl.outerHTML)
+		} else  {
 			try {
-				await navigator.clipboard.writeText(outerHTML)
+				await navigator.clipboard.writeText(iconEl.outerHTML)
 			} catch (error) {
 				console.error(error)
 				return
 			}
 		}
+
+		iconEl.remove()
 		setText("copied!")
 		setTimeout(() => {
 			setText(props.name)
@@ -67,7 +73,7 @@ const IconGrid = React.memo(props => {
 		<div style={{ minHeight: "calc(100vh - 6rem - 5.5rem - 1.5rem)" /* 100vh - py-20 - <Search> - h-6 */ }}>
 			<div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
 				{ctx.icons.map(each => (
-					<IconCard key={each.name} {...each} />
+					<IconCard key={each.name} {...each} attributesToCopy={props.attributesToCopy}/>
 				))}
 			</div>
 		</div>
