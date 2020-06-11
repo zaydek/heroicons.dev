@@ -1,19 +1,15 @@
 import * as Hero from "react-heroicons"
 
-// - "hand"
-// - "puzzle"
-// - "thumb-down"
-// - "thumb-up"
-// - "view-grid"
-// x "arrows-expand"
-// x "fire"
-// x "folder-add"
-// x "folder-download"
-// x "folder-remove"
-// x "shopping-bag"
+// NOTE: The following have been manually exported:
+//
+// - arrows-expand
+// - fire
+// - folder-add
+// - folder-download
+// - folder-remove
+// - shopping-bag
 //
 // https://github.com/refactoringui/heroicons/issues/55
-
 const originalIcons = [
 	{
 		tags: ["adjustments"],
@@ -119,6 +115,13 @@ const originalIcons = [
 		outline: Hero.ArrowUpOutlineMd,
 		solid: Hero.ArrowUpSolidSm,
 		statusNew: false,
+	},
+	{
+		tags: ["arrows-expand", "arrows", "expand"],
+		name: "arrows-expand",
+		outline: Hero.ArrowsExpandOutlineMd,
+		solid: Hero.ArrowsExpandSolidSm,
+		statusNew: true,
 	},
 	{
 		tags: ["at-symbol", "at", "symbol"],
@@ -548,6 +551,13 @@ const originalIcons = [
 		statusNew: false,
 	},
 	{
+		tags: ["fire"],
+		name: "fire",
+		outline: Hero.FireOutlineMd,
+		solid: Hero.FireSolidSm,
+		statusNew: true,
+	},
+	{
 		tags: ["flag"],
 		name: "flag",
 		outline: Hero.FlagOutlineMd,
@@ -560,6 +570,27 @@ const originalIcons = [
 		outline: Hero.FolderOutlineMd,
 		solid: Hero.FolderSolidSm,
 		statusNew: false,
+	},
+	{
+		tags: ["folder-add", "folder", "add"],
+		name: "folder-add",
+		outline: Hero.FolderAddOutlineMd,
+		solid: Hero.FolderAddSolidSm,
+		statusNew: true,
+	},
+	{
+		tags: ["folder-download", "folder", "download"],
+		name: "folder-download",
+		outline: Hero.FolderDownloadOutlineMd,
+		solid: Hero.FolderDownloadSolidSm,
+		statusNew: true,
+	},
+	{
+		tags: ["folder-remove", "folder", "remove"],
+		name: "folder-remove",
+		outline: Hero.FolderRemoveOutlineMd,
+		solid: Hero.FolderRemoveSolidSm,
+		statusNew: true,
 	},
 	{
 		tags: ["globe-alt", "globe", "alt"],
@@ -938,6 +969,13 @@ const originalIcons = [
 		outline: Hero.ShieldExclamationOutlineMd,
 		solid: Hero.ShieldExclamationSolidSm,
 		statusNew: false,
+	},
+	{
+		tags: ["shopping-bag", "shopping", "bag"],
+		name: "shopping-bag",
+		outline: Hero.ShoppingBagOutlineMd,
+		solid: Hero.ShoppingBagSolidSm,
+		statusNew: true,
 	},
 	{
 		tags: ["shopping-cart", "shopping", "cart"],
