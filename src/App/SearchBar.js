@@ -36,7 +36,7 @@ const SearchBar = props => {
 			if (document.activeElement === ref.current) {
 				// No-op
 				return
-			} else if (e.keyCode !== 191) {
+			} else if (!(e.keyCode === 191 || e.key === "/")) {
 				// No-op
 				return
 			}
