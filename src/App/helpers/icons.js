@@ -117,7 +117,7 @@ const originalIcons = [
 		statusNew: false,
 	},
 	{
-		tags: ["arrows-expand", "arrows", "expand"],
+		tags: ["new", "arrows-expand", "arrows", "expand"],
 		name: "arrows-expand",
 		outline: Hero.ArrowsExpandOutlineMd,
 		solid: Hero.ArrowsExpandSolidSm,
@@ -551,7 +551,7 @@ const originalIcons = [
 		statusNew: false,
 	},
 	{
-		tags: ["fire"],
+		tags: ["new", "fire"],
 		name: "fire",
 		outline: Hero.FireOutlineMd,
 		solid: Hero.FireSolidSm,
@@ -572,21 +572,21 @@ const originalIcons = [
 		statusNew: false,
 	},
 	{
-		tags: ["folder-add", "folder", "add"],
+		tags: ["new", "folder-add", "folder", "add"],
 		name: "folder-add",
 		outline: Hero.FolderAddOutlineMd,
 		solid: Hero.FolderAddSolidSm,
 		statusNew: true,
 	},
 	{
-		tags: ["folder-download", "folder", "download"],
+		tags: ["new", "folder-download", "folder", "download"],
 		name: "folder-download",
 		outline: Hero.FolderDownloadOutlineMd,
 		solid: Hero.FolderDownloadSolidSm,
 		statusNew: true,
 	},
 	{
-		tags: ["folder-remove", "folder", "remove"],
+		tags: ["new", "folder-remove", "folder", "remove"],
 		name: "folder-remove",
 		outline: Hero.FolderRemoveOutlineMd,
 		solid: Hero.FolderRemoveSolidSm,
@@ -971,7 +971,7 @@ const originalIcons = [
 		statusNew: false,
 	},
 	{
-		tags: ["shopping-bag", "shopping", "bag"],
+		tags: ["new", "shopping-bag", "shopping", "bag"],
 		name: "shopping-bag",
 		outline: Hero.ShoppingBagOutlineMd,
 		solid: Hero.ShoppingBagSolidSm,
