@@ -1,7 +1,6 @@
 {
 	"name": "heroicons-viewer",
 	"dependencies": {
-		"firebase": "^7.14.5",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-heroicons": "https://github.com/codex-src/react-heroicons",
@@ -12,8 +11,7 @@
 		"tailwind-start": "tailwind build src/stylesheets/tailwind.css -o src/stylesheets/tailwind.generated.css",
 		"start": "react-scripts start",
 		"tailwind-build": "NODE_ENV=production yarn tailwind-start",
-		"build": "yarn tailwind-build && react-scripts build",
-		"firebase-build-deploy": "yarn tailwind-build && yarn build && yarn firebase deploy && yarn tailwind-start",
+		"build": "yarn tailwind-build && yarn react-scripts build && yarn tailwind-start",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},
@@ -34,7 +32,6 @@
 	},
 	"devDependencies": {
 		"debug.css": "https://github.com/codex-src/debug.css",
-		"firebase-tools": "^8.4.0",
 		"serve": "^11.3.1",
 		"tailwindcss": "^1.4.6"
 	}
