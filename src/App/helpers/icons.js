@@ -894,8 +894,8 @@ const originalIcons = [
 		statusNew: true,
 	},
 	{
-		tags: ["q-r-code", "q", "r", "code"],
-		name: "q-r-code",
+		tags: ["q-r-code", "qrcode", "q", "r", "code"],
+		name: "qrcode",
 		outline: Hero.QRCodeOutlineMd,
 		solid: Hero.QRCodeSolidSm,
 		statusNew: false,
