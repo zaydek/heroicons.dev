@@ -15,57 +15,16 @@ import srcZaydekMG from "images/zaydek-mg.png"
 
 import "debug.css"
 
-// export { ReactComponent as TwitterSVG } from "svg/twitter.svg"
-
-// const initialState = {
-// 	query: "",
-// 	solid: false,
-// }
-//
-// const actions = state => ({
-// 	// Sets the search query.
-// 	setQuery(query) {
-// 		state.query = query
-// 	},
-// 	// Resets the search query.
-// 	resetQuery() {
-// 		state.query = ""
-// 	},
-// 	// Toggles the solid between "solid" and "outline".
-// 	preferSolid() {
-// 		state.solid = state.solid === "solid" && state.solid !== "outline" ? "outline"
-// 			: "solid"
-// 	},
-// })
-//
-// function HeroiconsReducer(state, action) {
-// 	switch (action.type) {
-// 	case "SET_QUERY":
-// 		actions(state).setQuery(action.query)
-// 		return
-// 	case "RESET_QUERY":
-// 		actions(state).resetQuery()
-// 		return
-// 	case "TOGGLE_ICONSET":
-// 		actions(state).preferSolid()
-// 		return
-// 	default:
-// 		throw new Error(`HeroiconsReducer: type mismatch; action.type=${action.type}`)
-// 	}
-// }
-
 // ;(() => {
 // 	document.body.classList.add("debug-css")
 // })()
 
-const App = () => {
-	// const [state, dispatch] = useImmerReducer(HeroiconsReducer, {}, () => initialState)
+// TODO
+document.body.classList.add("bg-gray-900")
 
+const App = () => {
 	const [searchQuery, setSearchQuery] = React.useState("")
 	const [preferSolid, setPreferSolid] = React.useState(true /* TODO */)
-
-	// TODO
-	document.body.classList.add("bg-gray-900")
 
 	return (
 		// <div className="bg-gray-900">
@@ -213,25 +172,29 @@ const MemoSearchInput = React.memo(({
 
 	// NOTE: Must use pt-* not mt-*.
 	return (
-		<div className="-mt-6 pt-6 sticky top-0 z-40">
-
+		<div className="-mt-6 pt-6 sticky top-0 z-40" style={{ boxShadow: "inset 0 2.25rem 0 0 var(--gray-900)" }}>
 			<div className="relative">
 
+				{/* LHS */}
 				<div className="mx-6 absolute inset-y-0 left-0 flex flex-row items-center">
 					<SearchOutlineSVG className="w-6 h-6 text-gray-400" />
 				</div>
 
-				<input
-					className="px-16 w-full max-w-full h-16 text-xl text-gray-100 bg-gray-700 rounded-75 focus:outline-none"
-					type="text"
-					placeholder={"Search 224 icons (Press \"/\" to focus)"}
-					value={searchQuery}
-					onChange={e => {
-						const searchQuery = e.target.value
-						setSearchQuery(searchQuery)
-					}}
-				/>
+				{/* Center */}
+				<div className="shadow-md">
+					<input
+						className="px-16 w-full max-w-full h-16 text-xl text-gray-100 bg-gray-700 rounded-75 focus:outline-none shadow-hero-lg"
+						type="text"
+						placeholder={"Search 224 icons (Press \"/\" to focus)"}
+						value={searchQuery}
+						onChange={e => {
+							const searchQuery = e.target.value
+							setSearchQuery(searchQuery)
+						}}
+					/>
+				</div>
 
+				{/* RHS */}
 				<div className="mx-6 absolute inset-y-0 right-0 flex flex-row items-center">
 					<XCircleSolidSVG className="w-6 h-6 text-gray-400" />
 				</div>
@@ -251,17 +214,23 @@ const MemoIconResults = React.memo(({
 }) => {
 	//...
 
+	// style={{ minHeight: "calc(100vh - 6rem - 5.5rem - 1.5rem)" /* 100vh - py-20 - <Search> - h-6 */ }}
+
 	// NOTE: Must use pt-* not mt-*.
 	return (
-		<div style={{ minHeight: "calc(100vh - 6rem - 5.5rem - 1.5rem)" /* 100vh - py-20 - <Search> - h-6 */ }}>
+		<div>
 			<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
 				{/* {ctx.icons.map(each => ( */}
 				{/* 	<IconCard key={each.name} {...each} /> */}
 				{/* ))} */}
 
 				{iconset.map(each => (
-					<div className="px-3 py-2 bg-gray-600 rounded">
-						<SVG className="text-white w-6 h-6" svg={each.solid} />
+					<div className="relative" style={{ paddingBottom: "100%" }}>
+						<div className="absolute inset-0">
+							<div className="flex flex-row justify-center items-center w-full h-full bg-gray-700 hover:bg-indigo-500 rounded-75 transition duration-200 ease-in-out">
+								<SVG className="text-white w-8 h-8" svg={each.solid} />
+							</div>
+						</div>
 					</div>
 				))}
 
