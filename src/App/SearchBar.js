@@ -1,6 +1,6 @@
 import * as Hero from "react-heroicons"
 import Context from "./Context"
-import HeroiconsTitle from "./HeroiconsTitle"
+import DocumentTitle from "lib/x/DocumentTitle"
 import Icon from "./Icon"
 import originalIcons from "./helpers/icons"
 import React from "react"
@@ -78,7 +78,7 @@ const SearchBar = props => {
 				</div>
 
 				{/* Search bar */}
-				<HeroiconsTitle title={ctx.query && `${ctx.icons.length} results`}>
+				<DocumentTitle title={!ctx.query ? "Heroicons" : `${ctx.icons.length} Results`}>
 					<div className="absolute inset-0">
 						<div className="h-full rounded-lg-xl dark:shadow-md transition duration-150">
 							<input
@@ -92,7 +92,7 @@ const SearchBar = props => {
 							/>
 						</div>
 					</div>
-				</HeroiconsTitle>
+				</DocumentTitle>
 
 				{/* End */}
 				<div ref={rhs} className="-mx-2 px-6 flex flex-row rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10 transition duration-150">
