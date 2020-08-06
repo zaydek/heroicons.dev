@@ -1,4 +1,5 @@
 import CarbonAds from "./CarbonAds"
+import iconset from "./iconset"
 import React from "react"
 
 import FlagOutlineSVG from "heroicons-ecfba30/outline/Flag.jsx"
@@ -188,16 +189,14 @@ const App = () => {
 						preferSolidTuple={[preferSolid, setPreferSolid]}
 					/>
 
-					{/* <div className="h-12" /> */}
-					<div className="h-screen" />
-					<div className="h-screen" />
-					{/* <div className="h-full" /> */}
-					{/* <div className="h-full" /> */}
+					<div className="h-12" />
+					<MemoIconResults
+						searchQueryTuple={[searchQuery, setSearchQuery]}
+						preferSolidTuple={[preferSolid, setPreferSolid]}
+					/>
 
-					{/* <IconResults */}
-					{/* 	searchQueryTuple={[searchQuery, setSearchQuery]} */}
-					{/* 	preferSolidTuple={[preferSolid, setPreferSolid]} */}
-					{/* /> */}
+					<div className="h-screen" />
+					<div className="h-screen" />
 
 				</div>
 			</div>
@@ -217,6 +216,7 @@ const MemoSearchInput = React.memo(({
 		<div className="-mt-6 pt-6 sticky top-0 z-40">
 
 			<div className="relative">
+
 				<div className="mx-6 absolute inset-y-0 left-0 flex flex-row items-center">
 					<SearchOutlineSVG className="w-6 h-6 text-gray-400" />
 				</div>
@@ -239,51 +239,36 @@ const MemoSearchInput = React.memo(({
 			</div>
 		</div>
 	)
+})
 
-	// return (
-	// 	<div className="sticky top-0 z-40">
-	// 		<div className="-mx-2 -mb-8 px-2 bg-gray-100 dark:bg-gray-900 transition duration-150" style={{ height: "calc(14 * 0.25rem)" }} />
-	// 		<div className="relative flex flex-row justify-between h-16 text-xl">
-	//
-	// 			{/* Start */}
-	// 			<div ref={lhs} className="-mx-2 px-6 pr-2 flex flex-row items-center rounded-l-lg-xl focus:outline-none z-10 pointer-events-none">
-	// 				<div className="px-2">
-	// 					<Hero.SearchOutlineMd className="w-6 h-6 text-gray-400 dark:text-gray-600 transition duration-150" />
-	// 				</div>
-	// 			</div>
-	//
-	// 			{/* Search bar */}
-	// 			<DocumentTitle title={!ctx.query ? "Heroicons" : `${ctx.icons.length} Results`}>
-	// 				<div className="absolute inset-0">
-	// 					<div className="h-full rounded-lg-xl dark:shadow-md transition duration-150">
-	// 						<input
-	// 							ref={ref}
-	// 							className="w-full h-full text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 rounded-lg-xl focus:outline-none shadow focus:shadow-outline transition duration-150"
-	// 							type="text"
-	// 							placeholder={placeholder}
-	// 							value={ctx.query}
-	// 							onKeyDown={handleKeyDown}
-	// 							onChange={e => ctx.setQuery(e.target.value)}
-	// 						/>
-	// 					</div>
-	// 				</div>
-	// 			</DocumentTitle>
-	//
-	// 			{/* End */}
-	// 			<div ref={rhs} className="-mx-2 px-6 flex flex-row rounded-r-lg-xl focus:outline-none focus:shadow-outline z-10 transition duration-150">
-	// 				{/* Icon mode */}
-	// 				<button className="px-2" onPointerDown={e => e.preventDefault()} onClick={e => ctx.setSolid(!ctx.solid)}>
-	// 					<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!ctx.solid ? Hero.PlusCircleOutlineMd : Hero.PlusCircleSolidSm} />
-	// 				</button>
-	// 				{/* Dark mode */}
-	// 				<button className="px-2" onPointerDown={e => e.preventDefault()} onClick={e => ctx.setDarkMode(!ctx.darkMode)}>
-	// 					<Icon className="w-6 h-6 text-gray-800 dark:text-gray-200 transition duration-150" svg={!ctx.darkMode ? Hero.SunOutlineMd : Hero.SunSolidSm} />
-	// 				</button>
-	// 			</div>
-	//
-	// 		</div>
-	// 	</div>
-	// )
+const SVG = ({ svg: ShadowSVG, ...props }) => (
+	<ShadowSVG {...props} />
+)
+
+const MemoIconResults = React.memo(({
+	searchQueryTuple: [searchQuery, setSearchQuery],
+	preferSolidTuple: [preferSolid, setPreferSolid],
+}) => {
+	//...
+
+	// NOTE: Must use pt-* not mt-*.
+	return (
+		<div style={{ minHeight: "calc(100vh - 6rem - 5.5rem - 1.5rem)" /* 100vh - py-20 - <Search> - h-6 */ }}>
+			<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
+				{/* {ctx.icons.map(each => ( */}
+				{/* 	<IconCard key={each.name} {...each} /> */}
+				{/* ))} */}
+
+				{iconset.map(each => (
+					<div className="px-3 py-2 bg-gray-600 rounded">
+						<SVG className="text-white w-6 h-6" svg={each.solid} />
+					</div>
+				))}
+
+			</div>
+		</div>
+
+	)
 })
 
 export default App
