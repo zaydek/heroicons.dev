@@ -7,7 +7,7 @@ const initialState = {
 		search: "",
 		family: "solid", // TODO,
 	},
-	results: [],
+	results: iconset,
 }
 
 const actions = state => ({

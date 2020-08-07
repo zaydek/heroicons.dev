@@ -1,12 +1,16 @@
+// import LightningBoltSolidSVG from "heroicons-ecfba30/solid/LightningBolt"
 import CarbonAds from "./CarbonAds"
 import disableAutoCorrect from "./disableAutoCorrect"
 import DocumentTitle from "lib/x/DocumentTitle"
-import FlagSolidSVG from "heroicons-ecfba30/solid/Flag.jsx"
+import ExternalLinkSVG from "heroicons-ecfba30/solid/ExternalLink"
+import FlagOutlineSVG from "heroicons-ecfba30/outline/Flag"
+import FlagSolidSVG from "heroicons-ecfba30/solid/Flag"
 import iconset from "./iconset"
 import React from "react"
-import SearchOutlineSVG from "heroicons-ecfba30/outline/Search.jsx"
+import SearchOutlineSVG from "heroicons-ecfba30/outline/Search"
+import SVG from "./SVG"
 import useHeroiconsReducer from "./useHeroiconsReducer"
-import XCircleSolidSVG from "heroicons-ecfba30/solid/XCircle.jsx"
+import XCircleSolidSVG from "heroicons-ecfba30/solid/XCircle"
 import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubSVG } from "svg/github.svg"
 
@@ -20,19 +24,57 @@ document.body.classList.add("bg-black")
 const App = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 
-	// const [searchQuery, setSearchQuery] = React.useState("")
-	// const [preferSolid, setPreferSolid] = React.useState(true /* TODO */)
-
 	return (
 		<div className="py-24 flex flex-row justify-center">
 			<div className="px-6 w-full max-w-screen-lg">
 
-				{/* <div className="px-4 py-3 absolute top-0 left-0"> */}
-				{/* 	<div className="px-2 py-1 bg-gray-600 rounded"> */}
-				{/* 		<p className="font-medium text-sm text-gray-100"> */}
-				{/* 			Star the Viewer on GitHub! */}
+				<div className="space-y-2 px-4 py-3 absolute top-0 left-0">
+					<a className="px-3 py-1.5 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
+						<GitHubSVG className="mr-2 w-4 h-4 text-white" />
+						<p className="font-semibold text-sm text-blue-50">
+							Open Web App on GitHub
+						</p>
+						<ExternalLinkSVG className="ml-1 w-4 h-4 text-blue-50" />
+					</a>
+					<br />
+					<a className="px-3 py-1.5 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://github.com/tailwindlabs/heroicons" target="_blank" rel="noopener noreferrer">
+						<GitHubSVG className="mr-2 w-4 h-4 text-white" />
+						<p className="font-semibold text-sm text-blue-50">
+							Open Icons on GitHub
+						</p>
+						<ExternalLinkSVG className="ml-1 w-4 h-4 text-blue-50" />
+					</a>
+					<br />
+					<a className="px-3 py-1.5 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" target="_blank" rel="noopener noreferrer">
+						<FigmaSVG className="mr-2 w-4 h-4" />
+						<p className="font-semibold text-sm text-blue-50">
+							Open Icons in Figma
+						</p>
+						<ExternalLinkSVG className="ml-1 w-4 h-4 text-blue-50" />
+					</a>
+				</div>
+
+				{/* <div className="space-y-2 px-4 py-3 absolute top-0 left-0"> */}
+				{/* 	<a className="px-3 py-1 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer"> */}
+				{/* 		<p className="font-semibold text-xs text-blue-50"> */}
+				{/* 			Open Web App on GitHub */}
 				{/* 		</p> */}
-				{/* 	</div> */}
+				{/* 		<ExternalLinkSVG className="ml-1 w-4 h-4 text-blue-50" /> */}
+				{/* 	</a> */}
+				{/* 	<br /> */}
+				{/* 	<a className="px-3 py-1 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://github.com/tailwindlabs/heroicons" target="_blank" rel="noopener noreferrer"> */}
+				{/* 		<p className="font-semibold text-xs text-blue-50"> */}
+				{/* 			Open Icons on GitHub */}
+				{/* 		</p> */}
+				{/* 		<ExternalLinkSVG className="ml-1 w-4 h-4 text-blue-50" /> */}
+				{/* 	</a> */}
+				{/* 	<br /> */}
+				{/* 	<a className="px-3 py-1 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" target="_blank" rel="noopener noreferrer"> */}
+				{/* 		<p className="font-semibold text-xs text-blue-50"> */}
+				{/* 			Open Icons in Figma */}
+				{/* 		</p> */}
+				{/* 		<ExternalLinkSVG className="ml-1 w-4 h-4 text-blue-50" /> */}
+				{/* 	</a> */}
 				{/* </div> */}
 
 				{/* Carbon Ads */}
@@ -53,7 +95,11 @@ const App = () => {
 							Heroicons
 						</h1>
 						<div className="-mt-1 pl-1 absolute" style={{ left: "100%" }}>
-							<FlagSolidSVG className="w-12 h-8 h-12 text-indigo-500" />
+							<SVG
+								className="w-12 h-8 h-12 text-indigo-500"
+								// svg={state.form.family === "solid" ? FlagSolidSVG : FlagOutlineSVG}
+								svg={FlagSolidSVG}
+							/>
 						</div>
 					</div>
 
@@ -62,13 +108,13 @@ const App = () => {
 						<div>
 							<h2 className="font-medium text-lg sm:text-xl text-center text-gray-100">
 								<a href="https://github.com/tailwindlabs/heroicons/blob/master/LICENSE" target="_blank" rel="noopener noreferrer">
-									<u style={{ textDecoration: "none", boxShadow: "inset 0 -1px var(--indigo-500), 0 1px var(--indigo-500)" }}>
+									<u style={{ textDecorationColor: "var(--indigo-500)" }}>
 										MIT Licensed
 									</u>
 								</a>{" "}
 								and{" "}
 								<a href="https://github.com/tailwindlabs/heroicons" target="_blank" rel="noopener noreferrer">
-									<u style={{ textDecoration: "none", boxShadow: "inset 0 -1px var(--indigo-500), 0 1px var(--indigo-500)" }}>
+									<u style={{ textDecorationColor: "var(--indigo-500)" }}>
 										Open Source
 									</u>
 								</a>{" "}
@@ -80,14 +126,14 @@ const App = () => {
 								By
 								<a href="https://twitter.com/steveschoger" target="_blank" rel="noopener noreferrer">
 									<img className="mx-2 inline-block w-8 h-8 rounded-full" src={srcSteveS} alt="Steve Schoger" />
-									<u style={{ textDecoration: "none", boxShadow: "inset 0 -1px var(--indigo-500), 0 1px var(--indigo-500)" }}>
+									<u style={{ textDecorationColor: "var(--indigo-500)" }}>
 										Steve
 									</u>
 								</a>{" "}
 								and
 								<a href="https://twitter.com/adamwathan" target="_blank" rel="noopener noreferrer">
 									<img className="mx-2 inline-block w-8 h-8 rounded-full" src={srcAdamW} alt="Adam Wathan" />
-									<u style={{ textDecoration: "none", boxShadow: "inset 0 -1px var(--indigo-500), 0 1px var(--indigo-500)" }}>
+									<u style={{ textDecorationColor: "var(--indigo-500)" }}>
 										Adam
 									</u>
 								</a>
@@ -96,7 +142,7 @@ const App = () => {
 								<a href="https://twitter.com/username_ZAYDEK" target="_blank" rel="noopener noreferrer">
 									web app by
 									<img className="mx-2 inline-block w-8 h-8 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />
-									<u style={{ textDecoration: "none", boxShadow: "inset 0 -1px var(--indigo-500), 0 1px var(--indigo-500)" }}>
+									<u style={{ textDecorationColor: "var(--indigo-500)" }}>
 										Zaydek
 									</u>
 								</a>
@@ -194,15 +240,11 @@ const SearchForm = ({ state, dispatch }) => {
 						ref={inputRef}
 						className="px-16 w-full max-w-full h-16 text-lg sm:text-xl text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-hero-lg transition duration-200 ease-in-out"
 						type="text"
-						placeholder={"Search Heroicons (Press \"/\" to focus)"}
+						placeholder={`Search ${iconset.length} Icons (Press \"/\" to focus)`}
 						value={text}
 						onKeyDown={e => {
 							if (e.keyCode === 27 || e.key === "Escape") {
-								// if (!text) {
-								// 	inputRef.current.blur()
-								// } else {
 								setText("")
-								// }
 							}
 						}}
 						onChange={e => setText(e.target.value)}
@@ -228,19 +270,15 @@ const SearchForm = ({ state, dispatch }) => {
 	)
 }
 
-const SVG = ({ svg: ShadowSVG, ...props }) => (
-	<ShadowSVG {...props} />
-)
-
-// NOTE: tabIndex={0} is preferred to <button>.
+// NOTE: <div tabIndex={0}> is preferred to <button>.
 const MemoIcon = React.memo(({ icon }) => (
 	<div className="flex flex-row justify-center items-center h-full bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none cursor-pointer transition duration-200 ease-in-out" tabIndex={0}>
 
 		{/* NEW */}
 		{icon.statusNew && (
 			<div className="p-2 absolute top-0 right-0">
-				<div className="px-2 bg-indigo-500 rounded-full shadow-xs">
-					<p className="font-bold text-xs tracking-widest font-mono text-white">
+				<div className="px-2 flex flex-row justify-center items-center bg-indigo-500 rounded-full">
+					<p className="font-bold text-xxs tracking-widest font-mono text-white">
 						NEW
 					</p>
 				</div>
@@ -249,8 +287,8 @@ const MemoIcon = React.memo(({ icon }) => (
 
 		{/* Icon */}
 		<SVG
-			id={icon.name}
 			className="text-white w-8 h-8"
+			data-heroicons-name={icon.name}
 			svg={icon.solid}
 		/>
 

@@ -17,9 +17,6 @@ module.exports = {
 		extend: {
 			borderRadius: {
 				"75": "0.75rem",
-
-				// "1": "1rem",
-				// "2": "2rem",
 			},
 			boxShadow: {
 				"hero-sm": trimWhitespace(`
@@ -59,6 +56,9 @@ module.exports = {
 				// eslint-disable-next-line quotes
 				mono: ['"IBM Plex Mono"', ...mono],
 				sans: ["Inter", ...sans],
+			},
+			fontSize: {
+				xxs: "0.6875rem",
 			},
 		},
 		screens: {
