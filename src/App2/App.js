@@ -13,10 +13,10 @@ import CodeSolidSVG from "heroicons-ecfba30/solid/Code"
 import ExternalLinkSolidSVG from "heroicons-ecfba30/solid/ExternalLink"
 import FlagSolidSVG from "heroicons-ecfba30/solid/Flag"
 import PlusCircleOutlineSVG from "heroicons-ecfba30/outline/PlusCircle"
-import PlusCircleSolidSVG from "heroicons-ecfba30/solid/PlusCircle"
 import SearchOutlineSVG from "heroicons-ecfba30/outline/Search"
 import SunOutlineSVG from "heroicons-ecfba30/outline/Sun"
 import SunSolidSVG from "heroicons-ecfba30/solid/Sun"
+import SwitchHorizontalSolidSVG from "heroicons-ecfba30/solid/SwitchHorizontal"
 import XCircleSolidSVG from "heroicons-ecfba30/solid/XCircle"
 
 import { ReactComponent as FigmaLogoSVG } from "svg/figma.svg"
@@ -197,10 +197,10 @@ const SearchForm = ({ state, dispatch }) => {
 				</div>
 
 				{/* <input> */}
-				<div className="shadow-md rounded-75">
+				<div className="rounded-75 shadow-lg">
 					<input
 						ref={inputRef}
-						className="px-16 w-full max-w-full h-16 text-lg sm:text-xl text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-hero-lg transition duration-200 ease-in-out"
+						className="px-16 w-full max-w-full h-16 text-lg sm:text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
 						type="text"
 						placeholder={`Search ${iconset.length} Icons (Press "/" to focus)`}
 						value={text}
@@ -217,7 +217,7 @@ const SearchForm = ({ state, dispatch }) => {
 				{/* RHS */}
 				<div className="px-6 absolute inset-y-0 right-0 flex flex-row">
 					<button
-						className="px-2 relative text-gray-400 hover:text-gray-300 focus:outline-none transition duration-200 ease-in-out"
+						className="px-2 relative text-gray-400 hover:text-gray-100 focus:text-gray-100 focus:outline-none transition duration-200 ease-in-out"
 						onFocus={e => setTooltip("jsx")}
 						onBlur={e => setTooltip("")}
 						onMouseEnter={e => setTooltip("jsx")}
@@ -227,7 +227,7 @@ const SearchForm = ({ state, dispatch }) => {
 						{tooltip === "jsx" && (
 							<div className="-mt-2 absolute top-full right-0">
 								<div className="rounded-md shadow-lg">
-									<div className="px-3 py-2 bg-gray-800 border border-gray-600 rounded-md shadow-lg">
+									<div className="px-3 py-2 bg-black border border-gray-700 rounded-md shadow-lg">
 										<p className="font-medium text-sm whitespace-pre text-gray-100">
 											Copy as React JSX
 											<span
@@ -246,7 +246,7 @@ const SearchForm = ({ state, dispatch }) => {
 						<CodeSolidSVG className="w-6 h-6" />
 					</button>
 					<button
-						className="px-2 relative text-gray-400 hover:text-gray-300 focus:outline-none transition duration-200 ease-in-out"
+						className="px-2 relative text-gray-400 hover:text-gray-100 focus:text-gray-100 focus:outline-none transition duration-200 ease-in-out"
 						onFocus={e => setTooltip("alt")}
 						onBlur={e => setTooltip("")}
 						onMouseEnter={e => setTooltip("alt")}
@@ -256,7 +256,7 @@ const SearchForm = ({ state, dispatch }) => {
 						{tooltip === "alt" && (
 							<div className="-mt-2 absolute top-full right-0">
 								<div className="rounded-md shadow-lg">
-									<div className="px-3 py-2 bg-gray-800 border border-gray-600 rounded-md shadow-lg">
+									<div className="px-3 py-2 bg-black border border-gray-700 rounded-md shadow-lg">
 										<p className="font-medium text-sm whitespace-pre text-gray-100">
 											Show alternate icons
 											<span
@@ -272,10 +272,10 @@ const SearchForm = ({ state, dispatch }) => {
 								</div>
 							</div>
 						)}
-						<PlusCircleSolidSVG className="w-6 h-6" />
+						<SwitchHorizontalSolidSVG className="w-6 h-6" />
 					</button>
 					<button
-						className="px-2 relative text-gray-400 hover:text-gray-300 focus:outline-none transition duration-200 ease-in-out"
+						className="px-2 relative text-gray-400 hover:text-gray-100 focus:text-gray-100 focus:outline-none transition duration-200 ease-in-out"
 						onFocus={e => setTooltip("dark-mode")}
 						onBlur={e => setTooltip("")}
 						onMouseEnter={e => setTooltip("dark-mode")}
@@ -285,7 +285,7 @@ const SearchForm = ({ state, dispatch }) => {
 						{tooltip === "dark-mode" && (
 							<div className="-mt-2 absolute top-full right-0">
 								<div className="rounded-md shadow-lg">
-									<div className="px-3 py-2 bg-gray-800 border border-gray-600 rounded-md shadow-lg">
+									<div className="px-3 py-2 bg-black border border-gray-700 rounded-md shadow-lg">
 										<p className="font-medium text-sm whitespace-pre text-gray-100">
 											Toggle dark mode
 											<span
@@ -319,7 +319,7 @@ const MemoIcon = React.memo(({ icon }) => (
 		{icon.statusNew && (
 			<div className="px-3 py-2 absolute top-0 right-0">
 				<div className="px-1.5 flex flex-row justify-center items-center bg-indigo-500 rounded-full">
-					<p className="font-bold text-xxs text-white">
+					<p className="font-bold text-xxs text-gray-100">
 						NEW
 					</p>
 				</div>
@@ -328,7 +328,7 @@ const MemoIcon = React.memo(({ icon }) => (
 
 		{/* Icon */}
 		<SVG
-			className="text-white w-8 h-8"
+			className="w-8 h-8 text-gray-100"
 			data-heroicons-name={icon.name}
 			svg={icon.solid}
 		/>
@@ -344,9 +344,8 @@ const MemoIcon = React.memo(({ icon }) => (
 ))
 
 const Icons = ({ icons }) => (
-	<div style={{ minHeight: "calc(100vh - 13.5rem)" }}>
+	<main style={{ minHeight: "calc(100vh - 13.5rem)" }}>
 		<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
-
 			{icons.map(each => (
 				<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
 					<div className="absolute inset-0">
@@ -354,9 +353,8 @@ const Icons = ({ icons }) => (
 					</div>
 				</div>
 			))}
-
 		</div>
-	</div>
+	</main>
 )
 
 export default App
