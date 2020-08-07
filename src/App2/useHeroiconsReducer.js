@@ -23,10 +23,13 @@ const actions = state => ({
 			return
 		}
 		state.form.search = text
+		// state.results = iconset.filter(each => {
+		// 	return each.tags.some(each => {
+		// 		return each.startsWith(text)
+		// 	})
+		// })
 		state.results = iconset.filter(each => {
-			return each.tags.some(each => {
-				return each.startsWith(text)
-			})
+			return each.name.indexOf(text) >= 0
 		})
 	},
 	// Toggles form.family.

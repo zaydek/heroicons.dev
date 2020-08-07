@@ -3,7 +3,6 @@ import CarbonAds from "./CarbonAds"
 import disableAutoCorrect from "./disableAutoCorrect"
 import DocumentTitle from "lib/x/DocumentTitle"
 import ExternalLinkSVG from "heroicons-ecfba30/solid/ExternalLink"
-import FlagOutlineSVG from "heroicons-ecfba30/outline/Flag"
 import FlagSolidSVG from "heroicons-ecfba30/solid/Flag"
 import iconset from "./iconset"
 import React from "react"
@@ -28,7 +27,7 @@ const App = () => {
 		<div className="py-24 flex flex-row justify-center">
 			<div className="px-6 w-full max-w-screen-lg">
 
-				<div className="space-y-2 px-4 py-3 absolute top-0 left-0">
+				<div className="space-y-2 px-4 py-3 absolute top-0 left-0 hidden lg:block">
 					<a className="px-3 py-1.5 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
 						<GitHubSVG className="mr-2 w-4 h-4 text-white" />
 						<p className="font-semibold text-sm text-blue-50">
@@ -54,29 +53,6 @@ const App = () => {
 					</a>
 				</div>
 
-				{/* <div className="space-y-2 px-4 py-3 absolute top-0 left-0"> */}
-				{/* 	<a className="px-3 py-1 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer"> */}
-				{/* 		<p className="font-semibold text-xs text-blue-50"> */}
-				{/* 			Open Web App on GitHub */}
-				{/* 		</p> */}
-				{/* 		<ExternalLinkSVG className="ml-1 w-4 h-4 text-blue-50" /> */}
-				{/* 	</a> */}
-				{/* 	<br /> */}
-				{/* 	<a className="px-3 py-1 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://github.com/tailwindlabs/heroicons" target="_blank" rel="noopener noreferrer"> */}
-				{/* 		<p className="font-semibold text-xs text-blue-50"> */}
-				{/* 			Open Icons on GitHub */}
-				{/* 		</p> */}
-				{/* 		<ExternalLinkSVG className="ml-1 w-4 h-4 text-blue-50" /> */}
-				{/* 	</a> */}
-				{/* 	<br /> */}
-				{/* 	<a className="px-3 py-1 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" target="_blank" rel="noopener noreferrer"> */}
-				{/* 		<p className="font-semibold text-xs text-blue-50"> */}
-				{/* 			Open Icons in Figma */}
-				{/* 		</p> */}
-				{/* 		<ExternalLinkSVG className="ml-1 w-4 h-4 text-blue-50" /> */}
-				{/* 	</a> */}
-				{/* </div> */}
-
 				{/* Carbon Ads */}
 				{/* <div className="px-4 py-3 absolute top-0 right-0 z-30 pointer-events-none"> */}
 				{/* 	<div className="flex flex-row justify-center lg:justify-end items-start"> */}
@@ -95,11 +71,7 @@ const App = () => {
 							Heroicons
 						</h1>
 						<div className="-mt-1 pl-1 absolute" style={{ left: "100%" }}>
-							<SVG
-								className="w-12 h-8 h-12 text-indigo-500"
-								// svg={state.form.family === "solid" ? FlagSolidSVG : FlagOutlineSVG}
-								svg={FlagSolidSVG}
-							/>
+							<FlagSolidSVG className="w-12 h-8 h-12 text-indigo-500" />
 						</div>
 					</div>
 
@@ -109,16 +81,10 @@ const App = () => {
 							<h2 className="font-medium text-lg sm:text-xl text-center text-gray-100">
 								<a href="https://github.com/tailwindlabs/heroicons/blob/master/LICENSE" target="_blank" rel="noopener noreferrer">
 									<u style={{ textDecorationColor: "var(--indigo-500)" }}>
-										MIT Licensed
+										MIT-Licensed
 									</u>
 								</a>{" "}
-								and{" "}
-								<a href="https://github.com/tailwindlabs/heroicons" target="_blank" rel="noopener noreferrer">
-									<u style={{ textDecorationColor: "var(--indigo-500)" }}>
-										Open Source
-									</u>
-								</a>{" "}
-								UI Icons
+								Open Source Icons
 							</h2>
 						</div>
 						<div className="mt-2">
@@ -150,25 +116,6 @@ const App = () => {
 						</div>
 					</div>
 
-					{/* <div className="mt-12 space-y-3 sm:space-y-0 sm:space-x-3 flex flex-col sm:flex-row w-full sm:w-auto"> */}
-					{/* 	<a href="https://github.com/refactoringui/heroicons" target="_blank" rel="noopener noreferrer"> */}
-					{/* 		<button className="px-6 !py-4 flex flex-row justify-center items-center w-full sm:w-auto h-16 bg-gray-800 rounded-75 transition duration-200 ease-in-out"> */}
-					{/* 			<GitHubSVG className="mr-3 w-6 h-6 text-white" /> */}
-					{/* 			<p className="font-medium text-lg text-gray-100"> */}
-					{/* 				Open in GitHub */}
-					{/* 			</p> */}
-					{/* 		</button> */}
-					{/* 	</a> */}
-					{/* 	<a href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-2abb814" target="_blank" rel="noopener noreferrer"> */}
-					{/* 		<button className="px-6 !py-4 flex flex-row justify-center items-center w-full sm:w-auto h-16 bg-gray-800 rounded-75 transition duration-200 ease-in-out"> */}
-					{/* 			<FigmaSVG className="mr-3 w-6 h-6" /> */}
-					{/* 			<p className="font-medium text-lg text-gray-100"> */}
-					{/* 				Open in Figma */}
-					{/* 			</p> */}
-					{/* 		</button> */}
-					{/* 	</a> */}
-					{/* </div> */}
-
 				</div>
 
 				<div className="h-16" />
@@ -187,7 +134,6 @@ const App = () => {
 	)
 }
 
-// TODO
 const SearchForm = ({ state, dispatch }) => {
 	const inputRef = React.useRef()
 
@@ -240,7 +186,7 @@ const SearchForm = ({ state, dispatch }) => {
 						ref={inputRef}
 						className="px-16 w-full max-w-full h-16 text-lg sm:text-xl text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-hero-lg transition duration-200 ease-in-out"
 						type="text"
-						placeholder={`Search ${iconset.length} Icons (Press \"/\" to focus)`}
+						placeholder={`Search ${iconset.length} Icons (Press "/" to focus)`}
 						value={text}
 						onKeyDown={e => {
 							if (e.keyCode === 27 || e.key === "Escape") {
@@ -276,7 +222,7 @@ const MemoIcon = React.memo(({ icon }) => (
 
 		{/* NEW */}
 		{icon.statusNew && (
-			<div className="p-2 absolute top-0 right-0">
+			<div className="px-3 py-2 absolute top-0 right-0">
 				<div className="px-2 flex flex-row justify-center items-center bg-indigo-500 rounded-full">
 					<p className="font-bold text-xxs tracking-widest font-mono text-white">
 						NEW
@@ -293,6 +239,8 @@ const MemoIcon = React.memo(({ icon }) => (
 		/>
 
 		{/* Name */}
+		{/* */}
+		{/* NOTE: Uses p-3 not px-3 py-2. */}
 		<div className="p-3 absolute bottom-0">
 			<p className="font-semibold text-sm leading-tight font-mono text-center text-gray-100">
 				{icon.name}
@@ -302,7 +250,6 @@ const MemoIcon = React.memo(({ icon }) => (
 	</div>
 ))
 
-// TODO
 const Icons = ({ icons }) => (
 	<div style={{ minHeight: "calc(100vh - 13.5rem)" }}>
 		<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">

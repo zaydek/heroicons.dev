@@ -1362,23 +1362,23 @@ const iconset = [
 	},
 ]
 
-;(() => {
-	// Generates tags based on a name. Tags are made up of the
-	// unbroken name and hyphen-separated components.
-	//
-	// E.g. ["zoom-out", "zoom", "out"].
-	//
-	function generateTags(name) {
-		const arr = name.split("-")
-		if (arr.length === 1) {
-			return arr
-		}
-		return [name, ...arr]
-	}
-	/* eslint-disable-next-line array-callback-return */
-	iconset.map(each => {
-		each.tags = generateTags(each.name)
-	})
-})()
+// ;(() => {
+// 	// Generates tags based on a name. Tags are made up of the
+// 	// unbroken name and hyphen-separated components.
+// 	//
+// 	// E.g. ["zoom-out", "zoom", "out"].
+// 	//
+// 	function generateTags(name) {
+// 		const arr = name.split("-")
+// 		if (arr.length === 1) {
+// 			return arr
+// 		}
+// 		return [name, ...arr]
+// 	}
+// 	/* eslint-disable-next-line array-callback-return */
+// 	iconset.map(each => {
+// 		each.tags = generateTags(each.name)
+// 	})
+// })()
 
 export default iconset
