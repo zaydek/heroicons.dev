@@ -46,78 +46,55 @@ const App = () => {
 		<div className="py-32 flex flex-row justify-center">
 			<div className="px-6 w-full max-w-screen-lg">
 
-				<aside className="space-y-2 px-4 py-3 absolute top-0 inset-x-0 hidden lg:flex lg:flex-row lg:justify-center">
-					<h2 className="font-medium text-gray-100">
-						By
-						<a href="https://twitter.com/steveschoger" target="_blank" rel="noopener noreferrer">
-							<img className="mx-2 inline-block w-6 h-6 rounded-full" src={srcSteveS} alt="Steve Schoger" />
-							<span style={{ boxShadow: "inset 0 -1px var(--indigo-500), 0 1px var(--indigo-500)" }}>
-								@steveschoger
-							</span>
-						</a>
-						and
-						<a href="https://twitter.com/adamwathan" target="_blank" rel="noopener noreferrer">
-							<img className="mx-2 inline-block w-6 h-6 rounded-full" src={srcAdamW} alt="Adam Wathan" />
-							<span style={{ boxShadow: "inset 0 -1px var(--indigo-500), 0 1px var(--indigo-500)" }}>
-								@adamwathan
-							</span>
-						</a>
-						, web app by
-						<a href="https://twitter.com/username_ZAYDEK" target="_blank" rel="noopener noreferrer">
-							<img className="mx-2 inline-block w-6 h-6 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />
-							<span style={{ boxShadow: "inset 0 -1px var(--indigo-500), 0 1px var(--indigo-500)" }}>
-								@username_ZAYDEK
-							</span>
-						</a>
-					</h2>
-				</aside>
-
-				{/* <aside className="space-y-2 px-4 py-3 absolute top-0 left-0 hidden lg:block"> */}
-				{/* 	<h2 className="flex flex-row items-center font-medium text-gray-100"> */}
-				{/* 		By{" "} */}
-				{/* 		<a className="px-2 py-0.5 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://twitter.com/steveschoger" target="_blank" rel="noopener noreferrer"> */}
-				{/* 			<img className="mr-2 inline-block w-6 h-6 rounded-full" src={srcSteveS} alt="Steve Schoger" /> */}
-				{/* 			@steveschoger */}
-				{/* 		</a> */}
-				{/* 		,{" "} */}
-				{/* 		<a className="px-2 py-0.5 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://twitter.com/adamwathan" target="_blank" rel="noopener noreferrer"> */}
-				{/* 			<img className="mr-2 inline-block w-6 h-6 rounded-full" src={srcAdamW} alt="Adam Wathan" /> */}
-				{/* 			@adamwathan */}
-				{/* 		</a> */}
-				{/* 		, and{" "} */}
-				{/* 		<a className="px-2 py-0.5 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://twitter.com/username_ZAYDEK" target="_blank" rel="noopener noreferrer"> */}
-				{/* 			<img className="mr-2 inline-block w-6 h-6 rounded-full" src={srcZaydekMG} alt="Zaydek MG" /> */}
-				{/* 			@username_ZAYDEK */}
-				{/* 		</a> */}
-				{/* 	</h2> */}
-				{/* </aside> */}
-
 				{/* <aside> */}
-				{/* <aside className="space-y-2 px-4 py-3 absolute top-0 left-0 hidden lg:block"> */}
-				{/* 	<a className="px-3 py-1 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer"> */}
-				{/* 		<GitHubLogoSVG className="mr-2 w-4 h-4 text-blue-50" /> */}
-				{/* 		<p className="font-medium text-sm !leading-7 text-blue-50"> */}
-				{/* 			Open Web App on GitHub */}
-				{/* 		</p> */}
-				{/* 		<ExternalLinkSolidSVG className="ml-1 w-4 h-4 text-blue-50" /> */}
-				{/* 	</a> */}
-				{/* 	<br /> */}
-				{/* 	<a className="px-3 py-1 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://github.com/tailwindlabs/heroicons" target="_blank" rel="noopener noreferrer"> */}
-				{/* 		<GitHubLogoSVG className="mr-2 w-4 h-4 text-blue-50" /> */}
-				{/* 		<p className="font-medium text-sm !leading-7 text-blue-50"> */}
-				{/* 			Open Icons on GitHub */}
-				{/* 		</p> */}
-				{/* 		<ExternalLinkSolidSVG className="ml-1 w-4 h-4 text-blue-50" /> */}
-				{/* 	</a> */}
-				{/* 	<br /> */}
-				{/* 	<a className="px-3 py-1 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" target="_blank" rel="noopener noreferrer"> */}
-				{/* 		<FigmaLogoSVG className="mr-2 w-4 h-4" /> */}
-				{/* 		<p className="font-medium text-sm !leading-7 text-blue-50"> */}
-				{/* 			Open Icons in Figma */}
-				{/* 		</p> */}
-				{/* 		<ExternalLinkSolidSVG className="ml-1 w-4 h-4 text-blue-50" /> */}
-				{/* 	</a> */}
-				{/* </aside> */}
+				<aside className="space-y-1 px-3 py-2 absolute top-0 left-0 hidden lg:block">
+					{/* NOTE: block is needed for space-y-* */}
+					<a className="block" href="https://github.com/refactoringui/heroicons" target="_blank" rel="noopener noreferrer">
+						<p className="flex flex-row items-center font-medium text-gray-100">
+							<GitHubLogoSVG className="mr-2 w-6 h-6 rounded-full transform scale-90" />
+							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
+								Open the GitHub repo
+							</span>
+						</p>
+					</a>
+					<a className="block" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
+						<p className="flex flex-row items-center font-medium text-gray-100">
+							<GitHubLogoSVG className="mr-2 w-6 h-6 rounded-full transform scale-90" />
+							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
+								Open the GitHub heroicons.dev repo
+							</span>
+						</p>
+					</a>
+					<a className="block" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
+						<p className="flex flex-row items-center font-medium text-gray-100">
+							<FigmaLogoSVG className="mr-2 w-6 h-6 rounded-full transform scale-90" />
+							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
+								Open the Figma file
+							</span>
+						</p>
+					</a>
+
+					{/* <h2 className="space-y-4 font-medium text-gray-100"> */}
+					{/* 	<a href="https://github.com/refactoringui/heroicons" target="_blank" rel="noopener noreferrer"> */}
+					{/* 		<GitHubLogoSVG className="mr-2 inline-block w-6 h-6 rounded-full transform scale-90" /> */}
+					{/* 		<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}> */}
+					{/* 			Open the GitHub repo */}
+					{/* 		</span> */}
+					{/* 	</a><br /> */}
+					{/* 	<a href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer"> */}
+					{/* 		<GitHubLogoSVG className="mr-2 inline-block w-6 h-6 rounded-full transform scale-90" /> */}
+					{/* 		<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}> */}
+					{/* 			Open the GitHub heroicons.dev repo */}
+					{/* 		</span> */}
+					{/* 	</a><br /> */}
+					{/* 	<a href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer"> */}
+					{/* 		<FigmaLogoSVG className="mr-2 inline-block w-6 h-6 rounded-full transform scale-90" /> */}
+					{/* 		<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}> */}
+					{/* 			Open the Figma file */}
+					{/* 		</span> */}
+					{/* 	</a> */}
+					{/* </h2> */}
+				</aside>
 
 				{/* <header> */}
 				<header className="flex flex-col items-center">
@@ -127,65 +104,59 @@ const App = () => {
 						<h1 className="font-bold text-5xl text-white" style={{ fontFamily: "DM Sans", letterSpacing: "-0.0375em" }}>
 							Heroicons
 						</h1>
-						<div className="-mt-1 pl-1 absolute" style={{ left: "100%" }}>
-							<FlagSolidSVG className="w-12 h-8 h-12 text-indigo-500" />
+						<div className="-mt-1  ml-2 absolute" style={{ left: "100%" }}>
+							<FlagSolidSVG className="w-12 h-12 text-indigo-500" />
 						</div>
 					</div>
 
-					{/* <div className="h-4" /> */}
-
 					{/* <h2> */}
-					<h2 className="font-medium text-lg sm:text-xl leading-9 text-center text-gray-100">
+					<h2 className="font-medium text-xl sm:text-2xl leading-9 text-center text-gray-100">
 						Free, MIT Open Source UI Icons
 					</h2>
 
 					{/* <h2> */}
-					{/* <h2 className="font-medium text-lg sm:text-xl leading-9 text-center text-gray-100"> */}
-					{/* 	<span className="hidden md:inline"> */}
-					{/* 		Created by{" "} */}
-					{/* 	</span> */}
-					{/* 	<a href="https://twitter.com/steveschoger" target="_blank" rel="noopener noreferrer"> */}
-					{/* 		<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveS} alt="Steve Schoger" /> */}
-					{/* 		{" "} */}
-					{/* 		<u style={{ textDecorationColor: "var(--indigo-500)" }}> */}
-					{/* 			@steveschoger */}
-					{/* 		</u> */}
-					{/* 	</a>{" "} */}
-					{/* 	<span className="hidden md:inline"> */}
-					{/* 		and{" "} */}
-					{/* 	</span> */}
-					{/* 	<a href="https://twitter.com/adamwathan" target="_blank" rel="noopener noreferrer"> */}
-					{/* 		<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamW} alt="Adam Wathan" />{" "} */}
-					{/* 		<u style={{ textDecorationColor: "var(--indigo-500)" }}> */}
-					{/* 			@adamwathan */}
-					{/* 		</u> */}
-					{/* 	</a> */}
-					{/* 	<br /> */}
-					{/* 	<span className="hidden md:inline"> */}
-					{/* 		Web app by{" "} */}
-					{/* 	</span> */}
-					{/* 	<a href="https://twitter.com/username_ZAYDEK" target="_blank" rel="noopener noreferrer"> */}
-					{/* 		<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />{" "} */}
-					{/* 		<u style={{ textDecorationColor: "var(--indigo-500)" }}> */}
-					{/* 			@username_ZAYDEK */}
-					{/* 		</u> */}
-					{/* 	</a> */}
-					{/* </h2> */}
+					<div className="h-4" />
+					<h2 className="font-medium text-lg sm:text-xl leading-9 text-center text-gray-100">
+						<span className="hidden md:inline">
+							Created by{" "}
+						</span>
+						<a href="https://twitter.com/steveschoger" target="_blank" rel="noopener noreferrer">
+							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveS} alt="Steve Schoger" />
+							{" "}
+							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
+								@steveschoger
+							</span>
+						</a>{" "}
+						<span className="hidden md:inline">
+							and{" "}
+						</span>
+						<a href="https://twitter.com/adamwathan" target="_blank" rel="noopener noreferrer">
+							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamW} alt="Adam Wathan" />{" "}
+							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
+								@adamwathan
+							</span>
+						</a>
+						<br />
+						<span className="hidden md:inline">
+							Website by{" "}
+						</span>
+						<a href="https://twitter.com/username_ZAYDEK" target="_blank" rel="noopener noreferrer">
+							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />{" "}
+							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
+								@username_ZAYDEK
+							</span>
+						</a>
+					</h2>
 
 				</header>
 
-				<div className="h-4" />
-				<div className="h-4" />
-				<div className="h-4" />
-				<div className="h-4" />
-
+				<div className="h-24" />
 				<SearchForm
 					state={state}
 					dispatch={dispatch}
 				/>
 
 				<div className="h-4" />
-
 				<DocumentTitle title={!state.form.search ? "Heroicons" : `${state.results.length} result${state.results.length === 1 ? "" : "s"}`}>
 					<Icons icons={state.results} />
 				</DocumentTitle>
@@ -305,7 +276,7 @@ const MemoIcon = React.memo(({ icon }) => (
 			<div className="px-3 py-2 absolute top-0 right-0">
 				<div className="px-1.5 flex flex-row justify-center items-center bg-indigo-500 rounded-full">
 					<p className="font-bold text-xxs text-white">
-						NEW!
+						NEW
 					</p>
 				</div>
 			</div>
