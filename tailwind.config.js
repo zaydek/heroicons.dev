@@ -55,7 +55,8 @@ module.exports = {
 
 				// eslint-disable-next-line quotes
 				mono: ['"IBM Plex Mono"', ...mono],
-				sans: ["Inter", ...sans],
+				// sans: ["Inter", ...sans],
+				sans: [...sans.slice(0, 3), "Inter", ...sans.slice(3)],
 			},
 			fontSize: {
 				xxs: "0.6875rem",

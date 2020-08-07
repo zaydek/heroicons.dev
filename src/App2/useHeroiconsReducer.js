@@ -17,6 +17,8 @@ const actions = state => ({
 	},
 	// Updates form.search=text.
 	updateFormSearch(text) {
+		text = text.toLowerCase()
+
 		if (!text) {
 			state.form.search = ""
 			state.results = iconset
@@ -29,7 +31,11 @@ const actions = state => ({
 		// 	})
 		// })
 		state.results = iconset.filter(each => {
-			return each.name.indexOf(text) >= 0
+			const ok = (
+				each.statusNew && text === "new" ||
+				each.name.indexOf(text) >= 0
+			)
+			return ok
 		})
 	},
 	// Toggles form.family.
