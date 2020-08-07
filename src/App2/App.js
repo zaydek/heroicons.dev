@@ -5,6 +5,7 @@ import DocumentTitle from "lib/x/DocumentTitle"
 import iconset from "./iconset"
 import React from "react"
 import SVG from "./SVG"
+import Transition from "lib/x/Transition"
 import useHeroiconsReducer from "./useHeroiconsReducer"
 
 import CodeOutlineSVG from "heroicons-ecfba30/outline/Code"
@@ -51,49 +52,31 @@ const App = () => {
 					{/* NOTE: block is needed for space-y-* */}
 					<a className="block" href="https://github.com/refactoringui/heroicons" target="_blank" rel="noopener noreferrer">
 						<p className="flex flex-row items-center font-medium text-gray-100">
-							<GitHubLogoSVG className="mr-2 w-6 h-6 rounded-full transform scale-90" />
+							<GitHubLogoSVG className="mr-2 w-5 h-5 rounded-full" />
 							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
 								Open the GitHub repo
 							</span>
+							{/* <ExternalLinkSolidSVG className="ml-1 w-4 h-4 text-indigo-500" /> */}
 						</p>
 					</a>
 					<a className="block" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
 						<p className="flex flex-row items-center font-medium text-gray-100">
-							<GitHubLogoSVG className="mr-2 w-6 h-6 rounded-full transform scale-90" />
+							<GitHubLogoSVG className="mr-2 w-5 h-5 rounded-full" />
 							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
 								Open the GitHub heroicons.dev repo
 							</span>
+							{/* <ExternalLinkSolidSVG className="ml-1 w-4 h-4 text-indigo-500" /> */}
 						</p>
 					</a>
 					<a className="block" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
 						<p className="flex flex-row items-center font-medium text-gray-100">
-							<FigmaLogoSVG className="mr-2 w-6 h-6 rounded-full transform scale-90" />
+							<FigmaLogoSVG className="mr-2 w-5 h-5 rounded-full" />
 							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
 								Open the Figma file
 							</span>
+							{/* <ExternalLinkSolidSVG className="ml-1 w-4 h-4 text-indigo-500" /> */}
 						</p>
 					</a>
-
-					{/* <h2 className="space-y-4 font-medium text-gray-100"> */}
-					{/* 	<a href="https://github.com/refactoringui/heroicons" target="_blank" rel="noopener noreferrer"> */}
-					{/* 		<GitHubLogoSVG className="mr-2 inline-block w-6 h-6 rounded-full transform scale-90" /> */}
-					{/* 		<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}> */}
-					{/* 			Open the GitHub repo */}
-					{/* 		</span> */}
-					{/* 	</a><br /> */}
-					{/* 	<a href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer"> */}
-					{/* 		<GitHubLogoSVG className="mr-2 inline-block w-6 h-6 rounded-full transform scale-90" /> */}
-					{/* 		<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}> */}
-					{/* 			Open the GitHub heroicons.dev repo */}
-					{/* 		</span> */}
-					{/* 	</a><br /> */}
-					{/* 	<a href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer"> */}
-					{/* 		<FigmaLogoSVG className="mr-2 inline-block w-6 h-6 rounded-full transform scale-90" /> */}
-					{/* 		<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}> */}
-					{/* 			Open the Figma file */}
-					{/* 		</span> */}
-					{/* 	</a> */}
-					{/* </h2> */}
 				</aside>
 
 				{/* <header> */}
@@ -111,7 +94,7 @@ const App = () => {
 
 					{/* <h2> */}
 					<h2 className="font-medium text-xl sm:text-2xl leading-9 text-center text-gray-100">
-						Free, MIT Open Source UI Icons
+						MIT-Licensed Open Source UI Icons
 					</h2>
 
 					{/* <h2> */}
@@ -170,6 +153,7 @@ const SearchForm = ({ state, dispatch }) => {
 	const inputRef = React.useRef()
 
 	const [text, setText] = React.useState("")
+	const [tooltip, setTooltip] = React.useState("")
 
 	// Debounces search.
 	React.useEffect(
@@ -233,30 +217,90 @@ const SearchForm = ({ state, dispatch }) => {
 				{/* RHS */}
 				<div className="px-6 absolute inset-y-0 right-0 flex flex-row">
 					<button
-						className="px-2 text-gray-400 hover:text-gray-300 focus:outline-none transition duration-200 ease-in-out"
-						title="Copy as React JSX"
-						onClick={e => {
-							// TODO
-						}}
+						className="px-2 relative text-gray-400 hover:text-gray-300 focus:outline-none transition duration-200 ease-in-out"
+						onFocus={e => setTooltip("jsx")}
+						onBlur={e => setTooltip("")}
+						onMouseEnter={e => setTooltip("jsx")}
+						onMouseLeave={e => setTooltip("")}
+						onClick={e => {}}
 					>
+						{tooltip === "jsx" && (
+							<div className="-mt-2 absolute top-full right-0">
+								<div className="rounded-md shadow-lg">
+									<div className="px-3 py-2 bg-gray-800 border border-gray-600 rounded-md shadow-lg">
+										<p className="font-medium text-sm whitespace-pre text-gray-100">
+											Copy as React JSX
+											<span
+												className="ml-2"
+												style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
+												aria-label="atom symbol"
+												role="img"
+											>
+												⚛️
+											</span>
+										</p>
+									</div>
+								</div>
+							</div>
+						)}
 						<CodeSolidSVG className="w-6 h-6" />
 					</button>
 					<button
-						className="px-2 text-gray-400 hover:text-gray-300 focus:outline-none transition duration-200 ease-in-out"
-						title={`Switch to ${state.form.family === "solid" ? "outline" : "solid"} icons`}
-						onClick={e => {
-							// TODO
-						}}
+						className="px-2 relative text-gray-400 hover:text-gray-300 focus:outline-none transition duration-200 ease-in-out"
+						onFocus={e => setTooltip("alt")}
+						onBlur={e => setTooltip("")}
+						onMouseEnter={e => setTooltip("alt")}
+						onMouseLeave={e => setTooltip("")}
+						onClick={e => {}}
 					>
+						{tooltip === "alt" && (
+							<div className="-mt-2 absolute top-full right-0">
+								<div className="rounded-md shadow-lg">
+									<div className="px-3 py-2 bg-gray-800 border border-gray-600 rounded-md shadow-lg">
+										<p className="font-medium text-sm whitespace-pre text-gray-100">
+											Show alternate icons
+											<span
+												className="ml-2"
+												style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
+												aria-label="triangular ruler"
+												role="img"
+											>
+												📐
+											</span>
+										</p>
+									</div>
+								</div>
+							</div>
+						)}
 						<PlusCircleSolidSVG className="w-6 h-6" />
 					</button>
 					<button
-						className="px-2 text-gray-400 hover:text-gray-300 focus:outline-none transition duration-200 ease-in-out"
-						title="Toggle dark mode"
-						onClick={e => {
-							// TODO
-						}}
+						className="px-2 relative text-gray-400 hover:text-gray-300 focus:outline-none transition duration-200 ease-in-out"
+						onFocus={e => setTooltip("dark-mode")}
+						onBlur={e => setTooltip("")}
+						onMouseEnter={e => setTooltip("dark-mode")}
+						onMouseLeave={e => setTooltip("")}
+						onClick={e => {}}
 					>
+						{tooltip === "dark-mode" && (
+							<div className="-mt-2 absolute top-full right-0">
+								<div className="rounded-md shadow-lg">
+									<div className="px-3 py-2 bg-gray-800 border border-gray-600 rounded-md shadow-lg">
+										<p className="font-medium text-sm whitespace-pre text-gray-100">
+											Toggle dark mode
+											<span
+												className="ml-2"
+												style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
+												aria-label="sun"
+												role="img"
+											>
+												☀️
+											</span>
+										</p>
+									</div>
+								</div>
+							</div>
+						)}
 						<SunSolidSVG className="w-6 h-6" />
 					</button>
 				</div>
