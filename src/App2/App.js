@@ -227,7 +227,7 @@ const SearchForm = ({ state, dispatch }) => {
 						{tooltip === "jsx" && (
 							<div className="-mt-2 absolute top-full right-0">
 								<div className="rounded-md shadow-lg">
-									<div className="px-3 py-2 bg-black border border-gray-700 rounded-md shadow-lg">
+									<div className="px-3 py-2 bg-gray-700 rounded-md shadow-lg">
 										<p className="font-medium text-sm whitespace-pre text-gray-100">
 											Copy as React JSX
 											<span
@@ -256,7 +256,7 @@ const SearchForm = ({ state, dispatch }) => {
 						{tooltip === "alt" && (
 							<div className="-mt-2 absolute top-full right-0">
 								<div className="rounded-md shadow-lg">
-									<div className="px-3 py-2 bg-black border border-gray-700 rounded-md shadow-lg">
+									<div className="px-3 py-2 bg-gray-700 rounded-md shadow-lg">
 										<p className="font-medium text-sm whitespace-pre text-gray-100">
 											Show alternate icons
 											<span
@@ -285,7 +285,7 @@ const SearchForm = ({ state, dispatch }) => {
 						{tooltip === "dark-mode" && (
 							<div className="-mt-2 absolute top-full right-0">
 								<div className="rounded-md shadow-lg">
-									<div className="px-3 py-2 bg-black border border-gray-700 rounded-md shadow-lg">
+									<div className="px-3 py-2 bg-gray-700 rounded-md shadow-lg">
 										<p className="font-medium text-sm whitespace-pre text-gray-100">
 											Toggle dark mode
 											<span
