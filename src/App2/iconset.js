@@ -2,12 +2,13 @@ import * as Outline from "heroicons-ecfba30/outline"
 import * as Solid from "heroicons-ecfba30/solid"
 
 const iconset = [
-	{
-		name: "academic-cap",
-		solid: Solid.AcademicCap,
-		outline: Outline.AcademicCap,
-		statusNew: true,
-	},
+	// // FIXME
+	// {
+	// 	name: "academic-cap",
+	// 	solid: Solid.AcademicCap,
+	// 	outline: Outline.AcademicCap,
+	// 	statusNew: true,
+	// },
 	{
 		name: "adjustments",
 		solid: Solid.Adjustments,
@@ -110,12 +111,13 @@ const iconset = [
 		outline: Outline.AtSymbol,
 		statusNew: false,
 	},
-	{
-		name: "backspace",
-		solid: Solid.Backspace,
-		outline: Outline.Backspace,
-		statusNew: true,
-	},
+	// // FIXME
+	// {
+	// 	name: "backspace",
+	// 	solid: Solid.Backspace,
+	// 	outline: Outline.Backspace,
+	// 	statusNew: true,
+	// },
 	{
 		name: "badge-check",
 		solid: Solid.BadgeCheck,
@@ -170,12 +172,13 @@ const iconset = [
 		outline: Outline.Cake,
 		statusNew: true,
 	},
-	{
-		name: "calculator",
-		solid: Solid.Calculator,
-		outline: Outline.Calculator,
-		statusNew: true,
-	},
+	// // FIXME
+	// {
+	// 	name: "calculator",
+	// 	solid: Solid.Calculator,
+	// 	outline: Outline.Calculator,
+	// 	statusNew: true,
+	// },
 	{
 		name: "calendar",
 		solid: Solid.Calendar,
@@ -374,12 +377,13 @@ const iconset = [
 		outline: Outline.CreditCard,
 		statusNew: false,
 	},
-	{
-		name: "cube",
-		solid: Solid.Cube,
-		outline: Outline.Cube,
-		statusNew: true,
-	},
+	// // FIXME
+	// {
+	// 	name: "cube",
+	// 	solid: Solid.Cube,
+	// 	outline: Outline.Cube,
+	// 	statusNew: true,
+	// },
 	{
 		name: "cube-transparent",
 		solid: Solid.CubeTransparent,
@@ -488,12 +492,13 @@ const iconset = [
 		outline: Outline.DocumentReport,
 		statusNew: false,
 	},
-	{
-		name: "document-search",
-		solid: Solid.DocumentSearch,
-		outline: Outline.DocumentSearch,
-		statusNew: true,
-	},
+	// // FIXME
+	// {
+	// 	name: "document-search",
+	// 	solid: Solid.DocumentSearch,
+	// 	outline: Outline.DocumentSearch,
+	// 	statusNew: true,
+	// },
 	{
 		name: "document-text",
 		solid: Solid.DocumentText,
@@ -590,13 +595,14 @@ const iconset = [
 		outline: Outline.Filter,
 		statusNew: false,
 	},
-	{
-		name: "finger-print",
-		solid: Solid.FingerPrint,
-		outline: Outline.FingerPrint,
-		statusNew: true,
-	},
-	// FIXME
+	// // FIXME
+	// // {
+	// // 	name: "finger-print",
+	// // 	solid: Solid.FingerPrint,
+	// // 	outline: Outline.FingerPrint,
+	// // 	statusNew: true,
+	// // },
+	// // FIXME
 	// {
 	// 	name: "fire",
 	// 	solid: Solid.Fire,
@@ -627,12 +633,13 @@ const iconset = [
 		outline: Outline.FolderDownload,
 		statusNew: false,
 	},
-	{
-		name: "folder-open",
-		solid: Solid.FolderOpen,
-		outline: Outline.FolderOpen,
-		statusNew: true,
-	},
+	// // FIXME
+	// {
+	// 	name: "folder-open",
+	// 	solid: Solid.FolderOpen,
+	// 	outline: Outline.FolderOpen,
+	// 	statusNew: true,
+	// },
 	{
 		name: "folder-remove",
 		solid: Solid.FolderRemove,
@@ -753,7 +760,7 @@ const iconset = [
 		outline: Outline.LockOpen,
 		statusNew: false,
 	},
-	// FIXME
+	// // FIXME
 	// {
 	// 	name: "login",
 	// 	solid: Solid.Login,
@@ -940,12 +947,13 @@ const iconset = [
 		outline: Outline.PresentationChartBar,
 		statusNew: true,
 	},
-	{
-		name: "presentation-chart-line",
-		solid: Solid.PresentationChartLine,
-		outline: Outline.PresentationChartLine,
-		statusNew: true,
-	},
+	// // FIXME
+	// {
+	// 	name: "presentation-chart-line",
+	// 	solid: Solid.PresentationChartLine,
+	// 	outline: Outline.PresentationChartLine,
+	// 	statusNew: true,
+	// },
 	{
 		name: "printer",
 		solid: Solid.Printer,
@@ -1114,12 +1122,13 @@ const iconset = [
 		outline: Outline.Star,
 		statusNew: false,
 	},
-	{
-		name: "status-offline",
-		solid: Solid.StatusOffline,
-		outline: Outline.StatusOffline,
-		statusNew: true,
-	},
+	// // FIXME
+	// {
+	// 	name: "status-offline",
+	// 	solid: Solid.StatusOffline,
+	// 	outline: Outline.StatusOffline,
+	// 	statusNew: true,
+	// },
 	{
 		name: "status-online",
 		solid: Solid.StatusOnline,
@@ -1222,12 +1231,13 @@ const iconset = [
 		outline: Outline.TrendingUp,
 		statusNew: false,
 	},
-	{
-		name: "truck",
-		solid: Solid.Truck,
-		outline: Outline.Truck,
-		statusNew: true,
-	},
+	// // FIXME
+	// {
+	// 	name: "truck",
+	// 	solid: Solid.Truck,
+	// 	outline: Outline.Truck,
+	// 	statusNew: true,
+	// },
 	{
 		name: "upload",
 		solid: Solid.Upload,
@@ -1270,12 +1280,13 @@ const iconset = [
 		outline: Outline.Users,
 		statusNew: false,
 	},
-	{
-		name: "variable",
-		solid: Solid.Variable,
-		outline: Outline.Variable,
-		statusNew: true,
-	},
+	// // FIXME
+	// {
+	// 	name: "variable",
+	// 	solid: Solid.Variable,
+	// 	outline: Outline.Variable,
+	// 	statusNew: true,
+	// },
 	{
 		name: "video-camera",
 		solid: Solid.VideoCamera,
@@ -1318,12 +1329,13 @@ const iconset = [
 		outline: Outline.VolumeUp,
 		statusNew: false,
 	},
-	{
-		name: "wifi",
-		solid: Solid.Wifi,
-		outline: Outline.Wifi,
-		statusNew: true,
-	},
+	// // FIXME
+	// {
+	// 	name: "wifi",
+	// 	solid: Solid.Wifi,
+	// 	outline: Outline.Wifi,
+	// 	statusNew: true,
+	// },
 	{
 		name: "x",
 		solid: Solid.X,

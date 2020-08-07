@@ -52,24 +52,15 @@ module.exports = {
 				`),
 			},
 			fontFamily: {
+				// // eslint-disable-next-line quotes
+				// mono: [...mono.slice(0, 1), '"IBM Plex Mono"', ...mono.slice(1)],
+				// sans: [...sans.slice(0, 3), "Inter", ...sans.slice(3)],
+
 				// eslint-disable-next-line quotes
-				mono: [...mono.slice(0, 1), '"Fira Code"', ...mono.slice(1)],
-				sans: [...sans.slice(0, 3), "Inter", ...sans.slice(3)],
+				mono: ['"IBM Plex Mono"', ...mono],
+				sans: ["Inter", ...sans],
 			},
-			// inset: { // TODO
-			// 	"1/2": "50%",
-			// 	"full": "100%",
-			// },
-			// letterSpacing: { // TODO
-			// 	"-px": "-0.0125em",
-			// 	"px": "0.0125em",
-			// },
-			// // https://youtube.com/watch?v=jl_tdhBxc_Y
-			// spacing: { // TODO
-			// 	"1/1": "100%",
-			// },
 		},
-		// https://tailwindcss.com/docs/breakpoints
 		screens: {
 			xs: `${24 + 512 + 24}px`,
 			// => @media (min-width: 560px) { ... }
@@ -89,14 +80,8 @@ module.exports = {
 	},
 	// Add dark, hover:dark, and focus:dark:
 	variants: {
-		typography: [],
-
 		...defaultVariants,
-
-		// <h2>
-		borderRadius: [...defaultVariants.borderRadius, "hover"],
-		margin: [...defaultVariants.margin, "hover"],
-		padding: [...defaultVariants.padding, "hover"],
+		typography: [],
 
 		// textColor: [...defaultVariants.textColor, "dark", "hover:dark", "focus:dark"],
 		// backgroundColor: [...defaultVariants.backgroundColor, "dark", "hover:dark", "focus:dark"],
