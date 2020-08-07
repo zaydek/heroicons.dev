@@ -43,8 +43,54 @@ const App = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 
 	return (
-		<div className="py-24 flex flex-row justify-center">
+		<div className="py-32 flex flex-row justify-center">
 			<div className="px-6 w-full max-w-screen-lg">
+
+				<aside className="space-y-2 px-4 py-3 absolute top-0 inset-x-0 hidden lg:flex lg:flex-row lg:justify-center">
+					<h2 className="font-medium text-gray-100">
+						By
+						<a href="https://twitter.com/steveschoger" target="_blank" rel="noopener noreferrer">
+							<img className="mx-2 inline-block w-6 h-6 rounded-full" src={srcSteveS} alt="Steve Schoger" />
+							<span style={{ boxShadow: "inset 0 -1px var(--indigo-500), 0 1px var(--indigo-500)" }}>
+								@steveschoger
+							</span>
+						</a>
+						and
+						<a href="https://twitter.com/adamwathan" target="_blank" rel="noopener noreferrer">
+							<img className="mx-2 inline-block w-6 h-6 rounded-full" src={srcAdamW} alt="Adam Wathan" />
+							<span style={{ boxShadow: "inset 0 -1px var(--indigo-500), 0 1px var(--indigo-500)" }}>
+								@adamwathan
+							</span>
+						</a>
+						, web app by
+						<a href="https://twitter.com/username_ZAYDEK" target="_blank" rel="noopener noreferrer">
+							<img className="mx-2 inline-block w-6 h-6 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />
+							<span style={{ boxShadow: "inset 0 -1px var(--indigo-500), 0 1px var(--indigo-500)" }}>
+								@username_ZAYDEK
+							</span>
+						</a>
+					</h2>
+				</aside>
+
+				{/* <aside className="space-y-2 px-4 py-3 absolute top-0 left-0 hidden lg:block"> */}
+				{/* 	<h2 className="flex flex-row items-center font-medium text-gray-100"> */}
+				{/* 		By{" "} */}
+				{/* 		<a className="px-2 py-0.5 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://twitter.com/steveschoger" target="_blank" rel="noopener noreferrer"> */}
+				{/* 			<img className="mr-2 inline-block w-6 h-6 rounded-full" src={srcSteveS} alt="Steve Schoger" /> */}
+				{/* 			@steveschoger */}
+				{/* 		</a> */}
+				{/* 		,{" "} */}
+				{/* 		<a className="px-2 py-0.5 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://twitter.com/adamwathan" target="_blank" rel="noopener noreferrer"> */}
+				{/* 			<img className="mr-2 inline-block w-6 h-6 rounded-full" src={srcAdamW} alt="Adam Wathan" /> */}
+				{/* 			@adamwathan */}
+				{/* 		</a> */}
+				{/* 		, and{" "} */}
+				{/* 		<a className="px-2 py-0.5 inline-flex flex-row items-center bg-blue-600 rounded-full" href="https://twitter.com/username_ZAYDEK" target="_blank" rel="noopener noreferrer"> */}
+				{/* 			<img className="mr-2 inline-block w-6 h-6 rounded-full" src={srcZaydekMG} alt="Zaydek MG" /> */}
+				{/* 			@username_ZAYDEK */}
+				{/* 		</a> */}
+				{/* 	</h2> */}
+				{/* </aside> */}
 
 				{/* <aside> */}
 				{/* <aside className="space-y-2 px-4 py-3 absolute top-0 left-0 hidden lg:block"> */}
@@ -86,44 +132,45 @@ const App = () => {
 						</div>
 					</div>
 
-					<div className="h-4" />
+					{/* <div className="h-4" /> */}
 
 					{/* <h2> */}
 					<h2 className="font-medium text-lg sm:text-xl leading-9 text-center text-gray-100">
-						<a href="https://github.com/tailwindlabs/heroicons/blob/master/LICENSE" target="_blank" rel="noopener noreferrer">
-							<u style={{ textDecorationColor: "var(--indigo-500)" }}>
-								MIT Open Source
-							</u>
-						</a>{" "}
-						UI Icons
+						Free, MIT Open Source UI Icons
 					</h2>
 
 					{/* <h2> */}
-					<h2 className="font-medium text-lg sm:text-xl leading-9 text-center text-gray-100">
-						Designed by{" "}
-						<a href="https://twitter.com/steveschoger" target="_blank" rel="noopener noreferrer">
-							<img className="mx-2 inline-block w-8 h-8 rounded-full" src={srcSteveS} alt="Steve Schoger" />
-							<u style={{ textDecorationColor: "var(--indigo-500)" }}>
-								Steve Schoger
-							</u>
-						</a>
-						{/* {" "}and */}
-						{/* <a href="https://twitter.com/adamwathan" target="_blank" rel="noopener noreferrer"> */}
-						{/* 	<img className="mx-2 inline-block w-8 h-8 rounded-full" src={srcAdamW} alt="Adam Wathan" /> */}
-						{/* 	<u style={{ textDecorationColor: "var(--indigo-500)" }}> */}
-						{/* 		Adam Wathan */}
-						{/* 	</u> */}
-						{/* </a> */}
-						,{" "}
-						<br className="inline sm:hidden" />
-						<a href="https://twitter.com/username_ZAYDEK" target="_blank" rel="noopener noreferrer">
-							web app by
-							<img className="mx-2 inline-block w-8 h-8 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />
-							<u style={{ textDecorationColor: "var(--indigo-500)" }}>
-								Zaydek MG
-							</u>
-						</a>
-					</h2>
+					{/* <h2 className="font-medium text-lg sm:text-xl leading-9 text-center text-gray-100"> */}
+					{/* 	<span className="hidden md:inline"> */}
+					{/* 		Created by{" "} */}
+					{/* 	</span> */}
+					{/* 	<a href="https://twitter.com/steveschoger" target="_blank" rel="noopener noreferrer"> */}
+					{/* 		<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveS} alt="Steve Schoger" /> */}
+					{/* 		{" "} */}
+					{/* 		<u style={{ textDecorationColor: "var(--indigo-500)" }}> */}
+					{/* 			@steveschoger */}
+					{/* 		</u> */}
+					{/* 	</a>{" "} */}
+					{/* 	<span className="hidden md:inline"> */}
+					{/* 		and{" "} */}
+					{/* 	</span> */}
+					{/* 	<a href="https://twitter.com/adamwathan" target="_blank" rel="noopener noreferrer"> */}
+					{/* 		<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamW} alt="Adam Wathan" />{" "} */}
+					{/* 		<u style={{ textDecorationColor: "var(--indigo-500)" }}> */}
+					{/* 			@adamwathan */}
+					{/* 		</u> */}
+					{/* 	</a> */}
+					{/* 	<br /> */}
+					{/* 	<span className="hidden md:inline"> */}
+					{/* 		Web app by{" "} */}
+					{/* 	</span> */}
+					{/* 	<a href="https://twitter.com/username_ZAYDEK" target="_blank" rel="noopener noreferrer"> */}
+					{/* 		<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />{" "} */}
+					{/* 		<u style={{ textDecorationColor: "var(--indigo-500)" }}> */}
+					{/* 			@username_ZAYDEK */}
+					{/* 		</u> */}
+					{/* 	</a> */}
+					{/* </h2> */}
 
 				</header>
 
