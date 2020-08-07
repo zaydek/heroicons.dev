@@ -2,14 +2,22 @@
 import CarbonAds from "./CarbonAds"
 import disableAutoCorrect from "./disableAutoCorrect"
 import DocumentTitle from "lib/x/DocumentTitle"
-import ExternalLinkSVG from "heroicons-ecfba30/solid/ExternalLink"
-import FlagSolidSVG from "heroicons-ecfba30/solid/Flag"
 import iconset from "./iconset"
 import React from "react"
-import SearchOutlineSVG from "heroicons-ecfba30/outline/Search"
 import SVG from "./SVG"
 import useHeroiconsReducer from "./useHeroiconsReducer"
+
+import CodeOutlineSVG from "heroicons-ecfba30/outline/Code"
+import CodeSolidSVG from "heroicons-ecfba30/solid/Code"
+import ExternalLinkSVG from "heroicons-ecfba30/solid/ExternalLink"
+import FlagSolidSVG from "heroicons-ecfba30/solid/Flag"
+import PlusCircleOutlineSVG from "heroicons-ecfba30/outline/PlusCircle"
+import PlusCircleSolidSVG from "heroicons-ecfba30/solid/PlusCircle"
+import SearchOutlineSVG from "heroicons-ecfba30/outline/Search"
+import SunOutlineSVG from "heroicons-ecfba30/outline/Sun"
+import SunSolidSVG from "heroicons-ecfba30/solid/Sun"
 import XCircleSolidSVG from "heroicons-ecfba30/solid/XCircle"
+
 import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubSVG } from "svg/github.svg"
 
@@ -138,6 +146,7 @@ const SearchForm = ({ state, dispatch }) => {
 	const inputRef = React.useRef()
 
 	const [text, setText] = React.useState("")
+	const [tooltip, setTooltip] = React.useState("")
 
 	// Debounces search.
 	React.useEffect(
@@ -199,19 +208,91 @@ const SearchForm = ({ state, dispatch }) => {
 				</div>
 
 				{/* RHS */}
-				{state.form.search && (
+				<div className="px-6 absolute inset-y-0 right-0 flex flex-row">
+					{/* {state.form.search && ( */}
+					{/* 	<button */}
+					{/* 		className="text-gray-400 hover:text-gray-300 focus:outline-none transition duration-200 ease-in-out" */}
+					{/* 		onClick={e => { */}
+					{/* 			inputRef.current.focus() */}
+					{/* 			setText("") */}
+					{/* 		}} */}
+					{/* 	> */}
+					{/* 		<XCircleSolidSVG className="w-6 h-6" /> */}
+					{/* 	</button> */}
+					{/* )} */}
 					<button
-						className="px-6 absolute inset-y-0 right-0 flex flex-row items-center text-gray-400 hover:text-gray-300 focus:outline-none transition duration-200 ease-in-out"
-						onClick={e => {
-							inputRef.current.focus()
-							setText("")
-						}}
+						className="px-2 relative text-gray-400 hover:text-gray-300 focus:outline-none transition duration-200 ease-in-out"
+						onMouseEnter={e => setTooltip("jsx")}
+						onMouseLeave={e => setTooltip("")}
+						// onClick={e => {
+						// 	inputRef.current.focus()
+						// 	setText("")
+						// }}
 					>
-						<XCircleSolidSVG className="w-6 h-6" />
+						{tooltip === "jsx" && (
+							<div className="-mt-2 absolute top-full right-0">
+								<div className="px-2 py-1 bg-indigo-500 rounded shadow">
+									<div className="absolute top-0 right-0">
+										<div className="mr-4 -mt-0.5 w-2 h-2 bg-indigo-500 rounded-sm transform rotate-45" />
+									</div>
+									<p className="font-medium text-sm whitespace-pre text-indigo-50">
+										Copy icons as JSX
+									</p>
+								</div>
+							</div>
+						)}
+						<CodeSolidSVG className="w-6 h-6" />
 					</button>
-				)}
+					<button
+						className="px-2 relative text-gray-400 hover:text-gray-300 focus:outline-none transition duration-200 ease-in-out"
+						onMouseEnter={e => setTooltip("family")}
+						onMouseLeave={e => setTooltip("")}
+						// onClick={e => {
+						// 	inputRef.current.focus()
+						// 	setText("")
+						// }}
+					>
+						{tooltip === "family" && (
+							<div className="-mt-2 absolute top-full right-0">
+								<div className="px-2 py-1 bg-indigo-500 rounded shadow">
+									<div className="absolute top-0 right-0">
+										<div className="mr-4 -mt-0.5 w-2 h-2 bg-indigo-500 rounded-sm transform rotate-45" />
+									</div>
+									<p className="font-medium text-sm whitespace-pre text-indigo-50">
+										Switch to Outline Icons
+									</p>
+								</div>
+							</div>
+						)}
+						<PlusCircleSolidSVG className="w-6 h-6" />
+					</button>
+					<button
+						className="px-2 relative text-gray-400 hover:text-gray-300 focus:outline-none transition duration-200 ease-in-out"
+						onMouseEnter={e => setTooltip("dark-mode")}
+						onMouseLeave={e => setTooltip("")}
+						// onClick={e => {
+						// 	inputRef.current.focus()
+						// 	setText("")
+						// }}
+					>
+						{tooltip === "dark-mode" && (
+							<div className="-mt-2 absolute top-full right-0">
+								<div className="px-2 py-1 bg-indigo-500 rounded shadow">
+									<div className="absolute top-0 right-0">
+										<div className="mr-4 -mt-0.5 w-2 h-2 bg-indigo-500 rounded-sm transform rotate-45" />
+									</div>
+									<p className="font-medium text-sm whitespace-pre text-indigo-50">
+										Switch to Light Mode
+									</p>
+								</div>
+							</div>
+						)}
+						<SunSolidSVG className="w-6 h-6" />
+					</button>
+				</div>
 
 			</form>
+
 		</div>
 	)
 }
