@@ -1,13 +1,5 @@
 import React from "react"
 
-// <DocumentTitle title="...">
-//   ...
-// </DocumentTitle>
-//
-// OR
-//
-// <DocumentTitle title="..." />
-//
 const DocumentTitle = ({ title, children }) => {
 	React.useEffect(() => {
 		const originalTitle = document.title
