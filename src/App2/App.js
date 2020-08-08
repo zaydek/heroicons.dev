@@ -229,7 +229,10 @@ const SearchForm = ({ state, dispatch }) => {
 					>
 						<button
 							className="p-2 relative text-gray-400 hover:bg-gray-700 hover:bg-opacity-75 focus:bg-gray-700 focus:bg-opacity-75 rounded-full focus:outline-none transition duration-200 ease-in-out"
-							style={{ color: state.form.copyAsReact && "var(--gray-100)" }}
+							style={{
+								color: state.form.copyAsReact && "var(--gray-100)",
+								backgroundColor: state.form.copyAsReact && "#374151bf", // e.g. bg-gray-700 bg-opacity-75
+							}}
 							onClick={e => {
 								dispatch({
 									type: "TOGGLE_FORM_COPY_AS_REACT",
@@ -268,7 +271,10 @@ const SearchForm = ({ state, dispatch }) => {
 					>
 						<button
 							className="p-2 relative text-gray-400 hover:bg-gray-700 hover:bg-opacity-75 focus:bg-gray-700 focus:bg-opacity-75 rounded-full focus:outline-none transition duration-200 ease-in-out"
-							style={{ color: state.form.showOutline && "var(--gray-100)" }}
+							style={{
+								color: state.form.showOutline && "var(--gray-100)",
+								backgroundColor: state.form.showOutline && "#374151bf", // e.g. gray-700 opacity-75
+							}}
 							onClick={e => {
 								dispatch({
 									type: "TOGGLE_FORM_SHOW_OUTLINE",
