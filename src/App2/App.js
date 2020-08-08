@@ -222,7 +222,7 @@ const App = () => {
 const SearchForm = ({ state, dispatch }) => {
 	const inputRef = React.useRef()
 
-	const { xs } = useLayoutBreakpoints(tailwindcss.theme.screens)
+	const breakpoints = useLayoutBreakpoints(tailwindcss.theme.screens)
 
 	const [text, setText] = React.useState("")
 	const [tooltip, setTooltip] = React.useState("")
@@ -277,9 +277,9 @@ const SearchForm = ({ state, dispatch }) => {
 				<div className="rounded-75 shadow-lg">
 					<input
 						ref={inputRef}
-						className="px-16 w-full max-w-full h-16 text-lg sm:text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
+						className="px-16 w-full h-16 text-lg sm:text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
 						type="text"
-						placeholder={`Search ${iconset.length} Icons${xs ? "" : " (Press \"/\" to focus)"}`}
+						placeholder={breakpoints.xs ? `Search ${iconset.length} Icons` : `Search ${iconset.length} Icons (Press "/" to focus)`}
 						value={text}
 						onKeyDown={e => {
 							if (e.keyCode === 27 || e.key === "Escape") {
@@ -469,10 +469,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 							(substrs => (
 								<>
 									{substrs[0]}
-									{/* <span className="p-px bg-indigo-500 rounded"> */}
-									{/* <span style={{ boxShadow: "inset 0 -0.09375rem var(--indigo-500), 0 0.09375rem var(--indigo-500)" }}> */}
-									{/* <span style={{ boxShadow: "inset 0 -0.09375rem var(--yellow-200), 0 0.09375rem var(--yellow-200)" }}> */}
-									<span className="px-px text-black bg-yellow-200 rounded">
+									<span className="p-px text-black bg-yellow-200 rounded">
 										{state.form.searchQuery}
 									</span>
 									{icon.name.slice(substrs[0].length + state.form.searchQuery.length)}

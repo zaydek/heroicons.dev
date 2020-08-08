@@ -2,25 +2,34 @@ import React from "react"
 
 // const { xs, sm, md, lg, xl } = useLayoutBreakpoints(tailwindcss.theme.screens)
 const useLayoutBreakpoints = breakpoints => {
-	const [xs, setXS] = React.useState(() => window.innerWidth < breakpoints.xs)
-	const [sm, setSM] = React.useState(() => window.innerWidth < breakpoints.sm)
-	const [md, setMD] = React.useState(() => window.innerWidth < breakpoints.md)
-	const [lg, setLG] = React.useState(() => window.innerWidth < breakpoints.lg)
-	const [xl, setXL] = React.useState(() => window.innerWidth < breakpoints.xl)
+	// Convert "px" breakpoints to numbers:
+	const breakpointNmbrs = {
+		xs: breakpoints.xs.slice(0, -"px".length),
+		sm: breakpoints.sm.slice(0, -"px".length),
+		md: breakpoints.md.slice(0, -"px".length),
+		lg: breakpoints.lg.slice(0, -"px".length),
+		xl: breakpoints.xl.slice(0, -"px".length),
+	}
+
+	const [xs, setXS] = React.useState(() => window.innerWidth < breakpointNmbrs.xs)
+	const [sm, setSM] = React.useState(() => window.innerWidth < breakpointNmbrs.sm)
+	const [md, setMD] = React.useState(() => window.innerWidth < breakpointNmbrs.md)
+	const [lg, setLG] = React.useState(() => window.innerWidth < breakpointNmbrs.lg)
+	const [xl, setXL] = React.useState(() => window.innerWidth < breakpointNmbrs.xl)
 
 	React.useLayoutEffect(() => {
 		const handler = e => {
-			setXS(window.innerWidth < breakpoints.xs)
-			setSM(window.innerWidth < breakpoints.sm)
-			setMD(window.innerWidth < breakpoints.md)
-			setLG(window.innerWidth < breakpoints.lg)
-			setXL(window.innerWidth < breakpoints.xl)
+			setXS(window.innerWidth < breakpointNmbrs.xs)
+			setSM(window.innerWidth < breakpointNmbrs.sm)
+			setMD(window.innerWidth < breakpointNmbrs.md)
+			setLG(window.innerWidth < breakpointNmbrs.lg)
+			setXL(window.innerWidth < breakpointNmbrs.xl)
 		}
 		window.addEventListener("resize", handler)
 		return () => {
 			window.removeEventListener("resize", handler)
 		}
-	}, [breakpoints])
+	}, [breakpointNmbrs])
 
 	return { xs, sm, md, lg, xl }
 }
