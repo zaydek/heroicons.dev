@@ -200,7 +200,7 @@ const App = () => {
 						<div className="p-3 fixed bottom-0 left-0">
 							<div className="rounded-md shadow-lg">
 								<div className="px-3 py-2 bg-indigo-500 rounded-md shadow-lg">
-									<p className="flex flex-row items-center font-semibold text-indigo-50">
+									<p className="flex flex-row items-center font-semibold text-sm xs:text-base text-indigo-50">
 										{state.clipboardIcon && (
 											<>
 												<SVG className="w-5 h-5" svg={state.clipboardIcon[!state.form.showOutline ? "solid" : "outline"]} />
@@ -216,8 +216,9 @@ const App = () => {
 														}
 														{">"}
 													</span>
-													<Space />
-													to the clipboard
+													!
+													{/* <Space /> */}
+													{/* to the clipboard! */}
 												</span>
 											</>
 										)}
@@ -291,13 +292,17 @@ const SearchForm = ({ state, dispatch }) => {
 		}
 	}, [text])
 
-	// (Press "/" to focus).
+	// Escape shortcuts.
 	React.useEffect(() => {
 		const handler = e => {
-			if (document.activeElement !== inputRef.current) {
-				if (e.keyCode === 191 || e.key === "/") {
-					e.preventDefault()
+			if (e.keyCode === 27 || e.key === "Escape") {
+				e.preventDefault()
+				if (document.activeElement !== inputRef.current) {
 					inputRef.current.focus()
+				} else if (!text) {
+					inputRef.current.blur()
+				} else {
+					setText("")
 				}
 			}
 		}
@@ -305,17 +310,7 @@ const SearchForm = ({ state, dispatch }) => {
 		return () => {
 			document.removeEventListener("keydown", handler)
 		}
-	}, [])
-
-	// Escape resets text and or blurs <input>.
-	const handleKeyDown = e => {
-		if (e.keyCode === 27 || e.key === "Escape") {
-			if (!text) {
-				inputRef.current.blur()
-			}
-			setText("")
-		}
-	}
+	}, [text])
 
 	return (
 		<div className="-mt-4 pt-4 sticky top-0 z-40" style={{ boxShadow: "inset 0 2.25rem 0 0 var(--black)" }}>
@@ -332,9 +327,8 @@ const SearchForm = ({ state, dispatch }) => {
 						ref={inputRef}
 						className="px-16 w-full h-16 text-lg sm:text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
 						type="text"
-						placeholder={breakpoints.xs ? `Search ${iconset.length} Icons` : `Search ${iconset.length} Icons (Press "/" to focus)`}
+						placeholder={breakpoints.xs ? "Search 200+ Icons" : "Search 200+ Icons (Press esc to Search)"}
 						value={text}
-						onKeyDown={handleKeyDown}
 						onChange={e => setText(e.target.value)}
 						{...disableAutoCorrect}
 					/>
