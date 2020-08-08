@@ -10,26 +10,20 @@ import Transition from "lib/x/Transition"
 import useHeroiconsReducer from "./useHeroiconsReducer"
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 
-// import SunOutlineSVG from "heroicons-ecfba30/outline/Sun"
-// import SunSolidSVG from "heroicons-ecfba30/solid/Sun"
-import CodeOutlineSVG from "heroicons-ecfba30/outline/Code"
 import CodeSolidSVG from "heroicons-ecfba30/solid/Code"
-import CursorClickSolidSVG from "heroicons-ecfba30/solid/CursorClick"
 import ExternalLinkOutlineSVG from "heroicons-ecfba30/outline/ExternalLink"
 import FlagSolidSVG from "heroicons-ecfba30/solid/Flag"
 import SearchOutlineSVG from "heroicons-ecfba30/outline/Search"
 import SwitchHorizontalSolidSVG from "heroicons-ecfba30/solid/SwitchHorizontal"
-
 import { ReactComponent as FigmaLogoSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubLogoSVG } from "svg/github.svg"
 
-import srcAdamW from "images/adam-wathan.jpg"
-import srcSteveS from "images/steve-schoger.jpg"
+import srcAdamWathan from "images/adam-wathan.jpg"
+import srcSteveSchoger from "images/steve-schoger.jpg"
 import srcZaydekMG from "images/zaydek-mg.png"
 
 // TODO
 document.body.classList.add("bg-black")
-// document.body.classList.add("debug-css")
 
 // {/* Carbon Ads */}
 // {/* <div className="px-4 py-3 absolute top-0 right-0 z-30 pointer-events-none"> */}
@@ -141,7 +135,7 @@ const App = () => {
 							Created by{" "}
 						</span>
 						<a href="https://twitter.com/steveschoger" target="_blank" rel="noopener noreferrer">
-							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveS} alt="Steve Schoger" />{" "}
+							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger} alt="Steve Schoger" />{" "}
 							<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
 								@steveschoger
 							</span>
@@ -150,7 +144,7 @@ const App = () => {
 							and{" "}
 						</span>
 						<a href="https://twitter.com/adamwathan" target="_blank" rel="noopener noreferrer">
-							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamW} alt="Adam Wathan" />{" "}
+							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamWathan} alt="Adam Wathan" />{" "}
 							<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
 								@adamwathan
 							</span>
