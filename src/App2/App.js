@@ -312,6 +312,21 @@ const SearchForm = ({ state, dispatch }) => {
 		}
 	}, [text])
 
+	// "/" shortcut.
+	React.useEffect(() => {
+		const handler = e => {
+			if (e.keyCode === 191 || e.key === "/") {
+				e.preventDefault()
+				inputRef.current.focus()
+			}
+		}
+		document.addEventListener("keydown", handler)
+		return () => {
+			document.removeEventListener("keydown", handler)
+		}
+	}, [])
+
+
 	return (
 		<div className="-mt-4 pt-4 sticky top-0 z-40" style={{ boxShadow: "inset 0 2.25rem 0 0 var(--black)" }}>
 			<form className="relative" onSubmit={e => e.preventDefault()}>
