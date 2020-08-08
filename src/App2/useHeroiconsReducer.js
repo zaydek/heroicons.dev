@@ -4,8 +4,9 @@ import { useImmerReducer } from "use-immer"
 const initialState = {
 	darkMode: false,
 	form: {
-		search: "",
-		family: "solid", // TODO,
+		searchQuery: "",
+		copyAsReact: false,
+		showOutline: false, // TODO,
 	},
 	results: iconset,
 }
@@ -15,16 +16,16 @@ const actions = state => ({
 	toggleDarkMode() {
 		state.darkMode = !state.darkMode
 	},
-	// Updates form.search=text.
-	updateFormSearch(text) {
+	// Updates form.searchQuery=text.
+	updateFormSearchQuery(text) {
 		text = text.toLowerCase()
 
 		if (!text) {
-			state.form.search = ""
+			state.form.searchQuery = ""
 			state.results = iconset
 			return
 		}
-		state.form.search = text
+		state.form.searchQuery = text
 		// state.results = iconset.filter(each => {
 		// 	return each.tags.some(each => {
 		// 		return each.startsWith(text)
@@ -38,26 +39,36 @@ const actions = state => ({
 			return ok
 		})
 	},
-	// Toggles form.family.
-	toggleFormFamily() {
-		if (state.form.family === "solid") {
-			state.form.family = "outline"
-		} else if (state.form.family === "outline") {
-			state.form.family = "solid"
-		}
+	// Toggles form.copyAsReact.
+	toggleFormCopyAsReact() {
+		state.form.copyAsReact = !state.form.copyAsReact
+	},
+	// Toggles form.showOutline.
+	toggleFormShowOutline() {
+		// if (state.form.showOutline === "solid") {
+		// 	state.form.showOutline = "outline"
+		// } else if (state.form.showOutline === "outline") {
+		// 	state.form.showOutline = "solid"
+		// }
+		state.form.showOutline = !state.form.showOutline
 	},
 })
 
 function HeroiconsReducer(state, action) {
 	switch (action.type) {
-	case "TOGGLE_DARK_MODE":
-		actions(state).toggleDarkMode()
+
+	// case "TOGGLE_DARK_MODE":
+	// 	actions(state).toggleDarkMode()
+	// 	return
+
+	case "UPDATE_FORM_SEARCH_QUERY":
+		actions(state).updateFormSearchQuery(action.text)
 		return
-	case "UPDATE_FORM_SEARCH":
-		actions(state).updateFormSearch(action.text)
+	case "TOGGLE_FORM_COPY_AS_REACT":
+		actions(state).toggleFormCopyAsReact()
 		return
-	case "TOGGLE_FORM_FAMILY":
-		actions(state).toggleFormFamily()
+	case "TOGGLE_FORM_SHOW_OUTLINE":
+		actions(state).toggleFormShowOutline()
 		return
 	default:
 		throw new Error(`HeroiconsReducer: type mismatch; action.type=${action.type}`)

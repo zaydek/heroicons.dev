@@ -156,11 +156,16 @@ const SearchForm = ({ state, dispatch }) => {
 	const [tooltip, setTooltip] = React.useState("")
 
 	// Debounces search.
+	const mounted = React.useRef()
 	React.useEffect(
 		React.useCallback(() => {
+			if (!mounted.current) {
+				mounted.current = true
+				return
+			}
 			const id = setTimeout(() => {
 				dispatch({
-					type: "UPDATE_FORM_SEARCH",
+					type: "UPDATE_FORM_SEARCH_QUERY",
 					text,
 				})
 			}, 15)
@@ -215,94 +220,96 @@ const SearchForm = ({ state, dispatch }) => {
 				</div>
 
 				{/* RHS */}
-				<div className="px-6 absolute inset-y-0 right-0 flex flex-row">
-					<button
-						className="px-2 relative text-gray-400 hover:text-gray-100 focus:text-gray-100 focus:outline-none transition duration-200 ease-in-out"
+				<div className="px-6 absolute inset-y-0 right-0 flex flex-row items-center">
+
+					<div
 						onFocus={e => setTooltip("jsx")}
 						onBlur={e => setTooltip("")}
 						onMouseEnter={e => setTooltip("jsx")}
 						onMouseLeave={e => setTooltip("")}
-						onClick={e => {}}
 					>
-						{tooltip === "jsx" && (
-							<div className="-mt-2 absolute top-full right-0">
-								<div className="rounded-md shadow-lg">
-									<div className="px-3 py-2 bg-gray-700 rounded-md shadow-lg">
-										<p className="font-medium text-sm whitespace-pre text-gray-100">
-											Copy as React JSX
-											<span
-												className="ml-2"
-												style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
-												aria-label="atom symbol"
-												role="img"
-											>
-												⚛️
-											</span>
-										</p>
+						<button
+							className="p-2 relative text-gray-400 hover:bg-gray-700 hover:bg-opacity-75 focus:bg-gray-700 focus:bg-opacity-75 rounded-full focus:outline-none transition duration-200 ease-in-out"
+							style={{ color: state.form.copyAsReact && "var(--gray-100)" }}
+							onClick={e => {
+								dispatch({
+									type: "TOGGLE_FORM_COPY_AS_REACT",
+									text,
+								})
+							}}
+						>
+							{tooltip === "jsx" && (
+								<div className="pt-1.5 absolute top-full right-0">
+									<div className="rounded-md shadow-lg">
+										<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
+											<p className="font-medium text-sm whitespace-pre text-gray-100">
+												Copy Icons as React JSX
+												<span
+													className="ml-2"
+													style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
+													aria-label="atom symbol"
+													role="img"
+												>
+													⚛️
+												</span>
+											</p>
+										</div>
 									</div>
 								</div>
-							</div>
-						)}
-						<CodeSolidSVG className="w-6 h-6" />
-					</button>
-					<button
-						className="px-2 relative text-gray-400 hover:text-gray-100 focus:text-gray-100 focus:outline-none transition duration-200 ease-in-out"
+							)}
+							<CodeSolidSVG className="w-6 h-6" />
+						</button>
+					</div>
+
+					<div
 						onFocus={e => setTooltip("alt")}
 						onBlur={e => setTooltip("")}
 						onMouseEnter={e => setTooltip("alt")}
 						onMouseLeave={e => setTooltip("")}
-						onClick={e => {}}
 					>
-						{tooltip === "alt" && (
-							<div className="-mt-2 absolute top-full right-0">
-								<div className="rounded-md shadow-lg">
-									<div className="px-3 py-2 bg-gray-700 rounded-md shadow-lg">
-										<p className="font-medium text-sm whitespace-pre text-gray-100">
-											Show alternate icons
-											<span
-												className="ml-2"
-												style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
-												aria-label="triangular ruler"
-												role="img"
-											>
-												📐
-											</span>
-										</p>
+						<button
+							className="p-2 relative text-gray-400 hover:bg-gray-700 hover:bg-opacity-75 focus:bg-gray-700 focus:bg-opacity-75 rounded-full focus:outline-none transition duration-200 ease-in-out"
+							style={{ color: state.form.showOutline && "var(--gray-100)" }}
+							onClick={e => {
+								dispatch({
+									type: "TOGGLE_FORM_SHOW_OUTLINE",
+									text,
+								})
+							}}
+						>
+							{tooltip === "alt" && (
+								<div className="pt-1.5 absolute top-full right-0">
+									<div className="rounded-md shadow-lg">
+										<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
+											<p className="font-medium text-sm whitespace-pre text-gray-100">
+												Switch to Outline Icons
+												<span
+													className="ml-2"
+													style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
+													aria-label="triangular ruler"
+													role="img"
+												>
+													📐
+												</span>
+											</p>
+										</div>
 									</div>
 								</div>
-							</div>
-						)}
-						<SwitchHorizontalSolidSVG className="w-6 h-6" />
-					</button>
-					<button
-						className="px-2 relative text-gray-400 hover:text-gray-100 focus:text-gray-100 focus:outline-none transition duration-200 ease-in-out"
-						onFocus={e => setTooltip("dark-mode")}
-						onBlur={e => setTooltip("")}
-						onMouseEnter={e => setTooltip("dark-mode")}
-						onMouseLeave={e => setTooltip("")}
-						onClick={e => {}}
-					>
-						{tooltip === "dark-mode" && (
-							<div className="-mt-2 absolute top-full right-0">
-								<div className="rounded-md shadow-lg">
-									<div className="px-3 py-2 bg-gray-700 rounded-md shadow-lg">
-										<p className="font-medium text-sm whitespace-pre text-gray-100">
-											Toggle dark mode
-											<span
-												className="ml-2"
-												style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
-												aria-label="sun"
-												role="img"
-											>
-												☀️
-											</span>
-										</p>
-									</div>
-								</div>
-							</div>
-						)}
-						<SunSolidSVG className="w-6 h-6" />
-					</button>
+							)}
+							<SwitchHorizontalSolidSVG className="w-6 h-6" />
+						</button>
+					</div>
+
+					{/* Toggle dark mode */}
+					{/* <span */}
+					{/* 	className="ml-2" */}
+					{/* 	style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }} */}
+					{/* 	aria-label="sun" */}
+					{/* 	role="img" */}
+					{/* > */}
+					{/* 	☀️ */}
+					{/* </span> */}
+
 				</div>
 
 			</form>
@@ -319,7 +326,7 @@ const MemoIcon = React.memo(({ icon }) => (
 		{icon.statusNew && (
 			<div className="px-3 py-2 absolute top-0 right-0">
 				<div className="px-1.5 flex flex-row justify-center items-center bg-indigo-500 rounded-full">
-					<p className="font-bold text-xxs text-gray-100">
+					<p className="font-bold text-xxs text-indigo-50">
 						NEW
 					</p>
 				</div>
