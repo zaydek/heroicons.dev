@@ -32,11 +32,14 @@ const actions = state => ({
 		// 	})
 		// })
 		state.results = iconset.filter(each => {
-			const ok = (
-				(each.statusNew && text === "new") ||
-				each.name.indexOf(text) >= 0
-			)
-			return ok
+			each.searchQueryIndex = each.name.indexOf(text)
+			if (each.statusNew && text === "new") {
+				return true
+			}
+			return each.searchQueryIndex >= 0
+		})
+		state.results.sort((a, b) => {
+			return a.searchQueryIndex - b.searchQueryIndex
 		})
 	},
 	// Toggles form.copyAsReact.
