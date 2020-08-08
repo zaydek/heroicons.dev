@@ -47,6 +47,7 @@ function toCamelCase(str) {
 
 const BreakpointContext = React.createContext()
 
+// TODO: Extract <StyledH1>, <StyledH2>, and <StyledH3>.
 const App = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 	const breakpoints = useLayoutBreakpoints(tailwindcss.theme.screens)
@@ -307,12 +308,6 @@ const SearchForm = ({ state, dispatch }) => {
 				{/* RHS */}
 				<div className="px-6 absolute inset-y-0 right-0 flex flex-row">
 
-					{/* <Transition */}
-					{/* 	on={state.form.copyAsReact} */}
-					{/* 	className="transition duration-200 ease-in-out" */}
-					{/* 	from="transform scale-90" */}
-					{/* 	to="transform scale-100" */}
-					{/* > */}
 					<div
 						className="flex flex-row items-center"
 						onFocus={e => setTooltip("jsx")}
@@ -358,7 +353,6 @@ const SearchForm = ({ state, dispatch }) => {
 							<CodeSolidSVG className="w-6 h-6" />
 						</button>
 					</div>
-					{/* </Transition> */}
 
 					<div
 						className="flex flex-row items-center"
@@ -406,15 +400,6 @@ const SearchForm = ({ state, dispatch }) => {
 						</button>
 					</div>
 
-					{/* Toggle dark mode */}
-					{/* <span */}
-					{/* 	style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }} */}
-					{/* 	aria-label="sun" */}
-					{/* 	role="img" */}
-					{/* > */}
-					{/* 	☀️ */}
-					{/* </span> */}
-
 				</div>
 
 			</form>
@@ -460,7 +445,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				<div className="px-3 py-2 absolute top-0 right-0">
 					<div className="px-1.5 bg-indigo-500 rounded-full">
 						{/* NOTE: font-bold is preferred to font-semibold. */}
-						<p className="font-bold text-2xs xs:text-xs text-indigo-50">
+						<p className="font-bold text-3xs xs:text-2gxs text-indigo-50">
 							NEW
 						</p>
 					</div>
@@ -526,8 +511,9 @@ const Icons = ({ state, dispatch }) => {
 	return (
 		<DocumentTitle title={!state.form.searchQuery ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
 			<main style={{ height, minHeight }}>
+
 				{!state.results.length ? (
-					<div className="flex flex-col justify-center items-center h-full bg-green-100">
+					<div className="flex flex-col justify-center items-center h-full">
 						<h3 className="flex flex-row items-center font-medium text-xl leading-9 text-gray-100">
 							No results for “{state.form.searchQuery}.”
 							<Space />
@@ -541,7 +527,9 @@ const Icons = ({ state, dispatch }) => {
 							.
 						</h3>
 					</div>
+
 				) : (
+
 					<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
 						{state.results.map(each => (
 							<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
@@ -556,6 +544,7 @@ const Icons = ({ state, dispatch }) => {
 						))}
 					</div>
 				)}
+
 			</main>
 		</DocumentTitle>
 	)

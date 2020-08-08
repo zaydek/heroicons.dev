@@ -52,7 +52,8 @@ module.exports = {
 				sans: [...defaultTheme.fontFamily.sans.slice(0, 3), "Inter", ...defaultTheme.fontFamily.sans.slice(3)],
 			},
 			fontSize: {
-				"2xs": "0.625rem",
+				"3xs": "0.625rem",
+				"2xs": "0.6875rem",
 			},
 		},
 		screens: {
