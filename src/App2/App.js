@@ -1,23 +1,19 @@
-// import LightningBoltSolidSVG from "heroicons-ecfba30/solid/LightningBolt"
 import CarbonAds from "./CarbonAds"
 import disableAutoCorrect from "./disableAutoCorrect"
 import DocumentTitle from "lib/x/DocumentTitle"
 import iconset from "./iconset"
 import React from "react"
 import SVG from "./SVG"
-import Transition from "lib/x/Transition"
 import useHeroiconsReducer from "./useHeroiconsReducer"
 
+// import ExternalLinkSolidSVG from "heroicons-ecfba30/solid/ExternalLink"
+// import SunOutlineSVG from "heroicons-ecfba30/outline/Sun"
+// import SunSolidSVG from "heroicons-ecfba30/solid/Sun"
 import CodeOutlineSVG from "heroicons-ecfba30/outline/Code"
 import CodeSolidSVG from "heroicons-ecfba30/solid/Code"
-import ExternalLinkSolidSVG from "heroicons-ecfba30/solid/ExternalLink"
 import FlagSolidSVG from "heroicons-ecfba30/solid/Flag"
-import PlusCircleOutlineSVG from "heroicons-ecfba30/outline/PlusCircle"
 import SearchOutlineSVG from "heroicons-ecfba30/outline/Search"
-import SunOutlineSVG from "heroicons-ecfba30/outline/Sun"
-import SunSolidSVG from "heroicons-ecfba30/solid/Sun"
 import SwitchHorizontalSolidSVG from "heroicons-ecfba30/solid/SwitchHorizontal"
-import XCircleSolidSVG from "heroicons-ecfba30/solid/XCircle"
 
 import { ReactComponent as FigmaLogoSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubLogoSVG } from "svg/github.svg"
@@ -322,7 +318,7 @@ const SearchForm = ({ state, dispatch }) => {
 }
 
 // NOTE: <div tabIndex={0}> is preferred to <button>.
-const MemoIcon = React.memo(({ icon, showOutline }) => (
+const MemoIcon = React.memo(({ state, dispatch, icon }) => (
 	<div className="flex flex-row justify-center items-center h-full bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none cursor-pointer transition duration-200 ease-in-out" tabIndex={0}>
 
 		{/* NEW */}
@@ -340,7 +336,7 @@ const MemoIcon = React.memo(({ icon, showOutline }) => (
 		<SVG
 			className="w-8 h-8 text-gray-100"
 			data-heroicons-name={icon.name}
-			svg={icon[!showOutline ? "solid" : "outline"]}
+			svg={icon[!state.form.showOutline ? "solid" : "outline"]}
 		/>
 
 		{/* Name */}
@@ -351,7 +347,13 @@ const MemoIcon = React.memo(({ icon, showOutline }) => (
 		</div>
 
 	</div>
-))
+), (prev, next) => {
+	const ok = (
+		prev.state.form.showOutline === next.state.form.showOutline &&
+		prev.icon === next.icon
+	)
+	return ok
+})
 
 // +---- pt-24 ----+
 // |  -mt-4 pt-4   |
@@ -369,8 +371,9 @@ const Icons = ({ state, dispatch }) => (
 				<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
 					<div className="absolute inset-0">
 						<MemoIcon
+							state={state}
+							dispatch={dispatch}
 							icon={each}
-							showOutline={state.form.showOutline}
 						/>
 					</div>
 				</div>
