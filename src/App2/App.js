@@ -11,6 +11,7 @@ import useHeroiconsReducer from "./useHeroiconsReducer"
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 
 import CodeSolidSVG from "heroicons-ecfba30/solid/Code"
+import EmojiSadSolidSVG from "heroicons-ecfba30/solid/EmojiSad"
 import ExternalLinkOutlineSVG from "heroicons-ecfba30/outline/ExternalLink"
 import FlagSolidSVG from "heroicons-ecfba30/solid/Flag"
 import SearchOutlineSVG from "heroicons-ecfba30/outline/Search"
@@ -74,7 +75,8 @@ const App = () => {
 				{/* */}
 				{/* NOTE: Uses p-3 not px-3 py-2. */}
 				<aside className="space-x-4 p-3 absolute top-0 inset-x-0 hidden lg:flex lg:flex-row lg:justify-center">
-					{/* NOTE: block is needed for space-y-* */}
+
+					{/* https://github.com/refactoringui/heroicons */}
 					<a className="block" href="https://github.com/refactoringui/heroicons" target="_blank" rel="noopener noreferrer">
 						<p className="flex flex-row items-center font-medium text-gray-100">
 							<GitHubLogoSVG className="mr-1 w-5 h-5" />
@@ -84,6 +86,8 @@ const App = () => {
 							<ExternalLinkOutlineSVG className="w-4 h-4 text-indigo-400" />
 						</p>
 					</a>
+
+					{/* https://github.com/codex-src/heroicons.dev */}
 					<a className="block" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
 						<p className="flex flex-row items-center font-medium text-gray-100">
 							<GitHubLogoSVG className="mr-1 w-5 h-5" />
@@ -99,7 +103,9 @@ const App = () => {
 							<ExternalLinkOutlineSVG className="w-4 h-4 text-indigo-400" />
 						</p>
 					</a>
-					<a className="block" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
+
+					{/* https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L */}
+					<a className="block" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" target="_blank" rel="noopener noreferrer">
 						<p className="flex flex-row items-center font-medium text-gray-100">
 							<FigmaLogoSVG className="wmr-1 -5 h-5" />
 							<Space />
@@ -108,6 +114,7 @@ const App = () => {
 							<ExternalLinkOutlineSVG className="w-4 h-4 text-indigo-400" />
 						</p>
 					</a>
+
 				</aside>
 
 				{/* <header> */}
@@ -170,12 +177,10 @@ const App = () => {
 				/>
 
 				<div className="h-4" />
-				<DocumentTitle title={!state.form.search ? "Heroicons" : `${state.results.length} result${state.results.length === 1 ? "" : "s"}`}>
-					<Icons
-						state={state}
-						dispatch={dispatch}
-					/>
-				</DocumentTitle>
+				<Icons
+					state={state}
+					dispatch={dispatch}
+				/>
 
 				<Transition
 					on={state.showClipboardIconNotification}
@@ -493,31 +498,61 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	return ok
 })
 
-// +---- pt-24 ----+
-// |  -mt-4 pt-4   |
-// |   =========   |
-// |      h-4      |
-// |               |
-// |               |
-// |               |
-// +---- pb-24 ----+
+const Icons = ({ state, dispatch }) => {
+	const [height, minHeight] = React.useMemo(() => {
 
-const Icons = ({ state, dispatch }) => (
-	<main style={{ minHeight: "calc(100vh - 14rem)" }}>
-		<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
-			{state.results.map(each => (
-				<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
-					<div className="absolute inset-0">
-						<MemoIcon
-							state={state}
-							dispatch={dispatch}
-							icon={each}
-						/>
+		// +---- pt-24 ----+
+		// |  -mt-4 pt-4   |
+		// |   =========   |
+		// |      h-4      |
+		// |               |
+		// |               |
+		// |               |
+		// +---- pb-24 ----+
+		//
+		const clientHeight = "calc(100vh - 14rem)"
+		const height = !state.results.length && clientHeight
+		const minHeight = !(!state.results.length) && clientHeight
+
+		return [height, minHeight]
+	}, [state.results])
+
+	return (
+		<DocumentTitle title={!state.form.searchQuery ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
+			<main style={{ height, minHeight }}>
+				{!state.results.length ? (
+					<div className="flex flex-col justify-center items-center h-full">
+						<h2 className="flex flex-row items-center font-medium text-xl leading-9 text-gray-100">
+							No results for “{state.form.searchQuery}.”
+							<Space />
+							<EmojiSadSolidSVG className="w-6 h-6 text-gray-100" />
+						</h2>
+						<h2 className="font-medium text-xl leading-9 text-gray-100">
+							Try again or{" "}
+							<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" target="_blank" rel="noopener noreferrer">
+								request an icon here
+							</a>
+							.
+						</h2>
 					</div>
-				</div>
-			))}
-		</div>
-	</main>
-)
+				) : (
+					<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
+						{state.results.map(each => (
+							<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
+								<div className="absolute inset-0">
+									<MemoIcon
+										state={state}
+										dispatch={dispatch}
+										icon={each}
+									/>
+								</div>
+							</div>
+						))}
+					</div>
+				)}
+			</main>
+		</DocumentTitle>
+	)
+}
 
 export default App
