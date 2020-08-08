@@ -75,7 +75,9 @@ module.exports = {
 	},
 	variants: {
 		...defaultVariants,
+
 		typography: [],
+		backgroundColor: [...defaultVariants.backgroundColor, "active"],
 	},
 	plugins: [
 		require("@tailwindcss/ui"),

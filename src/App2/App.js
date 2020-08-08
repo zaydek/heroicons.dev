@@ -204,20 +204,18 @@ const App = () => {
 											<>
 												<SVG className="w-5 h-5" svg={state.clipboardIcon[!state.form.showOutline ? "solid" : "outline"]} />
 												<Space />
+												<Space />
 												<span className="inline-flex flex-row items-baseline">
 													Copied
 													<Space />
 													<span className="font-mono">
-														{"<"}
 														{!state.form.copyAsReact
 															? state.clipboardIcon.name
 															: toCamelCase(state.clipboardIcon.name)
 														}
-														{">"}
 													</span>
-													!
-													{/* <Space /> */}
-													{/* to the clipboard! */}
+													<Space />
+													as {!state.form.copyAsReact ? "HTML" : "JSX"}
 												</span>
 											</>
 										)}
@@ -486,7 +484,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	return (
 		<button
 			ref={buttonRef}
-			className="flex flex-row justify-center items-center w-full h-full bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none transition duration-200 ease-in-out select-text"
+			className="flex flex-row justify-center items-center w-full h-full bg-gray-800 active:bg-indigo-500 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none transition duration-200 ease-in-out select-text"
 			onClick={handleClick}
 		>
 
@@ -563,6 +561,7 @@ const Icons = ({ state, dispatch }) => {
 			<main style={{ height, minHeight }}>
 
 				{!state.results.length ? (
+
 					<div className="flex flex-col justify-center items-center h-full">
 						<h3 className="flex flex-row items-center font-medium text-xl leading-9 text-gray-100">
 							No results for “{state.form.searchQuery}.”
@@ -593,6 +592,7 @@ const Icons = ({ state, dispatch }) => {
 							</div>
 						))}
 					</div>
+
 				)}
 
 			</main>

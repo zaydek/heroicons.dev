@@ -1,4 +1,4 @@
-import iconset from "./iconset"
+import dataset from "./dataset"
 import { useImmerReducer } from "use-immer"
 
 const initialState = {
@@ -9,7 +9,7 @@ const initialState = {
 		copyAsReact: false,
 		showOutline: false, // TODO,
 	},
-	results: iconset,
+	results: dataset,
 	showClipboardIconNotification: false,
 	clipboardIcon: "",
 }
@@ -25,11 +25,11 @@ const actions = state => ({
 		text = text.toLowerCase()
 		if (!text) {
 			state.form.searchQuery = ""
-			state.results = iconset
+			state.results = dataset
 			return
 		}
 		state.form.searchQuery = text
-		state.results = iconset.filter(each => {
+		state.results = dataset.filter(each => {
 			each.searchQueryIndex = each.name.indexOf(text)
 			if (each.statusNew && text === "new") {
 				return true

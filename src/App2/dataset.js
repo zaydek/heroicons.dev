@@ -1,7 +1,7 @@
 import * as Outline from "heroicons-ecfba30/outline"
 import * as Solid from "heroicons-ecfba30/solid"
 
-const iconset = [
+const dataset = [
 	// // FIXME
 	// {
 	// 	name: "academic-cap",
@@ -1376,9 +1376,9 @@ const iconset = [
 // 		return [name, ...arr]
 // 	}
 // 	/* eslint-disable-next-line array-callback-return */
-// 	iconset.map(each => {
+// 	dataset.map(each => {
 // 		each.tags = generateTags(each.name)
 // 	})
 // })()
 
-export default iconset
+export default dataset
