@@ -1,4 +1,5 @@
 import CarbonAds from "./CarbonAds"
+import copyToClipboardPolyfill from "./copyToClipboardPolyfill"
 import disableAutoCorrect from "./disableAutoCorrect"
 import DocumentTitle from "lib/x/DocumentTitle"
 import iconset from "./iconset"
@@ -194,7 +195,7 @@ const App = () => {
 													{">"}
 												</span>
 												<span style={{ width: "0.5ch" }} />
-												to the clipboard!
+												to the clipboard
 											</span>
 										</>
 									)}
@@ -290,10 +291,10 @@ const SearchForm = ({ state, dispatch }) => {
 						onMouseLeave={e => setTooltip("")}
 					>
 						<button
-							className="p-2 relative text-gray-400 hover:bg-gray-700 hover:bg-opacity-75 focus:bg-gray-700 focus:bg-opacity-75 rounded-full focus:outline-none transition duration-200 ease-in-out"
+							className="p-2 relative text-gray-400 hover:bg-gray-700 focus:bg-gray-700 rounded-full focus:outline-none transition duration-200 ease-in-out"
 							style={{
 								color: state.form.copyAsReact && "var(--gray-100)",
-								backgroundColor: state.form.copyAsReact && "#374151bf", // e.g. bg-gray-700 bg-gopacity-75
+								backgroundColor: state.form.copyAsReact && "var(--gray-700)",
 							}}
 							onClick={e => {
 								dispatch({
@@ -309,14 +310,14 @@ const SearchForm = ({ state, dispatch }) => {
 											<div className="p-0.5">
 												<p className="whitespace-pre font-medium text-sm text-gray-100">
 													Copy Icons as React JSX
-													<span
-														className="ml-2"
-														style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
-														aria-label="atom symbol"
-														role="img"
-													>
-														⚛️
-													</span>
+													{/* <span */}
+													{/* 	className="ml-2" */}
+													{/* 	style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }} */}
+													{/* 	aria-label="atom symbol" */}
+													{/* 	role="img" */}
+													{/* > */}
+													{/* 	⚛️ */}
+													{/* </span> */}
 												</p>
 											</div>
 										</div>
@@ -335,10 +336,10 @@ const SearchForm = ({ state, dispatch }) => {
 						onMouseLeave={e => setTooltip("")}
 					>
 						<button
-							className="p-2 relative text-gray-400 hover:bg-gray-700 hover:bg-opacity-75 focus:bg-gray-700 focus:bg-opacity-75 rounded-full focus:outline-none transition duration-200 ease-in-out"
+							className="p-2 relative text-gray-400 hover:bg-gray-700 focus:bg-gray-700 rounded-full focus:outline-none transition duration-200 ease-in-out"
 							style={{
 								color: state.form.showOutline && "var(--gray-100)",
-								backgroundColor: state.form.showOutline && "#374151bf", // e.g. gray-700 opacity-75
+								backgroundColor: state.form.showOutline && "var(--gray-700)",
 							}}
 							onClick={e => {
 								dispatch({
@@ -354,14 +355,14 @@ const SearchForm = ({ state, dispatch }) => {
 											<div className="p-0.5">
 												<p className="whitespace-pre font-medium text-sm text-gray-100">
 													Change to {!state.form.showOutline ? "Outline" : "Solid"} Icons
-													<span
-														className="ml-2"
-														style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
-														aria-label="triangular ruler"
-														role="img"
-													>
-														📐
-													</span>
+													{/* <span */}
+													{/* 	className="ml-2" */}
+													{/* 	style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }} */}
+													{/* 	aria-label="triangular ruler" */}
+													{/* 	role="img" */}
+													{/* > */}
+													{/* 	📐 */}
+													{/* </span> */}
 												</p>
 											</div>
 										</div>
@@ -390,18 +391,16 @@ const SearchForm = ({ state, dispatch }) => {
 	)
 }
 
-// NOTE: <div tabIndex={0}> is preferred to <button>.
 const MemoIcon = React.memo(({ state, dispatch, icon }) => {
+	const buttonRef = React.useRef()
 
 	const handleClick = e => {
-		navigator.clipboard.writeText('Text to be copied')
-			.then(() => {
-				console.log('Text copied to clipboard');
-			})
-			.catch(err => {
-				// This can happen if the user denies clipboard permissions:
-				console.error('Could not copy text: ', err);
-			});
+		try {
+			copyToClipboardPolyfill("Hello, world!")
+			buttonRef.current.focus()
+		} catch (error) {
+			console.error(`copyToClipboardPolyfill: ${error}`)
+		}
 		dispatch({
 			type: "UPDATE_CLIPBOARD_ICON",
 			icon,
@@ -409,10 +408,10 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	}
 
 	return (
-		<div
-			className="flex flex-row justify-center items-center h-full bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none cursor-pointer transition duration-200 ease-in-out"
+		<button
+			ref={buttonRef}
+			className="flex flex-row justify-center items-center w-full h-full bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none transition duration-200 ease-in-out select-text"
 			onClick={handleClick}
-			tabIndex={0}
 		>
 
 			{/* NEW */}
@@ -459,7 +458,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				{/* </div> */}
 			</div>
 
-		</div>
+		</button>
 	)
 }, (prev, next) => {
 	const ok = (
