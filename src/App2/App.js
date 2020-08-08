@@ -8,12 +8,12 @@ import SVG from "./SVG"
 import Transition from "lib/x/Transition"
 import useHeroiconsReducer from "./useHeroiconsReducer"
 
-// import ExternalLinkSolidSVG from "heroicons-ecfba30/solid/ExternalLink"
 // import SunOutlineSVG from "heroicons-ecfba30/outline/Sun"
 // import SunSolidSVG from "heroicons-ecfba30/solid/Sun"
 import CodeOutlineSVG from "heroicons-ecfba30/outline/Code"
 import CodeSolidSVG from "heroicons-ecfba30/solid/Code"
 import CursorClickSolidSVG from "heroicons-ecfba30/solid/CursorClick"
+import ExternalLinkOutlineSVG from "heroicons-ecfba30/outline/ExternalLink"
 import FlagSolidSVG from "heroicons-ecfba30/solid/Flag"
 import SearchOutlineSVG from "heroicons-ecfba30/outline/Search"
 import SwitchHorizontalSolidSVG from "heroicons-ecfba30/solid/SwitchHorizontal"
@@ -38,6 +38,10 @@ document.body.classList.add("bg-black")
 // {/* 		/> */}
 // {/* 	</div> */}
 // {/* </div> */}
+
+const Space = () => (
+	<span style={{ width: "0.5ch" }} />
+)
 
 // Converts kebab-case to camelCase.
 function toCamelCase(str) {
@@ -71,33 +75,41 @@ const App = () => {
 			<div className="px-6 w-full max-w-screen-lg">
 
 				{/* <aside> */}
-				<aside className="space-y-2 px-3 py-2 absolute top-0 left-0 hidden lg:block">
+				{/* */}
+				{/* NOTE: Uses p-3 not px-3 py-2. */}
+				<aside className="space-x-4 p-3 absolute top-0 inset-x-0 hidden lg:flex lg:flex-row lg:justify-center">
 					{/* NOTE: block is needed for space-y-* */}
 					<a className="block" href="https://github.com/refactoringui/heroicons" target="_blank" rel="noopener noreferrer">
 						<p className="flex flex-row items-center font-medium text-gray-100">
-							<GitHubLogoSVG className="mr-2 w-5 h-5 rounded-full" />
-							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
-								Open the GitHub repo
-							</span>
-							{/* <ExternalLinkSolidSVG className="ml-1 w-4 h-4 text-indigo-500" /> */}
+							<GitHubLogoSVG className="mr-1 w-5 h-5" />
+							<Space />
+							Open the GitHub repo
+							<Space />
+							<ExternalLinkOutlineSVG className="w-4 h-4 text-indigo-400" />
 						</p>
 					</a>
 					<a className="block" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
 						<p className="flex flex-row items-center font-medium text-gray-100">
-							<GitHubLogoSVG className="mr-2 w-5 h-5 rounded-full" />
-							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
-								Open the GitHub heroicons.dev repo
+							<GitHubLogoSVG className="mr-1 w-5 h-5" />
+							<Space />
+							Open the GitHub
+							<Space />
+							<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
+								heroicons.dev
 							</span>
-							{/* <ExternalLinkSolidSVG className="ml-1 w-4 h-4 text-indigo-500" /> */}
+							<Space />
+							repo
+							<Space />
+							<ExternalLinkOutlineSVG className="w-4 h-4 text-indigo-400" />
 						</p>
 					</a>
 					<a className="block" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
 						<p className="flex flex-row items-center font-medium text-gray-100">
-							<FigmaLogoSVG className="mr-2 w-5 h-5 rounded-full" />
-							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
-								Open the Figma file
-							</span>
-							{/* <ExternalLinkSolidSVG className="ml-1 w-4 h-4 text-indigo-500" /> */}
+							<FigmaLogoSVG className="wmr-1 -5 h-5" />
+							<Space />
+							Open the Figma file
+							<Space />
+							<ExternalLinkOutlineSVG className="w-4 h-4 text-indigo-400" />
 						</p>
 					</a>
 				</aside>
@@ -110,7 +122,7 @@ const App = () => {
 						<h1 className="font-bold text-5xl text-white" style={{ fontFamily: "DM Sans", letterSpacing: "-0.0375em" }}>
 							Heroicons
 						</h1>
-						<div className="-mt-1  ml-2 absolute" style={{ left: "100%" }}>
+						<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}>
 							<FlagSolidSVG className="w-12 h-12 text-indigo-500" />
 						</div>
 					</div>
@@ -129,7 +141,7 @@ const App = () => {
 						<a href="https://twitter.com/steveschoger" target="_blank" rel="noopener noreferrer">
 							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveS} alt="Steve Schoger" />
 							{" "}
-							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
+							<span style={{ boxShadow: "inset 0 -0.09375rem var(--indigo-500), 0 0.09375rem var(--indigo-500)" }}>
 								@steveschoger
 							</span>
 						</a>{" "}
@@ -138,7 +150,7 @@ const App = () => {
 						</span>
 						<a href="https://twitter.com/adamwathan" target="_blank" rel="noopener noreferrer">
 							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamW} alt="Adam Wathan" />{" "}
-							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
+							<span style={{ boxShadow: "inset 0 -0.09375rem var(--indigo-500), 0 0.09375rem var(--indigo-500)" }}>
 								@adamwathan
 							</span>
 						</a>
@@ -148,7 +160,7 @@ const App = () => {
 						</span>
 						<a href="https://twitter.com/username_ZAYDEK" target="_blank" rel="noopener noreferrer">
 							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />{" "}
-							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
+							<span style={{ boxShadow: "inset 0 -0.09375rem var(--indigo-500), 0 0.09375rem var(--indigo-500)" }}>
 								@username_ZAYDEK
 							</span>
 						</a>
@@ -176,16 +188,18 @@ const App = () => {
 					from="opacity-0 transform translate-y-4 pointer-events-none"
 					to="opacity-100 transform translate-y-0 pointer-events-auto"
 				>
-					<div className="px-6 py-4 fixed bottom-0 right-0">
+					{/* NOTE: Uses p-3 not px-3 py-2. */}
+					<div className="p-3 fixed bottom-0 left-0">
 						<div className="rounded-md shadow-lg">
 							<div className="px-3 py-2 bg-indigo-500 rounded-md shadow-lg">
 								<p className="flex flex-row items-center font-semibold text-indigo-50">
 									{state.clipboardIcon && (
 										<>
-											<SVG className="mr-2 w-5 h-5" svg={state.clipboardIcon[!state.form.showOutline ? "solid" : "outline"]} />
+											<SVG className="w-5 h-5" svg={state.clipboardIcon[!state.form.showOutline ? "solid" : "outline"]} />
+											<Space />
 											<span className="inline-flex flex-row items-baseline">
 												Copied
-												<span style={{ width: "0.5ch" }} />
+												<Space />
 												<span className="font-mono">
 													{"<"}
 													{!state.form.copyAsReact
@@ -194,7 +208,7 @@ const App = () => {
 													}
 													{">"}
 												</span>
-												<span style={{ width: "0.5ch" }} />
+												<Space />
 												to the clipboard
 											</span>
 										</>
@@ -310,14 +324,14 @@ const SearchForm = ({ state, dispatch }) => {
 											<div className="p-0.5">
 												<p className="whitespace-pre font-medium text-sm text-gray-100">
 													Copy Icons as React JSX
-													{/* <span */}
-													{/* 	className="ml-2" */}
-													{/* 	style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }} */}
-													{/* 	aria-label="atom symbol" */}
-													{/* 	role="img" */}
-													{/* > */}
-													{/* 	⚛️ */}
-													{/* </span> */}
+													<Space />
+													<span
+														style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
+														aria-label="atom symbol"
+														role="img"
+													>
+														⚛️
+													</span>
 												</p>
 											</div>
 										</div>
@@ -354,15 +368,15 @@ const SearchForm = ({ state, dispatch }) => {
 										<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
 											<div className="p-0.5">
 												<p className="whitespace-pre font-medium text-sm text-gray-100">
-													Change to {!state.form.showOutline ? "Outline" : "Solid"} Icons
-													{/* <span */}
-													{/* 	className="ml-2" */}
-													{/* 	style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }} */}
-													{/* 	aria-label="triangular ruler" */}
-													{/* 	role="img" */}
-													{/* > */}
-													{/* 	📐 */}
-													{/* </span> */}
+													{!state.form.showOutline ? "Change to Outline Icons" : "Change Back to Solid Icons"}
+													<Space />
+													<span
+														style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
+														aria-label="straight ruler"
+														role="img"
+													>
+														📏
+													</span>
 												</p>
 											</div>
 										</div>
@@ -375,7 +389,6 @@ const SearchForm = ({ state, dispatch }) => {
 
 					{/* Toggle dark mode */}
 					{/* <span */}
-					{/* 	className="ml-2" */}
 					{/* 	style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }} */}
 					{/* 	aria-label="sun" */}
 					{/* 	role="img" */}
@@ -429,7 +442,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 					{/* <div className="w-4 h-4 bg-indigo-500 rounded-full" /> */}
 					<div className="px-1.5 bg-indigo-500 rounded-full">
 						{/* NOTE: font-bold is preferred to font-semibold. */}
-						<p className="font-bold text-xxs text-indigo-50">
+						<p className="font-bold text-indigo-50" style={{ fontSize: "0.6875rem" }}>
 							NEW
 						</p>
 					</div>
@@ -445,26 +458,26 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 
 			{/* Name */}
 			<div className="px-3 py-2 absolute bottom-0">
-				{/* <div style={{ paddingBottom: 1.5 }}> */}
-				<p className="text-center font-semibold text-sm leading-tight font-mono text-gray-100">
-					{!state.form.searchQuery || state.form.searchQuery === "new" ? (
-						icon.name
-					) : (
-						(substrs => (
-							<>
-								{substrs[0]}
-								{/* <span className="p-px bg-indigo-500 rounded"> */}
-								{/* <span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}> */}
-								{/* <span style={{ boxShadow: "inset 0 -1.5px var(--yellow-200), 0 1.5px var(--yellow-200)" }}> */}
-								<span className="px-px text-black bg-yellow-200 rounded">
-									{state.form.searchQuery}
-								</span>
-								{icon.name.slice(substrs[0].length + state.form.searchQuery.length)}
-							</>
-						))(icon.name.split(state.form.searchQuery, 1))
-					)}
-				</p>
-				{/* </div> */}
+				<div style={{ paddingBottom: "0.0625rem" }}>
+					<p className="text-center font-semibold text-sm leading-tight font-mono text-gray-100">
+						{!state.form.searchQuery || state.form.searchQuery === "new" ? (
+							icon.name
+						) : (
+							(substrs => (
+								<>
+									{substrs[0]}
+									{/* <span className="p-px bg-indigo-500 rounded"> */}
+									{/* <span style={{ boxShadow: "inset 0 -0.09375rem var(--indigo-500), 0 0.09375rem var(--indigo-500)" }}> */}
+									{/* <span style={{ boxShadow: "inset 0 -0.09375rem var(--yellow-200), 0 0.09375rem var(--yellow-200)" }}> */}
+									<span className="px-px text-black bg-yellow-200 rounded">
+										{state.form.searchQuery}
+									</span>
+									{icon.name.slice(substrs[0].length + state.form.searchQuery.length)}
+								</>
+							))(icon.name.split(state.form.searchQuery, 1))
+						)}
+					</p>
+				</div>
 			</div>
 
 		</button>

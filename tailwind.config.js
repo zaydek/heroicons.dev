@@ -58,9 +58,9 @@ module.exports = {
 				// sans: ["Inter", ...sans],
 				sans: [...sans.slice(0, 3), "Inter", ...sans.slice(3)],
 			},
-			fontSize: {
-				xxs: "0.6875rem",
-			},
+			// fontSize: {
+			// 	xxs: "0.6875rem",
+			// },
 		},
 		screens: {
 			xs: `${24 + 512 + 24}px`,
