@@ -15,8 +15,8 @@ function svgToJSX(svgStr) {
 	})
 
 	// <path strokeWidth="2" ...> -> <path strokeWidth={2} ...>
-	jsxStr = jsxStr.replace(/strokeWidth={(\d+)}/g, (_, stokeWidth) => {
-		return `strokeWidth=${strokeWidth}`
+	jsxStr = jsxStr.replace(/strokeWidth="(\d+)"/g, (_, strokeWidth) => {
+		return `strokeWidth={${strokeWidth}}`
 	})
 
 	return jsxStr

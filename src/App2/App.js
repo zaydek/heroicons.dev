@@ -4,6 +4,7 @@ import disableAutoCorrect from "./disableAutoCorrect"
 import DocumentTitle from "lib/x/DocumentTitle"
 import React from "react"
 import SVG from "./SVG"
+import svgToJSX from "./svgToJSX"
 import tailwindcss from "tailwindcss/js/tailwind.config.js"
 import toCamelCase from "./toCamelCase"
 import Transition from "lib/x/Transition"
@@ -321,7 +322,6 @@ const SearchForm = ({ state, dispatch }) => {
 		}
 	}, [])
 
-
 	return (
 		<div className="-mt-4 pt-4 sticky top-0 z-40" style={{ boxShadow: "inset 0 2.25rem 0 0 var(--black)" }}>
 			<form className="relative" onSubmit={e => e.preventDefault()}>
@@ -464,9 +464,9 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			const originalEl = document.getElementById(icon.name)
 			const el = originalEl.cloneNode(true)
 			el.removeAttribute("id")
-			el.classList.remove(...el.classList);
+			el.classList.remove(...el.classList)
 			el.classList.add(...`${icon.name} w-6 h-6`.split(" "))
-			copyToClipboardPolyfill(el.outerHTML)
+			copyToClipboardPolyfill(!state.form.copyAsReact ? el.outerHTML : svgToJSX(el.outerHTML))
 			buttonRef.current.focus() // Refocus
 		} catch (error) {
 			console.error(`copyToClipboardPolyfill: ${error}`)
