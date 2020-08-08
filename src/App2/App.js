@@ -353,23 +353,25 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => (
 
 		{/* Name */}
 		<div className="px-3 py-2 absolute bottom-0">
-			<p className="font-semibold text-sm leading-tight font-mono text-center text-gray-100">
-				{!state.form.searchQuery ? (
-					icon.name
-				) : (
-					(substrs => (
-						<React.Fragment>
-							{substrs[0]}
-							{/* <span className="px-1 py-px bg-indigo-500 rounded-md"> */}
-							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
-								{state.form.searchQuery}
-							</span>
-							{/* </span> */}
-							{substrs[1]}
-						</React.Fragment>
-					))(icon.name.split(state.form.searchQuery))
-				)}
-			</p>
+			<div style={{ paddingBottom: 1.5 /* Offsets box-shadow */ }}>
+				<p className="font-semibold text-sm leading-tight font-mono text-center text-gray-100">
+					{!state.form.searchQuery ? (
+						icon.name
+					) : (
+						(substrs => (
+							<React.Fragment>
+								{substrs[0]}
+								{/* <span className="px-1 py-px bg-indigo-500 rounded-md"> */}
+								<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
+									{state.form.searchQuery}
+								</span>
+								{/* </span> */}
+								{substrs[1]}
+							</React.Fragment>
+						))(icon.name.split(state.form.searchQuery))
+					)}
+				</p>
+			</div>
 		</div>
 
 	</div>
