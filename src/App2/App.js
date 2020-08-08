@@ -4,6 +4,7 @@ import DocumentTitle from "lib/x/DocumentTitle"
 import iconset from "./iconset"
 import React from "react"
 import SVG from "./SVG"
+import Transition from "lib/x/Transition"
 import useHeroiconsReducer from "./useHeroiconsReducer"
 
 // import ExternalLinkSolidSVG from "heroicons-ecfba30/solid/ExternalLink"
@@ -11,6 +12,7 @@ import useHeroiconsReducer from "./useHeroiconsReducer"
 // import SunSolidSVG from "heroicons-ecfba30/solid/Sun"
 import CodeOutlineSVG from "heroicons-ecfba30/outline/Code"
 import CodeSolidSVG from "heroicons-ecfba30/solid/Code"
+import CursorClickSolidSVG from "heroicons-ecfba30/solid/CursorClick"
 import FlagSolidSVG from "heroicons-ecfba30/solid/Flag"
 import SearchOutlineSVG from "heroicons-ecfba30/outline/Search"
 import SwitchHorizontalSolidSVG from "heroicons-ecfba30/solid/SwitchHorizontal"
@@ -36,8 +38,32 @@ document.body.classList.add("bg-black")
 // {/* 	</div> */}
 // {/* </div> */}
 
+// Converts kebab-case to camelCase.
+function toCamelCase(str) {
+	return str.split("-").map(each => each.slice(0, 1).toUpperCase() + each.slice(1))
+}
+
 const App = () => {
 	const [state, dispatch] = useHeroiconsReducer()
+
+	const mounted = React.useRef()
+	React.useEffect(
+		React.useCallback(() => {
+			if (!mounted.current) {
+				mounted.current = true
+				return
+			}
+			const id = setTimeout(() => {
+				dispatch({
+					type: "HIDE_CLIPBOARD_ICON_NOTIFICATION",
+				})
+			}, 2e3)
+			return () => {
+				clearTimeout(id)
+			}
+		}, [dispatch]),
+		[state.showClipboardIconNotification],
+	)
 
 	return (
 		<div className="py-32 flex flex-row justify-center">
@@ -142,6 +168,41 @@ const App = () => {
 						dispatch={dispatch}
 					/>
 				</DocumentTitle>
+
+				<Transition
+					on={state.showClipboardIconNotification}
+					className="transition duration-200 ease-in-out"
+					from="opacity-0 transform translate-y-4 pointer-events-none"
+					to="opacity-100 transform translate-y-0 pointer-events-auto"
+				>
+					<div className="px-6 py-4 fixed bottom-0 right-0">
+						<div className="rounded-md shadow-lg">
+							<div className="px-3 py-2 bg-indigo-500 rounded-md shadow-lg">
+								<p className="flex flex-row items-center font-semibold text-indigo-50">
+									{state.clipboardIcon && (
+										<>
+											<SVG className="mr-2 w-5 h-5" svg={state.clipboardIcon[!state.form.showOutline ? "solid" : "outline"]} />
+											<span className="inline-flex flex-row items-baseline">
+												Copied
+												<span style={{ width: "0.5ch" }} />
+												<span className="font-mono">
+													{"<"}
+													{!state.form.copyAsReact
+														? state.clipboardIcon.name
+														: toCamelCase(state.clipboardIcon.name)
+													}
+													{">"}
+												</span>
+												<span style={{ width: "0.5ch" }} />
+												to the clipboard!
+											</span>
+										</>
+									)}
+								</p>
+							</div>
+						</div>
+					</div>
+				</Transition>
 
 			</div>
 		</div>
@@ -330,36 +391,59 @@ const SearchForm = ({ state, dispatch }) => {
 }
 
 // NOTE: <div tabIndex={0}> is preferred to <button>.
-const MemoIcon = React.memo(({ state, dispatch, icon }) => (
-	<div className="flex flex-row justify-center items-center h-full bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none cursor-pointer transition duration-200 ease-in-out" tabIndex={0}>
+const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 
-		{/* NEW */}
-		{icon.statusNew && (
-			<div className="px-3 py-2 absolute top-0 right-0">
-				<div className="px-1.5 flex flex-row justify-center items-center bg-indigo-500 rounded-full">
-					<p className="font-bold text-xxs text-indigo-50">
-						NEW
-					</p>
+	const handleClick = e => {
+		// // TODO
+		// navigator.clipboard.writeText('Text to be copied')
+		// 	.then(() => {
+		// 		console.log('Text copied to clipboard');
+		// 	})
+		// 	.catch(err => {
+		// 		// This can happen if the user denies clipboard permissions:
+		// 		console.error('Could not copy text: ', err);
+		// 	});
+		dispatch({
+			type: "UPDATE_CLIPBOARD_ICON",
+			icon,
+		})
+	}
+
+	return (
+		<div
+			className="flex flex-row justify-center items-center h-full bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none cursor-pointer transition duration-200 ease-in-out"
+			onClick={handleClick}
+			tabIndex={0}
+		>
+
+			{/* NEW */}
+			{icon.statusNew && (
+				<div className="px-3 py-2 absolute top-0 right-0">
+					<div className="px-1.5 bg-indigo-500 rounded-full">
+						{/* NOTE: font-bold is preferred to font-semibold. */}
+						<p className="font-bold text-xxs text-indigo-50">
+							NEW
+						</p>
+					</div>
 				</div>
-			</div>
-		)}
+			)}
 
-		{/* Icon */}
-		<SVG
-			id={icon.name}
-			className="w-8 h-8 text-gray-100"
-			svg={icon[!state.form.showOutline ? "solid" : "outline"]}
-		/>
+			{/* Icon */}
+			<SVG
+				id={icon.name}
+				className="w-8 h-8 text-gray-100"
+				svg={icon[!state.form.showOutline ? "solid" : "outline"]}
+			/>
 
-		{/* Name */}
-		<div className="px-3 py-2 absolute bottom-0">
-			{/* <div style={{ paddingBottom: 1.5 }}> */}
+			{/* Name */}
+			<div className="px-3 py-2 absolute bottom-0">
+				{/* <div style={{ paddingBottom: 1.5 }}> */}
 				<p className="font-semibold text-sm leading-tight font-mono text-center text-gray-100">
-					{!state.form.searchQuery ? (
+					{!state.form.searchQuery || state.form.searchQuery === "new" ? (
 						icon.name
 					) : (
 						(substrs => (
-							<React.Fragment>
+							<>
 								{substrs[0]}
 								{/* <span className="p-px bg-indigo-500 rounded"> */}
 								{/* <span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}> */}
@@ -368,18 +452,20 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => (
 									{state.form.searchQuery}
 								</span>
 								{icon.name.slice(substrs[0].length + state.form.searchQuery.length)}
-							</React.Fragment>
+							</>
 						))(icon.name.split(state.form.searchQuery, 1))
 					)}
 				</p>
-			{/* </div> */}
-		</div>
+				{/* </div> */}
+			</div>
 
-	</div>
-), (prev, next) => {
+		</div>
+	)
+}, (prev, next) => {
 	const ok = (
 		prev.state.form.searchQuery === next.state.form.searchQuery &&
 		prev.state.form.showOutline === next.state.form.showOutline &&
+		prev.state.dispatch === next.state.dispatch &&
 		prev.icon === next.icon
 	)
 	return ok

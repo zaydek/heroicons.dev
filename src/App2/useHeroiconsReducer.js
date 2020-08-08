@@ -2,21 +2,25 @@ import iconset from "./iconset"
 import { useImmerReducer } from "use-immer"
 
 const initialState = {
-	darkMode: false,
+	// darkMode: false,
+
 	form: {
 		searchQuery: "",
 		copyAsReact: false,
 		showOutline: false, // TODO,
 	},
 	results: iconset,
+	showClipboardIconNotification: false,
+	clipboardIcon: "",
+}
+
+// Generates a 4-character hash.
+function shortHash() {
+	return Math.random().toString(16).slice(2, 6)
 }
 
 const actions = state => ({
-	// Toggles dark mode.
-	toggleDarkMode() {
-		state.darkMode = !state.darkMode
-	},
-	// Updates form.searchQuery=text.
+	// Updates state.form.searchQuery=text.
 	updateFormSearchQuery(text) {
 		text = text.toLowerCase()
 		if (!text) {
@@ -25,11 +29,6 @@ const actions = state => ({
 			return
 		}
 		state.form.searchQuery = text
-		// state.results = iconset.filter(each => {
-		// 	return each.tags.some(each => {
-		// 		return each.startsWith(text)
-		// 	})
-		// })
 		state.results = iconset.filter(each => {
 			each.searchQueryIndex = each.name.indexOf(text)
 			if (each.statusNew && text === "new") {
@@ -41,28 +40,31 @@ const actions = state => ({
 			return a.searchQueryIndex - b.searchQueryIndex
 		})
 	},
-	// Toggles form.copyAsReact.
+	// Toggles state.form.copyAsReact.
 	toggleFormCopyAsReact() {
 		state.form.copyAsReact = !state.form.copyAsReact
 	},
-	// Toggles form.showOutline.
+	// Toggles state.form.showOutline.
 	toggleFormShowOutline() {
-		// if (state.form.showOutline === "solid") {
-		// 	state.form.showOutline = "outline"
-		// } else if (state.form.showOutline === "outline") {
-		// 	state.form.showOutline = "solid"
-		// }
 		state.form.showOutline = !state.form.showOutline
+	},
+	// Updates state.showClipboardIconNotification and
+	// state.clipboardIcon.
+	updateClipboardIcon(icon) {
+		// NOTE: Uses shortHash(...) so
+		// showClipboardIconNotification used as an effect
+		// dependency is never deeply equal.
+		state.showClipboardIconNotification = icon.name + "-" + shortHash()
+		state.clipboardIcon = icon
+	},
+	// Updates state.showClipboardIconNotification.
+	hideClipboardIconNotification() {
+		state.showClipboardIconNotification = false
 	},
 })
 
 function HeroiconsReducer(state, action) {
 	switch (action.type) {
-
-	// case "TOGGLE_DARK_MODE":
-	// 	actions(state).toggleDarkMode()
-	// 	return
-
 	case "UPDATE_FORM_SEARCH_QUERY":
 		actions(state).updateFormSearchQuery(action.text)
 		return
@@ -71,6 +73,12 @@ function HeroiconsReducer(state, action) {
 		return
 	case "TOGGLE_FORM_SHOW_OUTLINE":
 		actions(state).toggleFormShowOutline()
+		return
+	case "UPDATE_CLIPBOARD_ICON":
+		actions(state).updateClipboardIcon(action.icon)
+		return
+	case "HIDE_CLIPBOARD_ICON_NOTIFICATION":
+		actions(state).hideClipboardIconNotification()
 		return
 	default:
 		throw new Error(`HeroiconsReducer: type mismatch; action.type=${action.type}`)
