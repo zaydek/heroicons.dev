@@ -1,8 +1,6 @@
+// const plugin = require("tailwindcss/plugin")
 const defaultTheme = require("tailwindcss/defaultTheme")
-const defaultVariants = require("./tailwind-defaultVariants")
-const plugin = require("tailwindcss/plugin")
-
-const { fontFamily: { mono, sans } } = defaultTheme
+const defaultVariants = require("./defaultVariants")
 
 function trimWhitespace(str) {
 	return str.split(/\s+/).join(" ").trim()
@@ -49,14 +47,9 @@ module.exports = {
 				`),
 			},
 			fontFamily: {
-				// // eslint-disable-next-line quotes
-				// mono: [...mono.slice(0, 1), '"IBM Plex Mono"', ...mono.slice(1)],
-				// sans: [...sans.slice(0, 3), "Inter", ...sans.slice(3)],
-
 				// eslint-disable-next-line quotes
-				mono: ['"IBM Plex Mono"', ...mono],
-				// sans: ["Inter", ...sans],
-				sans: [...sans.slice(0, 3), "Inter", ...sans.slice(3)],
+				mono: ['"IBM Plex Mono"', ...defaultTheme.fontFamily.mono],
+				sans: [...defaultTheme.fontFamily.sans.slice(0, 3), "Inter", ...defaultTheme.fontFamily.sans.slice(3)],
 			},
 			fontSize: {
 				"2xs": "0.625rem",
@@ -79,37 +72,31 @@ module.exports = {
 			// => @media (min-width: 1328px) { ... }
 		},
 	},
-	// Add dark, hover:dark, and focus:dark:
 	variants: {
 		...defaultVariants,
 		typography: [],
-
-		// textColor: [...defaultVariants.textColor, "dark", "hover:dark", "focus:dark"],
-		// backgroundColor: [...defaultVariants.backgroundColor, "dark", "hover:dark", "focus:dark"],
-		// borderColor: [...defaultVariants.borderColor, "dark", "hover:dark", "focus:dark"],
-		// boxShadow: [...defaultVariants.boxShadow, "dark", "hover:dark", "focus:dark"],
 	},
 	plugins: [
 		require("@tailwindcss/ui"),
 
-		plugin(((flag = "dark-mode", prefix = "dark") => {
-			return ({ addVariant, e }) => {
-				addVariant(prefix, ({ modifySelectors }) => {
-					modifySelectors(({ className }) => {
-						return `.${flag} .${e(`${prefix}:${className}`)}`
-					})
-				})
-				addVariant(`hover:${prefix}`, ({ modifySelectors }) => {
-					modifySelectors(({ className }) => {
-						return `.${flag} .${e(`hover:${prefix}:${className}`)}:hover`
-					})
-				})
-				addVariant(`focus:${prefix}`, ({ modifySelectors }) => {
-					modifySelectors(({ className }) => {
-						return `.${flag} .${e(`focus:${prefix}:${className}`)}:focus`
-					})
-				})
-			}
-		})()),
+		// plugin(((flag = "dark-mode", prefix = "dark") => {
+		// 	return ({ addVariant, e }) => {
+		// 		addVariant(prefix, ({ modifySelectors }) => {
+		// 			modifySelectors(({ className }) => {
+		// 				return `.${flag} .${e(`${prefix}:${className}`)}`
+		// 			})
+		// 		})
+		// 		addVariant(`hover:${prefix}`, ({ modifySelectors }) => {
+		// 			modifySelectors(({ className }) => {
+		// 				return `.${flag} .${e(`hover:${prefix}:${className}`)}:hover`
+		// 			})
+		// 		})
+		// 		addVariant(`focus:${prefix}`, ({ modifySelectors }) => {
+		// 			modifySelectors(({ className }) => {
+		// 				return `.${flag} .${e(`focus:${prefix}:${className}`)}:focus`
+		// 			})
+		// 		})
+		// 	}
+		// })()),
 	],
 }

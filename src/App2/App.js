@@ -5,9 +5,10 @@ import DocumentTitle from "lib/x/DocumentTitle"
 import iconset from "./iconset"
 import React from "react"
 import SVG from "./SVG"
+import tailwindcss from "tailwindcss/js/tailwind.config.js"
 import Transition from "lib/x/Transition"
-import useBreakpoints from "lib/x/useBreakpoints"
 import useHeroiconsReducer from "./useHeroiconsReducer"
+import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 
 // import SunOutlineSVG from "heroicons-ecfba30/outline/Sun"
 // import SunSolidSVG from "heroicons-ecfba30/solid/Sun"
@@ -227,6 +228,8 @@ const App = () => {
 const SearchForm = ({ state, dispatch }) => {
 	const inputRef = React.useRef()
 
+	const { xs } = useLayoutBreakpoints(tailwindcss.theme.screens)
+
 	const [text, setText] = React.useState("")
 	const [tooltip, setTooltip] = React.useState("")
 
@@ -266,8 +269,6 @@ const SearchForm = ({ state, dispatch }) => {
 			document.removeEventListener("keydown", handler)
 		}
 	}, [])
-
-	const { xs } = useBreakpoints([560, 688, 816, 1072, 1328])
 
 	return (
 		<div className="-mt-4 pt-4 sticky top-0 z-40" style={{ boxShadow: "inset 0 2.25rem 0 0 var(--black)" }}>
