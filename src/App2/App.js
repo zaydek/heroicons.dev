@@ -200,7 +200,7 @@ const App = () => {
 						<div className="p-3 fixed bottom-0 left-0">
 							<div className="rounded-md shadow-lg">
 								<div className="px-3 py-2 bg-indigo-500 rounded-md shadow-lg">
-									<p className="flex flex-row items-center font-semibold text-sm xs:text-base text-indigo-50">
+									<p className="flex flex-row items-center font-semibold text-base text-indigo-50">
 										{state.clipboardIcon && (
 											<>
 												<SVG className="w-5 h-5" svg={state.clipboardIcon[!state.form.showOutline ? "solid" : "outline"]} />
@@ -342,7 +342,7 @@ const SearchForm = ({ state, dispatch }) => {
 						ref={inputRef}
 						className="px-16 w-full h-16 text-lg sm:text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
 						type="text"
-						placeholder={breakpoints.xs ? "Search 200+ Icons" : "Search 200+ Icons (Press esc to Search)"}
+						placeholder={breakpoints.sm ? "Search 200+ Icons" : "Search 200+ Icons (Press esc to Search)"}
 						value={text}
 						onChange={e => setText(e.target.value)}
 						{...disableAutoCorrect}
@@ -489,7 +489,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				<div className="px-3 py-2 absolute top-0 right-0">
 					<div className="px-1.5 bg-indigo-500 rounded-full">
 						{/* NOTE: font-bold is preferred to font-semibold. */}
-						<p className="font-bold text-3xs xs:text-2gxs text-indigo-50">
+						<p className="font-bold text-2xs text-indigo-50">
 							NEW
 						</p>
 					</div>
@@ -499,14 +499,14 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			{/* Icon */}
 			<SVG
 				id={icon.name}
-				className="w-6 xs:w-8 h-6 xs:h-8 text-gray-100"
+				className="w-8 h-8 text-gray-100"
 				svg={icon[!state.form.showOutline ? "solid" : "outline"]}
 			/>
 
 			{/* Name */}
 			<div className="px-3 py-2 absolute bottom-0">
 				<div style={{ paddingBottom: "0.0625rem" }}>
-					<p className="text-center font-semibold text-xs xs:text-sm leading-tight font-mono text-gray-100">
+					<p className="text-center font-semibold text-sm leading-tight font-mono text-gray-100">
 						{!state.form.searchQuery || state.form.searchQuery === "new" ? (
 							icon.name
 						) : (
