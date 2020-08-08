@@ -6,6 +6,7 @@ import iconset from "./iconset"
 import React from "react"
 import SVG from "./SVG"
 import Transition from "lib/x/Transition"
+import useBreakpoints from "lib/x/useBreakpoints"
 import useHeroiconsReducer from "./useHeroiconsReducer"
 
 // import SunOutlineSVG from "heroicons-ecfba30/outline/Sun"
@@ -266,6 +267,8 @@ const SearchForm = ({ state, dispatch }) => {
 		}
 	}, [])
 
+	const { xs } = useBreakpoints([560, 688, 816, 1072, 1328])
+
 	return (
 		<div className="-mt-4 pt-4 sticky top-0 z-40" style={{ boxShadow: "inset 0 2.25rem 0 0 var(--black)" }}>
 			<form className="relative" onSubmit={e => e.preventDefault()}>
@@ -275,13 +278,13 @@ const SearchForm = ({ state, dispatch }) => {
 					<SearchOutlineSVG className="w-6 h-6 text-gray-500" />
 				</div>
 
-				{/* <input> */}
+				{/* <input type="text"> */}
 				<div className="rounded-75 shadow-lg">
 					<input
 						ref={inputRef}
 						className="px-16 w-full max-w-full h-16 text-lg sm:text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
 						type="text"
-						placeholder={`Search ${iconset.length} Icons (Press "/" to focus)`}
+						placeholder={`Search ${iconset.length} Icons${xs ? "" : " (Press \"/\" to focus)"}`}
 						value={text}
 						onKeyDown={e => {
 							if (e.keyCode === 27 || e.key === "Escape") {
@@ -445,7 +448,6 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			{/* NEW */}
 			{icon.statusNew && (
 				<div className="px-3 py-2 absolute top-0 right-0">
-					{/* <div className="w-4 h-4 bg-indigo-500 rounded-full" /> */}
 					<div className="px-1.5 bg-indigo-500 rounded-full">
 						{/* NOTE: font-bold is preferred to font-semibold. */}
 						<p className="font-bold text-2xs xs:text-xs text-indigo-50">
