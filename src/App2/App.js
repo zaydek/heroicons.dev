@@ -115,13 +115,13 @@ const App = () => {
 					</div>
 
 					{/* <h2> */}
-					<h2 className="font-medium text-xl sm:text-2xl leading-9 text-center text-gray-100">
+					<h2 className="text-center font-medium text-xl sm:text-2xl leading-9 text-gray-100">
 						MIT-Licensed Open Source UI Icons
 					</h2>
 
 					{/* <h2> */}
 					<div className="h-4" />
-					<h2 className="font-medium text-lg sm:text-xl leading-9 text-center text-gray-100">
+					<h2 className="text-center font-medium text-lg sm:text-xl leading-9 text-gray-100">
 						<span className="hidden md:inline">
 							Created by{" "}
 						</span>
@@ -307,7 +307,7 @@ const SearchForm = ({ state, dispatch }) => {
 									<div className="rounded-md shadow-lg">
 										<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
 											<div className="p-0.5">
-												<p className="font-medium text-sm whitespace-pre text-gray-100">
+												<p className="whitespace-pre font-medium text-sm text-gray-100">
 													Copy Icons as React JSX
 													<span
 														className="ml-2"
@@ -352,7 +352,7 @@ const SearchForm = ({ state, dispatch }) => {
 									<div className="rounded-md shadow-lg">
 										<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
 											<div className="p-0.5">
-												<p className="font-medium text-sm whitespace-pre text-gray-100">
+												<p className="whitespace-pre font-medium text-sm text-gray-100">
 													Change to {!state.form.showOutline ? "Outline" : "Solid"} Icons
 													<span
 														className="ml-2"
@@ -394,15 +394,14 @@ const SearchForm = ({ state, dispatch }) => {
 const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 
 	const handleClick = e => {
-		// // TODO
-		// navigator.clipboard.writeText('Text to be copied')
-		// 	.then(() => {
-		// 		console.log('Text copied to clipboard');
-		// 	})
-		// 	.catch(err => {
-		// 		// This can happen if the user denies clipboard permissions:
-		// 		console.error('Could not copy text: ', err);
-		// 	});
+		navigator.clipboard.writeText('Text to be copied')
+			.then(() => {
+				console.log('Text copied to clipboard');
+			})
+			.catch(err => {
+				// This can happen if the user denies clipboard permissions:
+				console.error('Could not copy text: ', err);
+			});
 		dispatch({
 			type: "UPDATE_CLIPBOARD_ICON",
 			icon,
@@ -419,6 +418,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			{/* NEW */}
 			{icon.statusNew && (
 				<div className="px-3 py-2 absolute top-0 right-0">
+					{/* <div className="w-4 h-4 bg-indigo-500 rounded-full" /> */}
 					<div className="px-1.5 bg-indigo-500 rounded-full">
 						{/* NOTE: font-bold is preferred to font-semibold. */}
 						<p className="font-bold text-xxs text-indigo-50">
@@ -438,7 +438,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			{/* Name */}
 			<div className="px-3 py-2 absolute bottom-0">
 				{/* <div style={{ paddingBottom: 1.5 }}> */}
-				<p className="font-semibold text-sm leading-tight font-mono text-center text-gray-100">
+				<p className="text-center font-semibold text-sm leading-tight font-mono text-gray-100">
 					{!state.form.searchQuery || state.form.searchQuery === "new" ? (
 						icon.name
 					) : (
@@ -464,6 +464,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 }, (prev, next) => {
 	const ok = (
 		prev.state.form.searchQuery === next.state.form.searchQuery &&
+		prev.state.form.copyAsReact === next.state.form.copyAsReact &&
 		prev.state.form.showOutline === next.state.form.showOutline &&
 		prev.state.dispatch === next.state.dispatch &&
 		prev.icon === next.icon
