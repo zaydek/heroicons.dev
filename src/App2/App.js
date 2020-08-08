@@ -141,7 +141,10 @@ const App = () => {
 
 				<div className="h-4" />
 				<DocumentTitle title={!state.form.search ? "Heroicons" : `${state.results.length} result${state.results.length === 1 ? "" : "s"}`}>
-					<Icons icons={state.results} />
+					<Icons
+						state={state}
+						dispatch={dispatch}
+					/>
 				</DocumentTitle>
 
 			</div>
@@ -282,7 +285,7 @@ const SearchForm = ({ state, dispatch }) => {
 									<div className="rounded-md shadow-lg">
 										<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
 											<p className="font-medium text-sm whitespace-pre text-gray-100">
-												Switch to Outline Icons
+												Change to {!state.form.showOutline ? "Outline" : "Solid"} Icons
 												<span
 													className="ml-2"
 													style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
@@ -319,7 +322,7 @@ const SearchForm = ({ state, dispatch }) => {
 }
 
 // NOTE: <div tabIndex={0}> is preferred to <button>.
-const MemoIcon = React.memo(({ icon }) => (
+const MemoIcon = React.memo(({ icon, showOutline }) => (
 	<div className="flex flex-row justify-center items-center h-full bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none cursor-pointer transition duration-200 ease-in-out" tabIndex={0}>
 
 		{/* NEW */}
@@ -337,7 +340,7 @@ const MemoIcon = React.memo(({ icon }) => (
 		<SVG
 			className="w-8 h-8 text-gray-100"
 			data-heroicons-name={icon.name}
-			svg={icon.solid}
+			svg={icon[!showOutline ? "solid" : "outline"]}
 		/>
 
 		{/* Name */}
@@ -350,13 +353,25 @@ const MemoIcon = React.memo(({ icon }) => (
 	</div>
 ))
 
-const Icons = ({ icons }) => (
-	<main style={{ minHeight: "calc(100vh - 13.5rem)" }}>
+// +---- pt-24 ----+
+// |  -mt-4 pt-4   |
+// |   =========   |
+// |      h-4      |
+// |               |
+// |               |
+// |               |
+// +---- pb-24 ----+
+
+const Icons = ({ state, dispatch }) => (
+	<main style={{ minHeight: "calc(100vh - 14rem)" }}>
 		<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
-			{icons.map(each => (
+			{state.results.map(each => (
 				<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
 					<div className="absolute inset-0">
-						<MemoIcon icon={each} />
+						<MemoIcon
+							icon={each}
+							showOutline={state.form.showOutline}
+						/>
 					</div>
 				</div>
 			))}

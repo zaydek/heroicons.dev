@@ -33,7 +33,7 @@ const actions = state => ({
 		// })
 		state.results = iconset.filter(each => {
 			const ok = (
-				each.statusNew && text === "new" ||
+				(each.statusNew && text === "new") ||
 				each.name.indexOf(text) >= 0
 			)
 			return ok
