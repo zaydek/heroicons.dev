@@ -238,14 +238,26 @@ const SearchForm = ({ state, dispatch }) => {
 
 	const breakpoints = React.useContext(BreakpointContext)
 
-	const [text, setText] = React.useState("")
+	const [text, setText] = React.useState(() => {
+		if (!("URLSearchParams" in window)) {
+			return ""
+		}
+		const params = new URLSearchParams(window.location.search)
+		return params.get("search") || ""
+	})
+
 	const [tooltip, setTooltip] = React.useState("")
 
 	// Debounces search.
 	const mounted = React.useRef()
 	React.useEffect(
 		React.useCallback(() => {
+			// Do not debounce the mount search:
 			if (!mounted.current) {
+				dispatch({
+					type: "UPDATE_FORM_SEARCH_QUERY",
+					text,
+				})
 				mounted.current = true
 				return
 			}
@@ -262,6 +274,23 @@ const SearchForm = ({ state, dispatch }) => {
 		[text],
 	)
 
+	// Sets the search query to the URL.
+	//
+	// https://stackoverflow.com/a/41542008
+	React.useEffect(() => {
+		if (!("URLSearchParams" in window)) {
+			// No-op
+			return
+		}
+		if (!text) {
+			window.history.pushState(null, "", "/")
+		} else {
+			const params = new URLSearchParams(window.location.search)
+			params.set("search", text)
+			window.history.pushState(null, "", `/?${params}`)
+		}
+	}, [text])
+
 	// (Press "/" to focus).
 	React.useEffect(() => {
 		const handler = e => {
@@ -277,6 +306,16 @@ const SearchForm = ({ state, dispatch }) => {
 			document.removeEventListener("keydown", handler)
 		}
 	}, [])
+
+	// Escape resets text and or blurs <input>.
+	const handleKeyDown = e => {
+		if (e.keyCode === 27 || e.key === "Escape") {
+			if (!text) {
+				inputRef.current.blur()
+			}
+			setText("")
+		}
+	}
 
 	return (
 		<div className="-mt-4 pt-4 sticky top-0 z-40" style={{ boxShadow: "inset 0 2.25rem 0 0 var(--black)" }}>
@@ -295,11 +334,7 @@ const SearchForm = ({ state, dispatch }) => {
 						type="text"
 						placeholder={breakpoints.xs ? `Search ${iconset.length} Icons` : `Search ${iconset.length} Icons (Press "/" to focus)`}
 						value={text}
-						onKeyDown={e => {
-							if (e.keyCode === 27 || e.key === "Escape") {
-								setText("")
-							}
-						}}
+						onKeyDown={handleKeyDown}
 						onChange={e => setText(e.target.value)}
 						{...disableAutoCorrect}
 					/>
