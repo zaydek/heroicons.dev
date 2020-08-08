@@ -316,8 +316,10 @@ const SearchForm = ({ state, dispatch }) => {
 	React.useEffect(() => {
 		const handler = e => {
 			if (e.keyCode === 191 || e.key === "/") {
-				e.preventDefault()
-				inputRef.current.focus()
+				if (document.activeElement !== inputRef.current) {
+					e.preventDefault()
+					inputRef.current.focus()
+				}
 			}
 		}
 		document.addEventListener("keydown", handler)
