@@ -133,15 +133,14 @@ const App = () => {
 					</h2>
 
 					{/* <h2> */}
-					<div className="h-4" />
-					<h2 className="text-center font-medium text-lg sm:text-xl leading-9 text-gray-100">
+					<div className="h-4 hidden sm:block" />
+					<h2 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100">
 						<span className="hidden md:inline">
 							Created by{" "}
 						</span>
 						<a href="https://twitter.com/steveschoger" target="_blank" rel="noopener noreferrer">
-							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveS} alt="Steve Schoger" />
-							{" "}
-							<span style={{ boxShadow: "inset 0 -0.09375rem var(--indigo-500), 0 0.09375rem var(--indigo-500)" }}>
+							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveS} alt="Steve Schoger" />{" "}
+							<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
 								@steveschoger
 							</span>
 						</a>{" "}
@@ -150,7 +149,7 @@ const App = () => {
 						</span>
 						<a href="https://twitter.com/adamwathan" target="_blank" rel="noopener noreferrer">
 							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamW} alt="Adam Wathan" />{" "}
-							<span style={{ boxShadow: "inset 0 -0.09375rem var(--indigo-500), 0 0.09375rem var(--indigo-500)" }}>
+							<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
 								@adamwathan
 							</span>
 						</a>
@@ -160,7 +159,7 @@ const App = () => {
 						</span>
 						<a href="https://twitter.com/username_ZAYDEK" target="_blank" rel="noopener noreferrer">
 							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />{" "}
-							<span style={{ boxShadow: "inset 0 -0.09375rem var(--indigo-500), 0 0.09375rem var(--indigo-500)" }}>
+							<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
 								@username_ZAYDEK
 							</span>
 						</a>
@@ -297,6 +296,12 @@ const SearchForm = ({ state, dispatch }) => {
 				{/* RHS */}
 				<div className="px-6 absolute inset-y-0 right-0 flex flex-row">
 
+					{/* <Transition */}
+					{/* 	on={state.form.copyAsReact} */}
+					{/* 	className="transition duration-200 ease-in-out" */}
+					{/* 	from="transform scale-90" */}
+					{/* 	to="transform scale-100" */}
+					{/* > */}
 					<div
 						className="flex flex-row items-center"
 						onFocus={e => setTooltip("jsx")}
@@ -341,6 +346,7 @@ const SearchForm = ({ state, dispatch }) => {
 							<CodeSolidSVG className="w-6 h-6" />
 						</button>
 					</div>
+					{/* </Transition> */}
 
 					<div
 						className="flex flex-row items-center"
@@ -442,7 +448,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 					{/* <div className="w-4 h-4 bg-indigo-500 rounded-full" /> */}
 					<div className="px-1.5 bg-indigo-500 rounded-full">
 						{/* NOTE: font-bold is preferred to font-semibold. */}
-						<p className="font-bold text-indigo-50" style={{ fontSize: "0.6875rem" }}>
+						<p className="font-bold text-2xs xs:text-xs text-indigo-50">
 							NEW
 						</p>
 					</div>
@@ -452,14 +458,14 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			{/* Icon */}
 			<SVG
 				id={icon.name}
-				className="w-8 h-8 text-gray-100"
+				className="w-6 xs:w-8 h-6 xs:h-8 text-gray-100"
 				svg={icon[!state.form.showOutline ? "solid" : "outline"]}
 			/>
 
 			{/* Name */}
 			<div className="px-3 py-2 absolute bottom-0">
 				<div style={{ paddingBottom: "0.0625rem" }}>
-					<p className="text-center font-semibold text-sm leading-tight font-mono text-gray-100">
+					<p className="text-center font-semibold text-xs xs:text-sm leading-tight font-mono text-gray-100">
 						{!state.form.searchQuery || state.form.searchQuery === "new" ? (
 							icon.name
 						) : (
