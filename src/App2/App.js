@@ -45,8 +45,11 @@ function toCamelCase(str) {
 	return str.split("-").map(each => each.slice(0, 1).toUpperCase() + each.slice(1))
 }
 
+const BreakpointContext = React.createContext()
+
 const App = () => {
 	const [state, dispatch] = useHeroiconsReducer()
+	const breakpoints = useLayoutBreakpoints(tailwindcss.theme.screens)
 
 	const mounted = React.useRef()
 	React.useEffect(
@@ -68,166 +71,171 @@ const App = () => {
 	)
 
 	return (
-		<div className="py-32 flex flex-row justify-center">
-			<div className="px-6 w-full max-w-screen-lg">
+		<BreakpointContext.Provider value={breakpoints}>
+			<div className="py-24 lg:py-32 flex flex-row justify-center">
+				<div className="px-6 w-full max-w-screen-lg">
 
-				{/* <aside> */}
-				{/* */}
-				{/* NOTE: Uses p-3 not px-3 py-2. */}
-				<aside className="space-x-4 p-3 absolute top-0 inset-x-0 hidden lg:flex lg:flex-row lg:justify-center">
-
-					{/* https://github.com/refactoringui/heroicons */}
-					<a className="block" href="https://github.com/refactoringui/heroicons" target="_blank" rel="noopener noreferrer">
-						<p className="flex flex-row items-center font-medium text-gray-100">
-							<GitHubLogoSVG className="mr-1 w-5 h-5" />
-							<Space />
-							Open the GitHub repo
-							<Space />
-							<ExternalLinkOutlineSVG className="w-4 h-4 text-indigo-400" />
-						</p>
-					</a>
-
-					{/* https://github.com/codex-src/heroicons.dev */}
-					<a className="block" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
-						<p className="flex flex-row items-center font-medium text-gray-100">
-							<GitHubLogoSVG className="mr-1 w-5 h-5" />
-							<Space />
-							Open the GitHub
-							<Space />
-							<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
-								heroicons.dev
-							</span>
-							<Space />
-							repo
-							<Space />
-							<ExternalLinkOutlineSVG className="w-4 h-4 text-indigo-400" />
-						</p>
-					</a>
-
-					{/* https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L */}
-					<a className="block" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" target="_blank" rel="noopener noreferrer">
-						<p className="flex flex-row items-center font-medium text-gray-100">
-							<FigmaLogoSVG className="wmr-1 -5 h-5" />
-							<Space />
-							Open the Figma file
-							<Space />
-							<ExternalLinkOutlineSVG className="w-4 h-4 text-indigo-400" />
-						</p>
-					</a>
-
-				</aside>
-
-				{/* <header> */}
-				<header className="flex flex-col items-center">
-
-					{/* <h1> */}
-					<div className="relative flex flex-row items-center">
-						<h1 className="font-bold text-5xl text-white" style={{ fontFamily: "DM Sans", letterSpacing: "-0.0375em" }}>
-							Heroicons
-						</h1>
-						<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}>
-							<FlagSolidSVG className="w-12 h-12 text-indigo-500" />
-						</div>
-					</div>
-
-					{/* <h2> */}
-					<h2 className="text-center font-medium text-xl sm:text-2xl leading-9 text-gray-100">
-						MIT-Licensed Open Source UI Icons
-					</h2>
-
-					{/* <h2> */}
-					<div className="h-4 hidden sm:block" />
-					<h2 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100">
-						<span className="hidden md:inline">
-							Created by{" "}
-						</span>
-						<a href="https://twitter.com/steveschoger" target="_blank" rel="noopener noreferrer">
-							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger} alt="Steve Schoger" />{" "}
-							<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
-								@steveschoger
-							</span>
-						</a>{" "}
-						<span className="hidden md:inline">
-							and{" "}
-						</span>
-						<a href="https://twitter.com/adamwathan" target="_blank" rel="noopener noreferrer">
-							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamWathan} alt="Adam Wathan" />{" "}
-							<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
-								@adamwathan
-							</span>
-						</a>
-						<br />
-						<span className="hidden md:inline">
-							Website by{" "}
-						</span>
-						<a href="https://twitter.com/username_ZAYDEK" target="_blank" rel="noopener noreferrer">
-							<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />{" "}
-							<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
-								@username_ZAYDEK
-							</span>
-						</a>
-					</h2>
-
-				</header>
-
-				<div className="h-24" />
-				<SearchForm
-					state={state}
-					dispatch={dispatch}
-				/>
-
-				<div className="h-4" />
-				<Icons
-					state={state}
-					dispatch={dispatch}
-				/>
-
-				<Transition
-					on={state.showClipboardIconNotification}
-					className="transition duration-200 ease-in-out"
-					from="opacity-0 transform translate-y-4 pointer-events-none"
-					to="opacity-100 transform translate-y-0 pointer-events-auto"
-				>
+					{/* <aside> */}
+					{/* */}
 					{/* NOTE: Uses p-3 not px-3 py-2. */}
-					<div className="p-3 fixed bottom-0 left-0">
-						<div className="rounded-md shadow-lg">
-							<div className="px-3 py-2 bg-indigo-500 rounded-md shadow-lg">
-								<p className="flex flex-row items-center font-semibold text-indigo-50">
-									{state.clipboardIcon && (
-										<>
-											<SVG className="w-5 h-5" svg={state.clipboardIcon[!state.form.showOutline ? "solid" : "outline"]} />
-											<Space />
-											<span className="inline-flex flex-row items-baseline">
-												Copied
-												<Space />
-												<span className="font-mono">
-													{"<"}
-													{!state.form.copyAsReact
-														? state.clipboardIcon.name
-														: toCamelCase(state.clipboardIcon.name)
-													}
-													{">"}
-												</span>
-												<Space />
-												to the clipboard
-											</span>
-										</>
-									)}
-								</p>
+					<aside className="space-x-4 p-3 absolute top-0 inset-x-0 hidden lg:flex lg:flex-row lg:justify-center">
+
+						{/* https://github.com/refactoringui/heroicons */}
+						<a className="block" href="https://github.com/refactoringui/heroicons" target="_blank" rel="noopener noreferrer">
+							<p className="flex flex-row items-center font-medium text-gray-100">
+								<GitHubLogoSVG className="mr-1 w-5 h-5" />
+								<Space />
+								Open the GitHub repo
+								<Space />
+								<ExternalLinkOutlineSVG className="w-4 h-4 text-indigo-400" />
+							</p>
+						</a>
+
+						{/* https://github.com/codex-src/heroicons.dev */}
+						<a className="block" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
+							<p className="flex flex-row items-center font-medium text-gray-100">
+								<GitHubLogoSVG className="mr-1 w-5 h-5" />
+								<Space />
+								Open the GitHub
+								<Space />
+								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
+									heroicons.dev
+								</span>
+								<Space />
+								repo
+								<Space />
+								<ExternalLinkOutlineSVG className="w-4 h-4 text-indigo-400" />
+							</p>
+						</a>
+
+						{/* https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L */}
+						<a className="block" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" target="_blank" rel="noopener noreferrer">
+							<p className="flex flex-row items-center font-medium text-gray-100">
+								<FigmaLogoSVG className="wmr-1 -5 h-5" />
+								<Space />
+								Open the Figma file
+								<Space />
+								<ExternalLinkOutlineSVG className="w-4 h-4 text-indigo-400" />
+							</p>
+						</a>
+
+					</aside>
+
+					{/* <header> */}
+					<header className="flex flex-col items-center">
+
+						{/* Header */}
+						<div className="relative flex flex-row items-center">
+							<h1 className="font-bold text-5xl text-white" style={{ fontFamily: "DM Sans", letterSpacing: "-0.0375em" }}>
+								Heroicons
+							</h1>
+							<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}>
+								<FlagSolidSVG className="w-12 h-12 text-indigo-500" />
 							</div>
 						</div>
-					</div>
-				</Transition>
 
+						{/* Subheader */}
+						<h2 className="text-center font-medium text-xl sm:text-2xl leading-9 text-gray-100">
+							MIT-Licensed Open Source UI Icons
+						</h2>
+
+						{/* Steve and Adam */}
+						<div className="h-4 hidden sm:block" />
+						<h3 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100">
+							<span className="hidden md:inline">
+								Created by{" "}
+							</span>
+							<a href="https://twitter.com/steveschoger" target="_blank" rel="noopener noreferrer">
+								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger} alt="Steve Schoger" />{" "}
+								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
+									@steveschoger
+								</span>
+							</a>{" "}
+							<span className="hidden md:inline">
+								and{" "}
+							</span>
+							<a href="https://twitter.com/adamwathan" target="_blank" rel="noopener noreferrer">
+								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamWathan} alt="Adam Wathan" />{" "}
+								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
+									@adamwathan
+								</span>
+							</a>
+						</h3>
+
+						{/* Zaydek MG */}
+						<h3 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100">
+							<span className="hidden md:inline">
+								Web app by{" "}
+							</span>
+							<a href="https://twitter.com/username_ZAYDEK" target="_blank" rel="noopener noreferrer">
+								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />{" "}
+								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
+									@username_ZAYDEK
+								</span>
+							</a>
+						</h3>
+
+					</header>
+
+					<div className="h-24" />
+					<SearchForm
+						state={state}
+						dispatch={dispatch}
+					/>
+
+					<div className="h-4" />
+					<Icons
+						state={state}
+						dispatch={dispatch}
+					/>
+
+					<Transition
+						on={state.showClipboardIconNotification}
+						className="transition duration-200 ease-in-out"
+						from="opacity-0 transform translate-y-4 pointer-events-none"
+						to="opacity-100 transform translate-y-0 pointer-events-auto"
+					>
+						{/* NOTE: Uses p-3 not px-3 py-2. */}
+						<div className="p-3 fixed bottom-0 left-0">
+							<div className="rounded-md shadow-lg">
+								<div className="px-3 py-2 bg-indigo-500 rounded-md shadow-lg">
+									<p className="flex flex-row items-center font-semibold text-indigo-50">
+										{state.clipboardIcon && (
+											<>
+												<SVG className="w-5 h-5" svg={state.clipboardIcon[!state.form.showOutline ? "solid" : "outline"]} />
+												<Space />
+												<span className="inline-flex flex-row items-baseline">
+													Copied
+													<Space />
+													<span className="font-mono">
+														{"<"}
+														{!state.form.copyAsReact
+															? state.clipboardIcon.name
+															: toCamelCase(state.clipboardIcon.name)
+														}
+														{">"}
+													</span>
+													<Space />
+													to the clipboard
+												</span>
+											</>
+										)}
+									</p>
+								</div>
+							</div>
+						</div>
+					</Transition>
+
+				</div>
 			</div>
-		</div>
+		</BreakpointContext.Provider>
 	)
 }
 
 const SearchForm = ({ state, dispatch }) => {
 	const inputRef = React.useRef()
 
-	const breakpoints = useLayoutBreakpoints(tailwindcss.theme.screens)
+	const breakpoints = React.useContext(BreakpointContext)
 
 	const [text, setText] = React.useState("")
 	const [tooltip, setTooltip] = React.useState("")
@@ -326,14 +334,15 @@ const SearchForm = ({ state, dispatch }) => {
 							}}
 						>
 							{tooltip === "jsx" && (
-								<div className="pt-1.5 absolute top-full right-0">
+								<div className="pt-1 absolute top-full right-0">
 									<div className="rounded-md shadow-lg">
 										<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
 											<div className="p-0.5">
 												<p className="whitespace-pre font-medium text-sm text-gray-100">
 													Copy Icons as React JSX
-													<Space />
+													{/* NOTE: <Space> does not work here. */}
 													<span
+														className="ml-2"
 														style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
 														aria-label="atom symbol"
 														role="img"
@@ -372,14 +381,15 @@ const SearchForm = ({ state, dispatch }) => {
 							}}
 						>
 							{tooltip === "alt" && (
-								<div className="pt-1.5 absolute top-full right-0">
+								<div className="pt-1 absolute top-full right-0">
 									<div className="rounded-md shadow-lg">
 										<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
 											<div className="p-0.5">
 												<p className="whitespace-pre font-medium text-sm text-gray-100">
 													{!state.form.showOutline ? "Change to Outline Icons" : "Change Back to Solid Icons"}
-													<Space />
+													{/* NOTE: <Space> does not work here. */}
 													<span
+														className="ml-2"
 														style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
 														aria-label="straight ruler"
 														role="img"
@@ -499,41 +509,37 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 })
 
 const Icons = ({ state, dispatch }) => {
+	const breakpoints = React.useContext(BreakpointContext)
+
 	const [height, minHeight] = React.useMemo(() => {
 
-		// +---- pt-24 ----+
-		// |  -mt-4 pt-4   |
-		// |   =========   |
-		// |      h-4      |
-		// |               |
-		// |               |
-		// |               |
-		// +---- pb-24 ----+
+		// (80px + 16px) +  96px === 12rem
+		// (80px + 16px) + 128px === 14rem
 		//
-		const clientHeight = "calc(100vh - 14rem)"
+		const clientHeight = breakpoints.lg ? "calc(100vh - 12rem)" : "calc(100vh - 14rem)"
 		const height = !state.results.length && clientHeight
 		const minHeight = !(!state.results.length) && clientHeight
 
 		return [height, minHeight]
-	}, [state.results])
+	}, [state.results, breakpoints])
 
 	return (
 		<DocumentTitle title={!state.form.searchQuery ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
 			<main style={{ height, minHeight }}>
 				{!state.results.length ? (
-					<div className="flex flex-col justify-center items-center h-full">
-						<h2 className="flex flex-row items-center font-medium text-xl leading-9 text-gray-100">
+					<div className="flex flex-col justify-center items-center h-full bg-green-100">
+						<h3 className="flex flex-row items-center font-medium text-xl leading-9 text-gray-100">
 							No results for “{state.form.searchQuery}.”
 							<Space />
 							<EmojiSadSolidSVG className="w-6 h-6 text-gray-100" />
-						</h2>
-						<h2 className="font-medium text-xl leading-9 text-gray-100">
+						</h3>
+						<h3 className="font-medium text-xl leading-9 text-gray-100">
 							Try again or{" "}
 							<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" target="_blank" rel="noopener noreferrer">
 								request an icon here
 							</a>
 							.
-						</h2>
+						</h3>
 					</div>
 				) : (
 					<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
