@@ -2,7 +2,6 @@ import CarbonAds from "./CarbonAds"
 import copyToClipboardPolyfill from "./copyToClipboardPolyfill"
 import disableAutoCorrect from "./disableAutoCorrect"
 import DocumentTitle from "lib/x/DocumentTitle"
-import iconset from "./iconset"
 import React from "react"
 import SVG from "./SVG"
 import tailwindcss from "tailwindcss/js/tailwind.config.js"
@@ -468,8 +467,13 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			}
 		}
 		try {
-			copyToClipboardPolyfill("Hello, world!")
-			buttonRef.current.focus()
+			const originalEl = document.getElementById(icon.name)
+			const el = originalEl.cloneNode(true)
+			el.removeAttribute("id")
+			el.classList.remove(...el.classList);
+			el.classList.add(...`${icon.name} w-6 h-6`.split(" "))
+			copyToClipboardPolyfill(el.outerHTML)
+			buttonRef.current.focus() // Refocus
 		} catch (error) {
 			console.error(`copyToClipboardPolyfill: ${error}`)
 		}
