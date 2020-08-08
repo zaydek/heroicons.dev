@@ -19,7 +19,6 @@ const actions = state => ({
 	// Updates form.searchQuery=text.
 	updateFormSearchQuery(text) {
 		text = text.toLowerCase()
-
 		if (!text) {
 			state.form.searchQuery = ""
 			state.results = iconset
