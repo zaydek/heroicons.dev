@@ -71,7 +71,7 @@ const App = () => {
 			<div className="px-6 w-full max-w-screen-lg">
 
 				{/* <aside> */}
-				<aside className="space-y-1 px-3 py-2 absolute top-0 left-0 hidden lg:block">
+				<aside className="space-y-2 px-3 py-2 absolute top-0 left-0 hidden lg:block">
 					{/* NOTE: block is needed for space-y-* */}
 					<a className="block" href="https://github.com/refactoringui/heroicons" target="_blank" rel="noopener noreferrer">
 						<p className="flex flex-row items-center font-medium text-gray-100">
@@ -395,6 +395,16 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	const buttonRef = React.useRef()
 
 	const handleClick = e => {
+		// No-op when the user has a text selection e.g.
+		// {icon.name}:
+		const selection = document.getSelection()
+		if (selection.rangeCount) {
+			const range = selection.getRangeAt(0)
+			if (!range.collapsed) {
+				// No-op
+				return
+			}
+		}
 		try {
 			copyToClipboardPolyfill("Hello, world!")
 			buttonRef.current.focus()
