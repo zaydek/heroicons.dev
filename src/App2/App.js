@@ -5,6 +5,7 @@ import DocumentTitle from "lib/x/DocumentTitle"
 import React from "react"
 import SVG from "./SVG"
 import tailwindcss from "tailwindcss/js/tailwind.config.js"
+import toCamelCase from "./toCamelCase"
 import Transition from "lib/x/Transition"
 import useHeroiconsReducer from "./useHeroiconsReducer"
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
@@ -39,11 +40,6 @@ const Space = () => (
 	<span style={{ width: "0.5ch" }} />
 )
 
-// Converts kebab-case to camelCase.
-function toCamelCase(str) {
-	return str.split("-").map(each => each.slice(0, 1).toUpperCase() + each.slice(1))
-}
-
 const BreakpointContext = React.createContext()
 
 // TODO: Extract <StyledH1>, <StyledH2>, and <StyledH3>.
@@ -62,7 +58,7 @@ const App = () => {
 				dispatch({
 					type: "HIDE_CLIPBOARD_ICON_NOTIFICATION",
 				})
-			}, 2e3)
+			}, 1.5e3)
 			return () => {
 				clearTimeout(id)
 			}
@@ -246,7 +242,7 @@ const SearchForm = ({ state, dispatch }) => {
 
 	const [tooltip, setTooltip] = React.useState("")
 
-	// Debounces search.
+	// Debounces search by 15ms.
 	const mounted = React.useRef()
 	React.useEffect(
 		React.useCallback(() => {
