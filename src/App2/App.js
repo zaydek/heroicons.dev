@@ -395,12 +395,11 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	const buttonRef = React.useRef()
 
 	const handleClick = e => {
-		// No-op when the user has a text selection e.g.
-		// {icon.name}:
+		// No-op when the user selected buttonRef.current text:
 		const selection = document.getSelection()
 		if (selection.rangeCount) {
 			const range = selection.getRangeAt(0)
-			if (!range.collapsed) {
+			if (!range.collapsed && buttonRef.current.contains(range.startContainer)) {
 				// No-op
 				return
 			}
