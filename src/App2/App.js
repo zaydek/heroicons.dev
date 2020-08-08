@@ -219,9 +219,10 @@ const SearchForm = ({ state, dispatch }) => {
 				</div>
 
 				{/* RHS */}
-				<div className="px-6 absolute inset-y-0 right-0 flex flex-row items-center">
+				<div className="px-6 absolute inset-y-0 right-0 flex flex-row">
 
 					<div
+						className="flex flex-row items-center"
 						onFocus={e => setTooltip("jsx")}
 						onBlur={e => setTooltip("")}
 						onMouseEnter={e => setTooltip("jsx")}
@@ -231,7 +232,7 @@ const SearchForm = ({ state, dispatch }) => {
 							className="p-2 relative text-gray-400 hover:bg-gray-700 hover:bg-opacity-75 focus:bg-gray-700 focus:bg-opacity-75 rounded-full focus:outline-none transition duration-200 ease-in-out"
 							style={{
 								color: state.form.copyAsReact && "var(--gray-100)",
-								backgroundColor: state.form.copyAsReact && "#374151bf", // e.g. bg-gray-700 bg-opacity-75
+								backgroundColor: state.form.copyAsReact && "#374151bf", // e.g. bg-gray-700 bg-gopacity-75
 							}}
 							onClick={e => {
 								dispatch({
@@ -244,17 +245,19 @@ const SearchForm = ({ state, dispatch }) => {
 								<div className="pt-1.5 absolute top-full right-0">
 									<div className="rounded-md shadow-lg">
 										<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
-											<p className="font-medium text-sm whitespace-pre text-gray-100">
-												Copy Icons as React JSX
-												<span
-													className="ml-2"
-													style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
-													aria-label="atom symbol"
-													role="img"
-												>
-													⚛️
-												</span>
-											</p>
+											<div className="p-0.5">
+												<p className="font-medium text-sm whitespace-pre text-gray-100">
+													Copy Icons as React JSX
+													<span
+														className="ml-2"
+														style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
+														aria-label="atom symbol"
+														role="img"
+													>
+														⚛️
+													</span>
+												</p>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -264,6 +267,7 @@ const SearchForm = ({ state, dispatch }) => {
 					</div>
 
 					<div
+						className="flex flex-row items-center"
 						onFocus={e => setTooltip("alt")}
 						onBlur={e => setTooltip("")}
 						onMouseEnter={e => setTooltip("alt")}
@@ -286,17 +290,19 @@ const SearchForm = ({ state, dispatch }) => {
 								<div className="pt-1.5 absolute top-full right-0">
 									<div className="rounded-md shadow-lg">
 										<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
-											<p className="font-medium text-sm whitespace-pre text-gray-100">
-												Change to {!state.form.showOutline ? "Outline" : "Solid"} Icons
-												<span
-													className="ml-2"
-													style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
-													aria-label="triangular ruler"
-													role="img"
-												>
-													📐
-												</span>
-											</p>
+											<div className="p-0.5">
+												<p className="font-medium text-sm whitespace-pre text-gray-100">
+													Change to {!state.form.showOutline ? "Outline" : "Solid"} Icons
+													<span
+														className="ml-2"
+														style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
+														aria-label="triangular ruler"
+														role="img"
+													>
+														📐
+													</span>
+												</p>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -340,21 +346,36 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => (
 
 		{/* Icon */}
 		<SVG
+			id={icon.name}
 			className="w-8 h-8 text-gray-100"
-			data-heroicons-name={icon.name}
 			svg={icon[!state.form.showOutline ? "solid" : "outline"]}
 		/>
 
 		{/* Name */}
 		<div className="px-3 py-2 absolute bottom-0">
 			<p className="font-semibold text-sm leading-tight font-mono text-center text-gray-100">
-				{icon.name}
+				{!state.form.searchQuery ? (
+					icon.name
+				) : (
+					(substrs => (
+						<React.Fragment>
+							{substrs[0]}
+							{/* <span className="px-1 py-px bg-indigo-500 rounded-md"> */}
+							<span style={{ boxShadow: "inset 0 -1.5px var(--indigo-500), 0 1.5px var(--indigo-500)" }}>
+								{state.form.searchQuery}
+							</span>
+							{/* </span> */}
+							{substrs[1]}
+						</React.Fragment>
+					))(icon.name.split(state.form.searchQuery))
+				)}
 			</p>
 		</div>
 
 	</div>
 ), (prev, next) => {
 	const ok = (
+		prev.state.form.searchQuery === next.state.form.searchQuery &&
 		prev.state.form.showOutline === next.state.form.showOutline &&
 		prev.icon === next.icon
 	)
