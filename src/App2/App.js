@@ -11,13 +11,13 @@ import Transition from "lib/x/Transition"
 import useHeroiconsReducer from "./useHeroiconsReducer"
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 
-import CodeSolidSVG from "heroicons-ecfba30/solid/Code"
-import ExternalLinkOutlineSVG from "heroicons-ecfba30/outline/ExternalLink"
-import FlagSolidSVG from "heroicons-ecfba30/solid/Flag"
-import SearchOutlineSVG from "heroicons-ecfba30/outline/Search"
-import SwitchHorizontalSolidSVG from "heroicons-ecfba30/solid/SwitchHorizontal"
-import { ReactComponent as FigmaLogoSVG } from "svg/figma.svg"
-import { ReactComponent as GitHubLogoSVG } from "svg/github.svg"
+import CodeSVG from "heroicons-ecfba30/solid/Code"
+import ExternalLinkSVG from "heroicons-ecfba30/solid/ExternalLink"
+import FlagSVG from "heroicons-ecfba30/solid/Flag"
+import SearchOutlineIcon from "heroicons-ecfba30/outline/Search"
+import SwitchHorizontalSVG from "heroicons-ecfba30/solid/SwitchHorizontal"
+import { ReactComponent as FigmaSVG } from "svg/figma.svg"
+import { ReactComponent as GitHubSVG } from "svg/github.svg"
 
 import srcAdamWathan from "images/adam-wathan.jpg"
 import srcSteveSchoger from "images/steve-schoger.jpg"
@@ -80,39 +80,33 @@ const App = () => {
 						{/* https://github.com/refactoringui/heroicons */}
 						<a className="block" href="https://github.com/refactoringui/heroicons" {...attrs.target_blank}>
 							<p className="flex flex-row items-center font-medium text-gray-100">
-								<GitHubLogoSVG className="mr-1 w-5 h-5" />
+								<GitHubSVG className="mr-1 w-5 h-5" />
 								<Space />
-								Open the GitHub repo
+								Star the Icon Repo
 								<Space />
-								<ExternalLinkOutlineSVG className="w-4 h-4 text-indigo-400" />
+								<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
 							</p>
 						</a>
 
 						{/* https://github.com/codex-src/heroicons.dev */}
 						<a className="block" href="https://github.com/codex-src/heroicons.dev" {...attrs.target_blank}>
 							<p className="flex flex-row items-center font-medium text-gray-100">
-								<GitHubLogoSVG className="mr-1 w-5 h-5" />
+								<GitHubSVG className="mr-1 w-5 h-5" />
 								<Space />
-								Open the GitHub
+								Star the Icon Viewer Repo
 								<Space />
-								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
-									heroicons.dev
-								</span>
-								<Space />
-								repo
-								<Space />
-								<ExternalLinkOutlineSVG className="w-4 h-4 text-indigo-400" />
+								<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
 							</p>
 						</a>
 
 						{/* https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L */}
 						<a className="block" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...attrs.target_blank}>
 							<p className="flex flex-row items-center font-medium text-gray-100">
-								<FigmaLogoSVG className="wmr-1 -5 h-5" />
+								<FigmaSVG className="wmr-1 -5 h-5" />
 								<Space />
 								Open the Figma file
 								<Space />
-								<ExternalLinkOutlineSVG className="w-4 h-4 text-indigo-400" />
+								<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
 							</p>
 						</a>
 
@@ -127,7 +121,7 @@ const App = () => {
 								Heroicons
 							</h1>
 							<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}>
-								<FlagSolidSVG className="w-12 h-12 text-indigo-500" />
+								<FlagSVG className="w-12 h-12 text-indigo-500" />
 							</div>
 						</div>
 
@@ -140,7 +134,7 @@ const App = () => {
 						<div className="h-4 hidden sm:block" />
 						<h3 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100">
 							<span className="hidden md:inline">
-								Created by{" "}
+								Icons by{" "}
 							</span>
 							<a href="https://twitter.com/steveschoger" {...attrs.target_blank}>
 								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger} alt="Steve Schoger" />{" "}
@@ -162,7 +156,7 @@ const App = () => {
 						{/* Zaydek MG */}
 						<h3 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100">
 							<span className="hidden md:inline">
-								Web app by{" "}
+								Icon Viewer by{" "}
 							</span>
 							<a href="https://twitter.com/username_ZAYDEK" {...attrs.target_blank}>
 								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />{" "}
@@ -353,7 +347,7 @@ const FormSearch = ({ state, dispatch }) => {
 
 				{/* LHS */}
 				<div className="px-6 absolute inset-y-0 left-0 flex flex-row items-center">
-					<SearchOutlineSVG className="w-6 h-6 text-gray-500" />
+					<SearchOutlineIcon className="w-6 h-6 text-gray-500" />
 				</div>
 
 				{/* Search */}
@@ -408,7 +402,7 @@ const FormSearch = ({ state, dispatch }) => {
 									</div>
 								</div>
 							)}
-							<CodeSolidSVG className="w-6 h-6" />
+							<CodeSVG className="w-6 h-6" />
 						</button>
 					</div>
 
@@ -448,7 +442,7 @@ const FormSearch = ({ state, dispatch }) => {
 									</div>
 								</div>
 							)}
-							<SwitchHorizontalSolidSVG className="w-6 h-6" />
+							<SwitchHorizontalSVG className="w-6 h-6" />
 						</button>
 					</div>
 
