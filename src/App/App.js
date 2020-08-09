@@ -39,7 +39,24 @@ const App = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 	const breakpoints = useLayoutBreakpoints(tailwindcss.theme.screens)
 
+	const carbonAdsRef = React.useRef()
 	const [carbonAdsIsReady, setCarbonAdsIsReady] = React.useState(false)
+
+	// NOTE: Because <CarbonAds> cannot be used more than
+	// once, we move carbonAdsRef.current.
+	React.useLayoutEffect(() => {
+		if (breakpoints.xl) {
+			const el = document.getElementById("carbonads-placement")
+			if (!el.children.length) {
+				el.append(carbonAdsRef.current)
+			}
+		} else {
+			const el = document.getElementById("carbonads-xl-placement")
+			if (!el.children.length) {
+				el.append(carbonAdsRef.current)
+			}
+		}
+	}, [breakpoints.xl])
 
 	const mounted = React.useRef()
 	React.useEffect(
@@ -66,25 +83,7 @@ const App = () => {
 
 				<div className="px-6 w-full max-w-screen-lg">
 
-					{/* Carbon Ads */}
-					<div className="p-3 absolute top-0 right-0 z-30">
-						<Transition
-							on={carbonAdsIsReady}
-							className="transition duration-1000 ease-in-out"
-							from="opacity-0 transform scale-110"
-							to="opacity-100 transform scale-100"
-						>
-							<div className="rounded-75 shadow-lg">
-								<CarbonAds
-									className="border border-gray-600 rounded-75 shadow-lg overflow-hidden"
-									src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
-									callback={() => setCarbonAdsIsReady(true)}
-								/>
-							</div>
-						</Transition>
-					</div>
-
-					{/* <aside> */}
+					{/* GitHub */}
 					<aside className="space-x-4 p-3 absolute top-0 inset-x-0 hidden lg:flex lg:flex-row lg:justify-center">
 
 						{/* https://github.com/refactoringui/heroicons */}
@@ -122,7 +121,19 @@ const App = () => {
 
 					</aside>
 
-					{/* <header> */}
+					{/* Carbon Ads */}
+					<aside className="p-6 absolute top-0 right-0 z-30">
+						<Transition
+							on={carbonAdsIsReady}
+							className="transition duration-1000 ease-in-out"
+							from="opacity-0 transform scale-110"
+							to="opacity-100 transform scale-100"
+						>
+							<div id="carbonads-xl-placement" />
+						</Transition>
+					</aside>
+
+					{/* Headers */}
 					<header className="flex flex-col items-center">
 
 						{/* Header */}
@@ -176,6 +187,27 @@ const App = () => {
 							</a>
 						</h3>
 
+						{/* Carbon Ads */}
+						<div className="-mb-8 xl:mb-0 pt-12 xl:pt-0">
+							<Transition
+								on={carbonAdsIsReady}
+								className="transition duration-1000 ease-in-out"
+								from="opacity-0 transform scale-110"
+								to="opacity-100 transform scale-100"
+							>
+								<div id="carbonads-placement">
+									<div ref={carbonAdsRef} className="rounded-75 shadow-lg">
+										<CarbonAds
+											className="border border-gray-600 rounded-75 shadow-lg overflow-hidden"
+											style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }}
+											src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
+											callback={() => setCarbonAdsIsReady(true)}
+										/>
+									</div>
+								</div>
+							</Transition>
+						</div>
+
 					</header>
 
 					<div className="h-24" />
@@ -196,7 +228,7 @@ const App = () => {
 						from="opacity-0 transform translate-y-4 pointer-events-none"
 						to="opacity-100 transform translate-y-0 pointer-events-auto"
 					>
-						<div className="p-3 fixed bottom-0 left-0">
+						<div className="p-3 fixed bottom-0 left-0 z-40">
 							<div className="rounded-md shadow-lg">
 								<div className="px-3 py-2 bg-indigo-500 rounded-md shadow-lg">
 									<p className="flex flex-row items-center font-semibold text-base text-indigo-50">
