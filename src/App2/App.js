@@ -24,9 +24,6 @@ import srcAdamWathan from "images/adam-wathan.jpg"
 import srcSteveSchoger from "images/steve-schoger.jpg"
 import srcZaydekMG from "images/zaydek-mg.png"
 
-// TODO
-document.body.classList.add("bg-black")
-
 // {/* Carbon Ads */}
 // {/* <div className="px-4 py-3 absolute top-0 right-0 z-30 pointer-events-none"> */}
 // {/* 	<div className="flex flex-row justify-center lg:justify-end items-start"> */}
@@ -42,6 +39,10 @@ const Space = () => (
 )
 
 const BreakpointContext = React.createContext()
+
+;(() => {
+	document.body.classList.add("bg-black")
+})()
 
 // TODO: Extract <StyledH1>, <StyledH2>, and <StyledH3>.
 const App = () => {
@@ -559,12 +560,14 @@ const Icons = ({ state, dispatch }) => {
 				{!state.results.length ? (
 
 					<div className="flex flex-col justify-center items-center h-full">
-						<h3 className="flex flex-row items-center font-medium text-xl leading-9 text-gray-100">
-							No results for “{state.form.searchQuery}.”
-							<Space />
-							<EmojiSadSolidSVG className="w-6 h-6 text-gray-100" />
+						<h3 className="flex flex-row items-baseline font-medium text-xl leading-9 text-center text-gray-100">
+							No results for “
+							<span className="inline-block truncate" style={{ maxWidth: breakpoints.xs ? 128 : 256 }}>
+								{state.form.searchQuery}.
+							</span>
+							”
 						</h3>
-						<h3 className="font-medium text-xl leading-9 text-gray-100">
+						<h3 className="font-medium text-xl leading-9 text-center text-gray-100">
 							Try again or{" "}
 							<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" {...attrs.target_blank}>
 								request an icon here
@@ -575,7 +578,7 @@ const Icons = ({ state, dispatch }) => {
 
 				) : (
 
-					<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
+					<div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
 						{state.results.map(each => (
 							<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
 								<div className="absolute inset-0">
