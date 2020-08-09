@@ -123,7 +123,7 @@ const App = () => {
 
 					</aside>
 
-					{/* Carbon Ads */}
+					{/* Carbon Ads (alt) */}
 					<aside className="p-6 absolute top-0 right-0 z-30">
 						<Transition
 							on={carbonAdsIsReady}

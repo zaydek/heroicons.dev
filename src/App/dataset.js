@@ -1,8 +1,8 @@
 import * as Outline from "heroicons-ecfba30/outline"
 import * as Solid from "heroicons-ecfba30/solid"
 
+// TODO: https://github.com/tailwindlabs/heroicons/issues/90
 const dataset = [
-	// // FIXME
 	// {
 	// 	name: "academic-cap",
 	// 	solid: Solid.AcademicCap,
@@ -111,7 +111,6 @@ const dataset = [
 		outline: Outline.AtSymbol,
 		statusNew: false,
 	},
-	// // FIXME
 	// {
 	// 	name: "backspace",
 	// 	solid: Solid.Backspace,
@@ -172,7 +171,6 @@ const dataset = [
 		outline: Outline.Cake,
 		statusNew: true,
 	},
-	// // FIXME
 	// {
 	// 	name: "calculator",
 	// 	solid: Solid.Calculator,
@@ -377,7 +375,6 @@ const dataset = [
 		outline: Outline.CreditCard,
 		statusNew: false,
 	},
-	// // FIXME
 	// {
 	// 	name: "cube",
 	// 	solid: Solid.Cube,
@@ -492,13 +489,12 @@ const dataset = [
 		outline: Outline.DocumentReport,
 		statusNew: false,
 	},
-	// // FIXME
-	// {
-	// 	name: "document-search",
-	// 	solid: Solid.DocumentSearch,
-	// 	outline: Outline.DocumentSearch,
-	// 	statusNew: true,
-	// },
+	{
+		name: "document-search",
+		solid: Solid.DocumentSearch,
+		outline: Outline.DocumentSearch,
+		statusNew: true,
+	},
 	{
 		name: "document-text",
 		solid: Solid.DocumentText,
@@ -595,20 +591,18 @@ const dataset = [
 		outline: Outline.Filter,
 		statusNew: false,
 	},
-	// // FIXME
-	// // {
-	// // 	name: "finger-print",
-	// // 	solid: Solid.FingerPrint,
-	// // 	outline: Outline.FingerPrint,
-	// // 	statusNew: true,
-	// // },
-	// // FIXME
 	// {
-	// 	name: "fire",
-	// 	solid: Solid.Fire,
-	// 	outline: Outline.Fire,
-	// 	statusNew: false,
+	// 	name: "finger-print",
+	// 	solid: Solid.FingerPrint,
+	// 	outline: Outline.FingerPrint,
+	// 	statusNew: true,
 	// },
+	{
+		name: "fire",
+		solid: Solid.Fire,
+		outline: Outline.Fire,
+		statusNew: false,
+	},
 	{
 		name: "flag",
 		solid: Solid.Flag,
@@ -633,7 +627,6 @@ const dataset = [
 		outline: Outline.FolderDownload,
 		statusNew: false,
 	},
-	// // FIXME
 	// {
 	// 	name: "folder-open",
 	// 	solid: Solid.FolderOpen,
@@ -760,7 +753,6 @@ const dataset = [
 		outline: Outline.LockOpen,
 		statusNew: false,
 	},
-	// // FIXME
 	// {
 	// 	name: "login",
 	// 	solid: Solid.Login,
@@ -947,7 +939,6 @@ const dataset = [
 		outline: Outline.PresentationChartBar,
 		statusNew: true,
 	},
-	// // FIXME
 	// {
 	// 	name: "presentation-chart-line",
 	// 	solid: Solid.PresentationChartLine,
@@ -1044,12 +1035,12 @@ const dataset = [
 		outline: Outline.Search,
 		statusNew: false,
 	},
-	{
-		name: "search-circle",
-		solid: Solid.SearchCircle,
-		outline: Outline.SearchCircle,
-		statusNew: true,
-	},
+	// {
+	// 	name: "search-circle",
+	// 	solid: Solid.SearchCircle,
+	// 	outline: Outline.SearchCircle,
+	// 	statusNew: true,
+	// },
 	{
 		name: "selector",
 		solid: Solid.Selector,
@@ -1122,7 +1113,6 @@ const dataset = [
 		outline: Outline.Star,
 		statusNew: false,
 	},
-	// // FIXME
 	// {
 	// 	name: "status-offline",
 	// 	solid: Solid.StatusOffline,
@@ -1231,7 +1221,6 @@ const dataset = [
 		outline: Outline.TrendingUp,
 		statusNew: false,
 	},
-	// // FIXME
 	// {
 	// 	name: "truck",
 	// 	solid: Solid.Truck,
@@ -1280,7 +1269,6 @@ const dataset = [
 		outline: Outline.Users,
 		statusNew: false,
 	},
-	// // FIXME
 	// {
 	// 	name: "variable",
 	// 	solid: Solid.Variable,
@@ -1329,7 +1317,6 @@ const dataset = [
 		outline: Outline.VolumeUp,
 		statusNew: false,
 	},
-	// // FIXME
 	// {
 	// 	name: "wifi",
 	// 	solid: Solid.Wifi,
