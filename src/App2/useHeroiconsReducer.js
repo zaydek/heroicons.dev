@@ -2,25 +2,24 @@ import dataset from "./dataset"
 import { useImmerReducer } from "use-immer"
 
 const initialState = {
-	// darkMode: false,
-
 	form: {
-		searchQuery: "",
+		searchQuery: "",    // TODO
 		copyAsReact: false,
-		showOutline: false, // TODO,
+		showOutline: false, // TODO
+	},
+	notif: {
+		visible: false,
+		notifType: "",
+		notifInfo: null,
 	},
 	results: dataset,
-	showClipboardIconNotification: false,
-	clipboardIcon: "",
-}
-
-// Generates a 4-character hash.
-function shortHash() {
-	return Math.random().toString(16).slice(2, 6)
 }
 
 const actions = state => ({
-	// Updates state.form.searchQuery=text.
+
+	/*
+	 * state.form
+	 */
 	updateFormSearchQuery(text) {
 		text = text.toLowerCase()
 		if (!text) {
@@ -40,27 +39,25 @@ const actions = state => ({
 			return a.searchQueryIndex - b.searchQueryIndex
 		})
 	},
-	// Toggles state.form.copyAsReact.
 	toggleFormCopyAsReact() {
 		state.form.copyAsReact = !state.form.copyAsReact
 	},
-	// Toggles state.form.showOutline.
 	toggleFormShowOutline() {
 		state.form.showOutline = !state.form.showOutline
 	},
-	// Updates state.showClipboardIconNotification and
-	// state.clipboardIcon.
-	updateClipboardIcon(icon) {
-		// NOTE: Uses shortHash(...) so
-		// showClipboardIconNotification used as an effect
-		// dependency is never deeply equal.
-		state.showClipboardIconNotification = icon.name + "-" + shortHash()
-		state.clipboardIcon = icon
+
+	/*
+	 * state.notif
+	 */
+	updateNotification(notifType, notifInfo) {
+		state.notif.visible = true
+		state.notif.notifType = notifType
+		state.notif.notifInfo = notifInfo
 	},
-	// Updates state.showClipboardIconNotification.
-	hideClipboardIconNotification() {
-		state.showClipboardIconNotification = false
+	hideNotification() {
+		state.notif.visible = false
 	},
+
 })
 
 function HeroiconsReducer(state, action) {
@@ -74,11 +71,11 @@ function HeroiconsReducer(state, action) {
 	case "TOGGLE_FORM_SHOW_OUTLINE":
 		actions(state).toggleFormShowOutline()
 		return
-	case "UPDATE_CLIPBOARD_ICON":
-		actions(state).updateClipboardIcon(action.icon)
+	case "UPDATE_NOTIFICATION":
+		actions(state).updateNotification(action.notifType, action.notifInfo)
 		return
-	case "HIDE_CLIPBOARD_ICON_NOTIFICATION":
-		actions(state).hideClipboardIconNotification()
+	case "HIDE_NOTIFICATION":
+		actions(state).hideNotification()
 		return
 	default:
 		throw new Error(`HeroiconsReducer: type mismatch; action.type=${action.type}`)

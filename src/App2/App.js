@@ -12,7 +12,6 @@ import useHeroiconsReducer from "./useHeroiconsReducer"
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 
 import CodeSolidSVG from "heroicons-ecfba30/solid/Code"
-import EmojiSadSolidSVG from "heroicons-ecfba30/solid/EmojiSad"
 import ExternalLinkOutlineSVG from "heroicons-ecfba30/outline/ExternalLink"
 import FlagSolidSVG from "heroicons-ecfba30/solid/Flag"
 import SearchOutlineSVG from "heroicons-ecfba30/outline/Search"
@@ -58,14 +57,14 @@ const App = () => {
 			}
 			const id = setTimeout(() => {
 				dispatch({
-					type: "HIDE_CLIPBOARD_ICON_NOTIFICATION",
+					type: "HIDE_NOTIFICATION",
 				})
 			}, 1.5e3)
 			return () => {
 				clearTimeout(id)
 			}
 		}, [dispatch]),
-		[state.showClipboardIconNotification],
+		[state.notif.visible],
 	)
 
 	return (
@@ -188,7 +187,7 @@ const App = () => {
 					/>
 
 					<Transition
-						on={state.showClipboardIconNotification}
+						on={state.notif.visible}
 						className="transition duration-200 ease-in-out"
 						from="opacity-0 transform translate-y-4 pointer-events-none"
 						to="opacity-100 transform translate-y-0 pointer-events-auto"
@@ -198,9 +197,14 @@ const App = () => {
 							<div className="rounded-md shadow-lg">
 								<div className="px-3 py-2 bg-indigo-500 rounded-md shadow-lg">
 									<p className="flex flex-row items-center font-semibold text-base text-indigo-50">
-										{state.clipboardIcon && (
+
+										{state.notif.notifType === "form" && (
+											"TODO"
+										)}
+
+										{state.notif.notifType === "icon" && (
 											<>
-												<SVG className="w-5 h-5" svg={state.clipboardIcon[!state.form.showOutline ? "solid" : "outline"]} />
+												<SVG className="w-5 h-5" svg={state.notif.notifInfo[!state.form.showOutline ? "solid" : "outline"]} />
 												<Space />
 												<Space />
 												<span className="inline-flex flex-row items-baseline">
@@ -208,8 +212,8 @@ const App = () => {
 													<Space />
 													<span className="font-mono">
 														{!state.form.copyAsReact
-															? state.clipboardIcon.name
-															: toCamelCase(state.clipboardIcon.name)
+															? state.notif.notifInfo.name
+															: toCamelCase(state.notif.notifInfo.name)
 														}
 													</span>
 													<Space />
@@ -217,6 +221,7 @@ const App = () => {
 												</span>
 											</>
 										)}
+
 									</p>
 								</div>
 							</div>
@@ -452,6 +457,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	const buttonRef = React.useRef()
 
 	const handleClick = e => {
+
 		// No-op when the user selected buttonRef.current text:
 		const selection = document.getSelection()
 		if (selection.rangeCount) {
@@ -461,6 +467,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				return
 			}
 		}
+
 		try {
 			const originalEl = document.getElementById(icon.name)
 			const el = originalEl.cloneNode(true)
@@ -472,10 +479,15 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 		} catch (error) {
 			console.error(`copyToClipboardPolyfill: ${error}`)
 		}
+
+		const notifType = "icon"
+		const notifInfo = icon
 		dispatch({
-			type: "UPDATE_CLIPBOARD_ICON",
-			icon,
+			type: "UPDATE_NOTIFICATION",
+			notifType,
+			notifInfo,
 		})
+
 	}
 
 	return (
@@ -557,8 +569,7 @@ const Icons = ({ state, dispatch }) => {
 		<DocumentTitle title={!state.form.searchQuery ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
 			<main style={{ height, minHeight }}>
 
-				{!state.results.length ? (
-
+				{!state.results.length && (
 					<div className="flex flex-col justify-center items-center h-full">
 						<h3 className="flex flex-row items-baseline font-medium text-xl leading-9 text-center text-gray-100">
 							No results for “
@@ -575,9 +586,9 @@ const Icons = ({ state, dispatch }) => {
 							.
 						</h3>
 					</div>
+				)}
 
-				) : (
-
+				{state.results.length > 0 && (
 					<div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
 						{state.results.map(each => (
 							<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
@@ -591,7 +602,6 @@ const Icons = ({ state, dispatch }) => {
 							</div>
 						))}
 					</div>
-
 				)}
 
 			</main>
