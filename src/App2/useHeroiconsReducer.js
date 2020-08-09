@@ -32,12 +32,16 @@ const actions = state => ({
 		}
 		state.form.search = text
 		state.results = dataset.filter(each => {
-			each.searchQueryIndex = each.name.indexOf(text)
 			if (each.statusNew && text === "new") {
 				return true
 			}
+			each.searchQueryIndex = each.name.indexOf(text)
 			return each.searchQueryIndex >= 0
 		})
+		if (text === "new") {
+			// No-op
+			return
+		}
 		state.results.sort((a, b) => {
 			return a.searchQueryIndex - b.searchQueryIndex
 		})
