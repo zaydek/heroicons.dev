@@ -16,7 +16,7 @@ import ExternalLinkSVG from "heroicons-ecfba30/solid/ExternalLink"
 import FlagSVG from "heroicons-ecfba30/solid/Flag"
 import SearchOutlineIcon from "heroicons-ecfba30/outline/Search"
 import SwitchHorizontalSVG from "heroicons-ecfba30/solid/SwitchHorizontal"
-import { ReactComponent as FigmaSVG } from "svg/figma.svg"
+// import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubSVG } from "svg/github.svg"
 
 import srcAdamWathan from "images/adam-wathan.jpg"
@@ -38,6 +38,8 @@ const BreakpointContext = React.createContext()
 const App = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 	const breakpoints = useLayoutBreakpoints(tailwindcss.theme.screens)
+
+	const [carbonAdsIsReady, setCarbonAdsIsReady] = React.useState(false)
 
 	const mounted = React.useRef()
 	React.useEffect(
@@ -61,12 +63,26 @@ const App = () => {
 	return (
 		<BreakpointContext.Provider value={breakpoints}>
 			<div className="py-24 lg:py-32 flex flex-row justify-center">
+
 				<div className="px-6 w-full max-w-screen-lg">
 
-				{/* Carbon Ads */}
-				<div className="p-3 absolute top-0 right-0 z-30">
-					<CarbonAds src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" />
-				</div>
+					{/* Carbon Ads */}
+					<div className="p-3 absolute top-0 right-0 z-30">
+						<Transition
+							on={carbonAdsIsReady}
+							className="transition duration-1000 ease-in-out"
+							from="opacity-0 transform scale-110"
+							to="opacity-100 transform scale-100"
+						>
+							<div className="rounded-75 shadow-lg">
+								<CarbonAds
+									className="border border-gray-600 rounded-75 shadow-lg overflow-hidden"
+									src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
+									callback={() => setCarbonAdsIsReady(true)}
+								/>
+							</div>
+						</Transition>
+					</div>
 
 					{/* <aside> */}
 					<aside className="space-x-4 p-3 absolute top-0 inset-x-0 hidden lg:flex lg:flex-row lg:justify-center">
