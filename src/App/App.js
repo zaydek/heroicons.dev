@@ -43,7 +43,9 @@ const App = () => {
 	const [carbonAdsIsReady, setCarbonAdsIsReady] = React.useState(false)
 
 	// NOTE: Because <CarbonAds> cannot be used more than
-	// once, we move carbonAdsRef.current.
+	// once, we move carbonAdsRef.current between
+	// #carbonads-placement and #carbonads-alt-placement on
+	// breakpoints.xl rerenders.
 	React.useLayoutEffect(() => {
 		if (breakpoints.xl) {
 			const el = document.getElementById("carbonads-placement")
@@ -51,7 +53,7 @@ const App = () => {
 				el.append(carbonAdsRef.current)
 			}
 		} else {
-			const el = document.getElementById("carbonads-xl-placement")
+			const el = document.getElementById("carbonads-alt-placement")
 			if (!el.children.length) {
 				el.append(carbonAdsRef.current)
 			}
@@ -129,7 +131,7 @@ const App = () => {
 							from="opacity-0 transform scale-110"
 							to="opacity-100 transform scale-100"
 						>
-							<div id="carbonads-xl-placement" />
+							<div id="carbonads-alt-placement" />
 						</Transition>
 					</aside>
 
@@ -188,25 +190,23 @@ const App = () => {
 						</h3>
 
 						{/* Carbon Ads */}
-						<div className="-mb-8 xl:mb-0 pt-12 xl:pt-0">
-							<Transition
-								on={carbonAdsIsReady}
-								className="transition duration-1000 ease-in-out"
-								from="opacity-0 transform scale-110"
-								to="opacity-100 transform scale-100"
-							>
-								<div id="carbonads-placement">
-									<div ref={carbonAdsRef} className="rounded-75 shadow-lg">
-										<CarbonAds
-											className="border border-gray-600 rounded-75 shadow-lg overflow-hidden"
-											style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }}
-											src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
-											callback={() => setCarbonAdsIsReady(true)}
-										/>
-									</div>
+						<Transition
+							on={carbonAdsIsReady}
+							className="transition duration-1000 ease-in-out"
+							from="opacity-0 transform scale-110"
+							to="opacity-100 transform scale-100"
+						>
+							<div id="carbonads-placement" className="-mb-8 xl:mb-0 pt-12 xl:pt-0">
+								<div ref={carbonAdsRef} className="rounded-75 shadow-lg">
+									<CarbonAds
+										className="border border-gray-600 rounded-75 shadow-lg overflow-hidden"
+										style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }}
+										src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
+										callback={() => setCarbonAdsIsReady(true)}
+									/>
 								</div>
-							</Transition>
-						</div>
+							</div>
+						</Transition>
 
 					</header>
 
