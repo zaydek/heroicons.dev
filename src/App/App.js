@@ -1,3 +1,4 @@
+// import * as tailwindcss from "tailwindcss/js/tailwind.config.js"
 import attrs from "./attrs"
 import CarbonAds from "./CarbonAds"
 import copyToClipboardPolyfill from "./copyToClipboardPolyfill"
@@ -5,7 +6,6 @@ import DocumentTitle from "lib/x/DocumentTitle"
 import React from "react"
 import SVG from "./SVG"
 import svgToJSX from "./svgToJSX"
-import tailwindcss from "tailwindcss/js/tailwind.config.js"
 import toCamelCase from "./toCamelCase"
 import Transition from "lib/x/Transition"
 import useHeroiconsReducer from "./useHeroiconsReducer"
@@ -22,6 +22,30 @@ import { ReactComponent as GitHubSVG } from "svg/github.svg"
 import srcAdamWathan from "images/adam-wathan.jpg"
 import srcSteveSchoger from "images/steve-schoger.jpg"
 import srcZaydekMG from "images/zaydek-mg.png"
+
+// FIXME: Attempted import error: 'theme' is not exported
+// from 'tailwindcss/js/tailwind.config.js' (imported as
+// 'tailwindcss').
+const tailwindcss = {
+	theme: {
+		screens: {
+			xs: `${24 + 512 + 24}px`,
+			// => @media (min-width: 560px) { ... }
+
+			sm: `${24 + 640 + 24}px`,
+			// => @media (min-width: 688px) { ... }
+
+			md: `${24 + 768 + 24}px`,
+			// => @media (min-width: 816px) { ... }
+
+			lg: `${24 + 1024 + 24}px`,
+			// => @media (min-width: 1072px) { ... }
+
+			xl: `${24 + 1280 + 24}px`,
+			// => @media (min-width: 1328px) { ... }
+		},
+	},
+}
 
 // Renders a space for flex flex-* etc.
 const Space = () => (
