@@ -1,6 +1,6 @@
+import attrs from "./attrs"
 import CarbonAds from "./CarbonAds"
 import copyToClipboardPolyfill from "./copyToClipboardPolyfill"
-import disableAutoCorrect from "./disableAutoCorrect"
 import DocumentTitle from "lib/x/DocumentTitle"
 import React from "react"
 import SVG from "./SVG"
@@ -78,7 +78,7 @@ const App = () => {
 					<aside className="space-x-4 p-3 absolute top-0 inset-x-0 hidden lg:flex lg:flex-row lg:justify-center">
 
 						{/* https://github.com/refactoringui/heroicons */}
-						<a className="block" href="https://github.com/refactoringui/heroicons" target="_blank" rel="noopener noreferrer">
+						<a className="block" href="https://github.com/refactoringui/heroicons" {...attrs.target_blank}>
 							<p className="flex flex-row items-center font-medium text-gray-100">
 								<GitHubLogoSVG className="mr-1 w-5 h-5" />
 								<Space />
@@ -89,7 +89,7 @@ const App = () => {
 						</a>
 
 						{/* https://github.com/codex-src/heroicons.dev */}
-						<a className="block" href="https://github.com/codex-src/heroicons.dev" target="_blank" rel="noopener noreferrer">
+						<a className="block" href="https://github.com/codex-src/heroicons.dev" {...attrs.target_blank}>
 							<p className="flex flex-row items-center font-medium text-gray-100">
 								<GitHubLogoSVG className="mr-1 w-5 h-5" />
 								<Space />
@@ -106,7 +106,7 @@ const App = () => {
 						</a>
 
 						{/* https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L */}
-						<a className="block" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" target="_blank" rel="noopener noreferrer">
+						<a className="block" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...attrs.target_blank}>
 							<p className="flex flex-row items-center font-medium text-gray-100">
 								<FigmaLogoSVG className="wmr-1 -5 h-5" />
 								<Space />
@@ -142,7 +142,7 @@ const App = () => {
 							<span className="hidden md:inline">
 								Created by{" "}
 							</span>
-							<a href="https://twitter.com/steveschoger" target="_blank" rel="noopener noreferrer">
+							<a href="https://twitter.com/steveschoger" {...attrs.target_blank}>
 								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger} alt="Steve Schoger" />{" "}
 								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
 									@steveschoger
@@ -151,7 +151,7 @@ const App = () => {
 							<span className="hidden md:inline">
 								and{" "}
 							</span>
-							<a href="https://twitter.com/adamwathan" target="_blank" rel="noopener noreferrer">
+							<a href="https://twitter.com/adamwathan" {...attrs.target_blank}>
 								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamWathan} alt="Adam Wathan" />{" "}
 								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
 									@adamwathan
@@ -164,7 +164,7 @@ const App = () => {
 							<span className="hidden md:inline">
 								Web app by{" "}
 							</span>
-							<a href="https://twitter.com/username_ZAYDEK" target="_blank" rel="noopener noreferrer">
+							<a href="https://twitter.com/username_ZAYDEK" {...attrs.target_blank}>
 								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />{" "}
 								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
 									@username_ZAYDEK
@@ -340,7 +340,7 @@ const SearchForm = ({ state, dispatch }) => {
 						placeholder={breakpoints.sm ? "Search 200+ Icons" : "Search 200+ Icons (Press esc to Search)"}
 						value={text}
 						onChange={e => setText(e.target.value)}
-						{...disableAutoCorrect}
+						{...attrs.disableAutoCorrect}
 					/>
 				</div>
 
@@ -566,7 +566,7 @@ const Icons = ({ state, dispatch }) => {
 						</h3>
 						<h3 className="font-medium text-xl leading-9 text-gray-100">
 							Try again or{" "}
-							<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" target="_blank" rel="noopener noreferrer">
+							<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" {...attrs.target_blank}>
 								request an icon here
 							</a>
 							.
