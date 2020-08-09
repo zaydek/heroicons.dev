@@ -11,6 +11,7 @@ function shortHash() {
 
 const initialState = {
 	form: {
+		originalSearch: "",
 		search: "",
 		copyAsReact: false,
 		showOutline: false,
@@ -28,27 +29,31 @@ const actions = state => ({
 	/*
 	 * state.form
 	 */
+	internalResetSearch() {
+		state.form.originalSearch = ""
+		state.form.search = ""
+		state.results = dataset
+	},
+	// internalPerformSearchNew() {
+	// 	state.dataset.filter(each => each.statusNew)
+	// },
 	updateFormSearch(text) {
-		text = text.toLowerCase()
 		if (!text) {
-			state.form.search = ""
-			state.results = dataset
+			this.internalResetSearch()
 			return
 		}
-		state.form.search = text
+		state.form.originalSearch = text
+		state.form.search = text.toLowerCase().replace(/ /g, "-")
+		if (state.form.search === "new") {
+			state.results = dataset.filter(each => each.statusNew)
+			return
+		}
 		state.results = dataset.filter(each => {
-			if (each.statusNew && text === "new") {
-				return true
-			}
-			each.searchQueryIndex = each.name.indexOf(text)
-			return each.searchQueryIndex >= 0
+			each.searchIndex = each.name.indexOf(state.form.search)
+			return each.searchIndex >= 0
 		})
-		if (text === "new") {
-			// No-op
-			return
-		}
 		state.results.sort((a, b) => {
-			return a.searchQueryIndex - b.searchQueryIndex
+			return a.searchIndex - b.searchIndex
 		})
 	},
 	toggleFormCopyAsReact() {

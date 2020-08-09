@@ -655,7 +655,7 @@ const Icons = ({ state, dispatch }) => {
 						<h3 className="flex flex-row items-baseline font-medium text-xl leading-9 text-center text-gray-100">
 							No results for “
 							<span className="inline-block truncate" style={{ maxWidth: breakpoints.xs ? 128 : 256 }}>
-								{state.form.search}.
+								{state.form.originalSearch}.
 							</span>
 							”
 						</h3>
