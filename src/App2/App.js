@@ -354,9 +354,9 @@ const FormSearch = ({ state, dispatch }) => {
 				<div className="rounded-75 shadow-lg">
 					<input
 						ref={inputRef}
-						className="px-16 w-full h-16 text-lg sm:text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
+						className="px-16 w-full h-16 text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
 						type="text"
-						placeholder={breakpoints.sm ? "Search 200+ Icons" : "Search 200+ Icons (Press esc to Search)"}
+						placeholder={breakpoints.sm ? "Search 200+ Icons" : "Search 200+ Icons (Press Esc to Search)"}
 						value={text}
 						onChange={e => setText(e.target.value)}
 						{...attrs.disableAutoCorrect}
@@ -585,7 +585,7 @@ const Icons = ({ state, dispatch }) => {
 						<h3 className="font-medium text-xl leading-9 text-center text-gray-100">
 							Try again or{" "}
 							<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" {...attrs.target_blank}>
-								request an icon here
+								request an icon
 							</a>
 							.
 						</h3>
