@@ -11,11 +11,11 @@ import Transition from "lib/x/Transition"
 import useHeroiconsReducer from "./useHeroiconsReducer"
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 
-import CodeSVG from "heroicons-ecfba30/solid/Code"
-import ExternalLinkSVG from "heroicons-ecfba30/solid/ExternalLink"
-import FlagSVG from "heroicons-ecfba30/solid/Flag"
-import SearchOutlineIcon from "heroicons-ecfba30/outline/Search"
-import SwitchHorizontalSVG from "heroicons-ecfba30/solid/SwitchHorizontal"
+import CodeSVG from "heroicons-82f6a4d/react/solid/Code"
+import ExternalLinkSVG from "heroicons-82f6a4d/react/solid/ExternalLink"
+import FlagSVG from "heroicons-82f6a4d/react/solid/Flag"
+import SearchOutlineIcon from "heroicons-82f6a4d/react/outline/Search"
+import SwitchHorizontalSVG from "heroicons-82f6a4d/react/solid/SwitchHorizontal"
 // import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubSVG } from "svg/github.svg"
 
@@ -47,8 +47,8 @@ const tailwindcss = {
 	},
 }
 
-// Renders a space for flex flex-* etc.
-const Space = () => (
+// Renders a gap for flex flex-* etc.
+const Gap = () => (
 	<span style={{ width: "0.5ch" }} />
 )
 
@@ -65,6 +65,18 @@ const App = () => {
 
 	const carbonAdsRef = React.useRef()
 	const [carbonAdsIsReady, setCarbonAdsIsReady] = React.useState(false)
+
+	// Prevents focus on Carbon Ads.
+	React.useEffect(() => {
+		if (carbonAdsIsReady) {
+			const els = document.querySelectorAll("[rel*='sponsored']")
+			if (els.length) {
+				for (const each of els) {
+					each.setAttribute("tabindex", -1)
+				}
+			}
+		}
+	}, [carbonAdsIsReady])
 
 	// NOTE: Because <CarbonAds> cannot be used more than
 	// once, we move carbonAdsRef.current between
@@ -116,9 +128,9 @@ const App = () => {
 						<a className="block" href="https://github.com/refactoringui/heroicons" {...attrs.target_blank}>
 							<p className="flex flex-row items-center font-medium text-gray-100">
 								<GitHubSVG className="mr-1 w-5 h-5" />
-								<Space />
+								<Gap />
 								Star the Icon Repo
-								<Space />
+								<Gap />
 								<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
 							</p>
 						</a>
@@ -127,9 +139,9 @@ const App = () => {
 						<a className="block" href="https://github.com/codex-src/heroicons.dev" {...attrs.target_blank}>
 							<p className="flex flex-row items-center font-medium text-gray-100">
 								<GitHubSVG className="mr-1 w-5 h-5" />
-								<Space />
+								<Gap />
 								Star the Icon Viewer Repo
-								<Space />
+								<Gap />
 								<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
 							</p>
 						</a>
@@ -138,9 +150,9 @@ const App = () => {
 						{/* <a className="block" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...attrs.target_blank}> */}
 						{/* 	<p className="flex flex-row items-center font-medium text-gray-100"> */}
 						{/* 		<FigmaSVG className="wmr-1 -5 h-5" /> */}
-						{/* 		<Space /> */}
+						{/* 		<Gap /> */}
 						{/* 		Open the Figma file */}
-						{/* 		<Space /> */}
+						{/* 		<Gap /> */}
 						{/* 		<ExternalLinkSVG className="w-4 h-4 text-indigo-400" /> */}
 						{/* 	</p> */}
 						{/* </a> */}
@@ -164,7 +176,7 @@ const App = () => {
 
 						{/* Header */}
 						<div className="relative flex flex-row items-center">
-							<h1 className="font-bold text-5xl text-white" style={{ fontFamily: "DM Sans", letterSpacing: "-0.0375em" }}>
+							<h1 className="font-bold font-brand-sans text-5xl text-white" style={{ letterSpacing: "-0.0375em" }}>
 								Heroicons
 							</h1>
 							<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}>
@@ -261,8 +273,8 @@ const App = () => {
 										{state.notif.notifType.startsWith("form") && (
 											<>
 												<SVG className="w-5 h-5" svg={state.notif.notifInfo.icon} />
-												<Space />
-												<Space />
+												<Gap />
+												<Gap />
 
 												{state.notif.notifType === "form-jsx" && (
 													!state.form.copyAsReact
@@ -283,18 +295,18 @@ const App = () => {
 										{state.notif.notifType === "icon" && (
 											<>
 												<SVG className="w-5 h-5" svg={state.notif.notifInfo.icon} />
-												<Space />
-												<Space />
+												<Gap />
+												<Gap />
 												<span className="inline-flex flex-row items-baseline">
 													Copied
-													<Space />
+													<Gap />
 													<span className="font-mono">
 														{!state.form.copyAsReact
 															? state.notif.notifInfo.name
 															: toCamelCase(state.notif.notifInfo.name)
 														}
 													</span>
-													<Space />
+													<Gap />
 													as {!state.form.copyAsReact ? "HTML" : "JSX"}
 												</span>
 											</>

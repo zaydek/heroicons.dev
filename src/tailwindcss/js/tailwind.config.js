@@ -47,9 +47,11 @@ module.exports = {
 				`),
 			},
 			fontFamily: {
-				// eslint-disable-next-line quotes
+				/* eslint-disable quotes */
 				mono: ['"IBM Plex Mono"', ...defaultTheme.fontFamily.mono],
 				sans: [...defaultTheme.fontFamily.sans.slice(0, 3), "Inter", ...defaultTheme.fontFamily.sans.slice(3)],
+				"brand-sans": ['"DM Sans"', ...defaultTheme.fontFamily.sans.slice(0, 3), "Inter", ...defaultTheme.fontFamily.sans.slice(3)],
+				/* eslint-enable quotes */
 			},
 			fontSize: {
 				"3xs": "0.625rem",

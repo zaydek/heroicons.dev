@@ -1,8 +1,8 @@
 import dataset from "./dataset"
 import { useImmerReducer } from "use-immer"
 
-import CodeSolidSVG from "heroicons-ecfba30/solid/Code"
-import SwitchHorizontalSolidSVG from "heroicons-ecfba30/solid/SwitchHorizontal"
+import CodeSolidSVG from "heroicons-82f6a4d/react/solid/Code"
+import SwitchHorizontalSolidSVG from "heroicons-82f6a4d/react/solid/SwitchHorizontal"
 
 // Generates a 4-character hash.
 function shortHash() {

@@ -1,29 +1,13 @@
-import * as Outline from "heroicons-ecfba30/outline"
-import * as Solid from "heroicons-ecfba30/solid"
+import * as Outline from "heroicons-82f6a4d/react/outline"
+import * as Solid from "heroicons-82f6a4d/react/solid"
 
-// TODO: https://github.com/tailwindlabs/heroicons/issues/90
-//
-// - outline/academic-cap.svg
-// - outline/backspace.svg
-// - outline/calculator.svg
-// - outline/cube.svg
-// - outline/folder-open.svg
-// - solid/login.svg
-// - outline/presentation-chart-line.svg
-// - outline/search-circle.svg
-// - outline/status-offline.svg
-// - outline/truck.svg
-// - outline/variable.svg
-// - outline/wifi.svg
-//
 const dataset = [
-	// // FIXME
-	// {
-	// 	name: "academic-cap",
-	// 	solid: Solid.AcademicCap,
-	// 	outline: Outline.AcademicCap,
-	// 	statusNew: true,
-	// },
+	{
+		name: "academic-cap",
+		solid: Solid.AcademicCap,
+		outline: Outline.AcademicCap,
+		statusNew: true,
+	},
 	{
 		name: "adjustments",
 		solid: Solid.Adjustments,
@@ -108,13 +92,12 @@ const dataset = [
 		outline: Outline.ArrowRight,
 		statusNew: false,
 	},
-	// // FIXME
-	// {
-	// 	name: "arrows-expand",
-	// 	solid: Solid.ArrowsExpand,
-	// 	outline: Outline.ArrowsExpand,
-	// 	statusNew: false,
-	// },
+	{
+		name: "arrows-expand",
+		solid: Solid.ArrowsExpand,
+		outline: Outline.ArrowsExpand,
+		statusNew: false,
+	},
 	{
 		name: "arrow-up",
 		solid: Solid.ArrowUp,
@@ -127,13 +110,12 @@ const dataset = [
 		outline: Outline.AtSymbol,
 		statusNew: false,
 	},
-	// // FIXME
-	// {
-	// 	name: "backspace",
-	// 	solid: Solid.Backspace,
-	// 	outline: Outline.Backspace,
-	// 	statusNew: true,
-	// },
+	{
+		name: "backspace",
+		solid: Solid.Backspace,
+		outline: Outline.Backspace,
+		statusNew: true,
+	},
 	{
 		name: "badge-check",
 		solid: Solid.BadgeCheck,
@@ -188,13 +170,12 @@ const dataset = [
 		outline: Outline.Cake,
 		statusNew: true,
 	},
-	// // FIXME
-	// {
-	// 	name: "calculator",
-	// 	solid: Solid.Calculator,
-	// 	outline: Outline.Calculator,
-	// 	statusNew: true,
-	// },
+	{
+		name: "calculator",
+		solid: Solid.Calculator,
+		outline: Outline.Calculator,
+		statusNew: true,
+	},
 	{
 		name: "calendar",
 		solid: Solid.Calendar,
@@ -393,13 +374,12 @@ const dataset = [
 		outline: Outline.CreditCard,
 		statusNew: false,
 	},
-	// // FIXME
-	// {
-	// 	name: "cube",
-	// 	solid: Solid.Cube,
-	// 	outline: Outline.Cube,
-	// 	statusNew: true,
-	// },
+	{
+		name: "cube",
+		solid: Solid.Cube,
+		outline: Outline.Cube,
+		statusNew: true,
+	},
 	{
 		name: "cube-transparent",
 		solid: Solid.CubeTransparent,
@@ -610,13 +590,12 @@ const dataset = [
 		outline: Outline.Filter,
 		statusNew: false,
 	},
-	// // FIXME
-	// {
-	// 	name: "finger-print",
-	// 	solid: Solid.FingerPrint,
-	// 	outline: Outline.FingerPrint,
-	// 	statusNew: true,
-	// },
+	{
+		name: "finger-print",
+		solid: Solid.FingerPrint,
+		outline: Outline.FingerPrint,
+		statusNew: true,
+	},
 	{
 		name: "fire",
 		solid: Solid.Fire,
@@ -647,13 +626,12 @@ const dataset = [
 		outline: Outline.FolderDownload,
 		statusNew: false,
 	},
-	// // FIXME
-	// {
-	// 	name: "folder-open",
-	// 	solid: Solid.FolderOpen,
-	// 	outline: Outline.FolderOpen,
-	// 	statusNew: true,
-	// },
+	{
+		name: "folder-open",
+		solid: Solid.FolderOpen,
+		outline: Outline.FolderOpen,
+		statusNew: true,
+	},
 	{
 		name: "folder-remove",
 		solid: Solid.FolderRemove,
@@ -774,13 +752,12 @@ const dataset = [
 		outline: Outline.LockOpen,
 		statusNew: false,
 	},
-	// // FIXME
-	// {
-	// 	name: "login",
-	// 	solid: Solid.Login,
-	// 	outline: Outline.Login,
-	// 	statusNew: true,
-	// },
+	{
+		name: "login",
+		solid: Solid.Login,
+		outline: Outline.Login,
+		statusNew: true,
+	},
 	{
 		name: "logout",
 		solid: Solid.Logout,
@@ -961,13 +938,12 @@ const dataset = [
 		outline: Outline.PresentationChartBar,
 		statusNew: true,
 	},
-	// // FIXME
-	// {
-	// 	name: "presentation-chart-line",
-	// 	solid: Solid.PresentationChartLine,
-	// 	outline: Outline.PresentationChartLine,
-	// 	statusNew: true,
-	// },
+	{
+		name: "presentation-chart-line",
+		solid: Solid.PresentationChartLine,
+		outline: Outline.PresentationChartLine,
+		statusNew: true,
+	},
 	{
 		name: "printer",
 		solid: Solid.Printer,
@@ -1058,13 +1034,12 @@ const dataset = [
 		outline: Outline.Search,
 		statusNew: false,
 	},
-	// // FIXME
-	// {
-	// 	name: "search-circle",
-	// 	solid: Solid.SearchCircle,
-	// 	outline: Outline.SearchCircle,
-	// 	statusNew: true,
-	// },
+	{
+		name: "search-circle",
+		solid: Solid.SearchCircle,
+		outline: Outline.SearchCircle,
+		statusNew: true,
+	},
 	{
 		name: "selector",
 		solid: Solid.Selector,
@@ -1137,13 +1112,12 @@ const dataset = [
 		outline: Outline.Star,
 		statusNew: false,
 	},
-	// // FIXME
-	// {
-	// 	name: "status-offline",
-	// 	solid: Solid.StatusOffline,
-	// 	outline: Outline.StatusOffline,
-	// 	statusNew: true,
-	// },
+	{
+		name: "status-offline",
+		solid: Solid.StatusOffline,
+		outline: Outline.StatusOffline,
+		statusNew: true,
+	},
 	{
 		name: "status-online",
 		solid: Solid.StatusOnline,
@@ -1246,13 +1220,12 @@ const dataset = [
 		outline: Outline.TrendingUp,
 		statusNew: false,
 	},
-	// // FIXME
-	// {
-	// 	name: "truck",
-	// 	solid: Solid.Truck,
-	// 	outline: Outline.Truck,
-	// 	statusNew: true,
-	// },
+	{
+		name: "truck",
+		solid: Solid.Truck,
+		outline: Outline.Truck,
+		statusNew: true,
+	},
 	{
 		name: "upload",
 		solid: Solid.Upload,
@@ -1295,13 +1268,12 @@ const dataset = [
 		outline: Outline.Users,
 		statusNew: false,
 	},
-	// // FIXME
-	// {
-	// 	name: "variable",
-	// 	solid: Solid.Variable,
-	// 	outline: Outline.Variable,
-	// 	statusNew: true,
-	// },
+	{
+		name: "variable",
+		solid: Solid.Variable,
+		outline: Outline.Variable,
+		statusNew: true,
+	},
 	{
 		name: "video-camera",
 		solid: Solid.VideoCamera,
@@ -1344,13 +1316,12 @@ const dataset = [
 		outline: Outline.VolumeUp,
 		statusNew: false,
 	},
-	// // FIXME
-	// {
-	// 	name: "wifi",
-	// 	solid: Solid.Wifi,
-	// 	outline: Outline.Wifi,
-	// 	statusNew: true,
-	// },
+	{
+		name: "wifi",
+		solid: Solid.Wifi,
+		outline: Outline.Wifi,
+		statusNew: true,
+	},
 	{
 		name: "x",
 		solid: Solid.X,
