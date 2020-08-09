@@ -1,38 +1,27 @@
-/* Added */
-.dark-mode-transition #carbonads {
-	opacity: 0%;
-
-	transition-duration: 75ms;
-	transition-timing-function: ease;
+/* https://codepen.io/team/buysellads/pen/bGdqaOm */
+body {
+	background-color: #111;
 }
 
 #carbonads {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
 	Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-	/* Added */
-	transition-duration: 1000ms;
-	transition-timing-function: ease;
 }
 
 #carbonads {
 	display: flex;
 	max-width: 330px;
-	background-color: hsl(0, 0%, 98%);
-	box-shadow: 0 1px 4px 1px hsla(0, 0%, 0%, .1);
-}
-/* Added */
-.dark-mode #carbonads {
-	background-color: #2d3748; /* bg-gray-800 */
+	background-color: hsl(0, 0%, 10%);
+	box-shadow: 0 0 1px hsla(0, 0%, 0%, .5);
 }
 
 #carbonads a {
-	color: inherit;
+	color: #ddd;
 	text-decoration: none;
 }
 
 #carbonads a:hover {
-	color: inherit;
+	color: #ddd;
 }
 
 #carbonads span {
@@ -56,24 +45,21 @@
 }
 
 .carbon-text {
-	font-size: 13px;
 	padding: 10px;
-	line-height: 1.5;
 	text-align: left;
+	font-size: 13px;
+	line-height: 1.5;
 }
 
 .carbon-poweredby {
 	display: block;
 	padding: 8px 10px;
-	background: repeating-linear-gradient(-45deg, transparent, transparent 5px, hsla(0, 0%, 0%, .025) 5px, hsla(0, 0%, 0%, .025) 10px) hsla(203, 11%, 95%, .4);
+	background: repeating-linear-gradient(-45deg, transparent, transparent 5px, hsla(0, 0%, 0%, .025) 5px, hsla(0, 0%, 0%, .025) 10px) hsla(203, 11%, 15%, .4);
+	color: #aaa !important;
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: .5px;
 	font-weight: 600;
 	font-size: 9px;
 	line-height: 1;
-
-	/* Added */
-	transition-duration: 300ms;
-	transition-timing-function: ease;
 }

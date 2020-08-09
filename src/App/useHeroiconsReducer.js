@@ -4,6 +4,11 @@ import { useImmerReducer } from "use-immer"
 import CodeSolidSVG from "heroicons-ecfba30/solid/Code"
 import SwitchHorizontalSolidSVG from "heroicons-ecfba30/solid/SwitchHorizontal"
 
+// Generates a 4-character hash.
+function shortHash() {
+	return Math.random().toString(16).slice(2, 6)
+}
+
 const initialState = {
 	form: {
 		search: "",
@@ -65,7 +70,7 @@ const actions = state => ({
 	 * state.notif
 	 */
 	updateNotification(notifType, notifInfo) {
-		state.notif.visible = notifInfo.icon.name
+		state.notif.visible = notifInfo.icon.name + "-" + shortHash()
 		state.notif.notifType = notifType
 		state.notif.notifInfo = notifInfo
 	},

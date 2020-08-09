@@ -1,5 +1,5 @@
 import * as serviceWorker from "./serviceWorker"
-import App from "App2/App"
+import App from "App/App"
 import React from "react"
 import ReactDOM from "react-dom"
 
