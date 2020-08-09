@@ -11,7 +11,7 @@ const initialState = {
 		showOutline: false,
 	},
 	notif: {
-		visible: false,
+		visible: "", // NOTE: Uses a key.
 		notifType: "",
 		notifInfo: null,
 	},
@@ -45,12 +45,14 @@ const actions = state => ({
 	toggleFormCopyAsReact() {
 		state.form.copyAsReact = !state.form.copyAsReact
 		this.updateNotification("form-jsx", {
+			name: "code",
 			icon: CodeSolidSVG,
 		})
 	},
 	toggleFormShowOutline() {
 		state.form.showOutline = !state.form.showOutline
 		this.updateNotification("form-alt", {
+			name: "switch-horizontal",
 			icon: SwitchHorizontalSolidSVG,
 		})
 	},
@@ -59,12 +61,12 @@ const actions = state => ({
 	 * state.notif
 	 */
 	updateNotification(notifType, notifInfo) {
-		state.notif.visible = true
+		state.notif.visible = notifInfo.icon.name
 		state.notif.notifType = notifType
 		state.notif.notifInfo = notifInfo
 	},
 	hideNotification() {
-		state.notif.visible = false
+		state.notif.visible = ""
 	},
 
 })
