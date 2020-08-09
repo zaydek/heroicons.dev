@@ -534,6 +534,9 @@ const FormSearch = ({ state, dispatch }) => {
 const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	const buttonRef = React.useRef()
 
+	// NOTE: onPointerDown is preferred to active classes.
+	const [pointerDown, setPointerDown] = React.useState(false)
+
 	const handleClick = e => {
 
 		// No-op when the user selected buttonRef.current text:
@@ -574,7 +577,12 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	return (
 		<button
 			ref={buttonRef}
-			className="flex flex-row justify-center items-center w-full h-full bg-gray-800 active:bg-indigo-500 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none transition duration-200 ease-in-out select-text"
+			className="flex flex-row justify-center items-center w-full h-full bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none transition duration-200 ease-in-out select-text"
+			style={{ backgroundColor: pointerDown && "var(--indigo-500)" }}
+			onPointerDown={e => setPointerDown(true)}
+			// NOTE: Debounces setPointerDown(true) to force
+			// backgroundColor to render.
+			onPointerUp={e => setTimeout(() => setPointerDown(false), 100)}
 			onClick={handleClick}
 		>
 
