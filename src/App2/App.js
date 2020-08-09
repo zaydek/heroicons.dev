@@ -59,7 +59,7 @@ const App = () => {
 				dispatch({
 					type: "HIDE_NOTIFICATION",
 				})
-			}, 1.5e3)
+			}, 5e3)
 			return () => {
 				clearTimeout(id)
 			}
@@ -175,7 +175,7 @@ const App = () => {
 					</header>
 
 					<div className="h-24" />
-					<SearchForm
+					<FormSearch
 						state={state}
 						dispatch={dispatch}
 					/>
@@ -198,13 +198,32 @@ const App = () => {
 								<div className="px-3 py-2 bg-indigo-500 rounded-md shadow-lg">
 									<p className="flex flex-row items-center font-semibold text-base text-indigo-50">
 
-										{state.notif.notifType === "form" && (
-											"TODO"
+										{/* Form */}
+										{state.notif.notifType.startsWith("form") && (
+											<>
+												<SVG className="w-5 h-5" svg={state.notif.notifInfo.icon} />
+												<Space />
+												<Space />
+
+												{state.notif.notifType === "form-jsx" && (
+													!state.form.copyAsReact
+														? "Enabled Copy as HTML"
+														: "Enabled Copy as JSX"
+												)}
+
+												{state.notif.notifType === "form-alt" && (
+													!state.form.showOutline
+														? "Switched to Solid Icons"
+														: "Switched to Outline Icons"
+												)}
+
+											</>
 										)}
 
+										{/* Icon */}
 										{state.notif.notifType === "icon" && (
 											<>
-												<SVG className="w-5 h-5" svg={state.notif.notifInfo[!state.form.showOutline ? "solid" : "outline"]} />
+												<SVG className="w-5 h-5" svg={state.notif.notifInfo.icon} />
 												<Space />
 												<Space />
 												<span className="inline-flex flex-row items-baseline">
@@ -234,7 +253,7 @@ const App = () => {
 	)
 }
 
-const SearchForm = ({ state, dispatch }) => {
+const FormSearch = ({ state, dispatch }) => {
 	const inputRef = React.useRef()
 
 	const breakpoints = React.useContext(BreakpointContext)
@@ -256,7 +275,7 @@ const SearchForm = ({ state, dispatch }) => {
 			// Do not debounce the mount search:
 			if (!mounted.current) {
 				dispatch({
-					type: "UPDATE_FORM_SEARCH_QUERY",
+					type: "UPDATE_FORM_SEARCH",
 					text,
 				})
 				mounted.current = true
@@ -264,7 +283,7 @@ const SearchForm = ({ state, dispatch }) => {
 			}
 			const id = setTimeout(() => {
 				dispatch({
-					type: "UPDATE_FORM_SEARCH_QUERY",
+					type: "UPDATE_FORM_SEARCH",
 					text,
 				})
 			}, 15)
@@ -337,7 +356,7 @@ const SearchForm = ({ state, dispatch }) => {
 					<SearchOutlineSVG className="w-6 h-6 text-gray-500" />
 				</div>
 
-				{/* <input type="text"> */}
+				{/* Search */}
 				<div className="rounded-75 shadow-lg">
 					<input
 						ref={inputRef}
@@ -379,16 +398,10 @@ const SearchForm = ({ state, dispatch }) => {
 										<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
 											<div className="p-0.5">
 												<p className="whitespace-pre font-medium text-sm text-gray-100">
-													Copy Icons as React JSX
-													{/* NOTE: <Space> does not work here. */}
-													<span
-														className="ml-2"
-														style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
-														aria-label="atom symbol"
-														role="img"
-													>
-														⚛️
-													</span>
+													{!state.form.copyAsReact
+														? "Enable Copy as JSX"
+														: "Enable Copy as HTML"
+													}
 												</p>
 											</div>
 										</div>
@@ -425,16 +438,10 @@ const SearchForm = ({ state, dispatch }) => {
 										<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
 											<div className="p-0.5">
 												<p className="whitespace-pre font-medium text-sm text-gray-100">
-													{!state.form.showOutline ? "Change to Outline Icons" : "Change Back to Solid Icons"}
-													{/* NOTE: <Space> does not work here. */}
-													<span
-														className="ml-2"
-														style={{ fontSize: "120%", lineHeight: "1", verticalAlign: "-10%" }}
-														aria-label="straight ruler"
-														role="img"
-													>
-														📏
-													</span>
+													{!state.form.showOutline
+														? "Switch to Outline Icons"
+														: "Switch to Solid Icons"
+													}
 												</p>
 											</div>
 										</div>
@@ -481,7 +488,10 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 		}
 
 		const notifType = "icon"
-		const notifInfo = icon
+		const notifInfo = {
+			name: icon.name,
+			icon: icon[!state.form.showOutline ? "solid" : "outline"],
+		}
 		dispatch({
 			type: "UPDATE_NOTIFICATION",
 			notifType,
@@ -520,18 +530,18 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			<div className="px-3 py-2 absolute bottom-0">
 				<div style={{ paddingBottom: "0.0625rem" }}>
 					<p className="text-center font-semibold text-sm leading-tight font-mono text-gray-100">
-						{!state.form.searchQuery || state.form.searchQuery === "new" ? (
+						{!state.form.search || state.form.search === "new" ? (
 							icon.name
 						) : (
 							(substrs => (
 								<>
 									{substrs[0]}
 									<span className="p-px text-black bg-yellow-200 rounded">
-										{state.form.searchQuery}
+										{state.form.search}
 									</span>
-									{icon.name.slice(substrs[0].length + state.form.searchQuery.length)}
+									{icon.name.slice(substrs[0].length + state.form.search.length)}
 								</>
-							))(icon.name.split(state.form.searchQuery, 1))
+							))(icon.name.split(state.form.search, 1))
 						)}
 					</p>
 				</div>
@@ -541,7 +551,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	)
 }, (prev, next) => {
 	const ok = (
-		prev.state.form.searchQuery === next.state.form.searchQuery &&
+		prev.state.form.search === next.state.form.search &&
 		prev.state.form.copyAsReact === next.state.form.copyAsReact &&
 		prev.state.form.showOutline === next.state.form.showOutline &&
 		prev.state.dispatch === next.state.dispatch &&
@@ -566,7 +576,7 @@ const Icons = ({ state, dispatch }) => {
 	}, [state.results, breakpoints])
 
 	return (
-		<DocumentTitle title={!state.form.searchQuery ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
+		<DocumentTitle title={!state.form.search ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
 			<main style={{ height, minHeight }}>
 
 				{!state.results.length && (
@@ -574,7 +584,7 @@ const Icons = ({ state, dispatch }) => {
 						<h3 className="flex flex-row items-baseline font-medium text-xl leading-9 text-center text-gray-100">
 							No results for “
 							<span className="inline-block truncate" style={{ maxWidth: breakpoints.xs ? 128 : 256 }}>
-								{state.form.searchQuery}.
+								{state.form.search}.
 							</span>
 							”
 						</h3>

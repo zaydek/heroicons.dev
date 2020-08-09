@@ -1,11 +1,14 @@
 import dataset from "./dataset"
 import { useImmerReducer } from "use-immer"
 
+import CodeSolidSVG from "heroicons-ecfba30/solid/Code"
+import SwitchHorizontalSolidSVG from "heroicons-ecfba30/solid/SwitchHorizontal"
+
 const initialState = {
 	form: {
-		searchQuery: "",    // TODO
+		search: "",
 		copyAsReact: false,
-		showOutline: false, // TODO
+		showOutline: false,
 	},
 	notif: {
 		visible: false,
@@ -20,14 +23,14 @@ const actions = state => ({
 	/*
 	 * state.form
 	 */
-	updateFormSearchQuery(text) {
+	updateFormSearch(text) {
 		text = text.toLowerCase()
 		if (!text) {
-			state.form.searchQuery = ""
+			state.form.search = ""
 			state.results = dataset
 			return
 		}
-		state.form.searchQuery = text
+		state.form.search = text
 		state.results = dataset.filter(each => {
 			each.searchQueryIndex = each.name.indexOf(text)
 			if (each.statusNew && text === "new") {
@@ -41,9 +44,15 @@ const actions = state => ({
 	},
 	toggleFormCopyAsReact() {
 		state.form.copyAsReact = !state.form.copyAsReact
+		this.updateNotification("form-jsx", {
+			icon: CodeSolidSVG,
+		})
 	},
 	toggleFormShowOutline() {
 		state.form.showOutline = !state.form.showOutline
+		this.updateNotification("form-alt", {
+			icon: SwitchHorizontalSolidSVG,
+		})
 	},
 
 	/*
@@ -62,8 +71,8 @@ const actions = state => ({
 
 function HeroiconsReducer(state, action) {
 	switch (action.type) {
-	case "UPDATE_FORM_SEARCH_QUERY":
-		actions(state).updateFormSearchQuery(action.text)
+	case "UPDATE_FORM_SEARCH":
+		actions(state).updateFormSearch(action.text)
 		return
 	case "TOGGLE_FORM_COPY_AS_REACT":
 		actions(state).toggleFormCopyAsReact()
