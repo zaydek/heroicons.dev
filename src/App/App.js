@@ -394,8 +394,8 @@ const FormSearch = ({ state, dispatch }) => {
 						ref={inputRef}
 						className="block w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
 						style={{
-							paddingLeft: breakpoints.xs ? tw(2 + 6) : tw(6 + 2 + 6 + 6),
-							paddingRight: tw(6 + 10 + 2 + 10 + 2 + 6),
+							paddingLeft: breakpoints.xs ? tw(-0.5 + 2 + 6) : tw(-0.5 + 6 + 2 + 6 + 6),
+							paddingRight: tw(6 + 10 + 1 + 10 + 2 + 6 + -0.5),
 							height: tw(18),
 						}}
 						type="text"
@@ -414,7 +414,7 @@ const FormSearch = ({ state, dispatch }) => {
 
 						<div
 							className="flex flex-row items-center"
-							style={{ paddingRight: tw(1) }}
+							style={{ paddingRight: tw(0.5) }}
 							onFocus={e => setTooltip("jsx")}
 							onBlur={e => setTooltip("")}
 							onMouseEnter={e => setTooltip("jsx")}
@@ -453,7 +453,7 @@ const FormSearch = ({ state, dispatch }) => {
 
 						<div
 							className="flex flex-row items-center"
-							style={{ paddingLeft: tw(1) }}
+							style={{ paddingLeft: tw(0.5) }}
 							onFocus={e => setTooltip("alt")}
 							onBlur={e => setTooltip("")}
 							onMouseEnter={e => setTooltip("alt")}
@@ -576,23 +576,21 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 
 			{/* Name */}
 			<div className="px-3 py-2 absolute bottom-0">
-				<div style={{ paddingBottom: "0.0625rem" }}>
-					<p className="text-center font-semibold text-sm leading-tight font-mono text-gray-100">
-						{!state.form.search.safe || state.form.search.safe === "new" ? (
-							icon.name
-						) : (
-							(substrs => (
-								<>
-									{substrs[0]}
-									<span className="p-px text-black bg-yellow-200 rounded">
-										{state.form.search.safe}
-									</span>
-									{icon.name.slice(substrs[0].length + state.form.search.safe.length)}
-								</>
-							))(icon.name.split(state.form.search.safe, 1))
-						)}
-					</p>
-				</div>
+				<p className="text-center font-semibold text-sm leading-tight font-mono text-gray-100">
+					{!state.form.search.safe || state.form.search.safe === "new" ? (
+						icon.name
+					) : (
+						(substrs => (
+							<>
+								{substrs[0]}
+								<span className="p-px text-black bg-yellow-200 rounded">
+									{state.form.search.safe}
+								</span>
+								{icon.name.slice(substrs[0].length + state.form.search.safe.length)}
+							</>
+						))(icon.name.split(state.form.search.safe, 1))
+					)}
+				</p>
 			</div>
 
 		</button>
