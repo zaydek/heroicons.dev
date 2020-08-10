@@ -1,7 +1,9 @@
 import attrs from "./attrs"
+import BannerLinks from "./BannerLinks"
 import CarbonAds from "./CarbonAds"
 import copyToClipboardPolyfill from "./copyToClipboardPolyfill"
 import DocumentTitle from "lib/x/DocumentTitle"
+import Gap from "./Gap"
 import React from "react"
 import SVG from "./SVG"
 import svgToJSX from "./svgToJSX"
@@ -24,66 +26,11 @@ import srcAdamWathan from "images/adam-wathan.jpg"
 import srcSteveSchoger from "images/steve-schoger.jpg"
 import srcZaydekMG from "images/zaydek-mg.png"
 
-// Renders a gap for flex flex-* etc.
-const Gap = () => (
-	<span style={{ width: "0.5ch" }} />
-)
-
 const BreakpointContext = React.createContext()
 
 ;(() => {
 	document.body.classList.add("bg-black")
 })()
-
-const ExternalLinks = () => (
-	<div className="space-x-6 hidden lg:flex lg:flex-row lg:justify-center">
-
-		{/* https://github.com/refactoringui/heroicons */}
-		<a className="block" href="https://github.com/refactoringui/heroicons" {...attrs.target_blank}>
-			<p className="flex flex-row items-center font-medium text-gray-100">
-				<GitHubSVG className="mr-1 w-5 h-5" />
-				<Gap />
-				Star heroicons
-				<Gap />
-				<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
-			</p>
-		</a>
-
-		{/* https://github.com/codex-src/heroicons.dev */}
-		<a className="block" href="https://github.com/codex-src/heroicons.dev" {...attrs.target_blank}>
-			<p className="flex flex-row items-center font-medium text-gray-100">
-				<GitHubSVG className="mr-1 w-5 h-5" />
-				<Gap />
-				Star heroicons.dev
-				<Gap />
-				<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
-			</p>
-		</a>
-
-		{/* https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L */}
-		<a className="block" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...attrs.target_blank}>
-			<p className="flex flex-row items-center font-medium text-gray-100">
-				<FigmaSVG className="mr-1 -5 h-5" />
-				<Gap />
-				Open the Figma file
-				<Gap />
-				<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
-			</p>
-		</a>
-
-		{/* https://twitter.com/intent/... */}
-		<a className="block" href="https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev" {...attrs.target_blank}>
-			<p className="flex flex-row items-center font-medium text-gray-100">
-				<TwitterSVG className="mr-1 -5 h-5" style={{ color: "#1da1f2" }} />
-				<Gap />
-				Say thanks on Twitter!
-				<Gap />
-				<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
-			</p>
-		</a>
-
-	</div>
-)
 
 // TODO: Extract <StyledH1>, <StyledH2>, and <StyledH3>.
 const App = () => {
@@ -145,13 +92,13 @@ const App = () => {
 
 	return (
 		<BreakpointContext.Provider value={breakpoints}>
-			<div className="py-24 lg:py-32 flex flex-row justify-center">
+			<div className="pt-24 lg:pt-32 flex flex-row justify-center">
 
 				<div className="px-6 w-full max-w-screen-lg">
 
-					<aside className="p-3 absolute top-0 inset-x-0">
-						<ExternalLinks />
-					</aside>
+					<nav className="p-3 absolute top-0 inset-x-0 hidden lg:block">
+						<BannerLinks />
+					</nav>
 
 					{/* Carbon Ads (alt) */}
 					{/* <aside className="p-6 absolute top-0 right-0 z-30"> */}
@@ -213,6 +160,33 @@ const App = () => {
 							</a>
 						</h3>
 
+						{/* https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L */}
+						<div className="h-16" />
+						<div className="space-x-3 flex flex-row">
+							<div className="rounded-75 shadow-lg">
+								<a className="px-4 py-3 block bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...attrs.target_blank}>
+									<div className="px-2 py-1">
+										<p className="flex flex-row items-center font-medium text-xl leading-9 text-gray-100">
+											<FigmaSVG className="mr-4 w-6 h-6" />
+											Open in Figma
+											<ExternalLinkSVG className="ml-2 w-5 h-5 text-indigo-400" />
+										</p>
+									</div>
+								</a>
+							</div>
+							<div className="rounded-75 shadow-lg">
+								<a className="px-4 py-3 block bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out" href="https://github.com/refactoringui/heroicons" {...attrs.target_blank}>
+									<div className="px-2 py-1">
+										<p className="flex flex-row items-center font-medium text-xl leading-9 text-gray-100">
+											<GitHubSVG className="mr-4 w-6 h-6" />
+											Open in GitHub
+											<ExternalLinkSVG className="ml-2 w-5 h-5 text-indigo-400" />
+										</p>
+									</div>
+								</a>
+							</div>
+						</div>
+
 						{/* Carbon Ads */}
 						{/* <Transition */}
 						{/* 	on={carbonAdsIsReady} */}
@@ -234,7 +208,7 @@ const App = () => {
 
 					</header>
 
-					<div className="h-24" />
+					<div className="h-16" />
 					<FormSearch
 						state={state}
 						dispatch={dispatch}
@@ -305,6 +279,11 @@ const App = () => {
 							</div>
 						</div>
 					</Transition>
+
+					<div className="h-24" />
+					<footer className="pb-3 hidden lg:block">
+						<BannerLinks />
+					</footer>
 
 				</div>
 			</div>
