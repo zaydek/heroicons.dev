@@ -18,6 +18,7 @@ import SearchOutlineIcon from "heroicons-82f6a4d/react/outline/Search"
 import SwitchHorizontalSVG from "heroicons-82f6a4d/react/solid/SwitchHorizontal"
 import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubSVG } from "svg/github.svg"
+import { ReactComponent as TwitterSVG } from "svg/twitter.svg"
 
 import srcAdamWathan from "images/adam-wathan.jpg"
 import srcSteveSchoger from "images/steve-schoger.jpg"
@@ -34,44 +35,95 @@ const BreakpointContext = React.createContext()
 	document.body.classList.add("bg-black")
 })()
 
+const ExternalLinks = () => (
+	<div className="space-x-6 hidden lg:flex lg:flex-row lg:justify-center">
+
+		{/* https://github.com/refactoringui/heroicons */}
+		<a className="block" href="https://github.com/refactoringui/heroicons" {...attrs.target_blank}>
+			<p className="flex flex-row items-center font-medium text-gray-100">
+				<GitHubSVG className="mr-1 w-5 h-5" />
+				<Gap />
+				Star heroicons
+				<Gap />
+				<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
+			</p>
+		</a>
+
+		{/* https://github.com/codex-src/heroicons.dev */}
+		<a className="block" href="https://github.com/codex-src/heroicons.dev" {...attrs.target_blank}>
+			<p className="flex flex-row items-center font-medium text-gray-100">
+				<GitHubSVG className="mr-1 w-5 h-5" />
+				<Gap />
+				Star heroicons.dev
+				<Gap />
+				<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
+			</p>
+		</a>
+
+		{/* https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L */}
+		<a className="block" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...attrs.target_blank}>
+			<p className="flex flex-row items-center font-medium text-gray-100">
+				<FigmaSVG className="mr-1 -5 h-5" />
+				<Gap />
+				Open the Figma file
+				<Gap />
+				<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
+			</p>
+		</a>
+
+		{/* https://twitter.com/intent/... */}
+		<a className="block" href="https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev" {...attrs.target_blank}>
+			<p className="flex flex-row items-center font-medium text-gray-100">
+				<TwitterSVG className="mr-1 -5 h-5" style={{ color: "#1da1f2" }} />
+				<Gap />
+				Say thanks on Twitter!
+				<Gap />
+				<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
+			</p>
+		</a>
+
+	</div>
+)
+
 // TODO: Extract <StyledH1>, <StyledH2>, and <StyledH3>.
 const App = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 	const breakpoints = useLayoutBreakpoints(tailwindcss.theme.screens)
 
-	const carbonAdsRef = React.useRef()
-	const [carbonAdsIsReady, setCarbonAdsIsReady] = React.useState(false)
+	// const carbonAdsRef = React.useRef()
+	// const [carbonAdsIsReady, setCarbonAdsIsReady] = React.useState(false)
 
-	// Prevents focus on Carbon Ads.
-	React.useEffect(() => {
-		if (carbonAdsIsReady) {
-			const els = document.querySelectorAll("[rel*='sponsored']")
-			if (els.length) {
-				for (const each of els) {
-					each.setAttribute("tabindex", -1)
-				}
-			}
-		}
-	}, [carbonAdsIsReady])
+	// // Prevents focus on Carbon Ads.
+	// React.useEffect(() => {
+	// 	if (carbonAdsIsReady) {
+	// 		const els = document.querySelectorAll("[rel*='sponsored']")
+	// 		if (els.length) {
+	// 			for (const each of els) {
+	// 				each.setAttribute("tabindex", -1)
+	// 			}
+	// 		}
+	// 	}
+	// }, [carbonAdsIsReady])
 
-	// NOTE: Because <CarbonAds> cannot be used more than
-	// once, we move carbonAdsRef.current between
-	// #carbonads-placement and #carbonads-alt-placement on
-	// breakpoints.xl rerenders.
-	React.useLayoutEffect(() => {
-		if (breakpoints.xl) {
-			const el = document.getElementById("carbonads-placement")
-			if (!el.children.length) {
-				el.append(carbonAdsRef.current)
-			}
-		} else {
-			const el = document.getElementById("carbonads-alt-placement")
-			if (!el.children.length) {
-				el.append(carbonAdsRef.current)
-			}
-		}
-	}, [breakpoints.xl])
+	// // NOTE: Because <CarbonAds> cannot be used more than
+	// // once, we move carbonAdsRef.current between
+	// // #carbonads-placement and #carbonads-alt-placement on
+	// // breakpoints.xl rerenders.
+	// React.useLayoutEffect(() => {
+	// 	if (breakpoints.xl) {
+	// 		const el = document.getElementById("carbonads-placement")
+	// 		if (!el.children.length) {
+	// 			el.append(carbonAdsRef.current)
+	// 		}
+	// 	} else {
+	// 		const el = document.getElementById("carbonads-alt-placement")
+	// 		if (!el.children.length) {
+	// 			el.append(carbonAdsRef.current)
+	// 		}
+	// 	}
+	// }, [breakpoints.xl])
 
+	// Auto-hides the notification (1.5s).
 	const mounted = React.useRef()
 	React.useEffect(
 		React.useCallback(() => {
@@ -97,55 +149,21 @@ const App = () => {
 
 				<div className="px-6 w-full max-w-screen-lg">
 
-					{/* GitHub */}
-					<aside className="space-x-4 p-3 absolute top-0 inset-x-0 hidden lg:flex lg:flex-row lg:justify-center">
-
-						{/* https://github.com/refactoringui/heroicons */}
-						<a className="block" href="https://github.com/refactoringui/heroicons" {...attrs.target_blank}>
-							<p className="flex flex-row items-center font-medium text-gray-100">
-								<GitHubSVG className="mr-1 w-5 h-5" />
-								<Gap />
-								Star the Icon Repo
-								<Gap />
-								<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
-							</p>
-						</a>
-
-						{/* https://github.com/codex-src/heroicons.dev */}
-						<a className="block" href="https://github.com/codex-src/heroicons.dev" {...attrs.target_blank}>
-							<p className="flex flex-row items-center font-medium text-gray-100">
-								<GitHubSVG className="mr-1 w-5 h-5" />
-								<Gap />
-								Star the Icon Viewer Repo
-								<Gap />
-								<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
-							</p>
-						</a>
-
-						{/* https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L */}
-						<a className="block" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...attrs.target_blank}>
-							<p className="flex flex-row items-center font-medium text-gray-100">
-								<FigmaSVG className="wmr-1 -5 h-5" />
-								<Gap />
-								Open the Figma file
-								<Gap />
-								<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
-							</p>
-						</a>
-
+					<aside className="p-3 absolute top-0 inset-x-0">
+						<ExternalLinks />
 					</aside>
 
 					{/* Carbon Ads (alt) */}
-					<aside className="p-6 absolute top-0 right-0 z-30">
-						<Transition
-							on={carbonAdsIsReady}
-							className="transition duration-1000 ease-in-out"
-							from="opacity-0 transform scale-110"
-							to="opacity-100 transform scale-100"
-						>
-							<div id="carbonads-alt-placement" />
-						</Transition>
-					</aside>
+					{/* <aside className="p-6 absolute top-0 right-0 z-30"> */}
+					{/* 	<Transition */}
+					{/* 		on={carbonAdsIsReady} */}
+					{/* 		className="transition duration-1000 ease-in-out" */}
+					{/* 		from="opacity-0 transform scale-110" */}
+					{/* 		to="opacity-100 transform scale-100" */}
+					{/* 	> */}
+					{/* 		<div id="carbonads-alt-placement" /> */}
+					{/* 	</Transition> */}
+					{/* </aside> */}
 
 					{/* Headers */}
 					<header className="flex flex-col items-center">
@@ -196,23 +214,23 @@ const App = () => {
 						</h3>
 
 						{/* Carbon Ads */}
-						<Transition
-							on={carbonAdsIsReady}
-							className="transition duration-1000 ease-in-out"
-							from="opacity-0 transform scale-110"
-							to="opacity-100 transform scale-100"
-						>
-							<div id="carbonads-placement" className="-mb-8 xl:mb-0 pt-12 xl:pt-0">
-								<div ref={carbonAdsRef} className="rounded-75 shadow-lg">
-									<CarbonAds
-										className="border border-gray-600 rounded-75 shadow-lg overflow-hidden"
-										style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }}
-										src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
-										callback={() => setCarbonAdsIsReady(true)}
-									/>
-								</div>
-							</div>
-						</Transition>
+						{/* <Transition */}
+						{/* 	on={carbonAdsIsReady} */}
+						{/* 	className="transition duration-1000 ease-in-out" */}
+						{/* 	from="opacity-0 transform scale-110" */}
+						{/* 	to="opacity-100 transform scale-100" */}
+						{/* > */}
+						{/* 	<div id="carbonads-placement" className="-mb-8 xl:mb-0 pt-12 xl:pt-0"> */}
+						{/* 		<div ref={carbonAdsRef} className="rounded-75 shadow-lg"> */}
+						{/* 			<CarbonAds */}
+						{/* 				className="border border-gray-600 rounded-75 shadow-lg overflow-hidden" */}
+						{/* 				style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }} */}
+						{/* 				src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" */}
+						{/* 				callback={() => setCarbonAdsIsReady(true)} */}
+						{/* 			/> */}
+						{/* 		</div> */}
+						{/* 	</div> */}
+						{/* </Transition> */}
 
 					</header>
 
