@@ -1,8 +1,8 @@
 import attrs from "./attrs"
-import BannerLinks from "./BannerLinks"
 import CarbonAds from "./CarbonAds"
 import copyToClipboardPolyfill from "./copyToClipboardPolyfill"
 import DocumentTitle from "lib/x/DocumentTitle"
+import ExternalLinksFragment from "./ExternalLinksFragment"
 import React from "react"
 import SVG from "./SVG"
 import svgToJSX from "./svgToJSX"
@@ -19,7 +19,6 @@ import SearchOutlineIcon from "heroicons-82f6a4d/react/outline/Search"
 import SwitchHorizontalSVG from "heroicons-82f6a4d/react/solid/SwitchHorizontal"
 import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubSVG } from "svg/github.svg"
-import { ReactComponent as TwitterSVG } from "svg/twitter.svg"
 
 import srcAdamWathan from "images/adam-wathan.jpg"
 import srcSteveSchoger from "images/steve-schoger.jpg"
@@ -41,40 +40,41 @@ const App = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 	const breakpoints = useLayoutBreakpoints(tailwindcss.theme.screens)
 
-	// const carbonAdsRef = React.useRef()
-	// const [carbonAdsIsReady, setCarbonAdsIsReady] = React.useState(false)
+	// TODO: Extract Carbon Ads code.
+	const carbonAdsRef = React.useRef()
+	const [carbonAdsIsReady, setCarbonAdsIsReady] = React.useState(false)
 
-	// // Prevents focus on Carbon Ads.
-	// React.useEffect(() => {
-	// 	if (carbonAdsIsReady) {
-	// 		const els = document.querySelectorAll("[rel*='sponsored']")
-	// 		if (els.length) {
-	// 			for (const each of els) {
-	// 				each.setAttribute("tabindex", -1)
-	// 			}
-	// 		}
-	// 	}
-	// }, [carbonAdsIsReady])
+	// Prevents focus on Carbon Ads.
+	React.useEffect(() => {
+		if (carbonAdsIsReady) {
+			const els = document.querySelectorAll("[rel*='sponsored']")
+			if (els.length) {
+				for (const each of els) {
+					each.setAttribute("tabindex", -1)
+				}
+			}
+		}
+	}, [carbonAdsIsReady])
 
-	// // NOTE: Because <CarbonAds> cannot be used more than
-	// // once, we move carbonAdsRef.current between
-	// // #carbonads-placement and #carbonads-alt-placement on
-	// // breakpoints.xl rerenders.
-	// React.useLayoutEffect(() => {
-	// 	if (breakpoints.xl) {
-	// 		const el = document.getElementById("carbonads-placement")
-	// 		if (!el.children.length) {
-	// 			el.append(carbonAdsRef.current)
-	// 		}
-	// 	} else {
-	// 		const el = document.getElementById("carbonads-alt-placement")
-	// 		if (!el.children.length) {
-	// 			el.append(carbonAdsRef.current)
-	// 		}
-	// 	}
-	// }, [breakpoints.xl])
+	// NOTE: Because <CarbonAds> cannot be used more than
+	// once, we move carbonAdsRef.current between
+	// #carbonads-placement and #carbonads-alt-placement on
+	// breakpoints.lg rerenders.
+	React.useLayoutEffect(() => {
+		if (breakpoints.lg) {
+			const el = document.getElementById("carbonads-placement")
+			if (!el.children.length) {
+				el.append(carbonAdsRef.current)
+			}
+		} else {
+			const el = document.getElementById("carbonads-alt-placement")
+			if (!el.children.length) {
+				el.append(carbonAdsRef.current)
+			}
+		}
+	}, [breakpoints.lg])
 
-	// Hides the notification afte 1.5s.
+	// Hides the app-wide notification after 1.5s.
 	const mounted = React.useRef()
 	React.useEffect(
 		React.useCallback(() => {
@@ -96,28 +96,49 @@ const App = () => {
 
 	return (
 		<BreakpointContext.Provider value={breakpoints}>
-			<div className="pt-24 lg:pt-32 flex flex-row justify-center">
-
+			<div className="flex flex-row justify-center">
 				<div className="px-6 w-full max-w-screen-lg">
 
-					<nav className="p-3 absolute top-0 inset-x-0 hidden lg:block">
-						<BannerLinks />
+					<nav className="p-4 absolute top-0 left-0 hidden lg:block">
+						<div className="space-y-2">
+							<ExternalLinksFragment />
+						</div>
 					</nav>
 
 					{/* Carbon Ads (alt) */}
-					{/* <aside className="p-6 absolute top-0 right-0 z-30"> */}
-					{/* 	<Transition */}
-					{/* 		on={carbonAdsIsReady} */}
-					{/* 		className="transition duration-1000 ease-in-out" */}
-					{/* 		from="opacity-0 transform scale-110" */}
-					{/* 		to="opacity-100 transform scale-100" */}
-					{/* 	> */}
-					{/* 		<div id="carbonads-alt-placement" /> */}
-					{/* 	</Transition> */}
-					{/* </aside> */}
+					<aside className="p-4 absolute top-0 right-0 z-30">
+						<Transition
+							on={carbonAdsIsReady}
+							className="transition duration-700 ease-out"
+							from="opacity-0 transform scale-90"
+							to="opacity-100 transform scale-100"
+						>
+							<div id="carbonads-alt-placement" />
+						</Transition>
+					</aside>
 
 					{/* Headers */}
+					<div className="h-0 lg:h-16 xl:h-32" />
 					<header className="flex flex-col items-center">
+
+						{/* Carbon Ads */}
+						<Transition
+							on={carbonAdsIsReady}
+							className="transition duration-700 ease-out"
+							from="opacity-0 transform scale-90"
+							to="opacity-100 transform scale-100"
+						>
+							<div id="carbonads-placement" className="pt-4 lg:pt-0 pb-16 block xl:hidden">
+								<div ref={carbonAdsRef} className="rounded-75 shadow-lg">
+									<CarbonAds
+										className="border border-gray-600 rounded-75 shadow-lg overflow-hidden"
+										style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }}
+										src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
+										callback={() => setCarbonAdsIsReady(true)}
+									/>
+								</div>
+							</div>
+						</Transition>
 
 						{/* Header */}
 						<div className="relative flex flex-row items-center">
@@ -165,8 +186,7 @@ const App = () => {
 						</h3>
 
 						{/* https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L */}
-						<div className="h-16" />
-						<div className="space-y-3 sm:space-y-0 space-x-0 sm:space-x-3 flex flex-col sm:flex-row w-full sm:w-auto">
+						<div className="space-x-3 pt-0 sm:pt-16 hidden sm:flex sm:flex-row">
 							<div className="rounded-75 shadow-lg">
 								<a className="px-4 py-3 block bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...attrs.target_blank}>
 									<div className="px-2 py-1 flex flex-row justify-center">
@@ -190,25 +210,6 @@ const App = () => {
 								</a>
 							</div>
 						</div>
-
-						{/* Carbon Ads */}
-						{/* <Transition */}
-						{/* 	on={carbonAdsIsReady} */}
-						{/* 	className="transition duration-1000 ease-in-out" */}
-						{/* 	from="opacity-0 transform scale-110" */}
-						{/* 	to="opacity-100 transform scale-100" */}
-						{/* > */}
-						{/* 	<div id="carbonads-placement" className="-mb-8 xl:mb-0 pt-12 xl:pt-0"> */}
-						{/* 		<div ref={carbonAdsRef} className="rounded-75 shadow-lg"> */}
-						{/* 			<CarbonAds */}
-						{/* 				className="border border-gray-600 rounded-75 shadow-lg overflow-hidden" */}
-						{/* 				style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }} */}
-						{/* 				src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" */}
-						{/* 				callback={() => setCarbonAdsIsReady(true)} */}
-						{/* 			/> */}
-						{/* 		</div> */}
-						{/* 	</div> */}
-						{/* </Transition> */}
 
 					</header>
 
@@ -277,9 +278,10 @@ const App = () => {
 					</Transition>
 
 					<div className="h-24" />
-					<footer className="pb-3 hidden lg:block">
-						<BannerLinks />
+					<footer className="space-x-0 lg:space-x-6 space-y-2 lg:space-y-0 flex flex-col lg:flex-row items-center lg:justify-center">
+						<ExternalLinksFragment />
 					</footer>
+					<div className="h-24 lg:h-8" />
 
 				</div>
 			</div>
@@ -390,7 +392,7 @@ const FormSearch = ({ state, dispatch }) => {
 							height: tw(18),
 						}}
 						type="text"
-						placeholder={breakpoints.sm ? "Search Icons" : `Search 220+ ${!state.form.showOutline ? "Solid" : "Outline"} Icons (Press ‘esc’ to Focus)`}
+						placeholder={breakpoints.sm ? "Search Icons" : "Search 220+ Icons (Press esc to Focus)"}
 						value={text}
 						onFocus={e => setFocus(true)}
 						onBlur={e => setFocus(false)}
@@ -493,7 +495,6 @@ const FormSearch = ({ state, dispatch }) => {
 const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	const buttonRef = React.useRef()
 
-	// NOTE: onPointerDown is preferred to active classes.
 	const [pointerDown, setPointerDown] = React.useState(false)
 
 	const handleClick = e => {
@@ -546,7 +547,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			onClick={handleClick}
 		>
 
-			{/* New tag */}
+			{/* New */}
 			{icon.statusNew && (
 				<div className="px-3 py-2 absolute top-0 right-0">
 					<div className="px-1.5 bg-indigo-500 rounded-full">
@@ -599,7 +600,7 @@ const Icons = ({ state, dispatch }) => {
 	const breakpoints = React.useContext(BreakpointContext)
 
 	const [height, minHeight] = React.useMemo(() => {
-		const clientHeight = breakpoints.lg ? `calc(100vh - ${tw(4 + 18 + 4 + 24)})` : `calc(100vh - ${tw(4 + 18 + 4 + 24 + 6 + 3)})`
+		const clientHeight = breakpoints.lg ? `calc(100vh - ${tw(4 + 18 + 4 + 24)})` : `calc(100vh - ${tw(4 + 18 + 4 + 24 + 6 + 4)})`
 		const height = !state.results.length && clientHeight
 		const minHeight = !(!state.results.length) && clientHeight
 		return [height, minHeight]
