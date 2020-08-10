@@ -547,8 +547,9 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			className="flex flex-row justify-center items-center w-full h-full bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none transition duration-200 ease-in-out select-text"
 			style={{ backgroundColor: pointerDown && "var(--indigo-500)" }}
 			onPointerDown={e => setPointerDown(true)}
-			// NOTE: Debounces setPointerDown(true) to force
-			// backgroundColor to render.
+			onPointerLeave={e => setPointerDown(false)}
+			// NOTE: Debounces setPointerDown(false) to force
+			// background-color to render.
 			onPointerUp={e => setTimeout(() => setPointerDown(false), 100)}
 			onClick={handleClick}
 		>
