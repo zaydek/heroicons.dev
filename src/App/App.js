@@ -162,10 +162,10 @@ const App = () => {
 
 						{/* https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L */}
 						<div className="h-16" />
-						<div className="space-x-3 flex flex-row">
+						<div className="space-y-3 sm:space-y-0 space-x-0 sm:space-x-3 flex flex-col sm:flex-row w-full sm:w-auto">
 							<div className="rounded-75 shadow-lg">
 								<a className="px-4 py-3 block bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...attrs.target_blank}>
-									<div className="px-2 py-1">
+									<div className="px-2 py-1 flex flex-row justify-center">
 										<p className="flex flex-row items-center font-medium text-xl leading-9 text-gray-100">
 											<FigmaSVG className="mr-4 w-6 h-6" />
 											Open in Figma
@@ -176,7 +176,7 @@ const App = () => {
 							</div>
 							<div className="rounded-75 shadow-lg">
 								<a className="px-4 py-3 block bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out" href="https://github.com/refactoringui/heroicons" {...attrs.target_blank}>
-									<div className="px-2 py-1">
+									<div className="px-2 py-1 flex flex-row justify-center">
 										<p className="flex flex-row items-center font-medium text-xl leading-9 text-gray-100">
 											<GitHubSVG className="mr-4 w-6 h-6" />
 											Open in GitHub
