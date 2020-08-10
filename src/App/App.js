@@ -355,12 +355,18 @@ const FormSearch = ({ state, dispatch }) => {
 		}
 	}, [text])
 
-	// esc shortcut.
+	// esc shortcuts.
 	React.useEffect(() => {
 		const handler = e => {
 			if (e.keyCode === 27 || e.key === "Escape") {
 				e.preventDefault()
-				if (document.activeElement === inputRef.current) {
+				if (document.activeElement !== inputRef.current) {
+					inputRef.current.focus()
+				} else {
+					if (!text) {
+						inputRef.current.blur()
+						return
+					}
 					setText("")
 				}
 			}
@@ -370,22 +376,6 @@ const FormSearch = ({ state, dispatch }) => {
 			document.removeEventListener("keydown", handler)
 		}
 	}, [text])
-
-	// "/" shortcut.
-	React.useEffect(() => {
-		const handler = e => {
-			if (e.keyCode === 191 || e.key === "/") {
-				if (document.activeElement !== inputRef.current) {
-					e.preventDefault()
-					inputRef.current.focus()
-				}
-			}
-		}
-		document.addEventListener("keydown", handler)
-		return () => {
-			document.removeEventListener("keydown", handler)
-		}
-	}, [])
 
 	return (
 		<div className="-mt-4 pt-4 static xs:sticky top-0 z-40" style={{ boxShadow: `inset 0 ${tw(6 + 18 / 2)} var(--black)` }}>
@@ -409,7 +399,7 @@ const FormSearch = ({ state, dispatch }) => {
 							height: tw(18),
 						}}
 						type="text"
-						placeholder={breakpoints.sm ? `Search Icons` : `Search 220+ ${!state.form.showOutline ? "Solid" : "Outline"} Icons (Press "/" to Focus)`}
+						placeholder={breakpoints.sm ? "Search Icons" : `Search 220+ ${!state.form.showOutline ? "Solid" : "Outline"} Icons (Press ‘esc’ to Focus)`}
 						value={text}
 						onFocus={e => setFocus(true)}
 						onBlur={e => setFocus(false)}
@@ -624,7 +614,7 @@ const Icons = ({ state, dispatch }) => {
 		const height = !state.results.length && clientHeight
 		const minHeight = !(!state.results.length) && clientHeight
 		return [height, minHeight]
-	}, [state.results, breakpoints])
+	}, [breakpoints.lg, state.results])
 
 	return (
 		<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
