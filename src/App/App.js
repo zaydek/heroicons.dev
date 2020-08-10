@@ -41,12 +41,12 @@ const App = () => {
 	const breakpoints = useLayoutBreakpoints(tailwindcss.theme.screens)
 
 	// TODO: Extract Carbon Ads code.
-	const carbonAdsRef = React.useRef()
-	const [carbonAdsIsReady, setCarbonAdsIsReady] = React.useState(false)
+	const adRef = React.useRef()
+	const [adIsReady, setAdIsReady] = React.useState(false)
 
 	// Prevents focus on Carbon Ads.
 	React.useEffect(() => {
-		if (carbonAdsIsReady) {
+		if (adIsReady) {
 			const els = document.querySelectorAll("[rel*='sponsored']")
 			if (els.length) {
 				for (const each of els) {
@@ -54,22 +54,22 @@ const App = () => {
 				}
 			}
 		}
-	}, [carbonAdsIsReady])
+	}, [adIsReady])
 
 	// NOTE: Because <CarbonAds> cannot be used more than
-	// once, we move carbonAdsRef.current between
+	// once, we move adRef.current between
 	// #carbonads-placement and #carbonads-alt-placement on
 	// breakpoints.lg rerenders.
 	React.useLayoutEffect(() => {
 		if (breakpoints.lg) {
 			const el = document.getElementById("carbonads-placement")
 			if (!el.children.length) {
-				el.append(carbonAdsRef.current)
+				el.append(adRef.current)
 			}
 		} else {
 			const el = document.getElementById("carbonads-alt-placement")
 			if (!el.children.length) {
-				el.append(carbonAdsRef.current)
+				el.append(adRef.current)
 			}
 		}
 	}, [breakpoints.lg])
@@ -108,7 +108,7 @@ const App = () => {
 					{/* Carbon Ads (alt) */}
 					<aside className="p-4 absolute top-0 right-0 z-30">
 						<Transition
-							on={carbonAdsIsReady}
+							on={adIsReady}
 							className="transition duration-700 ease-out"
 							from="opacity-0 transform scale-90"
 							to="opacity-100 transform scale-100"
@@ -123,18 +123,22 @@ const App = () => {
 
 						{/* Carbon Ads */}
 						<Transition
-							on={carbonAdsIsReady}
+							on={adIsReady}
 							className="transition duration-700 ease-out"
 							from="opacity-0 transform scale-90"
 							to="opacity-100 transform scale-100"
 						>
 							<div id="carbonads-placement" className="pt-4 lg:pt-0 pb-16 block xl:hidden">
-								<div ref={carbonAdsRef} className="rounded-75 shadow-lg">
+								<div ref={adRef} className="rounded-75 shadow-lg">
 									<CarbonAds
 										className="border border-gray-600 rounded-75 shadow-lg overflow-hidden"
 										style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }}
 										src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
-										callback={() => setCarbonAdsIsReady(true)}
+										onLoad={() => {
+											setTimeout(() => {
+												setAdIsReady(true)
+											}, 1e3)
+										}}
 									/>
 								</div>
 							</div>

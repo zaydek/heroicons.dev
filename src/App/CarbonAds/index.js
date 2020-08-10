@@ -3,7 +3,7 @@ import React from "react"
 import "./index.css"
 
 // Renders a Carbon Ads ad.
-const CarbonAds = ({ src, callback, ...props }) => {
+const CarbonAds = ({ src, onLoad, ...props }) => {
 	const ref = React.useRef()
 
 	// Mounts a Carbon Ads ad.
@@ -15,11 +15,8 @@ const CarbonAds = ({ src, callback, ...props }) => {
 			script.src = src
 			script.id = "_carbonads_js"
 			ref.current.appendChild(script)
-			const id = setTimeout(callback, 1e3)
-			return () => {
-				clearTimeout(id)
-			}
-		}, [src, callback]),
+			script.onload = onLoad
+		}, [src, onLoad]),
 		[src],
 	)
 
