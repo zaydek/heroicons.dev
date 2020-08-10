@@ -304,6 +304,7 @@ const FormSearch = ({ state, dispatch }) => {
 		return params.get("search") || ""
 	})
 
+	const [focus, setFocus] = React.useState(false)
 	const [tooltip, setTooltip] = React.useState("")
 
 	// Debounces search by 15ms.
@@ -390,18 +391,21 @@ const FormSearch = ({ state, dispatch }) => {
 			<form className="relative" onSubmit={e => e.preventDefault()}>
 
 				{/* LHS */}
-				<div className="px-6 absolute inset-y-0 left-0 flex flex-row items-center">
-					<SearchOutlineIcon className="w-6 h-6 text-gray-500" />
+				<div className="px-6 absolute inset-y-0 left-0 flex flex-row items-center pointer-events-none">
+					<SearchOutlineIcon className="w-6 h-6 text-gray-400 transition duration-200 ease-in-out" style={{ color: focus && "var(--indigo-400)" }} />
 				</div>
 
 				{/* Search */}
 				<div className="rounded-75 shadow-lg">
 					<input
 						ref={inputRef}
-						className="pl-16 pr-32 w-full h-16 text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
+						className="pl-16 pr-32 w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
+						style={{ height: "4.5rem" /* 72px */ }}
 						type="text"
 						placeholder={breakpoints.sm ? "Search 200+ Icons" : "Search 200+ Icons (Press Esc to Search)"}
 						value={text}
+						onFocus={e => setFocus(true)}
+						onBlur={e => setFocus(false)}
 						onChange={e => setText(e.target.value)}
 						{...attrs.disableAutoCorrect}
 					/>
