@@ -22,16 +22,16 @@ import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubSVG } from "svg/github.svg"
 import { ReactComponent as TwitterSVG } from "svg/twitter.svg"
 
-import {
-	// rem, // DEPRECATE
-	tw,
-} from "./css-units"
-
 import srcAdamWathan from "images/adam-wathan.jpg"
 import srcSteveSchoger from "images/steve-schoger.jpg"
 import srcZaydekMG from "images/zaydek-mg.png"
 
 const BreakpointContext = React.createContext()
+
+// Converts Tailwind units to rem units.
+function tw(units) {
+	return `${units * 4 / 16}rem`
+}
 
 ;(() => {
 	document.body.classList.add("bg-black")
@@ -75,7 +75,7 @@ const App = () => {
 	// 	}
 	// }, [breakpoints.xl])
 
-	// Auto-hides the notification (1.5s).
+	// Hides the notification afte 1.5s.
 	const mounted = React.useRef()
 	React.useEffect(
 		React.useCallback(() => {
@@ -92,7 +92,7 @@ const App = () => {
 				clearTimeout(id)
 			}
 		}, [dispatch]),
-		[state.notif.visible],
+		[state.notif.showKey],
 	)
 
 	return (
@@ -226,7 +226,7 @@ const App = () => {
 					/>
 
 					<Transition
-						on={state.notif.visible}
+						on={state.notif.showKey}
 						className="transition duration-200 ease-in-out"
 						from="opacity-0 transform translate-y-4 pointer-events-none"
 						to="opacity-100 transform translate-y-0 pointer-events-auto"
@@ -355,16 +355,12 @@ const FormSearch = ({ state, dispatch }) => {
 		}
 	}, [text])
 
-	// Escape shortcuts.
+	// esc shortcut.
 	React.useEffect(() => {
 		const handler = e => {
 			if (e.keyCode === 27 || e.key === "Escape") {
 				e.preventDefault()
-				if (document.activeElement !== inputRef.current) {
-					inputRef.current.focus()
-				} else if (!text) {
-					inputRef.current.blur()
-				} else {
+				if (document.activeElement === inputRef.current) {
 					setText("")
 				}
 			}
@@ -395,25 +391,25 @@ const FormSearch = ({ state, dispatch }) => {
 		<div className="-mt-4 pt-4 static xs:sticky top-0 z-40" style={{ boxShadow: `inset 0 ${tw(6 + 18 / 2)} var(--black)` }}>
 			<form className="relative" onSubmit={e => e.preventDefault()}>
 
-				{/* LHS */}
+				{/* Search bar LHS */}
 				<div className="px-6 absolute inset-y-0 left-0 hidden xs:block pointer-events-none">
 					<div className="pl-2 flex flex-row items-center h-full">
 						<SearchOutlineIcon className="w-6 h-6 text-gray-400 transition duration-200 ease-in-out" style={{ color: focus && "var(--indigo-400)" }} />
 					</div>
 				</div>
 
-				{/* Search */}
+				{/* Search bar */}
 				<div className="rounded-75 shadow-lg">
 					<input
 						ref={inputRef}
-						className="w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
+						className="block w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
 						style={{
 							paddingLeft: breakpoints.xs ? tw(2 + 6) : tw(6 + 2 + 6 + 6),
 							paddingRight: tw(6 + 10 + 2 + 10 + 2 + 6),
 							height: tw(18),
 						}}
 						type="text"
-						placeholder={breakpoints.sm ? "Search Icons" : "Search 220+ Icons (Press Esc to Search)"}
+						placeholder={breakpoints.sm ? `Search Icons` : `Search 220+ ${!state.form.showOutline ? "Solid" : "Outline"} Icons (Press "/" to Focus)`}
 						value={text}
 						onFocus={e => setFocus(true)}
 						onBlur={e => setFocus(false)}
@@ -422,7 +418,7 @@ const FormSearch = ({ state, dispatch }) => {
 					/>
 				</div>
 
-				{/* RHS */}
+				{/* Search bar RHS */}
 				<div className="px-6 absolute inset-y-0 right-0">
 					<div className="pr-2 flex flex-row items-center h-full">
 
@@ -592,18 +588,18 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			<div className="px-3 py-2 absolute bottom-0">
 				<div style={{ paddingBottom: "0.0625rem" }}>
 					<p className="text-center font-semibold text-sm leading-tight font-mono text-gray-100">
-						{!state.form.search || state.form.search === "new" ? (
+						{!state.form.search.safe || state.form.search.safe === "new" ? (
 							icon.name
 						) : (
 							(substrs => (
 								<>
 									{substrs[0]}
 									<span className="p-px text-black bg-yellow-200 rounded">
-										{state.form.search}
+										{state.form.search.safe}
 									</span>
-									{icon.name.slice(substrs[0].length + state.form.search.length)}
+									{icon.name.slice(substrs[0].length + state.form.search.safe.length)}
 								</>
-							))(icon.name.split(state.form.search, 1))
+							))(icon.name.split(state.form.search.safe, 1))
 						)}
 					</p>
 				</div>
@@ -613,9 +609,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	)
 }, (prev, next) => {
 	const ok = (
-		prev.state.form.search === next.state.form.search &&
-		prev.state.form.copyAsReact === next.state.form.copyAsReact &&
-		prev.state.form.showOutline === next.state.form.showOutline &&
+		prev.state.form === next.state.form &&
 		prev.state.dispatch === next.state.dispatch &&
 		prev.icon === next.icon
 	)
@@ -638,7 +632,7 @@ const Icons = ({ state, dispatch }) => {
 	}, [state.results, breakpoints])
 
 	return (
-		<DocumentTitle title={!state.form.search ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
+		<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
 			<main style={{ height, minHeight }}>
 
 				{!state.results.length && (
@@ -646,7 +640,7 @@ const Icons = ({ state, dispatch }) => {
 						<h3 className="flex flex-row items-baseline font-medium text-xl leading-9 text-center text-gray-100">
 							No results for “
 							<span className="inline-block truncate" style={{ maxWidth: breakpoints.xs ? 128 : 256 }}>
-								{state.form.originalSearch}.
+								{state.form.search.user}.
 							</span>
 							”
 						</h3>

@@ -11,13 +11,15 @@ function shortHash() {
 
 const initialState = {
 	form: {
-		originalSearch: "",
-		search: "",
+		search: {
+			user: "", // User search query
+			safe: "", // App-safe search query
+		},
 		copyAsReact: false,
 		showOutline: false,
 	},
 	notif: {
-		visible: "", // NOTE: Uses a key.
+		showKey: "",
 		notifType: "",
 		notifInfo: null,
 	},
@@ -25,31 +27,27 @@ const initialState = {
 }
 
 const actions = state => ({
-
 	/*
 	 * state.form
 	 */
-	internalResetSearch() {
-		state.form.originalSearch = ""
-		state.form.search = ""
+	__internalResetSearch() {
+		state.form.search.user = ""
+		state.form.search.safe = ""
 		state.results = dataset
 	},
-	// internalPerformSearchNew() {
-	// 	state.dataset.filter(each => each.statusNew)
-	// },
 	updateFormSearch(text) {
 		if (!text) {
-			this.internalResetSearch()
+			this.__internalResetSearch()
 			return
 		}
-		state.form.originalSearch = text
-		state.form.search = text.toLowerCase().replace(/ /g, "-")
-		if (state.form.search === "new") {
+		state.form.search.user = text
+		state.form.search.safe = text.toLowerCase().replace(/ /g, "-")
+		if (state.form.search.safe === "new") {
 			state.results = dataset.filter(each => each.statusNew)
 			return
 		}
 		state.results = dataset.filter(each => {
-			each.searchIndex = each.name.indexOf(state.form.search)
+			each.searchIndex = each.name.indexOf(state.form.search.safe)
 			return each.searchIndex >= 0
 		})
 		state.results.sort((a, b) => {
@@ -70,17 +68,16 @@ const actions = state => ({
 			icon: SwitchHorizontalSolidSVG,
 		})
 	},
-
 	/*
 	 * state.notif
 	 */
 	updateNotification(notifType, notifInfo) {
-		state.notif.visible = notifInfo.icon.name + "-" + shortHash()
+		state.notif.showKey = notifInfo.icon.name + "-" + shortHash()
 		state.notif.notifType = notifType
 		state.notif.notifInfo = notifInfo
 	},
 	hideNotification() {
-		state.notif.visible = ""
+		state.notif.showKey = ""
 	},
 
 })
