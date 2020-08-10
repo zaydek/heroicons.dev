@@ -600,7 +600,7 @@ const Icons = ({ state, dispatch }) => {
 	const breakpoints = React.useContext(BreakpointContext)
 
 	const [height, minHeight] = React.useMemo(() => {
-		const clientHeight = breakpoints.lg ? `calc(100vh - ${tw(4 + 18 + 4 + 24)})` : `calc(100vh - ${tw(4 + 18 + 4 + 24 + 6 + 4)})`
+		const clientHeight = breakpoints.lg ? `calc(100vh - ${tw(4 + 18 + 4 + 24 + 14 + 24)})` : `calc(100vh - ${tw(4 + 18 + 4 + 24 + 6 + 8)})`
 		const height = !state.results.length && clientHeight
 		const minHeight = !(!state.results.length) && clientHeight
 		return [height, minHeight]
