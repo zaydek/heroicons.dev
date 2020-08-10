@@ -5,7 +5,7 @@
 
 <!-- _Need React-ready Heroicons? You can use this library I also developed: https://github.com/codex-src/react-heroicons._ -->
 
-This is the [officially endorsed](https://github.com/refactoringui/heroicons/commit/86bacc7c2b9b6ccacbd0f585ee7fcbf80bab9f5a) frontend for the newly released [Heroicons](https://github.com/refactoringui/heroicons) by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](https://twitter.com/adamwathan).
+[This is the officially endorsed frontend](https://github.com/refactoringui/heroicons/commit/86bacc7c2b9b6ccacbd0f585ee7fcbf80bab9f5a) for the newly released [Heroicons](https://github.com/refactoringui/heroicons) by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](https://twitter.com/adamwathan). This repo is maintained by me [@username_ZAYDEK](https://twitter.com/username_ZAYDEK).
 
 <!--
 
