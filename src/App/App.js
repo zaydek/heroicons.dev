@@ -1,4 +1,3 @@
-// import * as tailwindcss from "tailwindcss/js/tailwind.config.js"
 import attrs from "./attrs"
 import CarbonAds from "./CarbonAds"
 import copyToClipboardPolyfill from "./copyToClipboardPolyfill"
@@ -6,6 +5,7 @@ import DocumentTitle from "lib/x/DocumentTitle"
 import React from "react"
 import SVG from "./SVG"
 import svgToJSX from "./svgToJSX"
+import tailwindcss from "./tailwindcss"
 import toCamelCase from "./toCamelCase"
 import Transition from "lib/x/Transition"
 import useHeroiconsReducer from "./useHeroiconsReducer"
@@ -16,36 +16,12 @@ import ExternalLinkSVG from "heroicons-82f6a4d/react/solid/ExternalLink"
 import FlagSVG from "heroicons-82f6a4d/react/solid/Flag"
 import SearchOutlineIcon from "heroicons-82f6a4d/react/outline/Search"
 import SwitchHorizontalSVG from "heroicons-82f6a4d/react/solid/SwitchHorizontal"
-// import { ReactComponent as FigmaSVG } from "svg/figma.svg"
+import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubSVG } from "svg/github.svg"
 
 import srcAdamWathan from "images/adam-wathan.jpg"
 import srcSteveSchoger from "images/steve-schoger.jpg"
 import srcZaydekMG from "images/zaydek-mg.png"
-
-// FIXME: Attempted import error: 'theme' is not exported
-// from 'tailwindcss/js/tailwind.config.js' (imported as
-// 'tailwindcss').
-const tailwindcss = {
-	theme: {
-		screens: {
-			xs: `${24 + 512 + 24}px`,
-			// => @media (min-width: 560px) { ... }
-
-			sm: `${24 + 640 + 24}px`,
-			// => @media (min-width: 688px) { ... }
-
-			md: `${24 + 768 + 24}px`,
-			// => @media (min-width: 816px) { ... }
-
-			lg: `${24 + 1024 + 24}px`,
-			// => @media (min-width: 1072px) { ... }
-
-			xl: `${24 + 1280 + 24}px`,
-			// => @media (min-width: 1328px) { ... }
-		},
-	},
-}
 
 // Renders a gap for flex flex-* etc.
 const Gap = () => (
@@ -147,15 +123,15 @@ const App = () => {
 						</a>
 
 						{/* https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L */}
-						{/* <a className="block" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...attrs.target_blank}> */}
-						{/* 	<p className="flex flex-row items-center font-medium text-gray-100"> */}
-						{/* 		<FigmaSVG className="wmr-1 -5 h-5" /> */}
-						{/* 		<Gap /> */}
-						{/* 		Open the Figma file */}
-						{/* 		<Gap /> */}
-						{/* 		<ExternalLinkSVG className="w-4 h-4 text-indigo-400" /> */}
-						{/* 	</p> */}
-						{/* </a> */}
+						<a className="block" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...attrs.target_blank}>
+							<p className="flex flex-row items-center font-medium text-gray-100">
+								<FigmaSVG className="wmr-1 -5 h-5" />
+								<Gap />
+								Open the Figma file
+								<Gap />
+								<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
+							</p>
+						</a>
 
 					</aside>
 
@@ -192,18 +168,14 @@ const App = () => {
 						{/* Steve and Adam */}
 						<div className="h-4 hidden sm:block" />
 						<h3 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100">
-							<span className="hidden md:inline">
-								Icons by{" "}
-							</span>
+							Icons by{" "}
 							<a href="https://twitter.com/steveschoger" {...attrs.target_blank}>
 								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger} alt="Steve Schoger" />{" "}
 								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
 									@steveschoger
 								</span>
 							</a>{" "}
-							<span className="hidden md:inline">
-								and{" "}
-							</span>
+							and{" "}
 							<a href="https://twitter.com/adamwathan" {...attrs.target_blank}>
 								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamWathan} alt="Adam Wathan" />{" "}
 								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
@@ -214,9 +186,7 @@ const App = () => {
 
 						{/* Zaydek MG */}
 						<h3 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100">
-							<span className="hidden md:inline">
-								Icon Viewer by{" "}
-							</span>
+							Icon Viewer by{" "}
 							<a href="https://twitter.com/username_ZAYDEK" {...attrs.target_blank}>
 								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />{" "}
 								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
