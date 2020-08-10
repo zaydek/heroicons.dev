@@ -23,7 +23,7 @@ import { ReactComponent as GitHubSVG } from "svg/github.svg"
 import { ReactComponent as TwitterSVG } from "svg/twitter.svg"
 
 import {
-	rem,
+	// rem, // DEPRECATE
 	tw,
 } from "./css-units"
 
@@ -392,11 +392,11 @@ const FormSearch = ({ state, dispatch }) => {
 	}, [])
 
 	return (
-		<div className="-mt-4 pt-4 sticky top-0 z-40" style={{ boxShadow: "inset 0 2.25rem 0 0 var(--black)" }}>
+		<div className="-mt-4 pt-4 static xs:sticky top-0 z-40" style={{ boxShadow: `inset 0 ${tw(6 + 18 / 2)} var(--black)` }}>
 			<form className="relative" onSubmit={e => e.preventDefault()}>
 
 				{/* LHS */}
-				<div className="px-6 absolute inset-y-0 left-0 pointer-events-none">
+				<div className="px-6 absolute inset-y-0 left-0 hidden xs:block pointer-events-none">
 					<div className="pl-2 flex flex-row items-center h-full">
 						<SearchOutlineIcon className="w-6 h-6 text-gray-400 transition duration-200 ease-in-out" style={{ color: focus && "var(--indigo-400)" }} />
 					</div>
@@ -408,12 +408,12 @@ const FormSearch = ({ state, dispatch }) => {
 						ref={inputRef}
 						className="w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
 						style={{
-							paddingLeft: tw(6 + 2 + 6 + 6),
-							paddingRight: tw(6 + 10 + 1.5 + 10 + 2 + 6),
+							paddingLeft: breakpoints.xs ? tw(2 + 6) : tw(6 + 2 + 6 + 6),
+							paddingRight: tw(6 + 10 + 2 + 10 + 2 + 6),
 							height: tw(18),
 						}}
 						type="text"
-						placeholder={breakpoints.sm ? "Search 200+ Icons" : "Search 200+ Icons (Press Esc to Search)"}
+						placeholder={breakpoints.sm ? "Search Icons" : "Search 220+ Icons (Press Esc to Search)"}
 						value={text}
 						onFocus={e => setFocus(true)}
 						onBlur={e => setFocus(false)}
@@ -428,7 +428,7 @@ const FormSearch = ({ state, dispatch }) => {
 
 						<div
 							className="flex flex-row items-center"
-							style={{ paddingRight: tw(1.5 / 2) }}
+							style={{ paddingRight: tw(1) }}
 							onFocus={e => setTooltip("jsx")}
 							onBlur={e => setTooltip("")}
 							onMouseEnter={e => setTooltip("jsx")}
@@ -448,17 +448,15 @@ const FormSearch = ({ state, dispatch }) => {
 								}}
 							>
 								{tooltip === "jsx" && (
-									<div className="pt-1.5 absolute top-full right-0">
+									<div className="pt-2 absolute top-full right-0">
 										<div className="rounded-md shadow-lg">
 											<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
-												<div className="p-0.5">
-													<p className="whitespace-pre font-medium text-sm text-gray-100">
-														{!state.form.copyAsReact
-															? "Enable Copy as JSX"
-															: "Enable Copy as HTML"
-														}
-													</p>
-												</div>
+												<p className="whitespace-pre font-medium text-sm text-gray-100">
+													{!state.form.copyAsReact
+														? "Enable Copy as JSX"
+														: "Enable Copy as HTML"
+													}
+												</p>
 											</div>
 										</div>
 									</div>
@@ -469,7 +467,7 @@ const FormSearch = ({ state, dispatch }) => {
 
 						<div
 							className="flex flex-row items-center"
-							style={{ paddingLeft: tw(1.5 / 2) }}
+							style={{ paddingLeft: tw(1) }}
 							onFocus={e => setTooltip("alt")}
 							onBlur={e => setTooltip("")}
 							onMouseEnter={e => setTooltip("alt")}
@@ -489,17 +487,15 @@ const FormSearch = ({ state, dispatch }) => {
 								}}
 							>
 								{tooltip === "alt" && (
-									<div className="pt-1.5 absolute top-full right-0">
+									<div className="pt-2 absolute top-full right-0">
 										<div className="rounded-md shadow-lg">
 											<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
-												<div className="p-0.5">
-													<p className="whitespace-pre font-medium text-sm text-gray-100">
-														{!state.form.showOutline
-															? "Switch to Outline Icons"
-															: "Switch to Solid Icons"
-														}
-													</p>
-												</div>
+												<p className="whitespace-pre font-medium text-sm text-gray-100">
+													{!state.form.showOutline
+														? "Switch to Outline Icons"
+														: "Switch to Solid Icons"
+													}
+												</p>
 											</div>
 										</div>
 									</div>
