@@ -22,6 +22,11 @@ import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubSVG } from "svg/github.svg"
 import { ReactComponent as TwitterSVG } from "svg/twitter.svg"
 
+import {
+	rem,
+	tw,
+} from "./css-units"
+
 import srcAdamWathan from "images/adam-wathan.jpg"
 import srcSteveSchoger from "images/steve-schoger.jpg"
 import srcZaydekMG from "images/zaydek-mg.png"
@@ -391,16 +396,22 @@ const FormSearch = ({ state, dispatch }) => {
 			<form className="relative" onSubmit={e => e.preventDefault()}>
 
 				{/* LHS */}
-				<div className="px-6 absolute inset-y-0 left-0 flex flex-row items-center pointer-events-none">
-					<SearchOutlineIcon className="w-6 h-6 text-gray-400 transition duration-200 ease-in-out" style={{ color: focus && "var(--indigo-400)" }} />
+				<div className="px-6 absolute inset-y-0 left-0 pointer-events-none">
+					<div className="pl-2 flex flex-row items-center h-full">
+						<SearchOutlineIcon className="w-6 h-6 text-gray-400 transition duration-200 ease-in-out" style={{ color: focus && "var(--indigo-400)" }} />
+					</div>
 				</div>
 
 				{/* Search */}
 				<div className="rounded-75 shadow-lg">
 					<input
 						ref={inputRef}
-						className="pl-16 pr-32 w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
-						style={{ height: "4.5rem" /* 72px */ }}
+						className="w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
+						style={{
+							paddingLeft: tw(6 + 2 + 6 + 6),
+							paddingRight: tw(6 + 10 + 1.5 + 10 + 2 + 6),
+							height: tw(18),
+						}}
 						type="text"
 						placeholder={breakpoints.sm ? "Search 200+ Icons" : "Search 200+ Icons (Press Esc to Search)"}
 						value={text}
@@ -412,88 +423,92 @@ const FormSearch = ({ state, dispatch }) => {
 				</div>
 
 				{/* RHS */}
-				<div className="px-6 absolute inset-y-0 right-0 flex flex-row">
+				<div className="px-6 absolute inset-y-0 right-0">
+					<div className="pr-2 flex flex-row items-center h-full">
 
-					<div
-						className="flex flex-row items-center"
-						onFocus={e => setTooltip("jsx")}
-						onBlur={e => setTooltip("")}
-						onMouseEnter={e => setTooltip("jsx")}
-						onMouseLeave={e => setTooltip("")}
-					>
-						<button
-							className="p-2 relative text-gray-400 hover:bg-gray-700 focus:bg-gray-700 rounded-full focus:outline-none transition duration-200 ease-in-out"
-							style={{
-								color: state.form.copyAsReact && "var(--gray-100)",
-								backgroundColor: state.form.copyAsReact && "var(--gray-700)",
-							}}
-							onClick={e => {
-								dispatch({
-									type: "TOGGLE_FORM_COPY_AS_REACT",
-									text,
-								})
-							}}
+						<div
+							className="flex flex-row items-center"
+							style={{ paddingRight: tw(1.5 / 2) }}
+							onFocus={e => setTooltip("jsx")}
+							onBlur={e => setTooltip("")}
+							onMouseEnter={e => setTooltip("jsx")}
+							onMouseLeave={e => setTooltip("")}
 						>
-							{tooltip === "jsx" && (
-								<div className="pt-1 absolute top-full right-0">
-									<div className="rounded-md shadow-lg">
-										<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
-											<div className="p-0.5">
-												<p className="whitespace-pre font-medium text-sm text-gray-100">
-													{!state.form.copyAsReact
-														? "Enable Copy as JSX"
-														: "Enable Copy as HTML"
-													}
-												</p>
+							<button
+								className="p-2 relative text-gray-400 hover:bg-gray-700 focus:bg-gray-700 rounded-full focus:outline-none transition duration-200 ease-in-out"
+								style={{
+									color: state.form.copyAsReact && "var(--gray-100)",
+									backgroundColor: state.form.copyAsReact && "var(--indigo-500)",
+								}}
+								onClick={e => {
+									dispatch({
+										type: "TOGGLE_FORM_COPY_AS_REACT",
+										text,
+									})
+								}}
+							>
+								{tooltip === "jsx" && (
+									<div className="pt-1.5 absolute top-full right-0">
+										<div className="rounded-md shadow-lg">
+											<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
+												<div className="p-0.5">
+													<p className="whitespace-pre font-medium text-sm text-gray-100">
+														{!state.form.copyAsReact
+															? "Enable Copy as JSX"
+															: "Enable Copy as HTML"
+														}
+													</p>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-							)}
-							<CodeSVG className="w-6 h-6" />
-						</button>
-					</div>
+								)}
+								<CodeSVG className="w-6 h-6" />
+							</button>
+						</div>
 
-					<div
-						className="flex flex-row items-center"
-						onFocus={e => setTooltip("alt")}
-						onBlur={e => setTooltip("")}
-						onMouseEnter={e => setTooltip("alt")}
-						onMouseLeave={e => setTooltip("")}
-					>
-						<button
-							className="p-2 relative text-gray-400 hover:bg-gray-700 focus:bg-gray-700 rounded-full focus:outline-none transition duration-200 ease-in-out"
-							style={{
-								color: state.form.showOutline && "var(--gray-100)",
-								backgroundColor: state.form.showOutline && "var(--gray-700)",
-							}}
-							onClick={e => {
-								dispatch({
-									type: "TOGGLE_FORM_SHOW_OUTLINE",
-									text,
-								})
-							}}
+						<div
+							className="flex flex-row items-center"
+							style={{ paddingLeft: tw(1.5 / 2) }}
+							onFocus={e => setTooltip("alt")}
+							onBlur={e => setTooltip("")}
+							onMouseEnter={e => setTooltip("alt")}
+							onMouseLeave={e => setTooltip("")}
 						>
-							{tooltip === "alt" && (
-								<div className="pt-1 absolute top-full right-0">
-									<div className="rounded-md shadow-lg">
-										<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
-											<div className="p-0.5">
-												<p className="whitespace-pre font-medium text-sm text-gray-100">
-													{!state.form.showOutline
-														? "Switch to Outline Icons"
-														: "Switch to Solid Icons"
-													}
-												</p>
+							<button
+								className="p-2 relative text-gray-400 hover:bg-gray-700 focus:bg-gray-700 rounded-full focus:outline-none transition duration-200 ease-in-out"
+								style={{
+									color: state.form.showOutline && "var(--gray-100)",
+									backgroundColor: state.form.showOutline && "var(--indigo-500)",
+								}}
+								onClick={e => {
+									dispatch({
+										type: "TOGGLE_FORM_SHOW_OUTLINE",
+										text,
+									})
+								}}
+							>
+								{tooltip === "alt" && (
+									<div className="pt-1.5 absolute top-full right-0">
+										<div className="rounded-md shadow-lg">
+											<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
+												<div className="p-0.5">
+													<p className="whitespace-pre font-medium text-sm text-gray-100">
+														{!state.form.showOutline
+															? "Switch to Outline Icons"
+															: "Switch to Solid Icons"
+														}
+													</p>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-							)}
-							<SwitchHorizontalSVG className="w-6 h-6" />
-						</button>
-					</div>
+								)}
+								<SwitchHorizontalSVG className="w-6 h-6" />
+							</button>
+						</div>
 
+					</div>
 				</div>
 
 			</form>
