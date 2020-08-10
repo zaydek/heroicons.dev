@@ -3,7 +3,6 @@ import BannerLinks from "./BannerLinks"
 import CarbonAds from "./CarbonAds"
 import copyToClipboardPolyfill from "./copyToClipboardPolyfill"
 import DocumentTitle from "lib/x/DocumentTitle"
-import Gap from "./Gap"
 import React from "react"
 import SVG from "./SVG"
 import svgToJSX from "./svgToJSX"
@@ -239,16 +238,12 @@ const App = () => {
 										{/* Form */}
 										{state.notif.notifType.startsWith("form") && (
 											<>
-												<SVG className="w-5 h-5" svg={state.notif.notifInfo.icon} />
-												<Gap />
-												<Gap />
-
+												<SVG className="mr-3 w-5 h-5" svg={state.notif.notifInfo.icon} />
 												{state.notif.notifType === "form-jsx" && (
 													!state.form.copyAsReact
 														? "Enabled Copy as HTML"
 														: "Enabled Copy as JSX"
 												)}
-
 												{state.notif.notifType === "form-alt" && (
 													!state.form.showOutline
 														? "Switched to Solid Icons"
@@ -261,19 +256,15 @@ const App = () => {
 										{/* Icon */}
 										{state.notif.notifType === "icon" && (
 											<>
-												<SVG className="w-5 h-5" svg={state.notif.notifInfo.icon} />
-												<Gap />
-												<Gap />
+												<SVG className="mr-3 w-5 h-5" svg={state.notif.notifInfo.icon} />
 												<span className="inline-flex flex-row items-baseline">
 													Copied
-													<Gap />
-													<span className="font-mono">
+													<span className="mx-2 font-mono">
 														{!state.form.copyAsReact
 															? state.notif.notifInfo.name
 															: toCamelCase(state.notif.notifInfo.name)
 														}
 													</span>
-													<Gap />
 													as {!state.form.copyAsReact ? "HTML" : "JSX"}
 												</span>
 											</>
@@ -555,7 +546,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			onClick={handleClick}
 		>
 
-			{/* NEW */}
+			{/* New tag */}
 			{icon.statusNew && (
 				<div className="px-3 py-2 absolute top-0 right-0">
 					<div className="px-1.5 bg-indigo-500 rounded-full">
@@ -574,19 +565,19 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				svg={icon[!state.form.showOutline ? "solid" : "outline"]}
 			/>
 
-			{/* Name */}
+			{/* Icon name */}
 			<div className="px-3 py-2 absolute bottom-0">
 				<p className="text-center font-semibold text-sm leading-tight font-mono text-gray-100">
 					{!state.form.search.safe || state.form.search.safe === "new" ? (
 						icon.name
 					) : (
-						(substrs => (
+						(([substr]) => (
 							<>
-								{substrs[0]}
+								{substr}
 								<span className="p-px text-black bg-yellow-200 rounded">
 									{state.form.search.safe}
 								</span>
-								{icon.name.slice(substrs[0].length + state.form.search.safe.length)}
+								{icon.name.slice(substr.length + state.form.search.safe.length)}
 							</>
 						))(icon.name.split(state.form.search.safe, 1))
 					)}
