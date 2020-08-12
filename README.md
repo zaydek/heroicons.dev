@@ -1,51 +1,11 @@
-# heroicons.dev — a Heroicons viewer
+# heroicons.dev — Heroicons Viewer
 
-👉 https://heroicons.dev<br>
-👉 https://github.com/refactoringui/heroicons
+![](https://heroicons.dev/social.png)
 
-<!-- _Need React-ready Heroicons? You can use this library I also developed: https://github.com/codex-src/react-heroicons._ -->
+[This is the officially endorsed icon viewer](https://github.com/refactoringui/heroicons/commit/86bacc7c2b9b6ccacbd0f585ee7fcbf80bab9f5a) for the newly released [Heroicons](https://github.com/refactoringui/heroicons) by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](https://twitter.com/adamwathan).
 
-[This is the officially endorsed frontend](https://github.com/refactoringui/heroicons/commit/86bacc7c2b9b6ccacbd0f585ee7fcbf80bab9f5a) for the newly released [Heroicons](https://github.com/refactoringui/heroicons) by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](https://twitter.com/adamwathan).
+[Tweet thank you on Twitter!](https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev) 🐦
 
-This repo is maintained by me [@username_ZAYDEK](https://twitter.com/username_ZAYDEK). 😉
+---
 
-<!--
-
-**Planned features:**
-
-- [x] Custom domain (https://heroicons.dev)
-- [x] Search
-- [ ] Advanced search based on tags/concepts
-- [x] Click to copy to the clipboard
-- [x] Responsive
-- [x] Dark mode
-  - [x] Initialize outline icons for light mode, solid icons for dark mode
-- [x] Support for solid icons
-- [ ] Cypress-based e2e tests
-  - [x] https://github.com/codex-src/heroicons-viewer-cypress
-- [x] Buttons to download source/repos
-- [ ] Code documentation
-- [ ] Toggle copy to clipboard OR download (like Feather icons)
-- [x] Social tags/image
-- [ ] Size options
-- [ ] Colors options
-- [ ] Remember the search query
-	- [ ] E.g. https://feathericons.com/?query=layers
-- [ ] Add tooltip UI to explain copy to clipboard
-- [ ] Icon catagories
-- [ ] Preview templates (like FontAwesome)
-- [ ] Suggest an icon/features
-- [x] Embed a Figma mockup to work off of
-  - [x] Created a reference Figma file: https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L/Heroicons-v0.1-(2abb814)
-- [ ] Create a Figma plugin
-- [ ] Add screenshots to the repo
-- [ ] Add support for third-party brand icons like Simple Icons
-- [ ] React-version of click-copy
-	- [x] https://github.com/codex-src/react-heroicons
-- [ ] Add offline support (possible via Firestore)
-
--->
-
-**Contributions are welcome!** Built using Create React App and Tailwind CSS, _of course_. Uses PurgeCSS for production.
-
-[See this issue](https://github.com/refactoringui/heroicons/issues/2#issue-570090097) for more context.
+Follow me on Twitter [@username_ZAYDEK](https://twitter.com/username_ZAYDEK)! 🖖
