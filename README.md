@@ -8,6 +8,7 @@ This is an icon viewer for [Heroicons](https://github.com/refactoringui/heroicon
 
 🔥 Click-to-copy to the clipboard<br>
 🔥 Support for copy as HTML and JSX<br>
+🔥 Paste-support for Figma ✨<br>
 🔥 Search support and persisted search URLs<br>
 🔥 Search for only new icons using ‘new’: https://heroicons.dev/?search=new
 
