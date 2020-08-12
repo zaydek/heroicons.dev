@@ -6,16 +6,16 @@ This is an icon viewer for [Heroicons](https://github.com/refactoringui/heroicon
 
 ### Features
 
-🔥 Click-to-copy to the clipboard<br>
-🔥 Support for copy as HTML and JSX<br>
-🔥 Paste-support for Figma ✨<br>
-🔥 Search support and persisted search URLs<br>
-🔥 Search for only new icons using ‘new’: https://heroicons.dev/?search=new
+- Click-to-copy to the clipboard
+- Support for copy as HTML and JSX
+- Paste-support for Figma ✨
+- Search support and persisted search URLs
+- Search for only new icons using ‘new’: https://heroicons.dev/?search=new
 
 ### Resources
 
-[⚓️ Open in GitHub](https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L)<br>
-[⚓️ Open in Figma](https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L)
+- [Open in GitHub](https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L)
+- [Open in Figma](https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L)
 
 ### Support
 
