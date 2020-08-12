@@ -1,15 +1,15 @@
 # heroicons.dev — Heroicons Viewer
 
-**Heroicons is a free, MIT-licensed open source iconset, featuring 220+ icons in both solid and outline variants. 💅**
+**Heroicons is a free, MIT-licensed iconset, featuring 220+ icons in both solid and outline variants. 💅**
 
 This is an icon viewer for the newly released [Heroicons](https://github.com/refactoringui/heroicons) by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](https://twitter.com/adamwathan).
 
 ### Features
 
-- [x] Click-to-copy to the clipboard
-- [x] Support for copy as HTML and JSX
-- [x] Search support and persisted search URLs
-- [x] Search for only new icons using ‘new’: https://heroicons.dev/?search=new
+🔥 Click-to-copy to the clipboard
+🔥 Support for copy as HTML and JSX
+🔥 Search support and persisted search URLs
+🔥 Search for only new icons using ‘new’: https://heroicons.dev/?search=new
 
 <br>
 
