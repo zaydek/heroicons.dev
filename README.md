@@ -6,15 +6,15 @@ This is an icon viewer for the newly released [Heroicons](https://github.com/ref
 
 ### Features
 
-- Click to copy to the clipboard
-- Support for copy as HTML and JSX
-- Search support and persisted search URLs
-- Search only new icons here: https://heroicons.dev/?search=new
+- [x] Click-to-copy to the clipboard
+- [x] Support for copy as HTML and JSX
+- [x] Search support and persisted search URLs
+- [x] Search for only new icons using ‘new’: https://heroicons.dev/?search=new
 
 <br>
 
-- [Tweet thank you on Twitter! 🐦](https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev)
-- [Heroicons in Figma! 🌈](https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L)
+[Tweet thank you on Twitter! 🐦](https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev)
+[Heroicons in Figma! 🌈](https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L)
 
 <br>
 <div align="center">
