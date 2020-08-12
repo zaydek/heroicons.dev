@@ -13,8 +13,8 @@ This is an icon viewer for the newly released [Heroicons](https://github.com/ref
 
 ### Resources
 
-[⚓️ Open Heroicons in GitHub](https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L)<br>
-[⚓️ Open Heroicons in Figma](https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L)
+[⚓️ Open in GitHub](https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L)<br>
+[⚓️ Open in Figma](https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L)
 
 ### Support
 
