@@ -1,6 +1,6 @@
 # heroicons.dev — Heroicons Viewer
 
-**Heroicons is a free, MIT-licensed iconset, featuring 220+ icons in both solid and outline variants. 💅**
+**Heroicons is a free, MIT-licensed iconset, featuring 220+ icons in _both_ solid and outline variants. 💅**
 
 This is an icon viewer for the newly released [Heroicons](https://github.com/refactoringui/heroicons) by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](https://twitter.com/adamwathan).
 
