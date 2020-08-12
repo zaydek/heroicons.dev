@@ -19,7 +19,7 @@ This is an icon viewer for [Heroicons](https://github.com/refactoringui/heroicon
 
 ### Support
 
-[Tweet thank you on Twitter!](https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev) ❤️
+- [Tweet thank you on Twitter!](https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev) ❤️
 
 <br>
 <div align="center">
