@@ -4,20 +4,20 @@
 const tailwindcss = {
 	theme: {
 		screens: {
-			xs: `${24 + 512 + 24}px`,
-			// => @media (min-width: 560px) { ... }
+			xs: `${16 + 512 + 16}px`,
+			// => @media (min-width: 540px) { ... }
 
-			sm: `${24 + 640 + 24}px`,
-			// => @media (min-width: 688px) { ... }
+			sm: `${16 + 640 + 16}px`,
+			// => @media (min-width: 672px) { ... }
 
-			md: `${24 + 768 + 24}px`,
-			// => @media (min-width: 816px) { ... }
+			md: `${16 + 768 + 16}px`,
+			// => @media (min-width: 752px) { ... }
 
-			lg: `${24 + 1024 + 24}px`,
-			// => @media (min-width: 1072px) { ... }
+			lg: `${16 + 1024 + 16}px`,
+			// => @media (min-width: 1008px) { ... }
 
-			xl: `${24 + 1280 + 24}px`,
-			// => @media (min-width: 1328px) { ... }
+			xl: `${16 + 1280 + 16}px`,
+			// => @media (min-width: 1264px) { ... }
 		},
 	},
 }
