@@ -20,7 +20,16 @@ This is an icon viewer for [Heroicons](https://github.com/refactoringui/heroicon
 - Search support and persisted search URLs
 - Search for only new icons using ‘new’: https://heroicons.dev/?search=new
 
-## How to Disable Ads (GitHub Sponsors)
+## Feature Your Business’s Logo
+
+You can feature your business’s logo by [sponsoring me on GitHub](https://github.com/sponsors/codex-zaydek) in the business-tier range.
+
+Businesses interested in receiving 20k+ impressions per month (developer impressions!) can also sponsor me in the business tier range to have their logo featured front-and-center on [heroicons.dev](https://heroicons.dev). 
+
+
+## Disable Ads
+
+You can disable ads by [sponsoring me on GitHub](https://github.com/sponsors/codex-zaydek) in the individual-tier range.
 
 Once you become a sponsor, I’ll add you to the source code so you may disable ads with your GitHub username. If you just sponsored me, allow me up to a day to update the site. 😊
 
