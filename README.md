@@ -24,7 +24,7 @@ This is an icon viewer for [Heroicons](https://github.com/refactoringui/heroicon
 
 Once you become a sponsor, I’ll add you to the source code so you may disable ads with your GitHub username. If you just sponsored me, allow me up to a day to update the site. 😊
 
-Once you’re a sponsor and I’ve added you to the site, click ‘Are you a GitHub Sponsor? Click here.’ (under the Carbon Ads ad) and enter your username. The ad should then disappear. On refresh, ad scripts will no longer be loaded for future sessions.
+Once you’re a sponsor and I’ve added you to the site, click ‘Are you a GitHub Sponsor? Click here.’ (under the Carbon Ads ad) and enter your GitHub username. On refresh, ad scripts are revoked from running on your client.
 
 <!--
 
