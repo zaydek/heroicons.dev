@@ -20,7 +20,7 @@ This is an icon viewer for [Heroicons](https://github.com/refactoringui/heroicon
 - Search support and persisted search URLs
 - Search for only new icons using ‘new’: https://heroicons.dev/?search=new
 
-## How to Disable Ads (Sponsors)
+## How to Disable Ads (GitHub Sponsors)
 
 Once you become a sponsor, I’ll add you to the source code so you may disable ads with your GitHub username. If you just sponsored me, allow me up to a day to update the site. 😊
 
