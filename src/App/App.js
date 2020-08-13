@@ -411,8 +411,8 @@ const FormSearch = ({ state, dispatch }) => {
 							ref={inputRef}
 							className="block w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
 							style={{
-								paddingLeft: breakpoints.xs ? tw(-0.5 + 2 + 6) : tw(-0.5 + 6 + 2 + 6 + 6),
-								paddingRight: tw(6 + 10 + 1 + 10 + 2 + 6 + -0.5),
+								paddingLeft: breakpoints.xs ? tw(2 + 6) : tw(6 + 2 + 6 + 6),
+								paddingRight: tw(6 + 10 + 2 + 10 + 2 + 6),
 								height: tw(18),
 							}}
 							type="text"
@@ -431,7 +431,7 @@ const FormSearch = ({ state, dispatch }) => {
 
 						<div
 							className="flex flex-row items-center"
-							style={{ paddingRight: tw(0.5) }}
+							style={{ paddingRight: tw(1) }}
 							onFocus={e => setTooltip("jsx")}
 							onBlur={e => setTooltip("")}
 							onMouseEnter={e => setTooltip("jsx")}
@@ -470,7 +470,7 @@ const FormSearch = ({ state, dispatch }) => {
 
 						<div
 							className="flex flex-row items-center"
-							style={{ paddingLeft: tw(0.5) }}
+							style={{ paddingLeft: tw(1) }}
 							onFocus={e => setTooltip("alt")}
 							onBlur={e => setTooltip("")}
 							onMouseEnter={e => setTooltip("alt")}
