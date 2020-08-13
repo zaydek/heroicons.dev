@@ -24,7 +24,9 @@ This is an icon viewer for [Heroicons](https://github.com/refactoringui/heroicon
 
 You can feature your business’s logo by [sponsoring me on GitHub](https://github.com/sponsors/codex-zaydek) in the business-tier range.
 
-[heroicons.dev](https://heroicons.dev) receives 20k+ impressions per month from the developer community. Your logo will featured front-and-center and linked to your homepage.
+[heroicons.dev](https://heroicons.dev) receives 20k+ impressions per month from the developer community. Your logo will be featured front-and-center and linked to your homepage.
+
+You’re welcome to [DM me on Twitter](https://twitter.com/messages/compose?recipient_id=899350210064687105) with any questions you may have.
 
 ## Disable Ads
 
