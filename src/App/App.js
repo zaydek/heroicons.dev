@@ -181,7 +181,7 @@ const App = () => {
 
 						{/* Subheader */}
 						<h2 className="flex flex-row items-center text-center font-medium text-2xl leading-9 text-gray-100">
-							<BookOpenSVG className="mr-2 w-8 h-8" />
+							<BookOpenSVG className="mr-2 hidden xs:block w-8 h-8" />
 							MIT Open Source UI Icons
 						</h2>
 
@@ -252,6 +252,7 @@ const App = () => {
 						dispatch={dispatch}
 					/>
 
+					{/* Clipboard */}
 					<Transition
 						on={state.notif.showKey}
 						className="transition duration-200 ease-in-out"
@@ -260,45 +261,41 @@ const App = () => {
 					>
 						<div className="p-3 fixed bottom-0 left-0 z-40">
 							<div className="rounded-md shadow-lg">
-								<div className="px-3 py-2 bg-indigo-500 rounded-md shadow-lg">
-									<p className="flex flex-row items-center font-semibold text-base text-indigo-50">
+								<div className="px-3 py-2 flex flex-row bg-indigo-500 rounded-md shadow-lg">
 
-										{/* Form */}
-										{state.notif.notifType.startsWith("form") && (
-											<>
-												<SVG className="mr-3 w-5 h-5" svg={state.notif.notifInfo.icon} />
-												{state.notif.notifType === "form-jsx" && (
-													!state.form.copyAsReact
-														? "Enabled Copy as HTML"
-														: "Enabled Copy as JSX"
-												)}
-												{state.notif.notifType === "form-alt" && (
-													!state.form.showOutline
-														? "Switched to Solid Icons"
-														: "Switched to Outline Icons"
-												)}
+									{state.notif.notifInfo && (
+										<div className="flex flex-row items-center h-6">
+											<SVG className="mr-3 w-5 h-5 leading-normal text-indigo-50" svg={state.notif.notifInfo.icon} />
+										</div>
+									)}
 
-											</>
-										)}
+									{/* Form */}
+									{state.notif.notifType.startsWith("form") && (
+										<p className="font-semibold text-indigo-50">
+											{state.notif.notifType === "form-jsx" && (
+												!state.form.copyAsReact
+													? "Enabled Copy as HTML"
+													: "Enabled Copy as JSX"
+											)}
+											{state.notif.notifType === "form-alt" && (
+												!state.form.showOutline
+													? "Switched to Solid Icons"
+													: "Switched to Outline Icons"
+											)}
+										</p>
+									)}
 
-										{/* Icon */}
-										{state.notif.notifType === "icon" && (
-											<>
-												<SVG className="mr-3 w-5 h-5" svg={state.notif.notifInfo.icon} />
-												<span className="inline-flex flex-row items-baseline">
-													Copied
-													<span className="mx-2 font-mono">
-														{!state.form.copyAsReact
-															? state.notif.notifInfo.name
-															: toCamelCase(state.notif.notifInfo.name)
-														}
-													</span>
-													as {!state.form.copyAsReact ? "HTML" : "JSX"}
-												</span>
-											</>
-										)}
+									{/* Icon */}
+									{state.notif.notifType === "icon" && (
+										<p className="font-semibold text-indigo-50">
+											Copied
+											<span className="mx-2 font-mono">
+												{state.notif.notifInfo.name}
+											</span>
+											as {!state.form.copyAsReact ? "HTML" : "JSX"}
+										</p>
+									)}
 
-									</p>
 								</div>
 							</div>
 						</div>
@@ -422,6 +419,7 @@ const FormSearch = ({ state, dispatch }) => {
 							placeholder={breakpoints.sm ? "Search Icons" : "Search 220+ Icons"}
 							value={text}
 							onChange={e => setText(e.target.value)}
+							autoFocus
 							{...attrs.disableAutoCorrect}
 						/>
 					</div>
