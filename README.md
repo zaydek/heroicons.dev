@@ -1,6 +1,6 @@
 # heroicons.dev
 
-**Heroicons is a free, MIT-licensed iconset, featuring 220+ UI icons in _both_ solid and outline variants. 🥳**
+**Heroicons is a free, MIT-licensed icon set featuring 220+ UI icons in _both_ solid and outline variants. 🥳**
 
 <br>
 <div align="center">
