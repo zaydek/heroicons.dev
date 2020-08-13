@@ -2,18 +2,18 @@ import attrs from "./attrs"
 import CarbonAds from "./CarbonAds"
 import copyToClipboardPolyfill from "./copyToClipboardPolyfill"
 import DocumentTitle from "lib/x/DocumentTitle"
-import ExternalLinksFragment from "./ExternalLinksFragment"
+import ExtLinksFragment from "./ExtLinksFragment"
 import React from "react"
 import SVG from "./SVG"
 import svgToJSX from "./svgToJSX"
 import tailwindcss from "./tailwindcss"
-import toCamelCase from "./toCamelCase"
 import Transition from "lib/x/Transition"
 import useHeroiconsReducer from "./useHeroiconsReducer"
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 
 import BookOpenSVG from "heroicons-82f6a4d/react/solid/BookOpen"
 import CodeSVG from "heroicons-82f6a4d/react/solid/Code"
+import EmojiHappySVG from "heroicons-82f6a4d/react/solid/EmojiHappy"
 import ExternalLinkSVG from "heroicons-82f6a4d/react/solid/ExternalLink"
 import FlagSVG from "heroicons-82f6a4d/react/solid/Flag"
 import SearchOutlineIcon from "heroicons-82f6a4d/react/outline/Search"
@@ -24,8 +24,6 @@ import { ReactComponent as GitHubSVG } from "svg/github.svg"
 import srcAdamWathan from "images/adam-wathan.jpeg"
 import srcSteveSchoger from "images/steve-schoger.jpeg"
 import srcZaydekMG from "images/zaydek-mg.png"
-import srcSponsorHediet from "images/sponsors/hediet.jpeg"
-import srcSponsorShinewb from "images/sponsors/shinewb.jpeg"
 
 const BreakpointContext = React.createContext()
 
@@ -43,9 +41,9 @@ const App = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 	const breakpoints = useLayoutBreakpoints(tailwindcss.theme.screens)
 
-	// // TODO: Extract Carbon Ads code.
+	// TODO: Extract Carbon Ads code.
 	const adRef = React.useRef()
-	// const [adIsReady, setAdIsReady] = React.useState(false)
+	const [adIsReady, setAdIsReady] = React.useState(false)
 
 	// NOTE: Because <CarbonAds> cannot be used more than
 	// once, we move adRef.current between
@@ -91,7 +89,7 @@ const App = () => {
 
 					<nav className="p-4 absolute top-0 left-0 hidden lg:block">
 						<div className="space-y-1.5">
-							<ExternalLinksFragment />
+							<ExtLinksFragment />
 						</div>
 					</nav>
 
@@ -122,49 +120,57 @@ const App = () => {
 						>
 							<div id="carbonads-placement" className="pt-4 lg:pt-0 pb-16 block xl:hidden">
 								<div ref={adRef} className="rounded-75 shadow-lg">
+									<div className="rounded-75 shadow-lg">
+										<div className="relative">
 
-									<div
-										className="px-3 py-2 flex flex-row justify-center items-center border border-gray-700 rounded-75 shadow-lg"
-										style={{
-											minWidth: 1 + 330 + 1,
-											minHeight: 1 + 125 + 1,
-											backgroundColor: "hsl(0, 0%, 10%)",
-										}}
-									>
-										<div className="flex flex-col items-center w-full">
-											<div className="flex flex-row items-center">
-												<img className="mr-4 w-12 h-12 rounded-full" src={srcZaydekMG} />
-												<p className="font-medium leading-relaxed text-gray-100" style={{ fontSize: tw(3.75) }}>
-													Ad blocked. Why not sponsor?<br />
-													Sponsor me on GitHub
-												</p>
-											</div>
-											<div className="h-4" />
-											<div className="px-2 w-full">
-												<div className="w-full shadow">
-													<a className="py-1 inline-block w-full bg-gray-800 border border-gray-600 focus:border-transparent rounded focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" href="https://github.com/sponsors/codex-zaydek" {...attrs.target_blank}>
-														<p className="flex flex-row justify-center items-center font-semibold text-md leading-none text-gray-100" style={{ fontSize: tw(3.75) }}>
-															<svg className="mr-2 w-5 h-5 fill-current text-indigo-500 transform scale-90" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-																<path fillRule="evenodd" d="M7.655 14.916L8 14.25l.345.666a.752.752 0 01-.69 0zm0 0L8 14.25l.345.666.002-.001.006-.003.018-.01a7.643 7.643 0 00.31-.17 22.08 22.08 0 003.433-2.414C13.956 10.731 16 8.35 16 5.5 16 2.836 13.914 1 11.75 1 10.203 1 8.847 1.802 8 3.02 7.153 1.802 5.797 1 4.25 1 2.086 1 0 2.836 0 5.5c0 2.85 2.045 5.231 3.885 6.818a22.075 22.075 0 003.744 2.584l.018.01.006.003h.002z" />
-															</svg>
-															Sponsor
+											{/* <div className="absolute z-10"> */}
+											{/* 	<CarbonAds */}
+											{/* 		className="border border-gray-700 rounded-75 overflow-hidden" */}
+											{/* 		style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }} */}
+											{/* 		src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" */}
+											{/* 		onLoad={() => { */}
+											{/* 			setTimeout(() => { */}
+											{/* 				setAdIsReady(true) */}
+											{/* 			}, 1e3) */}
+											{/* 		}} */}
+											{/* 	/> */}
+											{/* </div> */}
+
+											<div
+												className="px-3 py-2 flex flex-row justify-center items-center border border-gray-700 rounded-75"
+												style={{
+													minWidth: 1 + 330 + 1,
+													minHeight: 1 + 125 + 1,
+													backgroundColor: "hsl(0, 0%, 10%)",
+												}}
+											>
+												<div className="flex flex-col items-center w-full">
+													<div className="flex flex-row items-center">
+														<img className="mr-4 w-12 h-12 rounded-full" src={srcZaydekMG} />
+														<p className="font-medium leading-relaxed text-gray-100" style={{ fontSize: tw(3.75) }}>
+															Ad blocked. Why not sponsor?<br />
+															Sponsor me on GitHub.{" "}
+															<EmojiHappySVG className="-mt-1 inline-block w-5 h-5" />
 														</p>
-													</a>
+													</div>
+													<div className="h-4" />
+													<div className="px-2 w-full">
+														<div className="w-full shadow">
+															<a className="py-1 inline-block w-full bg-gray-800 border border-gray-600 focus:border-transparent rounded focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" href="https://github.com/sponsors/codex-zaydek" {...attrs.target_blank}>
+																<p className="flex flex-row justify-center items-center font-semibold text-md leading-none text-gray-100" style={{ fontSize: tw(3.75) }}>
+																	<svg className="mr-2 w-5 h-5 fill-current text-indigo-500 transform scale-90" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+																		<path fillRule="evenodd" d="M7.655 14.916L8 14.25l.345.666a.752.752 0 01-.69 0zm0 0L8 14.25l.345.666.002-.001.006-.003.018-.01a7.643 7.643 0 00.31-.17 22.08 22.08 0 003.433-2.414C13.956 10.731 16 8.35 16 5.5 16 2.836 13.914 1 11.75 1 10.203 1 8.847 1.802 8 3.02 7.153 1.802 5.797 1 4.25 1 2.086 1 0 2.836 0 5.5c0 2.85 2.045 5.231 3.885 6.818a22.075 22.075 0 003.744 2.584l.018.01.006.003h.002z" />
+																	</svg>
+																	Sponsor
+																</p>
+															</a>
+														</div>
+													</div>
 												</div>
 											</div>
+
 										</div>
 									</div>
-
-									{/* <CarbonAds */}
-									{/* 	className="border border-gray-700 rounded-75 shadow-lg overflow-hidden" */}
-									{/* 	style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }} */}
-									{/* 	src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" */}
-									{/* 	onLoad={() => { */}
-									{/* 		setTimeout(() => { */}
-									{/* 			setAdIsReady(true) */}
-									{/* 		}, 1e3) */}
-									{/* 	}} */}
-									{/* /> */}
 								</div>
 							</div>
 						</Transition>
@@ -261,41 +267,43 @@ const App = () => {
 					>
 						<div className="p-3 fixed bottom-0 left-0 z-40">
 							<div className="rounded-md shadow-lg">
-								<div className="px-3 py-2 flex flex-row bg-indigo-500 rounded-md shadow-lg">
+								<div className="rounded-md shadow-lg">
+									<div className="px-3 py-2 flex flex-row bg-indigo-500 rounded-md">
 
-									{state.notif.notifInfo && (
-										<div className="flex flex-row items-center h-6">
-											<SVG className="mr-3 w-5 h-5 leading-normal text-indigo-50" svg={state.notif.notifInfo.icon} />
-										</div>
-									)}
+										{state.notif.notifInfo && (
+											<div className="flex flex-row items-center h-6">
+												<SVG className="mr-3 w-5 h-5 leading-normal text-indigo-50" svg={state.notif.notifInfo.icon} />
+											</div>
+										)}
 
-									{/* Form */}
-									{state.notif.notifType.startsWith("form") && (
-										<p className="font-semibold text-indigo-50">
-											{state.notif.notifType === "form-jsx" && (
-												!state.form.copyAsReact
-													? "Enabled Copy as HTML"
-													: "Enabled Copy as JSX"
-											)}
-											{state.notif.notifType === "form-alt" && (
-												!state.form.showOutline
-													? "Switched to Solid Icons"
-													: "Switched to Outline Icons"
-											)}
-										</p>
-									)}
+										{/* Form */}
+										{state.notif.notifType.startsWith("form") && (
+											<p className="font-semibold text-indigo-50">
+												{state.notif.notifType === "form-jsx" && (
+													!state.form.copyAsReact
+														? "Enabled Copy as HTML"
+														: "Enabled Copy as JSX"
+												)}
+												{state.notif.notifType === "form-alt" && (
+													!state.form.showOutline
+														? "Switched to Solid Icons"
+														: "Switched to Outline Icons"
+												)}
+											</p>
+										)}
 
-									{/* Icon */}
-									{state.notif.notifType === "icon" && (
-										<p className="font-semibold text-indigo-50">
-											Copied
-											<span className="mx-2 font-mono">
-												{state.notif.notifInfo.name}
-											</span>
-											as {!state.form.copyAsReact ? "HTML" : "JSX"}
-										</p>
-									)}
+										{/* Icon */}
+										{state.notif.notifType === "icon" && (
+											<p className="font-semibold text-indigo-50">
+												Copied
+												<span className="mx-2 font-mono">
+													{state.notif.notifInfo.name}
+												</span>
+												as {!state.form.copyAsReact ? "HTML" : "JSX"}
+											</p>
+										)}
 
+									</div>
 								</div>
 							</div>
 						</div>
@@ -303,7 +311,7 @@ const App = () => {
 
 					<div className="h-24" />
 					<footer className="space-x-0 lg:space-x-6 space-y-2 lg:space-y-0 flex flex-col lg:flex-row items-center lg:justify-center">
-						<ExternalLinksFragment />
+						<ExtLinksFragment />
 					</footer>
 					<div className="h-24 lg:h-8" />
 
@@ -453,13 +461,15 @@ const FormSearch = ({ state, dispatch }) => {
 								{tooltip === "jsx" && (
 									<div className="pt-2 absolute top-full right-0 z-40">
 										<div className="rounded-md shadow-lg">
-											<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
-												<p className="whitespace-pre font-medium text-sm text-gray-100">
-													{!state.form.copyAsReact
-														? "Enable Copy as JSX"
-														: "Enable Copy as HTML"
-													}
-												</p>
+											<div className="rounded-md shadow-lg">
+												<div className="px-3 py-2 relative bg-gray-700 rounded-md">
+													<p className="whitespace-pre font-medium text-sm text-gray-100">
+														{!state.form.copyAsReact
+															? "Enable Copy as JSX"
+															: "Enable Copy as HTML"
+														}
+													</p>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -492,17 +502,20 @@ const FormSearch = ({ state, dispatch }) => {
 								{tooltip === "alt" && (
 									<div className="pt-2 absolute top-full right-0 z-40">
 										<div className="rounded-md shadow-lg">
-											<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
-												<p className="whitespace-pre font-medium text-sm text-gray-100">
-													{!state.form.showOutline
-														? "Switch to Outline Icons"
-														: "Switch to Solid Icons"
-													}
-												</p>
+											<div className="rounded-md shadow-lg">
+												<div className="px-3 py-2 relative bg-gray-700 rounded-md">
+													<p className="whitespace-pre font-medium text-sm text-gray-100">
+														{!state.form.showOutline
+															? "Switch to Outline Icons"
+															: "Switch to Solid Icons"
+														}
+													</p>
+												</div>
 											</div>
 										</div>
 									</div>
 								)}
+								{/* <SVG className="w-6 h-6" svg={!state.form.showOutline ? PlusCircleSolidSVG : PlusCircleOutlineSVG} /> */}
 								<SwitchHorizontalSVG className="w-6 h-6" />
 							</button>
 						</div>
@@ -559,57 +572,59 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	}
 
 	return (
-		<button
-			ref={buttonRef}
-			className="flex flex-row justify-center items-center w-full h-full bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out select-text"
-			// style={{ backgroundColor: pointerDown && "var(--indigo-500)" }}
-			// onPointerDown={e => setPointerDown(true)}
-			// onPointerLeave={e => setPointerDown(false)}
-			// // NOTE: Debounces setPointerDown(false) to force
-			// // background-color to render.
-			// onPointerUp={e => setTimeout(() => setPointerDown(false), 100)}
-			onClick={handleClick}
-		>
+		<div className="rounded-75 shadow-lg h-full">
+			<button
+				ref={buttonRef}
+				className="flex flex-row justify-center items-center w-full h-full bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out select-text"
+				// style={{ backgroundColor: pointerDown && "var(--indigo-500)" }}
+				// onPointerDown={e => setPointerDown(true)}
+				// onPointerLeave={e => setPointerDown(false)}
+				// // NOTE: Debounces setPointerDown(false) to force
+				// // background-color to render.
+				// onPointerUp={e => setTimeout(() => setPointerDown(false), 100)}
+				onClick={handleClick}
+			>
 
-			{/* New */}
-			{icon.statusNew && (
-				<div className="px-3 py-2 absolute top-0 right-0">
-					{/* <div className="w-4 h-4 bg-indigo-500 rounded-full" /> */}
-					<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right">
-						<p className="font-bold text-xs tracking-wider leading-none text-indigo-50">
-							NEW
-						</p>
+				{/* New */}
+				{icon.statusNew && (
+					<div className="px-3 py-2 absolute top-0 right-0">
+						{/* <div className="w-4 h-4 bg-indigo-500 rounded-full" /> */}
+						<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right">
+							<p className="font-bold text-xs tracking-wider leading-none text-indigo-50">
+								NEW
+							</p>
+						</div>
 					</div>
+				)}
+
+				{/* Icon */}
+				<SVG
+					id={icon.name}
+					className="w-8 h-8 text-gray-100"
+					svg={icon[!state.form.showOutline ? "solid" : "outline"]}
+				/>
+
+				{/* Icon name */}
+				<div className="px-3 py-2 absolute bottom-0">
+					<p className="text-center font-semibold text-sm leading-tight font-mono text-gray-100">
+						{!state.form.search.safe || state.form.search.safe === "new" ? (
+							icon.name
+						) : (
+							(([substr]) => (
+								<>
+									{substr}
+									<span className="p-px text-black bg-yellow-200 rounded">
+										{state.form.search.safe}
+									</span>
+									{icon.name.slice(substr.length + state.form.search.safe.length)}
+								</>
+							))(icon.name.split(state.form.search.safe, 1))
+						)}
+					</p>
 				</div>
-			)}
 
-			{/* Icon */}
-			<SVG
-				id={icon.name}
-				className="w-8 h-8 text-gray-100"
-				svg={icon[!state.form.showOutline ? "solid" : "outline"]}
-			/>
-
-			{/* Icon name */}
-			<div className="px-3 py-2 absolute bottom-0">
-				<p className="text-center font-semibold text-sm leading-tight font-mono text-gray-100">
-					{!state.form.search.safe || state.form.search.safe === "new" ? (
-						icon.name
-					) : (
-						(([substr]) => (
-							<>
-								{substr}
-								<span className="p-px text-black bg-yellow-200 rounded">
-									{state.form.search.safe}
-								</span>
-								{icon.name.slice(substr.length + state.form.search.safe.length)}
-							</>
-						))(icon.name.split(state.form.search.safe, 1))
-					)}
-				</p>
-			</div>
-
-		</button>
+			</button>
+		</div>
 	)
 }, (prev, next) => {
 	const ok = (

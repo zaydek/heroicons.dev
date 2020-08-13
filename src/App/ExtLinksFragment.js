@@ -1,11 +1,9 @@
 import attrs from "./attrs"
-import React from "react"
-
 import ExternalLinkSVG from "heroicons-82f6a4d/react/solid/ExternalLink"
-import { ReactComponent as GitHubSVG } from "svg/github.svg"
+import React from "react"
 import { ReactComponent as TwitterSVG } from "svg/twitter.svg"
 
-const ExternalLinksFragment = () => (
+const ExtLinksFragment = () => (
 	<>
 
 		{/* Tweet */}
@@ -42,4 +40,4 @@ const ExternalLinksFragment = () => (
 	</>
 )
 
-export default ExternalLinksFragment
+export default ExtLinksFragment
