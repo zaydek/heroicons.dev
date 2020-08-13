@@ -42,23 +42,40 @@ const App = () => {
 	const breakpoints = useLayoutBreakpoints(tailwindcss.theme.screens)
 
 	// TODO: Extract Carbon Ads code.
-	const adRef = React.useRef()
-	const [adIsReady, setAdIsReady] = React.useState(false)
+	const carbonAdsRef = React.useRef()
+	const [carbonAdsReady, setCarbonAdsReady] = React.useState(false)
+	const [carbonAdsBlocked, setCarbonAdsBlocked] = React.useState(false)
+
+	// transition duration-700 ease-out
+	React.useEffect(() => {
+		if (carbonAdsReady) {
+			setTimeout(() => {
+				const el = document.getElementById("carbonads")
+				if (!el.width || !el.height) {
+					const parentEl = document.getElementById("carbon-ads-absolute-parent")
+					if (parentEl) {
+						parentEl.style.pointerEvents = "none"
+						setCarbonAdsBlocked(true)
+					}
+				}
+			}, 700)
+		}
+	}, [carbonAdsReady])
 
 	// NOTE: Because <CarbonAds> cannot be used more than
-	// once, we move adRef.current between
+	// once, we move carbonAdsRef.current between
 	// #carbonads-placement and #carbonads-alt-placement on
 	// breakpoints.lg rerenders.
 	React.useLayoutEffect(() => {
 		if (breakpoints.lg) {
 			const el = document.getElementById("carbonads-placement")
 			if (!el.children.length) {
-				el.append(adRef.current)
+				el.append(carbonAdsRef.current)
 			}
 		} else {
 			const el = document.getElementById("carbonads-alt-placement")
 			if (!el.children.length) {
-				el.append(adRef.current)
+				el.append(carbonAdsRef.current)
 			}
 		}
 	}, [breakpoints.lg])
@@ -96,8 +113,7 @@ const App = () => {
 					{/* Carbon Ads (alt) */}
 					<aside className="p-4 absolute top-0 right-0 z-30">
 						<Transition
-							// on={adIsReady}
-							on={true}
+							on={carbonAdsReady}
 							className="transition duration-700 ease-out"
 							from="opacity-0 transform scale-90"
 							to="opacity-100 transform scale-100"
@@ -112,62 +128,68 @@ const App = () => {
 
 						{/* Carbon Ads */}
 						<Transition
-							// on={adIsReady}
-							on={true}
+							on={carbonAdsReady}
 							className="transition duration-700 ease-out"
 							from="opacity-0 transform scale-90"
 							to="opacity-100 transform scale-100"
 						>
 							<div id="carbonads-placement" className="pt-4 lg:pt-0 pb-16 block xl:hidden">
-								<div ref={adRef} className="rounded-75 shadow-lg">
+								<div ref={carbonAdsRef} className="rounded-75 shadow-lg">
 									<div className="rounded-75 shadow-lg">
 										<div className="relative">
 
-											{/* <div className="absolute z-10"> */}
-											{/* 	<CarbonAds */}
-											{/* 		className="border border-gray-700 rounded-75 overflow-hidden" */}
-											{/* 		style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }} */}
-											{/* 		src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" */}
-											{/* 		onLoad={() => { */}
-											{/* 			setTimeout(() => { */}
-											{/* 				setAdIsReady(true) */}
-											{/* 			}, 1e3) */}
-											{/* 		}} */}
-											{/* 	/> */}
-											{/* </div> */}
+											<div id="carbon-ads-absolute-parent" className="absolute z-10">
+												<CarbonAds
+													className="absolute z-10 border border-gray-700 rounded-75 overflow-hidden"
+													style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }}
+													src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
+													onLoad={() => {
+														setTimeout(() => {
+															setCarbonAdsReady(true)
+														}, 1e3)
+													}}
+												/>
+											</div>
 
-											<div
-												className="px-3 py-2 flex flex-row justify-center items-center border border-gray-700 rounded-75"
-												style={{
-													minWidth: 1 + 330 + 1,
-													minHeight: 1 + 125 + 1,
-													backgroundColor: "hsl(0, 0%, 10%)",
-												}}
+											<Transition
+												on={carbonAdsBlocked}
+												className="transition duration-700 ease-out"
+												from="opacity-0"
+												to="opacity-100"
 											>
-												<div className="flex flex-col items-center w-full">
-													<div className="flex flex-row items-center">
-														<img className="mr-4 w-12 h-12 rounded-full" src={srcZaydekMG} />
-														<p className="font-medium leading-relaxed text-gray-100" style={{ fontSize: tw(3.75) }}>
-															Ad blocked. Why not sponsor?<br />
-															Sponsor me on GitHub.{" "}
-															<EmojiHappySVG className="-mt-1 inline-block w-5 h-5" />
-														</p>
-													</div>
-													<div className="h-4" />
-													<div className="px-2 w-full">
-														<div className="w-full shadow">
-															<a className="py-1 inline-block w-full bg-gray-800 border border-gray-600 focus:border-transparent rounded focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" href="https://github.com/sponsors/codex-zaydek" {...attrs.target_blank}>
-																<p className="flex flex-row justify-center items-center font-semibold text-md leading-none text-gray-100" style={{ fontSize: tw(3.75) }}>
-																	<svg className="mr-2 w-5 h-5 fill-current text-indigo-500 transform scale-90" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-																		<path fillRule="evenodd" d="M7.655 14.916L8 14.25l.345.666a.752.752 0 01-.69 0zm0 0L8 14.25l.345.666.002-.001.006-.003.018-.01a7.643 7.643 0 00.31-.17 22.08 22.08 0 003.433-2.414C13.956 10.731 16 8.35 16 5.5 16 2.836 13.914 1 11.75 1 10.203 1 8.847 1.802 8 3.02 7.153 1.802 5.797 1 4.25 1 2.086 1 0 2.836 0 5.5c0 2.85 2.045 5.231 3.885 6.818a22.075 22.075 0 003.744 2.584l.018.01.006.003h.002z" />
-																	</svg>
-																	Sponsor
-																</p>
-															</a>
+												<div
+													className="px-3 py-2 flex flex-row justify-center items-center border border-gray-700 rounded-75"
+													style={{
+														minWidth: 1 + 330 + 1,
+														minHeight: 1 + 125 + 1,
+														backgroundColor: "hsl(0, 0%, 10%)",
+													}}
+												>
+													<div className="flex flex-col items-center w-full">
+														<div className="flex flex-row items-center">
+															<img className="mr-4 w-12 h-12 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />
+															<p className="font-medium leading-relaxed text-gray-100" style={{ fontSize: tw(3.75) }}>
+																Ad blocked! Why not sponsor?<br />
+																Sponsor me on GitHub.{" "}
+																<EmojiHappySVG className="-mt-1 inline-block w-5 h-5" />
+															</p>
+														</div>
+														<div className="h-4" />
+														<div className="px-2 w-full">
+															<div className="w-full shadow">
+																<a className="py-1 inline-block w-full bg-gray-800 border border-gray-600 focus:border-transparent rounded focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" href="https://github.com/sponsors/codex-zaydek" {...attrs.target_blank}>
+																	<p className="flex flex-row justify-center items-center font-semibold text-md leading-none text-gray-100" style={{ fontSize: tw(3.75) }}>
+																		<svg className="mr-2 w-5 h-5 fill-current text-indigo-500 transform scale-90" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+																			<path fillRule="evenodd" d="M7.655 14.916L8 14.25l.345.666a.752.752 0 01-.69 0zm0 0L8 14.25l.345.666.002-.001.006-.003.018-.01a7.643 7.643 0 00.31-.17 22.08 22.08 0 003.433-2.414C13.956 10.731 16 8.35 16 5.5 16 2.836 13.914 1 11.75 1 10.203 1 8.847 1.802 8 3.02 7.153 1.802 5.797 1 4.25 1 2.086 1 0 2.836 0 5.5c0 2.85 2.045 5.231 3.885 6.818a22.075 22.075 0 003.744 2.584l.018.01.006.003h.002z" />
+																		</svg>
+																		Sponsor
+																	</p>
+																</a>
+															</div>
 														</div>
 													</div>
 												</div>
-											</div>
+											</Transition>
 
 										</div>
 									</div>
@@ -532,8 +554,6 @@ const FormSearch = ({ state, dispatch }) => {
 const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	const buttonRef = React.useRef()
 
-	// const [pointerDown, setPointerDown] = React.useState(false)
-
 	const handleClick = e => {
 
 		// No-op when the user selected buttonRef.current text:
@@ -576,24 +596,24 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			<button
 				ref={buttonRef}
 				className="flex flex-row justify-center items-center w-full h-full bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out select-text"
-				// style={{ backgroundColor: pointerDown && "var(--indigo-500)" }}
-				// onPointerDown={e => setPointerDown(true)}
-				// onPointerLeave={e => setPointerDown(false)}
-				// // NOTE: Debounces setPointerDown(false) to force
-				// // background-color to render.
-				// onPointerUp={e => setTimeout(() => setPointerDown(false), 100)}
 				onClick={handleClick}
 			>
 
 				{/* New */}
 				{icon.statusNew && (
 					<div className="px-3 py-2 absolute top-0 right-0">
-						{/* <div className="w-4 h-4 bg-indigo-500 rounded-full" /> */}
+						{/* {state.form.search.safe === "new" ? ( */}
+						{/* 	<div */}
+						{/* 		className="bg-indigo-500 rounded-full" */}
+						{/* 		style={{ width: tw(4.5), height: tw(4.5) }} */}
+						{/* 	/> */}
+						{/* ) : ( */}
 						<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right">
 							<p className="font-bold text-xs tracking-wider leading-none text-indigo-50">
 								NEW
 							</p>
 						</div>
+						{/* )} */}
 					</div>
 				)}
 
