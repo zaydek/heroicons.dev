@@ -20,7 +20,7 @@ This is an icon viewer for [Heroicons](https://github.com/refactoringui/heroicon
 
 ## For Sponsors: Disabling Ads
 
-Once you become a sponsor, I’ll add you to the source code so you may disabled ads. Please allow me up to a day to update the repo. ☺️
+Once you become a sponsor, I’ll add you to the source code so you may disable ads with your username. Please allow me up to a day to update the repo. ☺️
 
 <!--
 
