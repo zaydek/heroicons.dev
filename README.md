@@ -10,6 +10,8 @@
 
 This is an icon viewer for [Heroicons](https://github.com/refactoringui/heroicons) by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](https://twitter.com/adamwathan), maintained by me ([@username_ZAYDEK](https://twitter.com/username_ZAYDEK)).
 
+[Tweet thank you on Twitter! ❤️](https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev)
+
 ## Features
 
 - Click-to-copy to the clipboard
@@ -18,9 +20,11 @@ This is an icon viewer for [Heroicons](https://github.com/refactoringui/heroicon
 - Search support and persisted search URLs
 - Search for only new icons using ‘new’: https://heroicons.dev/?search=new
 
-## For Sponsors: Disabling Ads
+## How to Disable Ads (GitHub Sponsors)
 
-Once you become a sponsor, I’ll add you to the source code so you may disable ads with your username. Please allow me up to a day to update the repo. ☺️
+Once you become a sponsor, I’ll add you to the source code so you may disable ads with your GitHub username. If you just sponsored me, allow me up to a day to update the site. 😊
+
+Once I’ve added you to the site, click ‘Are you a GitHub Sponsor? Click here.’ and enter your GitHub username. On refresh, ad scripts will be invalidated for you. 🤗
 
 <!--
 
