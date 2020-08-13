@@ -117,7 +117,7 @@ const App = () => {
 				dispatch({
 					type: "HIDE_NOTIFICATION",
 				})
-			}, 1.5e3)
+			}, 2e3)
 			return () => {
 				clearTimeout(id)
 			}
