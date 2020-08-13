@@ -10,6 +10,8 @@
 
 This is an icon viewer for [Heroicons](https://github.com/refactoringui/heroicons) by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](https://twitter.com/adamwathan), maintained by me ([@username_ZAYDEK](https://twitter.com/username_ZAYDEK)).
 
+[Tweet thank you on Twitter! ❤️](https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev)
+
 ## Features
 
 - Click-to-copy to the clipboard
