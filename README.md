@@ -18,12 +18,20 @@ This is an icon viewer for [Heroicons](https://github.com/refactoringui/heroicon
 - Search support and persisted search URLs
 - Search for only new icons using ‘new’: https://heroicons.dev/?search=new
 
+## Sponsors
+
+Once you become a sponsor, you’ll be added to the source code so you may disabled ads. Please note that this may take a day to update. ☺️
+
+<!--
+
 ## Links
 
 - [Open in GitHub](https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L)
 - [Open in Figma](https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L)
 - [Tweet thank you on Twitter!](https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev)
 - [Sponsor **@codex-zaydek**!](https://github.com/sponsors/codex-zaydek)
+
+-->
 
 ## License
 
