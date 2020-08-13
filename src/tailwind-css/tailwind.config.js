@@ -55,10 +55,6 @@ module.exports = {
 				"brand-sans": ['"DM Sans"', ...defaultTheme.fontFamily.sans.slice(0, 3), "Inter", ...defaultTheme.fontFamily.sans.slice(3)],
 				/* eslint-enable quotes */
 			},
-			fontSize: {
-				"3xs": "0.625rem",
-				"2xs": "0.6875rem",
-			},
 		},
 		screens: {
 			xs: `${16 + 512 + 16}px`,

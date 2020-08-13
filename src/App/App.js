@@ -519,7 +519,7 @@ const FormSearch = ({ state, dispatch }) => {
 const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	const buttonRef = React.useRef()
 
-	const [pointerDown, setPointerDown] = React.useState(false)
+	// const [pointerDown, setPointerDown] = React.useState(false)
 
 	const handleClick = e => {
 
@@ -574,8 +574,9 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			{/* New */}
 			{icon.statusNew && (
 				<div className="px-3 py-2 absolute top-0 right-0">
-					<div className="px-1.5 bg-indigo-500 rounded-full">
-						<p className="font-bold text-2xs text-indigo-50">
+					{/* <div className="w-4 h-4 bg-indigo-500 rounded-full" /> */}
+					<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right">
+						<p className="font-bold text-xs tracking-wider leading-none text-indigo-50">
 							NEW
 						</p>
 					</div>
