@@ -124,7 +124,7 @@ const App = () => {
 								<div ref={adRef} className="rounded-75 shadow-lg">
 
 									<div
-										className="px-3 py-2 flex flex-row justify-center items-center border border-gray-600 rounded-75 shadow-lg"
+										className="px-3 py-2 flex flex-row justify-center items-center border border-gray-700 rounded-75 shadow-lg"
 										style={{
 											minWidth: 1 + 330 + 1,
 											minHeight: 1 + 125 + 1,
@@ -141,20 +141,22 @@ const App = () => {
 											</div>
 											<div className="h-4" />
 											<div className="px-2 w-full">
-												<a className="py-1 inline-block w-full bg-gray-800 border border-gray-600 focus:border-transparent rounded focus:outline-none shadow focus:shadow-solid-indigo transition duration-200 ease-in-out" href="https://github.com/sponsors/codex-zaydek" {...attrs.target_blank}>
-													<p className="flex flex-row justify-center items-center font-semibold text-md leading-none text-gray-100" style={{ fontSize: tw(3.75) }}>
-														<svg className="mr-2 w-5 h-5 fill-current text-indigo-500 transform scale-90" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-															<path fillRule="evenodd" d="M7.655 14.916L8 14.25l.345.666a.752.752 0 01-.69 0zm0 0L8 14.25l.345.666.002-.001.006-.003.018-.01a7.643 7.643 0 00.31-.17 22.08 22.08 0 003.433-2.414C13.956 10.731 16 8.35 16 5.5 16 2.836 13.914 1 11.75 1 10.203 1 8.847 1.802 8 3.02 7.153 1.802 5.797 1 4.25 1 2.086 1 0 2.836 0 5.5c0 2.85 2.045 5.231 3.885 6.818a22.075 22.075 0 003.744 2.584l.018.01.006.003h.002z" />
-														</svg>
-														Sponsor
-													</p>
-												</a>
+												<div className="w-full shadow">
+													<a className="py-1 inline-block w-full bg-gray-800 border border-gray-600 focus:border-transparent rounded focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" href="https://github.com/sponsors/codex-zaydek" {...attrs.target_blank}>
+														<p className="flex flex-row justify-center items-center font-semibold text-md leading-none text-gray-100" style={{ fontSize: tw(3.75) }}>
+															<svg className="mr-2 w-5 h-5 fill-current text-indigo-500 transform scale-90" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+																<path fillRule="evenodd" d="M7.655 14.916L8 14.25l.345.666a.752.752 0 01-.69 0zm0 0L8 14.25l.345.666.002-.001.006-.003.018-.01a7.643 7.643 0 00.31-.17 22.08 22.08 0 003.433-2.414C13.956 10.731 16 8.35 16 5.5 16 2.836 13.914 1 11.75 1 10.203 1 8.847 1.802 8 3.02 7.153 1.802 5.797 1 4.25 1 2.086 1 0 2.836 0 5.5c0 2.85 2.045 5.231 3.885 6.818a22.075 22.075 0 003.744 2.584l.018.01.006.003h.002z" />
+															</svg>
+															Sponsor
+														</p>
+													</a>
+												</div>
 											</div>
 										</div>
 									</div>
 
 									{/* <CarbonAds */}
-									{/* 	className="border border-gray-600 rounded-75 shadow-lg overflow-hidden" */}
+									{/* 	className="border border-gray-700 rounded-75 shadow-lg overflow-hidden" */}
 									{/* 	style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }} */}
 									{/* 	src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" */}
 									{/* 	onLoad={() => { */}
@@ -213,7 +215,7 @@ const App = () => {
 						{/* https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L */}
 						<div className="space-x-3 pt-0 sm:pt-16 hidden sm:flex sm:flex-row">
 							<div className="rounded-75 shadow-lg">
-								<a className="px-4 py-3 block bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out" href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...attrs.target_blank}>
+								<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...attrs.target_blank}>
 									<div className="px-2 py-1 flex flex-row justify-center">
 										<p className="flex flex-row items-center font-medium text-xl leading-9 text-gray-100">
 											<FigmaSVG className="mr-4 w-6 h-6" />
@@ -224,7 +226,7 @@ const App = () => {
 								</a>
 							</div>
 							<div className="rounded-75 shadow-lg">
-								<a className="px-4 py-3 block bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out" href="https://github.com/refactoringui/heroicons" {...attrs.target_blank}>
+								<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://github.com/refactoringui/heroicons" {...attrs.target_blank}>
 									<div className="px-2 py-1 flex flex-row justify-center">
 										<p className="flex flex-row items-center font-medium text-xl leading-9 text-gray-100">
 											<GitHubSVG className="mr-4 w-6 h-6" />
@@ -327,7 +329,6 @@ const FormSearch = ({ state, dispatch }) => {
 		return params.get("search") || ""
 	})
 
-	const [focus, setFocus] = React.useState(false)
 	const [tooltip, setTooltip] = React.useState("")
 
 	// Debounces search by 15ms.
@@ -373,7 +374,7 @@ const FormSearch = ({ state, dispatch }) => {
 		}
 	}, [text])
 
-	// esc shortcuts.
+	// <esc> shortcuts.
 	React.useEffect(() => {
 		const handler = e => {
 			if (e.keyCode === 27 || e.key === "Escape") {
@@ -396,34 +397,34 @@ const FormSearch = ({ state, dispatch }) => {
 	}, [text])
 
 	return (
-		<div className="-mt-4 pt-4 static xs:sticky top-0 z-40" style={{ boxShadow: `inset 0 ${tw(6 + 18 / 2)} var(--black)` }}>
+		<div className="-mt-4 pt-4 static xs:sticky top-0 z-30" style={{ boxShadow: `inset 0 ${tw(6 + 18 / 2)} var(--black)` }}>
 			<form className="relative" onSubmit={e => e.preventDefault()}>
 
 				{/* Search bar LHS */}
 				<div className="px-6 absolute inset-y-0 left-0 hidden xs:block pointer-events-none">
 					<div className="pl-2 flex flex-row items-center h-full">
-						<SearchOutlineIcon className="w-6 h-6 text-gray-400 transition duration-200 ease-in-out" style={{ color: focus && "var(--indigo-400)" }} />
+						<SearchOutlineIcon className="w-6 h-6 text-gray-400 transition duration-200 ease-in-out" />
 					</div>
 				</div>
 
 				{/* Search bar */}
 				<div className="rounded-75 shadow-lg">
-					<input
-						ref={inputRef}
-						className="block w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none shadow-lg transition duration-200 ease-in-out"
-						style={{
-							paddingLeft: breakpoints.xs ? tw(-0.5 + 2 + 6) : tw(-0.5 + 6 + 2 + 6 + 6),
-							paddingRight: tw(6 + 10 + 1 + 10 + 2 + 6 + -0.5),
-							height: tw(18),
-						}}
-						type="text"
-						placeholder={breakpoints.sm ? "Search Icons" : "Search 220+ Icons (Press esc to Focus)"}
-						value={text}
-						onFocus={e => setFocus(true)}
-						onBlur={e => setFocus(false)}
-						onChange={e => setText(e.target.value)}
-						{...attrs.disableAutoCorrect}
-					/>
+					<div className="rounded-75 shadow-lg">
+						<input
+							ref={inputRef}
+							className="block w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
+							style={{
+								paddingLeft: breakpoints.xs ? tw(-0.5 + 2 + 6) : tw(-0.5 + 6 + 2 + 6 + 6),
+								paddingRight: tw(6 + 10 + 1 + 10 + 2 + 6 + -0.5),
+								height: tw(18),
+							}}
+							type="text"
+							placeholder={breakpoints.sm ? "Search Icons" : "Search 220+ Icons"}
+							value={text}
+							onChange={e => setText(e.target.value)}
+							{...attrs.disableAutoCorrect}
+						/>
+					</div>
 				</div>
 
 				{/* Search bar RHS */}
@@ -452,7 +453,7 @@ const FormSearch = ({ state, dispatch }) => {
 								}}
 							>
 								{tooltip === "jsx" && (
-									<div className="pt-2 absolute top-full right-0">
+									<div className="pt-2 absolute top-full right-0 z-40">
 										<div className="rounded-md shadow-lg">
 											<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
 												<p className="whitespace-pre font-medium text-sm text-gray-100">
@@ -491,7 +492,7 @@ const FormSearch = ({ state, dispatch }) => {
 								}}
 							>
 								{tooltip === "alt" && (
-									<div className="pt-2 absolute top-full right-0">
+									<div className="pt-2 absolute top-full right-0 z-40">
 										<div className="rounded-md shadow-lg">
 											<div className="px-3 py-2 relative bg-gray-700 rounded-md shadow-lg">
 												<p className="whitespace-pre font-medium text-sm text-gray-100">
@@ -562,13 +563,13 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	return (
 		<button
 			ref={buttonRef}
-			className="flex flex-row justify-center items-center w-full h-full bg-gray-800 border-2 border-gray-800 focus:border-indigo-500 rounded-75 focus:outline-none transition duration-200 ease-in-out select-text"
-			style={{ backgroundColor: pointerDown && "var(--indigo-500)" }}
-			onPointerDown={e => setPointerDown(true)}
-			onPointerLeave={e => setPointerDown(false)}
-			// NOTE: Debounces setPointerDown(false) to force
-			// background-color to render.
-			onPointerUp={e => setTimeout(() => setPointerDown(false), 100)}
+			className="flex flex-row justify-center items-center w-full h-full bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out select-text"
+			// style={{ backgroundColor: pointerDown && "var(--indigo-500)" }}
+			// onPointerDown={e => setPointerDown(true)}
+			// onPointerLeave={e => setPointerDown(false)}
+			// // NOTE: Debounces setPointerDown(false) to force
+			// // background-color to render.
+			// onPointerUp={e => setTimeout(() => setPointerDown(false), 100)}
 			onClick={handleClick}
 		>
 
@@ -576,7 +577,6 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			{icon.statusNew && (
 				<div className="px-3 py-2 absolute top-0 right-0">
 					<div className="px-1.5 bg-indigo-500 rounded-full">
-						{/* NOTE: font-bold is preferred to font-semibold. */}
 						<p className="font-bold text-2xs text-indigo-50">
 							NEW
 						</p>
