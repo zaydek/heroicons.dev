@@ -44,38 +44,26 @@ const App = () => {
 	const breakpoints = useLayoutBreakpoints(tailwindcss.theme.screens)
 
 	// // TODO: Extract Carbon Ads code.
-	// const adRef = React.useRef()
+	const adRef = React.useRef()
 	// const [adIsReady, setAdIsReady] = React.useState(false)
-	//
-	// // Prevents focus on Carbon Ads.
-	// React.useEffect(() => {
-	// 	if (adIsReady) {
-	// 		const els = document.querySelectorAll("[rel*='sponsored']")
-	// 		if (els.length) {
-	// 			for (const each of els) {
-	// 				each.setAttribute("tabindex", -1)
-	// 			}
-	// 		}
-	// 	}
-	// }, [adIsReady])
-	//
-	// // NOTE: Because <CarbonAds> cannot be used more than
-	// // once, we move adRef.current between
-	// // #carbonads-placement and #carbonads-alt-placement on
-	// // breakpoints.lg rerenders.
-	// React.useLayoutEffect(() => {
-	// 	if (breakpoints.lg) {
-	// 		const el = document.getElementById("carbonads-placement")
-	// 		if (!el.children.length) {
-	// 			el.append(adRef.current)
-	// 		}
-	// 	} else {
-	// 		const el = document.getElementById("carbonads-alt-placement")
-	// 		if (!el.children.length) {
-	// 			el.append(adRef.current)
-	// 		}
-	// 	}
-	// }, [breakpoints.lg])
+
+	// NOTE: Because <CarbonAds> cannot be used more than
+	// once, we move adRef.current between
+	// #carbonads-placement and #carbonads-alt-placement on
+	// breakpoints.lg rerenders.
+	React.useLayoutEffect(() => {
+		if (breakpoints.lg) {
+			const el = document.getElementById("carbonads-placement")
+			if (!el.children.length) {
+				el.append(adRef.current)
+			}
+		} else {
+			const el = document.getElementById("carbonads-alt-placement")
+			if (!el.children.length) {
+				el.append(adRef.current)
+			}
+		}
+	}, [breakpoints.lg])
 
 	const mounted = React.useRef()
 	React.useEffect(
@@ -133,8 +121,38 @@ const App = () => {
 							to="opacity-100 transform scale-100"
 						>
 							<div id="carbonads-placement" className="pt-4 lg:pt-0 pb-16 block xl:hidden">
-								<div /* ref={adRef} */ className="rounded-75 shadow-lg">
-									hello
+								<div ref={adRef} className="rounded-75 shadow-lg">
+
+									<div
+										className="px-3 py-2 flex flex-row justify-center items-center border border-gray-600 rounded-75 shadow-lg"
+										style={{
+											minWidth: 1 + 330 + 1,
+											minHeight: 1 + 125 + 1,
+											backgroundColor: "hsl(0, 0%, 10%)",
+										}}
+									>
+										<div className="flex flex-col items-center w-full">
+											<div className="flex flex-row items-center">
+												<img className="mr-4 w-12 h-12 rounded-full" src={srcZaydekMG} />
+												<p className="font-medium leading-relaxed text-gray-100" style={{ fontSize: tw(3.75) }}>
+													Ad blocked. Why not sponsor?<br />
+													Sponsor me on GitHub
+												</p>
+											</div>
+											<div className="h-4" />
+											<div className="px-2 w-full">
+												<button className="py-0.5 w-full bg-gray-700 border border-gray-600 shadow rounded">
+													<p className="flex flex-row justify-center items-center font-semibold text-md text-gray-100" style={{ fontSize: tw(3.75) }}>
+														<svg className="mr-2 w-5 h-5 fill-current text-indigo-500 transform scale-90" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+															<path fillRule="evenodd" d="M7.655 14.916L8 14.25l.345.666a.752.752 0 01-.69 0zm0 0L8 14.25l.345.666.002-.001.006-.003.018-.01a7.643 7.643 0 00.31-.17 22.08 22.08 0 003.433-2.414C13.956 10.731 16 8.35 16 5.5 16 2.836 13.914 1 11.75 1 10.203 1 8.847 1.802 8 3.02 7.153 1.802 5.797 1 4.25 1 2.086 1 0 2.836 0 5.5c0 2.85 2.045 5.231 3.885 6.818a22.075 22.075 0 003.744 2.584l.018.01.006.003h.002z" />
+														</svg>
+														Sponsor
+													</p>
+												</button>
+											</div>
+										</div>
+									</div>
+
 									{/* <CarbonAds */}
 									{/* 	className="border border-gray-600 rounded-75 shadow-lg overflow-hidden" */}
 									{/* 	style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }} */}
