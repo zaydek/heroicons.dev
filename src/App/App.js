@@ -12,6 +12,7 @@ import Transition from "lib/x/Transition"
 import useHeroiconsReducer from "./useHeroiconsReducer"
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 
+import BookOpenSVG from "heroicons-82f6a4d/react/solid/BookOpen"
 import CodeSVG from "heroicons-82f6a4d/react/solid/Code"
 import ExternalLinkSVG from "heroicons-82f6a4d/react/solid/ExternalLink"
 import FlagSVG from "heroicons-82f6a4d/react/solid/Flag"
@@ -20,9 +21,11 @@ import SwitchHorizontalSVG from "heroicons-82f6a4d/react/solid/SwitchHorizontal"
 import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubSVG } from "svg/github.svg"
 
-import srcAdamWathan from "images/adam-wathan.jpg"
-import srcSteveSchoger from "images/steve-schoger.jpg"
+import srcAdamWathan from "images/adam-wathan.jpeg"
+import srcSteveSchoger from "images/steve-schoger.jpeg"
 import srcZaydekMG from "images/zaydek-mg.png"
+import srcSponsorHediet from "images/sponsors/hediet.jpeg"
+import srcSponsorShinewb from "images/sponsors/shinewb.jpeg"
 
 const BreakpointContext = React.createContext()
 
@@ -40,41 +43,40 @@ const App = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 	const breakpoints = useLayoutBreakpoints(tailwindcss.theme.screens)
 
-	// TODO: Extract Carbon Ads code.
-	const adRef = React.useRef()
-	const [adIsReady, setAdIsReady] = React.useState(false)
+	// // TODO: Extract Carbon Ads code.
+	// const adRef = React.useRef()
+	// const [adIsReady, setAdIsReady] = React.useState(false)
+	//
+	// // Prevents focus on Carbon Ads.
+	// React.useEffect(() => {
+	// 	if (adIsReady) {
+	// 		const els = document.querySelectorAll("[rel*='sponsored']")
+	// 		if (els.length) {
+	// 			for (const each of els) {
+	// 				each.setAttribute("tabindex", -1)
+	// 			}
+	// 		}
+	// 	}
+	// }, [adIsReady])
+	//
+	// // NOTE: Because <CarbonAds> cannot be used more than
+	// // once, we move adRef.current between
+	// // #carbonads-placement and #carbonads-alt-placement on
+	// // breakpoints.lg rerenders.
+	// React.useLayoutEffect(() => {
+	// 	if (breakpoints.lg) {
+	// 		const el = document.getElementById("carbonads-placement")
+	// 		if (!el.children.length) {
+	// 			el.append(adRef.current)
+	// 		}
+	// 	} else {
+	// 		const el = document.getElementById("carbonads-alt-placement")
+	// 		if (!el.children.length) {
+	// 			el.append(adRef.current)
+	// 		}
+	// 	}
+	// }, [breakpoints.lg])
 
-	// Prevents focus on Carbon Ads.
-	React.useEffect(() => {
-		if (adIsReady) {
-			const els = document.querySelectorAll("[rel*='sponsored']")
-			if (els.length) {
-				for (const each of els) {
-					each.setAttribute("tabindex", -1)
-				}
-			}
-		}
-	}, [adIsReady])
-
-	// NOTE: Because <CarbonAds> cannot be used more than
-	// once, we move adRef.current between
-	// #carbonads-placement and #carbonads-alt-placement on
-	// breakpoints.lg rerenders.
-	React.useLayoutEffect(() => {
-		if (breakpoints.lg) {
-			const el = document.getElementById("carbonads-placement")
-			if (!el.children.length) {
-				el.append(adRef.current)
-			}
-		} else {
-			const el = document.getElementById("carbonads-alt-placement")
-			if (!el.children.length) {
-				el.append(adRef.current)
-			}
-		}
-	}, [breakpoints.lg])
-
-	// Hides the app-wide notification after 1.5s.
 	const mounted = React.useRef()
 	React.useEffect(
 		React.useCallback(() => {
@@ -97,10 +99,10 @@ const App = () => {
 	return (
 		<BreakpointContext.Provider value={breakpoints}>
 			<div className="flex flex-row justify-center">
-				<div className="px-6 w-full max-w-screen-lg">
+				<div className="px-4 w-full max-w-screen-lg">
 
 					<nav className="p-4 absolute top-0 left-0 hidden lg:block">
-						<div className="space-y-2">
+						<div className="space-y-1.5">
 							<ExternalLinksFragment />
 						</div>
 					</nav>
@@ -108,7 +110,8 @@ const App = () => {
 					{/* Carbon Ads (alt) */}
 					<aside className="p-4 absolute top-0 right-0 z-30">
 						<Transition
-							on={adIsReady}
+							// on={adIsReady}
+							on={true}
 							className="transition duration-700 ease-out"
 							from="opacity-0 transform scale-90"
 							to="opacity-100 transform scale-100"
@@ -123,23 +126,25 @@ const App = () => {
 
 						{/* Carbon Ads */}
 						<Transition
-							on={adIsReady}
+							// on={adIsReady}
+							on={true}
 							className="transition duration-700 ease-out"
 							from="opacity-0 transform scale-90"
 							to="opacity-100 transform scale-100"
 						>
 							<div id="carbonads-placement" className="pt-4 lg:pt-0 pb-16 block xl:hidden">
-								<div ref={adRef} className="rounded-75 shadow-lg">
-									<CarbonAds
-										className="border border-gray-600 rounded-75 shadow-lg overflow-hidden"
-										style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }}
-										src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
-										onLoad={() => {
-											setTimeout(() => {
-												setAdIsReady(true)
-											}, 1e3)
-										}}
-									/>
+								<div /* ref={adRef} */ className="rounded-75 shadow-lg">
+									hello
+									{/* <CarbonAds */}
+									{/* 	className="border border-gray-600 rounded-75 shadow-lg overflow-hidden" */}
+									{/* 	style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }} */}
+									{/* 	src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" */}
+									{/* 	onLoad={() => { */}
+									{/* 		setTimeout(() => { */}
+									{/* 			setAdIsReady(true) */}
+									{/* 		}, 1e3) */}
+									{/* 	}} */}
+									{/* /> */}
 								</div>
 							</div>
 						</Transition>
@@ -155,32 +160,30 @@ const App = () => {
 						</div>
 
 						{/* Subheader */}
-						<h2 className="text-center font-medium text-xl sm:text-2xl leading-9 text-gray-100">
-							MIT-Licensed Open Source UI Icons
+						<h2 className="flex flex-row items-center text-center font-medium text-2xl leading-9 text-gray-100">
+							<BookOpenSVG className="mr-2 w-8 h-8" />
+							MIT Open Source UI Icons
 						</h2>
 
-						{/* Steve and Adam */}
+						{/* By ... */}
 						<div className="h-4 hidden sm:block" />
 						<h3 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100">
-							Icons by{" "}
+							By{" "}
 							<a href="https://twitter.com/steveschoger" {...attrs.target_blank}>
 								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger} alt="Steve Schoger" />{" "}
 								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
 									@steveschoger
 								</span>
-							</a>{" "}
-							and{" "}
+							</a>
+							,{" "}
 							<a href="https://twitter.com/adamwathan" {...attrs.target_blank}>
 								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamWathan} alt="Adam Wathan" />{" "}
 								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
 									@adamwathan
 								</span>
 							</a>
-						</h3>
-
-						{/* Zaydek MG */}
-						<h3 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100">
-							Icon Viewer by{" "}
+							,{" "}
+							<br />
 							<a href="https://twitter.com/username_ZAYDEK" {...attrs.target_blank}>
 								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />{" "}
 								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>

@@ -8,7 +8,7 @@
 		"use-immer": "^0.4.1"
 	},
 	"scripts": {
-		"tailwind-start": "tailwind build -c src/tailwindcss/js/tailwind.config.js -o src/tailwindcss/css/tailwind.generated.css",
+		"tailwind-start": "tailwind build -c src/tailwind-css/tailwind.config.js -o src/tailwind-css/tailwind.generated.css",
 		"start": "react-scripts start",
 		"tailwind-build": "NODE_ENV=production yarn tailwind-start",
 		"build": "yarn tailwind-build && yarn react-scripts build && osascript -e 'display notification \"Production build ready\" with title \"yarn build\"' && yarn tailwind-start && osascript -e 'display notification \"Development build ready\" with title \"yarn start\"'",

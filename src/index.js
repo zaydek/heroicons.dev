@@ -5,8 +5,8 @@ import ReactDOM from "react-dom"
 
 import "debug.css"
 
-import "tailwindcss/css/tailwind.generated.css"
-import "tailwindcss/css/color-vars.css"
+import "tailwind-css/tailwind.generated.css"
+import "tailwind-css/color-vars.css"
 
 ReactDOM.render(<App />, document.getElementById("root"))
 
