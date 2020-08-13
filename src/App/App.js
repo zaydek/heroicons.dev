@@ -11,6 +11,11 @@ import Transition from "lib/x/Transition"
 import useHeroiconsReducer from "./useHeroiconsReducer"
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 
+import {
+	SPONSOR_KEY,
+	sponsorMap,
+} from "./sponsors"
+
 import BookOpenSVG from "heroicons-82f6a4d/react/solid/BookOpen"
 import CodeSVG from "heroicons-82f6a4d/react/solid/Code"
 import EmojiHappySVG from "heroicons-82f6a4d/react/solid/EmojiHappy"
@@ -36,49 +41,60 @@ function tw(units) {
 	document.body.classList.add("bg-black")
 })()
 
-// TODO: Extract <StyledH1>, <StyledH2>, and <StyledH3>.
 const App = () => {
 	const [state, dispatch] = useHeroiconsReducer()
-	const breakpoints = useLayoutBreakpoints(tailwindcss.theme.screens)
+	const media = useLayoutBreakpoints(tailwindcss.theme.screens)
 
 	// TODO: Extract Carbon Ads code.
 	const carbonAdsRef = React.useRef()
-	const [carbonAdsReady, setCarbonAdsReady] = React.useState(false)
-	const [carbonAdsBlocked, setCarbonAdsBlocked] = React.useState(false)
-
-	// transition duration-700 ease-out
-	React.useEffect(() => {
-		if (carbonAdsReady) {
-			setTimeout(() => {
-				const el = document.getElementById("carbonads")
-				if (!el.offsetWidth || !el.offsetHeight) {
-					const parentEl = document.getElementById("carbon-ads-absolute-parent")
-					if (parentEl) {
-						parentEl.style.pointerEvents = "none"
-						setCarbonAdsBlocked(true)
-					}
-				}
-			}, 700)
+	const [showCarbonAds, setShowCarbonAds] = React.useState(false)
+	const [showCarbonAdsFallback, setShowCarbonAdsFallback] = React.useState(() => {
+		const key = localStorage.getItem(SPONSOR_KEY)
+		if (key === null) {
+			return false
 		}
-	}, [carbonAdsReady])
+		let decoded = ""
+		try {
+			decoded = atob(key)
+		} catch (error) {
+			console.log("Nice try. 😉")
+		}
+		return sponsorMap[decoded] || false
+	})
 
 	// NOTE: Because <CarbonAds> cannot be used more than
 	// once, we move carbonAdsRef.current between
-	// #carbonads-placement and #carbonads-alt-placement on
-	// breakpoints.lg rerenders.
+	// #carbon-ads-placement and #carbon-ads-desktop-placement
+	// on media.lg rerenders.
 	React.useLayoutEffect(() => {
-		if (breakpoints.lg) {
-			const el = document.getElementById("carbonads-placement")
+		if (media.lg) {
+			const el = document.getElementById("carbon-ads-placement")
 			if (!el.children.length) {
 				el.append(carbonAdsRef.current)
 			}
 		} else {
-			const el = document.getElementById("carbonads-alt-placement")
+			const el = document.getElementById("carbon-ads-desktop-placement")
 			if (!el.children.length) {
 				el.append(carbonAdsRef.current)
 			}
 		}
-	}, [breakpoints.lg])
+	}, [media.lg])
+
+	// transition duration-700 ease-out
+	React.useEffect(() => {
+		if (showCarbonAds) {
+			setTimeout(() => {
+				const el = document.getElementById("carbonads")
+				if (!el || !el.offsetWidth || !el.offsetHeight) {
+					const parentEl = document.getElementById("carbon-ads-absolute-parent")
+					if (parentEl) {
+						parentEl.style.pointerEvents = "none"
+					}
+					setShowCarbonAdsFallback(true)
+				}
+			}, 700)
+		}
+	}, [showCarbonAds])
 
 	const mounted = React.useRef()
 	React.useEffect(
@@ -100,7 +116,7 @@ const App = () => {
 	)
 
 	return (
-		<BreakpointContext.Provider value={breakpoints}>
+		<BreakpointContext.Provider value={media}>
 			<div className="flex flex-row justify-center">
 				<div className="px-4 w-full max-w-screen-lg">
 
@@ -113,12 +129,12 @@ const App = () => {
 					{/* Carbon Ads (alt) */}
 					<aside className="p-4 absolute top-0 right-0 z-30">
 						<Transition
-							on={carbonAdsReady}
+							on={showCarbonAds}
 							className="transition duration-700 ease-out"
 							from="opacity-0 transform scale-90"
 							to="opacity-100 transform scale-100"
 						>
-							<div id="carbonads-alt-placement" />
+							<div id="carbon-ads-desktop-placement" />
 						</Transition>
 					</aside>
 
@@ -128,12 +144,12 @@ const App = () => {
 
 						{/* Carbon Ads */}
 						<Transition
-							on={carbonAdsReady}
+							on={showCarbonAds}
 							className="transition duration-700 ease-out"
 							from="opacity-0 transform scale-90"
 							to="opacity-100 transform scale-100"
 						>
-							<div id="carbonads-placement" className="pt-4 lg:pt-0 pb-16 block xl:hidden">
+							<div id="carbon-ads-placement" className="pt-4 lg:pt-0 pb-16 block xl:hidden">
 								<div ref={carbonAdsRef} className="rounded-75 shadow-lg">
 									<div className="rounded-75 shadow-lg">
 										<div className="relative">
@@ -148,14 +164,16 @@ const App = () => {
 													src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
 													onLoad={() => {
 														setTimeout(() => {
-															setCarbonAdsReady(true)
+															if (!showCarbonAdsFallback) {
+																setShowCarbonAds(true)
+															}
 														}, 1e3)
 													}}
 												/>
 											</div>
 
 											<Transition
-												on={carbonAdsBlocked}
+												on={showCarbonAdsFallback}
 												className="transition duration-700 ease-out"
 												from="opacity-0 pointer-events-none"
 												to="opacity-100 pointer-events-auto"
@@ -192,14 +210,23 @@ const App = () => {
 														</div>
 													</div>
 
-													<button className="py-2 absolute inset-x-0 top-full block w-full" onClick={e => {
-														// const response = window.prompt("What’s your GitHub Username? E.g. codex-zaydek")
-														// if (response === "hediet" || "shinewb") {
-														// 	setDisableAds(true)
-														// }
+													<button className="py-2 absolute inset-x-0 top-full block w-full focus:outline-none" onClick={e => {
+														const username = window.prompt("What’s your GitHub username?")
+														if (username === null) {
+															// No-op
+															return
+														}
+														const usernameSafe = username
+															.trim()            // Remove spaces
+															.replace(/^@/, "") // Remove [@]username
+															.toLowerCase()     // Lowercase
+														if (sponsorMap[usernameSafe]) {
+															localStorage.setItem(SPONSOR_KEY, btoa(usernameSafe))
+															setShowCarbonAds(false)
+														}
 													}}>
 														<div className="flex flex-row justify-center">
-															<p className="text-sm text-gray-100">
+															<p className="text-sm text-gray-100 hover:underline">
 																Already a sponsor? Click here.
 															</p>
 														</div>
@@ -363,7 +390,7 @@ const App = () => {
 const FormSearch = ({ state, dispatch }) => {
 	const inputRef = React.useRef()
 
-	const breakpoints = React.useContext(BreakpointContext)
+	const media = React.useContext(BreakpointContext)
 
 	const [text, setText] = React.useState(() => {
 		if (!("URLSearchParams" in window)) {
@@ -458,12 +485,12 @@ const FormSearch = ({ state, dispatch }) => {
 							ref={inputRef}
 							className="block w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
 							style={{
-								paddingLeft: breakpoints.xs ? tw(2 + 6) : tw(6 + 2 + 6 + 6),
+								paddingLeft: media.xs ? tw(2 + 6) : tw(6 + 2 + 6 + 6),
 								paddingRight: tw(6 + 10 + 2 + 10 + 2 + 6),
 								height: tw(18),
 							}}
 							type="text"
-							placeholder={breakpoints.sm ? "Search Icons" : "Search 220+ Icons"}
+							placeholder={media.sm ? "Search Icons" : "Search 220+ Icons"}
 							value={text}
 							onChange={e => setText(e.target.value)}
 							autoFocus
@@ -673,14 +700,14 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 })
 
 const Icons = ({ state, dispatch }) => {
-	const breakpoints = React.useContext(BreakpointContext)
+	const media = React.useContext(BreakpointContext)
 
 	const [height, minHeight] = React.useMemo(() => {
-		const clientHeight = breakpoints.lg ? `calc(100vh - ${tw(4 + 18 + 4 + 24 + 14 + 24)})` : `calc(100vh - ${tw(4 + 18 + 4 + 24 + 6 + 8)})`
+		const clientHeight = media.lg ? `calc(100vh - ${tw(4 + 18 + 4 + 24 + 14 + 24)})` : `calc(100vh - ${tw(4 + 18 + 4 + 24 + 6 + 8)})`
 		const height = !state.results.length && clientHeight
 		const minHeight = !(!state.results.length) && clientHeight
 		return [height, minHeight]
-	}, [breakpoints.lg, state.results])
+	}, [media.lg, state.results])
 
 	return (
 		<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
@@ -690,7 +717,7 @@ const Icons = ({ state, dispatch }) => {
 					<div className="flex flex-col justify-center items-center h-full">
 						<h3 className="flex flex-row items-baseline font-medium text-xl leading-9 text-center text-gray-100">
 							No results for “
-							<span className="inline-block truncate" style={{ maxWidth: breakpoints.xs ? 128 : 256 }}>
+							<span className="inline-block truncate" style={{ maxWidth: media.xs ? 128 : 256 }}>
 								{state.form.search.user}.
 							</span>
 							”
