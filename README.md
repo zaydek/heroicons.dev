@@ -26,7 +26,7 @@ This is an icon viewer for [Heroicons](https://github.com/refactoringui/heroicon
 
 ## License
 
-[heroicons.dev](https://heroicons.dev) is open source software licensed as MIT.
+Open source software licensed as MIT.
 
 ---
 
