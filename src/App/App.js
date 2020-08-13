@@ -75,12 +75,12 @@ const App = () => {
 	React.useEffect(() => {
 		if (delayedShowCarbonAds) {
 			const el = document.getElementById("carbonads")
-			if (!el || !el.offsetWidth || !el.offsetHeight) {
-				const parentEl = document.getElementById("carbon-ads-absolute-parent")
-				if (parentEl) {
-					parentEl.style.pointerEvents = "none"
-				}
+			if (el && el.offsetWidth && el.offsetHeight) {
+				// No-op
+				return
 			}
+			const parentEl = document.getElementById("carbon-ads-absolute-parent")
+			parentEl.style.pointerEvents = "none"
 		}
 	}, [delayedShowCarbonAds])
 
@@ -106,7 +106,6 @@ const App = () => {
 		}
 	}, [media.lg, noopAdsForSponsor])
 
-
 	const mounted = React.useRef()
 	React.useEffect(
 		React.useCallback(() => {
@@ -131,7 +130,7 @@ const App = () => {
 			<div className="pt-16 lg:pt-32 flex flex-row justify-center">
 				<div className="px-4 w-full max-w-screen-lg">
 
-					<nav className="p-4 space-y-2 absolute top-0 left-0 hidden lg:block">
+					<nav className="p-4 space-y-1 absolute top-0 left-0 hidden lg:block">
 						<ExtLinksFragment />
 					</nav>
 
@@ -140,7 +139,7 @@ const App = () => {
 						<aside className="p-4 absolute top-0 right-0 z-30">
 							<Transition
 								on={showCarbonAds}
-								className="transition duration-700 ease-out"
+								className="transition duration-1000 ease-in-out"
 								from="opacity-0 transform scale-90 pointer-events-none"
 								to="opacity-100 transform scale-100 pointer-events-auto"
 							>
@@ -156,7 +155,7 @@ const App = () => {
 						{!noopAdsForSponsor && (
 							<Transition
 								on={showCarbonAds}
-								className="transition duration-700 ease-out"
+								className="transition duration-1000 ease-in-out"
 								from="opacity-0 transform scale-90 pointer-events-none"
 								to="opacity-100 transform scale-100 pointer-events-auto"
 							>
@@ -169,8 +168,8 @@ const App = () => {
 													<CarbonAds
 														className="absolute z-10 border border-gray-700 rounded-75 overflow-hidden"
 														style={{
-															minWidth: 332,
-															minHeight: 127,
+															width: 332,
+															height: 127,
 														}}
 														src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
 														onLoad={() => {
@@ -185,15 +184,15 @@ const App = () => {
 
 												<Transition
 													on={delayedShowCarbonAds}
-													className="transition duration-700 ease-out"
+													className="transition duration-1000 ease-in-out"
 													from="opacity-0 pointer-events-none"
 													to="opacity-100 pointer-events-auto"
 												>
 													<div
 														className="px-3 py-2 relative flex flex-row justify-center items-center border border-gray-700 rounded-75"
 														style={{
-															minWidth: 332,
-															minHeight: 127,
+															width: 332,
+															height: 127,
 															backgroundColor: "hsl(0, 0%, 10%)",
 														}}
 													>
@@ -222,7 +221,7 @@ const App = () => {
 														</div>
 
 														<button className="px-4 py-3 absolute inset-x-0 top-full block w-full focus:outline-none" onClick={e => {
-															const username = window.prompt("What’s your GitHub username?")
+															const username = window.prompt("What’s your GitHub username? If you just sponsored me, allow me up to a day to update the site. 😊")
 															if (username === null) {
 																// No-op
 																return
@@ -388,7 +387,7 @@ const App = () => {
 					</Transition>
 
 					<div className="h-24" />
-					<footer className="space-x-0 lg:space-x-6 space-y-2 lg:space-y-0 flex flex-col lg:flex-row items-center lg:justify-center">
+					<footer className="space-x-0 lg:space-x-6 space-y-1 lg:space-y-0 flex flex-col lg:flex-row items-center lg:justify-center">
 						<ExtLinksFragment />
 					</footer>
 					<div className="h-24 lg:h-8" />
@@ -414,7 +413,7 @@ const FormSearch = ({ state, dispatch }) => {
 
 	const [tooltip, setTooltip] = React.useState("")
 
-	// Debounces search by 15ms.
+	// Debounces search.
 	const mounted = React.useRef()
 	React.useEffect(
 		React.useCallback(() => {
@@ -505,7 +504,7 @@ const FormSearch = ({ state, dispatch }) => {
 							placeholder={media.sm ? "Search Icons" : "Search 220+ Icons"}
 							value={text}
 							onChange={e => setText(e.target.value)}
-							autoFocus
+							// autoFocus
 							{...attrs.disableAutoCorrect}
 						/>
 					</div>
@@ -715,7 +714,7 @@ const Icons = ({ state, dispatch }) => {
 	const media = React.useContext(BreakpointContext)
 
 	const [height, minHeight] = React.useMemo(() => {
-		const clientHeight = media.lg ? `calc(100vh - ${tw(4 + 18 + 4 + 24 + 22 + 24)})` : `calc(100vh - ${tw(4 + 18 + 4 + 24 + 6 + 8)})`
+		const clientHeight = media.lg ? `calc(100vh - ${tw(4 + 18 + 4 + 24 + 20 + 24)})` : `calc(100vh - ${tw(4 + 18 + 4 + 24 + 6 + 8)})`
 		const height = !state.results.length && clientHeight
 		const minHeight = !(!state.results.length) && clientHeight
 		return [height, minHeight]
