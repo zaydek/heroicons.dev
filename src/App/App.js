@@ -51,7 +51,7 @@ const App = () => {
 		if (carbonAdsReady) {
 			setTimeout(() => {
 				const el = document.getElementById("carbonads")
-				if (!el.width || !el.height) {
+				if (!el.offsetWidth || !el.offsetHeight) {
 					const parentEl = document.getElementById("carbon-ads-absolute-parent")
 					if (parentEl) {
 						parentEl.style.pointerEvents = "none"
@@ -141,7 +141,10 @@ const App = () => {
 											<div id="carbon-ads-absolute-parent" className="absolute z-10">
 												<CarbonAds
 													className="absolute z-10 border border-gray-700 rounded-75 overflow-hidden"
-													style={{ minWidth: 1 + 330 + 1, minHeight: 1 + 125 + 1 }}
+													style={{
+														minWidth: 332,
+														minHeight: 127,
+													}}
 													src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
 													onLoad={() => {
 														setTimeout(() => {
@@ -154,14 +157,14 @@ const App = () => {
 											<Transition
 												on={carbonAdsBlocked}
 												className="transition duration-700 ease-out"
-												from="opacity-0"
-												to="opacity-100"
+												from="opacity-0 pointer-events-none"
+												to="opacity-100 pointer-events-auto"
 											>
 												<div
-													className="px-3 py-2 flex flex-row justify-center items-center border border-gray-700 rounded-75"
+													className="px-3 py-2 relative flex flex-row justify-center items-center border border-gray-700 rounded-75"
 													style={{
-														minWidth: 1 + 330 + 1,
-														minHeight: 1 + 125 + 1,
+														minWidth: 332,
+														minHeight: 127,
 														backgroundColor: "hsl(0, 0%, 10%)",
 													}}
 												>
@@ -188,6 +191,20 @@ const App = () => {
 															</div>
 														</div>
 													</div>
+
+													<button className="py-2 absolute inset-x-0 top-full block w-full" onClick={e => {
+														// const response = window.prompt("What’s your GitHub Username? E.g. codex-zaydek")
+														// if (response === "hediet" || "shinewb") {
+														// 	setDisableAds(true)
+														// }
+													}}>
+														<div className="flex flex-row justify-center">
+															<p className="text-sm text-gray-100">
+																Already a sponsor? Click here.
+															</p>
+														</div>
+													</button>
+
 												</div>
 											</Transition>
 
