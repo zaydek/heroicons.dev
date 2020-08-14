@@ -166,7 +166,7 @@ const App = () => {
 
 												<div id="carbon-ads-absolute-parent" className="absolute z-10">
 													<CarbonAds
-														className="absolute z-10 border border-gray-700 rounded-75 overflow-hidden"
+														className="border border-gray-700 rounded-75 overflow-hidden"
 														style={{
 															width: 332,
 															height: 127,
