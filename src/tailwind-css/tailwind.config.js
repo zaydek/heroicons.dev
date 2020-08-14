@@ -17,7 +17,7 @@ module.exports = {
 				"75": "0.75rem",
 			},
 			boxShadow: {
-				"solid-indigo": "0 0 0 3px var(--indigo-500)",
+				"solid-indigo": "0 0 0 3px #6875f5",
 
 				// "hero-sm": trimWhitespace(`
 				// 	0 0 0 1px rgba(0, 0, 0, 0.05),
