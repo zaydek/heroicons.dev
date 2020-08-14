@@ -185,8 +185,8 @@ const App = () => {
 												<Transition
 													on={delayedShowCarbonAds}
 													className="transition duration-1000 ease-in-out"
-													from="opacity-0 pointer-events-none"
-													to="opacity-100 pointer-events-auto"
+													from="opacity-0"
+													to="opacity-100"
 												>
 													<div
 														className="px-3 py-2 relative flex flex-row justify-center items-center border border-gray-700 rounded-75"
