@@ -20,9 +20,9 @@ import SwitchHorizontalSVG from "heroicons-82f6a4d/react/solid/SwitchHorizontal"
 import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubSVG } from "svg/github.svg"
 
-import srcAdamWathan from "images/adam-wathan.jpeg"
-import srcSteveSchoger from "images/steve-schoger.jpeg"
-import srcZaydekMG from "images/zaydek-mg.png"
+import srcAdamWathan128 from "images/adam-wathan-128.jpeg"
+import srcSteveSchoger128 from "images/steve-schoger-128.jpeg"
+import srcZaydekMG128 from "images/zaydek-mg-128.png"
 
 const BreakpointContext = React.createContext()
 
@@ -35,32 +35,34 @@ function tw(units) {
 	document.body.classList.add("bg-black")
 })()
 
+// Delays a callback.
+function useDelayedCallback(callback, timeoutMs) {
+	React.useEffect(() => {
+		setTimeout(() => {
+			callback()
+		}, timeoutMs)
+	}, [callback, timeoutMs])
+}
+
 const App = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 	const media = useLayoutBreakpoints(tailwindcss.theme.screens)
 
 	const carbonAdsRef = React.useRef()
 	const [showCarbonAds, setShowCarbonAds] = React.useState(false)
-	const [delayedShowCarbonAds, setDelayedShowCarbonAds] = React.useState(false)
 
-	// TODO: Extract to useDelayedCallback?
-	React.useEffect(() => {
+	const [delayedShowCarbonAds, setDelayedShowCarbonAds] = React.useState(false)
+	useDelayedCallback(() => {
 		if (showCarbonAds) {
-			setTimeout(() => {
-				setDelayedShowCarbonAds(true)
-			}, 500)
+			setDelayedShowCarbonAds(true)
 		}
-	}, [showCarbonAds])
+	}, 500)
 
 	// NOTE: Because <CarbonAds> cannot be used more than
 	// once, we move carbonAdsRef.current between
 	// #carbon-ads-placement and #carbon-ads-desktop-placement
 	// on media.lg rerenders.
 	React.useEffect(() => {
-		// if (noopAdsForSponsor) {
-		// 	// No-op
-		// 	return
-		// }
 		if (media.lg) {
 			const el = document.getElementById("carbon-ads-placement")
 			if (!el.children.length) {
@@ -72,8 +74,9 @@ const App = () => {
 				el.append(carbonAdsRef.current)
 			}
 		}
-	}, [media.lg /* , noopAdsForSponsor */])
+	}, [media.lg])
 
+	// Auto-hides notifications.
 	const mounted = React.useRef()
 	React.useEffect(
 		React.useCallback(() => {
@@ -85,7 +88,7 @@ const App = () => {
 				dispatch({
 					type: "HIDE_NOTIFICATION",
 				})
-			}, 2e3)
+			}, 2.2e3)
 			return () => {
 				clearTimeout(id)
 			}
@@ -98,86 +101,82 @@ const App = () => {
 			<div className="pt-16 lg:pt-32 flex flex-row justify-center">
 				<div className="px-4 w-full max-w-screen-lg">
 
-					<nav className="p-4 space-y-1 absolute top-0 left-0 hidden lg:block">
+					<nav className="p-4 space-y-2 absolute top-0 left-0 hidden lg:block">
 						<ExtLinksFragment />
 					</nav>
 
 					{/* Carbon Ads (alt) */}
-					{/* {!noopAdsForSponsor && ( */}
-						<aside className="p-4 absolute top-0 right-0 z-30">
-							<Transition
-								on={showCarbonAds}
-								className="transition duration-500 ease-in-out"
-								from="opacity-0 transform scale-90 pointer-events-none"
-								to="opacity-100 transform scale-100 pointer-events-auto"
-							>
-								<div id="carbon-ads-desktop-placement" />
-							</Transition>
-						</aside>
-					{/* )} */}
+					<aside className="p-4 absolute top-0 right-0 z-30">
+						<Transition
+							on={showCarbonAds}
+							className="transition duration-500 ease-in-out"
+							from="opacity-0 transform scale-90 pointer-events-none"
+							to="opacity-100 transform scale-100 pointer-events-auto"
+						>
+							<div id="carbon-ads-desktop-placement" />
+						</Transition>
+					</aside>
 
 					{/* Headers */}
 					<header className="flex flex-col items-center">
 
 						{/* Carbon Ads */}
-						{/* {!noopAdsForSponsor && ( */}
-							<Transition
-								on={showCarbonAds}
-								className="transition duration-500 ease-in-out"
-								from="opacity-0 transform scale-90 pointer-events-none"
-								to="opacity-100 transform scale-100 pointer-events-auto"
-							>
-								<div id="carbon-ads-placement" className="-mt-16 pt-4 lg:pt-0 pb-16 block xl:hidden">
-									<div ref={carbonAdsRef} className="rounded-75 shadow-lg">
-										<div className="rounded-75 shadow-lg">
-											<div className="relative">
+						<Transition
+							on={showCarbonAds}
+							className="transition duration-500 ease-in-out"
+							from="opacity-0 transform scale-90 pointer-events-none"
+							to="opacity-100 transform scale-100 pointer-events-auto"
+						>
+							<div id="carbon-ads-placement" className="-mt-16 pt-4 lg:pt-0 pb-16 block xl:hidden">
+								<div ref={carbonAdsRef} className="rounded-75 shadow-lg">
+									<div className="rounded-75 shadow-lg">
+										<div className="relative">
 
-												<div onClick={e => {
-													setShowCarbonAds(false)
-												}}>
-													<CarbonAds
-														className="border border-gray-700 rounded-75 overflow-hidden"
-														style={{
-															width: 332,
-															height: 127,
-														}}
-														src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
-														onLoad={() => {
-															setTimeout(() => {
-																setShowCarbonAds(true)
-															}, 1e3)
-														}}
-													/>
-												</div>
-
-												<Transition
-													on={delayedShowCarbonAds}
-													className="transition duration-500 ease-in-out"
-													from="opacity-0"
-													to="opacity-100"
-												>
-													<div className="px-4 py-3 absolute inset-x-0 top-full">
-														<div className="flex flex-row justify-center">
-															<p className="text-sm text-gray-100">
-																Clicking the ad makes it go away.{" "}
-																<span style={{ verticalAlign: "-12.5%", fontSize: "150%", lineHeight: 1 }}>
-																	🤫
-																</span>
-															</p>
-														</div>
-													</div>
-												</Transition>
-
+											<div onClick={e => {
+												setShowCarbonAds(false)
+											}}>
+												<CarbonAds
+													className="border border-gray-700 rounded-75 overflow-hidden"
+													style={{
+														width: 332,
+														height: 127,
+													}}
+													src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
+													onLoad={() => {
+														setTimeout(() => {
+															setShowCarbonAds(true)
+														}, 1e3)
+													}}
+												/>
 											</div>
+
+											<Transition
+												on={delayedShowCarbonAds}
+												className="transition duration-500 ease-in-out"
+												from="opacity-0"
+												to="opacity-100"
+											>
+												<div className="px-4 py-3 absolute inset-x-0 top-full">
+													<div className="flex flex-row justify-center">
+														<p className="text-sm text-gray-100">
+															Clicking the ad makes it go away.{" "}
+															<span style={{ verticalAlign: "-25%", fontSize: "150%", lineHeight: 1 }}>
+																🤫
+															</span>
+														</p>
+													</div>
+												</div>
+											</Transition>
+
 										</div>
 									</div>
 								</div>
-							</Transition>
-						{/* )} */}
+							</div>
+						</Transition>
 
 						{/* Header */}
 						<div className="relative flex flex-row items-center">
-							<h1 className="font-bold font-brand-sans text-5xl text-white" style={{ letterSpacing: "-0.0375em" }}>
+							<h1 className="font-bold font-brand-sans text-5xl text-white" style={{ letterSpacing: "-0.025em" }}>
 								Heroicons
 							</h1>
 							<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}>
@@ -196,14 +195,14 @@ const App = () => {
 						<h3 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100">
 							By{" "}
 							<a href="https://twitter.com/steveschoger" {...attrs.target_blank}>
-								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger} alt="Steve Schoger" />{" "}
+								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger128} alt="Steve Schoger" />{" "}
 								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
 									@steveschoger
 								</span>
 							</a>
 							,{" "}
 							<a href="https://twitter.com/adamwathan" {...attrs.target_blank}>
-								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamWathan} alt="Adam Wathan" />{" "}
+								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamWathan128} alt="Adam Wathan" />{" "}
 								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
 									@adamwathan
 								</span>
@@ -211,7 +210,7 @@ const App = () => {
 							,{" "}
 							<br />
 							<a href="https://twitter.com/username_ZAYDEK" {...attrs.target_blank}>
-								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />{" "}
+								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG128} alt="Zaydek MG" />{" "}
 								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
 									@username_ZAYDEK
 								</span>
@@ -258,7 +257,7 @@ const App = () => {
 						dispatch={dispatch}
 					/>
 
-					{/* Clipboard */}
+					{/* Notification */}
 					<Transition
 						on={state.notif.showKey}
 						className="transition duration-200 ease-in-out"

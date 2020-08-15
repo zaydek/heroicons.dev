@@ -79,7 +79,6 @@ const actions = state => ({
 	hideNotification() {
 		state.notif.showKey = ""
 	},
-
 })
 
 function HeroiconsReducer(state, action) {
