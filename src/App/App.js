@@ -418,6 +418,8 @@ const FormSearch = ({ state, dispatch }) => {
 							ref={inputRef}
 							className="block w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
 							style={{
+								appearance: "none",
+
 								paddingLeft: media.xs ? tw(2 + 6) : tw(6 + 2 + 6 + 6),
 								paddingRight: tw(6 + 10 + 2 + 10 + 2 + 6),
 								height: tw(18),
@@ -426,7 +428,6 @@ const FormSearch = ({ state, dispatch }) => {
 							placeholder={media.sm ? "Search Icons" : "Search 220+ Icons"}
 							value={text}
 							onChange={e => setText(e.target.value)}
-							// autoFocus
 							{...attrs.disableAutoCorrect}
 						/>
 					</div>
