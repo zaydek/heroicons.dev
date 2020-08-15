@@ -28,6 +28,8 @@ You can feature your business’s logo by [sponsoring me on GitHub](https://gith
 
 [DM me on Twitter](https://twitter.com/messages/compose?recipient_id=899350210064687105) with any questions you may have.
 
+<!--
+
 ## Disable Ads
 
 You can disable ads by [sponsoring me on GitHub](https://github.com/sponsors/codex-zaydek) in the individual-tier range.
@@ -35,6 +37,8 @@ You can disable ads by [sponsoring me on GitHub](https://github.com/sponsors/cod
 Once you become a sponsor, I’ll add you to the source code so you may disable ads with your GitHub username. If you just sponsored me, allow me up to a day to update the site. 😊
 
 Once I’ve added you to the site, click ‘Are you a GitHub Sponsor? Click here.’ and enter your GitHub username. On refresh, ad scripts will be invalidated for you. 🤗
+
+-->
 
 <!--
 
