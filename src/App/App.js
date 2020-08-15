@@ -11,14 +11,8 @@ import Transition from "lib/x/Transition"
 import useHeroiconsReducer from "./useHeroiconsReducer"
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 
-import {
-	SPONSOR_KEY,
-	sponsorMap,
-} from "./sponsors"
-
 import BookOpenSVG from "heroicons-82f6a4d/react/solid/BookOpen"
 import CodeSVG from "heroicons-82f6a4d/react/solid/Code"
-import EmojiHappySVG from "heroicons-82f6a4d/react/solid/EmojiHappy"
 import ExternalLinkSVG from "heroicons-82f6a4d/react/solid/ExternalLink"
 import FlagSVG from "heroicons-82f6a4d/react/solid/Flag"
 import SearchOutlineIcon from "heroicons-82f6a4d/react/outline/Search"
@@ -45,66 +39,8 @@ const App = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 	const media = useLayoutBreakpoints(tailwindcss.theme.screens)
 
-	const noopAdsForSponsor = React.useMemo(() => {
-		const key = localStorage.getItem(SPONSOR_KEY)
-		if (key === null) {
-			return false
-		}
-		let decoded = ""
-		try {
-			decoded = atob(key)
-		} catch (error) {
-			console.log("Nice try. 😉")
-		}
-		return sponsorMap[decoded] || false
-	}, [])
-
-	// TODO: Extract Carbon Ads code.
 	const carbonAdsRef = React.useRef()
 	const [showCarbonAds, setShowCarbonAds] = React.useState(false)
-	const [delayedShowCarbonAds, setDelayedShowCarbonAds] = React.useState(false)
-
-	React.useEffect(() => {
-		if (showCarbonAds) {
-			setTimeout(() => {
-				setDelayedShowCarbonAds(true)
-			}, 1e3)
-		}
-	}, [showCarbonAds])
-
-	React.useEffect(() => {
-		if (delayedShowCarbonAds) {
-			const el = document.getElementById("carbonads")
-			if (el && el.offsetWidth && el.offsetHeight) {
-				// No-op
-				return
-			}
-			const parentEl = document.getElementById("carbon-ads-absolute-parent")
-			parentEl.style.pointerEvents = "none"
-		}
-	}, [delayedShowCarbonAds])
-
-	// NOTE: Because <CarbonAds> cannot be used more than
-	// once, we move carbonAdsRef.current between
-	// #carbon-ads-placement and #carbon-ads-desktop-placement
-	// on media.lg rerenders.
-	React.useLayoutEffect(() => {
-		if (noopAdsForSponsor) {
-			// No-op
-			return
-		}
-		if (media.lg) {
-			const el = document.getElementById("carbon-ads-placement")
-			if (!el.children.length) {
-				el.append(carbonAdsRef.current)
-			}
-		} else {
-			const el = document.getElementById("carbon-ads-desktop-placement")
-			if (!el.children.length) {
-				el.append(carbonAdsRef.current)
-			}
-		}
-	}, [media.lg, noopAdsForSponsor])
 
 	const mounted = React.useRef()
 	React.useEffect(
@@ -135,7 +71,7 @@ const App = () => {
 					</nav>
 
 					{/* Carbon Ads (alt) */}
-					{!noopAdsForSponsor && (
+					{/* {!noopAdsForSponsor && ( */}
 						<aside className="p-4 absolute top-0 right-0 z-30">
 							<Transition
 								on={showCarbonAds}
@@ -146,13 +82,13 @@ const App = () => {
 								<div id="carbon-ads-desktop-placement" />
 							</Transition>
 						</aside>
-					)}
+					{/* )} */}
 
 					{/* Headers */}
 					<header className="flex flex-col items-center">
 
 						{/* Carbon Ads */}
-						{!noopAdsForSponsor && (
+						{/* {!noopAdsForSponsor && ( */}
 							<Transition
 								on={showCarbonAds}
 								className="transition duration-1000 ease-in-out"
@@ -174,83 +110,20 @@ const App = () => {
 														src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
 														onLoad={() => {
 															setTimeout(() => {
-																if (!noopAdsForSponsor) {
-																	setShowCarbonAds(true)
-																}
+																// if (!noopAdsForSponsor) {
+																setShowCarbonAds(true)
+																// }
 															}, 1e3)
 														}}
 													/>
 												</div>
-
-												<Transition
-													on={delayedShowCarbonAds}
-													className="transition duration-1000 ease-in-out"
-													from="opacity-0"
-													to="opacity-100"
-												>
-													<div
-														className="px-3 py-2 relative flex flex-row justify-center items-center border border-gray-700 rounded-75"
-														style={{
-															width: 332,
-															height: 127,
-															backgroundColor: "hsl(0, 0%, 10%)",
-														}}
-													>
-														<div className="flex flex-col items-center w-full">
-															<div className="flex flex-row items-center">
-																<img className="mr-4 w-12 h-12 rounded-full" src={srcZaydekMG} alt="Zaydek MG" />
-																<p className="font-medium leading-relaxed text-gray-100" style={{ fontSize: tw(3.75) }}>
-																	Ad blocked! Why not sponsor?<br />
-																	Sponsor me on GitHub.{" "}
-																	<EmojiHappySVG className="-mt-1 inline-block w-5 h-5" />
-																</p>
-															</div>
-															<div className="h-4" />
-															<div className="px-2 w-full">
-																<div className="w-full shadow">
-																	<a className="py-1 inline-block w-full bg-gray-800 border border-gray-600 focus:border-transparent rounded focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" href="https://github.com/sponsors/codex-zaydek" {...attrs.target_blank}>
-																		<p className="flex flex-row justify-center items-center font-semibold text-md leading-none text-gray-100" style={{ fontSize: tw(3.75) }}>
-																			<svg className="mr-2 w-5 h-5 fill-current text-indigo-500 transform scale-90" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-																				<path fillRule="evenodd" d="M7.655 14.916L8 14.25l.345.666a.752.752 0 01-.69 0zm0 0L8 14.25l.345.666.002-.001.006-.003.018-.01a7.643 7.643 0 00.31-.17 22.08 22.08 0 003.433-2.414C13.956 10.731 16 8.35 16 5.5 16 2.836 13.914 1 11.75 1 10.203 1 8.847 1.802 8 3.02 7.153 1.802 5.797 1 4.25 1 2.086 1 0 2.836 0 5.5c0 2.85 2.045 5.231 3.885 6.818a22.075 22.075 0 003.744 2.584l.018.01.006.003h.002z" />
-																			</svg>
-																			Sponsor
-																		</p>
-																	</a>
-																</div>
-															</div>
-														</div>
-
-														<button className="px-4 py-3 absolute inset-x-0 top-full block w-full focus:outline-none" onClick={e => {
-															const username = window.prompt("What’s your GitHub username? If you just sponsored me, allow me up to a day to update the site. 😊")
-															if (username === null) {
-																// No-op
-																return
-															}
-															const usernameSafe = username
-																.trim()            // Remove spaces
-																.replace(/^@/, "") // Remove [@]username
-																.toLowerCase()     // Lowercase
-															if (sponsorMap[usernameSafe]) {
-																localStorage.setItem(SPONSOR_KEY, btoa(usernameSafe))
-																setShowCarbonAds(false)
-															}
-														}}>
-															<div className="flex flex-row justify-center">
-																<p className="text-sm text-gray-100 hover:underline">
-																	Are you a GitHub Sponsor? Click here.
-																</p>
-															</div>
-														</button>
-
-													</div>
-												</Transition>
 
 											</div>
 										</div>
 									</div>
 								</div>
 							</Transition>
-						)}
+						{/* )} */}
 
 						{/* Header */}
 						<div className="relative flex flex-row items-center">
