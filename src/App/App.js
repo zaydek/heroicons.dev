@@ -198,39 +198,144 @@ const App = () => {
 							MIT Open Source UI Icons
 						</h2>
 
-						{/* By ... */}
-						<div className="h-4 hidden sm:block" />
-						<h3 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100">
-							By{" "}
-							<a href="https://twitter.com/steveschoger" {...attrs.target_blank}>
-								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger128} alt="Steve Schoger" />{" "}
-								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
-									@steveschoger
-								</span>
-							</a>
-							,{" "}
-							<a href="https://twitter.com/adamwathan" {...attrs.target_blank}>
-								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamWathan128} alt="Adam Wathan" />{" "}
-								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
-									@adamwathan
-								</span>
-							</a>
-							,{" "}
-							<br />
-							<a href="https://twitter.com/username_ZAYDEK" {...attrs.target_blank}>
-								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG128} alt="Zaydek MG" />{" "}
-								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
-									@username_ZAYDEK
-								</span>
-							</a>
+						{/* Authors */}
+						{/* <div className="h-4 hidden sm:block" /> */}
+						{/* <h3 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100"> */}
+						{/* 	By{" "} */}
+						{/* 	<a href="https://twitter.com/steveschoger" {...attrs.target_blank}> */}
+						{/* 		<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger128} alt="Steve Schoger" />{" "} */}
+						{/* 		<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}> */}
+						{/* 			@steveschoger */}
+						{/* 		</span> */}
+						{/* 	</a> */}
+						{/* 	,{" "} */}
+						{/* 	<a href="https://twitter.com/adamwathan" {...attrs.target_blank}> */}
+						{/* 		<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamWathan128} alt="Adam Wathan" />{" "} */}
+						{/* 		<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}> */}
+						{/* 			@adamwathan */}
+						{/* 		</span> */}
+						{/* 	</a> */}
+						{/* 	,{" "} */}
+						{/* 	<br /> */}
+						{/* 	<a href="https://twitter.com/username_ZAYDEK" {...attrs.target_blank}> */}
+						{/* 		<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG128} alt="Zaydek MG" />{" "} */}
+						{/* 		<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}> */}
+						{/* 			@username_ZAYDEK */}
+						{/* 		</span> */}
+						{/* 	</a> */}
+						{/* </h3> */}
+
+						{/* Sponsors */}
+						<div className="h-16" />
+						<h3 className="text-center font-bold text-sm tracking-wider text-gray-400">
+							SPONSORED BY
+						</h3>
+						{/* <div className="h-8" /> */}
+
+						{/* <div className="grid grid-cols-3 gap-3 justify-center"> */}
+						{/* 	<div className="bg-gray-800"> */}
+						{/* 		<img className="h-12" src="https://tailwindui.com/img/logos/tuple-logo.svg" alt="Tuple" /> */}
+						{/* 	</div> */}
+						{/* 	<div className="bg-gray-800"> */}
+						{/* 		<img className="h-12" src="https://tailwindui.com/img/logos/mirage-logo.svg" alt="Mirage" /> */}
+						{/* 	</div> */}
+						{/* 	<div className="bg-gray-800"> */}
+						{/* 		<img className="h-12" src="https://tailwindui.com/img/logos/statickit-logo.svg" alt="StaticKit" /> */}
+						{/* 	</div> */}
+						{/* 	<div className="bg-gray-800"> */}
+						{/* 		<img className="h-12" src="https://tailwindui.com/img/logos/transistor-logo.svg" alt="Transistor" /> */}
+						{/* 	</div> */}
+						{/* 	<div className="bg-gray-800"> */}
+						{/* 		<img className="h-12" src="https://tailwindui.com/img/logos/workcation-logo.svg" alt="Workcation" /> */}
+						{/* 	</div> */}
+						{/* </div> */}
+
+						{/* <div className="grid grid-cols-3 gap-3 justify-center"> */}
+						{/* <div className="flex flex-row justify-center"> */}
+						<div className="h-4" />
+							<div className="w-full max-w-sm md:max-w-lg lg:max-w-3xl">
+								<div className="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
+									<div
+										className={`
+											col-span-1 md:col-span-2 lg:col-span-1
+											flex flex-row justify-center
+										`.trim()
+										}
+									>
+										<img className="h-12 text-red-500 fill-current" src="https://tailwindui.com/img/logos/tuple-logo.svg" alt="Tuple" />
+									</div>
+									<div
+										className={`
+											col-span-1 md:col-span-2 lg:col-span-1
+											flex flex-row justify-center
+										`.trim()
+										}
+									>
+										<img className="h-12" src="https://tailwindui.com/img/logos/mirage-logo.svg" alt="Mirage" />
+									</div>
+									<div
+										className={`
+											col-span-1 md:col-span-2 lg:col-span-1
+											flex flex-row justify-center
+										`.trim()
+										}
+									>
+										<img className="h-12" src="https://tailwindui.com/img/logos/statickit-logo.svg" alt="StaticKit" />
+									</div>
+									<div
+										className={`
+											col-span-1 md:col-span-3 lg:col-span-1
+											flex flex-row justify-center
+										`.trim()
+										}
+									>
+										<img className="h-12" src="https://tailwindui.com/img/logos/transistor-logo.svg" alt="Transistor" />
+									</div>
+									<div
+										className={`
+											col-span-2 md:col-span-3 lg:col-span-1
+											flex flex-row justify-center
+										`.trim()
+										}
+									>
+										<img className="h-12" src="https://tailwindui.com/img/logos/workcation-logo.svg" alt="Workcation" />
+									</div>
+								</div>
+							</div>
+						{/* </div> */}
+						<div className="h-8" />
+						<h3 className="text-center font-bold text-sm tracking-wider text-gray-400">
+							CLICK HERE TO FEATURE YOUR BUSINESS
 						</h3>
 
-						{/* https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L */}
+						{/* <div className="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5"> */}
+						{/* 	<div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1"> */}
+						{/* 		<img className="h-12" src="https://tailwindui.com/img/logos/tuple-logo.svg" alt="Tuple" /> */}
+						{/* 	</div> */}
+						{/* 	<div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1"> */}
+						{/* 		<img className="h-12" src="https://tailwindui.com/img/logos/mirage-logo.svg" alt="Mirage" /> */}
+						{/* 	</div> */}
+						{/* 	<div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1"> */}
+						{/* 		<img className="h-12" src="https://tailwindui.com/img/logos/statickit-logo.svg" alt="StaticKit" /> */}
+						{/* 	</div> */}
+						{/* 	<div className="col-span-1 flex justify-center md:col-span-3 lg:col-span-1"> */}
+						{/* 		<img className="h-12" src="https://tailwindui.com/img/logos/transistor-logo.svg" alt="Transistor" /> */}
+						{/* 	</div> */}
+						{/* 	<div className="col-span-2 flex justify-center md:col-span-3 lg:col-span-1"> */}
+						{/* 		<img className="h-12" src="https://tailwindui.com/img/logos/workcation-logo.svg" alt="Workcation" /> */}
+						{/* 	</div> */}
+						{/* </div> */}
+						{/* <div className="h-4" /> */}
+						{/* <h3 className="text-center font-bold text-sm tracking-wider text-gray-500"> */}
+						{/* 	BECOME A SPONSOR */}
+						{/* </h3> */}
+
+						{/* CTA */}
 						<div className="space-x-3 pt-0 sm:pt-16 hidden sm:flex sm:flex-row">
 							<div className="rounded-75 shadow-lg">
 								<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...attrs.target_blank}>
 									<div className="px-2 py-1 flex flex-row justify-center">
-										<p className="flex flex-row items-center font-medium text-xl leading-9 text-gray-100">
+										<p className="flex flex-row items-center font-medium text-xl text-gray-100">
 											<FigmaSVG className="mr-4 w-6 h-6" />
 											Open in Figma
 											<ExternalLinkSVG className="ml-2 w-5 h-5 text-indigo-400" />
@@ -241,7 +346,7 @@ const App = () => {
 							<div className="rounded-75 shadow-lg">
 								<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://github.com/refactoringui/heroicons" {...attrs.target_blank}>
 									<div className="px-2 py-1 flex flex-row justify-center">
-										<p className="flex flex-row items-center font-medium text-xl leading-9 text-gray-100">
+										<p className="flex flex-row items-center font-medium text-xl text-gray-100">
 											<GitHubSVG className="mr-4 w-6 h-6" />
 											Open in GitHub
 											<ExternalLinkSVG className="ml-2 w-5 h-5 text-indigo-400" />
