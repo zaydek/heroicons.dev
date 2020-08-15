@@ -41,6 +41,38 @@ const App = () => {
 
 	const carbonAdsRef = React.useRef()
 	const [showCarbonAds, setShowCarbonAds] = React.useState(false)
+	const [delayedShowCarbonAds, setDelayedShowCarbonAds] = React.useState(false)
+
+	// TODO: Extract to useDelayedCallback?
+	React.useEffect(() => {
+		if (showCarbonAds) {
+			setTimeout(() => {
+				setDelayedShowCarbonAds(true)
+			}, 500)
+		}
+	}, [showCarbonAds])
+
+	// NOTE: Because <CarbonAds> cannot be used more than
+	// once, we move carbonAdsRef.current between
+	// #carbon-ads-placement and #carbon-ads-desktop-placement
+	// on media.lg rerenders.
+	React.useEffect(() => {
+		// if (noopAdsForSponsor) {
+		// 	// No-op
+		// 	return
+		// }
+		if (media.lg) {
+			const el = document.getElementById("carbon-ads-placement")
+			if (!el.children.length) {
+				el.append(carbonAdsRef.current)
+			}
+		} else {
+			const el = document.getElementById("carbon-ads-desktop-placement")
+			if (!el.children.length) {
+				el.append(carbonAdsRef.current)
+			}
+		}
+	}, [media.lg /* , noopAdsForSponsor */])
 
 	const mounted = React.useRef()
 	React.useEffect(
@@ -75,7 +107,7 @@ const App = () => {
 						<aside className="p-4 absolute top-0 right-0 z-30">
 							<Transition
 								on={showCarbonAds}
-								className="transition duration-1000 ease-in-out"
+								className="transition duration-500 ease-in-out"
 								from="opacity-0 transform scale-90 pointer-events-none"
 								to="opacity-100 transform scale-100 pointer-events-auto"
 							>
@@ -91,7 +123,7 @@ const App = () => {
 						{/* {!noopAdsForSponsor && ( */}
 							<Transition
 								on={showCarbonAds}
-								className="transition duration-1000 ease-in-out"
+								className="transition duration-500 ease-in-out"
 								from="opacity-0 transform scale-90 pointer-events-none"
 								to="opacity-100 transform scale-100 pointer-events-auto"
 							>
@@ -100,7 +132,9 @@ const App = () => {
 										<div className="rounded-75 shadow-lg">
 											<div className="relative">
 
-												<div id="carbon-ads-absolute-parent" className="absolute z-10">
+												<div onClick={e => {
+													setShowCarbonAds(false)
+												}}>
 													<CarbonAds
 														className="border border-gray-700 rounded-75 overflow-hidden"
 														style={{
@@ -110,13 +144,29 @@ const App = () => {
 														src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev"
 														onLoad={() => {
 															setTimeout(() => {
-																// if (!noopAdsForSponsor) {
 																setShowCarbonAds(true)
-																// }
 															}, 1e3)
 														}}
 													/>
 												</div>
+
+												<Transition
+													on={delayedShowCarbonAds}
+													className="transition duration-500 ease-in-out"
+													from="opacity-0"
+													to="opacity-100"
+												>
+													<div className="px-4 py-3 absolute inset-x-0 top-full">
+														<div className="flex flex-row justify-center">
+															<p className="text-sm text-gray-100">
+																Clicking the ad makes it go away.{" "}
+																<span style={{ verticalAlign: "-12.5%", fontSize: "150%", lineHeight: 1 }}>
+																	🤫
+																</span>
+															</p>
+														</div>
+													</div>
+												</Transition>
 
 											</div>
 										</div>
