@@ -1,6 +1,6 @@
 # heroicons.dev
 
-**Heroicons is a free, MIT-licensed icon set featuring 220+ UI icons in _both_ solid and outline variants. 🥳**
+A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.
 
 <br>
 <div align="center">
