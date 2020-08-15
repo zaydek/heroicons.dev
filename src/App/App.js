@@ -160,7 +160,15 @@ const App = () => {
 													<div className="flex flex-row justify-center">
 														<p className="text-sm text-gray-100">
 															Clicking the ad makes it go away.{" "}
-															<span style={{ verticalAlign: "-25%", fontSize: "150%", lineHeight: 1 }}>
+															<span
+																style={{
+																	verticalAlign: "-12.5%",
+																	fontSize: "150%",
+																	lineHeight: 1,
+																}}
+																role="img"
+																aria-label="shushing face"
+															>
 																🤫
 															</span>
 														</p>
@@ -414,22 +422,25 @@ const FormSearch = ({ state, dispatch }) => {
 				{/* Search bar */}
 				<div className="rounded-75 shadow-lg">
 					<div className="rounded-75 shadow-lg">
-						<input
-							ref={inputRef}
-							className="block w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
-							style={{
-								appearance: "none",
+						<label>
+							<input
+								ref={inputRef}
+								className="block w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
+								style={{
+									appearance: "none",
 
-								paddingLeft: media.xs ? tw(2 + 6) : tw(6 + 2 + 6 + 6),
-								paddingRight: tw(6 + 10 + 2 + 10 + 2 + 6),
-								height: tw(18),
-							}}
-							type="text"
-							placeholder={media.sm ? "Search Icons" : "Search 220+ Icons"}
-							value={text}
-							onChange={e => setText(e.target.value)}
-							{...attrs.disableAutoCorrect}
-						/>
+									paddingLeft: media.xs ? tw(2 + 6) : tw(6 + 2 + 6 + 6),
+									paddingRight: tw(6 + 10 + 2 + 10 + 2 + 6),
+									height: tw(18),
+								}}
+								type="text"
+								placeholder={media.sm ? "Search Icons" : "Search 220+ Icons"}
+								value={text}
+								onChange={e => setText(e.target.value)}
+								aria-label="Search 220+ Icons"
+								{...attrs.disableAutoCorrect}
+							/>
+						</label>
 					</div>
 				</div>
 
@@ -457,6 +468,11 @@ const FormSearch = ({ state, dispatch }) => {
 										text,
 									})
 								}}
+								aria-label={
+									!state.form.copyAsReact
+										? "Enable Copy as JSX"
+										: "Enable Copy as HTML"
+								}
 							>
 								{tooltip === "jsx" && (
 									<div className="pt-2 absolute top-full right-0 z-40">
@@ -498,6 +514,11 @@ const FormSearch = ({ state, dispatch }) => {
 										text,
 									})
 								}}
+								aria-label={
+									!state.form.showOutline
+										? "Switch to Outline Icons"
+										: "Switch to Solid Icons"
+								}
 							>
 								{tooltip === "alt" && (
 									<div className="pt-2 absolute top-full right-0 z-40">
@@ -575,23 +596,18 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				ref={buttonRef}
 				className="flex flex-row justify-center items-center w-full h-full bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out select-text"
 				onClick={handleClick}
+				aria-label={icon.name}
 			>
 
 				{/* New */}
 				{icon.statusNew && (
 					<div className="px-3 py-2 absolute top-0 right-0">
-						{/* {state.form.search.safe === "new" ? ( */}
-						{/* 	<div */}
-						{/* 		className="bg-indigo-500 rounded-full" */}
-						{/* 		style={{ width: tw(4.5), height: tw(4.5) }} */}
-						{/* 	/> */}
-						{/* ) : ( */}
 						<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right">
-							<p className="font-bold text-xs tracking-wider leading-none text-indigo-50">
-								NEW
+							{/* NOTE: Uses text-white due to low contrast ratio. */}
+							<p className="font-bold text-xs leading-none text-indigo-50">
+								<span className="tracking-wider">NE</span>W
 							</p>
 						</div>
-						{/* )} */}
 					</div>
 				)}
 
@@ -650,7 +666,8 @@ const Icons = ({ state, dispatch }) => {
 				{!state.results.length && (
 					<div className="flex flex-col justify-center items-center h-full">
 						<h3 className="flex flex-row items-baseline font-medium text-xl leading-9 text-center text-gray-100">
-							No results for “
+							No results for{" "}
+							“
 							<span className="inline-block truncate" style={{ maxWidth: media.xs ? 128 : 256 }}>
 								{state.form.search.user}.
 							</span>
