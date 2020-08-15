@@ -8,7 +8,7 @@ A set of free MIT-licensed high-quality SVG icons for you to use in your web pro
 </div>
 <br>
 
-Icons by [Heroicons](https://github.com/refactoringui/heroicons) by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](https://twitter.com/adamwathan), https://heroicons.dev maintained by me ([@username_ZAYDEK](https://twitter.com/username_ZAYDEK)).
+Icons by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](https://twitter.com/adamwathan), https://heroicons.dev maintained by me ([@username_ZAYDEK](https://twitter.com/username_ZAYDEK)).
 
 [Tweet thank you on Twitter! ❤️](https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev)
 
@@ -40,7 +40,7 @@ Once I’ve added you to the site, click ‘Are you a GitHub Sponsor? Click here
 
 ## Links
 
-- [Open in GitHub](https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L)
+- [Open in GitHub](https://github.com/tailwindlabs/heroicons/)
 - [Open in Figma](https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L)
 - [Tweet thank you on Twitter!](https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev)
 - [Sponsor **@codex-zaydek**!](https://github.com/sponsors/codex-zaydek)
