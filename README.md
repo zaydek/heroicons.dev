@@ -24,9 +24,17 @@ Icons by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](htt
 
 You can feature your business’s logo by [sponsoring me on GitHub](https://github.com/sponsors/codex-zaydek) in the business-tier range.
 
-[heroicons.dev](https://heroicons.dev) receives 20k+ impressions per month from the developer community. Your logo will be featured front-and-center and linked to your homepage.
+You’ll receive 500-1,000 developer impressions per day.
 
-[DM me on Twitter](https://twitter.com/messages/compose?recipient_id=899350210064687105) with any questions you may have.
+<!-- Your logo will be featured front-and-center and linked to your homepage or a GitHub repository. -->
+
+<br>
+<div align="center">
+	<img src="https://i.ibb.co/B41v6kS/Screen-Shot-2020-08-16-at-6-13-38-PM.png" width="600">
+</div>
+<br>
+
+[DM me on Twitter](https://twitter.com/messages/compose?recipient_id=899350210064687105) to get started.
 
 <!--
 
