@@ -163,7 +163,8 @@ const App = () => {
 											>
 												<div className="px-4 py-3 absolute inset-x-0 top-full">
 													<div className="flex flex-row justify-center">
-														<p className="text-sm text-gray-100">
+														{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
+														<p className="text-sm text-gray-200">
 															Clicking the ad makes it go away.{" "}
 															<span
 																style={{
@@ -189,7 +190,7 @@ const App = () => {
 
 						{/* Header */}
 						<div className="relative flex flex-row items-center">
-							<h1 className="font-bold font-brand-sans text-5xl text-white" style={{ letterSpacing: "-0.025em" }}>
+							<h1 className="font-bold font-brand-sans text-5xl text-gray-100" style={{ letterSpacing: "-0.025em" }}>
 								Heroicons
 							</h1>
 							<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}>
@@ -239,6 +240,7 @@ const App = () => {
 						<div className="h-6" />
 						<div className="flex flex-col xs:flex-row justify-center items-center">
 
+							{/* QA Wolf */}
 							<a href="https://github.com/qawolf/qawolf" {...attrs.target_blank}>
 								<Transition
 									on={sponsorLoadedCount >= 2}
@@ -259,6 +261,7 @@ const App = () => {
 								</Transition>
 							</a>
 
+							{/* Codex */}
 							<div className="w-12 h-4" />
 							<a href="https://github.com/codex-src/codex-wysiwyg" {...attrs.target_blank}>
 								<Transition
@@ -672,7 +675,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				{icon.statusNew && (
 					<div className="px-3 py-2 absolute top-0 right-0">
 						<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right">
-							{/* NOTE: Uses text-white due to low contrast ratio. */}
+							{/* NOTE: Uses text-white because of bg-indigo-500. */}
 							<p className="font-bold text-xs leading-none text-indigo-50">
 								<span className="tracking-wider">NE</span>W
 							</p>
@@ -734,7 +737,8 @@ const Icons = ({ state, dispatch }) => {
 
 				{!state.results.length && (
 					<div className="flex flex-col justify-center items-center h-full">
-						<h3 className="flex flex-row items-baseline font-medium text-xl leading-9 text-center text-gray-100">
+						{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
+						<h3 className="flex flex-row items-baseline font-medium text-xl leading-9 text-center text-gray-200">
 							No results for{" "}
 							“
 							<span className="inline-block truncate" style={{ maxWidth: media.xs ? 128 : 256 }}>
@@ -742,7 +746,8 @@ const Icons = ({ state, dispatch }) => {
 							</span>
 							”
 						</h3>
-						<h3 className="font-medium text-xl leading-9 text-center text-gray-100">
+						{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
+						<h3 className="font-medium text-xl leading-9 text-center text-gray-200">
 							Try again or{" "}
 							<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" {...attrs.target_blank}>
 								request an icon
