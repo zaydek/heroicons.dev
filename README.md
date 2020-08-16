@@ -44,7 +44,8 @@ Your logo will be featured front-and-center and linked to your homepage or a Git
   <a href="https://github.com/qawolf/qawolf">
 		<img src="https://i.ibb.co/kKQh4Lj/QA-Wolf.png" height="48">
 	</a>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;
 	<a href="https://github.com/codex-src/codex-wysiwyg">
 		<img src="https://i.ibb.co/4FWChmd/Codex.png" height="48">
 	</a>
