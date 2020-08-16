@@ -17,13 +17,15 @@ import ExternalLinkSVG from "heroicons-82f6a4d/react/solid/ExternalLink"
 import FlagSVG from "heroicons-82f6a4d/react/solid/Flag"
 import SearchOutlineIcon from "heroicons-82f6a4d/react/outline/Search"
 import SwitchHorizontalSVG from "heroicons-82f6a4d/react/solid/SwitchHorizontal"
-import { ReactComponent as CodexSVG } from "./codex.svg"
+// import { ReactComponent as CodexSVG } from "./codex.svg"
 import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubSVG } from "svg/github.svg"
 
-import srcAdamWathan128 from "images/adam-wathan-128.jpeg"
-import srcSteveSchoger128 from "images/steve-schoger-128.jpeg"
-import srcZaydekMG128 from "images/zaydek-mg-128.png"
+// import srcAdamWathan128 from "images/adam-wathan-128.jpeg"
+import srcSponsorCodex from "images/sponsor-codex.png"
+import srcSponsorQAW from "images/sponsor-qaw.png"
+// import srcSteveSchoger128 from "images/steve-schoger-128.jpeg"
+// import srcZaydekMG128 from "images/zaydek-mg-128.png"
 
 const BreakpointContext = React.createContext()
 
@@ -51,13 +53,16 @@ const App = () => {
 
 	const carbonAdsRef = React.useRef()
 	const [showCarbonAds, setShowCarbonAds] = React.useState(false)
-
 	const [delayedShowCarbonAds, setDelayedShowCarbonAds] = React.useState(false)
+
+	const [imgLoaded, setIMGLoaded] = React.useState(0)
+	// const [codexLoaded, setCodexLoaded] = React.useState(false)
+
 	useDelayedCallback(() => {
 		if (showCarbonAds) {
 			setDelayedShowCarbonAds(true)
 		}
-	}, 500)
+	}, 700)
 
 	// NOTE: Because <CarbonAds> cannot be used more than
 	// once, we move carbonAdsRef.current between
@@ -110,7 +115,7 @@ const App = () => {
 					<aside className="p-4 absolute top-0 right-0 z-30">
 						<Transition
 							on={showCarbonAds}
-							className="transition duration-500 ease-in-out"
+							className="transition duration-700 ease-out"
 							from="opacity-0 transform scale-90 pointer-events-none"
 							to="opacity-100 transform scale-100 pointer-events-auto"
 						>
@@ -124,7 +129,7 @@ const App = () => {
 						{/* Carbon Ads */}
 						<Transition
 							on={showCarbonAds}
-							className="transition duration-500 ease-in-out"
+							className="transition duration-700 ease-out"
 							from="opacity-0 transform scale-90 pointer-events-none"
 							to="opacity-100 transform scale-100 pointer-events-auto"
 						>
@@ -153,7 +158,7 @@ const App = () => {
 
 											<Transition
 												on={delayedShowCarbonAds}
-												className="transition duration-500 ease-in-out"
+												className="transition duration-700 ease-out"
 												from="opacity-0"
 												to="opacity-100"
 											>
@@ -200,128 +205,89 @@ const App = () => {
 						</h2>
 
 						{/* Authors */}
-						<div className="h-4 hidden sm:block" />
-						<h3 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100">
-							By{" "}
-							<a href="https://twitter.com/steveschoger" {...attrs.target_blank}>
-								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger128} alt="Steve Schoger" />{" "}
-								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
-									@steveschoger
-								</span>
-							</a>
-							,{" "}
-							<a href="https://twitter.com/adamwathan" {...attrs.target_blank}>
-								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamWathan128} alt="Adam Wathan" />{" "}
-								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
-									@adamwathan
-								</span>
-							</a>
-							,{" "}
-							<br />
-							<a href="https://twitter.com/username_ZAYDEK" {...attrs.target_blank}>
-								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG128} alt="Zaydek MG" />{" "}
-								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
-									@username_ZAYDEK
-								</span>
-							</a>
-						</h3>
+						{/* <div className="h-4 hidden sm:block" /> */}
+						{/* <h3 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100"> */}
+						{/* 	By{" "} */}
+						{/* 	<a href="https://twitter.com/steveschoger" {...attrs.target_blank}> */}
+						{/* 		<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger128} alt="Steve Schoger" />{" "} */}
+						{/* 		<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}> */}
+						{/* 			@steveschoger */}
+						{/* 		</span> */}
+						{/* 	</a> */}
+						{/* 	,{" "} */}
+						{/* 	<a href="https://twitter.com/adamwathan" {...attrs.target_blank}> */}
+						{/* 		<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamWathan128} alt="Adam Wathan" />{" "} */}
+						{/* 		<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}> */}
+						{/* 			@adamwathan */}
+						{/* 		</span> */}
+						{/* 	</a> */}
+						{/* 	,{" "} */}
+						{/* 	<br /> */}
+						{/* 	<a href="https://twitter.com/username_ZAYDEK" {...attrs.target_blank}> */}
+						{/* 		<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG128} alt="Zaydek MG" />{" "} */}
+						{/* 		<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}> */}
+						{/* 			@username_ZAYDEK */}
+						{/* 		</span> */}
+						{/* 	</a> */}
+						{/* </h3> */}
 
 						{/* Sponsors */}
-						{/* <div className="h-12" /> */}
-						{/* <h3 className="flex flex-row items-center text-center font-bold text-sm tracking-wider text-gray-400"> */}
-						{/* 	PROUDLY SPONSORED BY */}
-						{/* </h3> */}
-						{/* */}
-						{/* <div className="h-6" /> */}
-						{/* <div className="w-full max-w-sm md:max-w-lg"> */}
-						{/* 	<div className="grid grid-cols-2 md:grid-cols-3 col-gap-8 row-gap-4"> */}
-						{/* 		<div className="col-span-1 md:col-span-2 lg:col-span-1 flex flex-row justify-center items-center"> */}
-						{/* 			<img */}
-						{/* 				// className="h-12" */}
-						{/* 				style={{ */}
-						{/* 					minWidth: tw(36), */}
-						{/* 					maxWidth: tw(36 * 1.6), */}
-						{/* 					height: "auto", */}
-						{/* 					filter: "brightness(0) invert(1)", */}
-						{/* 					opacity: "0.875", */}
-						{/* 				}} */}
-						{/* 				src="https://tailwindui.com/img/tailwindui-logo.svg" */}
-						{/* 				alt="Tuple" */}
-						{/* 			/> */}
-						{/* 		</div> */}
-						{/* 		<div className="col-span-1 md:col-span-2 lg:col-span-1 flex flex-row justify-center items-center"> */}
-						{/* 			<CodexSVG */}
-						{/* 				// className="h-12" */}
-						{/* 				style={{ */}
-						{/* 					minWidth: tw(36), */}
-						{/* 					maxWidth: tw(36 * 1.6), */}
-						{/* 					height: "auto", */}
-						{/* 					filter: "brightness(0) invert(1)", */}
-						{/* 					opacity: "0.875", */}
-						{/* 				}} */}
-						{/* 				src="codex.svg" */}
-						{/* 				alt="Codex" */}
-						{/* 			/> */}
-						{/* 		</div> */}
-						{/* 		<div className="col-span-1 md:col-span-2 lg:col-span-1 flex flex-row justify-center items-center"> */}
-						{/* 			<img */}
-						{/* 				// className="h-12" */}
-						{/* 				style={{ */}
-						{/* 					minWidth: tw(36), */}
-						{/* 					maxWidth: tw(36 * 1.6), */}
-						{/* 					height: "auto", */}
-						{/* 					filter: "brightness(0) invert(1)", */}
-						{/* 					opacity: "0.875", */}
-						{/* 				}} */}
-						{/* 				src="https://tailwindui.com/img/logos/mirage-logo.svg" */}
-						{/* 				alt="Mirage" */}
-						{/* 			/> */}
-						{/* 		</div> */}
-						{/* 		<div className="col-span-1 md:col-span-2 lg:col-span-1 flex flex-row justify-center"> */}
-						{/* 			<img */}
-						{/* 				className="h-12" */}
-						{/* 				style={{ */}
-						{/* 					filter: "brightness(0) invert(1)", */}
-						{/* 					opacity: "0.875", */}
-						{/* 				}} */}
-						{/* 				src="https://tailwindui.com/img/logos/statickit-logo.svg" */}
-						{/* 				alt="StaticKit" */}
-						{/* 			/> */}
-						{/* 		</div> */}
-						{/* 		<div className="col-span-1 md:col-span-3 lg:col-span-1 flex flex-row justify-center"> */}
-						{/* 			<img */}
-						{/* 				className="h-12" */}
-						{/* 				style={{ */}
-						{/* 					filter: "brightness(0) invert(1)", */}
-						{/* 					opacity: "0.875", */}
-						{/* 				}} */}
-						{/* 				src="https://tailwindui.com/img/logos/transistor-logo.svg" */}
-						{/* 				alt="Transistor" */}
-						{/* 			/> */}
-						{/* 		</div> */}
-						{/* 		<div className="col-span-2 md:col-span-3 lg:col-span-1 flex flex-row justify-center"> */}
-						{/* 			<img */}
-						{/* 				className="h-12" */}
-						{/* 				style={{ */}
-						{/* 					filter: "brightness(0) invert(1)", */}
-						{/* 					opacity: "0.875", */}
-						{/* 				}} */}
-						{/* 				src="https://tailwindui.com/img/logos/workcation-logo.svg" */}
-						{/* 				alt="Workcation" */}
-						{/* 			/> */}
-						{/* 		</div> */}
-						{/* 	</div> */}
-						{/* </div> */}
-						{/* */}
-						{/* <div className="h-6" /> */}
-						{/* <a className="no-underline hover:underline text-gray-400" href="https://github.com/sponsors/codex-zaydek" {...attrs.target_blank}> */}
-						{/* 	<h3 className="flex flex-row items-center text-center font-bold text-sm tracking-wider text-gray-400"> */}
-						{/* 		FEATURE YOUR STARTUP */}
-						{/* 		<span className="-ml-px -mt-px"> */}
-						{/* 			<ExternalLinkSVG className="ml-1 w-4 h-4 text-indigo-400" /> */}
-						{/* 		</span> */}
-						{/* 	</h3> */}
-						{/* </a> */}
+						<div className="h-12" />
+						<h3 className="flex flex-row items-center text-center font-bold text-sm tracking-wider text-gray-400">
+							PROUDLY SPONSORED BY
+						</h3>
+
+						<div className="h-6" />
+						<div className="space-x-12 flex flex-row justify-center">
+							<a href="https://github.com/qawolf/qawolf" {...attrs.target_blank}>
+								<Transition
+									on={imgLoaded >= 2}
+									className="transition duration-700 ease-out"
+									from="opacity-0 transform scale-90"
+									to="opacity-100 transform scale-110"
+								>
+									<div className="opacity-0">
+										<img
+											className="w-auto h-12 opacity-75 hover:opacity-100 transition duration-200 ease-in-out"
+											src={srcSponsorQAW}
+											alt="QA Wolf"
+											onLoad={e => {
+												setIMGLoaded(current => current + 1)
+											}}
+										/>
+									</div>
+								</Transition>
+							</a>
+							<a href="https://github.com/codex-src/codex-wysiwyg" {...attrs.target_blank}>
+								<Transition
+									on={imgLoaded >= 2}
+									className="transition duration-700 ease-out"
+									from="opacity-0 transform scale-90"
+									to="opacity-100 transform scale-110"
+								>
+									<div className="opacity-0">
+										<img
+											className="w-auto h-12 opacity-75 hover:opacity-100 transition duration-200 ease-in-out"
+											src={srcSponsorCodex}
+											alt="Codex"
+											onLoad={e => {
+												setIMGLoaded(current => current + 1)
+											}}
+										/>
+									</div>
+								</Transition>
+							</a>
+						</div>
+
+						<div className="h-6" />
+						<a className="no-underline hover:underline text-gray-400" href="https://github.com/sponsors/codex-zaydek" {...attrs.target_blank}>
+							<h3 className="flex flex-row items-center text-center font-bold text-sm tracking-wider text-gray-400">
+								FEATURE YOUR STARTUP
+								{/* <span className="-ml-px -mt-px"> */}
+								{/* 	<ExternalLinkSVG className="ml-1 w-4 h-4 text-indigo-400" /> */}
+								{/* </span> */}
+							</h3>
+						</a>
 
 						{/* CTA */}
 						<div className="space-x-3 pt-0 sm:pt-16 hidden sm:flex sm:flex-row">
