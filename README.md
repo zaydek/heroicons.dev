@@ -41,7 +41,7 @@ Your logo will be featured front-and-center and linked to your homepage or a Git
 <br>
 <div align="center">
 	<!-- <img src="https://i.ibb.co/34q3r6Q/Light-mode-3.png" width="600"> -->
-	<img src="https://i.ibb.co/3s4f9FN/light-mode.png" width="640">
+	<img src="https://i.ibb.co/3s4f9FN/light-mode.png" width="720">
 </div>
 <br>
 
