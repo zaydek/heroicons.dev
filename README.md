@@ -20,7 +20,7 @@ Icons by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](htt
 - Search support and persisted search URLs
 - Search for only new icons using ‘new’: https://heroicons.dev/?search=new
 
-## Feature Your Business’s Logo
+## Become a Sponsor
 
 You can feature your business’s logo by [sponsoring me on GitHub](https://github.com/sponsors/codex-zaydek) in the business-tier range.
 
