@@ -55,14 +55,13 @@ const App = () => {
 	const [showCarbonAds, setShowCarbonAds] = React.useState(false)
 	const [delayedShowCarbonAds, setDelayedShowCarbonAds] = React.useState(false)
 
-	const [imgLoaded, setIMGLoaded] = React.useState(0)
-	// const [codexLoaded, setCodexLoaded] = React.useState(false)
+	const [sponsorLoadedCount, setSponsorLoadedCount] = React.useState(0)
 
 	useDelayedCallback(() => {
 		if (showCarbonAds) {
 			setDelayedShowCarbonAds(true)
 		}
-	}, 700)
+	}, 700) // -> duration-700
 
 	// NOTE: Because <CarbonAds> cannot be used more than
 	// once, we move carbonAdsRef.current between
@@ -173,9 +172,9 @@ const App = () => {
 																	lineHeight: 1,
 																}}
 																role="img"
-																aria-label="shushing face"
+																aria-label="sparkles"
 															>
-																🤫
+																✨
 															</span>
 														</p>
 													</div>
@@ -234,58 +233,64 @@ const App = () => {
 						{/* Sponsors */}
 						<div className="h-12" />
 						<h3 className="flex flex-row items-center text-center font-bold text-sm tracking-wider text-gray-400">
-							PROUDLY SPONSORED BY
+							SPONSORED BY
 						</h3>
 
 						<div className="h-6" />
-						<div className="space-x-12 flex flex-row justify-center">
+						<div className="flex flex-col sm:flex-row justify-center items-center">
+
 							<a href="https://github.com/qawolf/qawolf" {...attrs.target_blank}>
 								<Transition
-									on={imgLoaded >= 2}
+									on={sponsorLoadedCount >= 2}
 									className="transition duration-700 ease-out"
 									from="opacity-0 transform scale-90"
 									to="opacity-100 transform scale-110"
 								>
 									<div className="opacity-0">
 										<img
-											className="w-auto h-12 opacity-75 hover:opacity-100 transition duration-200 ease-in-out"
+											className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-in-out"
 											src={srcSponsorQAW}
 											alt="QA Wolf"
 											onLoad={e => {
-												setIMGLoaded(current => current + 1)
+												setSponsorLoadedCount(current => current + 1)
 											}}
 										/>
 									</div>
 								</Transition>
 							</a>
+
+							<div className="w-12 h-4" />
 							<a href="https://github.com/codex-src/codex-wysiwyg" {...attrs.target_blank}>
 								<Transition
-									on={imgLoaded >= 2}
+									on={sponsorLoadedCount >= 2}
 									className="transition duration-700 ease-out"
 									from="opacity-0 transform scale-90"
 									to="opacity-100 transform scale-110"
 								>
 									<div className="opacity-0">
 										<img
-											className="w-auto h-12 opacity-75 hover:opacity-100 transition duration-200 ease-in-out"
+											className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-in-out"
 											src={srcSponsorCodex}
 											alt="Codex"
 											onLoad={e => {
-												setIMGLoaded(current => current + 1)
+												setSponsorLoadedCount(current => current + 1)
 											}}
 										/>
 									</div>
 								</Transition>
 							</a>
+
 						</div>
 
 						<div className="h-6" />
 						<a className="no-underline hover:underline text-gray-400" href="https://github.com/sponsors/codex-zaydek" {...attrs.target_blank}>
-							<h3 className="flex flex-row items-center text-center font-bold text-sm tracking-wider text-gray-400">
-								FEATURE YOUR STARTUP
-								{/* <span className="-ml-px -mt-px"> */}
-								{/* 	<ExternalLinkSVG className="ml-1 w-4 h-4 text-indigo-400" /> */}
-								{/* </span> */}
+							<h3 className="relative font-bold text-sm tracking-wider text-gray-400">
+								BECOME A SPONSOR
+								<div className="-mt-px pl-1 absolute inset-y-0 left-full">
+									<div className="flex flex-row items-center h-full">
+										<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
+									</div>
+								</div>
 							</h3>
 						</a>
 
@@ -366,10 +371,10 @@ const App = () => {
 										{/* Icon */}
 										{state.notif.notifType === "icon" && (
 											<p className="font-semibold text-indigo-50">
-												Copied
-												<span className="mx-2 font-mono">
+												Copied{" "}
+												<span className="font-mono">
 													{state.notif.notifInfo.name}
-												</span>
+												</span>{" "}
 												as {!state.form.copyAsReact ? "HTML" : "JSX"}
 											</p>
 										)}
