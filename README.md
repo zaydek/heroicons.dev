@@ -38,6 +38,12 @@ Your logo will be featured front-and-center and linked to your homepage or a Git
 
 -->
 
+<br>
+<div align="center">
+	<img src="https://i.ibb.co/34q3r6Q/Light-mode-3.png" width="600">
+</div>
+<br>
+
 [DM me on Twitter](https://twitter.com/messages/compose?recipient_id=899350210064687105) to get started.
 
 <!--
