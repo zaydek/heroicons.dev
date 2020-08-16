@@ -165,7 +165,7 @@ const App = () => {
 													<div className="flex flex-row justify-center">
 														{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
 														<p className="text-sm text-gray-200">
-															Clicking the ad makes it go away.{" "}
+															Click the ad to make it go away.{" "}
 															<span
 																style={{
 																	verticalAlign: "-12.5%",
