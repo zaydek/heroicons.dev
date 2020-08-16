@@ -22,17 +22,19 @@ Icons by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](htt
 
 ## Feature Your Business’s Logo
 
-You can feature your business’s logo by [sponsoring me on GitHub](https://github.com/sponsors/codex-zaydek) in the business-tier range.
+You can feature your business’s logo by [sponsoring me on GitHub](https://github.com/sponsors/codex-zaydek) in the business-tier range. On average, you’ll receive 500-1,000 developer impressions per day.
 
-You’ll receive 500-1,000 developer impressions per day.
+<!--
 
-<!-- Your logo will be featured front-and-center and linked to your homepage or a GitHub repository. -->
+Your logo will be featured front-and-center and linked to your homepage or a GitHub repository.
 
 <br>
 <div align="center">
 	<img src="https://i.ibb.co/B41v6kS/Screen-Shot-2020-08-16-at-6-13-38-PM.png" width="600">
 </div>
 <br>
+
+-->
 
 [DM me on Twitter](https://twitter.com/messages/compose?recipient_id=899350210064687105) to get started.
 
