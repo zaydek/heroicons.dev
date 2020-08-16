@@ -38,6 +38,8 @@ Your logo will be featured front-and-center and linked to your homepage or a Git
 
 -->
 
+Our current sponsors: 🤗
+
 <br>
 <br>
 <div align="center">
