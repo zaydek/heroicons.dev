@@ -237,7 +237,7 @@ const App = () => {
 						</h3>
 
 						<div className="h-6" />
-						<div className="flex flex-col sm:flex-row justify-center items-center">
+						<div className="flex flex-col xs:flex-row justify-center items-center">
 
 							<a href="https://github.com/qawolf/qawolf" {...attrs.target_blank}>
 								<Transition
