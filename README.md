@@ -22,6 +22,8 @@ Icons created by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wat
 
 ## Become a Sponsor
 
+_Note that heroicons.dev is **not** affiliated with Tailwind Labs._
+
 You can feature your business’s logo by [sponsoring me on GitHub](https://github.com/sponsors/codex-zaydek) in the business-tier range.
 
 On average, you’ll receive 500-1,000 developer impressions per day.
