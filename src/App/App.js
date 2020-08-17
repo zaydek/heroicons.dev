@@ -1,12 +1,13 @@
-import attrs from "./attrs"
 import CarbonAds from "./CarbonAds"
 import copyToClipboardPolyfill from "./copyToClipboardPolyfill"
+import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import DocumentTitle from "lib/x/DocumentTitle"
 import ExtLinksFragment from "./ExtLinksFragment"
 import React from "react"
 import SVG from "./SVG"
 import svgToJSX from "./svgToJSX"
 import tailwindcss from "./tailwindcss"
+import target_blank from "lib/x/target_blank"
 import Transition from "lib/x/Transition"
 import useHeroiconsReducer from "./useHeroiconsReducer"
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
@@ -21,11 +22,11 @@ import SwitchHorizontalSVG from "heroicons-82f6a4d/react/solid/SwitchHorizontal"
 import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubSVG } from "svg/github.svg"
 
-// import srcAdamWathan128 from "images/adam-wathan-128.jpeg"
+import srcAdamWathan128 from "images/adam-wathan-128.jpeg"
 import srcSponsorCodex from "images/sponsor-codex.png"
 import srcSponsorQAW from "images/sponsor-qaw.png"
-// import srcSteveSchoger128 from "images/steve-schoger-128.jpeg"
-// import srcZaydekMG128 from "images/zaydek-mg-128.png"
+import srcSteveSchoger128 from "images/steve-schoger-128.jpeg"
+import srcZaydekMG128 from "images/zaydek-mg-128.png"
 
 const BreakpointContext = React.createContext()
 
@@ -38,30 +39,23 @@ function tw(units) {
 	document.body.classList.add("bg-black")
 })()
 
-// Delays a callback.
-function useDelayedCallback(callback, timeoutMs) {
-	React.useEffect(() => {
-		setTimeout(() => {
-			callback()
-		}, timeoutMs)
-	}, [callback, timeoutMs])
-}
-
 const App = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 	const media = useLayoutBreakpoints(tailwindcss.theme.screens)
 
 	const carbonAdsRef = React.useRef()
 	const [showCarbonAds, setShowCarbonAds] = React.useState(false)
-	const [delayedShowCarbonAds, setDelayedShowCarbonAds] = React.useState(false)
+	// const [delayedShowCarbonAds, setDelayedShowCarbonAds] = React.useState(false)
 
 	const [sponsorLoadedCount, setSponsorLoadedCount] = React.useState(0)
 
-	useDelayedCallback(() => {
-		if (showCarbonAds) {
-			setDelayedShowCarbonAds(true)
-		}
-	}, 700) // -> duration-700
+	// React.useEffect(() => {
+	// 	if (showCarbonAds) {
+	// 		setTimeout(() => {
+	// 			setDelayedShowCarbonAds(true)
+	// 		}, 700) // -> duration-700
+	// 	}
+	// }, [showCarbonAds])
 
 	// NOTE: Because <CarbonAds> cannot be used more than
 	// once, we move carbonAdsRef.current between
@@ -155,32 +149,32 @@ const App = () => {
 												/>
 											</div>
 
-											<Transition
-												on={delayedShowCarbonAds}
-												className="transition duration-700 ease-out"
-												from="opacity-0"
-												to="opacity-100"
-											>
-												<div className="px-4 py-3 absolute inset-x-0 top-full">
-													<div className="flex flex-row justify-center">
-														{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
-														<p className="text-sm text-gray-200">
-															Click the ad to make it go away.{" "}
-															<span
-																style={{
-																	verticalAlign: "-12.5%",
-																	fontSize: "150%",
-																	lineHeight: 1,
-																}}
-																role="img"
-																aria-label="sparkles"
-															>
-																✨
-															</span>
-														</p>
-													</div>
-												</div>
-											</Transition>
+											{/* <Transition */}
+											{/* 	on={delayedShowCarbonAds} */}
+											{/* 	className="transition duration-700 ease-out" */}
+											{/* 	from="opacity-0" */}
+											{/* 	to="opacity-100" */}
+											{/* > */}
+											{/* 	<div className="px-4 py-3 absolute inset-x-0 top-full"> */}
+											{/* 		<div className="flex flex-row justify-center"> */}
+											{/* 			{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */} */}
+											{/* 			<p className="text-sm text-gray-200"> */}
+											{/* 				Click the ad to make it go away.{" "} */}
+											{/* 				<span */}
+											{/* 					style={{ */}
+											{/* 						verticalAlign: "-12.5%", */}
+											{/* 						fontSize: "150%", */}
+											{/* 						lineHeight: 1, */}
+											{/* 					}} */}
+											{/* 					role="img" */}
+											{/* 					aria-label="sparkles" */}
+											{/* 				> */}
+											{/* 					✨ */}
+											{/* 				</span> */}
+											{/* 			</p> */}
+											{/* 		</div> */}
+											{/* 	</div> */}
+											{/* </Transition> */}
 
 										</div>
 									</div>
@@ -204,44 +198,53 @@ const App = () => {
 							MIT Open Source UI Icons
 						</h2>
 
-						{/* Authors */}
-						{/* <div className="h-4 hidden sm:block" /> */}
-						{/* <h3 className="hidden sm:block text-center font-medium text-xl leading-9 text-gray-100"> */}
-						{/* 	By{" "} */}
-						{/* 	<a href="https://twitter.com/steveschoger" {...attrs.target_blank}> */}
-						{/* 		<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger128} alt="Steve Schoger" />{" "} */}
-						{/* 		<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}> */}
-						{/* 			@steveschoger */}
-						{/* 		</span> */}
-						{/* 	</a> */}
-						{/* 	,{" "} */}
-						{/* 	<a href="https://twitter.com/adamwathan" {...attrs.target_blank}> */}
-						{/* 		<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamWathan128} alt="Adam Wathan" />{" "} */}
-						{/* 		<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}> */}
-						{/* 			@adamwathan */}
-						{/* 		</span> */}
-						{/* 	</a> */}
-						{/* 	,{" "} */}
-						{/* 	<br /> */}
-						{/* 	<a href="https://twitter.com/username_ZAYDEK" {...attrs.target_blank}> */}
-						{/* 		<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG128} alt="Zaydek MG" />{" "} */}
-						{/* 		<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}> */}
-						{/* 			@username_ZAYDEK */}
-						{/* 		</span> */}
-						{/* 	</a> */}
-						{/* </h3> */}
+						{/* Steve, Adam */}
+						<div className="h-4" />
+						<h3 className="text-center font-medium text-xl leading-9 text-gray-100">
+							Icons created by{" "}
+							<a href="https://twitter.com/steveschoger" {...target_blank}>
+								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger128} alt="Steve Schoger" />{" "}
+								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
+									Steve Schoger
+								</span>
+							</a>{" "}
+							<span className="hidden sm:inline">
+								and{" "}
+								<a href="https://twitter.com/adamwathan" {...target_blank}>
+									<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamWathan128} alt="Adam Wathan" />{" "}
+									<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
+										Adam Wathan
+									</span>
+								</a>
+							</span>
+						</h3>
+
+						{/* Zaydek */}
+						<div className="h-2" />
+						<h3 className="text-center font-medium text-xl leading-9 text-gray-100">
+							<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://heroicons.dev" {...target_blank}>
+								heroicons.dev
+							</a>{" "}
+							by{" "}
+							<a href="https://twitter.com/username_ZAYDEK" {...target_blank}>
+								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG128} alt="Zaydek MG" />{" "}
+								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
+									Zaydek
+								</span>
+							</a>
+						</h3>
 
 						{/* Sponsors */}
 						<div className="h-12" />
 						<h3 className="flex flex-row items-center text-center font-bold text-sm tracking-wider text-gray-400">
-							SPONSORED BY
+							HEROICONS.DEV IS SPONSORED BY
 						</h3>
 
 						<div className="h-6" />
 						<div className="flex flex-col xs:flex-row justify-center items-center">
 
 							{/* QA Wolf */}
-							<a href="https://github.com/qawolf/qawolf" {...attrs.target_blank}>
+							<a href="https://github.com/qawolf/qawolf" {...target_blank}>
 								<Transition
 									on={sponsorLoadedCount >= 2}
 									className="transition duration-700 ease-out"
@@ -263,7 +266,7 @@ const App = () => {
 
 							{/* Codex */}
 							<div className="w-12 h-4" />
-							<a href="https://github.com/codex-src/codex-wysiwyg" {...attrs.target_blank}>
+							<a href="https://github.com/codex-src/codex-wysiwyg" {...target_blank}>
 								<Transition
 									on={sponsorLoadedCount >= 2}
 									className="transition duration-700 ease-out"
@@ -286,21 +289,14 @@ const App = () => {
 						</div>
 
 						<div className="h-6" />
-						<a className="no-underline hover:underline text-gray-400" href="https://github.com/sponsors/codex-zaydek" {...attrs.target_blank}>
-							<h3 className="relative font-bold text-sm tracking-wider text-gray-400">
-								BECOME A SPONSOR
-								<div className="-mt-px pl-1 absolute inset-y-0 left-full">
-									<div className="flex flex-row items-center h-full">
-										<ExternalLinkSVG className="w-4 h-4 text-indigo-400" />
-									</div>
-								</div>
-							</h3>
-						</a>
+						<h3 className="flex flex-row items-center text-center font-bold text-sm tracking-wider text-gray-400">
+							THIS SITE IS NOT AFFILIATED WITH TAILWIND LABS
+						</h3>
 
 						{/* CTA */}
 						<div className="space-x-3 pt-0 sm:pt-16 hidden sm:flex sm:flex-row">
 							<div className="rounded-75 shadow-lg">
-								<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...attrs.target_blank}>
+								<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}>
 									<div className="px-2 py-1 flex flex-row justify-center">
 										<p className="flex flex-row items-center font-medium text-xl text-gray-100">
 											<FigmaSVG className="mr-4 w-6 h-6" />
@@ -311,7 +307,7 @@ const App = () => {
 								</a>
 							</div>
 							<div className="rounded-75 shadow-lg">
-								<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://github.com/refactoringui/heroicons" {...attrs.target_blank}>
+								<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://github.com/refactoringui/heroicons" {...target_blank}>
 									<div className="px-2 py-1 flex flex-row justify-center">
 										<p className="flex flex-row items-center font-medium text-xl text-gray-100">
 											<GitHubSVG className="mr-4 w-6 h-6" />
@@ -510,7 +506,7 @@ const FormSearch = ({ state, dispatch }) => {
 								value={text}
 								onChange={e => setText(e.target.value)}
 								aria-label="Search 220+ Icons"
-								{...attrs.disableAutoCorrect}
+								{...disableAutoCorrect}
 							/>
 						</label>
 					</div>
@@ -749,7 +745,7 @@ const Icons = ({ state, dispatch }) => {
 						{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
 						<h3 className="font-medium text-xl leading-9 text-center text-gray-200">
 							Try again or{" "}
-							<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" {...attrs.target_blank}>
+							<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" {...target_blank}>
 								request an icon
 							</a>
 							.
