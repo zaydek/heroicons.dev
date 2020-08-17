@@ -24,9 +24,7 @@ Icons created by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wat
 
 _Note that heroicons.dev is **not** affiliated with Tailwind Labs._
 
-You can feature your business’s logo by [sponsoring me on GitHub](https://github.com/sponsors/codex-zaydek) in the business-tier range.
-
-On average, you’ll receive 500-1,000 developer impressions per day.
+You can feature your business’s logo by [sponsoring me on GitHub](https://github.com/sponsors/codex-zaydek) in the business-tier range. On average, you’ll receive 500-1,000 developer impressions per day.
 
 <!--
 
@@ -40,7 +38,7 @@ Your logo will be featured front-and-center and linked to your homepage or a Git
 
 -->
 
-Our current sponsors: 🤗
+Shout-out to our current sponsors: 🤗
 
 <br>
 <div align="center">
