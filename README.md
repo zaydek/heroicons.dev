@@ -47,7 +47,7 @@ Shout-out to our current sponsors: 🤗
 	</a>
 	&nbsp;&nbsp;
 	&nbsp;&nbsp;
-	<a href="https://github.com/codex-src/codex-wysiwyg">
+	<a href="https://onepagelove.com/go/heroicons">
 		<img src="https://i.ibb.co/FXksTxH/sponsor-rob-hope-alt.png" height="48">
 	</a>
 </div>
