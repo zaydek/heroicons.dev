@@ -42,12 +42,12 @@ Shout-out to our current sponsors: 🤗
 
 <br>
 <div align="center">
-  <a href="https://github.com/qawolf/qawolf">
+  <a href="https://github.com/qawolf/qawolf" target="_blank">
 		<img src="https://i.ibb.co/fF3fYX9/sponsor-qaw-alt.png" height="48">
 	</a>
 	&nbsp;&nbsp;
 	&nbsp;&nbsp;
-	<a href="https://onepagelove.com/go/heroicons">
+	<a href="https://onepagelove.com/go/heroicons" target="_blank">
 		<img src="https://i.ibb.co/FXksTxH/sponsor-rob-hope-alt.png" height="48">
 	</a>
 </div>
