@@ -201,7 +201,7 @@ const App = () => {
 						{/* Steve, Adam */}
 						<div className="h-4" />
 						<h3 className="text-center font-medium text-xl text-gray-100">
-							Icons created by{" "}
+							Icons <span className="hidden sm:inline">created</span> by{" "}
 							<a href="https://twitter.com/steveschoger" {...target_blank}>
 								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger128} alt="Steve Schoger" />{" "}
 								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
@@ -225,7 +225,7 @@ const App = () => {
 							{/* <a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://heroicons.dev" {...target_blank}> */}
 							{/* 	heroicons.dev */}
 							{/* </a>{" "} */}
-							Site maintained by{" "}
+							Site <span className="hidden sm:inline">maintained</span> by{" "}
 							<a href="https://twitter.com/username_ZAYDEK" {...target_blank}>
 								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG128} alt="Zaydek MG" />{" "}
 								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
