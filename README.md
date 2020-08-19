@@ -1,4 +1,4 @@
-# [heroicons.dev](https://heroicons.dev)
+# heroicons.dev
 
 A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.
 
