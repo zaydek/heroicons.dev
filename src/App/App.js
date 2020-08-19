@@ -13,12 +13,10 @@ import useHeroiconsReducer from "./useHeroiconsReducer"
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 
 import BookOpenSVG from "heroicons-82f6a4d/react/solid/BookOpen"
-import CodeSVG from "heroicons-82f6a4d/react/solid/Code"
 import ExternalLinkSVG from "heroicons-82f6a4d/react/solid/ExternalLink"
 import FlagSVG from "heroicons-82f6a4d/react/solid/Flag"
 import SearchOutlineIcon from "heroicons-82f6a4d/react/outline/Search"
 import SwitchHorizontalSVG from "heroicons-82f6a4d/react/solid/SwitchHorizontal"
-// import { ReactComponent as CodexSVG } from "./codex.svg"
 import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubSVG } from "svg/github.svg"
 

@@ -1,10 +1,6 @@
+import ExternalLinkSVG from "heroicons-82f6a4d/react/solid/ExternalLink"
 import React from "react"
 import target_blank from "lib/x/target_blank"
-
-import ExternalLinkSVG from "heroicons-82f6a4d/react/solid/ExternalLink"
-// import StarSVG from "heroicons-82f6a4d/react/solid/Star"
-
-import { ReactComponent as GitHubSVG } from "svg/github.svg"
 import { ReactComponent as TwitterSVG } from "svg/twitter.svg"
 
 const ExtLinksFragment = () => (
