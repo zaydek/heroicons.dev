@@ -8,7 +8,7 @@ A set of free MIT-licensed high-quality SVG icons for you to use in your web pro
 </div>
 <br>
 
-Icons by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](https://twitter.com/adamwathan), [heroicons.dev](https://heroicons.dev) maintained by me ([@username_ZAYDEK](https://twitter.com/username_ZAYDEK)).
+Icons created by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](https://twitter.com/adamwathan), [heroicons.dev](https://heroicons.dev) by me ([@username_ZAYDEK](https://twitter.com/username_ZAYDEK)).
 
 [Tweet thank you on Twitter! ❤️](https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev)
 
@@ -22,9 +22,9 @@ Icons by [Steve Schoger](https://twitter.com/steveschoger) and [Adam Wathan](htt
 
 ## Become a Sponsor
 
-You can feature your business’s logo by [sponsoring me on GitHub](https://github.com/sponsors/codex-zaydek) in the business-tier range.
+_Note that heroicons.dev is **not** affiliated with Tailwind Labs._
 
-On average, you’ll receive 500-1,000 developer impressions per day.
+You can feature your business’s logo by [sponsoring me on GitHub](https://github.com/sponsors/codex-zaydek) in the business-tier range. On average, you’ll receive 500-1,000 developer impressions per day.
 
 <!--
 
@@ -38,7 +38,7 @@ Your logo will be featured front-and-center and linked to your homepage or a Git
 
 -->
 
-Our current sponsors: 🤗
+Shout-out to our current sponsors: 🤗
 
 <br>
 <div align="center">
