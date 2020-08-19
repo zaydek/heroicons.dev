@@ -305,7 +305,7 @@ const App = () => {
 								</a>
 							</div>
 							<div className="rounded-75 shadow-lg">
-								<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://github.com/refactoringui/heroicons" {...target_blank}>
+								<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://github.com/tailwindlabs/heroicons" {...target_blank}>
 									<div className="px-2 py-1 flex flex-row justify-center">
 										<p className="flex flex-row items-center font-medium text-xl text-gray-100">
 											<GitHubSVG className="mr-4 w-6 h-6" />
