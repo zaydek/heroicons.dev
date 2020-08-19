@@ -23,8 +23,8 @@ import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 import { ReactComponent as GitHubSVG } from "svg/github.svg"
 
 import srcAdamWathan128 from "images/adam-wathan-128.jpeg"
-import srcSponsorCodex from "images/sponsor-codex.png"
 import srcSponsorQAW from "images/sponsor-qaw.png"
+import srcSponsorRobHope from "images/sponsor-rob-hope.png"
 import srcSteveSchoger128 from "images/steve-schoger-128.jpeg"
 import srcZaydekMG128 from "images/zaydek-mg-128.png"
 
@@ -193,14 +193,14 @@ const App = () => {
 						</div>
 
 						{/* Subheader */}
-						<h2 className="flex flex-row items-center text-center font-medium text-2xl leading-9 text-gray-100">
+						<h2 className="flex flex-row items-center text-center font-medium text-2xl text-gray-100">
 							<BookOpenSVG className="mr-2 hidden xs:block w-8 h-8" />
 							MIT Open Source UI Icons
 						</h2>
 
 						{/* Steve, Adam */}
 						<div className="h-4" />
-						<h3 className="text-center font-medium text-xl leading-9 text-gray-100">
+						<h3 className="text-center font-medium text-xl text-gray-100">
 							Icons created by{" "}
 							<a href="https://twitter.com/steveschoger" {...target_blank}>
 								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger128} alt="Steve Schoger" />{" "}
@@ -221,11 +221,11 @@ const App = () => {
 
 						{/* Zaydek */}
 						<div className="h-2" />
-						<h3 className="text-center font-medium text-xl leading-9 text-gray-100">
-							<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://heroicons.dev" {...target_blank}>
-								heroicons.dev
-							</a>{" "}
-							by{" "}
+						<h3 className="text-center font-medium text-xl text-gray-100">
+							{/* <a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://heroicons.dev" {...target_blank}> */}
+							{/* 	heroicons.dev */}
+							{/* </a>{" "} */}
+							Site maintained by{" "}
 							<a href="https://twitter.com/username_ZAYDEK" {...target_blank}>
 								<img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG128} alt="Zaydek MG" />{" "}
 								<span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}>
@@ -236,9 +236,9 @@ const App = () => {
 
 						{/* Sponsors */}
 						<div className="h-12" />
-						<h3 className="flex flex-row items-center text-center font-bold text-sm tracking-wider text-gray-400">
+						<h6 className="flex flex-row items-center text-center font-bold text-sm tracking-wider text-gray-400">
 							HEROICONS.DEV IS SPONSORED BY
-						</h3>
+						</h6>
 
 						<div className="h-6" />
 						<div className="flex flex-col xs:flex-row justify-center items-center">
@@ -264,9 +264,9 @@ const App = () => {
 								</Transition>
 							</a>
 
-							{/* Codex */}
+							{/* Rob Hope */}
 							<div className="w-12 h-4" />
-							<a href="https://github.com/codex-src/codex-wysiwyg" {...target_blank}>
+							<a href="https://onepagelove.com/go/heroicons" {...target_blank}>
 								<Transition
 									on={sponsorLoadedCount >= 2}
 									className="transition duration-700 ease-out"
@@ -276,8 +276,8 @@ const App = () => {
 									<div className="opacity-0">
 										<img
 											className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-in-out"
-											src={srcSponsorCodex}
-											alt="Codex"
+											src={srcSponsorRobHope}
+											alt="Rob Hope"
 											onLoad={e => {
 												setSponsorLoadedCount(current => current + 1)
 											}}
@@ -289,9 +289,9 @@ const App = () => {
 						</div>
 
 						<div className="h-6" />
-						<h3 className="flex flex-row items-center text-center font-bold text-sm tracking-wider text-gray-400">
-							THIS SITE IS NOT AFFILIATED WITH TAILWIND LABS
-						</h3>
+						<h6 className="flex flex-row items-center text-center font-bold text-sm tracking-wider text-gray-400">
+							NOT AFFILIATED WITH TAILWIND LABS
+						</h6>
 
 						{/* CTA */}
 						<div className="space-x-3 pt-0 sm:pt-16 hidden sm:flex sm:flex-row">
@@ -347,7 +347,7 @@ const App = () => {
 
 										{state.notif.notifInfo && (
 											<div className="flex flex-row items-center h-6">
-												<SVG className="mr-3 w-5 h-5 leading-normal text-indigo-50" svg={state.notif.notifInfo.icon} />
+												<SVG className="mr-3 w-5 h-5 text-indigo-50" svg={state.notif.notifInfo.icon} />
 											</div>
 										)}
 
@@ -477,7 +477,14 @@ const FormSearch = ({ state, dispatch }) => {
 	}, [text])
 
 	return (
-		<div className="-mt-4 pt-4 static xs:sticky top-0 z-30" style={{ boxShadow: `inset 0 ${tw(6 + 18 / 2)} var(--black)` }}>
+		<div
+			className="-mt-4 pt-4 static xs:sticky top-0 z-30"
+			style={{
+				// marginLeft: -3,
+				// marginRight: -3,
+				boxShadow: `inset 0 ${tw((18 + 4) / 2)} var(--black)`,
+			}}
+		>
 			<form className="relative" onSubmit={e => e.preventDefault()}>
 
 				{/* Search bar LHS */}
@@ -733,23 +740,24 @@ const Icons = ({ state, dispatch }) => {
 
 				{!state.results.length && (
 					<div className="flex flex-col justify-center items-center h-full">
+
 						{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
-						<h3 className="flex flex-row items-baseline font-medium text-xl leading-9 text-center text-gray-200">
-							No results for{" "}
-							“
+						<p className="flex flex-row items-baseline font-medium text-xl text-center text-gray-200">
+							No results for “
 							<span className="inline-block truncate" style={{ maxWidth: media.xs ? 128 : 256 }}>
 								{state.form.search.user}.
-							</span>
-							”
-						</h3>
+							</span>”
+						</p>
+
 						{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
-						<h3 className="font-medium text-xl leading-9 text-center text-gray-200">
+						<p className="font-medium text-xl text-center text-gray-200">
 							Try again or{" "}
 							<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" {...target_blank}>
 								request an icon
 							</a>
 							.
-						</h3>
+						</p>
+
 					</div>
 				)}
 
