@@ -43,12 +43,12 @@ Shout-out to our current sponsors: 🤗
 <br>
 <div align="center">
   <a href="https://github.com/qawolf/qawolf">
-		<img src="https://i.ibb.co/kKQh4Lj/QA-Wolf.png" height="48">
+		<img src="https://i.ibb.co/fF3fYX9/sponsor-qaw-alt.png" height="48">
 	</a>
 	&nbsp;&nbsp;
 	&nbsp;&nbsp;
 	<a href="https://github.com/codex-src/codex-wysiwyg">
-		<img src="https://i.ibb.co/4FWChmd/Codex.png" height="48">
+		<img src="https://i.ibb.co/FXksTxH/sponsor-rob-hope-alt.png" height="48">
 	</a>
 </div>
 <br>
