@@ -8,13 +8,13 @@ class Document extends NextDocument {
 
 	render() {
 		return (
-			<Html /* className="bg-black" */>
+			<Html>
 				<Head />
 					<title>
-						Feathericons 2.0
+						Heroicons
 					</title>
 					<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-				<body>
+				<body className="bg-black">
 					<Main />
 					<NextScript />
 				</body>

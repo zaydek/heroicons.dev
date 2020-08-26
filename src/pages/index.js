@@ -9,7 +9,7 @@ import DocumentTitle from "lib/x/DocumentTitle"
 // import tailwindcss from "./tailwindcss"
 import target_blank from "lib/x/target_blank"
 import Transition from "lib/x/Transition"
-// import useHeroiconsReducer from "./useHeroiconsReducer"
+import useHeroiconsReducer from "./_useHeroiconsReducer"
 // import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 //
 
@@ -22,11 +22,6 @@ import SwitchHorizontalSVG from "heroicons-82f6a4d/react/solid/SwitchHorizontal"
 // import { ReactComponent as FigmaSVG } from "svg/figma.svg"
 // import { ReactComponent as GitHubSVG } from "svg/github.svg"
 
-// import /images/sponsor-codetisans_.png from "images/sponsor-codetisans_.png"
-// import "images/sponsor-landing-page-hot-tips-ebook.png from "images/sponsor-landing-page-hot-tips-ebook.png"
-// import /images/sponsor-qawolf.png from "images/sponsor-qawolf.png"
-// import /images/sponsor-skillsyncer.png from "images/sponsor-skillsyncer.png"
-
 // import "./custom.css"
 
 // const BreakpointContext = React.createContext()
@@ -35,13 +30,9 @@ import SwitchHorizontalSVG from "heroicons-82f6a4d/react/solid/SwitchHorizontal"
 // function tw(units) {
 //   return `${units * 4 / 16}rem`
 // }
-//
-// ;(() => {
-//   document.body.classList.add("bg-black")
-// })()
-//
+
 const Page = () => {
-	//   const [state, dispatch] = useHeroiconsReducer()
+	const [state, dispatch] = useHeroiconsReducer()
 	//   const media = useLayoutBreakpoints(tailwindcss.theme.screens)
 	//
 	const carbonAdsRef = React.useRef()
