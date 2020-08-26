@@ -1,15 +1,20 @@
 {
-  "name": "heroicons.dev-next",
-  "version": "0.1.0",
-  "private": true,
+  "name": "heroicons.dev",
   "scripts": {
+    "tailwind-dev": "tailwind build -o src/stylesheets/tailwindcss/tailwind.generated.css",
+    "tailwind-build": "NODE_ENV=production yarn tailwind-dev",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
-    "next": "9.5.2",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "use-immer": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/ui": "latest",
+    "tailwindcss": "latest"
   }
 }
