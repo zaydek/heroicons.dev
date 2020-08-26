@@ -9,7 +9,7 @@ const LHS = () => (
 
 		<a href="TODO" {...target_blank}>
 			<h6
-				className="text-gray-200"
+				className="text-gray-100"
 				style={{
 					fontWeight: 700,
 					fontSize: tw(10),
@@ -32,7 +32,7 @@ const LHS = () => (
 		<div className="flex flex-row">
 
 			<a href="TODO" {...target_blank}>
-				<p className="text-gray-200 leading-relaxed" style={{ fontSize: tw(4.75) }}>
+				<p className="text-gray-100 leading-relaxed" style={{ fontSize: tw(4.75) }}>
 					<span className="inline-flex flex-row items-center">
 						<Apply className="-m-1 mr-0 w-5 h-5">
 							<svg stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,7 @@ const LHS = () => (
 
 			<div className="w-4" />
 			<a href="TODO" {...target_blank}>
-				<p className="text-gray-200 leading-relaxed" style={{ fontSize: tw(4.75) }}>
+				<p className="text-gray-100 leading-relaxed" style={{ fontSize: tw(4.75) }}>
 					<span className="inline-flex flex-row items-center">
 						<Apply className="-m-1 mr-0 w-5 h-5">
 							<svg stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +62,7 @@ const LHS = () => (
 
 		</div>
 
-		<p className="text-gray-200 leading-relaxed">
+		<p className="text-gray-100 leading-relaxed">
 			<span className="inline-flex flex-row items-center">
 				MIT means you can use the icons commercially and without attribution{" "}
 				<span style={{ width: "0.5ch" }} />
