@@ -34,7 +34,7 @@ const FooterLHS = () => (
 			<a href="TODO" {...target_blank}>
 				<p className="text-gray-100 leading-relaxed" style={{ fontSize: tw(4.75) }}>
 					<span className="inline-flex flex-row items-center">
-						<Apply className="-m-1 mr-0 w-5 h-5">
+						<Apply className="-ml-1 w-5 h-5">
 							<svg stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
 							</svg>
@@ -49,7 +49,7 @@ const FooterLHS = () => (
 			<a href="TODO" {...target_blank}>
 				<p className="text-gray-100 leading-relaxed" style={{ fontSize: tw(4.75) }}>
 					<span className="inline-flex flex-row items-center">
-						<Apply className="-m-1 mr-0 w-5 h-5">
+						<Apply className="-ml-1 w-5 h-5">
 							<svg stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
 							</svg>
@@ -117,7 +117,7 @@ const FooterRHS = () => (
 			USEFUL LINKS
 		</h6>
 
-		<div className="h-8" />
+		<div className="-mb-2 h-8" />
 		<a href="TODO" {...target_blank}>
 			<p className="font-medium text-gray-200">
 				<span className="inline-flex flex-row items-center">
