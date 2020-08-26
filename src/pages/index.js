@@ -2,7 +2,7 @@
 // import copyToClipboardPolyfill from "./copyToClipboardPolyfill"
 // import ExtLinksFragment from "./ExtLinksFragment"
 // import React from "react"
-// import SVG from "./SVG"
+import SVG from "components/SVG"
 // import svgToJSX from "./svgToJSX"
 import Apply from "lib/x/Apply"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
@@ -207,9 +207,6 @@ const Page = () => {
 											className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-out"
 											src="/images/sponsor-qawolf.png"
 											alt="QA Wolf"
-											onLoad={e => {
-												setSponsorLoadedCount(current => current + 1)
-											}}
 										/>
 									</div>
 								</Transition>
@@ -229,9 +226,6 @@ const Page = () => {
 											className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-out"
 											src="/images/sponsor-landing-page-hot-tips-ebook.png"
 											alt="Landing Page Hot Tips Ebook"
-											onLoad={e => {
-												setSponsorLoadedCount(current => current + 1)
-											}}
 										/>
 									</div>
 								</Transition>
@@ -251,9 +245,6 @@ const Page = () => {
 											className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-out"
 											src="/images/sponsor-skillsyncer.png"
 											alt="SkillSyncer"
-											onLoad={e => {
-												setSponsorLoadedCount(current => current + 1)
-											}}
 										/>
 									</div>
 								</Transition>
@@ -273,9 +264,6 @@ const Page = () => {
 											className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-out"
 											src="/images/sponsor-codetisans_.png"
 											alt="CodeTisans"
-											onLoad={e => {
-												setSponsorLoadedCount(current => current + 1)
-											}}
 										/>
 									</div>
 								</Transition>
@@ -295,9 +283,6 @@ const Page = () => {
 											className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-out"
 											src="/images/sponsor-streamline.png"
 											alt="Streamline"
-											onLoad={e => {
-												setSponsorLoadedCount(current => current + 1)
-											}}
 										/>
 									</div>
 								</Transition>
@@ -359,11 +344,11 @@ const Page = () => {
 						dispatch={dispatch}
 					/>
 
-					{/* <div className="h-4" /> */}
-					{/* <Icons */}
-					{/* 	state={state} */}
-					{/* 	dispatch={dispatch} */}
-					{/* /> */}
+					<div className="h-4" />
+					<Icons
+						state={state}
+						dispatch={dispatch}
+					/>
 
 				</div>
 			</div>
@@ -666,162 +651,165 @@ const FormSearch = ({ state, dispatch }) => {
 		</div>
 	)
 }
-//
-// const MemoIcon = React.memo(({ state, dispatch, icon }) => {
-//   const buttonRef = React.useRef()
-//
-//   const handleClick = e => {
-//
-//     // No-op when the user selected buttonRef.current text:
-//     const selection = document.getSelection()
-//     if (selection.rangeCount) {
-//       const range = selection.getRangeAt(0)
-//       if (!range.collapsed && buttonRef.current.contains(range.startContainer)) {
-//         // No-op
-//         return
-//       }
-//     }
-//
-//     try {
-//       const originalEl = document.getElementById(icon.name)
-//       const el = originalEl.cloneNode(true)
-//       el.removeAttribute("id")
-//       el.classList.remove(...el.classList)
-//       el.classList.add(...`${icon.name} w-6 h-6`.split(" "))
-//       copyToClipboardPolyfill(!state.form.copyAsReact ? el.outerHTML : svgToJSX(el.outerHTML))
-//       buttonRef.current.focus() // Refocus
-//     } catch (error) {
-//       console.error(`copyToClipboardPolyfill: ${error}`)
-//     }
-//
-//     const notifType = "icon"
-//     const notifInfo = {
-//       name: icon.name,
-//       icon: icon[!state.form.showOutline ? "solid" : "outline"],
-//     }
-//     dispatch({
-//       type: "UPDATE_NOTIFICATION",
-//       notifType,
-//       notifInfo,
-//     })
-//
-//   }
-//
-//   return (
-//     <div className="rounded-75 shadow-lg h-full">
-//       <button
-//         ref={buttonRef}
-//         className="flex flex-row justify-center items-center w-full h-full bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out select-text"
-//         onClick={handleClick}
-//         aria-label={icon.name}
-//       >
-//
-//         {/* New */}
-//         {icon.statusNew && (
-//           <div className="px-3 py-2 absolute top-0 right-0">
-//             <div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right">
-//               {/* NOTE: Uses text-white because of bg-indigo-500. */}
-//               <p className="font-bold text-xs leading-none text-indigo-50">
-//                 <span className="tracking-wider">NE</span>W
-//               </p>
-//             </div>
-//           </div>
-//         )}
-//
-//         {/* Icon */}
-//         <SVG
-//           id={icon.name}
-//           className="w-8 h-8 text-gray-100"
-//           svg={icon[!state.form.showOutline ? "solid" : "outline"]}
-//         />
-//
-//         {/* Icon name */}
-//         <div className="px-3 py-2 absolute bottom-0">
-//           <p className="text-center font-semibold text-sm leading-tight font-mono text-gray-100">
-//             {!state.form.search.safe || state.form.search.safe === "new" ? (
-//               icon.name
-//             ) : (
-//               (([substr]) => (
-//                 <>
-//                   {substr}
-//                   <span className="p-px text-black bg-yellow-200 rounded">
-//                     {state.form.search.safe}
-//                   </span>
-//                   {icon.name.slice(substr.length + state.form.search.safe.length)}
-//                 </>
-//               ))(icon.name.split(state.form.search.safe, 1))
-//             )}
-//           </p>
-//         </div>
-//
-//       </button>
-//     </div>
-//   )
-// }, (prev, next) => {
-//   const ok = (
-//     prev.state.form === next.state.form &&
-//     prev.state.dispatch === next.state.dispatch &&
-//     prev.icon === next.icon
-//   )
-//   return ok
-// })
-//
-// const Icons = ({ state, dispatch }) => {
-//   const media = React.useContext(BreakpointContext)
-//
-//   const [height, minHeight] = React.useMemo(() => {
-//     const clientHeight = media.lg ? `calc(100vh - ${tw(4 + 18 + 4 + 24 + 13 /* 52px */ + 24)})` : `calc(100vh - ${tw(4 + 18 + 4 + 24 + 6 /* 24px */ + 8)})`
-//     const height = !state.results.length && clientHeight
-//     const minHeight = !(!state.results.length) && clientHeight
-//     return [height, minHeight]
-//   }, [media.lg, state.results])
-//
-//   return (
-//     <DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
-//       <main style={{ height, minHeight }}>
-//
-//         {!state.results.length && (
-//           <div className="flex flex-col justify-center items-center h-full">
-//
-//             {/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
-//             <p className="flex flex-row items-baseline font-medium text-xl text-center text-gray-200">
-//               No results for “
-//               <span className="inline-block truncate" style={{ maxWidth: media.xs ? 128 : 256 }}>
-//                 {state.form.search.user}.
-//               </span>”
-//             </p>
-//
-//             {/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
-//             <p className="font-medium text-xl text-center text-gray-200">
-//               Try again or{" "}
-//               <a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" {...target_blank}>
-//                 request an icon
-//               </a>
-//               .
-//             </p>
-//
-//           </div>
-//         )}
-//
-//         {state.results.length > 0 && (
-//           <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
-//             {state.results.map(each => (
-//               <div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
-//                 <div className="absolute inset-0">
-//                   <MemoIcon
-//                     state={state}
-//                     dispatch={dispatch}
-//                     icon={each}
-//                   />
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         )}
-//
-//       </main>
-//     </DocumentTitle>
-//   )
-// }
+
+const MemoIcon = React.memo(({ state, dispatch, icon }) => {
+  const buttonRef = React.useRef()
+
+  const handleClick = e => {
+
+    // No-op when the user selected buttonRef.current text:
+    const selection = document.getSelection()
+    if (selection.rangeCount) {
+      const range = selection.getRangeAt(0)
+      if (!range.collapsed && buttonRef.current.contains(range.startContainer)) {
+        // No-op
+        return
+      }
+    }
+
+    try {
+      const originalEl = document.getElementById(icon.name)
+      const el = originalEl.cloneNode(true)
+      el.removeAttribute("id")
+      el.classList.remove(...el.classList)
+      el.classList.add(...`${icon.name} w-6 h-6`.split(" "))
+      copyToClipboardPolyfill(!state.form.copyAsReact ? el.outerHTML : svgToJSX(el.outerHTML))
+      buttonRef.current.focus() // Refocus
+    } catch (error) {
+      console.error(`copyToClipboardPolyfill: ${error}`)
+    }
+
+    const notifType = "icon"
+    const notifInfo = {
+      name: icon.name,
+      icon: icon[!state.form.showOutline ? "solid" : "outline"],
+    }
+    dispatch({
+      type: "UPDATE_NOTIFICATION",
+      notifType,
+      notifInfo,
+    })
+
+  }
+
+  return (
+    <div className="rounded-75 shadow-lg h-full">
+      <button
+        ref={buttonRef}
+        className="flex flex-row justify-center items-center w-full h-full bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out select-text"
+        onClick={handleClick}
+        aria-label={icon.name}
+      >
+
+        {/* New */}
+        {icon.statusNew && (
+          <div className="px-3 py-2 absolute top-0 right-0">
+            <div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right">
+              {/* NOTE: Uses text-white because of bg-indigo-500. */}
+              <p className="font-bold text-xs leading-none text-indigo-50">
+                <span className="tracking-wider">NE</span>W
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Icon */}
+        <SVG
+          id={icon.name}
+          className="w-8 h-8 text-gray-100"
+          svg={icon[!state.form.showOutline ? "solid" : "outline"]}
+        />
+
+        {/* Icon name */}
+        <div className="px-3 py-2 absolute bottom-0">
+          <p className="text-center font-semibold text-sm leading-tight font-mono text-gray-100">
+            {!state.form.search.safe || state.form.search.safe === "new" ? (
+              icon.name
+            ) : (
+              (([substr]) => (
+                <>
+                  {substr}
+                  <span className="p-px text-black bg-yellow-200 rounded">
+                    {state.form.search.safe}
+                  </span>
+                  {icon.name.slice(substr.length + state.form.search.safe.length)}
+                </>
+              ))(icon.name.split(state.form.search.safe, 1))
+            )}
+          </p>
+        </div>
+
+      </button>
+    </div>
+  )
+}, (prev, next) => {
+  const ok = (
+    prev.state.form === next.state.form &&
+    prev.state.dispatch === next.state.dispatch &&
+    prev.icon === next.icon
+  )
+  return ok
+})
+
+const Icons = ({ state, dispatch }) => {
+  const media = React.useContext(BreakpointContext)
+
+	// FIXME
+  const [height, minHeight] = React.useMemo(() => "20rem", [])
+
+  // const [height, minHeight] = React.useMemo(() => {
+  //   const clientHeight = media.lg ? `calc(100vh - ${tw(4 + 18 + 4 + 24 + 13 /* 52px */ + 24)})` : `calc(100vh - ${tw(4 + 18 + 4 + 24 + 6 /* 24px */ + 8)})`
+  //   const height = !state.results.length && clientHeight
+  //   const minHeight = !(!state.results.length) && clientHeight
+  //   return [height, minHeight]
+  // }, [media.lg, state.results])
+
+  return (
+    <DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
+      <main style={{ height, minHeight }}>
+
+        {!state.results.length && (
+          <div className="flex flex-col justify-center items-center h-full">
+
+            {/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
+            <p className="flex flex-row items-baseline font-medium text-xl text-center text-gray-200">
+              No results for “
+              <span className="inline-block truncate" style={{ maxWidth: media.xs ? 128 : 256 }}>
+                {state.form.search.user}.
+              </span>”
+            </p>
+
+            {/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
+            <p className="font-medium text-xl text-center text-gray-200">
+              Try again or{" "}
+              <a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" {...target_blank}>
+                request an icon
+              </a>
+              .
+            </p>
+
+          </div>
+        )}
+
+        {state.results.length > 0 && (
+          <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
+            {state.results.map(each => (
+              <div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
+                <div className="absolute inset-0">
+                  <MemoIcon
+                    state={state}
+                    dispatch={dispatch}
+                    icon={each}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+      </main>
+    </DocumentTitle>
+  )
+}
 
 export default Page
