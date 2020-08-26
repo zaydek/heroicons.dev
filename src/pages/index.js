@@ -1,17 +1,17 @@
 // import CarbonAds from "./CarbonAds"
 // import copyToClipboardPolyfill from "./copyToClipboardPolyfill"
-import disableAutoCorrect from "lib/x/disableAutoCorrect"
-import DocumentTitle from "lib/x/DocumentTitle"
 // import ExtLinksFragment from "./ExtLinksFragment"
 // import React from "react"
 // import SVG from "./SVG"
 // import svgToJSX from "./svgToJSX"
-// import tailwindcss from "./tailwindcss"
+import Apply from "lib/x/Apply"
+import disableAutoCorrect from "lib/x/disableAutoCorrect"
+import DocumentTitle from "lib/x/DocumentTitle"
 import target_blank from "lib/x/target_blank"
 import Transition from "lib/x/Transition"
+import tw from "lib/x/tailwindUnits"
 import useHeroiconsReducer from "./_useHeroiconsReducer"
-// import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
-//
+import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 
 import BookOpenSVG from "heroicons-82f6a4d/react/solid/BookOpen"
 import ExternalLinkSVG from "heroicons-82f6a4d/react/solid/ExternalLink"
@@ -24,22 +24,33 @@ import SwitchHorizontalSVG from "heroicons-82f6a4d/react/solid/SwitchHorizontal"
 
 // import "./custom.css"
 
-// const BreakpointContext = React.createContext()
-//
-// // Converts Tailwind units to rem units.
-// function tw(units) {
-//   return `${units * 4 / 16}rem`
-// }
+const BreakpointContext = React.createContext()
+
+const screens = {
+	// DEPRECATE
+	xs: `${16 + 512 + 16}px`,
+	// => @media (min-width: 540px) { ... }
+
+	sm: `${16 + 640 + 16}px`,
+	// => @media (min-width: 672px) { ... }
+
+	md: `${16 + 768 + 16}px`,
+	// => @media (min-width: 752px) { ... }
+
+	lg: `${16 + 1024 + 16}px`,
+	// => @media (min-width: 1008px) { ... }
+
+	xl: `${16 + 1280 + 16}px`,
+	// => @media (min-width: 1264px) { ... }
+}
 
 const Page = () => {
 	const [state, dispatch] = useHeroiconsReducer()
-	//   const media = useLayoutBreakpoints(tailwindcss.theme.screens)
+	// const media = useLayoutBreakpoints(screens)
 	//
 	const carbonAdsRef = React.useRef()
-	//   const [showCarbonAds, setShowCarbonAds] = React.useState(false)
-	//   // const [delayedShowCarbonAds, setDelayedShowCarbonAds] = React.useState(false)
-	//
-	//   const [sponsorLoadedCount, setSponsorLoadedCount] = React.useState(0)
+	// const [showCarbonAds, setShowCarbonAds] = React.useState(false)
+	// // const [delayedShowCarbonAds, setDelayedShowCarbonAds] = React.useState(false)
 	//
 	//   // React.useEffect(() => {
 	//   //  if (showCarbonAds) {
@@ -87,6 +98,8 @@ const Page = () => {
 	//     [state.notif.showKey],
 	//   )
 	//
+
+	console.log(sponsorLoadedCount)
 
 	return (
 		// <BreakpointContext.Provider value={media}>
@@ -148,7 +161,7 @@ const Page = () => {
 
 						{/* Header */}
 						<div className="relative flex flex-row items-center">
-							<h1 className="font-bold text-5xl font-brand-sans text-gray-100" style={{ letterSpacing: "-0.0375em" }}>
+							<h1 className="font-bold text-5xl text-gray-100" style={{ letterSpacing: "-0.0125em" }}>
 								Heroicons
 							</h1>
 							<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}>
@@ -174,61 +187,7 @@ const Page = () => {
 							</a>
 						</h2>
 
-						{/* <div className="h-2" /> */}
-						{/* <h3 className="flex flex-row justify-center items-center flex-wrap text-center font-medium text-base sm:text-lg text-gray-100"> */}
-						{/*   heroicons.dev by{" "} */}
-						{/*   <span style={{ width: "0.25em" }} /> */}
-						{/*   <a */}
-						{/*     className="inline-flex flex-row items-center underline" */}
-						{/*     style={{ textDecorationColor: "var(--indigo-500)" }} */}
-						{/*     href="https://twitter.com/username_ZAYDEK" */}
-						{/*     {...target_blank} */}
-						{/*   > */}
-						{/*     @username_ZAYDEK */}
-						{/*     <span style={{ width: "0.25em" }} /> */}
-						{/*     <ExternalLinkSVG className="-mt-px w-5 h-5 text-indigo-400" /> */}
-						{/*   </a> */}
-						{/* </h3> */}
-
-						{/* Steve, Adam */}
-						{/* <div className="h-4" /> */}
-						{/* <h3 className="text-center font-medium text-xl text-gray-100"> */}
-						{/*   Icons <span className="hidden sm:inline">created</span> by{" "} */}
-						{/*   <a href="https://twitter.com/steveschoger" {...target_blank}> */}
-						{/*     <img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcSteveSchoger128} alt="Steve Schoger" />{" "} */}
-						{/*     <span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}> */}
-						{/*       Steve Schoger */}
-						{/*     </span> */}
-						{/*   </a>{" "} */}
-						{/*   <span className="hidden sm:inline"> */}
-						{/*     and{" "} */}
-						{/*     <a href="https://twitter.com/adamwathan" {...target_blank}> */}
-						{/*       <img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcAdamWathan128} alt="Adam Wathan" />{" "} */}
-						{/*       <span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}> */}
-						{/*         Adam Wathan */}
-						{/*       </span> */}
-						{/*     </a> */}
-						{/*   </span> */}
-						{/* </h3> */}
-
-						{/* Zaydek */}
-						{/* <div className="h-2" /> */}
-						{/* <h3 className="text-center font-medium text-xl text-gray-100"> */}
-						{/*   Site <span className="hidden sm:inline">maintained</span> by{" "} */}
-						{/*   <a href="https://twitter.com/username_ZAYDEK" {...target_blank}> */}
-						{/*     <img className="mx-1 inline-block w-8 h-8 rounded-full" src={srcZaydekMG128} alt="Zaydek MG" />{" "} */}
-						{/*     <span className="underline" style={{ textDecorationColor: "var(--indigo-500)" }}> */}
-						{/*       Zaydek */}
-						{/*     </span> */}
-						{/*   </a> */}
-						{/* </h3> */}
-
 						{/* Sponsors */}
-						{/* <div className="h-12" /> */}
-						{/* <h6 className="flex flex-row items-center text-center font-bold text-sm tracking-wider text-gray-400"> */}
-						{/*   HEROICONS.DEV IS SPONSORED BY */}
-						{/* </h6> */}
-
 						<div className="h-16" />
 						<h6 className="text-center font-bold text-sm tracking-wider leading-none text-gray-400">
 							HEROICONS.DEV IS SPONSORED BY
@@ -239,7 +198,7 @@ const Page = () => {
 
 							<a className="mx-3 my-1 block" href="https://github.com/qawolf/qawolf" {...target_blank}>
 								<Transition
-									on={false /* FIXME; sponsorLoadedCount >= 5 */}
+									on={true}
 									className="transition duration-700 ease-out"
 									from="opacity-0 transform scale-75"
 									to="opacity-100 transform scale-100"
@@ -261,7 +220,7 @@ const Page = () => {
 							{/* Landing Page Hot Tips Ebook */}
 							<a className="mx-3 my-1 block" href="https://onepagelove.com/go/heroicons" {...target_blank}>
 								<Transition
-									on={false /* FIXME; sponsorLoadedCount >= 5 */}
+									on={true}
 									className="transition duration-700 ease-out"
 									from="opacity-0 transform scale-75"
 									to="opacity-100 transform scale-100"
@@ -283,7 +242,7 @@ const Page = () => {
 							{/* SkillSyncer */}
 							<a className="mx-3 my-1 block" href="https://skillsyncer.com" {...target_blank}>
 								<Transition
-									on={false /* FIXME; sponsorLoadedCount >= 5 */}
+									on={true}
 									className="transition duration-700 ease-out"
 									from="opacity-0 transform scale-75"
 									to="opacity-100 transform scale-100"
@@ -305,7 +264,7 @@ const Page = () => {
 							{/* CodeTisans */}
 							<a className="mx-3 my-1 block" href="https://codetisans.com" {...target_blank}>
 								<Transition
-									on={false /* FIXME; sponsorLoadedCount >= 5 */}
+									on={true}
 									className="transition duration-700 ease-out"
 									from="opacity-0 transform scale-75"
 									to="opacity-100 transform scale-100"
@@ -327,7 +286,7 @@ const Page = () => {
 							{/* Streamline */}
 							<a className="mx-3 my-1 block" href="https://streamlineicons.com" {...target_blank}>
 								<Transition
-									on={false /* FIXME; sponsorLoadedCount >= 5 */}
+									on={true}
 									className="transition duration-700 ease-out"
 									from="opacity-0 transform scale-75"
 									to="opacity-100 transform scale-100"
@@ -354,32 +313,45 @@ const Page = () => {
 						</h6>
 
 						{/* CTA */}
-						{/* <div className="space-x-3 pt-0 sm:pt-12 hidden sm:flex sm:flex-row"> */}
-						{/*   <div className="rounded-75 shadow-lg"> */}
-						{/*     <a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}> */}
-						{/*       <div className="px-2 py-1 flex flex-row justify-center"> */}
-						{/*         // NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
-						{/*         <p className="flex flex-row items-center font-medium text-xl text-gray-200"> */}
-						{/*           <FigmaSVG className="mr-4 w-6 h-6" /> */}
-						{/*           Open in Figma */}
-						{/*           <ExternalLinkSVG className="ml-2 w-5 h-5 text-indigo-400" /> */}
-						{/*         </p> */}
-						{/*       </div> */}
-						{/*     </a> */}
-						{/*   </div> */}
-						{/*   <div className="rounded-75 shadow-lg"> */}
-						{/*     <a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://github.com/tailwindlabs/heroicons" {...target_blank}> */}
-						{/*       <div className="px-2 py-1 flex flex-row justify-center"> */}
-						{/*         // NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
-						{/*         <p className="flex flex-row items-center font-medium text-xl text-gray-200"> */}
-						{/*           <GitHubSVG className="mr-4 w-6 h-6" /> */}
-						{/*           Open in GitHub */}
-						{/*           <ExternalLinkSVG className="ml-2 w-5 h-5 text-indigo-400" /> */}
-						{/*         </p> */}
-						{/*       </div> */}
-						{/*     </a> */}
-						{/*   </div> */}
-						{/* </div> */}
+						<div className="space-x-3 pt-0 sm:pt-12 hidden sm:flex sm:flex-row">
+							<div className="rounded-75 shadow-lg">
+								<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}>
+									<div className="px-2 py-1 flex flex-row justify-center">
+										{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
+										<p className="flex flex-row items-center font-medium text-xl text-gray-200">
+											<Apply className="mr-4 w-6 h-6">
+												<svg viewBox="0 0 38 57">
+													<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
+													<path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
+													<path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" />
+													<path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" />
+													<path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
+												</svg>
+											</Apply>
+											Open in Figma
+											<ExternalLinkSVG className="ml-2 w-5 h-5 text-indigo-400" />
+										</p>
+									</div>
+								</a>
+							</div>
+							<div className="rounded-75 shadow-lg">
+								<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://github.com/tailwindlabs/heroicons" {...target_blank}>
+									<div className="px-2 py-1 flex flex-row justify-center">
+										{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
+										<p className="flex flex-row items-center font-medium text-xl text-gray-200">
+											{/* <GitHubSVG className="mr-4 w-6 h-6" /> */}
+											<Apply className="mr-4 w-6 h-6">
+												<svg viewBox="0 0 16 16" fill="currentColor">
+													<path fillRule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+												</svg>
+											</Apply>
+											Open in GitHub
+											<ExternalLinkSVG className="ml-2 w-5 h-5 text-indigo-400" />
+										</p>
+									</div>
+								</a>
+							</div>
+						</div>
 
 					</header>
 
