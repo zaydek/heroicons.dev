@@ -181,14 +181,12 @@ const FooterRHS = () => (
 )
 
 const Footer = () => (
-	<Apply className="relative">
-		<footer className="py-16 flex flex-row justify-center border-t border-gray-800">
-			<div className="-mt-2 px-6 flex flex-row justify-between items-end w-full max-w-screen-xl">
-				<FooterLHS />
-				<FooterRHS />
-			</div>
-		</footer>
-	</Apply>
+	<footer className="py-12 flex flex-row justify-center border-t border-gray-800">
+		<div className="px-6 flex flex-row justify-between items-end w-full max-w-screen-lg">
+			<FooterLHS />
+			<FooterRHS />
+		</div>
+	</footer>
 )
 
 export default Footer
