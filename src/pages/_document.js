@@ -11,7 +11,7 @@ class Document extends NextDocument {
 			<Html className="bg-black" lang="em">
 				<Head />
 				<title>
-						Heroicons
+					Heroicons
 				</title>
 				<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 				<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />

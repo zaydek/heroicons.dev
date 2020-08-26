@@ -4,7 +4,7 @@ import tw from "lib/x/tailwindUnits"
 
 import FlagSVG from "heroicons-0.4.0/solid/Flag"
 
-const LHS = () => (
+const FooterLHS = () => (
 	<nav>
 
 		<a href="TODO" {...target_blank}>
@@ -77,40 +77,40 @@ const LHS = () => (
 		<div className="h-8" />
 		<p className="leading-relaxed text-gray-300">
 			<span className="inline-flex flex-row items-center">
-				{/* <Apply className="transform scale-125"> */}
-				{/* 	<span aria-label="man artist" role="img"> */}
-				{/* 		👨‍🎨 */}
-				{/* 	</span> */}
-				{/* </Apply> */}
-				{/* <span style={{ width: "1ch" }} /> */}
 				Icons designed by{" "}
 				<span style={{ width: "0.5ch" }} />
 				<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}>
 					@steveschoger
-				</a>
+				</a>{" "}
+				<span style={{ width: "1ch" }} />
+				<Apply className="transform scale-125">
+					<span aria-label="man artist" role="img">
+						👨‍🎨
+					</span>
+				</Apply>
 			</span>
 		</p>
 
 		<p className="leading-relaxed text-gray-300">
 			<span className="inline-flex flex-row items-center">
-				{/* <Apply className="transform scale-125"> */}
-				{/* 	<span aria-label="man technologist" role="img"> */}
-				{/* 		👨‍💻 */}
-				{/* 	</span> */}
-				{/* </Apply> */}
-				{/* <span style={{ width: "1ch" }} /> */}
 				Website designed and maintained by{" "}
 				<span style={{ width: "0.5ch" }} />
 				<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}>
 					@username_ZAYDEK
-				</a>
+				</a>{" "}
+				<span style={{ width: "1ch" }} />
+				<Apply className="transform scale-125">
+					<span aria-label="man technologist" role="img">
+						👨‍💻
+					</span>
+				</Apply>
 			</span>
 		</p>
 
 	</nav>
 )
 
-const RHS = () => (
+const FooterRHS = () => (
 	<nav className="flex flex-col items-end">
 
 		<h6 className="font-semibold text-xs tracking-wider text-gray-400">
@@ -182,10 +182,10 @@ const RHS = () => (
 
 const Footer = () => (
 	<Apply className="relative">
-		<footer className="py-12 flex flex-row justify-center border-t-8 border-gray-900">
-			<div className="px-8 flex flex-row justify-between items-center w-full max-w-screen-xl">
-				<LHS />
-				<RHS />
+		<footer className="py-16 flex flex-row justify-center border-t border-gray-800">
+			<div className="-mt-2 px-6 flex flex-row justify-between items-end w-full max-w-screen-xl">
+				<FooterLHS />
+				<FooterRHS />
 			</div>
 		</footer>
 	</Apply>
