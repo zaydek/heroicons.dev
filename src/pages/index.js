@@ -100,317 +100,317 @@ const Page = () => {
 
 	return (
 		// <BreakpointContext.Provider value={media}>
-			<div className="pt-16 lg:pt-24 flex flex-row justify-center">
-				<div className="px-4 w-full max-w-screen-lg">
+		<div className="pt-16 lg:pt-24 flex flex-row justify-center">
+			<div className="px-4 w-full max-w-screen-lg">
 
-					<nav className="p-4 space-y-2 absolute top-0 left-0 hidden lg:block">
-						{/* <ExtLinksFragment /> */}
-					</nav>
+				<nav className="p-4 space-y-2 absolute top-0 left-0 hidden lg:block">
+					{/* <ExtLinksFragment /> */}
+				</nav>
 
-					{/* Carbon Ads (alt) */}
-					<aside className="p-4 absolute top-0 right-0 z-30">
-						<Transition
-							on={false /* FIXME; showCarbonAds */}
-							className="transition duration-700 ease-out"
-							from="opacity-0 transform scale-90 pointer-events-none"
-							to="opacity-100 transform scale-100 pointer-events-auto"
-						>
-							<div id="carbon-ads-desktop-placement" />
-						</Transition>
-					</aside>
+				{/* Carbon Ads (alt) */}
+				<aside className="p-4 absolute top-0 right-0 z-30">
+					<Transition
+						on={false /* FIXME; showCarbonAds */}
+						className="transition duration-700 ease-out"
+						from="opacity-0 transform scale-90 pointer-events-none"
+						to="opacity-100 transform scale-100 pointer-events-auto"
+					>
+						<div id="carbon-ads-desktop-placement" />
+					</Transition>
+				</aside>
 
-					{/* Headers */}
-					<header className="flex flex-col items-center">
+				{/* Headers */}
+				<header className="flex flex-col items-center">
 
-						{/* Carbon Ads */}
-						<Transition
-							on={false /* FIXME; showCarbonAds */}
-							className="transition duration-700 ease-out"
-							from="opacity-0 transform scale-90 pointer-events-none"
-							to="opacity-100 transform scale-100 pointer-events-auto"
-						>
-							<div id="carbon-ads-placement" className="-mt-16 pt-4 lg:pt-0 pb-8 block xl:hidden">
-								<div ref={carbonAdsRef} className="rounded-75 shadow-lg">
-									<div className="rounded-75 shadow-lg">
-										<div className="relative">
+					{/* Carbon Ads */}
+					<Transition
+						on={false /* FIXME; showCarbonAds */}
+						className="transition duration-700 ease-out"
+						from="opacity-0 transform scale-90 pointer-events-none"
+						to="opacity-100 transform scale-100 pointer-events-auto"
+					>
+						<div id="carbon-ads-placement" className="-mt-16 pt-4 lg:pt-0 pb-8 block xl:hidden">
+							<div ref={carbonAdsRef} className="rounded-75 shadow-lg">
+								<div className="rounded-75 shadow-lg">
+									<div className="relative">
 
-											<div onClick={e => setShowCarbonAds(false)}>
-												{/* <CarbonAds */}
-												{/* 	className="border border-gray-700 rounded-75 overflow-hidden" */}
-												{/* 	style={{ */}
-												{/* 		width: 332, */}
-												{/* 		height: 127, */}
-												{/* 	}} */}
-												{/* 	src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" */}
-												{/* 	onLoad={() => { */}
-												{/* 		setTimeout(() => { */}
-												{/* 			setShowCarbonAds(true) */}
-												{/* 		}, 1e3) */}
-												{/* 	}} */}
-												{/* /> */}
-											</div>
-
+										<div onClick={e => setShowCarbonAds(false)}>
+											{/* <CarbonAds */}
+											{/* 	className="border border-gray-700 rounded-75 overflow-hidden" */}
+											{/* 	style={{ */}
+											{/* 		width: 332, */}
+											{/* 		height: 127, */}
+											{/* 	}} */}
+											{/* 	src="//cdn.carbonads.com/carbon.js?serve=CE7DV2QJ&placement=heroiconsdev" */}
+											{/* 	onLoad={() => { */}
+											{/* 		setTimeout(() => { */}
+											{/* 			setShowCarbonAds(true) */}
+											{/* 		}, 1e3) */}
+											{/* 	}} */}
+											{/* /> */}
 										</div>
+
 									</div>
 								</div>
 							</div>
-						</Transition>
+						</div>
+					</Transition>
 
-						{/* Header */}
-						<div className="relative flex flex-row items-center">
-							<h1 className="font-bold text-5xl text-gray-100" style={{ letterSpacing: "-0.0125em" }}>
+					{/* Header */}
+					<div className="relative flex flex-row items-center">
+						<h1 className="font-bold text-5xl text-gray-100" style={{ letterSpacing: "-0.0125em" }}>
 								Heroicons
-							</h1>
-							<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}>
-								<FlagSVG className="w-12 h-12 text-indigo-500" />
-							</div>
+						</h1>
+						<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}>
+							<FlagSVG className="w-12 h-12 text-indigo-500" />
 						</div>
+					</div>
 
-						{/* Subheader */}
-						<h2 className="flex flex-row justify-center items-center flex-wrap text-center font-medium text-xl sm:text-2xl text-gray-100">
-							<BookOpenSVG className="mr-2 hidden xs:block w-8 h-8" />
+					{/* Subheader */}
+					<h2 className="flex flex-row justify-center items-center flex-wrap text-center font-medium text-xl sm:text-2xl text-gray-100">
+						<BookOpenSVG className="mr-2 hidden xs:block w-8 h-8" />
 							MIT Open Source Icons by{" "}
-							<span style={{ width: "0.25em" }} />
-							<a
-								className="inline-flex flex-row items-center underline"
-								style={{ textDecorationColor: "var(--indigo-500)" }}
-								href="https://twitter.com/steveschoger"
-								{...target_blank}
-							>
-								{/* @steveschoger */}
+						<span style={{ width: "0.25em" }} />
+						<a
+							className="inline-flex flex-row items-center underline"
+							style={{ textDecorationColor: "var(--indigo-500)" }}
+							href="https://twitter.com/steveschoger"
+							{...target_blank}
+						>
+							{/* @steveschoger */}
 								Steve Schoger{" "}
-								<span style={{ width: "0.25em" }} />
-								<ExternalLinkSVG className="-mb-1 w-5 h-5 text-indigo-400" />
-							</a>
-						</h2>
+							<span style={{ width: "0.25em" }} />
+							<ExternalLinkSVG className="-mb-1 w-5 h-5 text-indigo-400" />
+						</a>
+					</h2>
 
-						{/* Sponsors */}
-						<div className="h-16" />
-						<h6 className="text-center font-bold text-sm tracking-wider leading-none text-gray-400">
-							HEROICONS.DEV IS SPONSORED BY
-						</h6>
-
-						<div className="h-6" />
-						<div className="-my-1 flex flex-row justify-center items-center flex-wrap w-full max-w-3xl">
-
-							<a className="mx-3 my-1 block" href="https://github.com/qawolf/qawolf" {...target_blank}>
-								<Transition
-									on={true}
-									className="transition duration-700 ease-out"
-									from="opacity-0 transform scale-75"
-									to="opacity-100 transform scale-100"
-								>
-									<div className="opacity-0">
-										<img
-											// NOTE: Uses ease-out not ease-in-out.
-											className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-out"
-											src="/images/sponsor-qawolf.png"
-											alt="QA Wolf"
-										/>
-									</div>
-								</Transition>
-							</a>
-
-							{/* Landing Page Hot Tips Ebook */}
-							<a className="mx-3 my-1 block" href="https://onepagelove.com/go/heroicons" {...target_blank}>
-								<Transition
-									on={true}
-									className="transition duration-700 ease-out"
-									from="opacity-0 transform scale-75"
-									to="opacity-100 transform scale-100"
-								>
-									<div className="opacity-0">
-										<img
-											// NOTE: Uses ease-out not ease-in-out.
-											className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-out"
-											src="/images/sponsor-landing-page-hot-tips-ebook.png"
-											alt="Landing Page Hot Tips Ebook"
-										/>
-									</div>
-								</Transition>
-							</a>
-
-							{/* SkillSyncer */}
-							<a className="mx-3 my-1 block" href="https://skillsyncer.com" {...target_blank}>
-								<Transition
-									on={true}
-									className="transition duration-700 ease-out"
-									from="opacity-0 transform scale-75"
-									to="opacity-100 transform scale-100"
-								>
-									<div className="opacity-0">
-										<img
-											// NOTE: Uses ease-out not ease-in-out.
-											className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-out"
-											src="/images/sponsor-skillsyncer.png"
-											alt="SkillSyncer"
-										/>
-									</div>
-								</Transition>
-							</a>
-
-							{/* CodeTisans */}
-							<a className="mx-3 my-1 block" href="https://codetisans.com" {...target_blank}>
-								<Transition
-									on={true}
-									className="transition duration-700 ease-out"
-									from="opacity-0 transform scale-75"
-									to="opacity-100 transform scale-100"
-								>
-									<div className="opacity-0">
-										<img
-											// NOTE: Uses ease-out not ease-in-out.
-											className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-out"
-											src="/images/sponsor-codetisans_.png"
-											alt="CodeTisans"
-										/>
-									</div>
-								</Transition>
-							</a>
-
-							{/* Streamline */}
-							<a className="mx-3 my-1 block" href="https://streamlineicons.com" {...target_blank}>
-								<Transition
-									on={true}
-									className="transition duration-700 ease-out"
-									from="opacity-0 transform scale-75"
-									to="opacity-100 transform scale-100"
-								>
-									<div className="opacity-0">
-										<img
-											// NOTE: Uses ease-out not ease-in-out.
-											className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-out"
-											src="/images/sponsor-streamline.png"
-											alt="Streamline"
-										/>
-									</div>
-								</Transition>
-							</a>
-
-						</div>
-
-						<div className="h-6" />
-						<h6 className="text-center font-bold text-sm tracking-wider leading-none text-gray-400">
-							UNAFFILIATED WITH TAILWIND LABS
-						</h6>
-
-						{/* CTA */}
-						<div className="space-x-3 pt-0 sm:pt-12 hidden sm:flex sm:flex-row">
-							<div className="rounded-75 shadow-lg">
-								<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}>
-									<div className="px-2 py-1 flex flex-row justify-center">
-										{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
-										<p className="flex flex-row items-center font-medium text-xl text-gray-200">
-											<Apply className="mr-4 w-6 h-6">
-												<svg viewBox="0 0 38 57">
-													<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
-													<path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
-													<path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" />
-													<path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" />
-													<path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
-												</svg>
-											</Apply>
-											Open in Figma
-											<ExternalLinkSVG className="ml-2 w-5 h-5 text-indigo-400" />
-										</p>
-									</div>
-								</a>
-							</div>
-							<div className="rounded-75 shadow-lg">
-								<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://github.com/tailwindlabs/heroicons" {...target_blank}>
-									<div className="px-2 py-1 flex flex-row justify-center">
-										{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
-										<p className="flex flex-row items-center font-medium text-xl text-gray-200">
-											{/* <GitHubSVG className="mr-4 w-6 h-6" /> */}
-											<Apply className="mr-4 w-6 h-6">
-												<svg viewBox="0 0 16 16" fill="currentColor">
-													<path fillRule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-												</svg>
-											</Apply>
-											Open in GitHub
-											<ExternalLinkSVG className="ml-2 w-5 h-5 text-indigo-400" />
-										</p>
-									</div>
-								</a>
-							</div>
-						</div>
-
-					</header>
-
+					{/* Sponsors */}
 					<div className="h-16" />
-					<FormSearch
-						state={state}
-						dispatch={dispatch}
-					/>
+					<h6 className="text-center font-bold text-sm tracking-wider leading-none text-gray-400">
+							HEROICONS.DEV IS SPONSORED BY
+					</h6>
 
-					<div className="h-4" />
-					<Icons
-						state={state}
-						dispatch={dispatch}
-					/>
+					<div className="h-6" />
+					<div className="-my-1 flex flex-row justify-center items-center flex-wrap w-full max-w-3xl">
 
-				</div>
+						<a className="mx-3 my-1 block" href="https://github.com/qawolf/qawolf" {...target_blank}>
+							<Transition
+								on={true}
+								className="transition duration-700 ease-out"
+								from="opacity-0 transform scale-75"
+								to="opacity-100 transform scale-100"
+							>
+								<div className="opacity-0">
+									<img
+										// NOTE: Uses ease-out not ease-in-out.
+										className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-out"
+										src="/images/sponsor-qawolf.png"
+										alt="QA Wolf"
+									/>
+								</div>
+							</Transition>
+						</a>
+
+						{/* Landing Page Hot Tips Ebook */}
+						<a className="mx-3 my-1 block" href="https://onepagelove.com/go/heroicons" {...target_blank}>
+							<Transition
+								on={true}
+								className="transition duration-700 ease-out"
+								from="opacity-0 transform scale-75"
+								to="opacity-100 transform scale-100"
+							>
+								<div className="opacity-0">
+									<img
+										// NOTE: Uses ease-out not ease-in-out.
+										className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-out"
+										src="/images/sponsor-landing-page-hot-tips-ebook.png"
+										alt="Landing Page Hot Tips Ebook"
+									/>
+								</div>
+							</Transition>
+						</a>
+
+						{/* SkillSyncer */}
+						<a className="mx-3 my-1 block" href="https://skillsyncer.com" {...target_blank}>
+							<Transition
+								on={true}
+								className="transition duration-700 ease-out"
+								from="opacity-0 transform scale-75"
+								to="opacity-100 transform scale-100"
+							>
+								<div className="opacity-0">
+									<img
+										// NOTE: Uses ease-out not ease-in-out.
+										className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-out"
+										src="/images/sponsor-skillsyncer.png"
+										alt="SkillSyncer"
+									/>
+								</div>
+							</Transition>
+						</a>
+
+						{/* CodeTisans */}
+						<a className="mx-3 my-1 block" href="https://codetisans.com" {...target_blank}>
+							<Transition
+								on={true}
+								className="transition duration-700 ease-out"
+								from="opacity-0 transform scale-75"
+								to="opacity-100 transform scale-100"
+							>
+								<div className="opacity-0">
+									<img
+										// NOTE: Uses ease-out not ease-in-out.
+										className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-out"
+										src="/images/sponsor-codetisans_.png"
+										alt="CodeTisans"
+									/>
+								</div>
+							</Transition>
+						</a>
+
+						{/* Streamline */}
+						<a className="mx-3 my-1 block" href="https://streamlineicons.com" {...target_blank}>
+							<Transition
+								on={true}
+								className="transition duration-700 ease-out"
+								from="opacity-0 transform scale-75"
+								to="opacity-100 transform scale-100"
+							>
+								<div className="opacity-0">
+									<img
+										// NOTE: Uses ease-out not ease-in-out.
+										className="w-auto h-12 object-contain opacity-75 hover:opacity-100 transition duration-200 ease-out"
+										src="/images/sponsor-streamline.png"
+										alt="Streamline"
+									/>
+								</div>
+							</Transition>
+						</a>
+
+					</div>
+
+					<div className="h-6" />
+					<h6 className="text-center font-bold text-sm tracking-wider leading-none text-gray-400">
+							UNAFFILIATED WITH TAILWIND LABS
+					</h6>
+
+					{/* CTA */}
+					<div className="space-x-3 pt-0 sm:pt-12 hidden sm:flex sm:flex-row">
+						<div className="rounded-75 shadow-lg">
+							<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}>
+								<div className="px-2 py-1 flex flex-row justify-center">
+									{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
+									<p className="flex flex-row items-center font-medium text-xl text-gray-200">
+										<Apply className="mr-4 w-6 h-6">
+											<svg viewBox="0 0 38 57">
+												<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
+												<path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
+												<path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" />
+												<path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" />
+												<path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
+											</svg>
+										</Apply>
+											Open in Figma
+										<ExternalLinkSVG className="ml-2 w-5 h-5 text-indigo-400" />
+									</p>
+								</div>
+							</a>
+						</div>
+						<div className="rounded-75 shadow-lg">
+							<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://github.com/tailwindlabs/heroicons" {...target_blank}>
+								<div className="px-2 py-1 flex flex-row justify-center">
+									{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
+									<p className="flex flex-row items-center font-medium text-xl text-gray-200">
+										{/* <GitHubSVG className="mr-4 w-6 h-6" /> */}
+										<Apply className="mr-4 w-6 h-6">
+											<svg viewBox="0 0 16 16" fill="currentColor">
+												<path fillRule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+											</svg>
+										</Apply>
+											Open in GitHub
+										<ExternalLinkSVG className="ml-2 w-5 h-5 text-indigo-400" />
+									</p>
+								</div>
+							</a>
+						</div>
+					</div>
+
+				</header>
+
+				<div className="h-16" />
+				<FormSearch
+					state={state}
+					dispatch={dispatch}
+				/>
+
+				<div className="h-4" />
+				<Icons
+					state={state}
+					dispatch={dispatch}
+				/>
+
+				{/* Notification */}
+				<Transition
+					on={state.notif.showKey}
+					className="transition duration-200 ease-in-out"
+					from="opacity-0 transform translate-y-4 pointer-events-none"
+					to="opacity-100 transform translate-y-0 pointer-events-auto"
+				>
+					<div className="p-3 fixed bottom-0 left-0 z-40">
+						<div className="rounded-md shadow-lg">
+							<div className="rounded-md shadow-lg">
+								<div className="px-3 py-2 flex flex-row bg-indigo-500 rounded-md">
+
+									{state.notif.notifInfo && (
+										<div className="flex flex-row items-center h-6">
+											<SVG className="mr-3 w-5 h-5 text-indigo-50" svg={state.notif.notifInfo.icon} />
+										</div>
+									)}
+
+									{/* Form */}
+									{state.notif.notifType.startsWith("form") && (
+										<p className="font-semibold text-indigo-50">
+											{state.notif.notifType === "form-jsx" && (
+												!state.form.copyAsReact
+													? "Enabled Copy as HTML"
+													: "Enabled Copy as JSX"
+											)}
+											{state.notif.notifType === "form-alt" && (
+												!state.form.showOutline
+													? "Switched to Solid Icons"
+													: "Switched to Outline Icons"
+											)}
+										</p>
+									)}
+
+									{/* Icon */}
+									{state.notif.notifType === "icon" && (
+										<p className="font-semibold text-indigo-50">
+												Copied{" "}
+											<span className="font-mono">
+												{state.notif.notifInfo.name}
+											</span>{" "}
+												as {!state.form.copyAsReact ? "HTML" : "JSX"}
+										</p>
+									)}
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</Transition>
+
+				{/* <div className="h-24" /> */}
+				{/* <footer className="space-x-0 lg:space-x-6 space-y-1 lg:space-y-0 flex flex-col lg:flex-row items-center lg:justify-center"> */}
+				{/* 	<ExtLinksFragment /> */}
+				{/* </footer> */}
+				{/* <div className="h-24 lg:h-8" /> */}
+
 			</div>
+		</div>
 		// </BreakpointContext.Provider>
 	)
 }
-
-// {/* Notification */}
-// <Transition
-// 	on={state.notif.showKey}
-// 	className="transition duration-200 ease-in-out"
-// 	from="opacity-0 transform translate-y-4 pointer-events-none"
-// 	to="opacity-100 transform translate-y-0 pointer-events-auto"
-// >
-// 	<div className="p-3 fixed bottom-0 left-0 z-40">
-// 		<div className="rounded-md shadow-lg">
-// 			<div className="rounded-md shadow-lg">
-// 				<div className="px-3 py-2 flex flex-row bg-indigo-500 rounded-md">
-//
-// 					{state.notif.notifInfo && (
-// 						<div className="flex flex-row items-center h-6">
-// 							<SVG className="mr-3 w-5 h-5 text-indigo-50" svg={state.notif.notifInfo.icon} />
-// 						</div>
-// 					)}
-//
-// 					{/* Form */}
-// 					{state.notif.notifType.startsWith("form") && (
-// 						<p className="font-semibold text-indigo-50">
-// 							{state.notif.notifType === "form-jsx" && (
-// 								!state.form.copyAsReact
-// 									? "Enabled Copy as HTML"
-// 									: "Enabled Copy as JSX"
-// 							)}
-// 							{state.notif.notifType === "form-alt" && (
-// 								!state.form.showOutline
-// 									? "Switched to Solid Icons"
-// 									: "Switched to Outline Icons"
-// 							)}
-// 						</p>
-// 					)}
-//
-// 					{/* Icon */}
-// 					{state.notif.notifType === "icon" && (
-// 						<p className="font-semibold text-indigo-50">
-// 							Copied{" "}
-// 							<span className="font-mono">
-// 								{state.notif.notifInfo.name}
-// 							</span>{" "}
-// 							as {!state.form.copyAsReact ? "HTML" : "JSX"}
-// 						</p>
-// 					)}
-//
-// 				</div>
-// 			</div>
-// 		</div>
-// 	</div>
-// </Transition>
-//
-// <div className="h-24" />
-// <footer className="space-x-0 lg:space-x-6 space-y-1 lg:space-y-0 flex flex-col lg:flex-row items-center lg:justify-center">
-// 	<ExtLinksFragment />
-// </footer>
-// <div className="h-24 lg:h-8" />
 
 const FormSearch = ({ state, dispatch }) => {
 	const inputRef = React.useRef()
