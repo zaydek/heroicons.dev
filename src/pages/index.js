@@ -1,6 +1,5 @@
 // import CarbonAds from "./CarbonAds"
 import Apply from "lib/x/Apply"
-import ApplyFragment from "lib/x/ApplyFragment"
 import copyToClipboardPolyfill from "utils/copyToClipboardPolyfill"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import DocumentTitle from "lib/x/DocumentTitle"
@@ -131,7 +130,7 @@ const MemoIcon = React.memo(({
 		// <div className="!rounded-6 shadow-lg h-full">
 		<button
 			ref={buttonRef}
-			className="flex flex-row justify-center items-center w-full h-full bg-gray-800 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out select-text"
+			className="flex flex-row justify-center items-center w-full h-full bg-transparent hover:bg-gray-700 hover:bg-opacity-25 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out select-text"
 			// style={style}
 			onClick={handleClick}
 			aria-label={icon.name}
@@ -140,11 +139,11 @@ const MemoIcon = React.memo(({
 			{/* New */}
 			{icon.statusNew && (
 				<div className="px-3 py-2 absolute top-0 right-0">
-					<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right">
-						<p className="font-bold text-xs leading-none text-indigo-50">
+					{/* <div className="px-1.5 py-1 bg-yellow-300 rounded-full transform scale-90 origin-top-right"> */}
+						<p className="font-semibold leading-none text-yellow-300" style={{ fontSize: "0.6875rem" }}>
 							<span className="tracking-wider">NE</span>W
 						</p>
-					</div>
+					{/* </div> */}
 				</div>
 			)}
 
@@ -157,7 +156,7 @@ const MemoIcon = React.memo(({
 
 			{/* Icon name */}
 			<div className="px-3 py-2 absolute bottom-0">
-				<p className="text-center font-semibold text-sm leading-tight font-mono text-gray-100">
+				<p className="text-center text-sm tracking-wide leading-tight text-gray-200">
 					{!state.form.search.safe || state.form.search.safe === "new" ? (
 						icon.name
 					) : (
@@ -451,14 +450,8 @@ const MemoIcon = React.memo(({
 const Main = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 
-	// Auto-hides notifications.
-	const mounted = React.useRef()
 	React.useEffect(
 		React.useCallback(() => {
-			if (!mounted.current) {
-				mounted.current = true
-				return
-			}
 			const id = setTimeout(() => {
 				dispatch({
 					type: "HIDE_NOTIFICATION",
@@ -472,159 +465,125 @@ const Main = () => {
 	)
 
 	return (
+		// TODO: -mx-4?
 		<main className="rounded-6 shadow-lg">
-			<div className="bg-gray-800 rounded-6 shaodw-lg">
+			<div className="bg-gray-800 rounded-6 shadow-lg">
 
-				<Apply className="relative">
-					<div className="flex flex-row justify-between h-24 bg-gray-700 bg-opacity-25 rounded-t-6">
+				<div className="sticky top-0 z-10" style={{ top: tw(4), boxShadow: `0 -${tw(4)} 0 ${tw(4)} var(--black)` }}>
 
-						{/* LHS */}
-						<div className="px-8 absolute left-0 inset-y-0 flex flex-row justify-center items-center">
-							<div className="flex flex-row justify-center items-center w-12 h-12 bg-gray-700 rounded-full">
-								<div className="w-8 h-8 bg-gray-800 rounded-full" />
-							</div>
-						</div>
+					<Apply className="transition duration-200 ease-in-out">
+						<div className="flex flex-row justify-between h-24 !bg-gray-100 border-b border-gray-700 rounded-t-6 shadow-lg">
 
-						<Reset className="w-full bg-transparent border border-green-700">
-							<input className="px-32" type="text" />
-						</Reset>
-
-						{/* RHS */}
-						<div className="px-8 absolute right-0 inset-y-0 flex flex-row">
-							<div className="px-1 flex flex-row justify-center items-center">
-								<div className="flex flex-row justify-center items-center w-12 h-12 bg-gray-700 rounded-full">
-									<div className="w-8 h-8 bg-gray-800 rounded-full" />
+							{/* LHS */}
+							<div className="px-8 absolute left-0 inset-y-0 flex flex-row justify-center items-center">
+								<div className="flex flex-row justify-center items-center w-12 h-12 bg-gray-700 bg-opacity-50 rounded-full">
+									{/* <div className="w-8 h-8 bg-gray-800 bg-opacity-50 rounded-full" /> */}
 								</div>
 							</div>
-							<div className="px-1 flex flex-row justify-center items-center">
-								<div className="flex flex-row justify-center items-center w-12 h-12 bg-gray-700 rounded-full">
-									<div className="w-8 h-8 bg-gray-800 rounded-full" />
-								</div>
-							</div>
-							<div className="px-1 flex flex-row justify-center items-center">
-								<div className="flex flex-row justify-center items-center w-12 h-12 bg-gray-700 rounded-full">
-									<div className="w-8 h-8 bg-gray-800 rounded-full" />
-								</div>
-							</div>
-						</div>
 
-					</div>
-				</Apply>
+							{/* <Reset className="w-full bg-transparent focus:outline-none"> */}
+							{/* 	<input className="px-32" type="text" /> */}
+							{/* </Reset> */}
 
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-			</div>
-
-			{/* Notification */}
-			<Transition
-				on={state.notif.showKey}
-				className="transition duration-200 ease-in-out"
-				from="opacity-0 transform translate-y-4 pointer-events-none"
-				to="opacity-100 transform translate-y-0 pointer-events-auto"
-			>
-				<div className="p-3 fixed bottom-0 left-0 z-40">
-					<div className="rounded-md shadow-lg">
-						<div className="rounded-md shadow-lg">
-							<div className="px-3 py-2 flex flex-row bg-indigo-500 rounded-md">
-
-								{state.notif.notifInfo && (
-									<div className="flex flex-row items-center h-6">
-										<SVG className="mr-3 w-5 h-5 text-indigo-50" svg={state.notif.notifInfo.icon} />
+							{/* RHS */}
+							<div className="px-8 absolute right-0 inset-y-0 flex flex-row">
+								<div className="px-1 flex flex-row justify-center items-center">
+									<div className="flex flex-row justify-center items-center w-12 h-12 bg-gray-700 bg-opacity-50 rounded-full">
+										{/* <div className="w-8 h-8 bg-gray-800 bg-opacity-50 rounded-full" /> */}
 									</div>
-								)}
-
-								{/* Form */}
-								{state.notif.notifType.startsWith("form") && (
-									<p className="font-semibold text-indigo-50">
-										{state.notif.notifType === "form-jsx" && (
-											!state.form.copyAsReact
-												? "Enabled Copy as HTML"
-												: "Enabled Copy as JSX"
-										)}
-										{state.notif.notifType === "form-alt" && (
-											!state.form.showOutline
-												? "Switched to Solid Icons"
-												: "Switched to Outline Icons"
-										)}
-									</p>
-								)}
-
-								{/* Icon */}
-								{state.notif.notifType === "icon" && (
-									<p className="font-semibold text-indigo-50">
-											Copied{" "}
-										<span className="font-mono">
-											{state.notif.notifInfo.name}
-										</span>{" "}
-											as {!state.form.copyAsReact ? "HTML" : "JSX"}
-									</p>
-								)}
-
+								</div>
+								<div className="px-1 flex flex-row justify-center items-center">
+									<div className="flex flex-row justify-center items-center w-12 h-12 bg-gray-700 bg-opacity-50 rounded-full">
+										{/* <div className="w-8 h-8 bg-gray-800 bg-opacity-50 rounded-full" /> */}
+									</div>
+								</div>
+								<div className="px-1 flex flex-row justify-center items-center">
+									<div className="flex flex-row justify-center items-center w-12 h-12 bg-gray-700 bg-opacity-50 rounded-full">
+										{/* <div className="w-8 h-8 bg-gray-800 bg-opacity-50 rounded-full" /> */}
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-			</Transition>
 
+						</div>
+					</Apply>
+
+				</div>
+
+				<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
+
+					{state.results.length > 0 && (
+						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 divide-x divide-y divide-gray-700">
+							{state.results.map((each, x) => (
+								<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
+									<div className="absolute inset-0">
+										<MemoIcon
+											state={state}
+											dispatch={dispatch}
+											icon={each}
+										/>
+									</div>
+								</div>
+							))}
+						</div>
+					)}
+
+				</DocumentTitle>
+
+			</div>
 		</main>
 	)
 }
 
-// <DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
-// 	{/* FIXME */}
-// 	<main /* style={{ height: "20rem", minHeight: "20rem" }} */>
+// {/* Notification */}
+// <Transition
+// 	on={state.notif.showKey}
+// 	className="transition duration-200 ease-in-out"
+// 	from="opacity-0 transform translate-y-4 pointer-events-none"
+// 	to="opacity-100 transform translate-y-0 pointer-events-auto"
+// >
+// 	<div className="p-3 fixed bottom-0 left-0 z-40">
+// 		<div className="rounded-md shadow-lg">
+// 			<div className="rounded-md shadow-lg">
+// 				<div className="px-3 py-2 flex flex-row bg-indigo-500 rounded-md">
 //
-// 		{/* {state.results.length > 0 && ( */}
-// 		{/* 	<div className="rounded-6 shadow-lg"> */}
-// 		{/* 		<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-0.5 rounded-6 shadow-lg overflow-hidden"> */}
-// 		{/* 			{state.results.map((each, x) => ( */}
-// 		{/* 				<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}> */}
-// 		{/* 					<div className="absolute inset-0"> */}
-// 		{/* 						<MemoIcon */}
-// 		{/* 							state={state} */}
-// 		{/* 							dispatch={dispatch} */}
-// 		{/* 							icon={each} */}
-// 		{/* 						/> */}
-// 		{/* 					</div> */}
-// 		{/* 				</div> */}
-// 		{/* 			))} */}
-// 		{/* 		</div> */}
-// 		{/* 	</div> */}
-// 		{/* )} */}
+// 					{state.notif.notifInfo && (
+// 						<div className="flex flex-row items-center h-6">
+// 							<SVG className="mr-3 w-5 h-5 text-indigo-50" svg={state.notif.notifInfo.icon} />
+// 						</div>
+// 					)}
 //
-// 	</main>
-// </DocumentTitle>
+// 					{/* Form */}
+// 					{state.notif.notifType.startsWith("form") && (
+// 						<p className="font-semibold text-indigo-50">
+// 							{state.notif.notifType === "form-jsx" && (
+// 								!state.form.copyAsReact
+// 									? "Enabled Copy as HTML"
+// 									: "Enabled Copy as JSX"
+// 							)}
+// 							{state.notif.notifType === "form-alt" && (
+// 								!state.form.showOutline
+// 									? "Switched to Solid Icons"
+// 									: "Switched to Outline Icons"
+// 							)}
+// 						</p>
+// 					)}
+//
+// 					{/* Icon */}
+// 					{state.notif.notifType === "icon" && (
+// 						<p className="font-semibold text-indigo-50">
+// 								Copied{" "}
+// 							<span className="font-mono">
+// 								{state.notif.notifInfo.name}
+// 							</span>{" "}
+// 								as {!state.form.copyAsReact ? "HTML" : "JSX"}
+// 						</p>
+// 					)}
+//
+// 				</div>
+// 			</div>
+// 		</div>
+// 	</div>
+// </Transition>
 
 const LayoutFragment = () => (
 	<>
