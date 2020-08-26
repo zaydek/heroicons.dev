@@ -15,7 +15,7 @@ import useHeroiconsReducer from "reducers/useHeroiconsReducer"
 import BookOpenSVG from "heroicons-0.4.0/solid/BookOpen"
 import ExternalLinkSVG from "heroicons-0.4.0/solid/ExternalLink"
 import FlagSVG from "heroicons-0.4.0/solid/Flag"
-import SearchOutlineIcon from "heroicons-0.4.0/outline/Search"
+import SearchOutlineSVG from "heroicons-0.4.0/outline/Search"
 import SwitchHorizontalSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
 
 const Page = () => {
@@ -488,9 +488,9 @@ const FormSearch = ({ state, dispatch }) => {
 			<form className="relative" onSubmit={e => e.preventDefault()}>
 
 				{/* Search bar LHS */}
-				<div className="px-6 absolute inset-y-0 left-0 hidden xs:block pointer-events-none">
+				<div className="px-6 absolute inset-y-0 left-0 pointer-events-none">
 					<div className="pl-2 flex flex-row items-center h-full">
-						<SearchOutlineIcon className="w-6 h-6 text-white transition duration-200 ease-in-out" />
+						<SearchOutlineSVG className="w-6 h-6 text-gray-400 transition duration-200 ease-in-out" />
 					</div>
 				</div>
 
@@ -501,12 +501,8 @@ const FormSearch = ({ state, dispatch }) => {
 							<Reset className="appearance-none w-full">
 								<input
 									ref={inputRef}
-									className="block w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
-									style={{
-										paddingLeft: tw(6 + 10 + 2 + 10 + 2 + 6),
-										paddingRight: tw(6 + 10 + 2 + 10 + 2 + 6),
-										height: tw(18),
-									}}
+									className="pl-20 pr-36 block w-full h-18 text-xl placeholder-gray-400 text-gray-100 bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
+									style={{ height: tw(18) }}
 									type="text"
 									placeholder="Search Heroicons"
 									value={text}
@@ -694,7 +690,6 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				{icon.statusNew && (
 					<div className="px-3 py-2 absolute top-0 right-0">
 						<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right">
-							{/* NOTE: Uses text-white because of bg-indigo-500. */}
 							<p className="font-bold text-xs leading-none text-indigo-50">
 								<span className="tracking-wider">NE</span>W
 							</p>
@@ -748,7 +743,6 @@ const Icons = ({ state, dispatch }) => (
 			{!state.results.length && (
 				<div className="flex flex-col justify-center items-center h-full">
 
-					{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
 					<p className="flex flex-row items-baseline font-medium text-xl text-center text-gray-200">
 						No results for “
 						{/* <span className="inline-block truncate" style={{ maxWidth: media.xs ? 128 : 256 }}> */}
@@ -758,7 +752,6 @@ const Icons = ({ state, dispatch }) => (
 						</span>”
 					</p>
 
-					{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
 					<p className="font-medium text-xl text-center text-gray-200">
 						Try again or{" "}
 						<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" {...target_blank}>
