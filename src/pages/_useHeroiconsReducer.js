@@ -1,4 +1,4 @@
-import dataset from "data/dataset"
+import originalDataset from "data/dataset"
 import React from "react"
 import { useImmerReducer } from "use-immer"
 
@@ -9,6 +9,8 @@ import SwitchHorizontalSolidSVG from "heroicons-82f6a4d/react/solid/SwitchHorizo
 function shortHash() {
 	return Math.random().toString(16).slice(2, 6)
 }
+
+const dataset = originalDataset
 
 const initialState = {
 	form: {
@@ -48,8 +50,11 @@ const actions = state => ({
 			return
 		}
 		state.results = dataset.filter(each => {
-			each.searchIndex = each.name.indexOf(state.form.search.safe)
-			return each.searchIndex >= 0
+			// each.searchIndex = each.name.indexOf(state.form.search.safe)
+			// return each.searchIndex >= 0
+
+			// FIXME
+			return true
 		})
 		state.results.sort((a, b) => {
 			return a.searchIndex - b.searchIndex

@@ -774,7 +774,9 @@ const Icons = ({ state, dispatch }) => {
             {/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
             <p className="flex flex-row items-baseline font-medium text-xl text-center text-gray-200">
               No results for “
-              <span className="inline-block truncate" style={{ maxWidth: media.xs ? 128 : 256 }}>
+              {/* <span className="inline-block truncate" style={{ maxWidth: media.xs ? 128 : 256 }}> */}
+							{/* FIXME */}
+              <span className="inline-block truncate" style={{ maxWidth: 256 }}>
                 {state.form.search.user}.
               </span>”
             </p>
