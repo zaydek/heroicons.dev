@@ -1,10 +1,10 @@
 // import CarbonAds from "./CarbonAds"
-// import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 import Apply from "lib/x/Apply"
 import copyToClipboardPolyfill from "utils/copyToClipboardPolyfill"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import DocumentTitle from "lib/x/DocumentTitle"
 import ExtLinksFragment from "components/ExtLinksFragment"
+import Reset from "lib/x/Reset"
 import SVG from "components/SVG"
 import svgToJSX from "utils/svgToJSX"
 import target_blank from "lib/x/target_blank"
@@ -18,38 +18,12 @@ import FlagSVG from "heroicons-0.4.0/solid/Flag"
 import SearchOutlineIcon from "heroicons-0.4.0/outline/Search"
 import SwitchHorizontalSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
 
-// import { ReactComponent as FigmaSVG } from "svg/figma.svg"
-// import { ReactComponent as GitHubSVG } from "svg/github.svg"
-
-// import "./custom.css"
-
-const BreakpointContext = React.createContext()
-
-const screens = {
-	// DEPRECATE
-	xs: `${16 + 512 + 16}px`,
-	// => @media (min-width: 540px) { ... }
-
-	sm: `${16 + 640 + 16}px`,
-	// => @media (min-width: 672px) { ... }
-
-	md: `${16 + 768 + 16}px`,
-	// => @media (min-width: 752px) { ... }
-
-	lg: `${16 + 1024 + 16}px`,
-	// => @media (min-width: 1008px) { ... }
-
-	xl: `${16 + 1280 + 16}px`,
-	// => @media (min-width: 1264px) { ... }
-}
-
 const Page = () => {
 	const [state, dispatch] = useHeroiconsReducer()
-	// const media = useLayoutBreakpoints(screens)
 	//
 	const carbonAdsRef = React.useRef()
 	// const [showCarbonAds, setShowCarbonAds] = React.useState(false)
-	// // const [delayedShowCarbonAds, setDelayedShowCarbonAds] = React.useState(false)
+	// const [delayedShowCarbonAds, setDelayedShowCarbonAds] = React.useState(false)
 	//
 	//   // React.useEffect(() => {
 	//   //  if (showCarbonAds) {
@@ -99,7 +73,6 @@ const Page = () => {
 	//
 
 	return (
-		// <BreakpointContext.Provider value={media}>
 		<div className="pt-16 lg:pt-24 flex flex-row justify-center">
 			<div className="px-4 w-full max-w-screen-lg">
 
@@ -158,7 +131,7 @@ const Page = () => {
 
 					{/* Header */}
 					<div className="relative flex flex-row items-center">
-						<h1 className="font-bold text-5xl text-gray-100" style={{ letterSpacing: "-0.0125em" }}>
+						<h1 className="font-medium text-5xl text-gray-100" style={{ letterSpacing: "-0.0125em" }}>
 								Heroicons
 						</h1>
 						<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}>
@@ -408,15 +381,23 @@ const Page = () => {
 
 			</div>
 		</div>
-		// </BreakpointContext.Provider>
 	)
 }
 
+// <... autoFocus /> does not work; use useAutoFocusOnMount.
+function useAutoFocusOnMount(ref) {
+	React.useEffect(() => {
+		ref.current.focus()
+	}, [])
+}
+
+// TODO: Autofocus is broken?
 const FormSearch = ({ state, dispatch }) => {
 	const inputRef = React.useRef()
 
-	// const media = React.useContext(BreakpointContext)
+	useAutoFocusOnMount(inputRef)
 
+	// FXIME
 	const [text, setText] = React.useState(() => {
 		// if (!("URLSearchParams" in window)) {
 		// 	return ""
@@ -460,6 +441,7 @@ const FormSearch = ({ state, dispatch }) => {
 	//
 	// https://stackoverflow.com/a/41542008
 	React.useEffect(() => {
+		// FIXME
 		if (!("URLSearchParams" in window)) {
 			// No-op
 			return
@@ -473,7 +455,7 @@ const FormSearch = ({ state, dispatch }) => {
 		}
 	}, [text])
 
-	// <esc> shortcuts.
+	// <Esc> shortcuts.
 	React.useEffect(() => {
 		const handler = e => {
 			if (e.keyCode === 27 || e.key === "Escape") {
@@ -509,7 +491,7 @@ const FormSearch = ({ state, dispatch }) => {
 				{/* Search bar LHS */}
 				<div className="px-6 absolute inset-y-0 left-0 hidden xs:block pointer-events-none">
 					<div className="pl-2 flex flex-row items-center h-full">
-						<SearchOutlineIcon className="w-6 h-6 text-gray-400 transition duration-200 ease-in-out" />
+						<SearchOutlineIcon className="w-6 h-6 text-white transition duration-200 ease-in-out" />
 					</div>
 				</div>
 
@@ -517,27 +499,23 @@ const FormSearch = ({ state, dispatch }) => {
 				<div className="rounded-75 shadow-lg">
 					<div className="rounded-75 shadow-lg">
 						<label>
-							<input
-								ref={inputRef}
-								className="block w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
-								style={{
-									appearance: "none",
-
-									// FIXME
-									// paddingLeft: media.xs ? tw(2 + 6) : tw(6 + 2 + 6 + 6),
-									paddingRight: tw(6 + 10 + 2 + 10 + 2 + 6),
-									height: tw(18),
-								}}
-								type="text"
-								// placeholder={media.sm ? "Search Icons" : "Search 224 Icons"}
-								// FIXME
-								placeholder="Search Icons"
-								value={text}
-								onChange={e => setText(e.target.value)}
-								aria-label="Search 224 Icons"
-								autoFocus
-								{...disableAutoCorrect}
-							/>
+							<Reset className="appearance-none w-full">
+								<input
+									ref={inputRef}
+									className="block w-full text-xl placeholder-gray-400 text-gray-100 bg-gray-800 rounded-75 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
+									style={{
+										paddingLeft: tw(6 + 10 + 2 + 10 + 2 + 6),
+										paddingRight: tw(6 + 10 + 2 + 10 + 2 + 6),
+										height: tw(18),
+									}}
+									type="text"
+									placeholder="Search Heroicons"
+									value={text}
+									onChange={e => setText(e.target.value)}
+									aria-label="Search 224 Icons"
+									{...disableAutoCorrect}
+								/>
+							</Reset>
 						</label>
 					</div>
 				</div>
@@ -763,67 +741,54 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	return ok
 })
 
-const Icons = ({ state, dispatch }) => {
-	const media = React.useContext(BreakpointContext)
+const Icons = ({ state, dispatch }) => (
+	<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
+		{/* FIXME */}
+		<main style={{ height: "20rem", minHeight: "20rem" }}>
 
-	// FIXME
-	const [height, minHeight] = React.useMemo(() => "20rem", [])
+			{!state.results.length && (
+				<div className="flex flex-col justify-center items-center h-full">
 
-	// const [height, minHeight] = React.useMemo(() => {
-	//   const clientHeight = media.lg ? `calc(100vh - ${tw(4 + 18 + 4 + 24 + 13 /* 52px */ + 24)})` : `calc(100vh - ${tw(4 + 18 + 4 + 24 + 6 /* 24px */ + 8)})`
-	//   const height = !state.results.length && clientHeight
-	//   const minHeight = !(!state.results.length) && clientHeight
-	//   return [height, minHeight]
-	// }, [media.lg, state.results])
+					{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
+					<p className="flex flex-row items-baseline font-medium text-xl text-center text-gray-200">
+						No results for “
+						{/* <span className="inline-block truncate" style={{ maxWidth: media.xs ? 128 : 256 }}> */}
+						{/* FIXME */}
+						<span className="inline-block truncate" style={{ maxWidth: 256 }}>
+							{state.form.search.user}.
+						</span>”
+					</p>
 
-	return (
-		<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
-			<main style={{ height, minHeight }}>
+					{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
+					<p className="font-medium text-xl text-center text-gray-200">
+						Try again or{" "}
+						<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" {...target_blank}>
+							request an icon
+						</a>
+						.
+					</p>
 
-				{!state.results.length && (
-					<div className="flex flex-col justify-center items-center h-full">
+				</div>
+			)}
 
-						{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
-						<p className="flex flex-row items-baseline font-medium text-xl text-center text-gray-200">
-							No results for “
-							{/* <span className="inline-block truncate" style={{ maxWidth: media.xs ? 128 : 256 }}> */}
-							{/* FIXME */}
-							<span className="inline-block truncate" style={{ maxWidth: 256 }}>
-								{state.form.search.user}.
-							</span>”
-						</p>
-
-						{/* NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
-						<p className="font-medium text-xl text-center text-gray-200">
-							Try again or{" "}
-							<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" {...target_blank}>
-								request an icon
-							</a>
-							.
-						</p>
-
-					</div>
-				)}
-
-				{state.results.length > 0 && (
-					<div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
-						{state.results.map(each => (
-							<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
-								<div className="absolute inset-0">
-									<MemoIcon
-										state={state}
-										dispatch={dispatch}
-										icon={each}
-									/>
-								</div>
+			{state.results.length > 0 && (
+				<div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
+					{state.results.map(each => (
+						<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
+							<div className="absolute inset-0">
+								<MemoIcon
+									state={state}
+									dispatch={dispatch}
+									icon={each}
+								/>
 							</div>
-						))}
-					</div>
-				)}
+						</div>
+					))}
+				</div>
+			)}
 
-			</main>
-		</DocumentTitle>
-	)
-}
+		</main>
+	</DocumentTitle>
+)
 
 export default Page
