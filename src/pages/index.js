@@ -131,8 +131,8 @@ const Page = () => {
 
 					{/* Header */}
 					<div className="relative flex flex-row items-center">
-						<h1 className="font-medium text-5xl text-gray-100" style={{ letterSpacing: "-0.0125em" }}>
-								Heroicons
+						<h1 className="text-5xl text-gray-100" style={{ fontWeight: 700, fontFamily: "'DM Sans'", letterSpacing: "-0.0375em" }}>
+							heroicons
 						</h1>
 						<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}>
 							<FlagSVG className="w-12 h-12 text-indigo-500" />
