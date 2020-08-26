@@ -20,50 +20,43 @@ import SearchOutlineSVG from "heroicons-0.4.0/outline/Search"
 import SwitchHorizontalSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
 
 const Header = () => (
-	<header className="pt-24 flex flex-row justify-center">
-		<div className="w-full max-w-screen-xl">
+	<header className="flex flex-col items-center">
 
-			<div className="flex flex-col items-center">
-
-				{/* Header */}
-				<div className="relative flex flex-row items-center">
-					<h1
-						className="text-gray-100"
-						style={{
-							fontWeight: 700,
-							fontSize: tw(12),
-							fontFamily: "'DM Sans', var(--sans)",
-							letterSpacing: "-0.025em",
-						}}
-					>
-						heroicons
-					</h1>
-					<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}>
-						<FlagSVG className="w-12 h-12 text-indigo-500" />
-					</div>
-				</div>
-
-				{/* Subheader */}
-				<h2 className="flex flex-row justify-center items-center flex-wrap text-center font-medium text-xl sm:text-2xl text-gray-100">
-					<BookOpenSVG className="mr-2 hidden sm:block w-8 h-8" />
-						MIT open source icons by{" "}
-					<span style={{ width: "0.25em" }} />
-					<a
-						className="inline-flex flex-row items-center underline"
-						style={{ textDecorationColor: "var(--indigo-500)" }}
-						href="https://twitter.com/steveschoger"
-						{...target_blank}
-					>
-						{/* @steveschoger */}
-							Steve Schoger{" "}
-						<span style={{ width: "0.25em" }} />
-						<ExternalLinkSVG className="-mb-1 w-5 h-5 text-indigo-400" />
-					</a>
-				</h2>
-
+		{/* Header */}
+		<div className="relative flex flex-row items-center">
+			<h1
+				className="text-gray-100"
+				style={{
+					fontWeight: 700,
+					fontSize: tw(12),
+					fontFamily: "'DM Sans', var(--sans)",
+					letterSpacing: "-0.025em",
+				}}
+			>
+				heroicons
+			</h1>
+			<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}>
+				<FlagSVG className="w-12 h-12 text-indigo-500" />
 			</div>
-
 		</div>
+
+		{/* Subheader */}
+		<h2 className="flex flex-row justify-center items-center flex-wrap text-center font-medium text-xl sm:text-2xl text-gray-100">
+			<BookOpenSVG className="mr-2 hidden sm:block w-8 h-8" />
+				MIT open source icons by{" "}
+			<span style={{ width: "0.25em" }} />
+			<a
+				className="inline-flex flex-row items-center underline"
+				style={{ textDecorationColor: "var(--indigo-500)" }}
+				href="https://twitter.com/steveschoger"
+				{...target_blank}
+			>
+				{/* @steveschoger */}
+					Steve Schoger{" "}
+				<span style={{ width: "0.25em" }} />
+				<ExternalLinkSVG className="-mb-1 w-5 h-5 text-indigo-400" />
+			</a>
+		</h2>
 
 	</header>
 )
@@ -636,13 +629,15 @@ const Main = () => {
 const LayoutFragment = () => (
 	<>
 
-		<section className="pt-24 flex flex-row justify-center">
+		<div className="h-24" />
+		<section className="flex flex-row justify-center">
 			<div className="w-full max-w-screen-lg">
 				<Header />
 			</div>
 		</section>
 
-		<section className="pt-24 flex flex-row justify-center">
+		<div className="h-16" />
+		<section className="flex flex-row justify-center">
 			<div className="w-full max-w-screen-lg">
 				<Main />
 			</div>
