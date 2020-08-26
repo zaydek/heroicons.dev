@@ -1,5 +1,5 @@
-import * as Outline from "heroicons-82f6a4d/react/outline"
-import * as Solid from "heroicons-82f6a4d/react/solid"
+import * as Outline from "heroicons-0.4.0/outline"
+import * as Solid from "heroicons-0.4.0/solid"
 
 const dataset = [
 	{
