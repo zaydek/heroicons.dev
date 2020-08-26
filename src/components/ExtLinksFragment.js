@@ -1,7 +1,6 @@
-import ExternalLinkSVG from "heroicons-82f6a4d/react/solid/ExternalLink"
-import React from "react"
+import Apply from "lib/x/Apply"
+import ExternalLinkSVG from "heroicons-0.4.0/solid/ExternalLink"
 import target_blank from "lib/x/target_blank"
-import { ReactComponent as TwitterSVG } from "svg/twitter.svg"
 
 const ExtLinksFragment = () => (
 	<>
@@ -9,7 +8,11 @@ const ExtLinksFragment = () => (
 		{/* Twitter (1) */}
 		<a className="block" href="https://twitter.com/intent/tweet?text=Thanks%20@steveschoger%20for%20Heroicons%20and%20@username_ZAYDEK%20for%20heroicons.dev!&url=https://heroicons.dev" {...target_blank}>
 			<p className="flex flex-row items-center font-medium text-gray-200">
-				<TwitterSVG className="mr-2 w-5 h-5" style={{ color: "#1da1f2" }} />
+				<Apply className="mr-2 w-5 h-5" style={{ color: "#1da1f2" }}>
+					<svg viewBox="0 0 24 24" fill="currentColor">
+						<path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z" />
+					</svg>
+				</Apply>
 				Tweet thank you on Twitter!
 				<ExternalLinkSVG className="ml-1 w-4 h-4 text-indigo-400" />
 			</p>
@@ -30,14 +33,5 @@ const ExtLinksFragment = () => (
 
 	</>
 )
-
-// {/* Twitter (2) */}
-// <a className="block" href="https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev" {...target_blank}>
-// 	<p className="flex flex-row items-center font-medium text-gray-200">
-// 		<TwitterSVG className="mr-2 w-5 h-5" style={{ color: "#1da1f2" }} />
-// 		Follow username_ZAYDEK on Twitter
-// 		<ExternalLinkSVG className="ml-1 w-4 h-4 text-indigo-400" />
-// 	</p>
-// </a>
 
 export default ExtLinksFragment

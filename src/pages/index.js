@@ -1,10 +1,10 @@
 // import CarbonAds from "./CarbonAds"
-// import ExtLinksFragment from "./ExtLinksFragment"
 // import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 import Apply from "lib/x/Apply"
 import copyToClipboardPolyfill from "utils/copyToClipboardPolyfill"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import DocumentTitle from "lib/x/DocumentTitle"
+import ExtLinksFragment from "components/ExtLinksFragment"
 import SVG from "components/SVG"
 import svgToJSX from "utils/svgToJSX"
 import target_blank from "lib/x/target_blank"
@@ -104,7 +104,7 @@ const Page = () => {
 			<div className="px-4 w-full max-w-screen-lg">
 
 				<nav className="p-4 space-y-2 absolute top-0 left-0 hidden lg:block">
-					{/* <ExtLinksFragment /> */}
+					<ExtLinksFragment />
 				</nav>
 
 				{/* Carbon Ads (alt) */}
@@ -400,11 +400,11 @@ const Page = () => {
 					</div>
 				</Transition>
 
-				{/* <div className="h-24" /> */}
-				{/* <footer className="space-x-0 lg:space-x-6 space-y-1 lg:space-y-0 flex flex-col lg:flex-row items-center lg:justify-center"> */}
-				{/* 	<ExtLinksFragment /> */}
-				{/* </footer> */}
-				{/* <div className="h-24 lg:h-8" /> */}
+				<div className="h-24" />
+				<footer className="space-x-0 lg:space-x-6 space-y-1 lg:space-y-0 flex flex-col lg:flex-row items-center lg:justify-center">
+					<ExtLinksFragment />
+				</footer>
+				<div className="h-24 lg:h-8" />
 
 			</div>
 		</div>
