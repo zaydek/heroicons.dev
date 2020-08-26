@@ -469,10 +469,10 @@ const Main = () => {
 		<main className="rounded-6 shadow-lg">
 			<div className="bg-gray-800 rounded-6 shadow-lg">
 
-				<div className="sticky top-0 z-10" style={{ top: tw(4), boxShadow: `0 -${tw(4)} 0 ${tw(4)} var(--black)` }}>
+				<div className="sticky top-0 z-10" style={{ top: tw(4), boxShadow: `0 -${tw(4)} 0 ${tw(4)} var(--black), inset 0 0 0 9999px var(--black)` }}>
 
 					<Apply className="transition duration-200 ease-in-out">
-						<div className="flex flex-row justify-between h-24 !bg-gray-100 border-b border-gray-700 rounded-t-6 shadow-lg">
+						<div className="flex flex-row justify-between h-24 bg-gray-800 border-b border-gray-700 rounded-t-6">
 
 							{/* LHS */}
 							<div className="px-8 absolute left-0 inset-y-0 flex flex-row justify-center items-center">
