@@ -76,35 +76,43 @@ const FooterLHS = () => (
 
 		<div className="h-8" />
 		<p className="leading-relaxed text-gray-300">
-			<span className="inline-flex flex-row items-center">
-				Icons designed by{" "}
-				<span style={{ width: "0.5ch" }} />
-				<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}>
-					@steveschoger
-				</a>{" "}
-				<span style={{ width: "1ch" }} />
-				<Apply className="transform scale-125">
-					<span aria-label="man artist" role="img">
-						👨‍🎨
-					</span>
-				</Apply>
-			</span>
+			{/* <span className="inline-flex flex-row items-center"> */}
+			{/* 	Icons designed by{" "} */}
+			{/* 	<span style={{ width: "0.5ch" }} /> */}
+			{/* 	<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}> */}
+			{/* 		@steveschoger */}
+			{/* 	</a>{" "} */}
+			{/* 	<span style={{ width: "1ch" }} /> */}
+			{/* 	<Apply className="transform scale-125"> */}
+			{/* 		<span aria-label="man artist" role="img"> */}
+			{/* 			👨‍🎨 */}
+			{/* 		</span> */}
+			{/* 	</Apply> */}
+			{/* </span> */}
+			Icons designed by{" "}
+			<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}>
+				@steveschoger
+			</a>
 		</p>
 
 		<p className="leading-relaxed text-gray-300">
-			<span className="inline-flex flex-row items-center">
-				Website designed and maintained by{" "}
-				<span style={{ width: "0.5ch" }} />
-				<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}>
-					@username_ZAYDEK
-				</a>{" "}
-				<span style={{ width: "1ch" }} />
-				<Apply className="transform scale-125">
-					<span aria-label="man technologist" role="img">
-						👨‍💻
-					</span>
-				</Apply>
-			</span>
+			{/* <span className="inline-flex flex-row items-center"> */}
+			{/* 	Website designed and maintained by{" "} */}
+			{/* 	<span style={{ width: "0.5ch" }} /> */}
+			{/* 	<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}> */}
+			{/* 		@username_ZAYDEK */}
+			{/* 	</a>{" "} */}
+			{/* 	<span style={{ width: "1ch" }} /> */}
+			{/* 	<Apply className="transform scale-125"> */}
+			{/* 		<span aria-label="man technologist" role="img"> */}
+			{/* 			👨‍💻 */}
+			{/* 		</span> */}
+			{/* 	</Apply> */}
+			{/* </span> */}
+			Website designed and maintained by{" "}
+			<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}>
+				@username_ZAYDEK
+			</a>{" "}
 		</p>
 
 	</nav>
@@ -181,8 +189,8 @@ const FooterRHS = () => (
 )
 
 const Footer = () => (
-	<footer className="py-12 flex flex-row justify-center border-t border-gray-800">
-		<div className="px-6 flex flex-row justify-between items-end w-full max-w-screen-lg">
+	<footer className="py-16 flex flex-row justify-center border-t-4 border-gray-900">
+		<div className="px-6 flex flex-row justify-between items-end w-full max-w-screen-xl">
 			<FooterLHS />
 			<FooterRHS />
 		</div>

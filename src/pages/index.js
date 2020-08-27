@@ -67,13 +67,7 @@ function useAutoFocusOnMount(ref) {
 	}, [])
 }
 
-const MemoIcon = React.memo(({
-	// // NOTE: Accepts a style prop for conditional border-radius.
-	// style,
-	state,
-	dispatch,
-	icon,
-}) => {
+const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	const buttonRef = React.useRef()
 
 	const handleClick = e => {
@@ -131,31 +125,31 @@ const MemoIcon = React.memo(({
 		<button
 			ref={buttonRef}
 			className="flex flex-row justify-center items-center w-full h-full bg-transparent hover:bg-gray-700 hover:bg-opacity-25 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out select-text"
-			// style={style}
+			style={{ boxShadow: "0 0 0 1px var(--gray-800)" }}
 			onClick={handleClick}
 			aria-label={icon.name}
 		>
 
 			{/* New */}
 			{icon.statusNew && (
-				<div className="px-3 py-2 absolute top-0 right-0">
-					{/* <div className="px-1.5 py-1 bg-yellow-300 rounded-full transform scale-90 origin-top-right"> */}
-						<p className="font-semibold leading-none text-yellow-300" style={{ fontSize: "0.6875rem" }}>
+				<div className="p-3 absolute top-0 right-0">
+					<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right">
+						<p className="font-semibold leading-none text-gray-100" style={{ fontSize: "0.6875rem" }}>
 							<span className="tracking-wider">NE</span>W
 						</p>
-					{/* </div> */}
+					</div>
 				</div>
 			)}
 
 			{/* Icon */}
 			<SVG
 				id={icon.name}
-				className="w-8 h-8 text-gray-100"
+				className="w-10 h-10 text-gray-100"
 				svg={icon[!state.form.showOutline ? "solid" : "outline"]}
 			/>
 
 			{/* Icon name */}
-			<div className="px-3 py-2 absolute bottom-0">
+			<div className="p-3 absolute bottom-0">
 				<p className="text-center text-sm tracking-wide leading-tight text-gray-200">
 					{!state.form.search.safe || state.form.search.safe === "new" ? (
 						icon.name
@@ -297,7 +291,7 @@ const MemoIcon = React.memo(({
 // 							<Reset className="appearance-none w-full">
 // 								<input
 // 									ref={inputRef}
-// 									className="pl-20 pr-36 block w-full h-18 text-xl placeholder-gray-400 text-gray-100 bg-gray-800 rounded-6 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
+// 									className="pl-20 pr-36 block w-full h-18 text-xl placeholder-gray-400 text-gray-100 bg-gray-900 rounded-6 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
 // 									style={{ height: tw(18) }}
 // 									type="text"
 // 									placeholder="Search Heroicons"
@@ -446,7 +440,7 @@ const MemoIcon = React.memo(({
 // )}
 
 // <div className="w-4" />
-// <div className="w-96 bg-gray-800 rounded-6">
+// <div className="w-96 bg-gray-900 rounded-6">
 const Main = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 
@@ -466,70 +460,68 @@ const Main = () => {
 
 	return (
 		// TODO: -mx-4?
-		<main className="rounded-6 shadow-lg">
-			<div className="bg-gray-800 rounded-6 shadow-lg">
+		<main className="flex flex-row items-start">
 
-				<div className="sticky top-0 z-10" style={{ top: tw(4), boxShadow: `0 -${tw(4)} 0 ${tw(4)} var(--black), inset 0 0 0 9999px var(--black)` }}>
+			<div className="flex-1">
+				<div className="bg-gray-900 rounded-6 !overflow-hidden" style={{ boxShadow: "0 0 0 2px var(--gray-800)" }}>
 
-					<Apply className="transition duration-200 ease-in-out">
-						<div className="flex flex-row justify-between h-24 bg-gray-800 border-b border-gray-700 rounded-t-6">
+					{/* 0 -2px 0 0 var(--gray-800), -1.33px -1.33px 0 0 var(--gray-800), -2px 0 0 0 var(--gray-800), 1.33px -1.33px 0 0 var(--gray-800), 2px 0 0 0 var(--gray-800) */}
+					<div className="-mb-6 sticky h-6 rounded-t-6 z-10" style={{ top: tw(4), boxShadow: `0 -${tw(4)} 0 ${tw(4)} var(--black)` }}>
+						<div className="h-full rounded-t-6" style={{ clipPath: "inset(-2px -2px 0 -2px)", boxShadow: "0 0 0 2px var(--gray-800)" }} />
+					</div>
 
-							{/* LHS */}
-							<div className="px-8 absolute left-0 inset-y-0 flex flex-row justify-center items-center">
-								<div className="flex flex-row justify-center items-center w-12 h-12 bg-gray-700 bg-opacity-50 rounded-full">
-									{/* <div className="w-8 h-8 bg-gray-800 bg-opacity-50 rounded-full" /> */}
-								</div>
+					<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
+						{state.results.length > 0 && (
+							<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 overflow-hidden">
+								{state.results.map((each, x) => (
+									<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
+										<div className="absolute inset-0">
+											<MemoIcon
+												state={state}
+												dispatch={dispatch}
+												icon={each}
+											/>
+										</div>
+									</div>
+								))}
 							</div>
+						)}
+					</DocumentTitle>
 
-							{/* <Reset className="w-full bg-transparent focus:outline-none"> */}
-							{/* 	<input className="px-32" type="text" /> */}
-							{/* </Reset> */}
-
-							{/* RHS */}
-							<div className="px-8 absolute right-0 inset-y-0 flex flex-row">
-								<div className="px-1 flex flex-row justify-center items-center">
-									<div className="flex flex-row justify-center items-center w-12 h-12 bg-gray-700 bg-opacity-50 rounded-full">
-										{/* <div className="w-8 h-8 bg-gray-800 bg-opacity-50 rounded-full" /> */}
-									</div>
-								</div>
-								<div className="px-1 flex flex-row justify-center items-center">
-									<div className="flex flex-row justify-center items-center w-12 h-12 bg-gray-700 bg-opacity-50 rounded-full">
-										{/* <div className="w-8 h-8 bg-gray-800 bg-opacity-50 rounded-full" /> */}
-									</div>
-								</div>
-								<div className="px-1 flex flex-row justify-center items-center">
-									<div className="flex flex-row justify-center items-center w-12 h-12 bg-gray-700 bg-opacity-50 rounded-full">
-										{/* <div className="w-8 h-8 bg-gray-800 bg-opacity-50 rounded-full" /> */}
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</Apply>
+					<div className="-mt-6 sticky h-6 rounded-b-6 z-10" style={{ bottom: tw(4), boxShadow: `0 ${tw(4)} 0 ${tw(4)} var(--black)` }}>
+						<div className="h-full rounded-b-6" style={{ clipPath: "inset(0 -2px -2px -2px)", boxShadow: "0 0 0 2px var(--gray-800)" }} />
+					</div>
 
 				</div>
-
-				<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
-
-					{state.results.length > 0 && (
-						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 divide-x divide-y divide-gray-700">
-							{state.results.map((each, x) => (
-								<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
-									<div className="absolute inset-0">
-										<MemoIcon
-											state={state}
-											dispatch={dispatch}
-											icon={each}
-										/>
-									</div>
-								</div>
-							))}
-						</div>
-					)}
-
-				</DocumentTitle>
-
 			</div>
+
+			<div className="w-8" />
+			<aside className="sticky" style={{ top: tw(4) }}>
+				<div className="rounded-6 shadow-lg">
+					<div className="w-96 bg-gray-900 border-2 border-gray-800 rounded-6 shadow-lg">
+
+						<div className="h-20 bg-gray-900 border-gray-800 rounded-t-6" style={{ boxShadow: "0 0 0 2px var(--gray-800)" }}>
+							{/* ... */}
+						</div>
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+
+					</div>
+				</div>
+			</aside>
+
 		</main>
 	)
 }
@@ -588,21 +580,21 @@ const Main = () => {
 const LayoutFragment = () => (
 	<>
 
-		<div className="h-24" />
+		<div className="h-32" />
 		<section className="flex flex-row justify-center">
-			<div className="w-full max-w-screen-lg">
+			<div className="w-full max-w-screen-xl" style={{ maxWidth: "!1152px" }}>
 				<Header />
 			</div>
 		</section>
 
-		<div className="h-16" />
+		<div className="h-32" />
 		<section className="flex flex-row justify-center">
-			<div className="w-full max-w-screen-lg">
+			<div className="w-full max-w-screen-xl" style={{ maxWidth: "!1152px" }}>
 				<Main />
 			</div>
 		</section>
 
-		<div className="h-16" />
+		<div className="h-32" />
 		<section>
 			<Footer />
 		</section>
