@@ -183,7 +183,7 @@ const FooterRHS = () => (
 )
 
 const Footer = () => (
-	<footer className="py-16 flex flex-row justify-center">
+	<footer className="flex flex-row justify-center">
 		<div className="px-6 flex flex-row justify-between items-end w-full max-w-screen-xl">
 			<FooterLHS />
 			<FooterRHS />

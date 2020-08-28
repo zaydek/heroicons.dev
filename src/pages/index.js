@@ -18,7 +18,7 @@ import FlagSVG from "heroicons-0.4.0/solid/Flag"
 import SearchOutlineSVG from "heroicons-0.4.0/outline/Search"
 import SwitchHorizontalSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
 
-const HEADER_HGT = 520
+const HEADER_HEIGHT = 520
 
 const Header = () => {
 	React.useEffect(() => {
@@ -28,15 +28,15 @@ const Header = () => {
 			const bg = document.getElementById("bg")
 			const maskTop = document.getElementById("mask-top")
 			const maskBtm = document.getElementById("mask-btm")
-			bg.style.opacity = 1 - (window.scrollY / HEADER_HGT)
+			bg.style.opacity = 1 - (window.scrollY / HEADER_HEIGHT)
 
 			maskTop.style.opacity = 0
-			if (window.scrollY >= HEADER_HGT - 96) {
+			if (window.scrollY >= HEADER_HEIGHT - 96) {
 				maskTop.style.opacity = 1
 			}
 
 			maskBtm.style.opacity = 0
-			if (window.scrollY >= HEADER_HGT - 96) {
+			if (window.scrollY >= HEADER_HEIGHT - 96) {
 				maskBtm.style.opacity = 1
 			}
 		}
@@ -48,7 +48,42 @@ const Header = () => {
 
 	return (
 		<Apply className="relative">
-			<header style={{ height: HEADER_HGT }}>
+			<header style={{ height: HEADER_HEIGHT }}>
+
+				{/* <div className="p-4 absolute top-left"> */}
+				{/* 	<a href="TODO" {...target_blank}> */}
+				{/* 		<p className="no-underline hover:underline text-gray-100"> */}
+				{/* 			<span className="inline-flex flex-row items-center"> */}
+				{/* 				<Apply className="mr-3 w-6 h-6 transform scale-110"> */}
+				{/* 					<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
+				{/* 						<path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z" /> */}
+				{/* 					</svg> */}
+				{/* 				</Apply>{" "} */}
+				{/* 				Share */}
+				{/* 			</span> */}
+				{/* 		</p> */}
+				{/* 	</a> */}
+				{/* </div> */}
+
+				<div className="space-x-4 px-6 py-4 absolute top-left flex flex-row">
+					<a href="TODO" {...target_blank}>
+						<Apply className="w-6 h-6 text-white" style={{ opacity: 0.9375 }}>
+							<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z" />
+							</svg>
+						</Apply>
+					</a>
+					<a href="TODO" {...target_blank}>
+						<Apply className="w-6 h-6 text-white" style={{ opacity: 0.9375 }}>
+							{/* <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
+							{/* 	<path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z" /> */}
+							{/* </svg> */}
+							<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<path d="M23.9981 11.9991C23.9981 5.37216 18.626 0 11.9991 0C5.37216 0 0 5.37216 0 11.9991C0 17.9882 4.38789 22.9522 10.1242 23.8524V15.4676H7.07758V11.9991H10.1242V9.35553C10.1242 6.34826 11.9156 4.68714 14.6564 4.68714C15.9692 4.68714 17.3424 4.92149 17.3424 4.92149V7.87439H15.8294C14.3388 7.87439 13.8739 8.79933 13.8739 9.74824V11.9991H17.2018L16.6698 15.4676H13.8739V23.8524C19.6103 22.9522 23.9981 17.9882 23.9981 11.9991Z" />
+							</svg>
+						</Apply>
+					</a>
+				</div>
 
 				{/* BG */}
 				<div className="absolute inset-0" style={{ zIndex: -1 }}>
@@ -64,11 +99,22 @@ const Header = () => {
 
 				<div className="flex flex-col justify-center items-center h-full">
 
-					<Apply className="-mt-20">
-						<div className="relative">
-							<div className="pl-1 absolute left-full inset-y-0 flex flex-row items-center">
-								<Apply className="w-14 h-14 text-white opacity-50" style={{ marginTop: `${-1 * (2 / 14)}em` }}>
-									<FlagSVG />
+					<Apply className="relative">
+						<div className="-mt-20">
+							<div className="px-1 absolute right-full inset-y-0 flex flex-row items-center">
+								<Apply className="w-14 h-14 text-white opacity-50">
+									{/* <FlagSVG /> */}
+									<svg
+										fill="none"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth={2.5}
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path d="M12 2.94385C14.3567 5.05846 17.4561 6.15176 20.618 5.98385C20.867 6.94785 21 7.95785 21 8.99985C21 14.5918 17.176 19.2898 12 20.6218C6.824 19.2898 3 14.5908 3 8.99985C2.99918 7.9824 3.12754 6.96896 3.382 5.98385C6.5439 6.15176 9.64327 5.05846 12 2.94385Z" />
+									</svg>
 								</Apply>
 							</div>
 							<h1
@@ -85,9 +131,11 @@ const Header = () => {
 					</Apply>
 
 					<div className="h-2" />
-					<h6 className="font-semibold tracking-wider leading-none text-xs text-white opacity-75">
-						UNOFFICIAL HEROICONS VIEWER
-					</h6>
+					<Apply className="transform scale-110">
+						<h6 className="font-semibold tracking-wider leading-none text-xs text-white" style={{ opacity: 0.625 }}>
+							UNOFFICIAL HEROICONS VIEWER
+						</h6>
+					</Apply>
 
 					{/* Subheader */}
 					{/* <h2 className="flex flex-row justify-center items-center flex-wrap text-center font-medium text-xl sm:text-2xl text-cool-gray-100"> */}
@@ -525,15 +573,7 @@ const Main = () => {
 								boxShadow: `0 -${tw(4)} 0 ${tw(4)} var(--black)`,
 								opacity: 0,
 							}}
-						>
-							{/* <div */}
-							{/* 	className="h-full rounded-t-6" */}
-							{/* 	// style={{ */}
-							{/* 	// 	clipPath: "inset(-2px -2px 0 -2px)", */}
-							{/* 	// 	boxShadow: "0 0 0 2px var(--black)", */}
-							{/* 	// }} */}
-							{/* /> */}
-						</div>
+						/>
 
 						<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
 							{state.results.length > 0 && (
@@ -561,15 +601,7 @@ const Main = () => {
 								boxShadow: `0 ${tw(4)} 0 ${tw(4)} var(--black)`,
 								opacity: 0,
 							}}
-						>
-							{/* <div */}
-							{/* 	className="h-full rounded-b-6" */}
-							{/* 	// style={{ */}
-							{/* 	// 	clipPath: "inset(0 -2px -2px -2px)", */}
-							{/* 	// 	boxShadow: "0 0 0 2px var(--black)", */}
-							{/* 	// }} */}
-							{/* /> */}
-						</div>
+						/>
 
 					</div>
 				</div>
@@ -668,10 +700,10 @@ const LayoutFragment = () => (
 		</section>
 
 		<div className="h-24" />
-		<div className="h-2 bg-cool-gray-800" />
 		<section>
 			<Footer />
 		</section>
+		<div className="h-16" />
 
 	</>
 )
