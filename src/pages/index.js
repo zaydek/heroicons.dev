@@ -259,27 +259,27 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				aria-label={icon.name}
 			>
 
-				{/* New */}
-				{/* {icon.statusNew && ( */}
-				{/* 	<div className="p-3 absolute top-0 right-0"> */}
-				{/* 		<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right"> */}
-				{/* 			<p className="font-semibold leading-none text-gray-100" style={{ fontSize: "0.6875rem" }}> */}
-				{/* 				<span className="tracking-wider">NE</span>W */}
-				{/* 			</p> */}
-				{/* 		</div> */}
-				{/* 	</div> */}
-				{/* )} */}
-
 				{/* NEW */}
 				{icon.statusNew && (
 					<div className="p-3 absolute top-0 right-0">
-						<Apply className="transform scale-90 origin-top-right">
-							<h6 className="font-bold text-xs tracking-widest leading-none font-mono text-indigo-600">
+						<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right">
+							<p className="font-semibold text-xs tracking-wider leading-none font-mono text-white">
 								NEW
-							</h6>
-						</Apply>
+							</p>
+						</div>
 					</div>
 				)}
+
+				{/* NEW */}
+				{/* {icon.statusNew && ( */}
+				{/* 	<div className="p-3 absolute top-0 right-0"> */}
+				{/* 		<Apply className="transform scale-90 origin-top-right"> */}
+				{/* 			<h6 className="font-bold text-xs tracking-widest leading-none font-mono text-indigo-600"> */}
+				{/* 				NEW */}
+				{/* 			</h6> */}
+				{/* 		</Apply> */}
+				{/* 	</div> */}
+				{/* )} */}
 
 				{/* Icon */}
 				<SVG
