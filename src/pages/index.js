@@ -26,27 +26,14 @@ const Header = ({ state, dispatch }) => {
 	React.useLayoutEffect(() => {
 		const handleScroll = () => {
 			try {
+				const headerBackground = document.getElementById("header-background")
+				headerBackground.style.opacity = Number(window.scrollY < HEADER_CLIP_HEIGHT / 2)
 
-				const bg = document.getElementById("bg")
-				// const flagLogo = document.getElementById("flag-logo")
-				// const flagLogoOriginalColor = getComputedStyle(flagLogo).color
-				// const flagLogoOriginalOpacity = getComputedStyle(flagLogo).opacity
-				if (window.scrollY < HEADER_CLIP_HEIGHT / 2) {
-					bg.style.opacity = 1
-					// flagLogo.style.color = flagLogoOriginalColor
-					// flagLogo.style.opacity = flagLogoOriginalOpacity
-				} else {
-					bg.style.opacity = 0
-					// flagLogo.style.color = "var(--indigo-500)"
-					// flagLogo.style.opacity = 1
-				}
-
-				const clipTop = document.getElementById("clip-top")
+				const clipTop = document.getElementById("main-clip-top")
 				clipTop.style.opacity = 0
 				if (window.scrollY >= HEADER_CLIP_HEIGHT) {
 					clipTop.style.opacity = 1
 				}
-
 			} catch (error) {
 				console.error(error)
 			}
@@ -111,9 +98,7 @@ const Header = ({ state, dispatch }) => {
 				<div className="absolute inset-0">
 					<Reset className="w-full h-full">
 						<Apply className="transform duration-500 ease-out">
-							<div id="bg" style={{ backgroundColor: "var(--theme)" }} />
-							{/* <div id="bg" style={{ backgroundImage: "radial-gradient(ellipse at bottom, hsl(275, 100%, 37.5%) -25%, hsl(260, 100%, 37.5%) 200%)" }} /> */}
-							{/* <div id="bg" style={{ backgroundImage: "linear-gradient(to top right, hsl(270, 100%, 37.5%), hsl(265, 100%, 37.5%))" }} /> */}
+							<div id="header-background" style={{ backgroundColor: "var(--theme)" }} />
 						</Apply>
 					</Reset>
 					{/* TODO: Move preserveAspectRatio to <Apply>. */}
@@ -591,7 +576,7 @@ const Main = ({ state, dispatch }) => (
 				<div className="bg-cool-gray-700 rounded-8 shadow-lg">
 
 					<div
-						id="clip-top"
+						id="main-clip-top"
 						className="-mb-6 sticky h-6 rounded-t-8 z-10"
 						style={{
 							top: tw(4),
@@ -618,7 +603,7 @@ const Main = ({ state, dispatch }) => (
 					</DocumentTitle>
 
 					<div
-						// id="clip-bottom"
+						id="main-clip-bottom"
 						className="-mt-6 sticky h-6 rounded-b-8 z-10"
 						style={{
 							bottom: tw(4),
@@ -665,6 +650,53 @@ const Main = ({ state, dispatch }) => (
 
 	</div>
 )
+
+const LayoutFragment = () => {
+	const [state, dispatch] = useHeroiconsReducer()
+
+	React.useEffect(
+		React.useCallback(() => {
+			const id = setTimeout(() => {
+				dispatch({
+					type: "HIDE_NOTIFICATION",
+				})
+			}, 2.2e3)
+			return () => {
+				clearTimeout(id)
+			}
+		}, [dispatch]),
+		[state.notif.showKey],
+	)
+
+	return (
+		<>
+
+			<style>{`
+html {
+	--theme: hsl(270deg 100% 37.5%);
+}
+	`}
+			</style>
+
+			<section>
+				<Header state={state} dispatch={dispatch} />
+			</section>
+
+			<section className="-mt-24 px-4 flex flex-row justify-center">
+				<div className="w-full z-10" style={{ maxWidth: 1440 }}>
+					<Main state={state} dispatch={dispatch} />
+				</div>
+			</section>
+
+			<div className="h-24" />
+			<section>
+				<Footer />
+			</section>
+			<div className="h-16" />
+
+		</>
+	)
+}
 
 // {/* Notification */}
 // <Transition
@@ -716,52 +748,5 @@ const Main = ({ state, dispatch }) => (
 // 		</div>
 // 	</div>
 // </Transition>
-
-const LayoutFragment = () => {
-	const [state, dispatch] = useHeroiconsReducer()
-
-	React.useEffect(
-		React.useCallback(() => {
-			const id = setTimeout(() => {
-				dispatch({
-					type: "HIDE_NOTIFICATION",
-				})
-			}, 2.2e3)
-			return () => {
-				clearTimeout(id)
-			}
-		}, [dispatch]),
-		[state.notif.showKey],
-	)
-
-	return (
-		<>
-
-			<style>{`
-html {
-	--theme: hsl(270deg 100% 37.5%);
-}
-	`}
-			</style>
-
-			<section>
-				<Header state={state} dispatch={dispatch} />
-			</section>
-
-			<section className="-mt-24 px-4 flex flex-row justify-center">
-				<div className="w-full z-10" style={{ maxWidth: 1440 }}>
-					<Main state={state} dispatch={dispatch} />
-				</div>
-			</section>
-
-			<div className="h-24" />
-			<section>
-				<Footer />
-			</section>
-			<div className="h-16" />
-
-		</>
-	)
-}
 
 export default LayoutFragment
