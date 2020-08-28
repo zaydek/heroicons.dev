@@ -7,82 +7,79 @@ import FlagSVG from "heroicons-0.4.0/solid/Flag"
 const FooterLHS = () => (
 	<nav>
 
-		<a href="TODO" {...target_blank}>
-			{/* NOTE: Uses tracking-tight not tracking-tighter. */}
-			<h6
-				className="font-medium tracking-tight leading-none text-white"
-				style={{
-					fontSize: tw(10),
-					fontFamily: "'DM Sans', var(--sans)",
-				}}
-			>
-				<span className="inline-flex flex-row items-center">
-					{/* <Apply className="w-10 h-10 text-indigo-500" style={{ marginTop: -3 }}> */}
-					{/* 	<FlagSVG /> */}
-					{/* </Apply> */}
-					<Apply className="-ml-1 w-10 h-10 text-indigo-500">
-						<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-							<path fillRule="evenodd" clipRule="evenodd" d="M2.02345 6.24396C2.06852 5.51956 2.69586 5.00256 3.41667 4.91762C5.41116 4.68257 7.31447 3.9485 8.94977 2.78439C9.57357 2.34032 10.4264 2.34037 11.0501 2.78452C12.686 3.94937 14.5902 4.68381 16.5857 4.91877C17.3054 5.00352 17.9319 5.5192 17.9766 6.24256C17.9922 6.49348 18 6.74639 18 7.00085C18 12.0385 14.8952 16.3511 10.496 18.13C10.1779 18.2586 9.8221 18.2586 9.50401 18.1299C5.10482 16.3501 2 12.0375 2 6.99985C2 6.74589 2.0079 6.49387 2.02345 6.24396Z" />
-						</svg>
-					</Apply>{" "}
-					<span style={{ width: "0.1875ch" }} />
-					Heroicons
+		<h6
+			className="font-medium tracking-tighter leading-none select-none"
+			style={{
+				fontSize: tw(10),
+				fontFamily: "'DM Sans', var(--sans)",
+			}}
+		>
+			{/* TODO */}
+			<span className="inline-flex flex-row items-center">
+				<Apply className="-mb-1 w-8 h-8 text-indigo-500">
+					<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+						<path fillRule="evenodd" clipRule="evenodd" d="M2.02345 6.24396C2.06852 5.51956 2.69586 5.00256 3.41667 4.91762C5.41116 4.68257 7.31447 3.9485 8.94977 2.78439C9.57357 2.34032 10.4264 2.34037 11.0501 2.78452C12.686 3.94937 14.5902 4.68381 16.5857 4.91877C17.3054 5.00352 17.9319 5.5192 17.9766 6.24256C17.9922 6.49348 18 6.74639 18 7.00085C18 12.0385 14.8952 16.3511 10.496 18.13C10.1779 18.2586 9.8221 18.2586 9.50401 18.1299C5.10482 16.3501 2 12.0375 2 6.99985C2 6.74589 2.0079 6.49387 2.02345 6.24396Z" />
+					</svg>
+				</Apply>{" "}
+				<span style={{ width: "0.125ch" }} />
+				<span>
+					<span className="font-bold" style={{ fontSize: "0.75em" }}>
+						H
+					</span>
 				</span>
-			</h6>
-		</a>
+				eroicons
+			</span>
+		</h6>
 
 		<div className="h-2" />
 		<div className="flex flex-row">
 
-			<a href="TODO" {...target_blank}>
-				<p className="text-gray-100 leading-relaxed" style={{ fontSize: tw(4.75) }}>
-					<span className="inline-flex flex-row items-center">
-						<Apply className="-ml-1 w-5 h-5">
-							<svg stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-							</svg>
-						</Apply>{" "}
-						<span style={{ width: "0.5ch" }} />
-						MIT License
-					</span>
-				</p>
-			</a>
+			<p className="text-gray-800">
+				<span className="inline-flex flex-row items-center">
+					<Apply className="w-5 h-5">
+						<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+						</svg>
+					</Apply>{" "}
+					<span style={{ width: "0.5ch" }} />
+					MIT License
+				</span>
+			</p>
 
-			<div className="w-4" />
-			<a href="TODO" {...target_blank}>
-				<p className="text-gray-100 leading-relaxed" style={{ fontSize: tw(4.75) }}>
-					<span className="inline-flex flex-row items-center">
-						<Apply className="-ml-1 w-5 h-5">
-							<svg stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-							</svg>
-						</Apply>{" "}
-						<span style={{ width: "0.5ch" }} />
-						Version 0.4.1
-					</span>
-				</p>
-			</a>
+			<div className="w-3" />
+			<p className="text-gray-800">
+				<span className="inline-flex flex-row items-center">
+					<Apply className="w-5 h-5">
+						<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+						</svg>
+					</Apply>{" "}
+					<span style={{ width: "0.5ch" }} />
+					Version 0.4.1
+				</span>
+			</p>
 
 		</div>
 
-		<p className="text-gray-100 leading-relaxed">
-			<span className="inline-flex flex-row items-center">
-				MIT means you can use the icons commercially and without attribution.{" "}
-				<span style={{ width: "1ch" }} />
-				<Apply className="transform scale-150">
-					<span aria-label="OK hand" role="img">
-						👌
-					</span>
-				</Apply>
-			</span>
+		<p className="text-gray-800">
+			MIT means you can use the icons commercially and without attribution.
+			{/* <span className="inline-flex flex-row items-center"> */}
+			{/* 	MIT means you can use the icons commercially and without attribution.{" "} */}
+			{/* 	<span style={{ width: "1ch" }} /> */}
+			{/* 	<Apply className="transform scale-150"> */}
+			{/* 		<span aria-label="OK hand" role="img"> */}
+			{/* 			👌 */}
+			{/* 		</span> */}
+			{/* 	</Apply> */}
+			{/* </span> */}
 		</p>
 
-		<div className="h-8" />
-		<p className="leading-relaxed text-gray-300">
+		<div className="h-4" />
+		<p className="leading-relaxed text-gray-800">
 			<span className="inline-flex flex-row items-center">
 				Icons designed by{" "}
 				<span style={{ width: "0.5ch" }} />
-				<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}>
+				<a className="font-medium no-underline hover:underline" href="TODO" {...target_blank}>
 					@steveschoger
 				</a>{" "}
 				<span style={{ width: "1ch" }} />
@@ -94,11 +91,11 @@ const FooterLHS = () => (
 			</span>
 		</p>
 
-		<p className="leading-relaxed text-gray-300">
+		<p className="leading-relaxed text-gray-800">
 			<span className="inline-flex flex-row items-center">
 				Website designed and maintained by{" "}
 				<span style={{ width: "0.5ch" }} />
-				<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}>
+				<a className="font-medium no-underline hover:underline" href="TODO" {...target_blank}>
 					@username_ZAYDEK
 				</a>{" "}
 				<span style={{ width: "1ch" }} />
@@ -114,15 +111,10 @@ const FooterLHS = () => (
 )
 
 const FooterRHS = () => (
-	<nav className="-my-2 flex flex-col items-end">
+	<nav className="-my-1.5 flex flex-col items-end">
 
-		<h6 className="font-semibold text-xs tracking-wider text-gray-400">
-			USEFUL LINKS
-		</h6>
-
-		<div className="h-4" />
 		<a href="TODO" {...target_blank}>
-			<p className="py-2 font-medium no-underline hover:underline text-gray-100">
+			<p className="py-1.5 font-medium no-underline hover:underline text-gray-800">
 				<span className="inline-flex flex-row items-center">
 					Share on Twitter!{" "}
 					<Apply className="ml-3 w-6 h-6 transform scale-110" style={{ color: "#1da1f2" }}>
@@ -135,7 +127,7 @@ const FooterRHS = () => (
 		</a>
 
 		<a href="TODO" {...target_blank}>
-			<p className="py-2 font-medium no-underline hover:underline text-gray-100">
+			<p className="py-1.5 font-medium no-underline hover:underline text-gray-800">
 				<span className="inline-flex flex-row items-center">
 					Open in Figma{" "}
 					<Apply className="ml-3 w-6 h-6">
@@ -152,7 +144,7 @@ const FooterRHS = () => (
 		</a>
 
 		<a href="TODO" {...target_blank}>
-			<p className="py-2 font-medium no-underline hover:underline text-gray-100">
+			<p className="py-1.5 font-medium no-underline hover:underline text-gray-800">
 				<span className="inline-flex flex-row items-center">
 					Open in GitHub{" "}
 					<Apply className="ml-3 w-6 h-6">
@@ -165,7 +157,7 @@ const FooterRHS = () => (
 		</a>
 
 		<a href="TODO" {...target_blank}>
-			<p className="py-2 font-medium no-underline hover:underline text-gray-100">
+			<p className="py-1.5 font-medium no-underline hover:underline text-gray-800">
 				<span className="inline-flex flex-row items-center">
 					Contribute on GitHub{" "}
 					<Apply className="ml-3 w-6 h-6">

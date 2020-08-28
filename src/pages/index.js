@@ -138,7 +138,7 @@ const Header = ({ state, dispatch }) => {
 									</Apply>
 								</div>
 								<h1
-									className="font-medium tracking-tighter leading-none text-white"
+									className="font-medium tracking-tighter leading-none text-white select-none"
 									style={{
 										fontSize: tw(14),
 										fontFamily: "'DM Sans', var(--sans)",
@@ -150,7 +150,7 @@ const Header = ({ state, dispatch }) => {
 									</span>
 									eroicons
 								</h1>
-								<div className="-m-1 absolute left-full top-0">
+								<div className="-mt-1 absolute left-full top-0">
 									<Apply className="w-8 h-8 text-white transform scale-90">
 										<SunSVG />
 									</Apply>
@@ -683,12 +683,13 @@ html {
 					<Main state={state} dispatch={dispatch} />
 				</div>
 			</section>
-
 			<div className="h-24" />
-			<section>
-				<Footer />
-			</section>
-			<div className="h-16" />
+
+			{/* <div className="h-24" /> */}
+			{/* <section> */}
+			{/* 	<Footer /> */}
+			{/* </section> */}
+			{/* <div className="h-16" /> */}
 
 		</>
 	)
