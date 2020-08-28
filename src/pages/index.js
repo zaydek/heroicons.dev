@@ -16,7 +16,9 @@ import BookOpenSVG from "heroicons-0.4.0/solid/BookOpen"
 import CursorClickSVG from "heroicons-0.4.0/solid/CursorClick"
 import ExternalLinkSVG from "heroicons-0.4.0/solid/ExternalLink"
 import FlagSVG from "heroicons-0.4.0/solid/Flag"
+
 import SearchOutlineSVG from "heroicons-0.4.0/outline/Search"
+import SunSVG from "heroicons-0.4.0/outline/Sun"
 import SwitchHorizontalSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
 
 const HEADER_HEIGHT = 560
@@ -114,7 +116,7 @@ const Header = ({ state, dispatch }) => {
 				<div className="flex flex-row justify-center items-center h-full">
 					<div className="flex flex-col justify-center h-full">
 
-						<Apply className="relative transform">
+						<Apply className="relative">
 							<div className="-mt-64">
 								<div className="px-1 absolute right-full inset-y-0 flex flex-row items-center">
 									{/* TODO: radial-gradient */}
@@ -148,17 +150,11 @@ const Header = ({ state, dispatch }) => {
 									</span>
 									eroicons
 								</h1>
-								{/* <div className="py-4 absolute top-full inset-x-0 flex flex-row justify-center"> */}
-								{/* 	<h6 className="font-semibold tracking-wider leading-none text-sm text-white" style={{ opacity: 0.625 }}> */}
-								{/* 		<span className="inline-flex flex-row items-center"> */}
-								{/* 			ONE-CLICK COPY-PASTE{" "} */}
-								{/* 			<span style={{ width: "1ch" }} /> */}
-								{/* 			<Apply className="-mt-1 w-4 h-4 transform scale-125"> */}
-								{/* 				<CursorClickSVG /> */}
-								{/* 			</Apply> */}
-								{/* 		</span> */}
-								{/* 	</h6> */}
-								{/* </div> */}
+								<div className="-m-1 absolute left-full top-0">
+									<Apply className="w-8 h-8 text-white transform scale-90">
+										<SunSVG />
+									</Apply>
+								</div>
 							</div>
 						</Apply>
 
