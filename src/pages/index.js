@@ -643,7 +643,7 @@ const Main = ({ state, dispatch }) => {
 							<Apply className="relative">
 								<div className="flex flex-row h-20">
 
-									{/* Icon */}
+									{/* LHS */}
 									<div className="absolute inset-y-0 left-0 pointer-events-none">
 										<div className="px-6 flex flex-row items-center h-full">
 											<Apply
@@ -657,11 +657,11 @@ const Main = ({ state, dispatch }) => {
 										</div>
 									</div>
 
-									{/* inputValue */}
+									{/* Search */}
 									<Reset className="w-full h-full bg-transparent focus:outline-none">
 										<input
 											ref={inputRef}
-											className="px-14 text-lg placeholder-gray-300 text-gray-800 antialiased"
+											className="px-14 text-lg placeholder-gray-300 text-gray-800"
 											type="text"
 											placeholder="Search"
 											value={inputValue}
@@ -671,6 +671,7 @@ const Main = ({ state, dispatch }) => {
 										/>
 									</Reset>
 
+									{/* RHS */}
 									{inputValue && (
 										<div className="absolute inset-y-0 right-0">
 											<Reset className="focus:outline-none">
@@ -689,7 +690,11 @@ const Main = ({ state, dispatch }) => {
 							</Apply>
 
 							<hr className="border-t border-gray-200" />
-							<div className="h-24" />
+							<div className="px-6 py-4">
+								<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.6875rem" }}>
+									COPY AS
+								</h6>
+							</div>
 
 							<hr className="border-t border-gray-200" />
 							<div className="h-24" />
