@@ -639,9 +639,9 @@ const Main = ({ state, dispatch }) => {
 					<Apply className="rounded-6 shadow-hero-md">
 						<div className="w-96 bg-white">
 
-							{/* Search */}
+							{/* Section: Search */}
 							<Apply className="relative">
-								<div className="flex flex-row h-20">
+								<section className="flex flex-row h-20">
 
 									{/* LHS */}
 									<div className="absolute inset-y-0 left-0 pointer-events-none">
@@ -686,12 +686,12 @@ const Main = ({ state, dispatch }) => {
 										</div>
 									)}
 
-								</div>
+								</section>
 							</Apply>
 
-							{/* Copy as */}
+							{/* Section: Copy As */}
 							<hr className="border-t border-gray-200" />
-							<div className="px-6 py-6">
+							<section className="px-6 py-6">
 								<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.6875rem" }}>
 									<span className="inline-flex flex-row justify-between w-full">
 										<span>
@@ -703,18 +703,34 @@ const Main = ({ state, dispatch }) => {
 									</span>
 								</h6>
 								<div className="h-4" />
-								<div className="flex flex-row justify-between">
+								<div className="flex flex-row justify-between items-center">
 									<div className="space-x-2 flex flex-row">
-										<div className="w-10 h-10 bg-gray-100 rounded-full" />
-										<div className="w-10 h-10 bg-gray-100 rounded-full" />
-										<div className="w-10 h-10 bg-gray-100 rounded-full" />
+										<div className="w-10 h-10 bg-gray-100 rounded-full">
+											{/* SVG */}
+										</div>
+										<div className="w-10 h-10 bg-gray-100 rounded-full">
+											{/* JSX */}
+										</div>
+										<div className="w-10 h-10 bg-gray-100 rounded-full">
+											{/* Figma */}
+										</div>
 									</div>
 									<div className="w-10 h-10 bg-gray-100 rounded-full" />
 								</div>
-							</div>
+							</section>
 
+							{/* Section: Size */}
 							<hr className="border-t border-gray-200" />
-							<div className="h-24" />
+							<section className="px-6 py-6">
+								<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.6875rem" }}>
+									SIZE
+								</h6>
+								<div className="h-4" />
+								<div className="flex flex-row justify-between items-center">
+									<div className="w-64 h-1 bg-gray-100 rounded-full" />
+									<div className="w-16 h-8 bg-gray-100 rounded-full" />
+								</div>
+							</section>
 
 							<hr className="border-t border-gray-200" />
 							<div className="h-24" />
