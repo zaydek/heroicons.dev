@@ -23,21 +23,21 @@ const HEADER_HEIGHT = 520
 const Header = () => {
 	React.useEffect(() => {
 		const handleScroll = () => {
-			console.log(window.scrollY)
-
-			const bg = document.getElementById("bg")
-			const maskTop = document.getElementById("mask-top")
-			const maskBtm = document.getElementById("mask-btm")
-			bg.style.opacity = 1 - (window.scrollY / HEADER_HEIGHT)
-
-			maskTop.style.opacity = 0
-			if (window.scrollY >= HEADER_HEIGHT - 96) {
-				maskTop.style.opacity = 1
-			}
-
-			maskBtm.style.opacity = 0
-			if (window.scrollY >= HEADER_HEIGHT - 96) {
-				maskBtm.style.opacity = 1
+			try {
+				const bg = document.getElementById("bg")
+				const maskTop = document.getElementById("mask-top")
+				const maskBtm = document.getElementById("mask-btm")
+				bg.style.opacity = 1 - (window.scrollY / (HEADER_HEIGHT - 96))
+				maskTop.style.opacity = 0
+				if (window.scrollY >= HEADER_HEIGHT - 96) {
+					maskTop.style.opacity = 1
+				}
+				maskBtm.style.opacity = 0
+				if (window.scrollY >= HEADER_HEIGHT - 96) {
+					maskBtm.style.opacity = 1
+				}
+			} catch (error) {
+				console.error(error)
 			}
 		}
 		window.addEventListener("scroll", handleScroll, false)
@@ -61,21 +61,16 @@ const Header = () => {
 								</Apply>{" "}
 								<span style={{ width: "1ch" }} />
 								Share with your followers!
-								<span style={{ width: "1ch" }} />
-								{/* <Apply className="transform scale-125"> */}
-								{/* 	<span aria-label="man artist" role="img"> */}
-								{/* 		😍 */}
-								{/* 	</span> */}
-								{/* </Apply> */}
+								<span style={{ width: "0.5ch" }} />
 								<Apply className="w-6 h-6 transform scale-90">
-									<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-										<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
-										<path fill="#664500" d="M18 21.849c-2.966 0-4.935-.346-7.369-.819-.557-.106-1.638 0-1.638 1.638 0 3.275 3.763 7.369 9.007 7.369s9.007-4.094 9.007-7.369c0-1.638-1.082-1.745-1.638-1.638-2.434.473-4.402.819-7.369.819" />
-										<path fill="#dd2e44" d="M16.65 3.281C15.791.85 13.126-.426 10.694.431c-1.476.52-2.521 1.711-2.928 3.104-1.191-.829-2.751-1.1-4.225-.58C1.111 3.813-.167 6.48.692 8.911c.122.344.284.663.472.958 1.951 3.582 7.588 6.1 11.001 6.131 2.637-2.167 5.446-7.665 4.718-11.677-.038-.348-.113-.698-.233-1.042zm2.7 0C20.209.85 22.875-.426 25.306.431c1.476.52 2.521 1.711 2.929 3.104 1.191-.829 2.751-1.1 4.225-.58 2.43.858 3.707 3.525 2.85 5.956-.123.344-.284.663-.473.958-1.951 3.582-7.588 6.1-11.002 6.131-2.637-2.167-5.445-7.665-4.717-11.677.037-.348.112-.698.232-1.042z" />
-									</svg>
 									{/* <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"> */}
-									{/* 	<path fill="#dd2e44" d="M35.885 11.833c0-5.45-4.418-9.868-9.867-9.868-3.308 0-6.227 1.633-8.018 4.129-1.791-2.496-4.71-4.129-8.017-4.129-5.45 0-9.868 4.417-9.868 9.868 0 .772.098 1.52.266 2.241C1.751 22.587 11.216 31.568 18 34.034c6.783-2.466 16.249-11.447 17.617-19.959.17-.721.268-1.469.268-2.242z" /> */}
+									{/* 	<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" /> */}
+									{/* 	<path fill="#664500" d="M18 21.849c-2.966 0-4.935-.346-7.369-.819-.557-.106-1.638 0-1.638 1.638 0 3.275 3.763 7.369 9.007 7.369s9.007-4.094 9.007-7.369c0-1.638-1.082-1.745-1.638-1.638-2.434.473-4.402.819-7.369.819" /> */}
+									{/* 	<path fill="#dd2e44" d="M16.65 3.281C15.791.85 13.126-.426 10.694.431c-1.476.52-2.521 1.711-2.928 3.104-1.191-.829-2.751-1.1-4.225-.58C1.111 3.813-.167 6.48.692 8.911c.122.344.284.663.472.958 1.951 3.582 7.588 6.1 11.001 6.131 2.637-2.167 5.446-7.665 4.718-11.677-.038-.348-.113-.698-.233-1.042zm2.7 0C20.209.85 22.875-.426 25.306.431c1.476.52 2.521 1.711 2.929 3.104 1.191-.829 2.751-1.1 4.225-.58 2.43.858 3.707 3.525 2.85 5.956-.123.344-.284.663-.473.958-1.951 3.582-7.588 6.1-11.002 6.131-2.637-2.167-5.445-7.665-4.717-11.677.037-.348.112-.698.232-1.042z" /> */}
 									{/* </svg> */}
+									<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+										<path fill="#dd2e44" d="M35.885 11.833c0-5.45-4.418-9.868-9.867-9.868-3.308 0-6.227 1.633-8.018 4.129-1.791-2.496-4.71-4.129-8.017-4.129-5.45 0-9.868 4.417-9.868 9.868 0 .772.098 1.52.266 2.241C1.751 22.587 11.216 31.568 18 34.034c6.783-2.466 16.249-11.447 17.617-19.959.17-.721.268-1.469.268-2.242z" />
+									</svg>
 								</Apply>
 							</span>
 						</p>
@@ -95,16 +90,23 @@ const Header = () => {
 					{/* </a> */}
 				</div>
 
-				{/* BG */}
+				{/* Background */}
 				<div className="absolute inset-0" style={{ zIndex: -1 }}>
 					<Reset className="w-full h-full">
 						<div
 							id="bg"
-							// style={{ backgroundColor: "hsl(250, 100%, 50%)" }}
-							style={{ backgroundImage: "linear-gradient(to top right, hsl(250, 100%, 50%), hsl(252.5, 100%, 50%))" }}
+							// style={{ backgroundColor: "hsl(270deg 100% 43.75%)" }}
+							style={{ backgroundImage: "radial-gradient(circle at bottom, hsl(270deg 100% 62.5%), hsl(270deg 100% 37.5%))" }}
 						/>
-						{/* <canvas id="bg" width={32} height={32} /> */}
 					</Reset>
+					<div className="absolute bottom-0 inset-x-0">
+						<Apply className="w-full h-10 text-black">
+							{/* TODO: Move preserveAspectRatio to <Apply>. */}
+							<svg preserveAspectRatio="none" fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
+								<path d="M0 0C0.5 0.333333 2 1 4 1C6 1 7.41667 0.333333 8 0V1H4H0V0Z" />
+							</svg>
+						</Apply>
+					</div>
 				</div>
 
 				<div className="flex flex-col justify-center items-center h-full">
