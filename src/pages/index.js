@@ -658,7 +658,7 @@ const Main = ({ state, dispatch }) => {
 									</div>
 
 									{/* Search */}
-									<Reset className="w-full h-full bg-transparent focus:outline-none">
+									<Reset className="w-full h-full leading-none bg-transparent focus:outline-none">
 										<input
 											ref={inputRef}
 											className="px-14 text-lg placeholder-gray-300 text-gray-800"
@@ -689,11 +689,28 @@ const Main = ({ state, dispatch }) => {
 								</div>
 							</Apply>
 
+							{/* Copy as */}
 							<hr className="border-t border-gray-200" />
-							<div className="px-6 py-4">
+							<div className="px-6 py-6">
 								<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.6875rem" }}>
-									COPY AS
+									<span className="inline-flex flex-row justify-between w-full">
+										<span>
+											COPY AS
+										</span>
+										<span>
+											OR DOWNLOAD
+										</span>
+									</span>
 								</h6>
+								<div className="h-4" />
+								<div className="flex flex-row justify-between">
+									<div className="space-x-2 flex flex-row">
+										<div className="w-10 h-10 bg-gray-100 rounded-full" />
+										<div className="w-10 h-10 bg-gray-100 rounded-full" />
+										<div className="w-10 h-10 bg-gray-100 rounded-full" />
+									</div>
+									<div className="w-10 h-10 bg-gray-100 rounded-full" />
+								</div>
 							</div>
 
 							<hr className="border-t border-gray-200" />
