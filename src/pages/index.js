@@ -15,6 +15,7 @@ import BookOpenSVG from "heroicons-0.4.0/solid/BookOpen"
 import CursorClickSVG from "heroicons-0.4.0/solid/CursorClick"
 import ExternalLinkSVG from "heroicons-0.4.0/solid/ExternalLink"
 import FlagSVG from "heroicons-0.4.0/solid/Flag"
+import XCircleSVG from "heroicons-0.4.0/solid/XCircle"
 
 import SearchOutlineSVG from "heroicons-0.4.0/outline/Search"
 import SunOutlineSVG from "heroicons-0.4.0/outline/Sun"
@@ -79,9 +80,7 @@ const Header = ({ state, dispatch }) => (
 			{/* Background */}
 			<div className="absolute inset-0">
 				<Reset className="w-full h-full">
-					<Apply className="transform duration-500 ease-out">
-						<div style={{ backgroundImage: "radial-gradient(ellipse at top, hsl(265, 100%, 65%) -25%, hsl(270, 100%, 45%))" }} />
-					</Apply>
+					<div style={{ backgroundImage: "radial-gradient(ellipse at top, hsl(265, 100%, 65%) -25%, hsl(270, 100%, 45%))" }} />
 				</Reset>
 				<div className="absolute bottom-0 inset-x-0">
 					<Apply className="w-full h-24 text-white">
@@ -125,11 +124,6 @@ const Header = ({ state, dispatch }) => (
 								</span>
 								eroicons
 							</h1>
-							{/* <div className="-mt-1 absolute top-0 left-full"> */}
-							{/* 	<Apply className="w-8 h-8 text-white transform scale-90"> */}
-							{/* 		<SunOutlineSVG /> */}
-							{/* 	</Apply> */}
-							{/* </div> */}
 						</div>
 					</Apply>
 
@@ -583,13 +577,19 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // }
 
 const Main = ({ state, dispatch }) => {
-	const [formValue, setFormValue] = React.useState("")
+	const inputRef = React.useRef(null)
 
-	// Debounces formValue (10ms).
+	const [inputValue, setInputValue] = React.useState("")
+
+	React.useEffect(() => {
+		inputRef.current.focus()
+	}, [])
+
+	// Debounces inputValue (10ms).
 	React.useEffect(
 		React.useCallback(() => {
 			const id = setTimeout(() => {
-				const text = formValue
+				const text = inputValue
 				dispatch({
 					type: "UPDATE_FORM_SEARCH",
 					text,
@@ -599,7 +599,7 @@ const Main = ({ state, dispatch }) => {
 				clearTimeout(id)
 			}
 		}, []),
-		[formValue],
+		[inputValue],
 	)
 
 	return (
@@ -639,26 +639,51 @@ const Main = ({ state, dispatch }) => {
 					<Apply className="rounded-6 shadow-hero-md">
 						<div className="w-96 bg-white">
 
+							{/* Search */}
 							<Apply className="relative">
 								<div className="flex flex-row h-20">
 
-									<div className="absolute inset-y-0 left-0">
+									{/* Icon */}
+									<div className="absolute inset-y-0 left-0 pointer-events-none">
 										<div className="px-6 flex flex-row items-center h-full">
-											<Apply className="w-6 h-6 text-indigo-600 transform scale-90">
-												<SearchOutlineSVG />
+											<Apply
+												className="w-6 h-6 transform scale-90"
+												style={{ color: !inputValue ? "var(--gray-300)" : "var(--indigo-600)" }}
+											>
+												<Apply className="transition duration-200 ease-in-out">
+													<SearchOutlineSVG />
+												</Apply>
 											</Apply>
 										</div>
 									</div>
 
+									{/* inputValue */}
 									<Reset className="w-full h-full bg-transparent focus:outline-none">
 										<input
-											className="px-14 text-lg text-gray-800"
+											ref={inputRef}
+											className="px-14 text-lg placeholder-gray-300 text-gray-800 antialiased"
 											type="text"
 											placeholder="Search"
-											value={formValue}
-											onChange={e => setFormValue(e.target.value)}
+											value={inputValue}
+											onChange={e => setInputValue(e.target.value)}
+											autoFocus
+											{...disableAutoCorrect}
 										/>
 									</Reset>
+
+									{inputValue && (
+										<div className="absolute inset-y-0 right-0">
+											<Reset className="focus:outline-none">
+												<button className="px-6 flex flex-row items-center h-full text-gray-300 hover:text-gray-800 focus:text-gray-800 rounded-tr-6" onClick={e => setInputValue("")}>
+													<Apply className="transition duration-200 ease-in-out">
+														<Apply className="w-6 h-6 transform scale-90">
+															<XCircleSVG />
+														</Apply>
+													</Apply>
+												</button>
+											</Reset>
+										</div>
+									)}
 
 								</div>
 							</Apply>
