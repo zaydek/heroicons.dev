@@ -17,8 +17,8 @@ import ExternalLinkSVG from "heroicons-0.4.0/solid/ExternalLink"
 import FlagSVG from "heroicons-0.4.0/solid/Flag"
 
 import SearchOutlineSVG from "heroicons-0.4.0/outline/Search"
-import SunSVG from "heroicons-0.4.0/outline/Sun"
-import SwitchHorizontalSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
+import SunOutlineSVG from "heroicons-0.4.0/outline/Sun"
+import SwitchHorizontalOutlineSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
 
 const HEADER_HEIGHT = 560
 const HEADER_CLIP_HEIGHT = (HEADER_HEIGHT - (32 * 4))
@@ -127,7 +127,7 @@ const Header = ({ state, dispatch }) => (
 							</h1>
 							{/* <div className="-mt-1 absolute top-0 left-full"> */}
 							{/* 	<Apply className="w-8 h-8 text-white transform scale-90"> */}
-							{/* 		<SunSVG /> */}
+							{/* 		<SunOutlineSVG /> */}
 							{/* 	</Apply> */}
 							{/* </div> */}
 						</div>
@@ -261,24 +261,18 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			>
 
 				{/* NEW */}
-				{icon.statusNew && (
-					<div className="-m-px absolute top-0 right-0">
-						<div className="w-4 h-4 bg-indigo-500" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%)" }} />
-					</div>
-				)}
-
-				{/* NEW */}
 				{/* {icon.statusNew && ( */}
-				{/* 	<div className="p-3 absolute top-0 right-0"> */}
-				{/* 		<Apply className="transform scale-90 origin-top-right"> */}
-				{/* 			<div className="px-2 py-1 bg-indigo-500 rounded-full"> */}
-				{/* 				<p className="font-semibold text-xs tracking-wider leading-none font-mono text-white"> */}
-				{/* 					NEW */}
-				{/* 				</p> */}
-				{/* 			</div> */}
-				{/* 		</Apply> */}
+				{/* 	<div className="-m-px absolute top-0 right-0"> */}
+				{/* 		<div className="w-4 h-4 bg-indigo-500" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%)" }} /> */}
 				{/* 	</div> */}
 				{/* )} */}
+
+				{/* NEW */}
+				{icon.statusNew && (
+					<div className="p-3 absolute top-0 right-0">
+						<div className="w-2 h-2 bg-indigo-500 rounded-full" />
+					</div>
+				)}
 
 				{/* SVG */}
 				<SVG
@@ -288,6 +282,8 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				/>
 
 				{/* Icon name */}
+				{/* */}
+				{/* TODO */}
 				<div className="py-3 absolute bottom-0">
 					<p className="text-xs tracking-wide text-gray-600">
 						{!state.form.search.safe || state.form.search.safe === "new" ? (
@@ -540,7 +536,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 									</div>
 // 								)}
 // 								{/* <SVG className="w-6 h-6" svg={!state.form.showOutline ? PlusCircleSolidSVG : PlusCircleOutlineSVG} /> */}
-// 								<SwitchHorizontalSVG className="w-6 h-6" />
+// 								<SwitchHorizontalOutlineSVG className="w-6 h-6" />
 // 							</button>
 // 						</div>
 //
@@ -623,29 +619,38 @@ const Main = ({ state, dispatch }) => (
 				<Apply className="rounded-6 shadow-hero-md">
 					<div className="w-96 bg-white">
 
-						<div className="h-20">
-						</div>
+						<Apply className="relative">
+							<div className="flex flex-row h-20">
+
+								<div className="absolute inset-y-0 left-0">
+									<div className="px-6 flex flex-row items-center h-full">
+										<Apply className="w-6 h-6 text-indigo-600 transform scale-90">
+											<SearchOutlineSVG />
+										</Apply>
+									</div>
+								</div>
+
+								<Reset className="w-full h-full bg-transparent focus:outline-none">
+									<input
+										className="px-14 text-lg text-gray-800"
+										type="text"
+										placeholder="Search"
+										value="Hello, world!"
+									/>
+								</Reset>
+
+							</div>
+						</Apply>
 
 						<hr className="border-t border-gray-200" />
-						<div className="h-20">
-						</div>
+						<div className="h-24" />
 
 						<hr className="border-t border-gray-200" />
-						<div className="h-20">
-						</div>
+						<div className="h-24" />
 
 						<hr className="border-t border-gray-200" />
-						<div className="h-40">
-						</div>
-
-						{/* <div */}
-						{/* 	id="aside-clip-bottom" */}
-						{/* 	className="-mt-6 sticky h-6 rounded-b-6 z-10" */}
-						{/* 	style={{ */}
-						{/* 		bottom: tw(4), */}
-						{/* 		boxShadow: `0 ${tw(4)} 0 ${tw(4)} var(--white)`, */}
-						{/* 	}} */}
-						{/* /> */}
+						<div className="h-24" />
+						<div className="h-24" />
 
 					</div>
 				</Apply>
