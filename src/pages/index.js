@@ -89,7 +89,8 @@ const Header = ({ state, dispatch }) => (
 							// TODO: Move {...props} to <Apply>?
 							preserveAspectRatio="none"
 							fill="currentColor"
-							viewBox="0 0 8 1"
+							// NOTE: Uses 0.99 not 1.
+							viewBox="0 0 8 0.99"
 							xmlns="http://www.w3.org/2000/svg"
 						>
 							<path d="M0 0C0.5 0.333333 2 1 4 1C6 1 7.41667 0.333333 8 0V1H4H0V0Z" />
@@ -261,14 +262,8 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 
 				{/* NEW */}
 				{icon.statusNew && (
-					<div className="p-3 absolute top-0 right-0">
-						<Apply className="transform scale-90 origin-top-right">
-							<div className="px-2 py-1 bg-indigo-500 rounded-full">
-								<p className="font-semibold text-xs tracking-wider leading-none font-mono text-white">
-									NEW
-								</p>
-							</div>
-						</Apply>
+					<div className="-m-px absolute top-0 right-0">
+						<div className="w-4 h-4 bg-indigo-500" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%)" }} />
 					</div>
 				)}
 
@@ -276,9 +271,11 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				{/* {icon.statusNew && ( */}
 				{/* 	<div className="p-3 absolute top-0 right-0"> */}
 				{/* 		<Apply className="transform scale-90 origin-top-right"> */}
-				{/* 			<h6 className="font-bold text-xs tracking-widest leading-none font-mono text-indigo-600"> */}
-				{/* 				NEW */}
-				{/* 			</h6> */}
+				{/* 			<div className="px-2 py-1 bg-indigo-500 rounded-full"> */}
+				{/* 				<p className="font-semibold text-xs tracking-wider leading-none font-mono text-white"> */}
+				{/* 					NEW */}
+				{/* 				</p> */}
+				{/* 			</div> */}
 				{/* 		</Apply> */}
 				{/* 	</div> */}
 				{/* )} */}
