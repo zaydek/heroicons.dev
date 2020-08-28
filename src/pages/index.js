@@ -18,50 +18,9 @@ import FlagSVG from "heroicons-0.4.0/solid/Flag"
 import SearchOutlineSVG from "heroicons-0.4.0/outline/Search"
 import SwitchHorizontalSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
 
-// <Apply className="-mt-16 transform scale-90">
-// 	<h1
-// 		className="font-medium tracking-tighter leading-none text-white"
-// 		style={{
-// 			fontSize: tw(16),
-// 			fontFamily: "'DM Sans', var(--sans)",
-// 			opacity: 0.875,
-// 		}}
-// 	>
-// 		<span className="inline-flex flex-row items-center">
-// 			<Apply className="w-16 h-16 opacity-50">
-// 				<svg
-// 					fill="none"
-// 					strokeLinecap="round"
-// 					strokeLinejoin="round"
-// 					strokeWidth={2}
-// 					stroke="currentColor"
-// 					viewBox="0 0 24 24"
-// 					xmlns="http://www.w3.org/2000/svg"
-// 				>
-// 					<path d="M12 2.94385C14.3567 5.05846 17.4561 6.15176 20.618 5.98385C20.867 6.94785 21 7.95785 21 8.99985C21 14.5918 17.176 19.2898 12 20.6218C6.824 19.2898 3 14.5908 3 8.99985C2.99918 7.9824 3.12754 6.96896 3.382 5.98385C6.5439 6.15176 9.64327 5.05846 12 2.94385Z" />
-// 				</svg>
-// 			</Apply>{" "}
-// 			<span style={{ width: "0.125ch" }} />
-// 			<div className="relative">
-// 				Heroicons
-// 				<div className="pt-2 absolute inset-x-0 flex flex-row justify-center">
-// 					<Reset style={{ font: "unset" }}>
-// 						<div>
-// 							<h6 className="font-semibold tracking-wider leading-none text-xs text-white opacity-75">
-// 								UNOFFICIAL HEROICONS VIEWER
-// 							</h6>
-// 						</div>
-// 					</Reset>
-// 				</div>
-// 			</div>
-// 		</span>
-// 	</h1>
-// </Apply>
-
 const HEADER_HGT = 560
 
 const Header = () => {
-
 	React.useEffect(() => {
 		const handleScroll = () => {
 			console.log(window.scrollY)
@@ -87,50 +46,6 @@ const Header = () => {
 		}
 	}, [])
 
-	// // Canvas Gradient Animation by Luis Jose Rivera.
-	// //
-	// // Copyright (c) 2020 by Luis Jose Rivera (https://codepen.io/luisjoserivera/pen/oePeNy)
-	// //
-	// // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-	// //
-	// // The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-	// //
-	// // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-	// //
-	// React.useLayoutEffect(() => {
-	// 	try {
-	// 		const bgGrad = document.getElementById("bg-grad")
-	// 		const $ = bgGrad.getContext("2d")
-	// 		const col = function(x, y, r, g, b) {
-	// 			$.fillStyle = "rgb(" + r + "," + g + "," + b + ")"
-	// 			$.fillRect(x, y, 1, 1)
-	// 		}
-	// 		const R = function(x, y, t) {
-	// 			return 0 + Math.floor(60 * Math.cos((x * x - y * y) / 900))
-	// 		}
-	// 		const G = function(x, y, t) {
-	// 			return -127 + Math.floor(200 * Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 600))
-	// 		}
-	// 		const B = function(x, y, t) {
-	// 			// return 255 + Math.floor(20 * Math.sin(5 * Math.sin(t / 9) + ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1200))
-	// 			return 255
-	// 		}
-	// 		let t = 0
-	// 		var run = function() {
-	// 			for (let x = 0; x < 32; x++) {
-	// 				for (let y = 0; y < 32; y++) {
-	// 					col(x, y, R(x, y, t), G(x, y, t), B(x, y, t))
-	// 				}
-	// 			}
-	// 			t += 0.05
-	// 			window.requestAnimationFrame(run)
-	// 		}
-	// 		run()
-	// 	} catch (error) {
-	// 		console.error(error)
-	// 	}
-	// }, [])
-
 	return (
 		<Apply className="relative">
 			<header style={{ height: HEADER_HGT }}>
@@ -155,19 +70,9 @@ const Header = () => {
 
 					<Apply className="-mt-14 transform scale-90">
 						<div className="relative">
-							<div className="pr-1 absolute right-full inset-y-0 flex flex-row items-center">
-								<Apply className="w-14 h-14 text-white opacity-50">
-									<svg
-										fill="none"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2.5}
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<path d="M12 2.94385C14.3567 5.05846 17.4561 6.15176 20.618 5.98385C20.867 6.94785 21 7.95785 21 8.99985C21 14.5918 17.176 19.2898 12 20.6218C6.824 19.2898 3 14.5908 3 8.99985C2.99918 7.9824 3.12754 6.96896 3.382 5.98385C6.5439 6.15176 9.64327 5.05846 12 2.94385Z" />
-									</svg>
+							<div className="pl-1 absolute left-full inset-y-0 flex flex-row items-center">
+								<Apply className="w-14 h-14 text-white opacity-50" style={{ marginTop: `${-1 * (2 / 14)}em` }}>
+									<FlagSVG />
 								</Apply>
 							</div>
 							<h1

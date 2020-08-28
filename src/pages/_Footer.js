@@ -9,19 +9,16 @@ const FooterLHS = () => (
 
 		<a href="TODO" {...target_blank}>
 			<h6
-				className="text-gray-100"
+				className="font-medium tracking-tighter leading-none text-white"
 				style={{
-					fontWeight: 700,
 					fontSize: tw(10),
-					lineHeight: 1,
 					fontFamily: "'DM Sans', var(--sans)",
-					letterSpacing: "-0.025em",
 				}}
 			>
 				<span className="inline-flex flex-row items-center">
 					Heroicons{" "}
-					<span style={{ width: "0.25ch" }} />
-					<Apply className="w-10 h-10 text-indigo-500">
+					<span style={{ width: "0.125ch" }} />
+					<Apply className="w-10 h-10 text-indigo-500" style={{ marginTop: -3 }}>
 						<FlagSVG />
 					</Apply>
 				</span>
@@ -139,7 +136,6 @@ const FooterRHS = () => (
 			</p>
 		</a>
 
-		{/* <div className="h-4" /> */}
 		<a href="TODO" {...target_blank}>
 			<p className="py-2 font-medium no-underline hover:underline text-gray-100">
 				<span className="inline-flex flex-row items-center">
@@ -157,7 +153,6 @@ const FooterRHS = () => (
 			</p>
 		</a>
 
-		{/* <div className="h-4" /> */}
 		<a href="TODO" {...target_blank}>
 			<p className="py-2 font-medium no-underline hover:underline text-gray-100">
 				<span className="inline-flex flex-row items-center">
@@ -171,7 +166,6 @@ const FooterRHS = () => (
 			</p>
 		</a>
 
-		{/* <div className="h-4" /> */}
 		<a href="TODO" {...target_blank}>
 			<p className="py-2 font-medium no-underline hover:underline text-gray-100">
 				<span className="inline-flex flex-row items-center">
