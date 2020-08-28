@@ -55,7 +55,7 @@ const FooterLHS = () => (
 							</svg>
 						</Apply>{" "}
 						<span style={{ width: "0.5ch" }} />
-						Version 0.4.0
+						Version 0.4.1
 					</span>
 				</p>
 			</a>
@@ -112,7 +112,7 @@ const FooterLHS = () => (
 			Website designed and maintained by{" "}
 			<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}>
 				@username_ZAYDEK
-			</a>{" "}
+			</a>
 		</p>
 
 	</nav>

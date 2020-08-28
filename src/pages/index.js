@@ -18,7 +18,75 @@ import FlagSVG from "heroicons-0.4.0/solid/Flag"
 import SearchOutlineSVG from "heroicons-0.4.0/outline/Search"
 import SwitchHorizontalSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
 
+// <Apply className="-mt-16 transform scale-90">
+// 	<h1
+// 		className="font-medium tracking-tighter leading-none text-white"
+// 		style={{
+// 			fontSize: tw(16),
+// 			fontFamily: "'DM Sans', var(--sans)",
+// 			opacity: 0.875,
+// 		}}
+// 	>
+// 		<span className="inline-flex flex-row items-center">
+// 			<Apply className="w-16 h-16 opacity-50">
+// 				<svg
+// 					fill="none"
+// 					strokeLinecap="round"
+// 					strokeLinejoin="round"
+// 					strokeWidth={2}
+// 					stroke="currentColor"
+// 					viewBox="0 0 24 24"
+// 					xmlns="http://www.w3.org/2000/svg"
+// 				>
+// 					<path d="M12 2.94385C14.3567 5.05846 17.4561 6.15176 20.618 5.98385C20.867 6.94785 21 7.95785 21 8.99985C21 14.5918 17.176 19.2898 12 20.6218C6.824 19.2898 3 14.5908 3 8.99985C2.99918 7.9824 3.12754 6.96896 3.382 5.98385C6.5439 6.15176 9.64327 5.05846 12 2.94385Z" />
+// 				</svg>
+// 			</Apply>{" "}
+// 			<span style={{ width: "0.125ch" }} />
+// 			<div className="relative">
+// 				Heroicons
+// 				<div className="pt-2 absolute inset-x-0 flex flex-row justify-center">
+// 					<Reset style={{ font: "unset" }}>
+// 						<div>
+// 							<h6 className="font-semibold tracking-wider leading-none text-xs text-white opacity-75">
+// 								UNOFFICIAL HEROICONS VIEWER
+// 							</h6>
+// 						</div>
+// 					</Reset>
+// 				</div>
+// 			</div>
+// 		</span>
+// 	</h1>
+// </Apply>
+
+const HEADER_HGT = 560
+
 const Header = () => {
+
+	React.useEffect(() => {
+		const handleScroll = () => {
+			console.log(window.scrollY)
+
+			const bgGrad = document.getElementById("bg-grad")
+			const maskTop = document.getElementById("mask-top")
+			const maskBtm = document.getElementById("mask-btm")
+			bgGrad.style.opacity = 1 - (window.scrollY / HEADER_HGT)
+
+			maskTop.style.opacity = 0
+			if (window.scrollY >= HEADER_HGT - 96) {
+				maskTop.style.opacity = 1
+			}
+
+			maskBtm.style.opacity = 0
+			if (window.scrollY >= HEADER_HGT - 96) {
+				maskBtm.style.opacity = 1
+			}
+		}
+		window.addEventListener("scroll", handleScroll, false)
+		return () => {
+			window.removeEventListener("scroll", handleScroll, false)
+		}
+	}, [])
+
 	// Canvas Gradient Animation by Luis Jose Rivera.
 	//
 	// Copyright (c) 2020 by Luis Jose Rivera (https://codepen.io/luisjoserivera/pen/oePeNy)
@@ -44,10 +112,10 @@ const Header = () => {
 				return -127 + Math.floor(200 * Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 600))
 			}
 			const B = function(x, y, t) {
-				return 255 + Math.floor(20 * Math.sin(5 * Math.sin(t / 9) + ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1200))
-				// return 255
+				// return 255 + Math.floor(20 * Math.sin(5 * Math.sin(t / 9) + ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1200))
+				return 255
 			}
-			let t = 1e3
+			let t = 0
 			var run = function() {
 				for (let x = 0; x < 32; x++) {
 					for (let y = 0; y < 32; y++) {
@@ -64,16 +132,102 @@ const Header = () => {
 	}, [])
 
 	return (
-		<header style={{ height: 560 }}>
-			<Reset className="w-full h-full">
-				<canvas
-					id="canv"
-					// className="opacity-90"
-					width={32}
-					height={32}
-				/>
-			</Reset>
-		</header>
+		<Apply className="relative">
+			<header style={{ height: HEADER_HGT }}>
+
+				{/* BG */}
+				<div className="absolute inset-0" style={{ zIndex: -1 }}>
+					<Reset className="w-full h-full">
+						<div
+							id="bg-grad"
+							style={{ backgroundImage: "linear-gradient(to bottom, rgb(63, 0, 255), rgb(31, 0, 255))" }}
+							// className="bg-gradient-to-br"
+							// style={{
+							// 	"--gradient-from-color": "rgb(60, 0, 255)",
+							// 	"--gradient-to-color": "rgb(40, 72, 255)",
+							// }}
+							// width={32}
+							// height={32}
+						/>
+					</Reset>
+				</div>
+
+				<div className="flex flex-col justify-center items-center h-full">
+
+					<Apply className="-mt-14 transform scale-90">
+						<div className="relative">
+							<div className="pr-1 absolute right-full inset-y-0 flex flex-row items-center">
+								<Apply className="w-14 h-14 text-white opacity-50">
+									<svg
+										fill="none"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth={2}
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path d="M12 2.94385C14.3567 5.05846 17.4561 6.15176 20.618 5.98385C20.867 6.94785 21 7.95785 21 8.99985C21 14.5918 17.176 19.2898 12 20.6218C6.824 19.2898 3 14.5908 3 8.99985C2.99918 7.9824 3.12754 6.96896 3.382 5.98385C6.5439 6.15176 9.64327 5.05846 12 2.94385Z" />
+									</svg>
+								</Apply>
+							</div>
+							<h1
+								className="font-medium tracking-tighter leading-none text-white"
+								style={{
+									fontSize: tw(14),
+									fontFamily: "'DM Sans', var(--sans)",
+									opacity: 0.875,
+								}}
+							>
+								Heroicons
+							</h1>
+						</div>
+					</Apply>
+
+					<div className="h-1" />
+					<h6 className="font-semibold tracking-wider leading-none text-xs text-white opacity-75">
+						UNOFFICIAL HEROICONS VIEWER
+					</h6>
+
+				</div>
+
+				{/* <div className="flex flex-row justify-center items-center h-full"> */}
+				{/* 	<h1 */}
+				{/* 		className="font-bold tracking-tight leading-none text-white" */}
+				{/* 		style={{ */}
+				{/* 			fontSize: tw(12), */}
+				{/* 			fontFamily: "'DM Sans', var(--sans)", */}
+				{/* 			opacity: 0.875, */}
+				{/* 		}} */}
+				{/* 	> */}
+				{/* 		<span className="inline-flex flex-row items-center"> */}
+				{/* 			Heroicons{" "} */}
+				{/* 			<span style={{ width: "0.125ch" }} /> */}
+				{/* 			<Apply className="w-12 h-12 opacity-25" style={{ marginTop: -4 }}> */}
+				{/* 				<FlagSVG /> */}
+				{/* 			</Apply> */}
+				{/* 		</span> */}
+				{/* 	</h1> */}
+				{/* </div> */}
+
+				{/* <div className="flex flex-row justify-center items-center h-full"> */}
+				{/* 	<h1 */}
+				{/* 		className="text-cool-gray-100" */}
+				{/* 		style={{ */}
+				{/* 			fontWeight: 700, */}
+				{/* 			fontSize: tw(12), */}
+				{/* 			fontFamily: "'DM Sans', var(--sans)", */}
+				{/* 			letterSpacing: "-0.025em", */}
+				{/* 		}} */}
+				{/* 	> */}
+				{/* 		<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}> */}
+				{/* 			<FlagSVG className="w-12 h-12 text-indigo-500" /> */}
+				{/* 		</div> */}
+				{/* 	</h1> */}
+				{/* </div> */}
+
+			</header>
+		</Apply>
 	)
 
 	//	return (
@@ -184,7 +338,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 		<button
 			ref={buttonRef}
 			className="flex flex-row justify-center items-center w-full h-full bg-transparent hover:bg-cool-gray-700 hover:bg-opacity-25 focus:outline-none shadow-none focus:shadow-solid-indigo select-text"
-			style={{ boxShadow: "0 0 0 1px var(--cool-gray-800)" }}
+			style={{ boxShadow: "0 0 0 0.5px var(--black)" }}
 			onClick={handleClick}
 			aria-label={icon.name}
 		>
@@ -350,7 +504,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 							<Reset className="appearance-none w-full">
 // 								<input
 // 									ref={inputRef}
-// 									className="pl-20 pr-36 block w-full h-18 text-xl placeholder-cool-gray-400 text-cool-gray-100 bg-cool-gray-900 rounded-6 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
+// 									className="pl-20 pr-36 block w-full h-18 text-xl placeholder-cool-gray-400 text-cool-gray-100 bg-cool-gray-800 rounded-6 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
 // 									style={{ height: tw(18) }}
 // 									type="text"
 // 									placeholder="Search Heroicons"
@@ -499,7 +653,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // )}
 
 // <div className="w-4" />
-// <div className="w-96 bg-cool-gray-900 rounded-6">
+// <div className="w-96 bg-cool-gray-800 rounded-6">
 const Main = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 
@@ -523,16 +677,24 @@ const Main = () => {
 
 			<main className="flex-1">
 				<div className="rounded-6 shadow-lg">
-					<div className="bg-cool-gray-900 rounded-6 shadow-lg">
+					<div className="bg-cool-gray-800 rounded-6 shadow-lg">
 
-						{/* <div className="sticky rounded-t-6 z-10" style={{ top: tw(4), boxShadow: `0 -${tw(4)} 0 ${tw(4)} var(--black)` }}> */}
-						{/* 	<div className="h-24 bg-cool-gray-900 rounded-t-6" style={{ clipPath: "!inset(-2px -2px 0 -2px)", boxShadow: "0 0 0 2px var(--cool-gray-800)" }}> */}
-						{/* 	</div> */}
-						{/* </div> */}
-
-						{/* <div className="-mb-6 sticky h-6 rounded-t-6 z-10" style={{ top: tw(4), boxShadow: `0 -${tw(4)} 0 ${tw(4)} var(--black)` }}> */}
-						{/* 	<div className="h-full rounded-t-6" style={{ clipPath: "inset(-2px -2px 0 -2px)", boxShadow: "0 0 0 2px var(--cool-gray-800)" }} /> */}
-						{/* </div> */}
+						<div
+							id="mask-top"
+							className="-mb-6 sticky h-6 rounded-t-6 z-10"
+							style={{
+								top: tw(4),
+								boxShadow: `0 -${tw(4)} 0 ${tw(4)} var(--black)`,
+							}}
+						>
+							<div
+								className="h-full rounded-t-6"
+								style={{
+									clipPath: "inset(-2px -2px 0 -2px)",
+									boxShadow: "0 0 0 2px var(--black)",
+								}}
+							/>
+						</div>
 
 						<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
 							{state.results.length > 0 && (
@@ -552,9 +714,22 @@ const Main = () => {
 							)}
 						</DocumentTitle>
 
-						{/* <div className="-mt-6 sticky h-6 rounded-b-6 z-10" style={{ bottom: tw(4), boxShadow: `0 ${tw(4)} 0 ${tw(4)} var(--black)` }}> */}
-						{/* 	<div className="h-full rounded-b-6" style={{ clipPath: "inset(0 -2px -2px -2px)", boxShadow: "0 0 0 2px var(--cool-gray-800)" }} /> */}
-						{/* </div> */}
+						<div
+							id="mask-btm"
+							className="-mt-6 sticky h-6 rounded-b-6 z-10"
+							style={{
+								bottom: tw(4),
+								boxShadow: `0 ${tw(4)} 0 ${tw(4)} var(--black)`,
+							}}
+						>
+							<div
+								className="h-full rounded-b-6"
+								style={{
+									clipPath: "inset(0 -2px -2px -2px)",
+									boxShadow: "0 0 0 2px var(--black)",
+								}}
+							/>
+						</div>
 
 					</div>
 				</div>
@@ -563,20 +738,20 @@ const Main = () => {
 			<div className="w-6" />
 			<aside className="sticky" style={{ top: tw(4) }}>
 				<div className="rounded-6 shadow-lg">
-					<div className="w-96 bg-cool-gray-900 rounded-6 shadow-lg">
+					<div className="w-96 bg-cool-gray-800 rounded-6 shadow-lg">
 
 						<div className="h-20">
 						</div>
 
-						<hr className="border-t-2 border-cool-gray-800" />
+						<hr className="border-t border-black" />
 						<div className="h-20">
 						</div>
 
-						<hr className="border-t-2 border-cool-gray-800" />
+						<hr className="border-t border-black" />
 						<div className="h-20">
 						</div>
 
-						<hr className="border-t-2 border-cool-gray-800" />
+						<hr className="border-t border-black" />
 						<div className="h-40">
 						</div>
 
@@ -655,7 +830,7 @@ const LayoutFragment = () => (
 		</section>
 
 		<div className="h-24" />
-		<div className="h-2 bg-cool-gray-900" />
+		<div className="h-2 bg-cool-gray-800" />
 		<section>
 			<Footer />
 		</section>
