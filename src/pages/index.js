@@ -29,7 +29,7 @@ const Header = ({ state, dispatch }) => (
 
 			<div className="-my-0.5 absolute top-0 left-0 z-10">
 				<a href="TODO" {...target_blank}>
-					<p className="px-4 py-0.5 pt-4 pb-0.5 no-underline hover:underline text-white" style={{ opacity: 0.9 }}>
+					<p className="px-4 py-0.5 pt-4 pb-0.5 no-underline hover:underline text-white">
 						<span className="inline-flex flex-row items-center">
 							<Apply className="relative w-6 h-6 overflow-visible">
 								<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
@@ -44,13 +44,15 @@ const Header = ({ state, dispatch }) => (
 								</svg>
 							</Apply>
 							<span style={{ width: "1ch" }} />
-							Share with your followers on Twitter!
+							<span style={{ opacity: 0.9 }}>
+								Share with your followers on Twitter!
+							</span>
 						</span>
 					</p>
 				</a>
 
 				<a href="TODO" {...target_blank}>
-					<p className="px-4 py-0.5 pb-4 no-underline hover:underline text-white" style={{ opacity: 0.9 }}>
+					<p className="px-4 py-0.5 pb-4 no-underline hover:underline text-white">
 						<span className="inline-flex flex-row items-center">
 							<Apply className="w-6 h-6 overflow-visible">
 								<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
@@ -66,7 +68,9 @@ const Header = ({ state, dispatch }) => (
 								</svg>
 							</Apply>
 							<span style={{ width: "1ch" }} />
-							Star website on GitHub
+							<span style={{ opacity: 0.9 }}>
+								Star website on GitHub
+							</span>
 						</span>
 					</p>
 				</a>
@@ -79,23 +83,29 @@ const Header = ({ state, dispatch }) => (
 						<div style={{ backgroundImage: "radial-gradient(ellipse at top, hsl(265, 100%, 65%) -25%, hsl(270, 100%, 45%))" }} />
 					</Apply>
 				</Reset>
-				{/* TODO: Move preserveAspectRatio to <Apply>. */}
 				<div className="absolute bottom-0 inset-x-0">
 					<Apply className="w-full h-24 text-white">
-						<svg preserveAspectRatio="none" fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
+						<svg
+							// TODO: Move {...props} to <Apply>?
+							preserveAspectRatio="none"
+							fill="currentColor"
+							viewBox="0 0 8 1"
+							xmlns="http://www.w3.org/2000/svg"
+						>
 							<path d="M0 0C0.5 0.333333 2 1 4 1C6 1 7.41667 0.333333 8 0V1H4H0V0Z" />
 						</svg>
 					</Apply>
 				</div>
 			</div>
 
+			{/* Header */}
 			<div className="flex flex-row justify-center items-center h-full">
 				<div className="flex flex-col justify-center h-full">
 
 					<Apply className="relative">
-						<div className="-mt-64">
+						<div className="-mt-72">
 							<div className="px-1 absolute right-full inset-y-0 flex flex-row items-center">
-								<Apply className="w-12 h-12 text-white opacity-50 !text-indigo-500">
+								<Apply className="-mb-1 w-12 h-12 text-white opacity-50 !text-indigo-500">
 									<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 										<path fillRule="evenodd" clipRule="evenodd" d="M2.02345 6.24396C2.06852 5.51956 2.69586 5.00256 3.41667 4.91762C5.41116 4.68257 7.31447 3.9485 8.94977 2.78439C9.57357 2.34032 10.4264 2.34037 11.0501 2.78452C12.686 3.94937 14.5902 4.68381 16.5857 4.91877C17.3054 5.00352 17.9319 5.5192 17.9766 6.24256C17.9922 6.49348 18 6.74639 18 7.00085C18 12.0385 14.8952 16.3511 10.496 18.13C10.1779 18.2586 9.8221 18.2586 9.50401 18.1299C5.10482 16.3501 2 12.0375 2 6.99985C2 6.74589 2.0079 6.49387 2.02345 6.24396Z" />
 									</svg>
@@ -114,11 +124,11 @@ const Header = ({ state, dispatch }) => (
 								</span>
 								eroicons
 							</h1>
-							<div className="-mt-1 absolute left-full top-0">
-								<Apply className="w-8 h-8 text-white transform scale-90">
-									<SunSVG />
-								</Apply>
-							</div>
+							{/* <div className="-mt-1 absolute left-full top-0"> */}
+							{/* 	<Apply className="w-8 h-8 text-white transform scale-90"> */}
+							{/* 		<SunSVG /> */}
+							{/* 	</Apply> */}
+							{/* </div> */}
 						</div>
 					</Apply>
 
@@ -161,7 +171,6 @@ const Header = ({ state, dispatch }) => (
 					{/* 		</a> */}
 					{/* 	</div> */}
 					{/* </div> */}
-
 
 				</div>
 
@@ -242,54 +251,53 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	}
 
 	return (
-		// <div className="!rounded-6 shadow-lg h-full">
-		<button
-			ref={buttonRef}
-			className="flex flex-row justify-center items-center w-full h-full bg-white focus:outline-none shadow-none focus:shadow-solid-indigo select-text"
-			// style={{ boxShadow: "inset 0 0 0 0.5px var(--gray-900), 0 0 0 0.5px var(--gray-900)" }}
-			onClick={handleClick}
-			aria-label={icon.name}
-		>
+		<Reset className="w-full h-full select-text focus:outline-none">
+			<button
+				ref={buttonRef}
+				className="flex flex-row justify-center items-center tracking-wide bg-white"
+				onClick={handleClick}
+				aria-label={icon.name}
+			>
 
-			{/* New */}
-			{/* {icon.statusNew && ( */}
-			{/* 	<div className="p-3 absolute top-0 right-0"> */}
-			{/* 		<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right"> */}
-			{/* 			<p className="font-semibold leading-none text-gray-100" style={{ fontSize: "0.6875rem" }}> */}
-			{/* 				<span className="tracking-wider">NE</span>W */}
-			{/* 			</p> */}
-			{/* 		</div> */}
-			{/* 	</div> */}
-			{/* )} */}
+				{/* New */}
+				{/* {icon.statusNew && ( */}
+				{/* 	<div className="p-3 absolute top-0 right-0"> */}
+				{/* 		<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right"> */}
+				{/* 			<p className="font-semibold leading-none text-gray-100" style={{ fontSize: "0.6875rem" }}> */}
+				{/* 				<span className="tracking-wider">NE</span>W */}
+				{/* 			</p> */}
+				{/* 		</div> */}
+				{/* 	</div> */}
+				{/* )} */}
 
-			{/* Icon */}
-			<SVG
-				id={icon.name}
-				className="w-8 h-8"
-				svg={icon[!state.form.showOutline ? "solid" : "outline"]}
-			/>
+				{/* Icon */}
+				<SVG
+					id={icon.name}
+					className="w-8 h-8"
+					svg={icon[!state.form.showOutline ? "solid" : "outline"]}
+				/>
 
-			{/* Icon name */}
-			<div className="p-3 absolute bottom-0">
-				<p className="text-center text-xs tracking-wide leading-tight text-gray-800">
-					{!state.form.search.safe || state.form.search.safe === "new" ? (
-						icon.name
-					) : (
-						(([substr]) => (
-							<>
-								{substr}
-								<span className="p-px text-black bg-yellow-200 rounded">
-									{state.form.search.safe}
-								</span>
-								{icon.name.slice(substr.length + state.form.search.safe.length)}
-							</>
-						))(icon.name.split(state.form.search.safe, 1))
-					)}
-				</p>
-			</div>
+				{/* Icon name */}
+				<div className="p-3 absolute bottom-0">
+					<p className="text-xs leading-tight text-gray-800">
+						{!state.form.search.safe || state.form.search.safe === "new" ? (
+							icon.name
+						) : (
+							(([substr]) => (
+								<>
+									{substr}
+									<span className="p-px text-black bg-yellow-200 rounded">
+										{state.form.search.safe}
+									</span>
+									{icon.name.slice(substr.length + state.form.search.safe.length)}
+								</>
+							))(icon.name.split(state.form.search.safe, 1))
+						)}
+					</p>
+				</div>
 
-		</button>
-		// </div>
+			</button>
+		</Reset>
 	)
 }, (prev, next) => {
 	const ok = (
@@ -571,80 +579,66 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 const Main = ({ state, dispatch }) => (
 	<div className="flex flex-row items-start">
 
-		<main className="flex-1">
-			<div className="rounded-6 shadow-xl">
-				<div className="bg-gray-200 rounded-6 shadow-hero-md">
-
-					{/* <div */}
-					{/* 	id="main-clip-top" */}
-					{/* 	className="-mb-6 sticky h-6 rounded-t-6 z-10" */}
-					{/* 	style={{ */}
-					{/* 		top: tw(4), */}
-					{/* 		boxShadow: `0 -${tw(4)} 0 ${tw(4)} var(--white)`, */}
-					{/* 	}} */}
-					{/* /> */}
-
-					<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
-						{state.results.length > 0 && (
-							<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 rounded-6 overflow-hidden" style={{ gap: 1 }}>
-								{state.results.map((each, x) => (
-									<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
-										<div className="absolute inset-0">
-											<MemoIcon
-												state={state}
-												dispatch={dispatch}
-												icon={each}
-											/>
+		{/* LHS */}
+		<Apply className="flex-1">
+			<main className="rounded-6 shadow-xl">
+				<Apply className="rounded-6 shadow-hero-md">
+					<div className="bg-gray-200">
+						<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
+							{state.results.length > 0 && (
+								<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 rounded-6 overflow-hidden" style={{ gap: 1 }}>
+									{state.results.map((each, x) => (
+										<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
+											<div className="absolute inset-0">
+												<MemoIcon
+													state={state}
+													dispatch={dispatch}
+													icon={each}
+												/>
+											</div>
 										</div>
-									</div>
-								))}
-							</div>
-						)}
-					</DocumentTitle>
+									))}
+								</div>
+							)}
+						</DocumentTitle>
+					</div>
+				</Apply>
+			</main>
+		</Apply>
 
-					{/* <div */}
-					{/* 	id="main-clip-bottom" */}
-					{/* 	className="-mt-6 sticky h-6 rounded-b-6 z-10" */}
-					{/* 	style={{ */}
-					{/* 		bottom: tw(4), */}
-					{/* 		boxShadow: `0 ${tw(4)} 0 ${tw(4)} var(--white)`, */}
-					{/* 	}} */}
-					{/* /> */}
-
-				</div>
-			</div>
-		</main>
-
+		{/* RHS */}
 		<div className="w-4" />
 		<aside className="sticky" style={{ top: tw(4) }}>
 			<div className="rounded-6 shadow-xl">
-				<div className="w-96 bg-white rounded-6 shadow-hero-md">
+				<Apply className="rounded-6 shadow-hero-md">
+					<div className="w-96 bg-white">
 
-					<div className="h-20">
+						<div className="h-20">
+						</div>
+
+						<hr className="border-t border-gray-200" />
+						<div className="h-20">
+						</div>
+
+						<hr className="border-t border-gray-200" />
+						<div className="h-20">
+						</div>
+
+						<hr className="border-t border-gray-200" />
+						<div className="h-40">
+						</div>
+
+						{/* <div */}
+						{/* 	id="aside-clip-bottom" */}
+						{/* 	className="-mt-6 sticky h-6 rounded-b-6 z-10" */}
+						{/* 	style={{ */}
+						{/* 		bottom: tw(4), */}
+						{/* 		boxShadow: `0 ${tw(4)} 0 ${tw(4)} var(--white)`, */}
+						{/* 	}} */}
+						{/* /> */}
+
 					</div>
-
-					<hr className="border-t border-gray-200" />
-					<div className="h-20">
-					</div>
-
-					<hr className="border-t border-gray-200" />
-					<div className="h-20">
-					</div>
-
-					<hr className="border-t border-gray-200" />
-					<div className="h-40">
-					</div>
-
-					{/* <div */}
-					{/* 	id="aside-clip-bottom" */}
-					{/* 	className="-mt-6 sticky h-6 rounded-b-6 z-10" */}
-					{/* 	style={{ */}
-					{/* 		bottom: tw(4), */}
-					{/* 		boxShadow: `0 ${tw(4)} 0 ${tw(4)} var(--white)`, */}
-					{/* 	}} */}
-					{/* /> */}
-
-				</div>
+				</Apply>
 			</div>
 		</aside>
 
