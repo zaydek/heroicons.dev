@@ -22,7 +22,6 @@ import SunOutlineSVG from "heroicons-0.4.0/outline/Sun"
 import SwitchHorizontalOutlineSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
 
 const HEADER_HEIGHT = 560
-const HEADER_CLIP_HEIGHT = (HEADER_HEIGHT - (32 * 4))
 
 const Header = ({ state, dispatch }) => (
 	<Apply className="relative">
@@ -607,138 +606,179 @@ const Main = ({ state, dispatch }) => {
 
 			{/* LHS */}
 			<Apply className="flex-1">
-				<main className="rounded-6 shadow-xl">
-					<Apply className="rounded-6 shadow-hero-md">
-						<div className="bg-gray-200">
-							<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
-								{state.results.length > 0 && (
-									<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 rounded-6 overflow-hidden" style={{ gap: 1 }}>
-										{state.results.map((each, x) => (
-											<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
-												<div className="absolute inset-0">
-													<MemoIcon
-														state={state}
-														dispatch={dispatch}
-														icon={each}
-													/>
-												</div>
-											</div>
-										))}
+				<main className="bg-gray-200 !border !border-gray-200 rounded-6 shadow">
+					<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
+						{state.results.length > 0 && (
+							<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 rounded-6 overflow-hidden" style={{ gap: 1 }}>
+								{state.results.map((each, x) => (
+									<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
+										<div className="absolute inset-0">
+											<MemoIcon
+												state={state}
+												dispatch={dispatch}
+												icon={each}
+											/>
+										</div>
 									</div>
-								)}
-							</DocumentTitle>
-						</div>
-					</Apply>
+								))}
+							</div>
+						)}
+					</DocumentTitle>
 				</main>
 			</Apply>
 
 			{/* RHS */}
-			<div className="w-4" />
-			<aside className="sticky" style={{ top: tw(4) }}>
-				<div className="rounded-6 shadow-xl">
-					<Apply className="rounded-6 shadow-hero-md">
-						<div className="w-96 bg-white">
+			<div className="w-6" />
+			<aside className="sticky" style={{ top: tw(8) }}>
+				<div className="w-96 bg-white !border !border-gray-200 rounded-6 shadow">
 
-							{/* Section: Search */}
-							<Apply className="relative">
-								<section className="flex flex-row h-20">
+					{/* Section: Search */}
+					<Apply className="relative">
+						<section className="flex flex-row h-20">
 
-									{/* LHS */}
-									<div className="absolute inset-y-0 left-0 pointer-events-none">
-										<div className="px-6 flex flex-row items-center h-full">
-											<Apply
-												className="w-6 h-6 transform scale-90"
-												style={{ color: !inputValue ? "var(--gray-300)" : "var(--indigo-600)" }}
-											>
-												<Apply className="transition duration-200 ease-in-out">
-													<SearchOutlineSVG />
+							{/* LHS */}
+							<div className="absolute inset-y-0 left-0 pointer-events-none">
+								<div className="px-6 flex flex-row items-center h-full">
+									<Apply
+										className="w-6 h-6 transform scale-90"
+										style={{ color: !inputValue ? "var(--gray-300)" : "var(--indigo-600)" }}
+									>
+										<Apply className="transition duration-200 ease-in-out">
+											<SearchOutlineSVG />
+										</Apply>
+									</Apply>
+								</div>
+							</div>
+
+							{/* Search */}
+							<Reset className="w-full h-full leading-none bg-transparent focus:outline-none">
+								<input
+									ref={inputRef}
+									className="px-14 text-lg placeholder-gray-300 text-gray-800"
+									type="text"
+									placeholder="Search"
+									value={inputValue}
+									onChange={e => setInputValue(e.target.value)}
+									autoFocus
+									{...disableAutoCorrect}
+								/>
+							</Reset>
+
+							{/* RHS */}
+							{inputValue && (
+								<div className="absolute inset-y-0 right-0">
+									<Reset className="focus:outline-none">
+										<button className="px-6 flex flex-row items-center h-full text-gray-300 hover:text-gray-800 focus:text-gray-800 rounded-tr-6" onClick={e => setInputValue("")}>
+											<Apply className="transition duration-200 ease-in-out">
+												<Apply className="w-6 h-6 transform scale-90">
+													<XCircleSVG />
 												</Apply>
 											</Apply>
-										</div>
-									</div>
-
-									{/* Search */}
-									<Reset className="w-full h-full leading-none bg-transparent focus:outline-none">
-										<input
-											ref={inputRef}
-											className="px-14 text-lg placeholder-gray-300 text-gray-800"
-											type="text"
-											placeholder="Search"
-											value={inputValue}
-											onChange={e => setInputValue(e.target.value)}
-											autoFocus
-											{...disableAutoCorrect}
-										/>
+										</button>
 									</Reset>
-
-									{/* RHS */}
-									{inputValue && (
-										<div className="absolute inset-y-0 right-0">
-											<Reset className="focus:outline-none">
-												<button className="px-6 flex flex-row items-center h-full text-gray-300 hover:text-gray-800 focus:text-gray-800 rounded-tr-6" onClick={e => setInputValue("")}>
-													<Apply className="transition duration-200 ease-in-out">
-														<Apply className="w-6 h-6 transform scale-90">
-															<XCircleSVG />
-														</Apply>
-													</Apply>
-												</button>
-											</Reset>
-										</div>
-									)}
-
-								</section>
-							</Apply>
-
-							{/* Section: Copy As */}
-							<hr className="border-t border-gray-200" />
-							<section className="px-6 py-6">
-								<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.6875rem" }}>
-									<span className="inline-flex flex-row justify-between w-full">
-										<span>
-											COPY AS
-										</span>
-										<span>
-											OR DOWNLOAD
-										</span>
-									</span>
-								</h6>
-								<div className="h-4" />
-								<div className="flex flex-row justify-between items-center">
-									<div className="space-x-2 flex flex-row">
-										<div className="w-10 h-10 bg-gray-100 rounded-full">
-											{/* SVG */}
-										</div>
-										<div className="w-10 h-10 bg-gray-100 rounded-full">
-											{/* JSX */}
-										</div>
-										<div className="w-10 h-10 bg-gray-100 rounded-full">
-											{/* Figma */}
-										</div>
-									</div>
-									<div className="w-10 h-10 bg-gray-100 rounded-full" />
 								</div>
-							</section>
+							)}
 
-							{/* Section: Size */}
-							<hr className="border-t border-gray-200" />
-							<section className="px-6 py-6">
-								<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.6875rem" }}>
-									SIZE
-								</h6>
-								<div className="h-4" />
-								<div className="flex flex-row justify-between items-center">
-									<div className="w-64 h-1 bg-gray-100 rounded-full" />
-									<div className="w-16 h-8 bg-gray-100 rounded-full" />
-								</div>
-							</section>
-
-							<hr className="border-t border-gray-200" />
-							<div className="h-24" />
-							<div className="h-24" />
-
-						</div>
+						</section>
 					</Apply>
+
+					{/* Section: Copy As */}
+					<hr className="border-t border-gray-200" />
+					<section className="px-6 py-4">
+						<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
+							<span className="inline-flex flex-row justify-between w-full">
+								<span>
+									COPY TO CLIPBOARD
+								</span>
+								{/* <span> */}
+								{/* 	DOWNLOAD */}
+								{/* </span> */}
+							</span>
+						</h6>
+						<div className="h-4" />
+						<div className="flex flex-row justify-between items-center">
+							<div className="space-x-2 flex flex-row">
+								<div className="w-10 h-10 bg-gray-100 rounded-full" />
+								<div className="w-10 h-10 bg-gray-100 rounded-full" />
+								<div className="w-10 h-10 bg-gray-100 rounded-full" />
+							</div>
+							{/* <div className="w-10 h-10 bg-gray-100 rounded-full" /> */}
+						</div>
+					</section>
+
+					{/* Section: Size */}
+					{/* */}
+					{/* TODO: Add overflow-visible. */}
+					<hr className="border-t border-gray-200" />
+					<section className="px-6 py-4">
+						<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
+							SIZE
+						</h6>
+						<div className="h-4" />
+						<div className="flex flex-row justify-between items-center">
+							<div className="w-64 h-1 bg-gray-100 rounded-full" />
+							<div className="w-16 h-8 bg-gray-100 rounded-full" />
+						</div>
+					</section>
+
+					{/* Section: Size */}
+					{/* */}
+					{/* TODO: Add overflow-visible. */}
+					{/* <hr className="border-t border-gray-200" /> */}
+					{/* <section className="px-6 py-4"> */}
+					{/* 	<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}> */}
+					{/* 		CARBON ADS */}
+					{/* 	</h6> */}
+					{/* 	<div className="h-4" /> */}
+					{/* 	<div className="w-80 h-32 bg-gray-100 rounded-2" /> */}
+					{/* </section> */}
+
+					{/* Section: Class names */}
+					{/* */}
+					{/* TODO: Add overflow-visible. */}
+					{/* <hr className="border-t border-gray-200" /> */}
+					{/* <section className="px-6 py-4"> */}
+					{/* 	<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}> */}
+					{/* 		CLASS NAMES */}
+					{/* 	</h6> */}
+					{/* 	<div className="h-4" /> */}
+					{/* 	<div className="flex flex-row justify-between items-center"> */}
+					{/* 		<div className="w-64 h-1 bg-gray-100 rounded-full" /> */}
+					{/* 		<div className="w-16 h-8 bg-gray-100 rounded-full" /> */}
+					{/* 	</div> */}
+					{/* </section> */}
+
+					{/* Section: Stroke-width */}
+					{/* */}
+					{/* TODO: Heroicons do not currently export stroke-width as an API. */}
+					{/* <hr className="border-t border-gray-200" /> */}
+					{/* <section className="px-6 py-6"> */}
+					{/* 	<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}> */}
+					{/* 		STROKE-WIDTH */}
+					{/* 	</h6> */}
+					{/* 	<div className="h-4" /> */}
+					{/* 	<div className="flex flex-row justify-between items-center"> */}
+					{/* 		<div className="w-64 h-1 bg-gray-100 rounded-full" /> */}
+					{/* 		<div className="w-16 h-8 bg-gray-100 rounded-full" /> */}
+					{/* 	</div> */}
+					{/* </section> */}
+
+					{/* <hr className="border-t border-gray-200" /> */}
+					<div className="h-4" />
+
+					{/* <div className="h-36" /> */}
+
 				</div>
+
+				<section className="px-6 py-8">
+					<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
+						CARBON ADS
+					</h6>
+					<div className="h-4" />
+					<div className="w-80 h-32 bg-gray-100 rounded-2" />
+				</section>
+
+
 			</aside>
 
 		</div>
@@ -773,7 +813,7 @@ html {
 			<section>
 				<Header state={state} dispatch={dispatch} />
 			</section>
-			<section className="-mt-48 px-4 flex flex-row justify-center">
+			<section className="-mt-48 px-8 flex flex-row justify-center">
 				<div className="w-full z-10" style={{ maxWidth: 1440 }}>
 					<Main state={state} dispatch={dispatch} />
 				</div>
