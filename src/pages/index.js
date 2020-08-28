@@ -254,7 +254,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 		<Reset className="w-full h-full select-text focus:outline-none">
 			<button
 				ref={buttonRef}
-				className="flex flex-row justify-center items-center tracking-wide bg-white"
+				className="flex flex-row justify-center items-center bg-white"
 				onClick={handleClick}
 				aria-label={icon.name}
 			>
@@ -262,11 +262,13 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				{/* NEW */}
 				{icon.statusNew && (
 					<div className="p-3 absolute top-0 right-0">
-						<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right">
-							<p className="font-semibold text-xs tracking-wider leading-none font-mono text-white">
-								NEW
-							</p>
-						</div>
+						<Apply className="transform scale-90 origin-top-right">
+							<div className="px-2 py-1 bg-indigo-500 rounded-full">
+								<p className="font-semibold text-xs tracking-wider leading-none font-mono text-white">
+									NEW
+								</p>
+							</div>
+						</Apply>
 					</div>
 				)}
 
@@ -281,16 +283,16 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				{/* 	</div> */}
 				{/* )} */}
 
-				{/* Icon */}
+				{/* SVG */}
 				<SVG
 					id={icon.name}
-					className="w-8 h-8"
+					className="w-8 h-8 text-gray-800"
 					svg={icon[!state.form.showOutline ? "solid" : "outline"]}
 				/>
 
 				{/* Icon name */}
 				<div className="py-3 absolute bottom-0">
-					<p className="text-xs leading-tight text-gray-800">
+					<p className="text-xs tracking-wide text-gray-600">
 						{!state.form.search.safe || state.form.search.safe === "new" ? (
 							icon.name
 						) : (
