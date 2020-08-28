@@ -18,29 +18,20 @@ import FlagSVG from "heroicons-0.4.0/solid/Flag"
 import SearchOutlineSVG from "heroicons-0.4.0/outline/Search"
 import SwitchHorizontalSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
 
-const HEADER_HEIGHT = 560
+const HEADER_HEIGHT = 640
+const HEADER_CLIP_HEIGHT = (HEADER_HEIGHT - ((48 + 8) * 4))
 
 const Header = () => {
 	React.useLayoutEffect(() => {
 		const handleScroll = () => {
 			try {
-
 				const bg = document.getElementById("bg")
-				const maskTop = document.getElementById("mask-top")
-				const maskBtm = document.getElementById("mask-btm")
-
-				bg.style.opacity = Number(window.scrollY < (HEADER_HEIGHT - (24 * 4)) / 2)
-
-				maskTop.style.opacity = 0
-				if (window.scrollY >= HEADER_HEIGHT - ((24 + 6) * 4)) {
-					maskTop.style.opacity = 1
+				const clipTop = document.getElementById("clip-top")
+				bg.style.opacity = Number(window.scrollY <= 0) // Number(window.scrollY < (HEADER_HEIGHT - (24 * 4)) / 2)
+				clipTop.style.opacity = 0
+				if (window.scrollY >= HEADER_CLIP_HEIGHT) {
+					clipTop.style.opacity = 1
 				}
-
-				// // maskBtm.style.opacity = 0
-				// if (window.scrollY >= HEADER_HEIGHT - ((24 + 6) * 4)) {
-				// 	maskBtm.style.opacity = 1
-				// }
-
 			} catch (error) {
 				console.error(error)
 			}
@@ -141,13 +132,13 @@ const Header = () => {
 				{/* Background */}
 				<div className="absolute inset-0">
 					<Reset className="w-full h-full">
-						<Apply className="transform duration-300 ease-out">
+						<Apply className="transform duration-500 ease-out">
 							<div id="bg" style={{ backgroundColor: "var(--theme)" }} />
 						</Apply>
 					</Reset>
 					{/* TODO: Move preserveAspectRatio to <Apply>. */}
 					<div className="absolute bottom-0 inset-x-0">
-						<Apply className="w-full h-16 text-black">
+						<Apply className="w-full h-24 text-black">
 							<svg preserveAspectRatio="none" fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
 								<path d="M0 0C0.5 0.333333 2 1 4 1C6 1 7.41667 0.333333 8 0V1H4H0V0Z" />
 							</svg>
@@ -159,7 +150,7 @@ const Header = () => {
 					<div className="flex flex-col justify-center h-full">
 
 						<Apply className="relative transform">
-							<div className="-mt-24">
+							<div className="-mt-48">
 								<div className="px-1 absolute left-full inset-y-0 flex flex-row items-center">
 									<Apply className="w-14 h-14 text-white opacity-50" style={{ marginTop: -3 }}>
 										{/* <svg */}
@@ -630,7 +621,7 @@ const Main = () => {
 					<div className="bg-gray-700 rounded-6 shadow-lg">
 
 						<div
-							id="mask-top"
+							id="clip-top"
 							className="-mb-6 sticky h-6 rounded-t-6 z-10"
 							style={{
 								top: tw(4),
@@ -657,7 +648,7 @@ const Main = () => {
 						</DocumentTitle>
 
 						<div
-							id="mask-btm"
+							// id="clip-bottom"
 							className="-mt-6 sticky h-6 rounded-b-6 z-10"
 							style={{
 								bottom: tw(4),
@@ -690,7 +681,7 @@ const Main = () => {
 						</div>
 
 						<div
-							// id="mask-btm"
+							id="aside-clip-bottom"
 							className="-mt-6 sticky h-6 rounded-b-6 z-10"
 							style={{
 								bottom: tw(4),
@@ -771,7 +762,7 @@ html {
 			<Header />
 		</section>
 
-		<section className="-mt-24 px-4 flex flex-row justify-center">
+		<section className="-mt-48 px-4 flex flex-row justify-center">
 			<div className="w-full max-w-screen-xl z-10">
 				<Main />
 			</div>
