@@ -87,49 +87,49 @@ const Header = () => {
 		}
 	}, [])
 
-	// Canvas Gradient Animation by Luis Jose Rivera.
-	//
-	// Copyright (c) 2020 by Luis Jose Rivera (https://codepen.io/luisjoserivera/pen/oePeNy)
-	//
-	// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-	//
-	// The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-	//
-	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-	//
-	React.useLayoutEffect(() => {
-		try {
-			const c = document.getElementById("canv")
-			const $ = c.getContext("2d")
-			const col = function(x, y, r, g, b) {
-				$.fillStyle = "rgb(" + r + "," + g + "," + b + ")"
-				$.fillRect(x, y, 1, 1)
-			}
-			const R = function(x, y, t) {
-				return 0 + Math.floor(60 * Math.cos((x * x - y * y) / 900))
-			}
-			const G = function(x, y, t) {
-				return -127 + Math.floor(200 * Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 600))
-			}
-			const B = function(x, y, t) {
-				// return 255 + Math.floor(20 * Math.sin(5 * Math.sin(t / 9) + ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1200))
-				return 255
-			}
-			let t = 0
-			var run = function() {
-				for (let x = 0; x < 32; x++) {
-					for (let y = 0; y < 32; y++) {
-						col(x, y, R(x, y, t), G(x, y, t), B(x, y, t))
-					}
-				}
-				t += 0.05
-				window.requestAnimationFrame(run)
-			}
-			run()
-		} catch (error) {
-			console.error(error)
-		}
-	}, [])
+	// // Canvas Gradient Animation by Luis Jose Rivera.
+	// //
+	// // Copyright (c) 2020 by Luis Jose Rivera (https://codepen.io/luisjoserivera/pen/oePeNy)
+	// //
+	// // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+	// //
+	// // The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+	// //
+	// // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+	// //
+	// React.useLayoutEffect(() => {
+	// 	try {
+	// 		const bgGrad = document.getElementById("bg-grad")
+	// 		const $ = bgGrad.getContext("2d")
+	// 		const col = function(x, y, r, g, b) {
+	// 			$.fillStyle = "rgb(" + r + "," + g + "," + b + ")"
+	// 			$.fillRect(x, y, 1, 1)
+	// 		}
+	// 		const R = function(x, y, t) {
+	// 			return 0 + Math.floor(60 * Math.cos((x * x - y * y) / 900))
+	// 		}
+	// 		const G = function(x, y, t) {
+	// 			return -127 + Math.floor(200 * Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 600))
+	// 		}
+	// 		const B = function(x, y, t) {
+	// 			// return 255 + Math.floor(20 * Math.sin(5 * Math.sin(t / 9) + ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1200))
+	// 			return 255
+	// 		}
+	// 		let t = 0
+	// 		var run = function() {
+	// 			for (let x = 0; x < 32; x++) {
+	// 				for (let y = 0; y < 32; y++) {
+	// 					col(x, y, R(x, y, t), G(x, y, t), B(x, y, t))
+	// 				}
+	// 			}
+	// 			t += 0.05
+	// 			window.requestAnimationFrame(run)
+	// 		}
+	// 		run()
+	// 	} catch (error) {
+	// 		console.error(error)
+	// 	}
+	// }, [])
 
 	return (
 		<Apply className="relative">
@@ -146,9 +146,8 @@ const Header = () => {
 							// 	"--gradient-from-color": "rgb(60, 0, 255)",
 							// 	"--gradient-to-color": "rgb(40, 72, 255)",
 							// }}
-							// width={32}
-							// height={32}
 						/>
+						{/* <canvas id="bg-grad" width={32} height={32} /> */}
 					</Reset>
 				</div>
 
@@ -162,7 +161,7 @@ const Header = () => {
 										fill="none"
 										strokeLinecap="round"
 										strokeLinejoin="round"
-										strokeWidth={2}
+										strokeWidth={2.5}
 										stroke="currentColor"
 										viewBox="0 0 24 24"
 										xmlns="http://www.w3.org/2000/svg"
@@ -337,8 +336,8 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 		// <div className="!rounded-6 shadow-lg h-full">
 		<button
 			ref={buttonRef}
-			className="flex flex-row justify-center items-center w-full h-full bg-transparent hover:bg-cool-gray-700 hover:bg-opacity-25 focus:outline-none shadow-none focus:shadow-solid-indigo select-text"
-			style={{ boxShadow: "0 0 0 0.5px var(--black)" }}
+			className="flex flex-row justify-center items-center w-full h-full bg-cool-gray-800 hover:bg-cool-gray-700 focus:outline-none shadow-none focus:shadow-solid-indigo select-text"
+			// style={{ boxShadow: "inset 0 0 0 0.5px var(--cool-gray-900), 0 0 0 0.5px var(--cool-gray-900)" }}
 			onClick={handleClick}
 			aria-label={icon.name}
 		>
@@ -677,7 +676,7 @@ const Main = () => {
 
 			<main className="flex-1">
 				<div className="rounded-6 shadow-lg">
-					<div className="bg-cool-gray-800 rounded-6 shadow-lg">
+					<div className="bg-cool-gray-700 rounded-6 shadow-lg">
 
 						<div
 							id="mask-top"
@@ -685,20 +684,21 @@ const Main = () => {
 							style={{
 								top: tw(4),
 								boxShadow: `0 -${tw(4)} 0 ${tw(4)} var(--black)`,
+								opacity: 0,
 							}}
 						>
-							<div
-								className="h-full rounded-t-6"
-								style={{
-									clipPath: "inset(-2px -2px 0 -2px)",
-									boxShadow: "0 0 0 2px var(--black)",
-								}}
-							/>
+							{/* <div */}
+							{/* 	className="h-full rounded-t-6" */}
+							{/* 	// style={{ */}
+							{/* 	// 	clipPath: "inset(-2px -2px 0 -2px)", */}
+							{/* 	// 	boxShadow: "0 0 0 2px var(--black)", */}
+							{/* 	// }} */}
+							{/* /> */}
 						</div>
 
 						<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
 							{state.results.length > 0 && (
-								<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 overflow-hidden">
+								<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 rounded-6 overflow-hidden" style={{ gap: 1 }}>
 									{state.results.map((each, x) => (
 										<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
 											<div className="absolute inset-0">
@@ -720,15 +720,16 @@ const Main = () => {
 							style={{
 								bottom: tw(4),
 								boxShadow: `0 ${tw(4)} 0 ${tw(4)} var(--black)`,
+								opacity: 0,
 							}}
 						>
-							<div
-								className="h-full rounded-b-6"
-								style={{
-									clipPath: "inset(0 -2px -2px -2px)",
-									boxShadow: "0 0 0 2px var(--black)",
-								}}
-							/>
+							{/* <div */}
+							{/* 	className="h-full rounded-b-6" */}
+							{/* 	// style={{ */}
+							{/* 	// 	clipPath: "inset(0 -2px -2px -2px)", */}
+							{/* 	// 	boxShadow: "0 0 0 2px var(--black)", */}
+							{/* 	// }} */}
+							{/* /> */}
 						</div>
 
 					</div>
@@ -743,15 +744,15 @@ const Main = () => {
 						<div className="h-20">
 						</div>
 
-						<hr className="border-t border-black" />
+						<hr className="border-t border-cool-gray-700" />
 						<div className="h-20">
 						</div>
 
-						<hr className="border-t border-black" />
+						<hr className="border-t border-cool-gray-700" />
 						<div className="h-20">
 						</div>
 
-						<hr className="border-t border-black" />
+						<hr className="border-t border-cool-gray-700" />
 						<div className="h-40">
 						</div>
 

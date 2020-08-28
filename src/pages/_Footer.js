@@ -125,9 +125,9 @@ const FooterRHS = () => (
 			USEFUL LINKS
 		</h6>
 
-		<div className="-mb-2 h-8" />
+		<div className="h-4" />
 		<a href="TODO" {...target_blank}>
-			<p className="font-medium text-gray-200">
+			<p className="py-2 font-medium no-underline hover:underline text-gray-100">
 				<span className="inline-flex flex-row items-center">
 					Share on Twitter!{" "}
 					<Apply className="ml-3 w-6 h-6 transform scale-110" style={{ color: "#1da1f2" }}>
@@ -139,9 +139,9 @@ const FooterRHS = () => (
 			</p>
 		</a>
 
-		<div className="h-4" />
+		{/* <div className="h-4" /> */}
 		<a href="TODO" {...target_blank}>
-			<p className="font-medium text-gray-200">
+			<p className="py-2 font-medium no-underline hover:underline text-gray-100">
 				<span className="inline-flex flex-row items-center">
 					Open in Figma{" "}
 					<Apply className="ml-3 w-5 h-6">
@@ -157,9 +157,9 @@ const FooterRHS = () => (
 			</p>
 		</a>
 
-		<div className="h-4" />
+		{/* <div className="h-4" /> */}
 		<a href="TODO" {...target_blank}>
-			<p className="font-medium text-gray-200">
+			<p className="py-2 font-medium no-underline hover:underline text-gray-100">
 				<span className="inline-flex flex-row items-center">
 					Open in GitHub{" "}
 					<Apply className="ml-3 w-5 h-6">
@@ -171,9 +171,9 @@ const FooterRHS = () => (
 			</p>
 		</a>
 
-		<div className="h-4" />
+		{/* <div className="h-4" /> */}
 		<a href="TODO" {...target_blank}>
-			<p className="font-medium text-gray-200">
+			<p className="py-2 font-medium no-underline hover:underline text-gray-100">
 				<span className="inline-flex flex-row items-center">
 					Contribute on GitHub{" "}
 					<Apply className="ml-3 w-5 h-6">
