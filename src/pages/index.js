@@ -18,28 +18,34 @@ import FlagSVG from "heroicons-0.4.0/solid/Flag"
 import SearchOutlineSVG from "heroicons-0.4.0/outline/Search"
 import SwitchHorizontalSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
 
-const HEADER_HEIGHT = 640
+const HEADER_HEIGHT = 560
 
 const Header = () => {
-	React.useEffect(() => {
+	React.useLayoutEffect(() => {
 		const handleScroll = () => {
 			try {
+
 				const bg = document.getElementById("bg")
 				const maskTop = document.getElementById("mask-top")
 				const maskBtm = document.getElementById("mask-btm")
-				bg.style.opacity = 1 - (window.scrollY / (HEADER_HEIGHT - (48 * 4)))
+
+				bg.style.opacity = Number(window.scrollY < (HEADER_HEIGHT - (24 * 4)) / 2)
+
 				maskTop.style.opacity = 0
-				if (window.scrollY >= HEADER_HEIGHT - (48 * 4)) {
+				if (window.scrollY >= HEADER_HEIGHT - ((24 + 6) * 4)) {
 					maskTop.style.opacity = 1
 				}
-				maskBtm.style.opacity = 0
-				if (window.scrollY >= HEADER_HEIGHT - (48 * 4)) {
-					maskBtm.style.opacity = 1
-				}
+
+				// // maskBtm.style.opacity = 0
+				// if (window.scrollY >= HEADER_HEIGHT - ((24 + 6) * 4)) {
+				// 	maskBtm.style.opacity = 1
+				// }
+
 			} catch (error) {
 				console.error(error)
 			}
 		}
+		handleScroll()
 		window.addEventListener("scroll", handleScroll, false)
 		return () => {
 			window.removeEventListener("scroll", handleScroll, false)
@@ -60,14 +66,14 @@ const Header = () => {
 										<path fill="#664500" d="M18 21.849c-2.966 0-4.935-.346-7.369-.819-.557-.106-1.638 0-1.638 1.638 0 3.275 3.763 7.369 9.007 7.369s9.007-4.094 9.007-7.369c0-1.638-1.082-1.745-1.638-1.638-2.434.473-4.402.819-7.369.819" />
 										<path fill="#dd2e44" d="M16.65 3.281C15.791.85 13.126-.426 10.694.431c-1.476.52-2.521 1.711-2.928 3.104-1.191-.829-2.751-1.1-4.225-.58C1.111 3.813-.167 6.48.692 8.911c.122.344.284.663.472.958 1.951 3.582 7.588 6.1 11.001 6.131 2.637-2.167 5.446-7.665 4.718-11.677-.038-.348-.113-.698-.233-1.042zm2.7 0C20.209.85 22.875-.426 25.306.431c1.476.52 2.521 1.711 2.929 3.104 1.191-.829 2.751-1.1 4.225-.58 2.43.858 3.707 3.525 2.85 5.956-.123.344-.284.663-.473.958-1.951 3.582-7.588 6.1-11.002 6.131-2.637-2.167-5.445-7.665-4.717-11.677.037-.348.112-.698.232-1.042z" />
 										<g className="absolute inset-0">
-											<Apply className="transform scale-125 animate-ping" style={{ transformOrigin: "50% 33.33%" }}>
+											<Apply className="transform scale-125 animate-ping" style={{ transformOrigin: "50% 30%" }}>
 												<path fill="#dd2e44" d="M16.65 3.281C15.791.85 13.126-.426 10.694.431c-1.476.52-2.521 1.711-2.928 3.104-1.191-.829-2.751-1.1-4.225-.58C1.111 3.813-.167 6.48.692 8.911c.122.344.284.663.472.958 1.951 3.582 7.588 6.1 11.001 6.131 2.637-2.167 5.446-7.665 4.718-11.677-.038-.348-.113-.698-.233-1.042zm2.7 0C20.209.85 22.875-.426 25.306.431c1.476.52 2.521 1.711 2.929 3.104 1.191-.829 2.751-1.1 4.225-.58 2.43.858 3.707 3.525 2.85 5.956-.123.344-.284.663-.473.958-1.951 3.582-7.588 6.1-11.002 6.131-2.637-2.167-5.445-7.665-4.717-11.677.037-.348.112-.698.232-1.042z" />
 											</Apply>
 										</g>
 									</svg>
 								</Apply>
 								<span style={{ width: "1ch" }} />
-								Share with your followers on Twitter
+								Share with your followers on Twitter!
 							</span>
 						</p>
 					</a>
@@ -82,7 +88,7 @@ const Header = () => {
 										<path fill="#ffffff" d="M9 22s3 1 9 1 9-1 9-1-2 4-9 4-9-4-9-4z" />
 										<path fill="#e95f28" d="M15.682 4.413l-4.542.801L8.8.961C8.542.492 8.012.241 7.488.333c-.527.093-.937.511-1.019 1.039l-.745 4.797-4.542.801c-.535.094-.948.525-1.021 1.064s.211 1.063.703 1.297l4.07 1.932-.748 4.812c-.083.536.189 1.064.673 1.309.179.09.371.133.562.133.327 0 .65-.128.891-.372l3.512-3.561 4.518 2.145c.49.232 1.074.123 1.446-.272.372-.395.446-.984.185-1.459L13.625 9.73l3.165-3.208c.382-.387.469-.977.217-1.459-.254-.482-.793-.743-1.325-.65zm4.636 0l4.542.801L27.2.961c.258-.469.788-.72 1.312-.628.526.093.936.511 1.018 1.039l.745 4.797 4.542.801c.536.094.949.524 1.021 1.063s-.211 1.063-.703 1.297l-4.07 1.932.748 4.812c.083.536-.189 1.064-.673 1.309-.179.09-.371.133-.562.133-.327 0-.65-.128-.891-.372l-3.512-3.561-4.518 2.145c-.49.232-1.074.123-1.446-.272-.372-.395-.446-.984-.185-1.459l2.348-4.267-3.165-3.208c-.382-.387-.469-.977-.217-1.459.255-.482.794-.743 1.326-.65z" />
 										{/* <g className="absolute inset-0"> */}
-										{/* 	<Apply className="transform scale-125 animate-ping" style={{ transformOrigin: "50% 33.33%" }}> */}
+										{/* 	<Apply className="transform scale-125 animate-ping" style={{ transformOrigin: "50% 30%" }}> */}
 										{/* 		<path fill="#e95f28" d="M15.682 4.413l-4.542.801L8.8.961C8.542.492 8.012.241 7.488.333c-.527.093-.937.511-1.019 1.039l-.745 4.797-4.542.801c-.535.094-.948.525-1.021 1.064s.211 1.063.703 1.297l4.07 1.932-.748 4.812c-.083.536.189 1.064.673 1.309.179.09.371.133.562.133.327 0 .65-.128.891-.372l3.512-3.561 4.518 2.145c.49.232 1.074.123 1.446-.272.372-.395.446-.984.185-1.459L13.625 9.73l3.165-3.208c.382-.387.469-.977.217-1.459-.254-.482-.793-.743-1.325-.65zm4.636 0l4.542.801L27.2.961c.258-.469.788-.72 1.312-.628.526.093.936.511 1.018 1.039l.745 4.797 4.542.801c.536.094.949.524 1.021 1.063s-.211 1.063-.703 1.297l-4.07 1.932.748 4.812c.083.536-.189 1.064-.673 1.309-.179.09-.371.133-.562.133-.327 0-.65-.128-.891-.372l-3.512-3.561-4.518 2.145c-.49.232-1.074.123-1.446-.272-.372-.395-.446-.984-.185-1.459l2.348-4.267-3.165-3.208c-.382-.387-.469-.977-.217-1.459.255-.482.794-.743 1.326-.65z" /> */}
 										{/* 	</Apply> */}
 										{/* </g> */}
@@ -135,17 +141,14 @@ const Header = () => {
 				{/* Background */}
 				<div className="absolute inset-0">
 					<Reset className="w-full h-full">
-						<div
-							id="bg"
-							style={{ backgroundColor: "hsl(270deg 100% 43.75%)" }}
-							// style={{ backgroundImage: `radial-gradient(ellipse at top right, hsl(270, 100%, 62.5%) -25%, hsl(270, 100%, 43.75%) 50%, hsl(270, 100%, 37.5%) 100%)` }}
-						/>
+						<Apply className="transform duration-300 ease-out">
+							<div id="bg" style={{ backgroundColor: "var(--theme)" }} />
+						</Apply>
 					</Reset>
+					{/* TODO: Move preserveAspectRatio to <Apply>. */}
 					<div className="absolute bottom-0 inset-x-0">
 						<Apply className="w-full h-16 text-black">
-							{/* TODO: Move preserveAspectRatio to <Apply>. */}
 							<svg preserveAspectRatio="none" fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
-								{/* <path fillRule="evenodd" clipRule="evenodd" d="M4 -3.49691e-07C6 -1.74846e-07 7.5 0.666667 8 1L0 0.999999C0.583334 0.666666 2 -5.24537e-07 4 -3.49691e-07Z" /> */}
 								<path d="M0 0C0.5 0.333333 2 1 4 1C6 1 7.41667 0.333333 8 0V1H4H0V0Z" />
 							</svg>
 						</Apply>
@@ -156,7 +159,7 @@ const Header = () => {
 					<div className="flex flex-col justify-center h-full">
 
 						<Apply className="relative transform">
-							<div className="-mt-32">
+							<div className="-mt-24">
 								<div className="px-1 absolute left-full inset-y-0 flex flex-row items-center">
 									<Apply className="w-14 h-14 text-white opacity-50" style={{ marginTop: -3 }}>
 										{/* <svg */}
@@ -199,7 +202,7 @@ const Header = () => {
 					</div>
 
 					{/* Subheader */}
-					{/* <h2 className="flex flex-row justify-center items-center flex-wrap text-center font-medium text-xl sm:text-2xl text-cool-gray-100"> */}
+					{/* <h2 className="flex flex-row justify-center items-center flex-wrap text-center font-medium text-xl sm:text-2xl text-gray-100"> */}
 					{/* 	<BookOpenSVG className="mr-2 hidden sm:block w-8 h-8" /> */}
 					{/* 		MIT open source icons by{" "} */}
 					{/* 	<span style={{ width: "0.25em" }} /> */}
@@ -279,8 +282,8 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 		// <div className="!rounded-6 shadow-lg h-full">
 		<button
 			ref={buttonRef}
-			className="flex flex-row justify-center items-center w-full h-full bg-cool-gray-800 hover:bg-cool-gray-700 focus:outline-none shadow-none focus:shadow-solid-indigo select-text"
-			// style={{ boxShadow: "inset 0 0 0 0.5px var(--cool-gray-900), 0 0 0 0.5px var(--cool-gray-900)" }}
+			className="flex flex-row justify-center items-center w-full h-full bg-gray-800 hover:bg-gray-700 focus:outline-none shadow-none focus:shadow-solid-indigo select-text"
+			// style={{ boxShadow: "inset 0 0 0 0.5px var(--gray-900), 0 0 0 0.5px var(--gray-900)" }}
 			onClick={handleClick}
 			aria-label={icon.name}
 		>
@@ -289,7 +292,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			{icon.statusNew && (
 				<div className="p-3 absolute top-0 right-0">
 					<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right">
-						<p className="font-semibold leading-none text-cool-gray-100" style={{ fontSize: "0.6875rem" }}>
+						<p className="font-semibold leading-none text-gray-100" style={{ fontSize: "0.6875rem" }}>
 							<span className="tracking-wider">NE</span>W
 						</p>
 					</div>
@@ -299,13 +302,13 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			{/* Icon */}
 			<SVG
 				id={icon.name}
-				className="w-8 h-8 text-cool-gray-100"
+				className="w-8 h-8 text-gray-100"
 				svg={icon[!state.form.showOutline ? "solid" : "outline"]}
 			/>
 
 			{/* Icon name */}
 			<div className="p-3 absolute bottom-0">
-				<p className="text-center text-sm tracking-wide leading-tight text-cool-gray-200">
+				<p className="text-center text-sm tracking-wide leading-tight text-gray-200">
 					{!state.form.search.safe || state.form.search.safe === "new" ? (
 						icon.name
 					) : (
@@ -435,7 +438,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 				{/* Search bar LHS */}
 // 				<div className="px-6 absolute inset-y-0 left-0 pointer-events-none">
 // 					<div className="pl-2 flex flex-row items-center h-full">
-// 						<SearchOutlineSVG className="w-6 h-6 text-cool-gray-400 transition duration-200 ease-in-out" />
+// 						<SearchOutlineSVG className="w-6 h-6 text-gray-400 transition duration-200 ease-in-out" />
 // 					</div>
 // 				</div>
 //
@@ -446,7 +449,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 							<Reset className="appearance-none w-full">
 // 								<input
 // 									ref={inputRef}
-// 									className="pl-20 pr-36 block w-full h-18 text-xl placeholder-cool-gray-400 text-cool-gray-100 bg-cool-gray-800 rounded-6 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
+// 									className="pl-20 pr-36 block w-full h-18 text-xl placeholder-gray-400 text-gray-100 bg-gray-800 rounded-6 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
 // 									style={{ height: tw(18) }}
 // 									type="text"
 // 									placeholder="Search Heroicons"
@@ -473,9 +476,9 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 							onMouseLeave={e => setTooltip("")}
 // 						>
 // 							<button
-// 								className="p-2 relative text-cool-gray-400 hover:bg-cool-gray-700 focus:bg-cool-gray-700 rounded-full focus:outline-none transition duration-200 ease-in-out"
+// 								className="p-2 relative text-gray-400 hover:bg-gray-700 focus:bg-gray-700 rounded-full focus:outline-none transition duration-200 ease-in-out"
 // 								style={{
-// 									color: state.form.copyAsReact && "var(--cool-gray-100)",
+// 									color: state.form.copyAsReact && "var(--gray-100)",
 // 									backgroundColor: state.form.copyAsReact && "var(--indigo-500)",
 // 								}}
 // 								onClick={e => {
@@ -494,8 +497,8 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 									<div className="pt-2 absolute top-full right-0 z-40">
 // 										<div className="rounded-md shadow-lg">
 // 											<div className="rounded-md shadow-lg">
-// 												<div className="px-3 py-2 relative bg-cool-gray-700 rounded-md">
-// 													<p className="whitespace-pre font-medium text-sm text-cool-gray-100">
+// 												<div className="px-3 py-2 relative bg-gray-700 rounded-md">
+// 													<p className="whitespace-pre font-medium text-sm text-gray-100">
 // 														{!state.form.copyAsReact
 // 															? "Click to Enable Copy as JSX"
 // 															: "Click to Enable Copy as HTML"
@@ -522,9 +525,9 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 							onMouseLeave={e => setTooltip("")}
 // 						>
 // 							<button
-// 								className="p-2 relative text-cool-gray-400 hover:bg-cool-gray-700 focus:bg-cool-gray-700 rounded-full focus:outline-none transition duration-200 ease-in-out"
+// 								className="p-2 relative text-gray-400 hover:bg-gray-700 focus:bg-gray-700 rounded-full focus:outline-none transition duration-200 ease-in-out"
 // 								style={{
-// 									color: state.form.showOutline && "var(--cool-gray-100)",
+// 									color: state.form.showOutline && "var(--gray-100)",
 // 									backgroundColor: state.form.showOutline && "var(--indigo-500)",
 // 								}}
 // 								onClick={e => {
@@ -543,8 +546,8 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 									<div className="pt-2 absolute top-full right-0 z-40">
 // 										<div className="rounded-md shadow-lg">
 // 											<div className="rounded-md shadow-lg">
-// 												<div className="px-3 py-2 relative bg-cool-gray-700 rounded-md">
-// 													<p className="whitespace-pre font-medium text-sm text-cool-gray-100">
+// 												<div className="px-3 py-2 relative bg-gray-700 rounded-md">
+// 													<p className="whitespace-pre font-medium text-sm text-gray-100">
 // 														{!state.form.showOutline
 // 															? "Click to Switch to Outline Icons"
 // 															: "Click to Switch to Solid Icons"
@@ -573,7 +576,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 	// {!state.results.length && (
 // 		<div className="flex flex-col justify-center items-center h-full">
 //
-// 			<p className="flex flex-row items-baseline font-medium text-xl text-center text-cool-gray-200">
+// 			<p className="flex flex-row items-baseline font-medium text-xl text-center text-gray-200">
 // 				No results for “
 // 				{/* <span className="inline-block truncate" style={{ maxWidth: media.xs ? 128 : 256 }}> */}
 // 				{/* FIXME */}
@@ -582,7 +585,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 				</span>”
 // 			</p>
 //
-// 			<p className="font-medium text-xl text-center text-cool-gray-200">
+// 			<p className="font-medium text-xl text-center text-gray-200">
 // 				Try again or{" "}
 // 				<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" {...target_blank}>
 // 					request an icon
@@ -624,7 +627,7 @@ const Main = () => {
 
 			<main className="flex-1">
 				<div className="rounded-6 shadow-lg">
-					<div className="bg-cool-gray-700 rounded-6 shadow-lg">
+					<div className="bg-gray-700 rounded-6 shadow-lg">
 
 						<div
 							id="mask-top"
@@ -632,7 +635,6 @@ const Main = () => {
 							style={{
 								top: tw(4),
 								boxShadow: `0 -${tw(4)} 0 ${tw(4)} var(--black)`,
-								opacity: 0,
 							}}
 						/>
 
@@ -660,7 +662,6 @@ const Main = () => {
 							style={{
 								bottom: tw(4),
 								boxShadow: `0 ${tw(4)} 0 ${tw(4)} var(--black)`,
-								opacity: 0,
 							}}
 						/>
 
@@ -671,22 +672,31 @@ const Main = () => {
 			<div className="w-6" />
 			<aside className="sticky" style={{ top: tw(4) }}>
 				<div className="rounded-6 shadow-lg">
-					<div className="w-96 bg-cool-gray-800 rounded-6 shadow-lg">
+					<div className="w-96 bg-gray-800 rounded-6 shadow-lg">
 
 						<div className="h-20">
 						</div>
 
-						<hr className="border-t border-cool-gray-700" />
+						<hr className="border-t border-gray-700" />
 						<div className="h-20">
 						</div>
 
-						<hr className="border-t border-cool-gray-700" />
+						<hr className="border-t border-gray-700" />
 						<div className="h-20">
 						</div>
 
-						<hr className="border-t border-cool-gray-700" />
+						<hr className="border-t border-gray-700" />
 						<div className="h-40">
 						</div>
+
+						<div
+							// id="mask-btm"
+							className="-mt-6 sticky h-6 rounded-b-6 z-10"
+							style={{
+								bottom: tw(4),
+								boxShadow: `0 ${tw(4)} 0 ${tw(4)} var(--black)`,
+							}}
+						/>
 
 					</div>
 				</div>
@@ -750,11 +760,18 @@ const Main = () => {
 const LayoutFragment = () => (
 	<>
 
+		<style>{`
+html {
+	--theme: hsl(270deg 100% 37.5%);
+}
+`.trimStart()}
+		</style>
+
 		<section>
 			<Header />
 		</section>
 
-		<section className="-mt-32 px-4 flex flex-row justify-center">
+		<section className="-mt-24 px-4 flex flex-row justify-center">
 			<div className="w-full max-w-screen-xl z-10">
 				<Main />
 			</div>
