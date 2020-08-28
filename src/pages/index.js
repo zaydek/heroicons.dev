@@ -3,7 +3,6 @@ import Apply from "lib/x/Apply"
 import copyToClipboardPolyfill from "utils/copyToClipboardPolyfill"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import DocumentTitle from "lib/x/DocumentTitle"
-import Footer from "./_Footer"
 import Reset from "lib/x/Reset"
 import SVG from "components/SVG"
 import svgToJSX from "utils/svgToJSX"
@@ -24,165 +23,170 @@ import SwitchHorizontalSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
 const HEADER_HEIGHT = 560
 const HEADER_CLIP_HEIGHT = (HEADER_HEIGHT - (32 * 4))
 
-const Header = ({ state, dispatch }) => {
-	React.useLayoutEffect(() => {
-		const handleScroll = () => {
-			try {
-				// const headerBackground = document.getElementById("header-background")
-				// headerBackground.style.opacity = Number(window.scrollY < HEADER_CLIP_HEIGHT / 2)
+const Header = ({ state, dispatch }) => (
+	<Apply className="relative">
+		<header style={{ height: HEADER_HEIGHT }}>
 
-				const clipTop = document.getElementById("main-clip-top")
-				clipTop.style.opacity = 0
-				if (window.scrollY >= HEADER_CLIP_HEIGHT) {
-					clipTop.style.opacity = 1
-				}
-			} catch (error) {
-				console.error(error)
-			}
-		}
-		handleScroll()
-		window.addEventListener("scroll", handleScroll, false)
-		return () => {
-			window.removeEventListener("scroll", handleScroll, false)
-		}
-	}, [])
+			<div className="-my-0.5 absolute top-0 left-0 z-10">
+				<a href="TODO" {...target_blank}>
+					<p className="px-4 py-0.5 pt-4 pb-0.5 no-underline hover:underline text-white" style={{ opacity: 0.9 }}>
+						<span className="inline-flex flex-row items-center">
+							<Apply className="relative w-6 h-6 overflow-visible">
+								<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+									<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
+									<path fill="#664500" d="M18 21.849c-2.966 0-4.935-.346-7.369-.819-.557-.106-1.638 0-1.638 1.638 0 3.275 3.763 7.369 9.007 7.369s9.007-4.094 9.007-7.369c0-1.638-1.082-1.745-1.638-1.638-2.434.473-4.402.819-7.369.819" />
+									<path fill="#dd2e44" d="M16.65 3.281C15.791.85 13.126-.426 10.694.431c-1.476.52-2.521 1.711-2.928 3.104-1.191-.829-2.751-1.1-4.225-.58C1.111 3.813-.167 6.48.692 8.911c.122.344.284.663.472.958 1.951 3.582 7.588 6.1 11.001 6.131 2.637-2.167 5.446-7.665 4.718-11.677-.038-.348-.113-.698-.233-1.042zm2.7 0C20.209.85 22.875-.426 25.306.431c1.476.52 2.521 1.711 2.929 3.104 1.191-.829 2.751-1.1 4.225-.58 2.43.858 3.707 3.525 2.85 5.956-.123.344-.284.663-.473.958-1.951 3.582-7.588 6.1-11.002 6.131-2.637-2.167-5.445-7.665-4.717-11.677.037-.348.112-.698.232-1.042z" />
+									<g className="absolute inset-0">
+										<Apply className="transform scale-125 animate-ping" style={{ transformOrigin: "50% 30%" }}>
+											<path fill="#dd2e44" d="M16.65 3.281C15.791.85 13.126-.426 10.694.431c-1.476.52-2.521 1.711-2.928 3.104-1.191-.829-2.751-1.1-4.225-.58C1.111 3.813-.167 6.48.692 8.911c.122.344.284.663.472.958 1.951 3.582 7.588 6.1 11.001 6.131 2.637-2.167 5.446-7.665 4.718-11.677-.038-.348-.113-.698-.233-1.042zm2.7 0C20.209.85 22.875-.426 25.306.431c1.476.52 2.521 1.711 2.929 3.104 1.191-.829 2.751-1.1 4.225-.58 2.43.858 3.707 3.525 2.85 5.956-.123.344-.284.663-.473.958-1.951 3.582-7.588 6.1-11.002 6.131-2.637-2.167-5.445-7.665-4.717-11.677.037-.348.112-.698.232-1.042z" />
+										</Apply>
+									</g>
+								</svg>
+							</Apply>
+							<span style={{ width: "1ch" }} />
+							Share with your followers on Twitter!
+						</span>
+					</p>
+				</a>
 
-	return (
-		<Apply className="relative">
-			<header style={{ height: HEADER_HEIGHT }}>
+				<a href="TODO" {...target_blank}>
+					<p className="px-4 py-0.5 pb-4 no-underline hover:underline text-white" style={{ opacity: 0.9 }}>
+						<span className="inline-flex flex-row items-center">
+							<Apply className="w-6 h-6 overflow-visible">
+								<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+									<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
+									<path fill="#664500" d="M18 21c-3.623 0-6.027-.422-9-1-.679-.131-2 0-2 2 0 4 4.595 9 11 9 6.404 0 11-5 11-9 0-2-1.321-2.132-2-2-2.973.578-5.377 1-9 1z" />
+									<path fill="#ffffff" d="M9 22s3 1 9 1 9-1 9-1-2 4-9 4-9-4-9-4z" />
+									<path fill="#e95f28" d="M15.682 4.413l-4.542.801L8.8.961C8.542.492 8.012.241 7.488.333c-.527.093-.937.511-1.019 1.039l-.745 4.797-4.542.801c-.535.094-.948.525-1.021 1.064s.211 1.063.703 1.297l4.07 1.932-.748 4.812c-.083.536.189 1.064.673 1.309.179.09.371.133.562.133.327 0 .65-.128.891-.372l3.512-3.561 4.518 2.145c.49.232 1.074.123 1.446-.272.372-.395.446-.984.185-1.459L13.625 9.73l3.165-3.208c.382-.387.469-.977.217-1.459-.254-.482-.793-.743-1.325-.65zm4.636 0l4.542.801L27.2.961c.258-.469.788-.72 1.312-.628.526.093.936.511 1.018 1.039l.745 4.797 4.542.801c.536.094.949.524 1.021 1.063s-.211 1.063-.703 1.297l-4.07 1.932.748 4.812c.083.536-.189 1.064-.673 1.309-.179.09-.371.133-.562.133-.327 0-.65-.128-.891-.372l-3.512-3.561-4.518 2.145c-.49.232-1.074.123-1.446-.272-.372-.395-.446-.984-.185-1.459l2.348-4.267-3.165-3.208c-.382-.387-.469-.977-.217-1.459.255-.482.794-.743 1.326-.65z" />
+									{/* <g className="absolute inset-0"> */}
+									{/* 	<Apply className="transform scale-125 animate-ping" style={{ transformOrigin: "50% 30%" }}> */}
+									{/* 		<path fill="#e95f28" d="M15.682 4.413l-4.542.801L8.8.961C8.542.492 8.012.241 7.488.333c-.527.093-.937.511-1.019 1.039l-.745 4.797-4.542.801c-.535.094-.948.525-1.021 1.064s.211 1.063.703 1.297l4.07 1.932-.748 4.812c-.083.536.189 1.064.673 1.309.179.09.371.133.562.133.327 0 .65-.128.891-.372l3.512-3.561 4.518 2.145c.49.232 1.074.123 1.446-.272.372-.395.446-.984.185-1.459L13.625 9.73l3.165-3.208c.382-.387.469-.977.217-1.459-.254-.482-.793-.743-1.325-.65zm4.636 0l4.542.801L27.2.961c.258-.469.788-.72 1.312-.628.526.093.936.511 1.018 1.039l.745 4.797 4.542.801c.536.094.949.524 1.021 1.063s-.211 1.063-.703 1.297l-4.07 1.932.748 4.812c.083.536-.189 1.064-.673 1.309-.179.09-.371.133-.562.133-.327 0-.65-.128-.891-.372l-3.512-3.561-4.518 2.145c-.49.232-1.074.123-1.446-.272-.372-.395-.446-.984-.185-1.459l2.348-4.267-3.165-3.208c-.382-.387-.469-.977-.217-1.459.255-.482.794-.743 1.326-.65z" /> */}
+									{/* 	</Apply> */}
+									{/* </g> */}
+								</svg>
+							</Apply>
+							<span style={{ width: "1ch" }} />
+							Star website on GitHub
+						</span>
+					</p>
+				</a>
+			</div>
 
-				<div className="-my-0.5 absolute top-0 left-0 z-10">
-					<a href="TODO" {...target_blank}>
-						<p className="px-4 py-0.5 pt-4 pb-0.5 no-underline hover:underline text-white" style={{ opacity: 0.9 }}>
-							<span className="inline-flex flex-row items-center">
-								<Apply className="relative w-6 h-6 overflow-visible">
-									<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-										<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
-										<path fill="#664500" d="M18 21.849c-2.966 0-4.935-.346-7.369-.819-.557-.106-1.638 0-1.638 1.638 0 3.275 3.763 7.369 9.007 7.369s9.007-4.094 9.007-7.369c0-1.638-1.082-1.745-1.638-1.638-2.434.473-4.402.819-7.369.819" />
-										<path fill="#dd2e44" d="M16.65 3.281C15.791.85 13.126-.426 10.694.431c-1.476.52-2.521 1.711-2.928 3.104-1.191-.829-2.751-1.1-4.225-.58C1.111 3.813-.167 6.48.692 8.911c.122.344.284.663.472.958 1.951 3.582 7.588 6.1 11.001 6.131 2.637-2.167 5.446-7.665 4.718-11.677-.038-.348-.113-.698-.233-1.042zm2.7 0C20.209.85 22.875-.426 25.306.431c1.476.52 2.521 1.711 2.929 3.104 1.191-.829 2.751-1.1 4.225-.58 2.43.858 3.707 3.525 2.85 5.956-.123.344-.284.663-.473.958-1.951 3.582-7.588 6.1-11.002 6.131-2.637-2.167-5.445-7.665-4.717-11.677.037-.348.112-.698.232-1.042z" />
-										<g className="absolute inset-0">
-											<Apply className="transform scale-125 animate-ping" style={{ transformOrigin: "50% 30%" }}>
-												<path fill="#dd2e44" d="M16.65 3.281C15.791.85 13.126-.426 10.694.431c-1.476.52-2.521 1.711-2.928 3.104-1.191-.829-2.751-1.1-4.225-.58C1.111 3.813-.167 6.48.692 8.911c.122.344.284.663.472.958 1.951 3.582 7.588 6.1 11.001 6.131 2.637-2.167 5.446-7.665 4.718-11.677-.038-.348-.113-.698-.233-1.042zm2.7 0C20.209.85 22.875-.426 25.306.431c1.476.52 2.521 1.711 2.929 3.104 1.191-.829 2.751-1.1 4.225-.58 2.43.858 3.707 3.525 2.85 5.956-.123.344-.284.663-.473.958-1.951 3.582-7.588 6.1-11.002 6.131-2.637-2.167-5.445-7.665-4.717-11.677.037-.348.112-.698.232-1.042z" />
-											</Apply>
-										</g>
+			{/* Background */}
+			<div className="absolute inset-0">
+				<Reset className="w-full h-full">
+					<Apply className="transform duration-500 ease-out">
+						<div style={{ backgroundImage: "radial-gradient(ellipse at top, hsl(265, 100%, 65%) -25%, hsl(270, 100%, 45%))" }} />
+					</Apply>
+				</Reset>
+				{/* TODO: Move preserveAspectRatio to <Apply>. */}
+				<div className="absolute bottom-0 inset-x-0">
+					<Apply className="w-full h-24 text-white">
+						<svg preserveAspectRatio="none" fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
+							<path d="M0 0C0.5 0.333333 2 1 4 1C6 1 7.41667 0.333333 8 0V1H4H0V0Z" />
+						</svg>
+					</Apply>
+				</div>
+			</div>
+
+			<div className="flex flex-row justify-center items-center h-full">
+				<div className="flex flex-col justify-center h-full">
+
+					<Apply className="relative">
+						<div className="-mt-64">
+							<div className="px-1 absolute right-full inset-y-0 flex flex-row items-center">
+								<Apply className="w-12 h-12 text-white opacity-50 !text-indigo-500">
+									<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+										<path fillRule="evenodd" clipRule="evenodd" d="M2.02345 6.24396C2.06852 5.51956 2.69586 5.00256 3.41667 4.91762C5.41116 4.68257 7.31447 3.9485 8.94977 2.78439C9.57357 2.34032 10.4264 2.34037 11.0501 2.78452C12.686 3.94937 14.5902 4.68381 16.5857 4.91877C17.3054 5.00352 17.9319 5.5192 17.9766 6.24256C17.9922 6.49348 18 6.74639 18 7.00085C18 12.0385 14.8952 16.3511 10.496 18.13C10.1779 18.2586 9.8221 18.2586 9.50401 18.1299C5.10482 16.3501 2 12.0375 2 6.99985C2 6.74589 2.0079 6.49387 2.02345 6.24396Z" />
 									</svg>
 								</Apply>
-								<span style={{ width: "1ch" }} />
-								Share with your followers on Twitter!
-							</span>
-						</p>
-					</a>
-
-					<a href="TODO" {...target_blank}>
-						<p className="px-4 py-0.5 pb-4 no-underline hover:underline text-white" style={{ opacity: 0.9 }}>
-							<span className="inline-flex flex-row items-center">
-								<Apply className="w-6 h-6 overflow-visible">
-									<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-										<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
-										<path fill="#664500" d="M18 21c-3.623 0-6.027-.422-9-1-.679-.131-2 0-2 2 0 4 4.595 9 11 9 6.404 0 11-5 11-9 0-2-1.321-2.132-2-2-2.973.578-5.377 1-9 1z" />
-										<path fill="#ffffff" d="M9 22s3 1 9 1 9-1 9-1-2 4-9 4-9-4-9-4z" />
-										<path fill="#e95f28" d="M15.682 4.413l-4.542.801L8.8.961C8.542.492 8.012.241 7.488.333c-.527.093-.937.511-1.019 1.039l-.745 4.797-4.542.801c-.535.094-.948.525-1.021 1.064s.211 1.063.703 1.297l4.07 1.932-.748 4.812c-.083.536.189 1.064.673 1.309.179.09.371.133.562.133.327 0 .65-.128.891-.372l3.512-3.561 4.518 2.145c.49.232 1.074.123 1.446-.272.372-.395.446-.984.185-1.459L13.625 9.73l3.165-3.208c.382-.387.469-.977.217-1.459-.254-.482-.793-.743-1.325-.65zm4.636 0l4.542.801L27.2.961c.258-.469.788-.72 1.312-.628.526.093.936.511 1.018 1.039l.745 4.797 4.542.801c.536.094.949.524 1.021 1.063s-.211 1.063-.703 1.297l-4.07 1.932.748 4.812c.083.536-.189 1.064-.673 1.309-.179.09-.371.133-.562.133-.327 0-.65-.128-.891-.372l-3.512-3.561-4.518 2.145c-.49.232-1.074.123-1.446-.272-.372-.395-.446-.984-.185-1.459l2.348-4.267-3.165-3.208c-.382-.387-.469-.977-.217-1.459.255-.482.794-.743 1.326-.65z" />
-										{/* <g className="absolute inset-0"> */}
-										{/* 	<Apply className="transform scale-125 animate-ping" style={{ transformOrigin: "50% 30%" }}> */}
-										{/* 		<path fill="#e95f28" d="M15.682 4.413l-4.542.801L8.8.961C8.542.492 8.012.241 7.488.333c-.527.093-.937.511-1.019 1.039l-.745 4.797-4.542.801c-.535.094-.948.525-1.021 1.064s.211 1.063.703 1.297l4.07 1.932-.748 4.812c-.083.536.189 1.064.673 1.309.179.09.371.133.562.133.327 0 .65-.128.891-.372l3.512-3.561 4.518 2.145c.49.232 1.074.123 1.446-.272.372-.395.446-.984.185-1.459L13.625 9.73l3.165-3.208c.382-.387.469-.977.217-1.459-.254-.482-.793-.743-1.325-.65zm4.636 0l4.542.801L27.2.961c.258-.469.788-.72 1.312-.628.526.093.936.511 1.018 1.039l.745 4.797 4.542.801c.536.094.949.524 1.021 1.063s-.211 1.063-.703 1.297l-4.07 1.932.748 4.812c.083.536-.189 1.064-.673 1.309-.179.09-.371.133-.562.133-.327 0-.65-.128-.891-.372l-3.512-3.561-4.518 2.145c-.49.232-1.074.123-1.446-.272-.372-.395-.446-.984-.185-1.459l2.348-4.267-3.165-3.208c-.382-.387-.469-.977-.217-1.459.255-.482.794-.743 1.326-.65z" /> */}
-										{/* 	</Apply> */}
-										{/* </g> */}
-									</svg>
-								</Apply>
-								<span style={{ width: "1ch" }} />
-								Star website on GitHub
-							</span>
-						</p>
-					</a>
-				</div>
-
-				{/* Background */}
-				<div className="absolute inset-0">
-					<Reset className="w-full h-full">
-						<Apply className="transform duration-500 ease-out">
-							<div style={{ backgroundImage: "radial-gradient(ellipse at top, hsl(265, 100%, 65%) -25%, hsl(270, 100%, 45%))" }} />
-						</Apply>
-					</Reset>
-					{/* TODO: Move preserveAspectRatio to <Apply>. */}
-					<div className="absolute bottom-0 inset-x-0">
-						<Apply className="w-full h-24 text-white">
-							<svg preserveAspectRatio="none" fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
-								<path d="M0 0C0.5 0.333333 2 1 4 1C6 1 7.41667 0.333333 8 0V1H4H0V0Z" />
-							</svg>
-						</Apply>
-					</div>
-				</div>
-
-				<div className="flex flex-row justify-center items-center h-full">
-					<div className="flex flex-col justify-center h-full">
-
-						<Apply className="relative">
-							<div className="-mt-64">
-								<div className="px-1 absolute right-full inset-y-0 flex flex-row items-center">
-									{/* TODO: radial-gradient */}
-									<Apply className="w-12 h-12 text-white opacity-50 !text-indigo-500">
-										{/* <svg */}
-										{/* 	fill="none" */}
-										{/* 	strokeLinecap="round" */}
-										{/* 	strokeLinejoin="round" */}
-										{/* 	strokeWidth={2} */}
-										{/* 	stroke="currentColor" */}
-										{/* 	viewBox="0 0 24 24" */}
-										{/* 	xmlns="http://www.w3.org/2000/svg" */}
-										{/* > */}
-										{/* 	<path d="M12 2.94385C14.3567 5.05846 17.4561 6.15176 20.618 5.98385C20.867 6.94785 21 7.95785 21 8.99985C21 14.5918 17.176 19.2898 12 20.6218C6.824 19.2898 3 14.5908 3 8.99985C2.99918 7.9824 3.12754 6.96896 3.382 5.98385C6.5439 6.15176 9.64327 5.05846 12 2.94385Z" /> */}
-										{/* </svg> */}
-										<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-											<path fillRule="evenodd" clipRule="evenodd" d="M2.02345 6.24396C2.06852 5.51956 2.69586 5.00256 3.41667 4.91762C5.41116 4.68257 7.31447 3.9485 8.94977 2.78439C9.57357 2.34032 10.4264 2.34037 11.0501 2.78452C12.686 3.94937 14.5902 4.68381 16.5857 4.91877C17.3054 5.00352 17.9319 5.5192 17.9766 6.24256C17.9922 6.49348 18 6.74639 18 7.00085C18 12.0385 14.8952 16.3511 10.496 18.13C10.1779 18.2586 9.8221 18.2586 9.50401 18.1299C5.10482 16.3501 2 12.0375 2 6.99985C2 6.74589 2.0079 6.49387 2.02345 6.24396Z" />
-										</svg>
-									</Apply>
-								</div>
-								<h1
-									className="font-medium tracking-tighter leading-none text-white select-none"
-									style={{
-										fontSize: tw(14),
-										fontFamily: "'DM Sans', var(--sans)",
-										opacity: 0.95,
-									}}
-								>
-									<span className="mr-px font-bold" style={{ fontSize: "0.75em" }}>
-										H
-									</span>
-									eroicons
-								</h1>
-								<div className="-mt-1 absolute left-full top-0">
-									<Apply className="w-8 h-8 text-white transform scale-90">
-										<SunSVG />
-									</Apply>
-								</div>
 							</div>
-						</Apply>
+							<h1
+								className="font-medium tracking-tighter leading-none text-white select-none"
+								style={{
+									fontSize: tw(14),
+									fontFamily: "'DM Sans', var(--sans)",
+									opacity: 0.95,
+								}}
+							>
+								<span className="mr-px font-bold" style={{ fontSize: "0.75em" }}>
+									H
+								</span>
+								eroicons
+							</h1>
+							<div className="-mt-1 absolute left-full top-0">
+								<Apply className="w-8 h-8 text-white transform scale-90">
+									<SunSVG />
+								</Apply>
+							</div>
+						</div>
+					</Apply>
 
-					</div>
+					{/* CTA */}
+					{/* <div className="space-x-3 pt-0 sm:pt-12 hidden sm:flex sm:flex-row"> */}
+					{/* 	<div className="rounded-6 shadow-lg"> */}
+					{/* 		<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-6 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}> */}
+					{/* 			<div className="px-2 py-1 flex flex-row justify-center"> */}
+					{/* 				// NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
+					{/* 				<p className="flex flex-row items-center font-medium text-xl text-gray-200"> */}
+					{/* 					<Apply className="mr-4 w-6 h-6"> */}
+					{/* 						<svg viewBox="0 0 38 57"> */}
+					{/* 							<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" /> */}
+					{/* 							<path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" /> */}
+					{/* 							<path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" /> */}
+					{/* 							<path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" /> */}
+					{/* 							<path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" /> */}
+					{/* 						</svg> */}
+					{/* 					</Apply> */}
+					{/* 						Open in Figma */}
+					{/* 					<ExternalLinkSVG className="ml-2 w-5 h-5 text-indigo-400" /> */}
+					{/* 				</p> */}
+					{/* 			</div> */}
+					{/* 		</a> */}
+					{/* 	</div> */}
+					{/* 	<div className="rounded-6 shadow-lg"> */}
+					{/* 		<a className="px-4 py-3 flex flex-row items-center bg-gray-800 rounded-6 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out" style={{ height: tw(18) }} href="https://github.com/tailwindlabs/heroicons" {...target_blank}> */}
+					{/* 			<div className="px-2 py-1 flex flex-row justify-center"> */}
+					{/* 				// NOTE: Uses text-gray-200 because text-gray-100 is too sharp. */}
+					{/* 				<p className="flex flex-row items-center font-medium text-xl text-gray-200"> */}
+					{/* 					<Apply className="mr-4 w-6 h-6"> */}
+					{/* 						<svg viewBox="0 0 16 16" fill="currentColor"> */}
+					{/* 							<path fillRule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" /> */}
+					{/* 						</svg> */}
+					{/* 					</Apply> */}
+					{/* 						Open in GitHub */}
+					{/* 					<ExternalLinkSVG className="ml-2 w-5 h-5 text-indigo-400" /> */}
+					{/* 				</p> */}
+					{/* 			</div> */}
+					{/* 		</a> */}
+					{/* 	</div> */}
+					{/* </div> */}
 
-					{/* Subheader */}
-					{/* <h2 className="flex flex-row justify-center items-center flex-wrap text-center font-medium text-xl sm:text-2xl text-gray-100"> */}
-					{/* 	<BookOpenSVG className="mr-2 hidden sm:block w-8 h-8" /> */}
-					{/* 		MIT open source icons by{" "} */}
-					{/* 	<span style={{ width: "0.25em" }} /> */}
-					{/* 	<a */}
-					{/* 		className="inline-flex flex-row items-center underline" */}
-					{/* 		style={{ textDecorationColor: "var(--indigo-500)" }} */}
-					{/* 		href="https://twitter.com/steveschoger" */}
-					{/* 		{...target_blank} */}
-					{/* 	> */}
-					{/* 			Steve Schoger{" "} */}
-					{/* 		<span style={{ width: "0.25em" }} /> */}
-					{/* 		<ExternalLinkSVG className="-mb-1 w-5 h-5 text-indigo-400" /> */}
-					{/* 	</a> */}
-					{/* </h2> */}
 
 				</div>
 
-			</header>
-		</Apply>
-	)
-}
+				{/* Subheader */}
+				{/* <h2 className="flex flex-row justify-center items-center flex-wrap text-center font-medium text-xl sm:text-2xl text-gray-100"> */}
+				{/* 	<BookOpenSVG className="mr-2 hidden sm:block w-8 h-8" /> */}
+				{/* 		MIT open source icons by{" "} */}
+				{/* 	<span style={{ width: "0.25em" }} /> */}
+				{/* 	<a */}
+				{/* 		className="inline-flex flex-row items-center underline" */}
+				{/* 		style={{ textDecorationColor: "var(--indigo-500)" }} */}
+				{/* 		href="https://twitter.com/steveschoger" */}
+				{/* 		{...target_blank} */}
+				{/* 	> */}
+				{/* 			Steve Schoger{" "} */}
+				{/* 		<span style={{ width: "0.25em" }} /> */}
+				{/* 		<ExternalLinkSVG className="-mb-1 w-5 h-5 text-indigo-400" /> */}
+				{/* 	</a> */}
+				{/* </h2> */}
+
+			</div>
+
+		</header>
+	</Apply>
+)
 
 const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	const buttonRef = React.useRef()
@@ -665,33 +669,22 @@ const LayoutFragment = () => {
 	)
 
 	return (
-		<>
-
+		<div className="pb-24">
 			<style>{`
 html {
 	--theme: hsl(270deg 100% 37.5%);
 }
 	`}
 			</style>
-
 			<section>
 				<Header state={state} dispatch={dispatch} />
 			</section>
-
 			<section className="-mt-48 px-4 flex flex-row justify-center">
 				<div className="w-full z-10" style={{ maxWidth: 1440 }}>
 					<Main state={state} dispatch={dispatch} />
 				</div>
 			</section>
-			<div className="h-24" />
-
-			{/* <div className="h-24" /> */}
-			{/* <section> */}
-			{/* 	<Footer /> */}
-			{/* </section> */}
-			{/* <div className="h-16" /> */}
-
-		</>
+		</div>
 	)
 }
 
