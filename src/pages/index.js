@@ -25,13 +25,27 @@ const Header = () => {
 	React.useLayoutEffect(() => {
 		const handleScroll = () => {
 			try {
+
 				const bg = document.getElementById("bg")
+				// const flagLogo = document.getElementById("flag-logo")
+				// const flagLogoOriginalColor = getComputedStyle(flagLogo).color
+				// const flagLogoOriginalOpacity = getComputedStyle(flagLogo).opacity
+				if (!window.scrollY) {
+					bg.style.opacity = 1
+					// flagLogo.style.color = flagLogoOriginalColor
+					// flagLogo.style.opacity = flagLogoOriginalOpacity
+				} else {
+					bg.style.opacity = 0
+					// flagLogo.style.color = "var(--indigo-500)"
+					// flagLogo.style.opacity = 1
+				}
+
 				const clipTop = document.getElementById("clip-top")
-				bg.style.opacity = Number(window.scrollY <= 0) // Number(window.scrollY < (HEADER_HEIGHT - (24 * 4)) / 2)
 				clipTop.style.opacity = 0
 				if (window.scrollY >= HEADER_CLIP_HEIGHT) {
 					clipTop.style.opacity = 1
 				}
+
 			} catch (error) {
 				console.error(error)
 			}
@@ -49,7 +63,7 @@ const Header = () => {
 
 				<div className="-my-0.5 absolute top-0 left-0 z-10">
 					<a href="TODO" {...target_blank}>
-						<p className="px-4 py-0.5 pt-4 pb-0.5 no-underline hover:underline text-white" style={{ opacity: 0.875 }}>
+						<p className="px-4 py-0.5 pt-4 pb-0.5 no-underline hover:underline text-white" style={{ opacity: 0.9 }}>
 							<span className="inline-flex flex-row items-center">
 								<Apply className="relative w-6 h-6 overflow-visible">
 									<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
@@ -70,7 +84,7 @@ const Header = () => {
 					</a>
 
 					<a href="TODO" {...target_blank}>
-						<p className="px-4 py-0.5 pb-4 no-underline hover:underline text-white" style={{ opacity: 0.875 }}>
+						<p className="px-4 py-0.5 pb-4 no-underline hover:underline text-white" style={{ opacity: 0.9 }}>
 							<span className="inline-flex flex-row items-center">
 								<Apply className="w-6 h-6 overflow-visible">
 									<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
@@ -91,43 +105,6 @@ const Header = () => {
 						</p>
 					</a>
 				</div>
-
-				{/* <div className="-my-0.5 py-4 absolute top-0 left-0 z-10"> */}
-				{/* 	<a href="TODO" {...target_blank}> */}
-				{/* 		<p className="px-4 py-0.5 no-underline hover:underline text-white" style={{ opacity: 0.875 }}> */}
-				{/* 			<span className="inline-flex flex-row items-center"> */}
-				{/* 				<Apply className="w-6 h-6 transform scale-90"> */}
-				{/* 					<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"> */}
-				{/* 						<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" /> */}
-				{/* 						<path fill="#664500" d="M18 21.849c-2.966 0-4.935-.346-7.369-.819-.557-.106-1.638 0-1.638 1.638 0 3.275 3.763 7.369 9.007 7.369s9.007-4.094 9.007-7.369c0-1.638-1.082-1.745-1.638-1.638-2.434.473-4.402.819-7.369.819" /> */}
-				{/* 						<path fill="#dd2e44" d="M16.65 3.281C15.791.85 13.126-.426 10.694.431c-1.476.52-2.521 1.711-2.928 3.104-1.191-.829-2.751-1.1-4.225-.58C1.111 3.813-.167 6.48.692 8.911c.122.344.284.663.472.958 1.951 3.582 7.588 6.1 11.001 6.131 2.637-2.167 5.446-7.665 4.718-11.677-.038-.348-.113-.698-.233-1.042zm2.7 0C20.209.85 22.875-.426 25.306.431c1.476.52 2.521 1.711 2.929 3.104 1.191-.829 2.751-1.1 4.225-.58 2.43.858 3.707 3.525 2.85 5.956-.123.344-.284.663-.473.958-1.951 3.582-7.588 6.1-11.002 6.131-2.637-2.167-5.445-7.665-4.717-11.677.037-.348.112-.698.232-1.042z" /> */}
-				{/* 					</svg> */}
-				{/* 				</Apply>{" "} */}
-				{/* 				<span style={{ width: "1ch" }} /> */}
-				{/* 				Share with your followers on Twitter */}
-				{/* 			</span> */}
-				{/* 		</p> */}
-				{/* 	</a> */}
-				{/* </div> */}
-				{/* */}
-				{/* <div className="-my-0.5 py-4 absolute top-0 right-0 z-10"> */}
-				{/* 	<a href="TODO" {...target_blank}> */}
-				{/* 		<p className="px-4 py-0.5 no-underline hover:underline text-white" style={{ opacity: 0.875 }}> */}
-				{/* 			<span className="inline-flex flex-row items-center"> */}
-				{/* 				Star website on GitHub{" "} */}
-				{/* 				<span style={{ width: "1ch" }} /> */}
-				{/* 				<Apply className="w-6 h-6 transform scale-90"> */}
-				{/* 					<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"> */}
-				{/* 						<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" /> */}
-				{/* 						<path fill="#664500" d="M18 21c-3.623 0-6.027-.422-9-1-.679-.131-2 0-2 2 0 4 4.595 9 11 9 6.404 0 11-5 11-9 0-2-1.321-2.132-2-2-2.973.578-5.377 1-9 1z" /> */}
-				{/* 						<path fill="#ffffff" d="M9 22s3 1 9 1 9-1 9-1-2 4-9 4-9-4-9-4z" /> */}
-				{/* 						<path fill="#e95f28" d="M15.682 4.413l-4.542.801L8.8.961C8.542.492 8.012.241 7.488.333c-.527.093-.937.511-1.019 1.039l-.745 4.797-4.542.801c-.535.094-.948.525-1.021 1.064s.211 1.063.703 1.297l4.07 1.932-.748 4.812c-.083.536.189 1.064.673 1.309.179.09.371.133.562.133.327 0 .65-.128.891-.372l3.512-3.561 4.518 2.145c.49.232 1.074.123 1.446-.272.372-.395.446-.984.185-1.459L13.625 9.73l3.165-3.208c.382-.387.469-.977.217-1.459-.254-.482-.793-.743-1.325-.65zm4.636 0l4.542.801L27.2.961c.258-.469.788-.72 1.312-.628.526.093.936.511 1.018 1.039l.745 4.797 4.542.801c.536.094.949.524 1.021 1.063s-.211 1.063-.703 1.297l-4.07 1.932.748 4.812c.083.536-.189 1.064-.673 1.309-.179.09-.371.133-.562.133-.327 0-.65-.128-.891-.372l-3.512-3.561-4.518 2.145c-.49.232-1.074.123-1.446-.272-.372-.395-.446-.984-.185-1.459l2.348-4.267-3.165-3.208c-.382-.387-.469-.977-.217-1.459.255-.482.794-.743 1.326-.65z" /> */}
-				{/* 					</svg> */}
-				{/* 				</Apply> */}
-				{/* 			</span> */}
-				{/* 		</p> */}
-				{/* 	</a> */}
-				{/* </div> */}
 
 				{/* Background */}
 				<div className="absolute inset-0">
@@ -151,8 +128,8 @@ const Header = () => {
 
 						<Apply className="relative transform">
 							<div className="-mt-48">
-								<div className="px-1 absolute left-full inset-y-0 flex flex-row items-center">
-									<Apply className="w-14 h-14 text-white opacity-50" style={{ marginTop: -3 }}>
+								<div className="px-1 absolute right-full inset-y-0 flex flex-row items-center">
+									<Apply className="w-14 h-14 text-indigo-500" style={{ marginTop: -3 }}>
 										{/* <svg */}
 										{/* 	fill="none" */}
 										{/* 	strokeLinecap="round" */}
@@ -164,10 +141,17 @@ const Header = () => {
 										{/* > */}
 										{/* 	<path d="M12 2.94385C14.3567 5.05846 17.4561 6.15176 20.618 5.98385C20.867 6.94785 21 7.95785 21 8.99985C21 14.5918 17.176 19.2898 12 20.6218C6.824 19.2898 3 14.5908 3 8.99985C2.99918 7.9824 3.12754 6.96896 3.382 5.98385C6.5439 6.15176 9.64327 5.05846 12 2.94385Z" /> */}
 										{/* </svg> */}
-										{/* <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
-										{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M2.166 4.99934C5.06114 4.96334 7.84481 3.8778 10 1.94434C12.155 3.87816 14.9387 4.96406 17.834 5.00034C17.944 5.65034 18 6.32034 18 7.00134C18 12.2263 14.66 16.6713 10 18.3183C5.34 16.6703 2 12.2253 2 7.00034C2 6.31834 2.057 5.65034 2.166 4.99934Z" /> */}
-										{/* </svg> */}
-										<FlagSVG />
+										<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+											{/* 0x */}
+											{/* <path fillRule="evenodd" clipRule="evenodd" d="M2.166 4.99934C5.06114 4.96334 7.84481 3.8778 10 1.94434C12.155 3.87816 14.9387 4.96406 17.834 5.00034C17.944 5.65034 18 6.32034 18 7.00134C18 12.2263 14.66 16.6713 10 18.3183C5.34 16.6703 2 12.2253 2 7.00034C2 6.31834 2.057 5.65034 2.166 4.99934Z" /> */}
+											{/* 1x */}
+											{/* <path fillRule="evenodd" clipRule="evenodd" d="M2.0566 5.82735C2.10331 5.34575 2.51858 4.99906 3.0008 4.95927C5.29536 4.76991 7.4867 3.92158 9.31025 2.51744C9.71471 2.206 10.2853 2.20604 10.6897 2.51753C12.5136 3.9223 14.7055 4.77099 17.0008 4.96032C17.4823 5.00004 17.8971 5.34581 17.9437 5.82673C17.9811 6.21321 18 6.60517 18 7.00085C18 12.101 14.8177 16.458 10.3317 18.195C10.1184 18.2776 9.88163 18.2776 9.66832 18.195C5.18233 16.457 2 12.1 2 6.99985C2 6.60411 2.01919 6.21308 2.0566 5.82735Z" /> */}
+											{/* 1.5x */}
+											<path fillRule="evenodd" clipRule="evenodd" d="M2.02345 6.24396C2.06852 5.51956 2.69586 5.00256 3.41667 4.91762C5.41116 4.68257 7.31447 3.9485 8.94977 2.78439C9.57357 2.34032 10.4264 2.34037 11.0501 2.78452C12.686 3.94937 14.5902 4.68381 16.5857 4.91877C17.3054 5.00352 17.9319 5.5192 17.9766 6.24256C17.9922 6.49348 18 6.74639 18 7.00085C18 12.0385 14.8952 16.3511 10.496 18.13C10.1779 18.2586 9.8221 18.2586 9.50401 18.1299C5.10482 16.3501 2 12.0375 2 6.99985C2 6.74589 2.0079 6.49387 2.02345 6.24396Z" />
+											{/* 2x */}
+											{/* <path fillRule="evenodd" clipRule="evenodd" d="M2.00469 6.66144C2.03152 5.69409 2.87426 5.00825 3.83078 4.86146C5.52645 4.60122 7.14631 3.97887 8.57947 3.03766C9.43284 2.47721 10.5671 2.47728 11.4204 3.03784C12.8544 3.97988 14.4754 4.60264 16.1723 4.86277C17.1275 5.0092 17.9686 5.69331 17.9953 6.65928C17.9984 6.7728 18 6.88667 18 7.00085C18 11.9759 14.9719 16.2438 10.6595 18.0625C10.2379 18.2403 9.76207 18.2402 9.34055 18.0624C5.0281 16.2428 2 11.9749 2 6.99985C2 6.88666 2.00157 6.77385 2.00469 6.66144Z" /> */}
+										</svg>
+										{/* <FlagSVG /> */}
 									</Apply>
 								</div>
 								<h1
@@ -175,7 +159,7 @@ const Header = () => {
 									style={{
 										fontSize: tw(14),
 										fontFamily: "'DM Sans', var(--sans)",
-										opacity: 0.875,
+										opacity: 0.9,
 									}}
 								>
 									Heroicons
