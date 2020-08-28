@@ -582,83 +582,105 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 	}, [])
 // }
 
-const Main = ({ state, dispatch }) => (
-	<div className="flex flex-row items-start">
+const Main = ({ state, dispatch }) => {
+	const [formValue, setFormValue] = React.useState("")
 
-		{/* LHS */}
-		<Apply className="flex-1">
-			<main className="rounded-6 shadow-xl">
-				<Apply className="rounded-6 shadow-hero-md">
-					<div className="bg-gray-200">
-						<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
-							{state.results.length > 0 && (
-								<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 rounded-6 overflow-hidden" style={{ gap: 1 }}>
-									{state.results.map((each, x) => (
-										<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
-											<div className="absolute inset-0">
-												<MemoIcon
-													state={state}
-													dispatch={dispatch}
-													icon={each}
-												/>
+	// Debounces formValue (10ms).
+	React.useEffect(
+		React.useCallback(() => {
+			const id = setTimeout(() => {
+				const text = formValue
+				dispatch({
+					type: "UPDATE_FORM_SEARCH",
+					text,
+				})
+			}, 10)
+			return () => {
+				clearTimeout(id)
+			}
+		}, []),
+		[formValue],
+	)
+
+	return (
+		<div className="flex flex-row items-start">
+
+			{/* LHS */}
+			<Apply className="flex-1">
+				<main className="rounded-6 shadow-xl">
+					<Apply className="rounded-6 shadow-hero-md">
+						<div className="bg-gray-200">
+							<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
+								{state.results.length > 0 && (
+									<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 rounded-6 overflow-hidden" style={{ gap: 1 }}>
+										{state.results.map((each, x) => (
+											<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
+												<div className="absolute inset-0">
+													<MemoIcon
+														state={state}
+														dispatch={dispatch}
+														icon={each}
+													/>
+												</div>
 											</div>
-										</div>
-									))}
-								</div>
-							)}
-						</DocumentTitle>
-					</div>
-				</Apply>
-			</main>
-		</Apply>
-
-		{/* RHS */}
-		<div className="w-4" />
-		<aside className="sticky" style={{ top: tw(4) }}>
-			<div className="rounded-6 shadow-xl">
-				<Apply className="rounded-6 shadow-hero-md">
-					<div className="w-96 bg-white">
-
-						<Apply className="relative">
-							<div className="flex flex-row h-20">
-
-								<div className="absolute inset-y-0 left-0">
-									<div className="px-6 flex flex-row items-center h-full">
-										<Apply className="w-6 h-6 text-indigo-600 transform scale-90">
-											<SearchOutlineSVG />
-										</Apply>
+										))}
 									</div>
+								)}
+							</DocumentTitle>
+						</div>
+					</Apply>
+				</main>
+			</Apply>
+
+			{/* RHS */}
+			<div className="w-4" />
+			<aside className="sticky" style={{ top: tw(4) }}>
+				<div className="rounded-6 shadow-xl">
+					<Apply className="rounded-6 shadow-hero-md">
+						<div className="w-96 bg-white">
+
+							<Apply className="relative">
+								<div className="flex flex-row h-20">
+
+									<div className="absolute inset-y-0 left-0">
+										<div className="px-6 flex flex-row items-center h-full">
+											<Apply className="w-6 h-6 text-indigo-600 transform scale-90">
+												<SearchOutlineSVG />
+											</Apply>
+										</div>
+									</div>
+
+									<Reset className="w-full h-full bg-transparent focus:outline-none">
+										<input
+											className="px-14 text-lg text-gray-800"
+											type="text"
+											placeholder="Search"
+											value={formValue}
+											onChange={e => setFormValue(e.target.value)}
+										/>
+									</Reset>
+
 								</div>
+							</Apply>
 
-								<Reset className="w-full h-full bg-transparent focus:outline-none">
-									<input
-										className="px-14 text-lg text-gray-800"
-										type="text"
-										placeholder="Search"
-										value="Hello, world!"
-									/>
-								</Reset>
+							<hr className="border-t border-gray-200" />
+							<div className="h-24" />
 
-							</div>
-						</Apply>
+							<hr className="border-t border-gray-200" />
+							<div className="h-24" />
 
-						<hr className="border-t border-gray-200" />
-						<div className="h-24" />
+							<hr className="border-t border-gray-200" />
+							<div className="h-24" />
+							<div className="h-24" />
 
-						<hr className="border-t border-gray-200" />
-						<div className="h-24" />
+						</div>
+					</Apply>
+				</div>
+			</aside>
 
-						<hr className="border-t border-gray-200" />
-						<div className="h-24" />
-						<div className="h-24" />
-
-					</div>
-				</Apply>
-			</div>
-		</aside>
-
-	</div>
-)
+		</div>
+	)
+}
 
 const LayoutFragment = () => {
 	const [state, dispatch] = useHeroiconsReducer()
