@@ -104,7 +104,7 @@ const Header = ({ state, dispatch }) => (
 
 					<Apply className="relative">
 						<div className="-mt-72">
-							<div className="px-1 absolute right-full inset-y-0 flex flex-row items-center">
+							<div className="px-1 absolute inset-y-0 right-full flex flex-row items-center">
 								<Apply className="-mb-1 w-12 h-12 text-white opacity-50 !text-indigo-500">
 									<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 										<path fillRule="evenodd" clipRule="evenodd" d="M2.02345 6.24396C2.06852 5.51956 2.69586 5.00256 3.41667 4.91762C5.41116 4.68257 7.31447 3.9485 8.94977 2.78439C9.57357 2.34032 10.4264 2.34037 11.0501 2.78452C12.686 3.94937 14.5902 4.68381 16.5857 4.91877C17.3054 5.00352 17.9319 5.5192 17.9766 6.24256C17.9922 6.49348 18 6.74639 18 7.00085C18 12.0385 14.8952 16.3511 10.496 18.13C10.1779 18.2586 9.8221 18.2586 9.50401 18.1299C5.10482 16.3501 2 12.0375 2 6.99985C2 6.74589 2.0079 6.49387 2.02345 6.24396Z" />
@@ -124,7 +124,7 @@ const Header = ({ state, dispatch }) => (
 								</span>
 								eroicons
 							</h1>
-							{/* <div className="-mt-1 absolute left-full top-0"> */}
+							{/* <div className="-mt-1 absolute top-0 left-full"> */}
 							{/* 	<Apply className="w-8 h-8 text-white transform scale-90"> */}
 							{/* 		<SunSVG /> */}
 							{/* 	</Apply> */}
@@ -270,6 +270,17 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				{/* 	</div> */}
 				{/* )} */}
 
+				{/* NEW */}
+				{icon.statusNew && (
+					<div className="p-3 absolute top-0 right-0">
+						<Apply className="transform scale-90 origin-top-right">
+							<h6 className="font-bold text-xs tracking-widest leading-none font-mono text-indigo-600">
+								NEW
+							</h6>
+						</Apply>
+					</div>
+				)}
+
 				{/* Icon */}
 				<SVG
 					id={icon.name}
@@ -278,7 +289,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				/>
 
 				{/* Icon name */}
-				<div className="p-3 absolute bottom-0">
+				<div className="py-3 absolute bottom-0">
 					<p className="text-xs leading-tight text-gray-800">
 						{!state.form.search.safe || state.form.search.safe === "new" ? (
 							icon.name
