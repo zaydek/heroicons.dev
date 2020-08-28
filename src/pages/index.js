@@ -22,7 +22,7 @@ import SwitchHorizontalSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
 const HEADER_HEIGHT = 520
 const HEADER_CLIP_HEIGHT = (HEADER_HEIGHT - (32 * 4))
 
-const Header = () => {
+const Header = ({ state, dispatch }) => {
 	React.useLayoutEffect(() => {
 		const handleScroll = () => {
 			try {
@@ -257,7 +257,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 	}
 
 	return (
-		// <div className="!rounded-6 shadow-lg h-full">
+		// <div className="!rounded-8 shadow-lg h-full">
 		<button
 			ref={buttonRef}
 			className="flex flex-row justify-center items-center w-full h-full bg-cool-gray-800 hover:bg-cool-gray-700 focus:outline-none shadow-none focus:shadow-solid-indigo select-text"
@@ -421,13 +421,13 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 				</div>
 //
 // 				{/* Search bar */}
-// 				<div className="rounded-6 shadow-lg">
-// 					<div className="rounded-6 shadow-lg">
+// 				<div className="rounded-8 shadow-lg">
+// 					<div className="rounded-8 shadow-lg">
 // 						<label>
 // 							<Reset className="appearance-none w-full">
 // 								<input
 // 									ref={inputRef}
-// 									className="pl-20 pr-36 block w-full h-18 text-xl placeholder-cool-gray-400 text-cool-gray-100 bg-cool-gray-800 rounded-6 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
+// 									className="pl-20 pr-36 block w-full h-18 text-xl placeholder-cool-gray-400 text-cool-gray-100 bg-cool-gray-800 rounded-8 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
 // 									style={{ height: tw(18) }}
 // 									type="text"
 // 									placeholder="Search Heroicons"
@@ -583,106 +583,88 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 	}, [])
 // }
 
-const Main = () => {
-	const [state, dispatch] = useHeroiconsReducer()
+const Main = ({ state, dispatch }) => (
+	<div className="flex flex-row items-start">
 
-	React.useEffect(
-		React.useCallback(() => {
-			const id = setTimeout(() => {
-				dispatch({
-					type: "HIDE_NOTIFICATION",
-				})
-			}, 2.2e3)
-			return () => {
-				clearTimeout(id)
-			}
-		}, [dispatch]),
-		[state.notif.showKey],
-	)
+		<main className="flex-1">
+			<div className="rounded-8 shadow-lg">
+				<div className="bg-cool-gray-700 rounded-8 shadow-lg">
 
-	return (
-		<div className="flex flex-row items-start">
+					<div
+						id="clip-top"
+						className="-mb-6 sticky h-6 rounded-t-8 z-10"
+						style={{
+							top: tw(4),
+							boxShadow: `0 -${tw(4)} 0 ${tw(4)} var(--black)`,
+						}}
+					/>
 
-			<main className="flex-1">
-				<div className="rounded-6 shadow-lg">
-					<div className="bg-cool-gray-700 rounded-6 shadow-lg">
-
-						<div
-							id="clip-top"
-							className="-mb-6 sticky h-6 rounded-t-6 z-10"
-							style={{
-								top: tw(4),
-								boxShadow: `0 -${tw(4)} 0 ${tw(4)} var(--black)`,
-							}}
-						/>
-
-						<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
-							{state.results.length > 0 && (
-								<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 rounded-6 overflow-hidden" style={{ gap: 1 }}>
-									{state.results.map((each, x) => (
-										<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
-											<div className="absolute inset-0">
-												<MemoIcon
-													state={state}
-													dispatch={dispatch}
-													icon={each}
-												/>
-											</div>
+					<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
+						{state.results.length > 0 && (
+							<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 rounded-8 overflow-hidden" style={{ gap: 1 }}>
+								{state.results.map((each, x) => (
+									<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
+										<div className="absolute inset-0">
+											<MemoIcon
+												state={state}
+												dispatch={dispatch}
+												icon={each}
+											/>
 										</div>
-									))}
-								</div>
-							)}
-						</DocumentTitle>
+									</div>
+								))}
+							</div>
+						)}
+					</DocumentTitle>
 
-						<div
-							// id="clip-bottom"
-							className="-mt-6 sticky h-6 rounded-b-6 z-10"
-							style={{
-								bottom: tw(4),
-								boxShadow: `0 ${tw(4)} 0 ${tw(4)} var(--black)`,
-							}}
-						/>
+					<div
+						// id="clip-bottom"
+						className="-mt-6 sticky h-6 rounded-b-8 z-10"
+						style={{
+							bottom: tw(4),
+							boxShadow: `0 ${tw(4)} 0 ${tw(4)} var(--black)`,
+						}}
+					/>
 
-					</div>
 				</div>
-			</main>
+			</div>
+		</main>
 
-			<div className="w-4" />
-			<aside className="sticky" style={{ top: tw(4) }}>
-				<div className="rounded-6 shadow-lg">
-					<div className="w-96 bg-cool-gray-800 rounded-6 shadow-lg">
+		<div className="w-4" />
+		<aside className="sticky" style={{ top: tw(4) }}>
+			<div className="rounded-8 shadow-lg">
+				<div className="w-96 bg-cool-gray-800 rounded-8 shadow-lg">
 
-						<div className="h-20">
-						</div>
-
-						<hr className="border-t border-cool-gray-700" />
-						<div className="h-20">
-						</div>
-
-						<hr className="border-t border-cool-gray-700" />
-						<div className="h-20">
-						</div>
-
-						<hr className="border-t border-cool-gray-700" />
-						<div className="h-40">
-						</div>
-
-						<div
-							id="aside-clip-bottom"
-							className="-mt-6 sticky h-6 rounded-b-6 z-10"
-							style={{
-								bottom: tw(4),
-								boxShadow: `0 ${tw(4)} 0 ${tw(4)} var(--black)`,
-							}}
-						/>
-
+					<div className="h-20">
 					</div>
-				</div>
-			</aside>
 
-		</div>
-	)
-}
+					<hr className="border-t border-cool-gray-700" />
+					<div className="h-20">
+					</div>
+
+					<hr className="border-t border-cool-gray-700" />
+					<div className="h-20">
+					</div>
+
+					<hr className="border-t border-cool-gray-700" />
+					<div className="h-40">
+					</div>
+
+					<div
+						id="aside-clip-bottom"
+						className="-mt-6 sticky h-6 rounded-b-8 z-10"
+						style={{
+							bottom: tw(4),
+							boxShadow: `0 ${tw(4)} 0 ${tw(4)} var(--black)`,
+						}}
+					/>
+
+				</div>
+			</div>
+		</aside>
+
+	</div>
+)
 
 // {/* Notification */}
 // <Transition
@@ -735,33 +717,51 @@ const Main = () => {
 // 	</div>
 // </Transition>
 
-const LayoutFragment = () => (
-	<>
+const LayoutFragment = () => {
+	const [state, dispatch] = useHeroiconsReducer()
 
-		<style>{`
+	React.useEffect(
+		React.useCallback(() => {
+			const id = setTimeout(() => {
+				dispatch({
+					type: "HIDE_NOTIFICATION",
+				})
+			}, 2.2e3)
+			return () => {
+				clearTimeout(id)
+			}
+		}, [dispatch]),
+		[state.notif.showKey],
+	)
+
+	return (
+		<>
+
+			<style>{`
 html {
 	--theme: hsl(270deg 100% 37.5%);
 }
-`.trimStart()}
-		</style>
+	`}
+			</style>
 
-		<section>
-			<Header />
-		</section>
+			<section>
+				<Header state={state} dispatch={dispatch} />
+			</section>
 
-		<section className="-mt-24 px-4 flex flex-row justify-center">
-			<div className="w-full !max-w-screen-xl z-10" style={{ maxWidth: 1440 }}>
-				<Main />
-			</div>
-		</section>
+			<section className="-mt-24 px-4 flex flex-row justify-center">
+				<div className="w-full z-10" style={{ maxWidth: 1440 }}>
+					<Main state={state} dispatch={dispatch} />
+				</div>
+			</section>
 
-		<div className="h-24" />
-		<section>
-			<Footer />
-		</section>
-		<div className="h-16" />
+			<div className="h-24" />
+			<section>
+				<Footer />
+			</section>
+			<div className="h-16" />
 
-	</>
-)
+		</>
+	)
+}
 
 export default LayoutFragment
