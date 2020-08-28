@@ -18,17 +18,17 @@ import FlagSVG from "heroicons-0.4.0/solid/Flag"
 import SearchOutlineSVG from "heroicons-0.4.0/outline/Search"
 import SwitchHorizontalSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
 
-const HEADER_HGT = 560
+const HEADER_HGT = 520
 
 const Header = () => {
 	React.useEffect(() => {
 		const handleScroll = () => {
 			console.log(window.scrollY)
 
-			const bgGrad = document.getElementById("bg-grad")
+			const bg = document.getElementById("bg")
 			const maskTop = document.getElementById("mask-top")
 			const maskBtm = document.getElementById("mask-btm")
-			bgGrad.style.opacity = 1 - (window.scrollY / HEADER_HGT)
+			bg.style.opacity = 1 - (window.scrollY / HEADER_HGT)
 
 			maskTop.style.opacity = 0
 			if (window.scrollY >= HEADER_HGT - 96) {
@@ -54,21 +54,17 @@ const Header = () => {
 				<div className="absolute inset-0" style={{ zIndex: -1 }}>
 					<Reset className="w-full h-full">
 						<div
-							id="bg-grad"
-							style={{ backgroundImage: "linear-gradient(to bottom, rgb(63, 0, 255), rgb(31, 0, 255))" }}
-							// className="bg-gradient-to-br"
-							// style={{
-							// 	"--gradient-from-color": "rgb(60, 0, 255)",
-							// 	"--gradient-to-color": "rgb(40, 72, 255)",
-							// }}
+							id="bg"
+							// style={{ backgroundColor: "hsl(250, 100%, 50%)" }}
+							style={{ backgroundImage: "linear-gradient(to top right, hsl(250, 100%, 50%), hsl(252.5, 100%, 50%))" }}
 						/>
-						{/* <canvas id="bg-grad" width={32} height={32} /> */}
+						{/* <canvas id="bg" width={32} height={32} /> */}
 					</Reset>
 				</div>
 
 				<div className="flex flex-col justify-center items-center h-full">
 
-					<Apply className="-mt-14 transform scale-90">
+					<Apply className="-mt-20">
 						<div className="relative">
 							<div className="pl-1 absolute left-full inset-y-0 flex flex-row items-center">
 								<Apply className="w-14 h-14 text-white opacity-50" style={{ marginTop: `${-1 * (2 / 14)}em` }}>
@@ -88,100 +84,33 @@ const Header = () => {
 						</div>
 					</Apply>
 
-					<div className="h-1" />
+					<div className="h-2" />
 					<h6 className="font-semibold tracking-wider leading-none text-xs text-white opacity-75">
 						UNOFFICIAL HEROICONS VIEWER
 					</h6>
 
+					{/* Subheader */}
+					{/* <h2 className="flex flex-row justify-center items-center flex-wrap text-center font-medium text-xl sm:text-2xl text-cool-gray-100"> */}
+					{/* 	<BookOpenSVG className="mr-2 hidden sm:block w-8 h-8" /> */}
+					{/* 		MIT open source icons by{" "} */}
+					{/* 	<span style={{ width: "0.25em" }} /> */}
+					{/* 	<a */}
+					{/* 		className="inline-flex flex-row items-center underline" */}
+					{/* 		style={{ textDecorationColor: "var(--indigo-500)" }} */}
+					{/* 		href="https://twitter.com/steveschoger" */}
+					{/* 		{...target_blank} */}
+					{/* 	> */}
+					{/* 			Steve Schoger{" "} */}
+					{/* 		<span style={{ width: "0.25em" }} /> */}
+					{/* 		<ExternalLinkSVG className="-mb-1 w-5 h-5 text-indigo-400" /> */}
+					{/* 	</a> */}
+					{/* </h2> */}
+
 				</div>
-
-				{/* <div className="flex flex-row justify-center items-center h-full"> */}
-				{/* 	<h1 */}
-				{/* 		className="font-bold tracking-tight leading-none text-white" */}
-				{/* 		style={{ */}
-				{/* 			fontSize: tw(12), */}
-				{/* 			fontFamily: "'DM Sans', var(--sans)", */}
-				{/* 			opacity: 0.875, */}
-				{/* 		}} */}
-				{/* 	> */}
-				{/* 		<span className="inline-flex flex-row items-center"> */}
-				{/* 			Heroicons{" "} */}
-				{/* 			<span style={{ width: "0.125ch" }} /> */}
-				{/* 			<Apply className="w-12 h-12 opacity-25" style={{ marginTop: -4 }}> */}
-				{/* 				<FlagSVG /> */}
-				{/* 			</Apply> */}
-				{/* 		</span> */}
-				{/* 	</h1> */}
-				{/* </div> */}
-
-				{/* <div className="flex flex-row justify-center items-center h-full"> */}
-				{/* 	<h1 */}
-				{/* 		className="text-cool-gray-100" */}
-				{/* 		style={{ */}
-				{/* 			fontWeight: 700, */}
-				{/* 			fontSize: tw(12), */}
-				{/* 			fontFamily: "'DM Sans', var(--sans)", */}
-				{/* 			letterSpacing: "-0.025em", */}
-				{/* 		}} */}
-				{/* 	> */}
-				{/* 		<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}> */}
-				{/* 			<FlagSVG className="w-12 h-12 text-indigo-500" /> */}
-				{/* 		</div> */}
-				{/* 	</h1> */}
-				{/* </div> */}
 
 			</header>
 		</Apply>
 	)
-
-	//	return (
-	//		<header className="flex flex-col items-center">
-	//
-	//			{/* Header */}
-	//			<div className="relative flex flex-row items-center">
-	//				<h1
-	//					className="text-cool-gray-100"
-	//					style={{
-	//						fontWeight: 700,
-	//						fontSize: tw(12),
-	//						fontFamily: "'DM Sans', var(--sans)",
-	//						letterSpacing: "-0.025em",
-	//					}}
-	//				>
-	//					heroicons
-	//				</h1>
-	//				<div className="-mt-1 absolute" style={{ paddingLeft: "0.5ch", left: "100%" }}>
-	//					<FlagSVG className="w-12 h-12 text-indigo-500" />
-	//				</div>
-	//			</div>
-	//
-	//			{/* Subheader */}
-	//			<h2 className="flex flex-row justify-center items-center flex-wrap text-center font-medium text-xl sm:text-2xl text-cool-gray-100">
-	//				<BookOpenSVG className="mr-2 hidden sm:block w-8 h-8" />
-	//					MIT open source icons by{" "}
-	//				<span style={{ width: "0.25em" }} />
-	//				<a
-	//					className="inline-flex flex-row items-center underline"
-	//					style={{ textDecorationColor: "var(--indigo-500)" }}
-	//					href="https://twitter.com/steveschoger"
-	//					{...target_blank}
-	//				>
-	//					{/* @steveschoger */}
-	//						Steve Schoger{" "}
-	//					<span style={{ width: "0.25em" }} />
-	//					<ExternalLinkSVG className="-mb-1 w-5 h-5 text-indigo-400" />
-	//				</a>
-	//			</h2>
-	//
-	//		</header>
-	//	)
-}
-
-// <... autoFocus /> does not work; use useAutoFocusOnMount.
-function useAutoFocusOnMount(ref) {
-	React.useEffect(() => {
-		ref.current.focus()
-	}, [])
 }
 
 const MemoIcon = React.memo(({ state, dispatch, icon }) => {
@@ -556,8 +485,14 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 	// )}
 // )}
 
-// <div className="w-4" />
-// <div className="w-96 bg-cool-gray-800 rounded-6">
+// TODO
+// // <... autoFocus /> does not work; use useAutoFocusOnMount.
+// function useAutoFocusOnMount(ref) {
+// 	React.useEffect(() => {
+// 		ref.current.focus()
+// 	}, [])
+// }
+
 const Main = () => {
 	const [state, dispatch] = useHeroiconsReducer()
 
@@ -576,7 +511,6 @@ const Main = () => {
 	)
 
 	return (
-		// TODO: -mx-4?
 		<div className="flex flex-row items-start">
 
 			<main className="flex-1">
@@ -723,13 +657,11 @@ const Main = () => {
 const LayoutFragment = () => (
 	<>
 
-		{/* <div className="h-32" /> */}
 		<section>
 			<Header />
 		</section>
 
-		{/* <div className="h-24" /> */}
-		<section className="-mt-16 flex flex-row justify-center !z-10">
+		<section className="-mt-20 px-4 flex flex-row justify-center !z-10">
 			<div className="w-full max-w-screen-xl z-10">
 				<Main />
 			</div>
