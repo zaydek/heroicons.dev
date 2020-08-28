@@ -8,24 +8,30 @@ const FooterLHS = () => (
 	<nav>
 
 		<a href="TODO" {...target_blank}>
+			{/* NOTE: Uses tracking-tight not tracking-tighter. */}
 			<h6
-				className="font-medium tracking-tighter leading-none text-white"
+				className="font-medium tracking-tight leading-none text-white"
 				style={{
 					fontSize: tw(10),
 					fontFamily: "'DM Sans', var(--sans)",
 				}}
 			>
 				<span className="inline-flex flex-row items-center">
-					Heroicons{" "}
-					<span style={{ width: "0.125ch" }} />
-					<Apply className="w-10 h-10 text-indigo-500" style={{ marginTop: -3 }}>
-						<FlagSVG />
-					</Apply>
+					{/* <Apply className="w-10 h-10 text-indigo-500" style={{ marginTop: -3 }}> */}
+					{/* 	<FlagSVG /> */}
+					{/* </Apply> */}
+					<Apply className="-ml-1 w-10 h-10 text-indigo-500">
+						<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+							<path fillRule="evenodd" clipRule="evenodd" d="M2.02345 6.24396C2.06852 5.51956 2.69586 5.00256 3.41667 4.91762C5.41116 4.68257 7.31447 3.9485 8.94977 2.78439C9.57357 2.34032 10.4264 2.34037 11.0501 2.78452C12.686 3.94937 14.5902 4.68381 16.5857 4.91877C17.3054 5.00352 17.9319 5.5192 17.9766 6.24256C17.9922 6.49348 18 6.74639 18 7.00085C18 12.0385 14.8952 16.3511 10.496 18.13C10.1779 18.2586 9.8221 18.2586 9.50401 18.1299C5.10482 16.3501 2 12.0375 2 6.99985C2 6.74589 2.0079 6.49387 2.02345 6.24396Z" />
+						</svg>
+					</Apply>{" "}
+					<span style={{ width: "0.1875ch" }} />
+					Heroicons
 				</span>
 			</h6>
 		</a>
 
-		<div className="h-4" />
+		<div className="h-2" />
 		<div className="flex flex-row">
 
 			<a href="TODO" {...target_blank}>
@@ -61,9 +67,9 @@ const FooterLHS = () => (
 
 		<p className="text-gray-100 leading-relaxed">
 			<span className="inline-flex flex-row items-center">
-				MIT means you can use the icons commercially and without attribution{" "}
-				<span style={{ width: "0.5ch" }} />
-				<Apply className="transform scale-125">
+				MIT means you can use the icons commercially and without attribution.{" "}
+				<span style={{ width: "1ch" }} />
+				<Apply className="transform scale-150">
 					<span aria-label="OK hand" role="img">
 						👌
 					</span>
@@ -73,43 +79,35 @@ const FooterLHS = () => (
 
 		<div className="h-8" />
 		<p className="leading-relaxed text-gray-300">
-			{/* <span className="inline-flex flex-row items-center"> */}
-			{/* 	Icons designed by{" "} */}
-			{/* 	<span style={{ width: "0.5ch" }} /> */}
-			{/* 	<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}> */}
-			{/* 		@steveschoger */}
-			{/* 	</a>{" "} */}
-			{/* 	<span style={{ width: "1ch" }} /> */}
-			{/* 	<Apply className="transform scale-125"> */}
-			{/* 		<span aria-label="man artist" role="img"> */}
-			{/* 			👨‍🎨 */}
-			{/* 		</span> */}
-			{/* 	</Apply> */}
-			{/* </span> */}
-			Icons designed by{" "}
-			<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}>
-				@steveschoger
-			</a>
+			<span className="inline-flex flex-row items-center">
+				Icons designed by{" "}
+				<span style={{ width: "0.5ch" }} />
+				<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}>
+					@steveschoger
+				</a>{" "}
+				<span style={{ width: "1ch" }} />
+				<Apply className="transform scale-150">
+					<span aria-label="face with monocle" role="img">
+						🧐
+					</span>
+				</Apply>
+			</span>
 		</p>
 
 		<p className="leading-relaxed text-gray-300">
-			{/* <span className="inline-flex flex-row items-center"> */}
-			{/* 	Website designed and maintained by{" "} */}
-			{/* 	<span style={{ width: "0.5ch" }} /> */}
-			{/* 	<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}> */}
-			{/* 		@username_ZAYDEK */}
-			{/* 	</a>{" "} */}
-			{/* 	<span style={{ width: "1ch" }} /> */}
-			{/* 	<Apply className="transform scale-125"> */}
-			{/* 		<span aria-label="man technologist" role="img"> */}
-			{/* 			👨‍💻 */}
-			{/* 		</span> */}
-			{/* 	</Apply> */}
-			{/* </span> */}
-			Website designed and maintained by{" "}
-			<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}>
-				@username_ZAYDEK
-			</a>
+			<span className="inline-flex flex-row items-center">
+				Website designed and maintained by{" "}
+				<span style={{ width: "0.5ch" }} />
+				<a className="font-medium no-underline hover:underline text-gray-200" href="TODO" {...target_blank}>
+					@username_ZAYDEK
+				</a>{" "}
+				<span style={{ width: "1ch" }} />
+				<Apply className="transform scale-150">
+					<span aria-label="nerd face" role="img">
+						🤓
+					</span>
+				</Apply>
+			</span>
 		</p>
 
 	</nav>
@@ -140,7 +138,7 @@ const FooterRHS = () => (
 			<p className="py-2 font-medium no-underline hover:underline text-gray-100">
 				<span className="inline-flex flex-row items-center">
 					Open in Figma{" "}
-					<Apply className="ml-3 w-5 h-6">
+					<Apply className="ml-3 w-6 h-6">
 						<svg fill="currentColor" viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg">
 							<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
 							<path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
@@ -157,7 +155,7 @@ const FooterRHS = () => (
 			<p className="py-2 font-medium no-underline hover:underline text-gray-100">
 				<span className="inline-flex flex-row items-center">
 					Open in GitHub{" "}
-					<Apply className="ml-3 w-5 h-6">
+					<Apply className="ml-3 w-6 h-6">
 						<svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
 							<path fillRule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
 						</svg>
@@ -170,7 +168,7 @@ const FooterRHS = () => (
 			<p className="py-2 font-medium no-underline hover:underline text-gray-100">
 				<span className="inline-flex flex-row items-center">
 					Contribute on GitHub{" "}
-					<Apply className="ml-3 w-5 h-6">
+					<Apply className="ml-3 w-6 h-6">
 						<svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
 							<path fillRule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
 						</svg>
