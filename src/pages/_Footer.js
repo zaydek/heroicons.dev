@@ -114,7 +114,7 @@ const FooterLHS = () => (
 )
 
 const FooterRHS = () => (
-	<nav className="flex flex-col items-end">
+	<nav className="-my-2 flex flex-col items-end">
 
 		<h6 className="font-semibold text-xs tracking-wider text-gray-400">
 			USEFUL LINKS

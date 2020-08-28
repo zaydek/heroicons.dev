@@ -13,13 +13,14 @@ import tw from "lib/x/tailwindUnits"
 import useHeroiconsReducer from "reducers/useHeroiconsReducer"
 
 import BookOpenSVG from "heroicons-0.4.0/solid/BookOpen"
+import CursorClickSVG from "heroicons-0.4.0/solid/CursorClick"
 import ExternalLinkSVG from "heroicons-0.4.0/solid/ExternalLink"
 import FlagSVG from "heroicons-0.4.0/solid/Flag"
 import SearchOutlineSVG from "heroicons-0.4.0/outline/Search"
 import SwitchHorizontalSVG from "heroicons-0.4.0/solid/SwitchHorizontal"
 
-const HEADER_HEIGHT = 640
-const HEADER_CLIP_HEIGHT = (HEADER_HEIGHT - ((48 + 8) * 4))
+const HEADER_HEIGHT = 520
+const HEADER_CLIP_HEIGHT = (HEADER_HEIGHT - (32 * 4))
 
 const Header = () => {
 	React.useLayoutEffect(() => {
@@ -30,7 +31,7 @@ const Header = () => {
 				// const flagLogo = document.getElementById("flag-logo")
 				// const flagLogoOriginalColor = getComputedStyle(flagLogo).color
 				// const flagLogoOriginalOpacity = getComputedStyle(flagLogo).opacity
-				if (!window.scrollY) {
+				if (window.scrollY < HEADER_CLIP_HEIGHT / 2) {
 					bg.style.opacity = 1
 					// flagLogo.style.color = flagLogoOriginalColor
 					// flagLogo.style.opacity = flagLogoOriginalOpacity
@@ -111,25 +112,28 @@ const Header = () => {
 					<Reset className="w-full h-full">
 						<Apply className="transform duration-500 ease-out">
 							<div id="bg" style={{ backgroundColor: "var(--theme)" }} />
+							{/* <div id="bg" style={{ backgroundImage: "radial-gradient(ellipse at bottom, hsl(275, 100%, 37.5%) -25%, hsl(260, 100%, 37.5%) 200%)" }} /> */}
+							{/* <div id="bg" style={{ backgroundImage: "linear-gradient(to top right, hsl(270, 100%, 37.5%), hsl(265, 100%, 37.5%))" }} /> */}
 						</Apply>
 					</Reset>
 					{/* TODO: Move preserveAspectRatio to <Apply>. */}
-					<div className="absolute bottom-0 inset-x-0">
-						<Apply className="w-full h-24 text-black">
-							<svg preserveAspectRatio="none" fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
-								<path d="M0 0C0.5 0.333333 2 1 4 1C6 1 7.41667 0.333333 8 0V1H4H0V0Z" />
-							</svg>
-						</Apply>
-					</div>
+					{/* <div className="absolute bottom-0 inset-x-0"> */}
+					{/* 	<Apply className="w-full h-24 text-black"> */}
+					{/* 		<svg preserveAspectRatio="none" fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
+					{/* 			<path d="M0 0C0.5 0.333333 2 1 4 1C6 1 7.41667 0.333333 8 0V1H4H0V0Z" /> */}
+					{/* 		</svg> */}
+					{/* 	</Apply> */}
+					{/* </div> */}
 				</div>
 
 				<div className="flex flex-row justify-center items-center h-full">
 					<div className="flex flex-col justify-center h-full">
 
 						<Apply className="relative transform">
-							<div className="-mt-48">
+							<div className="-mt-64">
 								<div className="px-1 absolute right-full inset-y-0 flex flex-row items-center">
-									<Apply className="w-14 h-14 text-indigo-500">
+									{/* TODO: radial-gradient */}
+									<Apply className="w-12 h-12 text-indigo-500">
 										{/* <svg */}
 										{/* 	fill="none" */}
 										{/* 	strokeLinecap="round" */}
@@ -154,22 +158,29 @@ const Header = () => {
 										opacity: 0.9,
 									}}
 								>
-									Heroicons
+									<span className="mr-px font-bold" style={{ fontSize: "0.75em" }}>
+										H
+									</span>
+									eroicons
 								</h1>
-								<div className="py-1 absolute top-full inset-x-0 flex flex-row justify-center">
-									<Apply className="transform scale-110">
-										<h6 className="font-semibold tracking-wider leading-none text-xs text-white" style={{ opacity: 0.625 }}>
-											UNOFFICIAL HEROICONS VIEWER
-										</h6>
-									</Apply>
-								</div>
+								{/* <div className="py-4 absolute top-full inset-x-0 flex flex-row justify-center"> */}
+								{/* 	<h6 className="font-semibold tracking-wider leading-none text-sm text-white" style={{ opacity: 0.625 }}> */}
+								{/* 		<span className="inline-flex flex-row items-center"> */}
+								{/* 			ONE-CLICK COPY-PASTE{" "} */}
+								{/* 			<span style={{ width: "1ch" }} /> */}
+								{/* 			<Apply className="-mt-1 w-4 h-4 transform scale-125"> */}
+								{/* 				<CursorClickSVG /> */}
+								{/* 			</Apply> */}
+								{/* 		</span> */}
+								{/* 	</h6> */}
+								{/* </div> */}
 							</div>
 						</Apply>
 
 					</div>
 
 					{/* Subheader */}
-					{/* <h2 className="flex flex-row justify-center items-center flex-wrap text-center font-medium text-xl sm:text-2xl text-gray-100"> */}
+					{/* <h2 className="flex flex-row justify-center items-center flex-wrap text-center font-medium text-xl sm:text-2xl text-cool-gray-100"> */}
 					{/* 	<BookOpenSVG className="mr-2 hidden sm:block w-8 h-8" /> */}
 					{/* 		MIT open source icons by{" "} */}
 					{/* 	<span style={{ width: "0.25em" }} /> */}
@@ -249,8 +260,8 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 		// <div className="!rounded-6 shadow-lg h-full">
 		<button
 			ref={buttonRef}
-			className="flex flex-row justify-center items-center w-full h-full bg-gray-800 hover:bg-gray-700 focus:outline-none shadow-none focus:shadow-solid-indigo select-text"
-			// style={{ boxShadow: "inset 0 0 0 0.5px var(--gray-900), 0 0 0 0.5px var(--gray-900)" }}
+			className="flex flex-row justify-center items-center w-full h-full bg-cool-gray-800 hover:bg-cool-gray-700 focus:outline-none shadow-none focus:shadow-solid-indigo select-text"
+			// style={{ boxShadow: "inset 0 0 0 0.5px var(--cool-gray-900), 0 0 0 0.5px var(--cool-gray-900)" }}
 			onClick={handleClick}
 			aria-label={icon.name}
 		>
@@ -259,7 +270,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			{icon.statusNew && (
 				<div className="p-3 absolute top-0 right-0">
 					<div className="px-2 py-1 bg-indigo-500 rounded-full transform scale-90 origin-top-right">
-						<p className="font-semibold leading-none text-gray-100" style={{ fontSize: "0.6875rem" }}>
+						<p className="font-semibold leading-none text-cool-gray-100" style={{ fontSize: "0.6875rem" }}>
 							<span className="tracking-wider">NE</span>W
 						</p>
 					</div>
@@ -269,13 +280,13 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 			{/* Icon */}
 			<SVG
 				id={icon.name}
-				className="w-8 h-8 text-gray-100"
+				className="w-8 h-8 text-cool-gray-100"
 				svg={icon[!state.form.showOutline ? "solid" : "outline"]}
 			/>
 
 			{/* Icon name */}
 			<div className="p-3 absolute bottom-0">
-				<p className="text-center text-sm tracking-wide leading-tight text-gray-200">
+				<p className="text-center text-sm tracking-wide leading-tight text-cool-gray-200">
 					{!state.form.search.safe || state.form.search.safe === "new" ? (
 						icon.name
 					) : (
@@ -405,7 +416,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 				{/* Search bar LHS */}
 // 				<div className="px-6 absolute inset-y-0 left-0 pointer-events-none">
 // 					<div className="pl-2 flex flex-row items-center h-full">
-// 						<SearchOutlineSVG className="w-6 h-6 text-gray-400 transition duration-200 ease-in-out" />
+// 						<SearchOutlineSVG className="w-6 h-6 text-cool-gray-400 transition duration-200 ease-in-out" />
 // 					</div>
 // 				</div>
 //
@@ -416,7 +427,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 							<Reset className="appearance-none w-full">
 // 								<input
 // 									ref={inputRef}
-// 									className="pl-20 pr-36 block w-full h-18 text-xl placeholder-gray-400 text-gray-100 bg-gray-800 rounded-6 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
+// 									className="pl-20 pr-36 block w-full h-18 text-xl placeholder-cool-gray-400 text-cool-gray-100 bg-cool-gray-800 rounded-6 focus:outline-none shadow-none focus:shadow-solid-indigo transition duration-200 ease-in-out"
 // 									style={{ height: tw(18) }}
 // 									type="text"
 // 									placeholder="Search Heroicons"
@@ -443,9 +454,9 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 							onMouseLeave={e => setTooltip("")}
 // 						>
 // 							<button
-// 								className="p-2 relative text-gray-400 hover:bg-gray-700 focus:bg-gray-700 rounded-full focus:outline-none transition duration-200 ease-in-out"
+// 								className="p-2 relative text-cool-gray-400 hover:bg-cool-gray-700 focus:bg-cool-gray-700 rounded-full focus:outline-none transition duration-200 ease-in-out"
 // 								style={{
-// 									color: state.form.copyAsReact && "var(--gray-100)",
+// 									color: state.form.copyAsReact && "var(--cool-gray-100)",
 // 									backgroundColor: state.form.copyAsReact && "var(--indigo-500)",
 // 								}}
 // 								onClick={e => {
@@ -464,8 +475,8 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 									<div className="pt-2 absolute top-full right-0 z-40">
 // 										<div className="rounded-md shadow-lg">
 // 											<div className="rounded-md shadow-lg">
-// 												<div className="px-3 py-2 relative bg-gray-700 rounded-md">
-// 													<p className="whitespace-pre font-medium text-sm text-gray-100">
+// 												<div className="px-3 py-2 relative bg-cool-gray-700 rounded-md">
+// 													<p className="whitespace-pre font-medium text-sm text-cool-gray-100">
 // 														{!state.form.copyAsReact
 // 															? "Click to Enable Copy as JSX"
 // 															: "Click to Enable Copy as HTML"
@@ -492,9 +503,9 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 							onMouseLeave={e => setTooltip("")}
 // 						>
 // 							<button
-// 								className="p-2 relative text-gray-400 hover:bg-gray-700 focus:bg-gray-700 rounded-full focus:outline-none transition duration-200 ease-in-out"
+// 								className="p-2 relative text-cool-gray-400 hover:bg-cool-gray-700 focus:bg-cool-gray-700 rounded-full focus:outline-none transition duration-200 ease-in-out"
 // 								style={{
-// 									color: state.form.showOutline && "var(--gray-100)",
+// 									color: state.form.showOutline && "var(--cool-gray-100)",
 // 									backgroundColor: state.form.showOutline && "var(--indigo-500)",
 // 								}}
 // 								onClick={e => {
@@ -513,8 +524,8 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 									<div className="pt-2 absolute top-full right-0 z-40">
 // 										<div className="rounded-md shadow-lg">
 // 											<div className="rounded-md shadow-lg">
-// 												<div className="px-3 py-2 relative bg-gray-700 rounded-md">
-// 													<p className="whitespace-pre font-medium text-sm text-gray-100">
+// 												<div className="px-3 py-2 relative bg-cool-gray-700 rounded-md">
+// 													<p className="whitespace-pre font-medium text-sm text-cool-gray-100">
 // 														{!state.form.showOutline
 // 															? "Click to Switch to Outline Icons"
 // 															: "Click to Switch to Solid Icons"
@@ -543,7 +554,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 	// {!state.results.length && (
 // 		<div className="flex flex-col justify-center items-center h-full">
 //
-// 			<p className="flex flex-row items-baseline font-medium text-xl text-center text-gray-200">
+// 			<p className="flex flex-row items-baseline font-medium text-xl text-center text-cool-gray-200">
 // 				No results for “
 // 				{/* <span className="inline-block truncate" style={{ maxWidth: media.xs ? 128 : 256 }}> */}
 // 				{/* FIXME */}
@@ -552,7 +563,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 // 				</span>”
 // 			</p>
 //
-// 			<p className="font-medium text-xl text-center text-gray-200">
+// 			<p className="font-medium text-xl text-center text-cool-gray-200">
 // 				Try again or{" "}
 // 				<a className="underline" style={{ textDecorationColor: "var(--indigo-500)" }} href="https://github.com/tailwindlabs/heroicons/issues" {...target_blank}>
 // 					request an icon
@@ -594,7 +605,7 @@ const Main = () => {
 
 			<main className="flex-1">
 				<div className="rounded-6 shadow-lg">
-					<div className="bg-gray-700 rounded-6 shadow-lg">
+					<div className="bg-cool-gray-700 rounded-6 shadow-lg">
 
 						<div
 							id="clip-top"
@@ -607,7 +618,7 @@ const Main = () => {
 
 						<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
 							{state.results.length > 0 && (
-								<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 rounded-6 overflow-hidden" style={{ gap: 1 }}>
+								<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 rounded-6 overflow-hidden" style={{ gap: 1 }}>
 									{state.results.map((each, x) => (
 										<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
 											<div className="absolute inset-0">
@@ -636,23 +647,23 @@ const Main = () => {
 				</div>
 			</main>
 
-			<div className="w-6" />
+			<div className="w-4" />
 			<aside className="sticky" style={{ top: tw(4) }}>
 				<div className="rounded-6 shadow-lg">
-					<div className="w-96 bg-gray-800 rounded-6 shadow-lg">
+					<div className="w-96 bg-cool-gray-800 rounded-6 shadow-lg">
 
 						<div className="h-20">
 						</div>
 
-						<hr className="border-t border-gray-700" />
+						<hr className="border-t border-cool-gray-700" />
 						<div className="h-20">
 						</div>
 
-						<hr className="border-t border-gray-700" />
+						<hr className="border-t border-cool-gray-700" />
 						<div className="h-20">
 						</div>
 
-						<hr className="border-t border-gray-700" />
+						<hr className="border-t border-cool-gray-700" />
 						<div className="h-40">
 						</div>
 
@@ -738,8 +749,8 @@ html {
 			<Header />
 		</section>
 
-		<section className="-mt-48 px-4 flex flex-row justify-center">
-			<div className="w-full max-w-screen-xl z-10">
+		<section className="-mt-24 px-4 flex flex-row justify-center">
+			<div className="w-full !max-w-screen-xl z-10" style={{ maxWidth: 1440 }}>
 				<Main />
 			</div>
 		</section>
