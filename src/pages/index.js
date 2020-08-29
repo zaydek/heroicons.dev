@@ -82,7 +82,7 @@ const Header = ({ state, dispatch }) => (
 					<div style={{ backgroundImage: "radial-gradient(ellipse at top, hsl(265, 100%, 65%) -25%, hsl(270, 100%, 45%))" }} />
 				</Reset>
 				<div className="absolute bottom-0 inset-x-0">
-					<Apply className="w-full h-24 text-white">
+					<Apply className="w-full h-24 text-gray-50">
 						<svg
 							// TODO: Move {...props} to <Apply>?
 							preserveAspectRatio="none"
@@ -775,7 +775,9 @@ const Main = ({ state, dispatch }) => {
 						CARBON ADS
 					</h6>
 					<div className="h-4" />
-					<div className="w-80 h-32 bg-gray-100 rounded-2" />
+					<div className="-mx-6 flex flex-row justify-center">
+						<div className="bg-gray-100 rounded-2" style={{ width: 330, height: 125 }} />
+					</div>
 				</section>
 
 
