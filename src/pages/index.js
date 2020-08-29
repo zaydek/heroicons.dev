@@ -25,26 +25,26 @@ const HEADER_HEIGHT = 560
 const HEADER_CLIP_HEIGHT = HEADER_HEIGHT - (60 * 4)
 
 const Header = ({ state, dispatch }) => {
-	React.useLayoutEffect(() => {
-		const handleScroll = () => {
-			try {
-				// const headerBackground = document.getElementById("header-background")
-				// headerBackground.style.opacity = Number(window.scrollY < HEADER_CLIP_HEIGHT / 2)
-				const clipTop = document.getElementById("main-clip-top")
-				clipTop.style.opacity = 0
-				if (window.scrollY >= HEADER_CLIP_HEIGHT) {
-					clipTop.style.opacity = 1
-				}
-			} catch (error) {
-				console.error(error)
-			}
-		}
-		handleScroll()
-		window.addEventListener("scroll", handleScroll, false)
-		return () => {
-			window.removeEventListener("scroll", handleScroll, false)
-		}
-	}, [])
+	// React.useLayoutEffect(() => {
+	// 	const handleScroll = () => {
+	// 		try {
+	// 			// const headerBackground = document.getElementById("header-background")
+	// 			// headerBackground.style.opacity = Number(window.scrollY < HEADER_CLIP_HEIGHT / 2)
+	// 			const clipTop = document.getElementById("main-clip-top")
+	// 			clipTop.style.opacity = 0
+	// 			if (window.scrollY >= HEADER_CLIP_HEIGHT) {
+	// 				clipTop.style.opacity = 1
+	// 			}
+	// 		} catch (error) {
+	// 			console.error(error)
+	// 		}
+	// 	}
+	// 	handleScroll()
+	// 	window.addEventListener("scroll", handleScroll, false)
+	// 	return () => {
+	// 		window.removeEventListener("scroll", handleScroll, false)
+	// 	}
+	// }, [])
 
 	return (
 		<Apply className="relative">
@@ -378,227 +378,257 @@ const Main = ({ state, dispatch }) => {
 		<div className="flex flex-row items-start">
 
 			{/* LHS */}
-			<Apply className="flex-1">
-				<main className="!border !border-gray-200 rounded-6 shadow-md">
-					<Apply className="rounded-6 shadow-hero-xl">
-						<div className="bg-gray-200">
+			<Apply className="flex-1 z-10">
+				<main className="rounded-6 shadow-md">
+					<div className="rounded-6 shadow-xl">
+						<Apply className="rounded-6 shadow-xs">
+							<div className="bg-gray-200">
 
-							<div
-								id="main-clip-top"
-								className="-mb-24 sticky h-24 rounded-t-6 z-10"
-								style={{
-									top: tw(4),
-									// boxShadow: `0 ${tw(6)} 0 ${tw(6)} var(--red-500)`,
-									boxShadow: `
-										0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06),
-										0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04),
-										0 -${tw(4)} 0 ${tw(4)} hsl(270, 100%, 50%)
-									`,
-									clipPath: "inset(-100% -100% 50% -100%)",
-								}}
-							/>
+								<div
+									className="-mb-24 sticky h-24 rounded-t-6 z-10"
+									style={{
+										top: tw(6),
+										boxShadow: `
+											0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06),
+											0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04),
+											0 -${tw(6)} 0 ${tw(6)} hsl(270, 100%, 50%)
+										`,
+										clipPath: "inset(-100% -100% 50% -100%)",
+									}}
+								/>
 
-							<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
-								{state.results.length > 0 && (
-									<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 rounded-6 overflow-hidden" style={{ gap: 1 }}>
-										{state.results.map((each, x) => (
-											<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
-												<div className="absolute inset-0">
-													<MemoIcon
-														state={state}
-														dispatch={dispatch}
-														icon={each}
-													/>
+								<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
+									{state.results.length > 0 && (
+										<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 rounded-6 overflow-hidden" style={{ gap: 1 }}>
+											{state.results.map((each, x) => (
+												<div key={each.name} className="relative" style={{ paddingBottom: "100%" }}>
+													<div className="absolute inset-0">
+														<MemoIcon
+															state={state}
+															dispatch={dispatch}
+															icon={each}
+														/>
+													</div>
 												</div>
-											</div>
-										))}
-									</div>
-								)}
-							</DocumentTitle>
+											))}
+										</div>
+									)}
+								</DocumentTitle>
 
-							<div
-								id="main-clip-bottom"
-								className="-mt-24 sticky h-24 rounded-b-6 z-10"
-								style={{
-									bottom: tw(8),
-									// boxShadow: `0 ${tw(6)} 0 ${tw(6)} var(--red-500)`,
-									boxShadow: `
-										0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06),
-										0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04),
-										0 ${tw(4)} 0 ${tw(4)} var(--white)
-									`,
-									clipPath: "inset(50% -100% -100% -100%)",
-								}}
-							/>
+								<div
+									className="-mt-24 sticky h-24 rounded-b-6 z-10"
+									style={{
+										bottom: tw(8),
+										boxShadow: `
+											0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06),
+											0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04),
+											0 ${tw(6)} 0 ${tw(6)} var(--white)
+										`,
+										clipPath: "inset(50% -100% -100% -100%)",
+									}}
+								/>
 
-						</div>
-					</Apply>
+							</div>
+						</Apply>
+					</div>
 				</main>
 			</Apply>
 
 			{/* RHS */}
 			<div className="w-6" />
-			<aside className="sticky" style={{ top: tw(4) }}>
-				<div className="!border !border-gray-200 rounded-6 shadow-md">
-					<Apply className="rounded-6 shadow-hero-xl">
-						<div className="w-96 bg-white">
+			<aside className="sticky" style={{ top: tw(6) }}>
+				<div className="rounded-6 shadow-md">
+					<div className="rounded-6 shadow-xl">
+						<Apply className="rounded-6 shadow-xs">
+							<div className="w-96 bg-white">
 
-							{/* Section: Search */}
-							<Apply className="relative">
-								<section className="flex flex-row h-20">
+								{/* Section: Search */}
+								<Apply className="relative">
+									<section className="flex flex-row h-20">
 
-									{/* LHS */}
-									<div className="absolute inset-y-0 left-0 pointer-events-none">
-										<div className="px-6 flex flex-row items-center h-full">
-											<Apply
-												className="w-6 h-6 transform scale-90"
-												style={{ color: !inputFocus ? "var(--gray-300)" : "var(--indigo-600)" }}
-											>
-												<Apply className="transition duration-200 ease-in-out">
-													<SearchOutlineSVG />
-												</Apply>
-											</Apply>
-										</div>
-									</div>
-
-									{/* Search */}
-									<Reset className="w-full h-full leading-none bg-transparent focus:outline-none">
-										<input
-											ref={inputRef}
-											className="px-14 text-lg placeholder-gray-300 text-gray-800"
-											type="text"
-											placeholder="Search"
-											value={inputValue}
-											onFocus={e => setInputFocus(true)}
-											onBlur={e => setInputFocus(false)}
-											onChange={e => setInputValue(e.target.value)}
-											autoFocus
-											{...disableAutoCorrect}
-										/>
-									</Reset>
-
-									{/* RHS */}
-									{inputValue && (
-										<div className="absolute inset-y-0 right-0">
-											<Reset className="focus:outline-none">
-												<button className="px-6 flex flex-row items-center h-full text-gray-300 hover:text-gray-800 focus:text-gray-800 rounded-tr-6" onClick={e => setInputValue("")}>
+										{/* LHS */}
+										<div className="absolute inset-y-0 left-0 pointer-events-none">
+											<div className="px-6 flex flex-row items-center h-full">
+												<Apply
+													className="w-6 h-6 transform scale-90"
+													style={{ color: !inputFocus ? "var(--gray-300)" : "var(--indigo-600)" }}
+												>
 													<Apply className="transition duration-200 ease-in-out">
-														<Apply className="w-6 h-6 transform scale-90">
-															<XCircleSVG />
-														</Apply>
+														<SearchOutlineSVG />
 													</Apply>
-												</button>
-											</Reset>
+												</Apply>
+											</div>
 										</div>
-									)}
 
-								</section>
-							</Apply>
+										{/* Search */}
+										<Reset className="w-full h-full leading-none bg-transparent focus:outline-none">
+											<input
+												ref={inputRef}
+												className="px-14 text-lg placeholder-gray-300 text-gray-800"
+												type="text"
+												placeholder="Search"
+												value={inputValue}
+												onFocus={e => setInputFocus(true)}
+												onBlur={e => setInputFocus(false)}
+												onChange={e => setInputValue(e.target.value)}
+												autoFocus
+												{...disableAutoCorrect}
+											/>
+										</Reset>
 
-							{/* Section: Copy As */}
-							<hr className="border-t border-gray-200" />
-							<section className="px-6 py-4">
-								<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
-									<span className="inline-flex flex-row justify-between w-full">
-										<span>
-											COPY TO CLIPBOARD
+										{/* RHS */}
+										{inputValue && (
+											<div className="absolute inset-y-0 right-0">
+												<Reset className="focus:outline-none">
+													<button className="px-6 flex flex-row items-center h-full text-gray-300 hover:text-gray-800 focus:text-gray-800 rounded-tr-6" onClick={e => setInputValue("")}>
+														<Apply className="transition duration-200 ease-in-out">
+															<Apply className="w-6 h-6 transform scale-90">
+																<XCircleSVG />
+															</Apply>
+														</Apply>
+													</button>
+												</Reset>
+											</div>
+										)}
+
+									</section>
+								</Apply>
+
+								{/* Section: Copy As */}
+								<hr className="border-t border-gray-200" />
+								<section className="px-6 py-4">
+									<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
+										<span className="inline-flex flex-row justify-between w-full">
+											<span>
+												COPY TO CLIPBOARD
+											</span>
+											{/* <span> */}
+											{/* 	DOWNLOAD */}
+											{/* </span> */}
 										</span>
-										{/* <span> */}
-										{/* 	DOWNLOAD */}
-										{/* </span> */}
-									</span>
-								</h6>
-								<div className="h-4" />
-								<div className="flex flex-row justify-between items-center">
-									<div className="space-x-2 flex flex-row">
-										<div className="w-10 h-10 bg-gray-100 rounded-full" />
-										<div className="w-10 h-10 bg-gray-100 rounded-full" />
-										<div className="w-10 h-10 bg-gray-100 rounded-full" />
+									</h6>
+									<div className="h-4" />
+									<div className="flex flex-row justify-between items-center">
+										<div className="space-x-2 flex flex-row">
+											<div className="w-10 h-10 bg-gray-100 rounded-full" />
+											<div className="w-10 h-10 bg-gray-100 rounded-full" />
+											<div className="w-10 h-10 bg-gray-100 rounded-full" />
+										</div>
+										{/* <div className="w-10 h-10 bg-gray-100 rounded-full" /> */}
 									</div>
-									{/* <div className="w-10 h-10 bg-gray-100 rounded-full" /> */}
-								</div>
-							</section>
+								</section>
 
-							{/* Section: Size */}
-							{/* */}
-							{/* TODO: Add overflow-visible. */}
-							<hr className="border-t border-gray-200" />
-							<section className="px-6 py-4">
-								<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
-									SIZE
-								</h6>
+								{/* Section: Size */}
+								{/* */}
+								{/* TODO: Add overflow-visible. */}
+								<hr className="border-t border-gray-200" />
+								<section className="px-6 py-4">
+									<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
+										SIZE
+									</h6>
+									<div className="h-4" />
+									<div className="flex flex-row justify-between items-center">
+										<div className="w-64 h-1 bg-gray-100 rounded-full" />
+										<div className="w-16 h-8 bg-gray-100 rounded-full" />
+									</div>
+								</section>
+								<hr className="border-t border-gray-200" />
+								<section className="px-6 py-4">
+									<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
+										SIZE
+									</h6>
+									<div className="h-4" />
+									<div className="flex flex-row justify-between items-center">
+										<div className="w-64 h-1 bg-gray-100 rounded-full" />
+										<div className="w-16 h-8 bg-gray-100 rounded-full" />
+									</div>
+								</section>
+								<hr className="border-t border-gray-200" />
+								<section className="px-6 py-4">
+									<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
+										SIZE
+									</h6>
+									<div className="h-4" />
+									<div className="flex flex-row justify-between items-center">
+										<div className="w-64 h-1 bg-gray-100 rounded-full" />
+										<div className="w-16 h-8 bg-gray-100 rounded-full" />
+									</div>
+								</section>
+								<hr className="border-t border-gray-200" />
+								<section className="px-6 py-4">
+									<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
+										SIZE
+									</h6>
+									<div className="h-4" />
+									<div className="flex flex-row justify-between items-center">
+										<div className="w-64 h-1 bg-gray-100 rounded-full" />
+										<div className="w-16 h-8 bg-gray-100 rounded-full" />
+									</div>
+								</section>
+
+								{/* Section: Size */}
+								{/* */}
+								{/* TODO: Add overflow-visible. */}
+								{/* <hr className="border-t border-gray-200" /> */}
+								{/* <section className="px-6 py-4"> */}
+								{/* 	<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}> */}
+								{/* 		CARBON ADS */}
+								{/* 	</h6> */}
+								{/* 	<div className="h-4" /> */}
+								{/* 	<div className="w-80 h-32 bg-gray-100 rounded-2" /> */}
+								{/* </section> */}
+
+								{/* Section: Class names */}
+								{/* */}
+								{/* TODO: Add overflow-visible. */}
+								{/* <hr className="border-t border-gray-200" /> */}
+								{/* <section className="px-6 py-4"> */}
+								{/* 	<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}> */}
+								{/* 		CLASS NAMES */}
+								{/* 	</h6> */}
+								{/* 	<div className="h-4" /> */}
+								{/* 	<div className="flex flex-row justify-between items-center"> */}
+								{/* 		<div className="w-64 h-1 bg-gray-100 rounded-full" /> */}
+								{/* 		<div className="w-16 h-8 bg-gray-100 rounded-full" /> */}
+								{/* 	</div> */}
+								{/* </section> */}
+
+								{/* Section: Stroke-width */}
+								{/* */}
+								{/* TODO: Heroicons do not currently export stroke-width as an API. */}
+								{/* <hr className="border-t border-gray-200" /> */}
+								{/* <section className="px-6 py-6"> */}
+								{/* 	<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}> */}
+								{/* 		STROKE-WIDTH */}
+								{/* 	</h6> */}
+								{/* 	<div className="h-4" /> */}
+								{/* 	<div className="flex flex-row justify-between items-center"> */}
+								{/* 		<div className="w-64 h-1 bg-gray-100 rounded-full" /> */}
+								{/* 		<div className="w-16 h-8 bg-gray-100 rounded-full" /> */}
+								{/* 	</div> */}
+								{/* </section> */}
+
+								{/* <hr className="border-t border-gray-200" /> */}
 								<div className="h-4" />
-								<div className="flex flex-row justify-between items-center">
-									<div className="w-64 h-1 bg-gray-100 rounded-full" />
-									<div className="w-16 h-8 bg-gray-100 rounded-full" />
-								</div>
-							</section>
 
-							{/* Section: Size */}
-							{/* */}
-							{/* TODO: Add overflow-visible. */}
-							{/* <hr className="border-t border-gray-200" /> */}
-							{/* <section className="px-6 py-4"> */}
-							{/* 	<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}> */}
-							{/* 		CARBON ADS */}
-							{/* 	</h6> */}
-							{/* 	<div className="h-4" /> */}
-							{/* 	<div className="w-80 h-32 bg-gray-100 rounded-2" /> */}
-							{/* </section> */}
+								{/* <div className="h-36" /> */}
 
-							{/* Section: Class names */}
-							{/* */}
-							{/* TODO: Add overflow-visible. */}
-							{/* <hr className="border-t border-gray-200" /> */}
-							{/* <section className="px-6 py-4"> */}
-							{/* 	<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}> */}
-							{/* 		CLASS NAMES */}
-							{/* 	</h6> */}
-							{/* 	<div className="h-4" /> */}
-							{/* 	<div className="flex flex-row justify-between items-center"> */}
-							{/* 		<div className="w-64 h-1 bg-gray-100 rounded-full" /> */}
-							{/* 		<div className="w-16 h-8 bg-gray-100 rounded-full" /> */}
-							{/* 	</div> */}
-							{/* </section> */}
+								<div
+									className="-mt-24 sticky h-24 rounded-b-6 z-10"
+									style={{
+										bottom: tw(8),
+										boxShadow: `
+											0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06),
+											0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04),
+											0 ${tw(6)} 0 ${tw(6)} var(--white)
+										`,
+										clipPath: "inset(50% -100% -100% -100%)",
+									}}
+								/>
 
-							{/* Section: Stroke-width */}
-							{/* */}
-							{/* TODO: Heroicons do not currently export stroke-width as an API. */}
-							{/* <hr className="border-t border-gray-200" /> */}
-							{/* <section className="px-6 py-6"> */}
-							{/* 	<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}> */}
-							{/* 		STROKE-WIDTH */}
-							{/* 	</h6> */}
-							{/* 	<div className="h-4" /> */}
-							{/* 	<div className="flex flex-row justify-between items-center"> */}
-							{/* 		<div className="w-64 h-1 bg-gray-100 rounded-full" /> */}
-							{/* 		<div className="w-16 h-8 bg-gray-100 rounded-full" /> */}
-							{/* 	</div> */}
-							{/* </section> */}
-
-							{/* <hr className="border-t border-gray-200" /> */}
-							<div className="h-4" />
-
-							{/* <div className="h-36" /> */}
-
-							{/* <div */}
-							{/* 	// id="main-clip-bottom" */}
-							{/* 	className="-mt-24 sticky h-24 rounded-b-6 z-10" */}
-							{/* 	style={{ */}
-							{/* 		bottom: tw(8), */}
-							{/* 		// boxShadow: `0 ${tw(6)} 0 ${tw(6)} var(--red-500)`, */}
-							{/* 		boxShadow: ` */}
-							{/* 			0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), */}
-							{/* 			0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), */}
-							{/* 			0 ${tw(4)} 0 ${tw(4)} var(--white) */}
-							{/* 		`, */}
-							{/* 		clipPath: "inset(50% -100% -100% -100%)", */}
-							{/* 	}} */}
-							{/* /> */}
-
-						</div>
-					</Apply>
-
+							</div>
+						</Apply>
+					</div>
 				</div>
 
 				<section className="px-6 py-12">

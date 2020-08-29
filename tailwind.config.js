@@ -1,10 +1,6 @@
 const defaultTheme = require("tailwindcss/defaultTheme")
 const defaultVariants = require("./tailwind-defaultVariants")
 
-function trimWhitespace(str) {
-	return str.split(/\s+/).join(" ").trim()
-}
-
 module.exports = {
 	// https://github.com/tailwindlabs/tailwindcss/releases#experimental-features
 	experimental: "all",
@@ -34,36 +30,11 @@ module.exports = {
 				"7": "1.75rem",
 				"8": "2rem",
 			},
-			boxShadow: {
-				"solid-indigo": "0 0 0 3px #6875f5",
-
-				"hero-sm": trimWhitespace(`
-					${defaultTheme.boxShadow.xs},
-					${defaultTheme.boxShadow.sm}
-				`),
-				"hero": trimWhitespace(`
-					${defaultTheme.boxShadow.xs},
-					${defaultTheme.boxShadow.default}
-				`),
-				"hero-md": trimWhitespace(`
-					${defaultTheme.boxShadow.xs},
-					${defaultTheme.boxShadow.md}
-				`),
-				"hero-lg": trimWhitespace(`
-					${defaultTheme.boxShadow.xs},
-					${defaultTheme.boxShadow.lg}
-				`),
-				"hero-xl": trimWhitespace(`
-					${defaultTheme.boxShadow.xs},
-					${defaultTheme.boxShadow.xl}
-				`),
-				"hero-2xl": trimWhitespace(`
-					${defaultTheme.boxShadow.xs},
-					${defaultTheme.boxShadow["2xl"]}
-				`),
-			},
+			// boxShadow: {
+			// 	"solid-indigo": "0 0 0 3px #6875f5",
+			// },
 			fontFamily: {
-				mono: ["'IBM Plex Mono'", ...defaultTheme.fontFamily.mono],
+				// mono: ["'IBM Plex Mono'", ...defaultTheme.fontFamily.mono],
 				sans: [...defaultTheme.fontFamily.sans.slice(0, 3), "Inter", ...defaultTheme.fontFamily.sans.slice(3)],
 			},
 		},
