@@ -37,6 +37,9 @@ module.exports = {
 				// mono: ["'IBM Plex Mono'", ...defaultTheme.fontFamily.mono],
 				sans: [...defaultTheme.fontFamily.sans.slice(0, 3), "Inter", ...defaultTheme.fontFamily.sans.slice(3)],
 			},
+			zIndex: {
+				"-10": "-10",
+			},
 		},
 		screens: {
 			sm: `${16 + 640 + 16}px`,
