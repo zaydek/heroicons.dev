@@ -22,8 +22,7 @@ import SearchOutlineSVG from "heroicons-0.4.1/outline/Search"
 import SunOutlineSVG from "heroicons-0.4.1/outline/Sun"
 import SwitchHorizontalOutlineSVG from "heroicons-0.4.1/solid/SwitchHorizontal"
 
-const HEADER_HEIGHT = 560
-const HEADER_CLIP_HEIGHT = HEADER_HEIGHT - (60 * 4)
+const HEADER_HEIGHT = 576
 
 const Header = ({ state, dispatch }) => {
 	const [twItsOver9000, setTWItsOver9000] = React.useState(false)
@@ -149,7 +148,7 @@ const Header = ({ state, dispatch }) => {
 			{/* Header */}
 			<div className="flex flex-row justify-center items-center h-full">
 				{/* NOTE: -mt-* must be nested. */}
-				<div className="-mt-36 flex flex-col justify-center items-center h-full">
+				<div className="-mt-48 flex flex-col justify-center items-center h-full">
 
 					<div className="flex flex-row items-center">
 						<Apply className="-mb-1 mr-2 w-12 h-12 text-white opacity-50">
@@ -176,8 +175,15 @@ const Header = ({ state, dispatch }) => {
 						</Apply>
 					</div>
 
+					{/* <h2 className="font-semibold text-xl leading-none text-indigo-50"> */}
+					{/* 	MIT open source icons designed by @steveschoger */}
+					{/* </h2> */}
+					{/* <h3 className="font-semibold text-xl leading-none text-indigo-50"> */}
+					{/* 	Website by @username_ZAYDEK */}
+					{/* </h3> */}
+
 					{/* CTA buttons */}
-					<div className="h-8" />
+					<div className="-mt-2 h-8" />
 					<div className="space-x-3 flex flex-row">
 
 						{/* Download */}
@@ -223,15 +229,57 @@ const Header = ({ state, dispatch }) => {
 
 					</div>
 
-					<div className="h-12" />
+					<div className="h-16" />
 					<div className="space-x-6 flex flex-row">
-						<div className="px-4 py-3 w-40 h-14 bg-indigo-50 rounded-full" style={{ "--bg-opacity": 0.1875 }} />
-						<div className="px-4 py-3 w-40 h-14 bg-indigo-50 rounded-full" style={{ "--bg-opacity": 0.1875 }} />
-						<div className="px-4 py-3 w-40 h-14 bg-indigo-50 rounded-full" style={{ "--bg-opacity": 0.1875 }} />
-						<div className="px-4 py-3 w-40 h-14 bg-indigo-50 rounded-full" style={{ "--bg-opacity": 0.1875 }} />
-						<div className="px-4 py-3 w-40 h-14 bg-indigo-50 rounded-full" style={{ "--bg-opacity": 0.1875 }} />
-						<div className="px-4 py-3 w-40 h-14 bg-indigo-50 rounded-full" style={{ "--bg-opacity": 0.1875 }} />
-						<div className="px-4 py-3 w-40 h-14 bg-indigo-50 rounded-full" style={{ "--bg-opacity": 0.1875 }} />
+						<div
+							className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
+							style={{
+								"--bg-opacity": 0.1875,
+								width: 128 + Math.floor(Math.random() * (192 - 128)),
+							}}
+						/>
+						<div
+							className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
+							style={{
+								"--bg-opacity": 0.1875,
+								width: 128 + Math.floor(Math.random() * (192 - 128)),
+							}}
+						/>
+						<div
+							className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
+							style={{
+								"--bg-opacity": 0.1875,
+								width: 128 + Math.floor(Math.random() * (192 - 128)),
+							}}
+						/>
+						<div
+							className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
+							style={{
+								"--bg-opacity": 0.1875,
+								width: 128 + Math.floor(Math.random() * (192 - 128)),
+							}}
+						/>
+						<div
+							className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
+							style={{
+								"--bg-opacity": 0.1875,
+								width: 128 + Math.floor(Math.random() * (192 - 128)),
+							}}
+						/>
+						<div
+							className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
+							style={{
+								"--bg-opacity": 0.1875,
+								width: 128 + Math.floor(Math.random() * (192 - 128)),
+							}}
+						/>
+						<div
+							className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
+							style={{
+								"--bg-opacity": 0.1875,
+								width: 128 + Math.floor(Math.random() * (192 - 128)),
+							}}
+						/>
 					</div>
 
 				</div>
