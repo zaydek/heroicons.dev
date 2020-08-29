@@ -18,11 +18,12 @@ import XCircleSVG from "heroicons-0.4.1/solid/XCircle"
 
 import DownloadSVG from "heroicons-0.4.1/solid/Download"
 import ExternalLinkOutlineSVG from "heroicons-0.4.1/outline/ExternalLink"
+import ScaleOutlineSVG from "heroicons-0.4.1/outline/Scale"
 import SearchOutlineSVG from "heroicons-0.4.1/outline/Search"
 import SunOutlineSVG from "heroicons-0.4.1/outline/Sun"
 import SwitchHorizontalOutlineSVG from "heroicons-0.4.1/solid/SwitchHorizontal"
 
-const HEADER_HEIGHT = 608
+const HEADER_HEIGHT = 640
 
 const Header = ({ state, dispatch }) => {
 	const [twItsOver9000, setTWItsOver9000] = React.useState(false)
@@ -175,15 +176,31 @@ const Header = ({ state, dispatch }) => {
 						</div>
 					</Apply>
 
-					{/* <h2 className="font-semibold text-xl leading-none text-indigo-50"> */}
-					{/* 	MIT open source icons designed by @steveschoger */}
-					{/* </h2> */}
-					{/* <h3 className="font-semibold text-xl leading-none text-indigo-50"> */}
+					<div className="h-4" />
+					<h2 className="text-center font-medium text-lg leading-none text-indigo-50">
+						<span className="inline-flex flex-row items-center">
+							<Apply className="-mt-px w-4 h-4">
+								<ScaleOutlineSVG />
+							</Apply>{" "}
+							<span style={{ width: "0.25ch" }} />
+							MIT icons by{" "}
+							<span style={{ width: "0.25ch" }} />
+							<span className="font-semibold no-underline hover:underline">
+								@steveschoger
+							</span>{". "}
+							Website by{" "}
+							<span style={{ width: "0.25ch" }} />
+							<span className="font-semibold no-underline hover:underline">
+								@username_ZAYDEK
+							</span>.
+						</span>
+					</h2>
+					{/* <h3 className="font-semibold !text-xl leading-none text-indigo-50"> */}
 					{/* 	Website by @username_ZAYDEK */}
 					{/* </h3> */}
 
 					{/* CTA buttons */}
-					<div className="h-8" />
+					<div className="h-12" />
 					<div className="space-x-3 flex flex-row">
 
 						{/* Download */}
@@ -229,7 +246,7 @@ const Header = ({ state, dispatch }) => {
 
 					</div>
 
-					<div className="h-16" />
+					<div className="h-12" />
 					<div className="space-x-6 flex flex-row">
 						<div
 							className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
