@@ -99,7 +99,6 @@ const Header = ({ state, dispatch }) => {
 					</a>
 				</div>
 
-
 				{/* Background */}
 				<div className="absolute top-0 inset-x-0" style={{ height: HEADER_HEIGHT - (24 * 4) /* tw(24) */ }}>
 					<div id="header-background" className="h-full" style={{ backgroundColor: "hsl(270, 100%, 50%)" }} />
@@ -291,14 +290,17 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				aria-label={icon.name}
 			>
 
-				{/* NEW */}
+				{/* New tag */}
 				{icon.statusNew && (
 					<div className="-m-px absolute top-0 right-0">
-						<div className="w-4 h-4 bg-indigo-500" style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%)" }} />
+						{/* NOTE: Uses -m-px and tw(... + 0.25) to tuck
+						the tag in the corner and uses polygon(105% ...)
+						to compensate for a rendering bug in Chrome. */}
+						<div className="bg-indigo-500" style={{ width: tw(4 + 0.25), height: tw(4 + 0.25), clipPath: "polygon(105% 0, 105% 105%, 0 0)" }} />
 					</div>
 				)}
 
-				{/* NEW */}
+				{/* New tag */}
 				{/* {icon.statusNew && ( */}
 				{/* 	<div className="p-3 absolute top-0 right-0"> */}
 				{/* 		<div className="w-3 h-3 bg-indigo-500 rounded-full" /> */}
@@ -605,7 +607,6 @@ const Main = ({ state, dispatch }) => {
 						<div className="bg-gray-100 rounded-3" style={{ width: 330, height: 125 }} />
 					</div>
 				</section>
-
 
 			</aside>
 
