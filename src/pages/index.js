@@ -50,7 +50,7 @@ const Header = ({ state, dispatch }) => {
 }
 
 .animate-eyes-over-9000 {
-	animation: animate-eyes-over-9000 200ms cubic-bezier(0.4, 0, 0.2, 1) infinite;
+	animation: animate-eyes-over-9000 300ms cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 @keyframes animate-eyes-over-9000 {
@@ -58,7 +58,7 @@ const Header = ({ state, dispatch }) => {
 		transform: scale(1);
 	}
 	50% {
-		transform: scale(1.5);
+		transform: scale(1.375);
 	}
 }
 
