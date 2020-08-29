@@ -119,7 +119,7 @@ const Header = ({ state, dispatch }) => (
 		{/* Header */}
 		<div className="flex flex-row justify-center items-center h-full">
 			{/* NOTE: -mt-* must be nested. */}
-			<div className="-mt-48 flex flex-col justify-center items-center h-full">
+			<div className="-mt-32 flex flex-col justify-center items-center h-full">
 
 				<h1
 					className="font-medium tracking-tighter leading-none text-indigo-50 select-none"
@@ -168,7 +168,7 @@ const Header = ({ state, dispatch }) => (
 										<DownloadSVG />
 									</Apply>{" "}
 									<span style={{ width: "0.5ch" }} />
-									Download all
+									Download All
 								</span>
 							</p>
 						</div>
@@ -192,6 +192,17 @@ const Header = ({ state, dispatch }) => (
 						</div>
 					</button>
 
+				</div>
+
+				<div className="h-12" />
+				<div className="space-x-6 flex flex-row">
+					<div className="px-4 py-3 w-36 h-12 bg-indigo-50 rounded-full" style={{ "--bg-opacity": 0.1875 }} />
+					<div className="px-4 py-3 w-36 h-12 bg-indigo-50 rounded-full" style={{ "--bg-opacity": 0.1875 }} />
+					<div className="px-4 py-3 w-36 h-12 bg-indigo-50 rounded-full" style={{ "--bg-opacity": 0.1875 }} />
+					<div className="px-4 py-3 w-36 h-12 bg-indigo-50 rounded-full" style={{ "--bg-opacity": 0.1875 }} />
+					<div className="px-4 py-3 w-36 h-12 bg-indigo-50 rounded-full" style={{ "--bg-opacity": 0.1875 }} />
+					<div className="px-4 py-3 w-36 h-12 bg-indigo-50 rounded-full" style={{ "--bg-opacity": 0.1875 }} />
+					<div className="px-4 py-3 w-36 h-12 bg-indigo-50 rounded-full" style={{ "--bg-opacity": 0.1875 }} />
 				</div>
 
 			</div>
@@ -356,18 +367,18 @@ const Main = ({ state, dispatch }) => {
 						<Apply className="rounded-6 shadow-xs">
 							<div className="bg-gray-200">
 
-								<div
-									className="-mb-24 sticky h-24 rounded-t-6 z-10"
-									style={{
-										top: tw(6),
-										boxShadow: `
-											0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06),
-											0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04),
-											0 -${tw(6)} 0 ${tw(6)} hsl(270, 100%, 50%)
-										`,
-										clipPath: "inset(-100% -100% 50% -100%)",
-									}}
-								/>
+								{/* <div */}
+								{/* 	className="-mb-24 sticky h-24 rounded-t-6 z-10" */}
+								{/* 	style={{ */}
+								{/* 		top: tw(6), */}
+								{/* 		boxShadow: ` */}
+								{/* 			0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), */}
+								{/* 			0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), */}
+								{/* 			0 -${tw(6)} 0 ${tw(6)} hsl(270, 100%, 50%) */}
+								{/* 		`, */}
+								{/* 		clipPath: "inset(-100% -100% 50% -100%)", */}
+								{/* 	}} */}
+								{/* /> */}
 
 								<DocumentTitle title={!state.form.search.safe ? "Heroicons" : `Heroicons – ${state.results.length} result${state.results.length !== 1 ? "s" : ""}`}>
 									{state.results.length > 0 && (
@@ -387,18 +398,18 @@ const Main = ({ state, dispatch }) => {
 									)}
 								</DocumentTitle>
 
-								<div
-									className="-mt-24 sticky h-24 rounded-b-6 z-10"
-									style={{
-										bottom: tw(8),
-										boxShadow: `
-											0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06),
-											0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04),
-											0 ${tw(6)} 0 ${tw(6)} var(--white)
-										`,
-										clipPath: "inset(50% -100% -100% -100%)",
-									}}
-								/>
+								{/* <div */}
+								{/* 	className="-mt-24 sticky h-24 rounded-b-6 z-10" */}
+								{/* 	style={{ */}
+								{/* 		bottom: tw(8), */}
+								{/* 		boxShadow: ` */}
+								{/* 			0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), */}
+								{/* 			0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), */}
+								{/* 			0 ${tw(6)} 0 ${tw(6)} var(--white) */}
+								{/* 		`, */}
+								{/* 		clipPath: "inset(50% -100% -100% -100%)", */}
+								{/* 	}} */}
+								{/* /> */}
 
 							</div>
 						</Apply>
@@ -585,18 +596,18 @@ const Main = ({ state, dispatch }) => {
 
 								{/* <div className="h-36" /> */}
 
-								<div
-									className="-mt-24 sticky h-24 rounded-b-6 z-10"
-									style={{
-										bottom: tw(8),
-										boxShadow: `
-											0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06),
-											0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04),
-											0 ${tw(6)} 0 ${tw(6)} var(--white)
-										`,
-										clipPath: "inset(50% -100% -100% -100%)",
-									}}
-								/>
+								{/* <div */}
+								{/* 	className="-mt-24 sticky h-24 rounded-b-6 z-10" */}
+								{/* 	style={{ */}
+								{/* 		bottom: tw(8), */}
+								{/* 		boxShadow: ` */}
+								{/* 			0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), */}
+								{/* 			0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), */}
+								{/* 			0 ${tw(6)} 0 ${tw(6)} var(--white) */}
+								{/* 		`, */}
+								{/* 		clipPath: "inset(50% -100% -100% -100%)", */}
+								{/* 	}} */}
+								{/* /> */}
 
 							</div>
 						</Apply>
