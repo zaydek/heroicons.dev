@@ -11,17 +11,18 @@ import Transition from "lib/x/Transition"
 import tw from "lib/x/tailwindUnits"
 import useHeroiconsReducer from "reducers/useHeroiconsReducer"
 
+import BeakerSVG from "heroicons-0.4.1/solid/Beaker"
 import BookOpenSVG from "heroicons-0.4.1/solid/BookOpen"
 import CursorClickSVG from "heroicons-0.4.1/solid/CursorClick"
+import DownloadSVG from "heroicons-0.4.1/solid/Download"
+import ExternalLinkSVG from "heroicons-0.4.1/solid/ExternalLink"
 import FlagSVG from "heroicons-0.4.1/solid/Flag"
 import XCircleSVG from "heroicons-0.4.1/solid/XCircle"
 
-import DownloadSVG from "heroicons-0.4.1/solid/Download"
 import ExternalLinkOutlineSVG from "heroicons-0.4.1/outline/ExternalLink"
 import ScaleOutlineSVG from "heroicons-0.4.1/outline/Scale"
 import SearchOutlineSVG from "heroicons-0.4.1/outline/Search"
 import SunOutlineSVG from "heroicons-0.4.1/outline/Sun"
-import SwitchHorizontalOutlineSVG from "heroicons-0.4.1/solid/SwitchHorizontal"
 
 const HEADER_HEIGHT = 640
 
@@ -114,7 +115,8 @@ const Header = ({ state, dispatch }) => {
 
 			{/* Background */}
 			<div className="absolute top-0 inset-x-0 -z-10" style={{ height: HEADER_HEIGHT - (24 * 4) /* tw(24) */ }}>
-				<div id="header-background" className="h-full" style={{ backgroundColor: "hsl(270, 100%, 50%)" }} />
+				<div className="h-full" style={{ backgroundColor: "hsl(270, 100%, 50%)" }} />
+				{/* <div className="h-full" style={{ backgroundImage: "radial-gradient(ellipse at top right, hsl(265, 100%, 65%) -25%, hsl(270, 100%, 45%))" }} /> */}
 				<div className="absolute top-full inset-x-0">
 					<Apply className="w-full h-24" style={{ color: "hsl(270, 100%, 50%)" }}>
 						<svg
@@ -129,9 +131,9 @@ const Header = ({ state, dispatch }) => {
 				</div>
 			</div>
 
-			{/* Scrolling background */}
+			{/* Background (scroll) */}
 			<div className="fixed top-0 inset-x-0 -z-10" style={{ height: tw(24) }}>
-				<div id="header-background" className="h-full" style={{ backgroundColor: "hsl(270, 100%, 50%)" }} />
+				<div className="h-full" style={{ backgroundColor: "hsl(270, 100%, 50%)" }} />
 				<div className="absolute top-full inset-x-0">
 					<Apply className="w-full h-24" style={{ color: "hsl(270, 100%, 50%)" }}>
 						<svg
@@ -200,7 +202,7 @@ const Header = ({ state, dispatch }) => {
 					{/* </h3> */}
 
 					{/* CTA buttons */}
-					<div className="h-12" />
+					<div className="h-8" />
 					<div className="space-x-3 flex flex-row">
 
 						{/* Download */}
@@ -233,7 +235,6 @@ const Header = ({ state, dispatch }) => {
 													<svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
 														<path fillRule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
 													</svg>
-													{/* <ExternalLinkOutlineSVG /> */}
 												</Apply>{" "}
 												<span style={{ width: "0.5ch" }} />
 												Open in GitHub
@@ -247,56 +248,80 @@ const Header = ({ state, dispatch }) => {
 					</div>
 
 					<div className="h-12" />
-					<div className="space-x-6 flex flex-row">
-						<div
-							className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
-							style={{
-								"--bg-opacity": 0.1875,
-								width: 128 + Math.floor(Math.random() * (192 - 128)),
-							}}
-						/>
-						<div
-							className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
-							style={{
-								"--bg-opacity": 0.1875,
-								width: 128 + Math.floor(Math.random() * (192 - 128)),
-							}}
-						/>
-						<div
-							className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
-							style={{
-								"--bg-opacity": 0.1875,
-								width: 128 + Math.floor(Math.random() * (192 - 128)),
-							}}
-						/>
-						<div
-							className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
-							style={{
-								"--bg-opacity": 0.1875,
-								width: 128 + Math.floor(Math.random() * (192 - 128)),
-							}}
-						/>
-						<div
-							className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
-							style={{
-								"--bg-opacity": 0.1875,
-								width: 128 + Math.floor(Math.random() * (192 - 128)),
-							}}
-						/>
-						<div
-							className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
-							style={{
-								"--bg-opacity": 0.1875,
-								width: 128 + Math.floor(Math.random() * (192 - 128)),
-							}}
-						/>
-						<div
-							className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
-							style={{
-								"--bg-opacity": 0.1875,
-								width: 128 + Math.floor(Math.random() * (192 - 128)),
-							}}
-						/>
+					<div className="relative">
+						<div className="pb-4 absolute bottom-full left-0">
+							<h6 className="font-bold text-xs tracking-wider leading-none text-indigo-50 opacity-75">
+								<span className="inline-flex flex-row items-center">
+									OUR SPONSORS &middot; BECOME A SPONSOR{" "}
+									<span style={{ width: "0.25ch" }} />
+									<Apply className="w-3 h-3 transform scale-110" style={{ marginTop: -2 }}>
+										<ExternalLinkSVG />
+									</Apply>
+								</span>
+							</h6>
+						</div>
+						<div className="pb-4 absolute bottom-full right-0">
+							<h6 className="font-bold text-xs tracking-wider leading-none text-indigo-50 opacity-75">
+								<span className="inline-flex flex-row items-center">
+									UNAFFILIATED WITH TAILWIND LABS{" "}
+									<span style={{ width: "0.25ch" }} />
+									<Apply className="w-3 h-3 transform scale-110" style={{ marginTop: -2 }}>
+										<BeakerSVG />
+									</Apply>
+								</span>
+							</h6>
+						</div>
+						<div className="space-x-6 flex flex-row">
+							<div
+								className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
+								style={{
+									"--bg-opacity": 0.1875,
+									width: 128 + Math.floor(Math.random() * (192 - 128)),
+								}}
+							/>
+							<div
+								className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
+								style={{
+									"--bg-opacity": 0.1875,
+									width: 128 + Math.floor(Math.random() * (192 - 128)),
+								}}
+							/>
+							<div
+								className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
+								style={{
+									"--bg-opacity": 0.1875,
+									width: 128 + Math.floor(Math.random() * (192 - 128)),
+								}}
+							/>
+							<div
+								className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
+								style={{
+									"--bg-opacity": 0.1875,
+									width: 128 + Math.floor(Math.random() * (192 - 128)),
+								}}
+							/>
+							<div
+								className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
+								style={{
+									"--bg-opacity": 0.1875,
+									width: 128 + Math.floor(Math.random() * (192 - 128)),
+								}}
+							/>
+							<div
+								className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
+								style={{
+									"--bg-opacity": 0.1875,
+									width: 128 + Math.floor(Math.random() * (192 - 128)),
+								}}
+							/>
+							<div
+								className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
+								style={{
+									"--bg-opacity": 0.1875,
+									width: 128 + Math.floor(Math.random() * (192 - 128)),
+								}}
+							/>
+						</div>
 					</div>
 
 				</div>
