@@ -16,6 +16,7 @@ import CursorClickSVG from "heroicons-0.4.1/solid/CursorClick"
 import FlagSVG from "heroicons-0.4.1/solid/Flag"
 import XCircleSVG from "heroicons-0.4.1/solid/XCircle"
 
+import FolderDownloadOutlineSVG from "heroicons-0.4.1/outline/FolderDownload"
 import SearchOutlineSVG from "heroicons-0.4.1/outline/Search"
 import SunOutlineSVG from "heroicons-0.4.1/outline/Sun"
 import SwitchHorizontalOutlineSVG from "heroicons-0.4.1/solid/SwitchHorizontal"
@@ -149,22 +150,26 @@ const Header = ({ state, dispatch }) => (
 				<div className="h-8" />
 				<div className="space-x-3">
 
+					{false && (
+						<svg fill="currentColor" viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg">
+							<path /* fill="#1abcfe" */ d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
+							<path /* fill="#0acf83" */ d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
+							<path /* fill="#ff7262" */ d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" />
+							<path /* fill="#f24e1e" */ d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" />
+							<path /* fill="#a259ff" */ d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
+						</svg>
+					)}
+
 					{/* Figma */}
 					<button className="px-4 py-3 bg-indigo-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
 						<div className="p-1">
 							<p className="font-medium text-lg leading-none text-indigo-50">
 								<span className="inline-flex flex-row items-center">
 									<Apply className="mr-1 w-5 h-5">
-										<svg fill="currentColor" viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg">
-											<path /* fill="#1abcfe" */ d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
-											<path /* fill="#0acf83" */ d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
-											<path /* fill="#ff7262" */ d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" />
-											<path /* fill="#f24e1e" */ d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" />
-											<path /* fill="#a259ff" */ d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
-										</svg>
+										<FolderDownloadOutlineSVG />
 									</Apply>{" "}
 									<span style={{ width: "0.5ch" }} />
-									Open in Figma
+									Download all
 								</span>
 							</p>
 						</div>
