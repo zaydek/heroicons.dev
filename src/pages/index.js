@@ -351,6 +351,7 @@ const Main = ({ state, dispatch }) => {
 	const inputRef = React.useRef(null)
 
 	const [inputValue, setInputValue] = React.useState("")
+	const [inputFocus, setInputFocus] = React.useState(false)
 
 	React.useEffect(() => {
 		inputRef.current.focus()
@@ -451,7 +452,7 @@ const Main = ({ state, dispatch }) => {
 										<div className="px-6 flex flex-row items-center h-full">
 											<Apply
 												className="w-6 h-6 transform scale-90"
-												style={{ color: !inputValue ? "var(--gray-300)" : "var(--indigo-600)" }}
+												style={{ color: !inputFocus ? "var(--gray-300)" : "var(--indigo-600)" }}
 											>
 												<Apply className="transition duration-200 ease-in-out">
 													<SearchOutlineSVG />
@@ -468,6 +469,8 @@ const Main = ({ state, dispatch }) => {
 											type="text"
 											placeholder="Search"
 											value={inputValue}
+											onFocus={e => setInputFocus(true)}
+											onBlur={e => setInputFocus(false)}
 											onChange={e => setInputValue(e.target.value)}
 											autoFocus
 											{...disableAutoCorrect}
