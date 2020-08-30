@@ -209,7 +209,7 @@ const Header = ({ state, dispatch }) => {
 						<Reset className="block">
 							<a href="https://github.com/tailwindlabs/heroicons/archive/v0.4.1.zip">
 								<div className="px-4 py-3 bg-indigo-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
-									<div className="p-1">
+									<div className="mt-px p-1">
 										<p className="whitespace-pre font-medium text-lg leading-none text-indigo-50">
 											<span className="inline-flex flex-row items-center">
 												<Apply className="mr-1 w-5 h-5">
@@ -228,7 +228,7 @@ const Header = ({ state, dispatch }) => {
 						<Reset className="block">
 							<a href="https://github.com/tailwindlabs/heroicons" {...target_blank}>
 								<div className="px-4 py-3 bg-indigo-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
-									<div className="p-1">
+									<div className="mt-px p-1">
 										<p className="whitespace-pre font-medium text-lg leading-none text-indigo-50">
 											<span className="inline-flex flex-row items-center">
 												<Apply className="mr-1 w-5 h-5">
