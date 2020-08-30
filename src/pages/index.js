@@ -363,7 +363,7 @@ const Header = ({ state, dispatch }) => {
 									<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
 										<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
 											<span className="inline-flex flex-row items-center">
-												“Download 30K Icons”{" "}
+												“Download 30,000 Icons”{" "}
 												<Apply className="w-3 h-3 opacity-75">
 													<ExternalLinkSVG />
 												</Apply>
@@ -666,20 +666,32 @@ const Main = ({ state, dispatch }) => {
 											/>
 										</Reset>
 
-										{/* RHS */}
-										{inputValue && (
+										{inputFocus && (
 											<div className="absolute inset-y-0 right-0">
-												<Reset className="focus:outline-none">
-													<button className="px-6 flex flex-row items-center h-full text-gray-300 hover:text-gray-800 focus:text-gray-800 rounded-tr-6" onClick={e => setInputValue("")}>
-														<Apply className="transition duration-200 ease-in-out">
-															<Apply className="w-6 h-6 transform scale-90">
-																<XCircleSVG />
-															</Apply>
-														</Apply>
-													</button>
-												</Reset>
+												<div className="px-10 flex flex-row items-center h-full text-gray-300 hover:text-gray-800 focus:text-gray-800 rounded-tr-6" onClick={e => setInputValue("")}>
+													{/* <Apply className="transition duration-200 ease-in-out"> */}
+														{/* <Apply className="w-6 h-6 transform scale-90"> */}
+															<div className="w-4 h-4 bg-indigo-500 rounded-full animate-ping" />
+														{/* </Apply> */}
+													{/* </Apply> */}
+												</div>
 											</div>
 										)}
+
+										{/* RHS */}
+										{/* {inputValue && ( */}
+										{/* 	<div className="absolute inset-y-0 right-0"> */}
+										{/* 		<Reset className="focus:outline-none"> */}
+										{/* 			<button className="px-6 flex flex-row items-center h-full text-gray-300 hover:text-gray-800 focus:text-gray-800 rounded-tr-6" onClick={e => setInputValue("")}> */}
+										{/* 				<Apply className="transition duration-200 ease-in-out"> */}
+										{/* 					<Apply className="w-6 h-6 transform scale-90"> */}
+										{/* 						<XCircleSVG /> */}
+										{/* 					</Apply> */}
+										{/* 				</Apply> */}
+										{/* 			</button> */}
+										{/* 		</Reset> */}
+										{/* 	</div> */}
+										{/* )} */}
 
 									</section>
 								</Apply>
