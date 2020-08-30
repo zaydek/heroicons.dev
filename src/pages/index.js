@@ -115,10 +115,10 @@ const Header = ({ state, dispatch }) => {
 
 			{/* Background */}
 			<div className="absolute top-0 inset-x-0 -z-10" style={{ height: HEADER_HEIGHT - (24 * 4) /* tw(24) */ }}>
-				<div className="h-full" style={{ backgroundColor: "hsl(270, 100%, 50%)" }} />
+				<div className="h-full" style={{ backgroundColor: "hsl(270, 100%, 47.5%)" }} />
 				{/* <div className="h-full" style={{ backgroundImage: "radial-gradient(ellipse at top right, hsl(265, 100%, 65%) -25%, hsl(270, 100%, 45%))" }} /> */}
 				<div className="absolute top-full inset-x-0">
-					<Apply className="w-full h-24" style={{ color: "hsl(270, 100%, 50%)" }}>
+					<Apply className="w-full h-24" style={{ color: "hsl(270, 100%, 47.5%)" }}>
 						<svg
 							preserveAspectRatio="none"
 							fill="currentColor"
@@ -133,9 +133,9 @@ const Header = ({ state, dispatch }) => {
 
 			{/* Background (scroll) */}
 			<div className="fixed top-0 inset-x-0 -z-10" style={{ height: tw(24) }}>
-				<div className="h-full" style={{ backgroundColor: "hsl(270, 100%, 50%)" }} />
+				<div className="h-full" style={{ backgroundColor: "hsl(270, 100%, 47.5%)" }} />
 				<div className="absolute top-full inset-x-0">
-					<Apply className="w-full h-24" style={{ color: "hsl(270, 100%, 50%)" }}>
+					<Apply className="w-full h-24" style={{ color: "hsl(270, 100%, 47.5%)" }}>
 						<svg
 							preserveAspectRatio="none"
 							fill="currentColor"
@@ -497,7 +497,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				{/* SVG */}
 				<SVG
 					id={icon.name}
-					className="w-8 h-8 text-gray-800"
+					className="w-8 h-8 text-gray-700"
 					svg={icon[!state.form.showOutline ? "solid" : "outline"]}
 				/>
 
@@ -580,7 +580,7 @@ const Main = ({ state, dispatch }) => {
 								{/* 		boxShadow: ` */}
 								{/* 			0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), */}
 								{/* 			0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), */}
-								{/* 			0 -${tw(6)} 0 ${tw(6)} hsl(270, 100%, 50%) */}
+								{/* 			0 -${tw(6)} 0 ${tw(6)} hsl(270, 100%, 47.5%) */}
 								{/* 		`, */}
 								{/* 		clipPath: "inset(-100% -100% 50% -100%)", */}
 								{/* 	}} */}
