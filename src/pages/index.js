@@ -151,7 +151,7 @@ const Header = ({ state, dispatch }) => {
 			{/* Header */}
 			<div className="flex flex-row justify-center items-center h-full">
 				{/* NOTE: -mt-* must be nested. */}
-				<div className="-mt-48 flex flex-col justify-center items-center h-full">
+				<div className="-mt-52 flex flex-col justify-center items-center h-full">
 
 					<Apply className="relative">
 						<div className="flex flex-row items-center">
@@ -247,7 +247,7 @@ const Header = ({ state, dispatch }) => {
 
 					</div>
 
-					<div className="h-12" />
+					<div className="h-16" />
 					<div className="relative">
 						<div className="pb-4 absolute bottom-full left-0">
 							<h6 className="font-bold text-xs tracking-wider leading-none text-indigo-50 opacity-75">
@@ -282,7 +282,12 @@ const Header = ({ state, dispatch }) => {
 								>
 									<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
 										<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
-											Automation Software
+											<span className="inline-flex flex-row items-center">
+												“10x Browser Tests”{" "}
+												<Apply className="w-3 h-3 opacity-75">
+													<ExternalLinkSVG />
+												</Apply>
+											</span>
 										</p>
 									</div>
 								</div>
@@ -297,7 +302,12 @@ const Header = ({ state, dispatch }) => {
 								>
 									<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
 										<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
-											Web Design Ebook
+											<span className="inline-flex flex-row items-center">
+												“Landing Page Ebook”{" "}
+												<Apply className="w-3 h-3 opacity-75">
+													<ExternalLinkSVG />
+												</Apply>
+											</span>
 										</p>
 									</div>
 								</div>
@@ -312,7 +322,12 @@ const Header = ({ state, dispatch }) => {
 								>
 									<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
 										<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
-											Resumé Software
+											<span className="inline-flex flex-row items-center">
+												“Resumé Optimizer”{" "}
+												<Apply className="w-3 h-3 opacity-75">
+													<ExternalLinkSVG />
+												</Apply>
+											</span>
 										</p>
 									</div>
 								</div>
@@ -327,7 +342,12 @@ const Header = ({ state, dispatch }) => {
 								>
 									<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
 										<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
-											Developer Agency
+											<span className="inline-flex flex-row items-center">
+												“Laravel Softwarehouse”{" "}
+												<Apply className="w-3 h-3 opacity-75">
+													<ExternalLinkSVG />
+												</Apply>
+											</span>
 										</p>
 									</div>
 								</div>
@@ -342,7 +362,12 @@ const Header = ({ state, dispatch }) => {
 								>
 									<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
 										<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
-											Icon Library
+											<span className="inline-flex flex-row items-center">
+												“Download 30K Icons”{" "}
+												<Apply className="w-3 h-3 opacity-75">
+													<ExternalLinkSVG />
+												</Apply>
+											</span>
 										</p>
 									</div>
 								</div>
@@ -357,7 +382,12 @@ const Header = ({ state, dispatch }) => {
 								>
 									<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
 										<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
-											Figma Spell Checker
+											<span className="inline-flex flex-row items-center">
+												“Spell Checker for Figma”{" "}
+												<Apply className="w-3 h-3 opacity-75">
+													<ExternalLinkSVG />
+												</Apply>
+											</span>
 										</p>
 									</div>
 								</div>
