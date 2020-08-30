@@ -69,7 +69,7 @@ const Header = ({ state, dispatch }) => {
 
 				{/* Twitter */}
 				<a href="TODO" {...target_blank} onMouseEnter={e => setTWItsOver9000(true)} onMouseLeave={e => setTWItsOver9000(false)}>
-					<p className="px-4 py-0.5 pt-4 font-medium no-underline hover:underline text-indigo-50">
+					<p className="whitespace-pre px-4 py-0.5 pt-4 font-medium no-underline hover:underline text-indigo-50">
 						<span className="inline-flex flex-row items-center">
 							<Apply className="relative w-6 h-6 overflow-visible">
 								<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
@@ -91,7 +91,7 @@ const Header = ({ state, dispatch }) => {
 
 				{/* GitHub */}
 				<a href="TODO" {...target_blank} /* onMouseEnter={e => setGHItsOver9000(true)} onMouseLeave={e => setGHItsOver9000(false)} */>
-					<p className="px-4 py-0.5 pb-4 font-medium no-underline hover:underline text-indigo-50">
+					<p className="whitespace-pre px-4 py-0.5 pb-4 font-medium no-underline hover:underline text-indigo-50">
 						<span className="inline-flex flex-row items-center">
 							<Apply className="w-6 h-6 overflow-visible">
 								<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
@@ -190,7 +190,7 @@ const Header = ({ state, dispatch }) => {
 							<span className="font-semibold no-underline hover:underline">
 								@steveschoger
 							</span>{". "}
-							Website by{" "}
+							Third-party site by{" "}
 							<span style={{ width: "0.25ch" }} />
 							<span className="font-semibold no-underline hover:underline">
 								@username_ZAYDEK
@@ -210,7 +210,7 @@ const Header = ({ state, dispatch }) => {
 							<a href="https://github.com/tailwindlabs/heroicons/archive/v0.4.1.zip">
 								<div className="px-4 py-3 bg-indigo-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
 									<div className="p-1">
-										<p className="font-medium text-lg leading-none text-indigo-50">
+										<p className="whitespace-pre font-medium text-lg leading-none text-indigo-50">
 											<span className="inline-flex flex-row items-center">
 												<Apply className="mr-1 w-5 h-5">
 													<DownloadSVG />
@@ -229,7 +229,7 @@ const Header = ({ state, dispatch }) => {
 							<a href="https://github.com/tailwindlabs/heroicons" {...target_blank}>
 								<div className="px-4 py-3 bg-indigo-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
 									<div className="p-1">
-										<p className="font-medium text-lg leading-none text-indigo-50">
+										<p className="whitespace-pre font-medium text-lg leading-none text-indigo-50">
 											<span className="inline-flex flex-row items-center">
 												<Apply className="mr-1 w-5 h-5">
 													<svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -271,56 +271,97 @@ const Header = ({ state, dispatch }) => {
 								</span>
 							</h6>
 						</div>
-						<div className="space-x-6 flex flex-row">
-							<div
-								className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
-								style={{
-									"--bg-opacity": 0.1875,
-									width: 128 + Math.floor(Math.random() * (192 - 128)),
-								}}
-							/>
-							<div
-								className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
-								style={{
-									"--bg-opacity": 0.1875,
-									width: 128 + Math.floor(Math.random() * (192 - 128)),
-								}}
-							/>
-							<div
-								className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
-								style={{
-									"--bg-opacity": 0.1875,
-									width: 128 + Math.floor(Math.random() * (192 - 128)),
-								}}
-							/>
-							<div
-								className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
-								style={{
-									"--bg-opacity": 0.1875,
-									width: 128 + Math.floor(Math.random() * (192 - 128)),
-								}}
-							/>
-							<div
-								className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
-								style={{
-									"--bg-opacity": 0.1875,
-									width: 128 + Math.floor(Math.random() * (192 - 128)),
-								}}
-							/>
-							<div
-								className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
-								style={{
-									"--bg-opacity": 0.1875,
-									width: 128 + Math.floor(Math.random() * (192 - 128)),
-								}}
-							/>
-							<div
-								className="px-4 py-3 h-14 bg-indigo-50 rounded-full"
-								style={{
-									"--bg-opacity": 0.1875,
-									width: 128 + Math.floor(Math.random() * (192 - 128)),
-								}}
-							/>
+						<div className="-mx-3 -my-2 flex flex-row flex-wrap">
+							<Apply className="relative">
+								<div
+									className="mx-3 my-2 px-4 py-3 h-14 bg-indigo-50 rounded-full"
+									style={{
+										"--bg-opacity": 0.1875,
+										width: 128 + Math.floor(Math.random() * (192 - 128)),
+									}}
+								>
+									<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
+										<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
+											Automation Software
+										</p>
+									</div>
+								</div>
+							</Apply>
+							<Apply className="relative">
+								<div
+									className="mx-3 my-2 px-4 py-3 h-14 bg-indigo-50 rounded-full"
+									style={{
+										"--bg-opacity": 0.1875,
+										width: 128 + Math.floor(Math.random() * (192 - 128)),
+									}}
+								>
+									<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
+										<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
+											Web Design Ebook
+										</p>
+									</div>
+								</div>
+							</Apply>
+							<Apply className="relative">
+								<div
+									className="mx-3 my-2 px-4 py-3 h-14 bg-indigo-50 rounded-full"
+									style={{
+										"--bg-opacity": 0.1875,
+										width: 128 + Math.floor(Math.random() * (192 - 128)),
+									}}
+								>
+									<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
+										<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
+											Resumé Software
+										</p>
+									</div>
+								</div>
+							</Apply>
+							<Apply className="relative">
+								<div
+									className="mx-3 my-2 px-4 py-3 h-14 bg-indigo-50 rounded-full"
+									style={{
+										"--bg-opacity": 0.1875,
+										width: 128 + Math.floor(Math.random() * (192 - 128)),
+									}}
+								>
+									<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
+										<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
+											Developer Agency
+										</p>
+									</div>
+								</div>
+							</Apply>
+							<Apply className="relative">
+								<div
+									className="mx-3 my-2 px-4 py-3 h-14 bg-indigo-50 rounded-full"
+									style={{
+										"--bg-opacity": 0.1875,
+										width: 128 + Math.floor(Math.random() * (192 - 128)),
+									}}
+								>
+									<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
+										<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
+											Icon Library
+										</p>
+									</div>
+								</div>
+							</Apply>
+							<Apply className="relative">
+								<div
+									className="mx-3 my-2 px-4 py-3 h-14 bg-indigo-50 rounded-full"
+									style={{
+										"--bg-opacity": 0.1875,
+										width: 128 + Math.floor(Math.random() * (192 - 128)),
+									}}
+								>
+									<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
+										<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
+											Figma Spell Checker
+										</p>
+									</div>
+								</div>
+							</Apply>
 						</div>
 					</div>
 
@@ -434,7 +475,7 @@ const MemoIcon = React.memo(({ state, dispatch, icon }) => {
 				{/* */}
 				{/* TODO */}
 				<div className="py-3 absolute bottom-0">
-					<p className="text-xs tracking-wide text-gray-600">
+					<p className="whitespace-pre text-xs tracking-wide text-gray-600">
 						{!state.form.search.safe || state.form.search.safe === "new" ? (
 							icon.name
 						) : (
