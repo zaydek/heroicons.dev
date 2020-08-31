@@ -6,6 +6,7 @@ import tw from "lib/x/twToRem"
 
 import SVGFlag from "heroicons-0.4.1/solid/Flag"
 
+import SVGScaleOutline from "heroicons-0.4.1/outline/Scale"
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
 // const HeroContents = () => (
@@ -285,6 +286,28 @@ const LogoMark = () => (
 	</div>
 )
 
+const Attribution = () => (
+	<div className="w-96 h-5 bg-gray-300 rounded-1" />
+	// <h2 className="text-center font-medium text-lg leading-none">
+	// 	<span className="inline-flex flex-row items-center">
+	// 		<Apply className="w-4 h-4">
+	// 			<SVGScaleOutline />
+	// 		</Apply>{" "}
+	// 		<span style={{ width: "0.25ch" }} />
+	// 		MIT icons by{" "}
+	// 		<span style={{ width: "0.25ch" }} />
+	// 		<span className="font-semibold no-underline hover:underline">
+	// 			@steveschoger
+	// 		</span>{". "}
+	// 		Site by{" "}
+	// 		<span style={{ width: "0.25ch" }} />
+	// 		<span className="font-semibold no-underline hover:underline">
+	// 			@username_ZAYDEK
+	// 		</span>
+	// 	</span>
+	// </h2>
+)
+
 const Hero = () => (
 	<div className="relative">
 
@@ -295,6 +318,11 @@ const Hero = () => (
 			<div className="flex flex-row justify-center">
 				<LogoMark />
 			</div>
+			<div className="h-4" />
+			<div className="flex flex-row justify-center">
+				<Attribution />
+			</div>
+
 
 		</div>
 
