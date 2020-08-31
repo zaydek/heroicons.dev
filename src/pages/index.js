@@ -4,9 +4,9 @@ import px from "lib/x/pxToRem"
 import Reset from "lib/x/Reset"
 import tw from "lib/x/twToRem"
 
+import SVGBookOpen from "heroicons-0.4.1/solid/BookOpen"
 import SVGFlag from "heroicons-0.4.1/solid/Flag"
 
-import SVGScaleOutline from "heroicons-0.4.1/outline/Scale"
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
 // const HeroContents = () => (
@@ -287,31 +287,32 @@ const LogoMark = () => (
 )
 
 const Attribution = () => (
-	<div className="w-96 h-5 bg-gray-300 rounded-1" />
-	// <h2 className="text-center font-medium text-lg leading-none">
-	// 	<span className="inline-flex flex-row items-center">
-	// 		<Apply className="w-4 h-4">
-	// 			<SVGScaleOutline />
-	// 		</Apply>{" "}
-	// 		<span style={{ width: "0.25ch" }} />
-	// 		MIT icons by{" "}
-	// 		<span style={{ width: "0.25ch" }} />
-	// 		<span className="font-semibold no-underline hover:underline">
-	// 			@steveschoger
-	// 		</span>{". "}
-	// 		Site by{" "}
-	// 		<span style={{ width: "0.25ch" }} />
-	// 		<span className="font-semibold no-underline hover:underline">
-	// 			@username_ZAYDEK
-	// 		</span>
-	// 	</span>
-	// </h2>
+	// <div className="w-96 h-5 bg-gray-300 rounded-1" />
+	<h2 className="font-medium text-lg text-gray-800" style={{ lineHeight: 1.375 }}>
+		<span className="inline-flex flex-row flex-wrap justify-center items-center">
+			<Apply className="w-5 h-5">
+				<SVGBookOpen />
+			</Apply>{" "}
+			<span style={{ width: "0.25ch" }} />
+			MIT icons by{" "}
+			<span style={{ width: "0.25ch" }} />
+			<span className="font-semibold no-underline hover:underline">
+				@steveschoger
+			</span>{". "}
+			Site by{" "}
+			<span style={{ width: "0.25ch" }} />
+			<span className="font-semibold no-underline hover:underline">
+				@username_ZAYDEK
+			</span>
+		</span>
+	</h2>
 )
 
 const Hero = () => (
 	<div className="relative">
 
-		<div className="bg-gray-200" style={{ minHeight: px(32 * 16) }}>
+		{/* NOTE: Uses px-* here because of backgrounds. */}
+		<div className="px-4 bg-gray-200" style={{ minHeight: px(32 * 16) }}>
 
 			{/* Logo */}
 			<div className="h-16" />
@@ -322,7 +323,6 @@ const Hero = () => (
 			<div className="flex flex-row justify-center">
 				<Attribution />
 			</div>
-
 
 		</div>
 
@@ -421,7 +421,7 @@ function range(max) {
 const App = () => (
 	<Apply style={{ marginTop: tw(-(18 + 6)) }}>
 		{/* NOTE: Uses items-start because of sticky top-*. */}
-		<div className="px-4 flex flex-row justify-center items-start">
+		<div className="flex flex-row justify-center items-start">
 			<div className="w-full" style={{ maxWidth: px(1152) }}>
 
 				{/* Search */}
@@ -472,7 +472,7 @@ const Layout = () => (
 		<header>
 			<Hero />
 		</header>
-		<main>
+		<main className="px-4">
 			<App />
 		</main>
 
