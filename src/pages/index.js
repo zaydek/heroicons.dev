@@ -25,7 +25,7 @@ const App = () => (
 
 				{/* Search */}
 				<div className="rounded-6 shadow-2">
-					<div className="bg-white rounded-6" style={{ height: px(72), boxShadow: "0 0 0 0.5px var(--gray-300)" }}>
+					<div className="bg-white rounded-6" style={{ height: px(72), boxShadow: "inset 0 0 0 0.5px var(--gray-300), 0 0 0 0.5px var(--gray-300)" }}>
 
 					</div>
 				</div>
@@ -33,13 +33,13 @@ const App = () => (
 				{/* Icons */}
 				<div style={{ height: px(16) }} />
 				<div className="rounded-6 shadow-2">
-					<main className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 overflow-hidden" style={{ height: "210vh", boxShadow: "0 0 0 0.5px var(--gray-300)" }}>
+					<main className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 overflow-hidden" style={{ boxShadow: "inset 0 0 0 0.5px var(--gray-300), 0 0 0 0.5px var(--gray-300)" }}>
 
 						{range(200).map((each, x) => (
 							// TODO: each.name
 							<div key={each.name} className="pb-full relative">
 								<div className="absolute inset-0">
-									<div className="h-full red-100" style={{ boxShadow: "0 0 0 0.5px var(--gray-300)" }} />
+									<div className="h-full red-100" style={{ boxShadow: "inset 0 0 0 0.5px var(--gray-300), 0 0 0 0.5px var(--gray-300)" }} />
 									{/* <MemoIcon */}
 									{/* 	state={state} */}
 									{/* 	dispatch={dispatch} */}
