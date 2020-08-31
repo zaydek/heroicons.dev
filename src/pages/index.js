@@ -112,7 +112,12 @@ const App = () => (
 			<div className="w-full" style={{ maxWidth: px(1152) }}>
 
 				{/* Search */}
-				<div className="sticky top-0 z-10" /* style={{ top: tw(4) }} */>
+				<div className="-mt-4 pt-4 sticky top-0 z-10">
+					<div className="-mx-4 absolute inset-0 top-0">
+						<div className="h-4 bg-gray-200" />
+						<div className="h-9 bg-gray-200" />
+						<div className="h-9 bg-gradient-to-b from-gray-200 to-transparent" />
+					</div>
 					<div className="rounded-6 shadow-2">
 						<div className="rounded-6" style={{ height: tw(18) }}>
 							<Search />
