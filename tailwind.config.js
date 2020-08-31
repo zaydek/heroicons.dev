@@ -1,8 +1,9 @@
 const defaultTheme = require("tailwindcss/defaultTheme")
 const defaultVariants = require("./tailwind-defaultVariants")
 
+// Converts 1tw -> 4px -> 0.25rem.
 function twToRem(tw) {
-	return `${tw * 4}rem`
+	return `${(tw * 4) / 16}rem`
 }
 
 module.exports = {
