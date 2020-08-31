@@ -7,7 +7,7 @@ import tw from "lib/x/twToRem"
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
 const Hero = () => (
-	<div className="!bg-gray-300" style={{ height: px(30 * 16 /* 32 * 16 */) }}>
+	<div className="bg-gray-300" style={{ height: px(30 * 16 /* 32 * 16 */) }}>
 		{/* ... */}
 	</div>
 )
@@ -50,8 +50,22 @@ const Search = () => (
 const Icon = () => (
 	// NOTE: Uses h-full because of absolute inset-0.
 	<Apply className="h-full">
-		<div style={{ boxShadow: "inset 0 0 0 0.5px var(--gray-300), 0 0 0 0.5px var(--gray-300)" }}>
-			{/* */}
+		<div className="relative" style={{ boxShadow: "inset 0 0 0 0.5px var(--gray-300), 0 0 0 0.5px var(--gray-300)" }}>
+
+			{/* New */}
+
+			{/* Icon */}
+			<div className="flex flex-row justify-center items-center h-full">
+				<div className="w-8 h-8 bg-gray-500 rounded-full" />
+			</div>
+
+			{/* Text */}
+			<div className="pb-4 absolute inset-x-0 bottom-0">
+				<div className="flex flex-row justify-center">
+					<div className="w-24 h-3 bg-gray-300 rounded-1" />
+				</div>
+			</div>
+
 		</div>
 	</Apply>
 )
@@ -61,9 +75,9 @@ function range(max) {
 }
 
 const App = () => (
-	<Apply className="-mt-72" style={{ marginTop: px(-1 * (72 + 16)) }}>
+	<Apply style={{ marginTop: px(-1 * (72 + 24)) }}>
 		{/* NOTE: Uses items-start because of sticky top-*. */}
-		<div className="flex flex-row justify-center items-start">
+		<div className="px-4 flex flex-row justify-center items-start">
 			<div style={{ width: "100%", maxWidth: px(1152) }}>
 
 				{/* Search */}
