@@ -1,23 +1,23 @@
 {
-  "name": "heroicons.dev",
-  "scripts": {
-    "tailwind-dev": "tailwind build -o src/stylesheets/tailwindcss/tailwind.generated.css",
-    "tailwind-build": "NODE_ENV=production yarn tailwind-dev",
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "immer": "^7.0.8",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "use-immer": "latest"
-  },
-  "devDependencies": {
-    "@tailwindcss/ui": "latest",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.7.0",
-    "tailwindcss": "latest"
-  }
+	"name": "heroicons.dev",
+	"scripts": {
+		"tailwind-dev": "tailwind build -o src/stylesheets/tailwindcss/tailwind.generated.css",
+		"tailwind-build": "NODE_ENV=production yarn tailwind-dev",
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start"
+	},
+	"dependencies": {
+		"immer": "latest",
+		"next": "latest",
+		"react": "latest",
+		"react-dom": "latest",
+		"use-immer": "latest"
+	},
+	"devDependencies": {
+		"@tailwindcss/ui": "latest",
+		"babel-eslint": "latest",
+		"eslint": "latest",
+		"tailwindcss": "latest"
+	}
 }
