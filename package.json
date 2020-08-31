@@ -18,6 +18,6 @@
 		"@tailwindcss/ui": "latest",
 		"babel-eslint": "latest",
 		"eslint": "latest",
-		"tailwindcss": "^1.7.6"
+		"tailwindcss": "latest"
 	}
 }
