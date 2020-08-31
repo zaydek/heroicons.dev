@@ -6,8 +6,6 @@ import tw from "lib/x/twToRem"
 
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
-// hsl(272.5, 100%, 47.5%)
-
 const Hero = () => (
 	<div className="relative">
 
@@ -16,7 +14,7 @@ const Hero = () => (
 		</div>
 		<Apply className="-z-10">
 			<div className="absolute inset-x-0 top-full">
-				<Apply className="text-gray-300">
+				<Apply className="text-gray-200">
 					<svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
 						<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" />
 					</svg>
@@ -27,7 +25,7 @@ const Hero = () => (
 		<Apply className="-z-10">
 			<div className="fixed inset-x-0 top-0">
 				<div className="h-24 bg-gray-200" />
-				<Apply className="text-gray-300">
+				<Apply className="text-gray-200">
 					<svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
 						<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" />
 					</svg>
@@ -153,6 +151,7 @@ const App = () => (
 	</Apply>
 )
 
+// hsl(272.5, 100%, 47.5%)
 const Layout = () => (
 	<div id="next-root">
 		<header>
