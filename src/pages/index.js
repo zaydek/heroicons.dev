@@ -302,17 +302,17 @@ const Search = () => (
 )
 
 // TODO: Memoize.
-const MemoIcon = () => (
+const MemoIcon = React.memo(() => (
 	// NOTE: Uses h-full because of absolute inset-0.
 	<Apply className="h-full">
 		<div className="relative shadow-inset-outset">
 
 			{/* New */}
-			<div className="p-4 absolute right-0 top-0">
-				{Math.floor(Math.random() * 5) === 0 && (
-					<div className="w-3 h-3 bg-gray-300 rounded-full animate-pulse" />
-				)}
-			</div>
+			{/* <div className="p-4 absolute right-0 top-0"> */}
+			{/* 	{Math.floor(Math.random() * 5) === 0 && ( */}
+			{/* 		<div className="w-3 h-3 bg-gray-300 rounded-full animate-pulse" /> */}
+			{/* 	)} */}
+			{/* </div> */}
 
 			{/* Icon */}
 			<div className="flex flex-row justify-center items-center h-full">
@@ -328,7 +328,7 @@ const MemoIcon = () => (
 
 		</div>
 	</Apply>
-)
+))
 
 function range(max) {
 	return Array(max).fill().map((_, x) => x)
@@ -359,7 +359,7 @@ const App = () => (
 				{/* Icons */}
 				<div style={{ height: tw(6) }} />
 				<div className="rounded-6 shadow-2">
-					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 overflow-hidden" style={{ transform: "translateZ(0)" }}>
+					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 overflow-hidden" /* style={{ transform: "translateZ(0)" }} */>
 
 						{range(200).map((each, x) => (
 							// TODO: each.name
