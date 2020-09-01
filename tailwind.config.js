@@ -42,13 +42,6 @@ module.exports = {
 			fontFamily: {
 				sans: [...defaultTheme.fontFamily.sans.slice(0, 3), "Inter", ...defaultTheme.fontFamily.sans.slice(3)],
 			},
-			zIndex: {
-				"-50": "-50",
-				"-40": "-40",
-				"-30": "-30",
-				"-20": "-20",
-				"-10": "-10",
-			},
 		},
 		screens: {
 			// /* eslint-disable no-multi-spaces */

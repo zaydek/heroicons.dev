@@ -225,7 +225,7 @@ const Hero = () => (
 
 		{/* NOTE: Uses px-* here because of backgrounds. */}
 		<div className="px-4 flex flex-row justify-center bg-theme">
-			<div className="w-full" style={{ maxWidth: px(1152) }}>
+			<div className="w-full z-10" style={{ maxWidth: px(1152) }}>
 				<div className="h-16" />
 
 				<div className="flex flex-row justify-center">
@@ -254,32 +254,28 @@ const Hero = () => (
 			</div>
 		</div>
 
-		<Apply className="-z-10">
-			<div className="absolute inset-x-0 top-full">
-				<Apply className="text-theme">
-					{/* <svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
-					{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" /> */}
-					{/* </svg> */}
-					<svg fill="currentColor" viewBox="0 0 10 1" xmlns="http://www.w3.org/2000/svg">
-						<path fillRule="evenodd" clipRule="evenodd" d="M5 0.999999C2.5 1 0.625 0.333333 0 0L10 -1.74846e-06C9.27083 0.333332 7.5 0.999999 5 0.999999Z" />
-					</svg>
-				</Apply>
-			</div>
-		</Apply>
+		<div className="absolute inset-x-0 top-full">
+			<Apply className="text-theme">
+				{/* <svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
+				{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" /> */}
+				{/* </svg> */}
+				<svg fill="currentColor" viewBox="0 0 10 1" xmlns="http://www.w3.org/2000/svg">
+					<path fillRule="evenodd" clipRule="evenodd" d="M5 0.999999C2.5 1 0.625 0.333333 0 0L10 -1.74846e-06C9.27083 0.333332 7.5 0.999999 5 0.999999Z" />
+				</svg>
+			</Apply>
+		</div>
 
-		<Apply className="-z-10">
-			<div className="fixed inset-x-0 top-0">
-				<div className="h-24 bg-theme" />
-				<Apply className="text-theme">
-					{/* <svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
-					{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" /> */}
-					{/* </svg> */}
-					<svg fill="currentColor" viewBox="0 0 10 1" xmlns="http://www.w3.org/2000/svg">
-						<path fillRule="evenodd" clipRule="evenodd" d="M5 0.999999C2.5 1 0.625 0.333333 0 0L10 -1.74846e-06C9.27083 0.333332 7.5 0.999999 5 0.999999Z" />
-					</svg>
-				</Apply>
-			</div>
-		</Apply>
+		<div className="fixed inset-x-0 top-0">
+			<div className="h-24 bg-theme" />
+			<Apply className="text-theme">
+				{/* <svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
+				{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" /> */}
+				{/* </svg> */}
+				<svg fill="currentColor" viewBox="0 0 10 1" xmlns="http://www.w3.org/2000/svg">
+					<path fillRule="evenodd" clipRule="evenodd" d="M5 0.999999C2.5 1 0.625 0.333333 0 0L10 -1.74846e-06C9.27083 0.333332 7.5 0.999999 5 0.999999Z" />
+				</svg>
+			</Apply>
+		</div>
 
 	</div>
 )
@@ -353,7 +349,7 @@ const App = () => (
 	<Apply style={{ marginTop: tw(-(18 + 6)) }}>
 		{/* NOTE: Uses items-start because of sticky top-*. */}
 		<div className="flex flex-row justify-center items-start">
-			<div className="w-full" style={{ maxWidth: px(1152) }}>
+			<div className="w-full z-10" style={{ maxWidth: px(1152) }}>
 
 				{/* Search */}
 				<div className="-mt-4 pt-4 sticky top-0 z-10">
@@ -396,6 +392,24 @@ const App = () => (
 )
 
 const Layout = () => {
+	React.useEffect(() => {
+		const nativeScrollHandler = e => {
+			const html = document.body.parentElement
+			if (window.scrollY < window.innerHeight) {
+				html.classList.remove("bg-gray-50")
+				html.classList.add("bg-theme")
+			} else {
+				html.classList.remove("bg-theme")
+				html.classList.add("bg-gray-50")
+			}
+		}
+		nativeScrollHandler(e => {})
+		window.addEventListener("scroll", nativeScrollHandler, false)
+		return () => {
+			window.removeEventListener("scroll", nativeScrollHandler, false)
+		}
+	}, [])
+
 	React.useEffect(() => {
 		if (navigator.userAgent.includes("Chrome")) {
 			document.body.classList.add("chrome")
