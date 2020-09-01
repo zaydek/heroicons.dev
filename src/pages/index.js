@@ -112,36 +112,76 @@ const CTAButtons = () => (
 // flex flex-row flex-wrap justify-center items-center">
 const Sponsors = () => (
 	<div className="relative">
-		<div className="pb-4 absolute bottom-full left-0">
-			<h6 className="font-bold tracking-wider leading-none text-gray-800" style={{ fontSize: "0.6875rem" }}>
-				<span className="inline-flex flex-row items-center">
-					OUR SPONSORS &middot; BECOME A SPONSOR
-					<span style={{ width: "0.25ch" }} />
-					<Apply className="-mb-px w-3 h-3 opacity-75">
-						<SVGExternalLink />
-					</Apply>
-				</span>
-			</h6>
-		</div>
-		<div className="pb-4 absolute bottom-full right-0">
-			<h6 className="font-bold tracking-wider leading-none text-gray-800" style={{ fontSize: "0.6875rem" }}>
-				<span className="inline-flex flex-row items-center">
-					UNAFFILIATED WITH TAILWIND LABS
-					<span style={{ width: "0.25ch" }} />
-					<Apply className="-mb-px w-3 h-3 opacity-75">
-						<SVGBeaker />
-					</Apply>
-				</span>
-			</h6>
-		</div>
+
+		<Apply className="block sm:hidden">
+			<div className="pb-4 absolute inset-x-0 bottom-full">
+				<h6 className="text-center font-bold tracking-wider leading-none text-gray-800" style={{ fontSize: "0.625rem" }}>
+					<span className="inline-flex flex-row items-center">
+						OUR SPONSORS &middot; UNAFFILIATED WITH TAILWIND LABS
+						<span style={{ width: "0.5ch" }} />
+						<Apply className="w-3 h-3">
+							<SVGBeaker />
+						</Apply>
+					</span>
+				</h6>
+			</div>
+		</Apply>
+
+		<Apply className="hidden sm:block">
+			<div className="px-8 pb-4 absolute bottom-full left-0">
+				<h6 className="font-bold tracking-wider leading-none text-gray-800" style={{ fontSize: "0.625rem" }}>
+					<span className="inline-flex flex-row items-center">
+						OUR SPONSORS &middot; BECOME A SPONSOR
+						<span style={{ width: "0.5ch" }} />
+						<Apply className="w-3 h-3">
+							<SVGExternalLink />
+						</Apply>
+					</span>
+				</h6>
+			</div>
+		</Apply>
+
+		<Apply className="hidden sm:block">
+			<div className="px-8 pb-4 absolute bottom-full right-0">
+				<h6 className="font-bold tracking-wider leading-none text-gray-800" style={{ fontSize: "0.625rem" }}>
+					<span className="inline-flex flex-row items-center">
+						UNAFFILIATED WITH TAILWIND LABS
+						<span style={{ width: "0.5ch" }} />
+						<Apply className="w-3 h-3">
+							<SVGBeaker />
+						</Apply>
+					</span>
+				</h6>
+			</div>
+		</Apply>
+
 		<div className="-mx-1.5 -my-1 flex flex-row flex-wrap justify-center items-center">
 			{range(6).map(each => (
-				<div
-					className="mx-1.5 my-1 !w-48 h-14 bg-gray-200 rounded-full"
-					style={{ width: tw(36 + Math.floor(Math.random() * (48 - 36))) }}
-				/>
+				<div className="mx-1.5 my-1">
+					<div
+						className="h-14 bg-gray-200 rounded-full"
+						style={{ width: tw(36 + Math.floor(Math.random() * (48 - 36))) }}
+					/>
+					<div className="h-2" />
+					<p className="text-center font-medium text-xs leading-none text-gray-800" /* style={{ fontSize: "0.6875rem" }} */>
+						<span className="inline-flex flex-row items-center">
+							<span className="opacity-75">
+								&ldquo;
+							</span>
+							10x Browser Tests
+							<span className="opacity-75">
+								&rdquo;
+							</span>
+							<span style={{ width: "0.5ch" }} />
+							<Apply className="w-3 h-3 opacity-75">
+								<SVGExternalLink />
+							</Apply>
+						</span>
+					</p>
+				</div>
 			))}
 		</div>
+
 	</div>
 
 	// <div className="relative">
