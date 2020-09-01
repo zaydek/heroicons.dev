@@ -192,16 +192,18 @@ const Sponsors = () => (
 						className="h-14 bg-gray-200 rounded-full"
 						style={{ width: tw(36 + Math.floor(Math.random() * (48 - 36))) }}
 					/>
-					<div className="h-2" />
-					<p className="text-center font-medium leading-none text-gray-800" style={{ fontSize: "0.6875rem" }}>
-						<span className="inline-flex flex-row items-center">
-							&ldquo;{"10x Browser Tests"}&rdquo;
-							<span style={{ width: "0.33ch" }} />
-							<Apply className="-mb-px w-3 h-3 opacity-75">
-								<SVGExternalLink />
-							</Apply>
-						</span>
-					</p>
+					<div className="hidden xl:block">
+						<div className="h-2" />
+						<p className="text-center font-medium leading-none text-gray-800" style={{ fontSize: "0.6875rem" }}>
+							<span className="inline-flex flex-row items-center">
+								&ldquo;{"10x Browser Tests"}&rdquo;
+								<span style={{ width: "0.33ch" }} />
+								<Apply className="-mb-px w-3 h-3 opacity-75">
+									<SVGExternalLink />
+								</Apply>
+							</span>
+						</p>
+					</div>
 				</div>
 			))}
 		</div>
