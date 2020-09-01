@@ -15,6 +15,8 @@ import SVGCodeOutline from "heroicons-0.4.1/outline/Code"
 import SVGFlagOutline from "heroicons-0.4.1/outline/Flag"
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
+const MARGIN_TOP_TW = 18 * 2+ 6
+
 function range(max) {
 	return Array(max).fill().map((_, x) => x)
 }
@@ -281,7 +283,7 @@ const Hero = () => (
 
 		{/* NOTE: Use px-* here because of backgrounds. */}
 		<div className="px-4 sm:px-6 flex flex-row justify-center bg-theme">
-			<div className="w-full z-10" style={{ maxWidth: px(1152) }}>
+			<div className="w-full max-w-screen-xl z-10">
 				<div className="h-16" />
 
 				<div className="flex flex-row justify-center">
@@ -306,7 +308,7 @@ const Hero = () => (
 				</div>
 
 				<div className="h-16" />
-				<div style={{ height: tw(18 + 6) }} />
+				<div style={{ height: tw(MARGIN_TOP_TW) }} />
 			</div>
 		</div>
 
@@ -315,8 +317,11 @@ const Hero = () => (
 				{/* <svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
 				{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" /> */}
 				{/* </svg> */}
-				<svg fill="currentColor" viewBox="0 0 10 1" xmlns="http://www.w3.org/2000/svg">
-					<path fillRule="evenodd" clipRule="evenodd" d="M5 0.999999C2.5 1 0.625 0.333333 0 0L10 -1.74846e-06C9.27083 0.333332 7.5 0.999999 5 0.999999Z" />
+				{/* <svg fill="currentColor" viewBox="0 0 10 1" xmlns="http://www.w3.org/2000/svg"> */}
+				{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M5 0.999999C2.5 1 0.625 0.333333 0 0L10 -1.74846e-06C9.27083 0.333332 7.5 0.999999 5 0.999999Z" /> */}
+				{/* </svg> */}
+				<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" />
 				</svg>
 			</Apply>
 		</div>
@@ -327,8 +332,11 @@ const Hero = () => (
 				{/* <svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
 				{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" /> */}
 				{/* </svg> */}
-				<svg fill="currentColor" viewBox="0 0 10 1" xmlns="http://www.w3.org/2000/svg">
-					<path fillRule="evenodd" clipRule="evenodd" d="M5 0.999999C2.5 1 0.625 0.333333 0 0L10 -1.74846e-06C9.27083 0.333332 7.5 0.999999 5 0.999999Z" />
+				{/* <svg fill="currentColor" viewBox="0 0 10 1" xmlns="http://www.w3.org/2000/svg"> */}
+				{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M5 0.999999C2.5 1 0.625 0.333333 0 0L10 -1.74846e-06C9.27083 0.333332 7.5 0.999999 5 0.999999Z" /> */}
+				{/* </svg> */}
+				<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" />
 				</svg>
 			</Apply>
 		</div>
@@ -499,7 +507,7 @@ const MemoIcon = React.memo(() => (
 ))
 
 const App = () => (
-	<Apply style={{ marginTop: tw(-(18 + 6)) }}>
+	<Apply style={{ marginTop: tw(-MARGIN_TOP_TW) }}>
 		<div className="flex flex-row justify-center items-start">
 
 			{/* LHS */}
