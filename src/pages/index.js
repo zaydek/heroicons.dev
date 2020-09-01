@@ -15,7 +15,7 @@ import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
 const HeroiconsLogo = () => (
 	<div className="relative">
-		<Apply className="h-14">
+		<Apply className="h-14 text-purple-50">
 			<svg fill="currentColor" viewBox="0 0 240 56" xmlns="http://www.w3.org/2000/svg">
 				<path fillRule="evenodd" clipRule="evenodd" d="M23.856 19.2222V30.4883H9.68802V19.2241H3.75201V30.4883V34.5203V47.0001H9.68802V34.5203H23.856V46.9982H29.792V34.5203V30.4883V19.2222H23.856Z" />
 				<path d="M46.9706 47.6722C44.2453 47.6722 41.8186 47.0748 39.6906 45.8802C37.5999 44.6482 35.9572 42.9495 34.7626 40.7842C33.5679 38.6188 32.9706 36.0988 32.9706 33.2242C32.9706 30.3122 33.5492 27.7548 34.7066 25.5522C35.9012 23.3495 37.5439 21.6322 39.6346 20.4002C41.7626 19.1682 44.2266 18.5522 47.0266 18.5522C49.7519 18.5522 52.1226 19.1682 54.1386 20.4002C56.1546 21.5948 57.7226 23.2002 58.8426 25.2162C59.9626 27.2322 60.5226 29.4535 60.5226 31.8802C60.5226 32.2535 60.5039 32.6642 60.4666 33.1122C60.4666 33.5228 60.4479 33.9895 60.4106 34.5122H38.7946C38.9812 37.2002 39.8586 39.2535 41.4266 40.6722C43.0319 42.0535 44.8799 42.7442 46.9706 42.7442C48.6506 42.7442 50.0506 42.3708 51.1706 41.6242C52.3279 40.8402 53.1866 39.7948 53.7466 38.4882H59.6826C58.9359 41.1015 57.4426 43.2855 55.2026 45.0402C52.9999 46.7948 50.2559 47.6722 46.9706 47.6722ZM46.9706 23.4242C44.9919 23.4242 43.2372 24.0215 41.7066 25.2162C40.1759 26.3735 39.2426 28.1282 38.9066 30.4802H54.5866C54.4746 28.3148 53.7093 26.5975 52.2906 25.3282C50.8719 24.0588 49.0986 23.4242 46.9706 23.4242Z" />
@@ -30,7 +30,7 @@ const HeroiconsLogo = () => (
 		</Apply>
 		<div className="absolute left-full inset-y-0">
 			<div className="flex flex-row items-center h-full">
-				<Apply className="w-12 h-12 opacity-25">
+				<Apply className="w-12 h-12 text-purple-50 opacity-50">
 					<SVGFlag />
 				</Apply>
 			</div>
@@ -39,8 +39,8 @@ const HeroiconsLogo = () => (
 )
 
 const Attribution = () => (
-	// <div className="w-96 h-5 bg-gray-300 rounded-1" />
-	<h2 className="font-medium text-lg text-gray-800" style={{ lineHeight: 1.375 }}>
+	// <div className="w-96 h-5 bg-theme rounded-1" />
+	<h2 className="font-medium text-lg text-purple-50" style={{ lineHeight: 1.375 }}>
 		<span className="inline-flex flex-row flex-wrap justify-center items-center">
 			<Apply className="w-5 h-5">
 				<SVGBookOpen />
@@ -67,21 +67,22 @@ const CTAButtons = () => (
 		<Reset className="block">
 			{/* <a href="https://github.com/tailwindlabs/heroicons/archive/v0.4.1.zip" {...target_blank}> */}
 			<a href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}>
-				<div className="px-5 py-4 bg-gray-200 rounded-3">
-					<p className="whitespace-pre text-center sm:text-left font-medium text-lg leading-none text-gray-800">
+				<div className="px-5 py-4 bg-purple-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
+					<p className="whitespace-pre text-center sm:text-left font-medium text-lg leading-none text-purple-50">
 						<span className="inline-flex flex-row items-center">
 							<Apply className="mr-1 w-5 h-5">
-								{/* <SVGDownload /> */}
-								<svg viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg">
-									<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
-									<path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
-									<path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" />
-									<path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" />
-									<path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
-								</svg>
+								<SVGDownload />
+								{/* <svg viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg"> */}
+								{/* 	<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" /> */}
+								{/* 	<path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" /> */}
+								{/* 	<path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" /> */}
+								{/* 	<path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" /> */}
+								{/* 	<path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" /> */}
+								{/* </svg> */}
 							</Apply>
 							<span style={{ width: "0.33ch" }} />
-							Open in Figma
+							{/* Open in Figma */}
+							Download All
 						</span>
 					</p>
 				</div>
@@ -91,8 +92,8 @@ const CTAButtons = () => (
 		<div className="w-3 h-3" />
 		<Reset className="block">
 			<a href="https://github.com/tailwindlabs/heroicons" {...target_blank}>
-				<div className="px-5 py-4 bg-gray-200 rounded-3">
-					<p className="whitespace-pre text-center sm:text-left font-medium text-lg leading-none text-gray-800">
+				<div className="px-5 py-4 bg-purple-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
+					<p className="whitespace-pre text-center sm:text-left font-medium text-lg leading-none text-purple-50">
 						<span className="inline-flex flex-row items-center">
 							<Apply className="mr-1 w-5 h-5">
 								<svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -115,7 +116,7 @@ const Sponsors = () => (
 	<div className="relative">
 
 		{/* <div className="py-4 absolute inset-x-0 bottom-full"> */}
-		{/* 	<h6 className="text-center font-bold tracking-wider leading-none text-gray-800" style={{ fontSize: "0.6875rem" }}> */}
+		{/* 	<h6 className="text-center font-bold tracking-wider leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}> */}
 		{/* 		<span className="inline-flex flex-row items-center"> */}
 		{/* 			SPONSORS */}
 		{/* 			<span className="hidden sm:inline-flex flex-row items-center"> */}
@@ -124,7 +125,7 @@ const Sponsors = () => (
 		{/* 				<span style={{ width: "0.67ch" }} /> */}
 		{/* 				BECOME A SPONSOR */}
 		{/* 				<span style={{ width: "0.33ch" }} /> */}
-		{/* 				<Apply className="-mb-px w-3 h-3"> */}
+		{/* 				<Apply className="-mb-px w-3 h-3 opacity-75"> */}
 		{/* 					<SVGExternalLink /> */}
 		{/* 				</Apply> */}
 		{/* 			</span> */}
@@ -143,7 +144,7 @@ const Sponsors = () => (
 		{/* Center */}
 		<Apply className="block xl:hidden">
 			<div className="py-4 absolute inset-x-0 bottom-full">
-				<h6 className="text-center font-bold tracking-wider leading-none text-gray-800" style={{ fontSize: "0.6875rem" }}>
+				<h6 className="text-center font-bold tracking-wider leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
 						OUR SPONSORS &middot; UNAFFILIATED WITH TAILWIND LABS
 						<span style={{ width: "0.33ch" }} />
@@ -158,11 +159,11 @@ const Sponsors = () => (
 		{/* LHS */}
 		<Apply className="hidden xl:block">
 			<div className="px-8 py-4 absolute bottom-full left-0">
-				<h6 className="font-bold tracking-wider leading-none text-gray-800" style={{ fontSize: "0.6875rem" }}>
+				<h6 className="font-bold tracking-wider leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
 						OUR SPONSORS &middot; BECOME A SPONSOR
 						<span style={{ width: "0.33ch" }} />
-						<Apply className="-mb-px w-3 h-3">
+						<Apply className="-mb-px w-3 h-3 opacity-75">
 							<SVGExternalLink />
 						</Apply>
 					</span>
@@ -173,11 +174,11 @@ const Sponsors = () => (
 		{/* RHS */}
 		<Apply className="hidden xl:block">
 			<div className="px-8 py-4 absolute bottom-full right-0">
-				<h6 className="font-bold tracking-wider leading-none text-gray-800" style={{ fontSize: "0.6875rem" }}>
+				<h6 className="font-bold tracking-wider leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
 						UNAFFILIATED WITH TAILWIND LABS
 						<span style={{ width: "0.33ch" }} />
-						<Apply className="-mb-px w-3 h-3">
+						<Apply className="-mb-px w-3 h-3 opacity-75">
 							<SVGBeaker />
 						</Apply>
 					</span>
@@ -189,12 +190,15 @@ const Sponsors = () => (
 			{range(6).map(each => (
 				<div className="mx-2 my-1.5">
 					<div
-						className="h-14 bg-gray-200 rounded-full"
-						style={{ width: tw(36 + Math.floor(Math.random() * (48 - 36))) }}
+						className="h-14 bg-purple-50 rounded-full"
+						style={{
+							"--bg-opacity": 0.1875,
+							width: tw(36 + Math.floor(Math.random() * (48 - 36))),
+						}}
 					/>
 					<div className="hidden xl:block">
 						<div className="h-2" />
-						<p className="text-center font-medium text-xs leading-none text-gray-800">
+						<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-75">
 							<span className="inline-flex flex-row items-center">
 								QAWolf
 								<span style={{ width: "0.33ch" }} />
@@ -215,7 +219,7 @@ const Hero = () => (
 	<div className="relative">
 
 		{/* NOTE: Uses px-* here because of backgrounds. */}
-		<div className="px-4 flex flex-row justify-center bg-gray-300">
+		<div className="px-4 flex flex-row justify-center bg-theme">
 			<div className="w-full" style={{ maxWidth: px(1152) }}>
 				<div className="h-16" />
 
@@ -247,7 +251,7 @@ const Hero = () => (
 
 		<Apply className="-z-10">
 			<div className="absolute inset-x-0 top-full">
-				<Apply className="text-gray-300">
+				<Apply className="text-theme">
 					<svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
 						<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" />
 					</svg>
@@ -257,8 +261,8 @@ const Hero = () => (
 
 		<Apply className="-z-10">
 			<div className="fixed inset-x-0 top-0">
-				<div className="h-24 bg-gray-300" />
-				<Apply className="text-gray-300">
+				<div className="h-24 bg-theme" />
+				<Apply className="text-theme">
 					<svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
 						<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" />
 					</svg>
@@ -305,12 +309,12 @@ const Search = () => (
 const MemoIcon = React.memo(() => (
 	// NOTE: Uses h-full because of absolute inset-0.
 	<Apply className="h-full">
-		<div className="relative shadow-inset-outset">
+		<div className="relative shadow-icon">
 
 			{/* New */}
 			{/* <div className="p-4 absolute right-0 top-0"> */}
 			{/* 	{Math.floor(Math.random() * 5) === 0 && ( */}
-			{/* 		<div className="w-3 h-3 bg-gray-300 rounded-full animate-pulse" /> */}
+			{/* 		<div className="w-3 h-3 bg-theme rounded-full animate-pulse" /> */}
 			{/* 	)} */}
 			{/* </div> */}
 
@@ -343,11 +347,8 @@ const App = () => (
 				{/* Search */}
 				<div className="-mt-4 pt-4 sticky top-0 z-10">
 					<div className="-mx-4 absolute inset-0 top-0">
-						<div className="h-4 bg-gray-300" />
-						<div className="h-9 bg-gray-300" />
-						{/* NOTE: bg-gradient-to-b ... to-transparent
-						does not work because of Safari. */}
-						<div className="h-9" style={{ backgroundImage: "linear-gradient(var(--gray-300), #d2d6dc00)" }} />
+						<div className="h-4 bg-theme" />
+						<div className="h-9 bg-theme" />
 					</div>
 					<div className="rounded-6 shadow-2">
 						<div className="rounded-6" style={{ height: tw(18) }}>
@@ -383,8 +384,6 @@ const App = () => (
 	</Apply>
 )
 
-// hsl(272.5, 100%, 47.5%)
-
 const Layout = () => {
 	React.useEffect(() => {
 		if (navigator.userAgent.includes("Chrome")) {
@@ -396,12 +395,24 @@ const Layout = () => {
 		<div>
 
 			<style>{`
-.shadow-inset-outset {
+
+html {
+	--theme: hsl(270, 100%, 50%);
+}
+.text-theme {
+	color: var(--theme);
+}
+.bg-theme {
+	background: var(--theme);
+}
+
+.shadow-icon {
 	box-shadow: inset 0 0 0 1px var(--gray-200), 0 0 0 1px var(--gray-200);
 }
-.chrome .shadow-inset-outset {
+.chrome .shadow-icon {
 	box-shadow: inset 0 0 0 0.5px var(--gray-200), 0 0 0 0.5px var(--gray-200);
 }
+
 `}
 			</style>
 
