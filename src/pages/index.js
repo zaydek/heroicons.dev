@@ -11,6 +11,7 @@ import SVGCog from "heroicons-0.4.1/solid/Cog"
 import SVGExternalLink from "heroicons-0.4.1/solid/ExternalLink"
 import SVGFlag from "heroicons-0.4.1/solid/Flag"
 
+import SVGCodeOutline from "heroicons-0.4.1/outline/Code"
 import SVGFlagOutline from "heroicons-0.4.1/outline/Flag"
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
@@ -387,7 +388,7 @@ const Search = () => {
 									<Apply className="transition duration-200 ease-in-out">
 										{!showVariantOutline ? (
 											<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-												<path strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
+												<path strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
 											</svg>
 										) : (
 											<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -410,7 +411,11 @@ const Search = () => {
 									}}
 								>
 									<Apply className="transition duration-200 ease-in-out">
-										<SVGCode />
+										{!copyAsJSX ? (
+											<SVGCodeOutline />
+										) : (
+											<SVGCode />
+										)}
 									</Apply>
 								</Apply>
 							</button>
