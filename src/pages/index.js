@@ -99,16 +99,15 @@ const CTAButtons = () => (
 	</div>
 )
 
+// flex flex-row flex-wrap justify-center items-center">
 const Sponsors = () => (
-	<div className="-mx-1.5 -my-1 flex flex-row flex-wrap !bg-gray-500">
-		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
-		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
-		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
-		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
-		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
-		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
-		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
-		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
+	<div className="-mx-1.5 -my-1 flex flex-row flex-wrap justify-center items-center">
+		{range(6).map(each => (
+			<div
+				className="mx-1.5 my-1 !w-48 h-14 bg-gray-200 rounded-full"
+				style={{ width: tw(36 + Math.floor(Math.random() * (48 - 36))) }}
+			/>
+		))}
 	</div>
 
 	// <div className="relative">
