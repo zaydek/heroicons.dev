@@ -11,210 +11,7 @@ import SVGFlag from "heroicons-0.4.1/solid/Flag"
 
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
-// 	{/* CTA buttons */}
-// 	<div className="h-8" />
-// 	<div className="space-x-3 flex flex-row">
-//
-// 		{/* Download */}
-// 		<Reset className="block">
-// 			<a href="https://github.com/tailwindlabs/heroicons/archive/v0.4.1.zip">
-// 				<div className="px-4 py-3 bg-indigo-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
-// 					<div className="mt-px p-1">
-// 						<p className="whitespace-pre font-medium text-lg leading-none text-indigo-50">
-// 							<span className="inline-flex flex-row items-center">
-// 								<Apply className="mr-1 w-5 h-5">
-// 									<DownloadSVG />
-// 								</Apply>{" "}
-// 								<span style={{ width: "0.5ch" }} />
-// 								Download All
-// 							</span>
-// 						</p>
-// 					</div>
-// 				</div>
-// 			</a>
-// 		</Reset>
-//
-// 		{/* GitHub */}
-// 		<Reset className="block">
-// 			<a href="https://github.com/tailwindlabs/heroicons" {...target_blank}>
-// 				<div className="px-4 py-3 bg-indigo-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
-// 					<div className="mt-px p-1">
-// 						<p className="whitespace-pre font-medium text-lg leading-none text-indigo-50">
-// 							<span className="inline-flex flex-row items-center">
-// 								<Apply className="mr-1 w-5 h-5">
-// 									<svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-// 										<path fillRule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-// 									</svg>
-// 								</Apply>{" "}
-// 								<span style={{ width: "0.5ch" }} />
-// 								Open in GitHub
-// 							</span>
-// 						</p>
-// 					</div>
-// 				</div>
-// 			</a>
-// 		</Reset>
-//
-// 	</div>
-//
-// 	<div className="h-16" />
-// 	<div className="relative">
-// 		<div className="pb-4 absolute bottom-full left-0">
-// 			<h6 className="font-bold text-xs tracking-wider leading-none text-indigo-50 opacity-75">
-// 				<span className="inline-flex flex-row items-center">
-// 					OUR SPONSORS &middot; BECOME A SPONSOR{" "}
-// 					<span style={{ width: "0.25ch" }} />
-// 					<Apply className="w-3 h-3 transform scale-110" style={{ marginTop: -2 }}>
-// 						<ExternalLinkSVG />
-// 					</Apply>
-// 				</span>
-// 			</h6>
-// 		</div>
-// 		<div className="pb-4 absolute bottom-full right-0">
-// 			<h6 className="font-bold text-xs tracking-wider leading-none text-indigo-50 opacity-75">
-// 				<span className="inline-flex flex-row items-center">
-// 					UNAFFILIATED WITH TAILWIND LABS{" "}
-// 					<span style={{ width: "0.25ch" }} />
-// 					<Apply className="w-3 h-3 transform scale-110" style={{ marginTop: -2 }}>
-// 						<BeakerSVG />
-// 					</Apply>
-// 				</span>
-// 			</h6>
-// 		</div>
-// 		<div className="-mx-3 -my-2 flex flex-row flex-wrap">
-// 			<Apply className="relative">
-// 				<div
-// 					className="mx-3 my-2 px-4 py-3 h-14 bg-indigo-50 rounded-full"
-// 					style={{
-// 						"--bg-opacity": 0.1875,
-// 						width: 128 + Math.floor(Math.random() * (192 - 128)),
-// 					}}
-// 				>
-// 					<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
-// 						<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
-// 							<span className="inline-flex flex-row items-center">
-// 								“10x Browser Tests”{" "}
-// 								<Apply className="w-3 h-3 opacity-75">
-// 									<ExternalLinkSVG />
-// 								</Apply>
-// 							</span>
-// 						</p>
-// 					</div>
-// 				</div>
-// 			</Apply>
-// 			<Apply className="relative">
-// 				<div
-// 					className="mx-3 my-2 px-4 py-3 h-14 bg-indigo-50 rounded-full"
-// 					style={{
-// 						"--bg-opacity": 0.1875,
-// 						width: 128 + Math.floor(Math.random() * (192 - 128)),
-// 					}}
-// 				>
-// 					<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
-// 						<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
-// 							<span className="inline-flex flex-row items-center">
-// 								“Landing Page Ebook”{" "}
-// 								<Apply className="w-3 h-3 opacity-75">
-// 									<ExternalLinkSVG />
-// 								</Apply>
-// 							</span>
-// 						</p>
-// 					</div>
-// 				</div>
-// 			</Apply>
-// 			<Apply className="relative">
-// 				<div
-// 					className="mx-3 my-2 px-4 py-3 h-14 bg-indigo-50 rounded-full"
-// 					style={{
-// 						"--bg-opacity": 0.1875,
-// 						width: 128 + Math.floor(Math.random() * (192 - 128)),
-// 					}}
-// 				>
-// 					<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
-// 						<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
-// 							<span className="inline-flex flex-row items-center">
-// 								“Resumé Optimizer”{" "}
-// 								<Apply className="w-3 h-3 opacity-75">
-// 									<ExternalLinkSVG />
-// 								</Apply>
-// 							</span>
-// 						</p>
-// 					</div>
-// 				</div>
-// 			</Apply>
-// 			<Apply className="relative">
-// 				<div
-// 					className="mx-3 my-2 px-4 py-3 h-14 bg-indigo-50 rounded-full"
-// 					style={{
-// 						"--bg-opacity": 0.1875,
-// 						width: 128 + Math.floor(Math.random() * (192 - 128)),
-// 					}}
-// 				>
-// 					<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
-// 						<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
-// 							<span className="inline-flex flex-row items-center">
-// 								“Laravel Softwarehouse”{" "}
-// 								<Apply className="w-3 h-3 opacity-75">
-// 									<ExternalLinkSVG />
-// 								</Apply>
-// 							</span>
-// 						</p>
-// 					</div>
-// 				</div>
-// 			</Apply>
-// 			<Apply className="relative">
-// 				<div
-// 					className="mx-3 my-2 px-4 py-3 h-14 bg-indigo-50 rounded-full"
-// 					style={{
-// 						"--bg-opacity": 0.1875,
-// 						width: 128 + Math.floor(Math.random() * (192 - 128)),
-// 					}}
-// 				>
-// 					<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
-// 						<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
-// 							<span className="inline-flex flex-row items-center">
-// 								“Download 30,000 Icons”{" "}
-// 								<Apply className="w-3 h-3 opacity-75">
-// 									<ExternalLinkSVG />
-// 								</Apply>
-// 							</span>
-// 						</p>
-// 					</div>
-// 				</div>
-// 			</Apply>
-// 			<Apply className="relative">
-// 				<div
-// 					className="mx-3 my-2 px-4 py-3 h-14 bg-indigo-50 rounded-full"
-// 					style={{
-// 						"--bg-opacity": 0.1875,
-// 						width: 128 + Math.floor(Math.random() * (192 - 128)),
-// 					}}
-// 				>
-// 					<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
-// 						<p className="whitespace-pre font-medium text-xs leading-none text-indigo-50 opacity-75">
-// 							<span className="inline-flex flex-row items-center">
-// 								“Spell Checker for Figma”{" "}
-// 								<Apply className="w-3 h-3 opacity-75">
-// 									<ExternalLinkSVG />
-// 								</Apply>
-// 							</span>
-// 						</p>
-// 					</div>
-// 				</div>
-// 			</Apply>
-// 		</div>
-// 	</div>
-// )
-
-// <div className="absolute left-full inset-y-0" style={{ paddingTop: 5 }}>
-// 	{/* text-indigo-400 !text-indigo-50 !opacity-50 */}
-// 	hello
-// 	{/* <Apply className="w-12 h-12 "> */}
-// 	{/* 	<SVGFlag /> */}
-// 	{/* </Apply> */}
-// </div>
-
-const LogoMark = () => (
+const Logomark = () => (
 	<div className="relative">
 		<Apply className="h-14">
 			<svg fill="currentColor" viewBox="0 0 240 56" xmlns="http://www.w3.org/2000/svg">
@@ -261,13 +58,12 @@ const Attribution = () => (
 	</h2>
 )
 
-
 const CTAButtons = () => (
 	<div className="flex flex-col sm:flex-row w-full sm:w-auto">
 
 		<Reset className="block">
 			<a href="https://github.com/tailwindlabs/heroicons/archive/v0.4.1.zip">
-				<div className="px-5 py-4 bg-gray-100 rounded-3">
+				<div className="px-5 py-4 bg-gray-100 rounded-4">
 					<p className="whitespace-pre text-center sm:text-left font-medium text-lg leading-none text-gray-800">
 						<span className="inline-flex flex-row items-center">
 							<Apply className="mr-1 w-5 h-5">
@@ -284,7 +80,7 @@ const CTAButtons = () => (
 		<div className="w-3 h-3" />
 		<Reset className="block">
 			<a href="https://github.com/tailwindlabs/heroicons" {...target_blank}>
-				<div className="px-5 py-4 bg-gray-100 rounded-3">
+				<div className="px-5 py-4 bg-gray-100 rounded-4">
 					<p className="whitespace-pre text-center sm:text-left font-medium text-lg leading-none text-gray-800">
 						<span className="inline-flex flex-row items-center">
 							<Apply className="mr-1 w-5 h-5">
@@ -303,51 +99,199 @@ const CTAButtons = () => (
 	</div>
 )
 
+const Sponsors = () => (
+	<div className="-mx-1.5 -my-1 flex flex-row flex-wrap !bg-gray-500">
+		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
+		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
+		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
+		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
+		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
+		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
+		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
+		<div className="mx-1.5 my-1 w-48 h-14 bg-gray-200 rounded-full" />
+	</div>
+
+	// <div className="relative">
+	// 	<div className="pb-4 absolute bottom-full left-0">
+	// 		<h6 className="font-bold tracking-wider leading-none text-gray-80" style={{ fontSize: "0.625rem" }}>
+	// 			<span className="inline-flex flex-row items-center">
+	// 				OUR SPONSORS &middot; BECOME A SPONSOR{" "}
+	// 				{/* <span style={{ width: "0.25ch" }} /> */}
+	// 				{/* <Apply className="w-3 h-3 transform scale-110" style={{ marginTop: -2 }}> */}
+	// 				{/* 	<ExternalLinkSVG /> */}
+	// 				{/* </Apply> */}
+	// 			</span>
+	// 		</h6>
+	// 	</div>
+	// 	<div className="pb-4 absolute bottom-full right-0">
+	// 		<h6 className="font-bold tracking-wider leading-none text-gray-80" style={{ fontSize: "0.625rem" }}>
+	// 			<span className="inline-flex flex-row items-center">
+	// 				UNAFFILIATED WITH TAILWIND LABS{" "}
+	// 				{/* <span style={{ width: "0.25ch" }} /> */}
+	// 				{/* <Apply className="w-3 h-3 transform scale-110" style={{ marginTop: -2 }}> */}
+	// 				{/* 	<BeakerSVG /> */}
+	// 				{/* </Apply> */}
+	// 			</span>
+	// 		</h6>
+	// 	</div>
+	// 	<div className="-mx-3 -my-2 flex flex-row flex-wrap">
+	// 		<Apply className="relative">
+	// 			<div
+	// 				className="mx-3 my-2 px-4 py-3 h-14 bg-gray-100 rounded-full"
+	// 				style={{ width: tw(24 + Math.floor(Math.random() * (48 - 24))) }}
+	// 			>
+	// 				<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
+	// 					<p className="whitespace-pre font-medium text-xs leading-none text-gray-800">
+	// 						<span className="inline-flex flex-row items-center">
+	// 							“10x Browser Tests”{" "}
+	// 							{/* <Apply className="w-3 h-3 opacity-75"> */}
+	// 							{/* 	<ExternalLinkSVG /> */}
+	// 							{/* </Apply> */}
+	// 						</span>
+	// 					</p>
+	// 				</div>
+	// 			</div>
+	// 		</Apply>
+	// 		<Apply className="relative">
+	// 			<div
+	// 				className="mx-3 my-2 px-4 py-3 h-14 bg-gray-100 rounded-full"
+	// 				style={{ width: tw(24 + Math.floor(Math.random() * (48 - 24))) }}
+	// 			>
+	// 				<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
+	// 					<p className="whitespace-pre font-medium text-xs leading-none text-gray-800">
+	// 						<span className="inline-flex flex-row items-center">
+	// 							“Landing Page Ebook”{" "}
+	// 							{/* <Apply className="w-3 h-3 opacity-75"> */}
+	// 							{/* 	<ExternalLinkSVG /> */}
+	// 							{/* </Apply> */}
+	// 						</span>
+	// 					</p>
+	// 				</div>
+	// 			</div>
+	// 		</Apply>
+	// 		<Apply className="relative">
+	// 			<div
+	// 				className="mx-3 my-2 px-4 py-3 h-14 bg-gray-100 rounded-full"
+	// 				style={{ width: tw(24 + Math.floor(Math.random() * (48 - 24))) }}
+	// 			>
+	// 				<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
+	// 					<p className="whitespace-pre font-medium text-xs leading-none text-gray-800">
+	// 						<span className="inline-flex flex-row items-center">
+	// 							“Resumé Optimizer”{" "}
+	// 							{/* <Apply className="w-3 h-3 opacity-75"> */}
+	// 							{/* 	<ExternalLinkSVG /> */}
+	// 							{/* </Apply> */}
+	// 						</span>
+	// 					</p>
+	// 				</div>
+	// 			</div>
+	// 		</Apply>
+	// 		<Apply className="relative">
+	// 			<div
+	// 				className="mx-3 my-2 px-4 py-3 h-14 bg-gray-100 rounded-full"
+	// 				style={{ width: tw(24 + Math.floor(Math.random() * (48 - 24))) }}
+	// 			>
+	// 				<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
+	// 					<p className="whitespace-pre font-medium text-xs leading-none text-gray-800">
+	// 						<span className="inline-flex flex-row items-center">
+	// 							“Laravel Softwarehouse”{" "}
+	// 							{/* <Apply className="w-3 h-3 opacity-75"> */}
+	// 							{/* 	<ExternalLinkSVG /> */}
+	// 							{/* </Apply> */}
+	// 						</span>
+	// 					</p>
+	// 				</div>
+	// 			</div>
+	// 		</Apply>
+	// 		<Apply className="relative">
+	// 			<div
+	// 				className="mx-3 my-2 px-4 py-3 h-14 bg-gray-100 rounded-full"
+	// 				style={{ width: tw(24 + Math.floor(Math.random() * (48 - 24))) }}
+	// 			>
+	// 				<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
+	// 					<p className="whitespace-pre font-medium text-xs leading-none text-gray-800">
+	// 						<span className="inline-flex flex-row items-center">
+	// 							“Download 30,000 Icons”{" "}
+	// 							{/* <Apply className="w-3 h-3 opacity-75"> */}
+	// 							{/* 	<ExternalLinkSVG /> */}
+	// 							{/* </Apply> */}
+	// 						</span>
+	// 					</p>
+	// 				</div>
+	// 			</div>
+	// 		</Apply>
+	// 		<Apply className="relative">
+	// 			<div
+	// 				className="mx-3 my-2 px-4 py-3 h-14 bg-gray-100 rounded-full"
+	// 				style={{ width: tw(24 + Math.floor(Math.random() * (48 - 24))) }}
+	// 			>
+	// 				<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
+	// 					<p className="whitespace-pre font-medium text-xs leading-none text-gray-800">
+	// 						<span className="inline-flex flex-row items-center">
+	// 							“Spell Checker for Figma”{" "}
+	// 							{/* <Apply className="w-3 h-3 opacity-75"> */}
+	// 							{/* 	<ExternalLinkSVG /> */}
+	// 							{/* </Apply> */}
+	// 						</span>
+	// 					</p>
+	// 				</div>
+	// 			</div>
+	// 		</Apply>
+	// 	</div>
+	// </div>
+)
+
 const Hero = () => (
 	<div className="relative">
 
 		{/* NOTE: Uses px-* here because of backgrounds. */}
-		<div className="px-4 bg-gray-200" style={{ minHeight: px(32 * 16) }}>
-			<div className="h-16" />
+		<div className="px-4 flex flex-row justify-center bg-gray-300" /* style={{ minHeight: px(32 * 16) }} */>
+			<div className="w-full" style={{ maxWidth: px(1152) }}>
+				<div className="h-16" />
 
-			<div className="flex flex-row justify-center">
-				<LogoMark />
+				<div className="flex flex-row justify-center">
+					<Logomark />
+				</div>
+
+				<div className="h-4" />
+				<div className="flex flex-row justify-center">
+					<Attribution />
+				</div>
+
+				<div className="h-8" />
+				<div className="flex flex-row justify-center">
+					<CTAButtons />
+				</div>
+
+				<div className="h-16" />
+				<div className="flex flex-row justify-center">
+					<Sponsors />
+				</div>
+
+				<div className="h-16" />
 			</div>
-
-			<div className="h-4" />
-			<div className="flex flex-row justify-center">
-				<Attribution />
-			</div>
-
-			<div className="h-8" />
-			<div className="flex flex-row justify-center">
-				<CTAButtons />
-			</div>
-
-
 		</div>
 
-		{/* SVG background */}
-		<Apply className="-z-10">
-			<div className="absolute inset-x-0 top-full">
-				<Apply className="text-gray-200">
-					<svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
-						<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" />
-					</svg>
-				</Apply>
-			</div>
-		</Apply>
+		{/* <Apply className="-z-10"> */}
+		{/* 	<div className="absolute inset-x-0 top-full"> */}
+		{/* 		<Apply className="text-gray-200"> */}
+		{/* 			<svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
+		{/* 				<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" /> */}
+		{/* 			</svg> */}
+		{/* 		</Apply> */}
+		{/* 	</div> */}
+		{/* </Apply> */}
 
-		<Apply className="-z-10">
-			<div className="fixed inset-x-0 top-0">
-				<div className="h-24 bg-gray-200" />
-				<Apply className="text-gray-200">
-					<svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
-						<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" />
-					</svg>
-				</Apply>
-			</div>
-		</Apply>
+		{/* <Apply className="-z-10"> */}
+		{/* 	<div className="fixed inset-x-0 top-0"> */}
+		{/* 		<div className="h-24 bg-gray-200" /> */}
+		{/* 		<Apply className="text-gray-200"> */}
+		{/* 			<svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
+		{/* 				<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" /> */}
+		{/* 			</svg> */}
+		{/* 		</Apply> */}
+		{/* 	</div> */}
+		{/* </Apply> */}
 
 	</div>
 )
@@ -395,7 +339,11 @@ const Icon = () => (
 			{/* New */}
 			{!Math.floor(Math.random() * 5) && (
 				<div className="p-4 absolute right-0 top-0">
-					<div className="w-3 h-3 bg-gray-300 rounded-full animate-pulse" />
+					{/* NOTE: animate-* must be wrapped because of a
+					rendering issue with Safari. */}
+					<div className="animate-pulse">
+						<div className="w-3 h-3 bg-gray-300 rounded-full" />
+					</div>
 				</div>
 			)}
 
@@ -420,7 +368,7 @@ function range(max) {
 }
 
 const App = () => (
-	<Apply style={{ marginTop: tw(-(18 + 6)) }}>
+	<Apply /* style={{ marginTop: tw(-(18 + 6)) }} */>
 		{/* NOTE: Uses items-start because of sticky top-*. */}
 		<div className="flex flex-row justify-center items-start">
 			<div className="w-full" style={{ maxWidth: px(1152) }}>
@@ -430,6 +378,7 @@ const App = () => (
 					<div className="-mx-4 absolute inset-0 top-0">
 						<div className="h-4 bg-gray-200" />
 						<div className="h-9 bg-gray-200" />
+						{/* COMPAT / Safari */}
 						<div className="h-9 bg-gradient-to-b from-gray-200 to-transparent" />
 					</div>
 					<div className="rounded-6 shadow-2">
