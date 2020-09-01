@@ -132,42 +132,19 @@ const CTAButtons = () => (
 	</div>
 )
 
-// flex flex-row flex-wrap justify-center items-center">
 const Sponsors = () => (
 	<div className="relative">
-
-		{/* <div className="py-4 absolute inset-x-0 bottom-full"> */}
-		{/* 	<h6 className="text-center font-bold tracking-wider leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}> */}
-		{/* 		<span className="inline-flex flex-row items-center"> */}
-		{/* 			SPONSORS */}
-		{/* 			<span className="hidden sm:inline-flex flex-row items-center"> */}
-		{/* 				<span style={{ width: "0.67ch" }} /> */}
-		{/* 				&middot; */}
-		{/* 				<span style={{ width: "0.67ch" }} /> */}
-		{/* 				BECOME A SPONSOR */}
-		{/* 				<span style={{ width: "0.33ch" }} /> */}
-		{/* 				<Apply className="-mb-px w-3 h-3 opacity-75"> */}
-		{/* 					<SVGExternalLink /> */}
-		{/* 				</Apply> */}
-		{/* 			</span> */}
-		{/* 			<span style={{ width: "0.67ch" }} /> */}
-		{/* 			&middot; */}
-		{/* 			<span style={{ width: "0.67ch" }} /> */}
-		{/* 			UNAFFILIATED WITH TAILWIND LABS */}
-		{/* 			<span style={{ width: "0.33ch" }} /> */}
-		{/* 			<Apply className="-mb-px w-3 h-3"> */}
-		{/* 				<SVGBeaker /> */}
-		{/* 			</Apply> */}
-		{/* 		</span> */}
-		{/* 	</h6> */}
-		{/* </div> */}
 
 		{/* Center */}
 		<Apply className="block xl:hidden">
 			<div className="py-4 absolute inset-x-0 bottom-full">
-				<h6 className="text-center font-bold tracking-wider leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
+				<h6 className="text-center font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
-						OUR SPONSORS &middot; UNAFFILIATED WITH TAILWIND LABS
+						OUR SPONSORS
+						<span style={{ width: "0.67ch" }} />
+						&middot;
+						<span style={{ width: "0.67ch" }} />
+						UNAFFILIATED WITH TAILWIND LABS
 						<span style={{ width: "0.33ch" }} />
 						<Apply className="-mb-px w-3 h-3">
 							<SVGBeaker />
@@ -180,9 +157,13 @@ const Sponsors = () => (
 		{/* LHS */}
 		<Apply className="hidden xl:block">
 			<div className="px-8 py-4 absolute bottom-full left-0">
-				<h6 className="font-bold tracking-wider leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
+				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
-						OUR SPONSORS &middot; BECOME A SPONSOR
+						OUR SPONSORS
+						<span style={{ width: "0.67ch" }} />
+						&middot;
+						<span style={{ width: "0.67ch" }} />
+						BECOME A SPONSOR
 						<span style={{ width: "0.33ch" }} />
 						<Apply className="-mb-px w-3 h-3 opacity-75">
 							<SVGExternalLink />
@@ -195,7 +176,7 @@ const Sponsors = () => (
 		{/* RHS */}
 		<Apply className="hidden xl:block">
 			<div className="px-8 py-4 absolute bottom-full right-0">
-				<h6 className="font-bold tracking-wider leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
+				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
 						UNAFFILIATED WITH TAILWIND LABS
 						<span style={{ width: "0.33ch" }} />
@@ -208,8 +189,9 @@ const Sponsors = () => (
 		</Apply>
 
 		<div className="-mx-1.5 -my-1 flex flex-row flex-wrap justify-center items-center">
+
 			{range(6).map(each => (
-				<div className="mx-2 my-1.5">
+				<div className="mx-2 my-1.5 relative">
 					<div
 						className="h-14 bg-purple-50 rounded-full"
 						style={{
@@ -217,20 +199,22 @@ const Sponsors = () => (
 							width: tw(36 + Math.floor(Math.random() * (48 - 36))),
 						}}
 					/>
-					<div className="hidden xl:block">
-						<div className="h-2" />
-						<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-75">
-							<span className="inline-flex flex-row items-center">
-								QAWolf
-								<span style={{ width: "0.33ch" }} />
-								<Apply className="w-3 h-3 opacity-75">
-									<SVGExternalLink />
-								</Apply>
-							</span>
-						</p>
-					</div>
+					<Apply className="hidden xl:block">
+						<div className="p-2 absolute inset-x-0 top-full">
+							<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-75">
+								<span className="inline-flex flex-row items-center">
+									QAWolf
+									<span style={{ width: "0.33ch" }} />
+									<Apply className="w-3 h-3 opacity-75">
+										<SVGExternalLink />
+									</Apply>
+								</span>
+							</p>
+						</div>
+					</Apply>
 				</div>
 			))}
+
 		</div>
 
 	</div>
