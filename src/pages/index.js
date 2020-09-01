@@ -5,8 +5,8 @@ import Reset from "lib/x/Reset"
 import target_blank from "lib/x/target_blank"
 import tw from "lib/x/twToRem"
 
+import SVGAcademicCap from "heroicons-0.4.1/solid/AcademicCap"
 import SVGBeaker from "heroicons-0.4.1/solid/Beaker"
-import SVGBookOpen from "heroicons-0.4.1/solid/BookOpen"
 import SVGDownload from "heroicons-0.4.1/solid/Download"
 import SVGExternalLink from "heroicons-0.4.1/solid/ExternalLink"
 import SVGFlag from "heroicons-0.4.1/solid/Flag"
@@ -43,15 +43,24 @@ const Attribution = () => (
 	<h2 className="text-center font-medium text-xl leading-snug text-purple-50">
 		<span className="inline-flex flex-row flex-wrap justify-center items-center">
 			<Apply className="w-5 h-5">
-				<SVGBookOpen />
+				<SVGAcademicCap />
 			</Apply>
 			<span style={{ width: "0.33ch" }} />
-			Free MIT-licensed icons by
+			MIT
+			<span className="hidden sm:inline">
+				-licensed
+			</span>
+			<span style={{ width: "0.33ch" }} />
+			icons by
 			<span style={{ width: "0.33ch" }} />
 			<span className="font-semibold no-underline hover:underline">
 				{/* @steveschoger */}
 				Steve Schoger
 			</span>
+			<span style={{ width: "0.33ch" }} />
+			<Apply className="w-4 h-4 opacity-75">
+				<SVGExternalLink />
+			</Apply>
 		</span>
 		<br />
 		<span className="inline-flex flex-row flex-wrap justify-center items-center">
@@ -65,6 +74,10 @@ const Attribution = () => (
 				{/* @username_ZAYDEK */}
 				Zaydek MG
 			</span>
+			<span style={{ width: "0.33ch" }} />
+			<Apply className="w-4 h-4 opacity-75">
+				<SVGExternalLink />
+			</Apply>
 		</span>
 	</h2>
 )
