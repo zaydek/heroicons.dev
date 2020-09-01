@@ -114,9 +114,35 @@ const CTAButtons = () => (
 const Sponsors = () => (
 	<div className="relative">
 
-		{/* Center (sm) */}
-		<Apply className="block sm:hidden">
-			<div className="pb-4 absolute inset-x-0 bottom-full">
+		{/* <div className="py-4 absolute inset-x-0 bottom-full"> */}
+		{/* 	<h6 className="text-center font-bold tracking-wider leading-none text-gray-800" style={{ fontSize: "0.6875rem" }}> */}
+		{/* 		<span className="inline-flex flex-row items-center"> */}
+		{/* 			SPONSORS */}
+		{/* 			<span className="hidden sm:inline-flex flex-row items-center"> */}
+		{/* 				<span style={{ width: "0.67ch" }} /> */}
+		{/* 				&middot; */}
+		{/* 				<span style={{ width: "0.67ch" }} /> */}
+		{/* 				BECOME A SPONSOR */}
+		{/* 				<span style={{ width: "0.33ch" }} /> */}
+		{/* 				<Apply className="-mb-px w-3 h-3"> */}
+		{/* 					<SVGExternalLink /> */}
+		{/* 				</Apply> */}
+		{/* 			</span> */}
+		{/* 			<span style={{ width: "0.67ch" }} /> */}
+		{/* 			&middot; */}
+		{/* 			<span style={{ width: "0.67ch" }} /> */}
+		{/* 			UNAFFILIATED WITH TAILWIND LABS */}
+		{/* 			<span style={{ width: "0.33ch" }} /> */}
+		{/* 			<Apply className="-mb-px w-3 h-3"> */}
+		{/* 				<SVGBeaker /> */}
+		{/* 			</Apply> */}
+		{/* 		</span> */}
+		{/* 	</h6> */}
+		{/* </div> */}
+
+		{/* Center */}
+		<Apply className="block xl:hidden">
+			<div className="py-4 absolute inset-x-0 bottom-full">
 				<h6 className="text-center font-bold tracking-wider leading-none text-gray-800" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
 						OUR SPONSORS &middot; UNAFFILIATED WITH TAILWIND LABS
@@ -130,8 +156,8 @@ const Sponsors = () => (
 		</Apply>
 
 		{/* LHS */}
-		<Apply className="hidden sm:block">
-			<div className="px-8 pb-4 absolute bottom-full left-0">
+		<Apply className="hidden xl:block">
+			<div className="px-8 py-4 absolute bottom-full left-0">
 				<h6 className="font-bold tracking-wider leading-none text-gray-800" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
 						OUR SPONSORS &middot; BECOME A SPONSOR
@@ -145,8 +171,8 @@ const Sponsors = () => (
 		</Apply>
 
 		{/* RHS */}
-		<Apply className="hidden sm:block">
-			<div className="px-8 pb-4 absolute bottom-full right-0">
+		<Apply className="hidden xl:block">
+			<div className="px-8 py-4 absolute bottom-full right-0">
 				<h6 className="font-bold tracking-wider leading-none text-gray-800" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
 						UNAFFILIATED WITH TAILWIND LABS
@@ -169,13 +195,7 @@ const Sponsors = () => (
 					<div className="h-2" />
 					<p className="text-center font-medium leading-none text-gray-800" style={{ fontSize: "0.6875rem" }}>
 						<span className="inline-flex flex-row items-center">
-							<span className="!opacity-75">
-								&ldquo;
-							</span>
-							10x Browser Tests
-							<span className="!opacity-75">
-								&rdquo;
-							</span>
+							&ldquo;{"10x Browser Tests"}&rdquo;
 							<span style={{ width: "0.33ch" }} />
 							<Apply className="-mb-px w-3 h-3 opacity-75">
 								<SVGExternalLink />

@@ -14,6 +14,9 @@ module.exports = {
 	future: {
 		removeDeprecatedGapUtilities: true,
 	},
+	plugins: [
+		require("@tailwindcss/ui"),
+	],
 	purge: [
 		"./src/**/*.js",
 	],
@@ -60,7 +63,4 @@ module.exports = {
 		...defaultVariants,
 		typography: [],
 	},
-	plugins: [
-		require("@tailwindcss/ui"),
-	],
 }
