@@ -252,8 +252,11 @@ const Hero = () => (
 		<Apply className="-z-10">
 			<div className="absolute inset-x-0 top-full">
 				<Apply className="text-theme">
-					<svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
-						<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" />
+					{/* <svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
+					{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" /> */}
+					{/* </svg> */}
+					<svg fill="currentColor" viewBox="0 0 10 1" xmlns="http://www.w3.org/2000/svg">
+						<path fillRule="evenodd" clipRule="evenodd" d="M5 0.999999C2.5 1 0.625 0.333333 0 0L10 -1.74846e-06C9.27083 0.333332 7.5 0.999999 5 0.999999Z" />
 					</svg>
 				</Apply>
 			</div>
@@ -263,8 +266,11 @@ const Hero = () => (
 			<div className="fixed inset-x-0 top-0">
 				<div className="h-24 bg-theme" />
 				<Apply className="text-theme">
-					<svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
-						<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" />
+					{/* <svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
+					{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" /> */}
+					{/* </svg> */}
+					<svg fill="currentColor" viewBox="0 0 10 1" xmlns="http://www.w3.org/2000/svg">
+						<path fillRule="evenodd" clipRule="evenodd" d="M5 0.999999C2.5 1 0.625 0.333333 0 0L10 -1.74846e-06C9.27083 0.333332 7.5 0.999999 5 0.999999Z" />
 					</svg>
 				</Apply>
 			</div>
