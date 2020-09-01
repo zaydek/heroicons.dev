@@ -279,8 +279,8 @@ const Hero = () => (
 
 		<AbsoluteExternalLinks />
 
-		{/* NOTE: Uses px-* here because of backgrounds. */}
-		<div className="px-4 flex flex-row justify-center bg-theme">
+		{/* NOTE: Use px-* here because of backgrounds. */}
+		<div className="px-4 sm:px-6 flex flex-row justify-center bg-theme">
 			<div className="w-full z-10" style={{ maxWidth: px(1152) }}>
 				<div className="h-16" />
 
@@ -344,7 +344,7 @@ const Search = () => {
 	const [showControls, setShowControls] = React.useState(false)
 
 	return (
-		// NOTE: Uses h-full because of absolute inset-0.
+		// NOTE: Use h-full because of absolute inset-0.
 		<Apply className="h-full">
 			<div className="relative">
 
@@ -471,7 +471,7 @@ const Search = () => {
 }
 
 const MemoIcon = React.memo(() => (
-	// NOTE: Uses h-full because of absolute inset-0.
+	// NOTE: Use h-full because of absolute inset-0.
 	<Apply className="h-full">
 		<div className="relative shadow-grid">
 
@@ -503,7 +503,7 @@ const App = () => (
 		<div className="flex flex-row justify-center items-start">
 
 			{/* LHS */}
-			<main className="w-full !max-w-screen-xl z-10" style={{ maxWidth: px(192 * 5) }}>
+			<main className="w-full !max-w-screen-xl z-10" style={{ maxWidth: px(1280) }}>
 
 				{/* Search */}
 				<div className="-mt-4 pt-4 sticky top-0 z-10">
@@ -610,7 +610,7 @@ html {
 				<Hero />
 			</header>
 
-			<main className="px-4">
+			<main className="px-4 sm:px-6">
 				<App />
 			</main>
 
