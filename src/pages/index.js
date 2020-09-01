@@ -194,11 +194,11 @@ const Sponsors = () => (
 					/>
 					<div className="hidden xl:block">
 						<div className="h-2" />
-						<p className="text-center font-medium leading-none text-gray-800" style={{ fontSize: "0.6875rem" }}>
+						<p className="text-center font-medium text-xs leading-none text-gray-800">
 							<span className="inline-flex flex-row items-center">
-								&ldquo;{"10x Browser Tests"}&rdquo;
+								QAWolf
 								<span style={{ width: "0.33ch" }} />
-								<Apply className="-mb-px w-3 h-3 opacity-75">
+								<Apply className="w-3 h-3 opacity-75">
 									<SVGExternalLink />
 								</Apply>
 							</span>
@@ -209,135 +209,6 @@ const Sponsors = () => (
 		</div>
 
 	</div>
-
-	// <div className="relative">
-	// 	<div className="pb-4 absolute bottom-full left-0">
-	// 		<h6 className="font-bold tracking-wider leading-none text-gray-80" style={{ fontSize: "0.625rem" }}>
-	// 			<span className="inline-flex flex-row items-center">
-	// 				OUR SPONSORS &middot; BECOME A SPONSOR{" "}
-	// 				{/* <span style={{ width: "0.25ch" }} /> */}
-	// 				{/* <Apply className="w-3 h-3 transform scale-110" style={{ marginTop: -2 }}> */}
-	// 				{/* 	<ExternalLinkSVG /> */}
-	// 				{/* </Apply> */}
-	// 			</span>
-	// 		</h6>
-	// 	</div>
-	// 	<div className="pb-4 absolute bottom-full right-0">
-	// 		<h6 className="font-bold tracking-wider leading-none text-gray-80" style={{ fontSize: "0.625rem" }}>
-	// 			<span className="inline-flex flex-row items-center">
-	// 				UNAFFILIATED WITH TAILWIND LABS{" "}
-	// 				{/* <span style={{ width: "0.25ch" }} /> */}
-	// 				{/* <Apply className="w-3 h-3 transform scale-110" style={{ marginTop: -2 }}> */}
-	// 				{/* 	<BeakerSVG /> */}
-	// 				{/* </Apply> */}
-	// 			</span>
-	// 		</h6>
-	// 	</div>
-	// 	<div className="-mx-3 -my-2 flex flex-row flex-wrap">
-	// 		<Apply className="relative">
-	// 			<div
-	// 				className="mx-3 my-2 px-4 py-3 h-14 bg-gray-100 rounded-full"
-	// 				style={{ width: tw(24 + Math.floor(Math.random() * (48 - 24))) }}
-	// 			>
-	// 				<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
-	// 					<p className="whitespace-pre font-medium text-xs leading-none text-gray-800">
-	// 						<span className="inline-flex flex-row items-center">
-	// 							“10x Browser Tests”{" "}
-	// 							{/* <Apply className="w-3 h-3 opacity-75"> */}
-	// 							{/* 	<ExternalLinkSVG /> */}
-	// 							{/* </Apply> */}
-	// 						</span>
-	// 					</p>
-	// 				</div>
-	// 			</div>
-	// 		</Apply>
-	// 		<Apply className="relative">
-	// 			<div
-	// 				className="mx-3 my-2 px-4 py-3 h-14 bg-gray-100 rounded-full"
-	// 				style={{ width: tw(24 + Math.floor(Math.random() * (48 - 24))) }}
-	// 			>
-	// 				<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
-	// 					<p className="whitespace-pre font-medium text-xs leading-none text-gray-800">
-	// 						<span className="inline-flex flex-row items-center">
-	// 							“Landing Page Ebook”{" "}
-	// 							{/* <Apply className="w-3 h-3 opacity-75"> */}
-	// 							{/* 	<ExternalLinkSVG /> */}
-	// 							{/* </Apply> */}
-	// 						</span>
-	// 					</p>
-	// 				</div>
-	// 			</div>
-	// 		</Apply>
-	// 		<Apply className="relative">
-	// 			<div
-	// 				className="mx-3 my-2 px-4 py-3 h-14 bg-gray-100 rounded-full"
-	// 				style={{ width: tw(24 + Math.floor(Math.random() * (48 - 24))) }}
-	// 			>
-	// 				<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
-	// 					<p className="whitespace-pre font-medium text-xs leading-none text-gray-800">
-	// 						<span className="inline-flex flex-row items-center">
-	// 							“Resumé Optimizer”{" "}
-	// 							{/* <Apply className="w-3 h-3 opacity-75"> */}
-	// 							{/* 	<ExternalLinkSVG /> */}
-	// 							{/* </Apply> */}
-	// 						</span>
-	// 					</p>
-	// 				</div>
-	// 			</div>
-	// 		</Apply>
-	// 		<Apply className="relative">
-	// 			<div
-	// 				className="mx-3 my-2 px-4 py-3 h-14 bg-gray-100 rounded-full"
-	// 				style={{ width: tw(24 + Math.floor(Math.random() * (48 - 24))) }}
-	// 			>
-	// 				<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
-	// 					<p className="whitespace-pre font-medium text-xs leading-none text-gray-800">
-	// 						<span className="inline-flex flex-row items-center">
-	// 							“Laravel Softwarehouse”{" "}
-	// 							{/* <Apply className="w-3 h-3 opacity-75"> */}
-	// 							{/* 	<ExternalLinkSVG /> */}
-	// 							{/* </Apply> */}
-	// 						</span>
-	// 					</p>
-	// 				</div>
-	// 			</div>
-	// 		</Apply>
-	// 		<Apply className="relative">
-	// 			<div
-	// 				className="mx-3 my-2 px-4 py-3 h-14 bg-gray-100 rounded-full"
-	// 				style={{ width: tw(24 + Math.floor(Math.random() * (48 - 24))) }}
-	// 			>
-	// 				<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
-	// 					<p className="whitespace-pre font-medium text-xs leading-none text-gray-800">
-	// 						<span className="inline-flex flex-row items-center">
-	// 							“Download 30,000 Icons”{" "}
-	// 							{/* <Apply className="w-3 h-3 opacity-75"> */}
-	// 							{/* 	<ExternalLinkSVG /> */}
-	// 							{/* </Apply> */}
-	// 						</span>
-	// 					</p>
-	// 				</div>
-	// 			</div>
-	// 		</Apply>
-	// 		<Apply className="relative">
-	// 			<div
-	// 				className="mx-3 my-2 px-4 py-3 h-14 bg-gray-100 rounded-full"
-	// 				style={{ width: tw(24 + Math.floor(Math.random() * (48 - 24))) }}
-	// 			>
-	// 				<div className="pt-2 absolute top-full inset-x-0 flex flex-row justify-center">
-	// 					<p className="whitespace-pre font-medium text-xs leading-none text-gray-800">
-	// 						<span className="inline-flex flex-row items-center">
-	// 							“Spell Checker for Figma”{" "}
-	// 							{/* <Apply className="w-3 h-3 opacity-75"> */}
-	// 							{/* 	<ExternalLinkSVG /> */}
-	// 							{/* </Apply> */}
-	// 						</span>
-	// 					</p>
-	// 				</div>
-	// 			</div>
-	// 		</Apply>
-	// 	</div>
-	// </div>
 )
 
 const Hero = () => (
@@ -415,7 +286,7 @@ const Search = () => (
 			{/* Search */}
 			<Reset className="block w-full h-full focus:outline-none">
 				<input
-					className="px-16 text-xl text-gray-800 bg-white rounded-6 shadow-inset-outset"
+					className="px-16 text-xl text-gray-800 bg-white rounded-6"
 					style={{ paddingLeft: tw(8 + 6 + 4) }}
 					{...disableAutoCorrect}
 				/>
@@ -476,7 +347,7 @@ const App = () => (
 						<div className="h-9 bg-gray-300" />
 						{/* NOTE: bg-gradient-to-b ... to-transparent
 						does not work because of Safari. */}
-						<div className="h-9" style={{ backgroundImage: "linear-gradient(var(--gray-300), #ffffff00)" }} />
+						<div className="h-9" style={{ backgroundImage: "linear-gradient(var(--gray-300), #d2d6dc00)" }} />
 					</div>
 					<div className="rounded-6 shadow-2">
 						<div className="rounded-6" style={{ height: tw(18) }}>
@@ -488,8 +359,7 @@ const App = () => (
 				{/* Icons */}
 				<div style={{ height: tw(6) }} />
 				<div className="rounded-6 shadow-2">
-					{/* TODO: Drop overflow-hidden here? */}
-					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 shadow-inset-outset overflow-hidden">
+					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 overflow-hidden" style={{ transform: "translateZ(0)" }}>
 
 						{range(200).map((each, x) => (
 							// TODO: each.name
