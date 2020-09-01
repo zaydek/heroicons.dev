@@ -177,13 +177,14 @@ const Sponsors = () => (
 		<Apply className="hidden xl:block">
 			<div className="px-8 py-4 absolute bottom-full right-0">
 				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
-					<span className="inline-flex flex-row items-center">
-						UNAFFILIATED WITH TAILWIND LABS
-						<span style={{ width: "0.33ch" }} />
-						<Apply className="-mb-px w-3 h-3 opacity-75">
-							<SVGBeaker />
-						</Apply>
-					</span>
+					{/* <span className="inline-flex flex-row items-center"> */}
+					{/* 	UNAFFILIATED WITH TAILWIND LABS */}
+					{/* 	<span style={{ width: "0.33ch" }} /> */}
+					{/* 	<Apply className="-mb-px w-3 h-3 opacity-75"> */}
+					{/* 		<SVGBeaker /> */}
+					{/* 	</Apply> */}
+					{/* </span> */}
+					UNAFFILIATED WITH TAILWIND LABS
 				</h6>
 			</div>
 		</Apply>
@@ -392,23 +393,23 @@ const App = () => (
 )
 
 const Layout = () => {
-	React.useEffect(() => {
-		const nativeScrollHandler = e => {
-			const html = document.body.parentElement
-			if (window.scrollY < window.innerHeight) {
-				html.classList.remove("bg-gray-50")
-				html.classList.add("bg-theme")
-			} else {
-				html.classList.remove("bg-theme")
-				html.classList.add("bg-gray-50")
-			}
-		}
-		nativeScrollHandler(e => {})
-		window.addEventListener("scroll", nativeScrollHandler, false)
-		return () => {
-			window.removeEventListener("scroll", nativeScrollHandler, false)
-		}
-	}, [])
+	// React.useEffect(() => {
+	// 	const nativeScrollHandler = e => {
+	// 		const html = document.body.parentElement
+	// 		if (window.scrollY < window.innerHeight) {
+	// 			html.classList.remove("bg-gray-50")
+	// 			html.classList.add("bg-theme")
+	// 		} else {
+	// 			html.classList.remove("bg-theme")
+	// 			html.classList.add("bg-gray-50")
+	// 		}
+	// 	}
+	// 	// nativeScrollHandler(e => {})
+	// 	window.addEventListener("scroll", nativeScrollHandler, false)
+	// 	return () => {
+	// 		window.removeEventListener("scroll", nativeScrollHandler, false)
+	// 	}
+	// }, [])
 
 	React.useEffect(() => {
 		if (navigator.userAgent.includes("Chrome")) {
