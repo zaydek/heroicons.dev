@@ -169,15 +169,15 @@ const Sponsors = () => (
 					<div className="h-2" />
 					<p className="text-center font-medium leading-none text-gray-800" style={{ fontSize: "0.6875rem" }}>
 						<span className="inline-flex flex-row items-center">
-							<span className="opacity-75">
+							<span className="!opacity-75">
 								&ldquo;
 							</span>
 							10x Browser Tests
-							<span className="opacity-75">
+							<span className="!opacity-75">
 								&rdquo;
 							</span>
 							<span style={{ width: "0.33ch" }} />
-							<Apply className="w-3 h-3 opacity-75">
+							<Apply className="-mb-px w-3 h-3 opacity-75">
 								<SVGExternalLink />
 							</Apply>
 						</span>
