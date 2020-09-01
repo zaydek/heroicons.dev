@@ -14,7 +14,69 @@ import SVGLightningBolt from "heroicons-0.4.1/solid/LightningBolt"
 
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
-// TODO: Extract non-important components.
+const ExternalLinkFragment = () => (
+	<>
+
+		<style>{`
+
+.twemoji:hover .twemoji-eyes {
+	animation-name: cartoon-eyes;
+	animation-duration: 300ms;
+	animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	animation-iteration-count: infinite;
+}
+
+@keyframes cartoon-eyes {
+	0%, 100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.375);
+	}
+}
+
+`}
+		</style>
+
+		<a href="TODO" {...target_blank}>
+			<p className="twemoji px-4 py-0.5 pt-4 font-medium no-underline hover:underline text-purple-50">
+				<span className="inline-flex flex-row items-center">
+					<Apply className="relative w-6 h-6 overflow-visible">
+						<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+							<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
+							<path fill="#664500" d="M18 21.849c-2.966 0-4.935-.346-7.369-.819-.557-.106-1.638 0-1.638 1.638 0 3.275 3.763 7.369 9.007 7.369s9.007-4.094 9.007-7.369c0-1.638-1.082-1.745-1.638-1.638-2.434.473-4.402.819-7.369.819" />
+							<Apply className="twemoji-eyes origin-center">
+								<path fill="#dd2e44" d="M16.65 3.281C15.791.85 13.126-.426 10.694.431c-1.476.52-2.521 1.711-2.928 3.104-1.191-.829-2.751-1.1-4.225-.58C1.111 3.813-.167 6.48.692 8.911c.122.344.284.663.472.958 1.951 3.582 7.588 6.1 11.001 6.131 2.637-2.167 5.446-7.665 4.718-11.677-.038-.348-.113-.698-.233-1.042zm2.7 0C20.209.85 22.875-.426 25.306.431c1.476.52 2.521 1.711 2.929 3.104 1.191-.829 2.751-1.1 4.225-.58 2.43.858 3.707 3.525 2.85 5.956-.123.344-.284.663-.473.958-1.951 3.582-7.588 6.1-11.002 6.131-2.637-2.167-5.445-7.665-4.717-11.677.037-.348.112-.698.232-1.042z" />
+							</Apply>
+						</svg>
+					</Apply>
+					<span style={{ width: "1ch" }} />
+					Share with your followers on Twitter!
+				</span>
+			</p>
+		</a>
+
+		<a href="TODO" {...target_blank}>
+			<p className="twemoji px-4 py-0.5 pb-4 font-medium no-underline hover:underline text-purple-50">
+				<span className="inline-flex flex-row items-center">
+					<Apply className="w-6 h-6 overflow-visible">
+						<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+							<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
+							<path fill="#664500" d="M18 21c-3.623 0-6.027-.422-9-1-.679-.131-2 0-2 2 0 4 4.595 9 11 9 6.404 0 11-5 11-9 0-2-1.321-2.132-2-2-2.973.578-5.377 1-9 1z" />
+							<path fill="#ffffff" d="M9 22s3 1 9 1 9-1 9-1-2 4-9 4-9-4-9-4z" />
+							<Apply className="twemoji-eyes origin-center">
+								<path fill="#e95f28" d="M15.682 4.413l-4.542.801L8.8.961C8.542.492 8.012.241 7.488.333c-.527.093-.937.511-1.019 1.039l-.745 4.797-4.542.801c-.535.094-.948.525-1.021 1.064s.211 1.063.703 1.297l4.07 1.932-.748 4.812c-.083.536.189 1.064.673 1.309.179.09.371.133.562.133.327 0 .65-.128.891-.372l3.512-3.561 4.518 2.145c.49.232 1.074.123 1.446-.272.372-.395.446-.984.185-1.459L13.625 9.73l3.165-3.208c.382-.387.469-.977.217-1.459-.254-.482-.793-.743-1.325-.65zm4.636 0l4.542.801L27.2.961c.258-.469.788-.72 1.312-.628.526.093.936.511 1.018 1.039l.745 4.797 4.542.801c.536.094.949.524 1.021 1.063s-.211 1.063-.703 1.297l-4.07 1.932.748 4.812c.083.536-.189 1.064-.673 1.309-.179.09-.371.133-.562.133-.327 0-.65-.128-.891-.372l-3.512-3.561-4.518 2.145c-.49.232-1.074.123-1.446-.272-.372-.395-.446-.984-.185-1.459l2.348-4.267-3.165-3.208c-.382-.387-.469-.977-.217-1.459.255-.482.794-.743 1.326-.65z" />
+							</Apply>
+						</svg>
+					</Apply>
+					<span style={{ width: "1ch" }} />
+					Star website on GitHub
+				</span>
+			</p>
+		</a>
+	</>
+)
+
 const HeroiconsLogo = () => (
 	<div className="relative">
 		<Apply className="h-14 text-purple-50">
@@ -43,40 +105,27 @@ const HeroiconsLogo = () => (
 const Attribution = () => (
 	<h2 className="text-center font-medium text-xl leading-snug text-purple-50">
 		<span className="inline-flex flex-row flex-wrap justify-center items-center">
-			<Apply className="w-5 h-5">
-				<SVGAcademicCap />
-			</Apply>
-			<span style={{ width: "0.33ch" }} />
-			MIT
-			<span className="hidden sm:inline">
-				-licensed
-			</span>
-			<span style={{ width: "0.33ch" }} />
-			icons by
+			Free, MIT-licensed icons by
 			<span style={{ width: "0.33ch" }} />
 			<span className="font-semibold no-underline hover:underline">
-				{/* @steveschoger */}
-				Steve Schoger
+				{/* Steve Schoger */}
+				@steveschoger
 			</span>
 			<span style={{ width: "0.33ch" }} />
-			<Apply className="w-4 h-4 opacity-75">
+			<Apply className="w-5 h-5 opacity-75">
 				<SVGExternalLink />
 			</Apply>
 		</span>
 		<br />
 		<span className="inline-flex flex-row flex-wrap justify-center items-center">
-			<Apply className="w-5 h-5">
-				<SVGLightningBolt />
-			</Apply>
-			<span style={{ width: "0.33ch" }} />
 			App by
 			<span style={{ width: "0.33ch" }} />
 			<span className="font-semibold no-underline hover:underline">
-				{/* @username_ZAYDEK */}
-				Zaydek MG
+				{/* Zaydek MG */}
+				@username_ZAYDEK
 			</span>
 			<span style={{ width: "0.33ch" }} />
-			<Apply className="w-4 h-4 opacity-75">
+			<Apply className="w-5 h-5 opacity-75">
 				<SVGExternalLink />
 			</Apply>
 		</span>
@@ -226,67 +275,7 @@ const Hero = () => (
 	<div className="relative">
 
 		<div className="-my-0.5 absolute left-0 top-0 z-20">
-
-			<style>{`
-
-.twemoji:hover .twemoji-eyes {
-	animation-name: cartoon-eyes;
-	animation-duration: 300ms;
-	animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	animation-iteration-count: infinite;
-}
-
-@keyframes cartoon-eyes {
-	0%, 100% {
-		transform: scale(1);
-	}
-	50% {
-		transform: scale(1.375);
-	}
-}
-
-`}
-			</style>
-
-			{/* Twitter */}
-			<a href="TODO" {...target_blank}>
-				<p className="twemoji px-4 py-0.5 pt-4 font-medium no-underline hover:underline text-purple-50">
-					<span className="inline-flex flex-row items-center">
-						<Apply className="relative w-6 h-6 overflow-visible">
-							<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-								<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
-								<path fill="#664500" d="M18 21.849c-2.966 0-4.935-.346-7.369-.819-.557-.106-1.638 0-1.638 1.638 0 3.275 3.763 7.369 9.007 7.369s9.007-4.094 9.007-7.369c0-1.638-1.082-1.745-1.638-1.638-2.434.473-4.402.819-7.369.819" />
-								<Apply className="twemoji-eyes origin-center">
-									<path fill="#dd2e44" d="M16.65 3.281C15.791.85 13.126-.426 10.694.431c-1.476.52-2.521 1.711-2.928 3.104-1.191-.829-2.751-1.1-4.225-.58C1.111 3.813-.167 6.48.692 8.911c.122.344.284.663.472.958 1.951 3.582 7.588 6.1 11.001 6.131 2.637-2.167 5.446-7.665 4.718-11.677-.038-.348-.113-.698-.233-1.042zm2.7 0C20.209.85 22.875-.426 25.306.431c1.476.52 2.521 1.711 2.929 3.104 1.191-.829 2.751-1.1 4.225-.58 2.43.858 3.707 3.525 2.85 5.956-.123.344-.284.663-.473.958-1.951 3.582-7.588 6.1-11.002 6.131-2.637-2.167-5.445-7.665-4.717-11.677.037-.348.112-.698.232-1.042z" />
-								</Apply>
-							</svg>
-						</Apply>
-						<span style={{ width: "1ch" }} />
-						Share with your followers on Twitter!
-					</span>
-				</p>
-			</a>
-
-			{/* GitHub */}
-			<a href="TODO" {...target_blank}>
-				<p className="twemoji px-4 py-0.5 pb-4 font-medium no-underline hover:underline text-purple-50">
-					<span className="inline-flex flex-row items-center">
-						<Apply className="w-6 h-6 overflow-visible">
-							<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-								<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
-								<path fill="#664500" d="M18 21c-3.623 0-6.027-.422-9-1-.679-.131-2 0-2 2 0 4 4.595 9 11 9 6.404 0 11-5 11-9 0-2-1.321-2.132-2-2-2.973.578-5.377 1-9 1z" />
-								<path fill="#ffffff" d="M9 22s3 1 9 1 9-1 9-1-2 4-9 4-9-4-9-4z" />
-								<Apply className="twemoji-eyes origin-center">
-									<path fill="#e95f28" d="M15.682 4.413l-4.542.801L8.8.961C8.542.492 8.012.241 7.488.333c-.527.093-.937.511-1.019 1.039l-.745 4.797-4.542.801c-.535.094-.948.525-1.021 1.064s.211 1.063.703 1.297l4.07 1.932-.748 4.812c-.083.536.189 1.064.673 1.309.179.09.371.133.562.133.327 0 .65-.128.891-.372l3.512-3.561 4.518 2.145c.49.232 1.074.123 1.446-.272.372-.395.446-.984.185-1.459L13.625 9.73l3.165-3.208c.382-.387.469-.977.217-1.459-.254-.482-.793-.743-1.325-.65zm4.636 0l4.542.801L27.2.961c.258-.469.788-.72 1.312-.628.526.093.936.511 1.018 1.039l.745 4.797 4.542.801c.536.094.949.524 1.021 1.063s-.211 1.063-.703 1.297l-4.07 1.932.748 4.812c.083.536-.189 1.064-.673 1.309-.179.09-.371.133-.562.133-.327 0-.65-.128-.891-.372l-3.512-3.561-4.518 2.145c-.49.232-1.074.123-1.446-.272-.372-.395-.446-.984-.185-1.459l2.348-4.267-3.165-3.208c-.382-.387-.469-.977-.217-1.459.255-.482.794-.743 1.326-.65z" />
-								</Apply>
-							</svg>
-						</Apply>
-						<span style={{ width: "1ch" }} />
-						Star website on GitHub
-					</span>
-				</p>
-			</a>
-
+			<ExternalLinkFragment />
 		</div>
 
 		{/* NOTE: Uses px-* here because of backgrounds. */}
