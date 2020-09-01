@@ -3,12 +3,13 @@ import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import px from "lib/x/pxToRem"
 import Reset from "lib/x/Reset"
 import target_blank from "lib/x/target_blank"
+import Transition from "lib/x/Transition"
 import tw from "lib/x/twToRem"
 
+import SVGCog from "heroicons-0.4.1/solid/Cog"
 import SVGExternalLink from "heroicons-0.4.1/solid/ExternalLink"
 import SVGFlag from "heroicons-0.4.1/solid/Flag"
 
-import SVGDotsHorizontalOutline from "heroicons-0.4.1/outline/DotsHorizontal"
 import SVGFlagOutline from "heroicons-0.4.1/outline/Flag"
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
@@ -372,12 +373,13 @@ const Search = () => {
 				<div className="absolute right-0 inset-y-0">
 					<div className="-mx-1.5 px-8 pl-3 flex flex-row h-full">
 
+						{/* 1st button */}
 						<Reset className="focus:outline-none">
 							<button className="px-1.5 flex flex-row items-center" onClick={e => setShowVariantOutline(!showVariantOutline)}>
 								<Apply
 									className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
 									style={{
-										color: showVariantOutline &&  "var(--purple-50)",
+										color: showVariantOutline && "var(--purple-50)",
 										backgroundColor: showVariantOutline && "var(--purple-500)",
 									}}
 								>
@@ -396,12 +398,13 @@ const Search = () => {
 							</button>
 						</Reset>
 
+						{/* 2nd button */}
 						<Reset className="focus:outline-none">
 							<button className="px-1.5 flex flex-row items-center" onClick={e => setCopyAsJSX(!copyAsJSX)}>
 								<Apply
 									className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
 									style={{
-										color: copyAsJSX &&  "var(--purple-50)",
+										color: copyAsJSX && "var(--purple-50)",
 										backgroundColor: copyAsJSX && "var(--purple-500)",
 									}}
 								>
@@ -414,19 +417,29 @@ const Search = () => {
 							</button>
 						</Reset>
 
+						{/* 3rd button */}
 						<Reset className="focus:outline-none">
 							<button className="px-1.5 flex flex-row items-center" onClick={e => setShowControls(!showControls)}>
-								<Apply
-									className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
-									style={{
-										color: showControls &&  "var(--purple-50)",
-										backgroundColor: showControls && "var(--purple-500)",
-									}}
+								<Transition
+									on={showControls}
+									className="transition duration-200 ease-in-out"
+									from="transform rotate-0"
+									to="transform rotate-90"
 								>
-									<Apply className="transition duration-200 ease-in-out">
-										<SVGDotsHorizontalOutline />
-									</Apply>
-								</Apply>
+									<div>
+										<Apply
+											className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
+											style={{
+												color: showControls && "var(--purple-50)",
+												backgroundColor: showControls && "var(--purple-500)",
+											}}
+										>
+											<Apply className="transition duration-200 ease-in-out">
+												<SVGCog />
+											</Apply>
+										</Apply>
+									</div>
+								</Transition>
 							</button>
 						</Reset>
 
@@ -437,6 +450,31 @@ const Search = () => {
 		</Apply>
 	)
 }
+
+// <div className="absolute right-0 top-0">
+// 	<div className="rounded-6 shadow-2">
+// 		<div className="w-80 h-80 bg-white rounded-6 opacity-50">
+// 			<br />
+// 			<br />
+// 			<br />
+// 			<br />
+// 			<br />
+// 			<br />
+// 			<br />
+// 			<br />
+// 			<br />
+// 			<br />
+// 			<br />
+// 			<br />
+// 			<br />
+// 			<br />
+// 			<br />
+// 			<br />
+// 			<br />
+// 			<br />
+// 		</div>
+// 	</div>
+// </div>
 
 const MemoIcon = React.memo(() => (
 	// NOTE: Uses h-full because of absolute inset-0.
