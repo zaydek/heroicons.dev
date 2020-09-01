@@ -372,8 +372,9 @@ const App = () => (
 					<div className="-mx-4 absolute inset-0 top-0">
 						<div className="h-4 bg-gray-200" />
 						<div className="h-9 bg-gray-200" />
-						{/* COMPAT / Safari */}
-						<div className="h-9 bg-gradient-to-b from-gray-200 to-transparent" />
+						{/* NOTE: bg-gradient-to-b ... to-transparent
+						does not work because of Safari. */}
+						<div className="h-9" style={{ backgroundImage: "linear-gradient(var(--gray-200), #ffffff00)" }} />
 					</div>
 					<div className="rounded-6 shadow-2">
 						<div className="rounded-6" style={{ height: tw(18) }}>
