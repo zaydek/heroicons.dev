@@ -31,7 +31,7 @@ const HeroiconsLogo = () => (
 		</Apply>
 		<div className="absolute left-full inset-y-0">
 			<div className="flex flex-row items-center h-full">
-				<Apply className="w-12 h-12 text-purple-50 opacity-50">
+				<Apply className="-mb-1 w-11 h-11 text-purple-50 opacity-50">
 					<SVGFlag />
 				</Apply>
 			</div>
