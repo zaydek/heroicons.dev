@@ -10,6 +10,7 @@ import SVGBookOpen from "heroicons-0.4.1/solid/BookOpen"
 import SVGDownload from "heroicons-0.4.1/solid/Download"
 import SVGExternalLink from "heroicons-0.4.1/solid/ExternalLink"
 import SVGFlag from "heroicons-0.4.1/solid/Flag"
+import SVGLightningBolt from "heroicons-0.4.1/solid/LightningBolt"
 
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
@@ -39,24 +40,31 @@ const HeroiconsLogo = () => (
 )
 
 const Attribution = () => (
-	// <div className="w-96 h-5 bg-theme rounded-1" />
-	<h2 className="font-medium text-lg text-purple-50" style={{ lineHeight: 1.375 }}>
+	<h2 className="text-center font-medium text-xl leading-snug text-purple-50">
 		<span className="inline-flex flex-row flex-wrap justify-center items-center">
 			<Apply className="w-5 h-5">
 				<SVGBookOpen />
 			</Apply>
 			<span style={{ width: "0.33ch" }} />
-			MIT icons by
+			Free MIT-licensed icons by
 			<span style={{ width: "0.33ch" }} />
 			<span className="font-semibold no-underline hover:underline">
-				@steveschoger
+				{/* @steveschoger */}
+				Steve Schoger
 			</span>
-			. Third-party viewer by
+		</span>
+		<br />
+		<span className="inline-flex flex-row flex-wrap justify-center items-center">
+			<Apply className="w-5 h-5">
+				<SVGLightningBolt />
+			</Apply>
+			<span style={{ width: "0.33ch" }} />
+			App by
 			<span style={{ width: "0.33ch" }} />
 			<span className="font-semibold no-underline hover:underline">
-				@username_ZAYDEK
+				{/* @username_ZAYDEK */}
+				Zaydek MG
 			</span>
-			.
 		</span>
 	</h2>
 )
