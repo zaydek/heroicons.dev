@@ -313,11 +313,8 @@ const Search = () => (
 			{/* Search */}
 			<Reset className="block w-full h-full focus:outline-none">
 				<input
-					className="px-16 text-xl text-gray-800 bg-white rounded-6"
-					style={{
-						paddingLeft: tw(8 + 6 + 4),
-						boxShadow: boxShadowOutline,
-					}}
+					className="px-16 text-xl text-gray-800 bg-white rounded-6 shadow-inset-outset"
+					style={{ paddingLeft: tw(8 + 6 + 4) }}
 					{...disableAutoCorrect}
 				/>
 			</Reset>
@@ -335,7 +332,7 @@ const Search = () => (
 const MemoIcon = () => (
 	// NOTE: Uses h-full because of absolute inset-0.
 	<Apply className="h-full">
-		<div className="relative" style={{ boxShadow: boxShadowOutline }}>
+		<div className="relative shadow-inset-outset">
 
 			{/* New */}
 			<div className="p-4 absolute right-0 top-0">
@@ -389,7 +386,7 @@ const App = () => (
 				<div style={{ height: tw(6) }} />
 				<div className="rounded-6 shadow-2">
 					{/* TODO: Drop overflow-hidden here? */}
-					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 overflow-hidden" style={{ boxShadow: boxShadowOutline }}>
+					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 shadow-inset-outset overflow-hidden">
 
 						{range(200).map((each, x) => (
 							// TODO: each.name
@@ -413,37 +410,40 @@ const App = () => (
 	</Apply>
 )
 
-// // Tests the user agent for a substring.
-// //
-// // https://css-tricks.com/snippets/javascript/test-mac-pc-javascript
-// function testUserAgent(substr) {
-// 	return navigator.userAgent.indexOf(substr) >= 0
-// }
-//
-// const isSafari = testUserAgent("Safari")
-//
-// // NOTE: box-shadow must use 1px or more for spread because
-// // of rendering issues with Safari.
-// const boxShadowOutline = !isSafari
-// 	? "inset 0 0 0 1px var(--gray-200), 0 0 0 1px var(--gray-200)"
-// 	: "inset 0 0 0 0.5px var(--gray-200), 0 0 0 0.5px var(--gray-200)"
-
-const boxShadowOutline = "inset 0 0 0 0.99px var(--gray-200), 0 0 0 0.99px var(--gray-200)"
-
 // hsl(272.5, 100%, 47.5%)
-const Layout = () => (
-	<div id="next-root">
-		<header>
-			<Hero />
-		</header>
-		<main className="px-4">
-			<App />
-		</main>
 
-		{/* TODO: Remove. */}
-		<div className="h-24" />
+const Layout = () => {
+	React.useEffect(() => {
+		if (navigator.userAgent.includes("Chrome")) {
+			document.body.classList.add("chrome")
+		}
+	}, [])
 
-	</div>
-)
+	return (
+		<div>
+
+			<style>{`
+.shadow-inset-outset {
+	box-shadow: inset 0 0 0 1px var(--gray-200), 0 0 0 1px var(--gray-200);
+}
+.chrome .shadow-inset-outset {
+	box-shadow: inset 0 0 0 0.5px var(--gray-200), 0 0 0 0.5px var(--gray-200);
+}
+`}
+			</style>
+
+			<header>
+				<Hero />
+			</header>
+			<main className="px-4">
+				<App />
+			</main>
+
+			{/* TODO: Remove. */}
+			<div className="h-24" />
+
+		</div>
+	)
+}
 
 export default Layout
