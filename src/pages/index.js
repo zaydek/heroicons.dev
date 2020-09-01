@@ -364,7 +364,8 @@ const Search = () => {
 					<input
 						className="px-16 text-xl placeholder-gray-400 text-gray-800 bg-white rounded-6"
 						style={{ paddingLeft: tw(8 + 6 + 4) }}
-						placeholder="Try searching ‘new’"
+						// placeholder="Try searching ‘new’"
+						placeholder="Search 220+ Icons"
 						value={query}
 						onChange={e => setQuery(e.target.value)}
 						{...disableAutoCorrect}
@@ -469,31 +470,6 @@ const Search = () => {
 	)
 }
 
-// <div className="absolute right-0 top-0">
-// 	<div className="rounded-6 shadow-2">
-// 		<div className="w-80 h-80 bg-white rounded-6 opacity-50">
-// 			<br />
-// 			<br />
-// 			<br />
-// 			<br />
-// 			<br />
-// 			<br />
-// 			<br />
-// 			<br />
-// 			<br />
-// 			<br />
-// 			<br />
-// 			<br />
-// 			<br />
-// 			<br />
-// 			<br />
-// 			<br />
-// 			<br />
-// 			<br />
-// 		</div>
-// 	</div>
-// </div>
-
 const MemoIcon = React.memo(() => (
 	// NOTE: Uses h-full because of absolute inset-0.
 	<Apply className="h-full">
@@ -524,9 +500,10 @@ const MemoIcon = React.memo(() => (
 
 const App = () => (
 	<Apply style={{ marginTop: tw(-(18 + 6)) }}>
-		{/* NOTE: Uses items-start because of sticky top-*. */}
 		<div className="flex flex-row justify-center items-start">
-			<div className="w-full z-10" style={{ maxWidth: px(1152) }}>
+
+			{/* LHS */}
+			<main className="w-full !max-w-screen-xl z-10" style={{ maxWidth: px(192 * 5) }}>
 
 				{/* Search */}
 				<div className="-mt-4 pt-4 sticky top-0 z-10">
@@ -542,9 +519,9 @@ const App = () => (
 				</div>
 
 				{/* Icons */}
-				<div style={{ height: tw(6) }} />
+				<div className="h-6" />
 				<div className="rounded-6 shadow-2">
-					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 overflow-hidden" /* style={{ transform: "translateZ(0)" }} */>
+					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 bg-white rounded-6 overflow-hidden" /* style={{ transform: "translateZ(0)" }} */>
 
 						{range(200).map((each, x) => (
 							// TODO: each.name
@@ -563,7 +540,36 @@ const App = () => (
 					</div>
 				</div>
 
-			</div>
+			</main>
+
+			{/* RHS */}
+			<Apply className="flex-shrink-0">
+				<div className="w-6" />
+			</Apply>
+			<aside className="-mt-4 pt-4 sticky top-0">
+				<div className="rounded-6 shadow-2">
+					<div className="w-96 bg-white rounded-6">
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+					</div>
+				</div>
+			</aside>
+
 		</div>
 	</Apply>
 )
@@ -608,9 +614,7 @@ html {
 				<App />
 			</main>
 
-			{/* TODO: Remove. */}
-			<div className="h-24" />
-
+			<div className="h-32" />
 		</div>
 	)
 }
