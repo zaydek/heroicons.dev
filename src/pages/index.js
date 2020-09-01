@@ -335,8 +335,10 @@ const Hero = () => (
 
 const Search = () => {
 	const [query, setQuery] = React.useState("")
-	const [prefersOutline, setPrefersOutline] = React.useState(false)
-	const [prefersJSX, setPrefersJSX] = React.useState(false)
+
+	const [showVariantOutline, setShowVariantOutline] = React.useState(false)
+	const [copyAsJSX, setCopyAsJSX] = React.useState(false)
+	const [showControls, setShowControls] = React.useState(false)
 
 	return (
 		// NOTE: Uses h-full because of absolute inset-0.
@@ -371,16 +373,16 @@ const Search = () => {
 					<div className="-mx-1.5 px-8 pl-3 flex flex-row h-full">
 
 						<Reset className="focus:outline-none">
-							<button className="px-1.5 flex flex-row items-center" onClick={e => setPrefersOutline(!prefersOutline)}>
+							<button className="px-1.5 flex flex-row items-center" onClick={e => setShowVariantOutline(!showVariantOutline)}>
 								<Apply
-									className="p-2 w-10 h-10 rounded-full overflow-visible"
+									className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
 									style={{
-										color: !prefersOutline ? "var(--purple-500)" : "var(--purple-100)",
-										backgroundColor: !prefersOutline ? "var(--purple-100)" : "var(--purple-500)",
+										color: showVariantOutline &&  "var(--purple-50)",
+										backgroundColor: showVariantOutline && "var(--purple-500)",
 									}}
 								>
 									<Apply className="transition duration-200 ease-in-out">
-										{!prefersOutline ? (
+										{!showVariantOutline ? (
 											<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 												<path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
 											</svg>
@@ -395,12 +397,12 @@ const Search = () => {
 						</Reset>
 
 						<Reset className="focus:outline-none">
-							<button className="px-1.5 flex flex-row items-center" onClick={e => setPrefersJSX(!prefersJSX)}>
+							<button className="px-1.5 flex flex-row items-center" onClick={e => setCopyAsJSX(!copyAsJSX)}>
 								<Apply
-									className="p-2 w-10 h-10 rounded-full overflow-visible"
+									className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
 									style={{
-										color: !prefersJSX ? "var(--purple-500)" : "var(--purple-100)",
-										backgroundColor: !prefersJSX ? "var(--purple-100)" : "var(--purple-500)",
+										color: copyAsJSX &&  "var(--purple-50)",
+										backgroundColor: copyAsJSX && "var(--purple-500)",
 									}}
 								>
 									<Apply className="transition duration-200 ease-in-out">
@@ -412,11 +414,21 @@ const Search = () => {
 							</button>
 						</Reset>
 
-						<div className="px-1.5 flex flex-row items-center">
-							<Apply className="p-1 w-8 h-8 text-purple-500 bg-purple-100 rounded-full">
-								<SVGDotsHorizontalOutline />
-							</Apply>
-						</div>
+						<Reset className="focus:outline-none">
+							<button className="px-1.5 flex flex-row items-center" onClick={e => setShowControls(!showControls)}>
+								<Apply
+									className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
+									style={{
+										color: showControls &&  "var(--purple-50)",
+										backgroundColor: showControls && "var(--purple-500)",
+									}}
+								>
+									<Apply className="transition duration-200 ease-in-out">
+										<SVGDotsHorizontalOutline />
+									</Apply>
+								</Apply>
+							</button>
+						</Reset>
 
 					</div>
 				</div>
@@ -501,24 +513,6 @@ const App = () => (
 )
 
 const Layout = () => {
-	// React.useEffect(() => {
-	// 	const nativeScrollHandler = e => {
-	// 		const html = document.body.parentElement
-	// 		if (window.scrollY < window.innerHeight) {
-	// 			html.classList.remove("bg-gray-50")
-	// 			html.classList.add("bg-theme")
-	// 		} else {
-	// 			html.classList.remove("bg-theme")
-	// 			html.classList.add("bg-gray-50")
-	// 		}
-	// 	}
-	// 	// nativeScrollHandler(e => {})
-	// 	window.addEventListener("scroll", nativeScrollHandler, false)
-	// 	return () => {
-	// 		window.removeEventListener("scroll", nativeScrollHandler, false)
-	// 	}
-	// }, [])
-
 	React.useEffect(() => {
 		if (navigator.userAgent.includes("Chrome")) {
 			document.body.classList.add("chrome")
