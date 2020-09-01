@@ -62,15 +62,23 @@ const CTAButtons = () => (
 	<div className="flex flex-col sm:flex-row w-full sm:w-auto">
 
 		<Reset className="block">
-			<a href="https://github.com/tailwindlabs/heroicons/archive/v0.4.1.zip">
-				<div className="px-5 py-4 bg-gray-100 rounded-4">
+			{/* <a href="https://github.com/tailwindlabs/heroicons/archive/v0.4.1.zip" {...target_blank}> */}
+			<a href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}>
+				<div className="px-5 py-4 bg-gray-200 rounded-3">
 					<p className="whitespace-pre text-center sm:text-left font-medium text-lg leading-none text-gray-800">
 						<span className="inline-flex flex-row items-center">
 							<Apply className="mr-1 w-5 h-5">
-								<SVGDownload />
+								{/* <SVGDownload /> */}
+								<svg viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg">
+									<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
+									<path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
+									<path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" />
+									<path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" />
+									<path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
+								</svg>
 							</Apply>
 							<span style={{ width: "0.5ch" }} />
-							Download Icons
+							Open in Figma
 						</span>
 					</p>
 				</div>
@@ -80,7 +88,7 @@ const CTAButtons = () => (
 		<div className="w-3 h-3" />
 		<Reset className="block">
 			<a href="https://github.com/tailwindlabs/heroicons" {...target_blank}>
-				<div className="px-5 py-4 bg-gray-100 rounded-4">
+				<div className="px-5 py-4 bg-gray-200 rounded-3">
 					<p className="whitespace-pre text-center sm:text-left font-medium text-lg leading-none text-gray-800">
 						<span className="inline-flex flex-row items-center">
 							<Apply className="mr-1 w-5 h-5">
@@ -257,9 +265,11 @@ const Hero = () => (
 					<Attribution />
 				</div>
 
-				<div className="h-8" />
-				<div className="flex flex-row justify-center">
-					<CTAButtons />
+				<div className="hidden sm:block">
+					<div className="h-8" />
+					<div className="flex flex-row justify-center">
+						<CTAButtons />
+					</div>
 				</div>
 
 				<div className="h-16" />
