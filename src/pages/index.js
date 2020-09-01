@@ -316,7 +316,7 @@ const Search = () => (
 					className="px-16 text-xl text-gray-800 bg-white rounded-6"
 					style={{
 						paddingLeft: tw(8 + 6 + 4),
-						boxShadow: "inset 0 0 0 0.5px var(--gray-300), 0 0 0 0.5px var(--gray-300)",
+						boxShadow: boxShadowOutline,
 					}}
 					{...disableAutoCorrect}
 				/>
@@ -331,21 +331,18 @@ const Search = () => (
 	</Apply>
 )
 
-const Icon = () => (
+// TODO: Memoize.
+const MemoIcon = () => (
 	// NOTE: Uses h-full because of absolute inset-0.
 	<Apply className="h-full">
-		<div className="relative" style={{ boxShadow: "inset 0 0 0 0.5px var(--gray-300), 0 0 0 0.5px var(--gray-300)" }}>
+		<div className="relative" style={{ boxShadow: boxShadowOutline }}>
 
 			{/* New */}
-			{!Math.floor(Math.random() * 5) && (
-				<div className="p-4 absolute right-0 top-0">
-					{/* NOTE: animate-* must be wrapped because of a
-					rendering issue with Safari. */}
-					<div className="animate-pulse">
-						<div className="w-3 h-3 bg-gray-300 rounded-full" />
-					</div>
-				</div>
-			)}
+			<div className="p-4 absolute right-0 top-0">
+				{Math.floor(Math.random() * 5) === 0 && (
+					<div className="w-3 h-3 bg-gray-300 rounded-full animate-pulse" />
+				)}
+			</div>
 
 			{/* Icon */}
 			<div className="flex flex-row justify-center items-center h-full">
@@ -392,7 +389,7 @@ const App = () => (
 				<div style={{ height: tw(6) }} />
 				<div className="rounded-6 shadow-2">
 					{/* TODO: Drop overflow-hidden here? */}
-					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 overflow-hidden" style={{ boxShadow: "inset 0 0 0 0.5px var(--gray-300), 0 0 0 0.5px var(--gray-300)" }}>
+					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 overflow-hidden" style={{ boxShadow: boxShadowOutline }}>
 
 						{range(200).map((each, x) => (
 							// TODO: each.name
@@ -403,7 +400,7 @@ const App = () => (
 									{/* 	dispatch={dispatch} */}
 									{/* 	icon={each} */}
 									{/* /> */}
-									<Icon />
+									<MemoIcon />
 								</div>
 							</div>
 						))}
@@ -415,6 +412,23 @@ const App = () => (
 		</div>
 	</Apply>
 )
+
+// // Tests the user agent for a substring.
+// //
+// // https://css-tricks.com/snippets/javascript/test-mac-pc-javascript
+// function testUserAgent(substr) {
+// 	return navigator.userAgent.indexOf(substr) >= 0
+// }
+//
+// const isSafari = testUserAgent("Safari")
+//
+// // NOTE: box-shadow must use 1px or more for spread because
+// // of rendering issues with Safari.
+// const boxShadowOutline = !isSafari
+// 	? "inset 0 0 0 1px var(--gray-200), 0 0 0 1px var(--gray-200)"
+// 	: "inset 0 0 0 0.5px var(--gray-200), 0 0 0 0.5px var(--gray-200)"
+
+const boxShadowOutline = "inset 0 0 0 0.99px var(--gray-200), 0 0 0 0.99px var(--gray-200)"
 
 // hsl(272.5, 100%, 47.5%)
 const Layout = () => (
