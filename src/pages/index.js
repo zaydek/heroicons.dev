@@ -11,7 +11,7 @@ import SVGFlag from "heroicons-0.4.1/solid/Flag"
 
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
-const Logomark = () => (
+const HeroiconsLogo = () => (
 	<div className="relative">
 		<Apply className="h-14">
 			<svg fill="currentColor" viewBox="0 0 240 56" xmlns="http://www.w3.org/2000/svg">
@@ -245,12 +245,12 @@ const Hero = () => (
 	<div className="relative">
 
 		{/* NOTE: Uses px-* here because of backgrounds. */}
-		<div className="px-4 flex flex-row justify-center bg-gray-300" /* style={{ minHeight: px(32 * 16) }} */>
+		<div className="px-4 flex flex-row justify-center bg-gray-300">
 			<div className="w-full" style={{ maxWidth: px(1152) }}>
 				<div className="h-16" />
 
 				<div className="flex flex-row justify-center">
-					<Logomark />
+					<HeroiconsLogo />
 				</div>
 
 				<div className="h-4" />
@@ -269,29 +269,30 @@ const Hero = () => (
 				</div>
 
 				<div className="h-16" />
+				<div style={{ height: tw(18 + 6) }} />
 			</div>
 		</div>
 
-		{/* <Apply className="-z-10"> */}
-		{/* 	<div className="absolute inset-x-0 top-full"> */}
-		{/* 		<Apply className="text-gray-200"> */}
-		{/* 			<svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
-		{/* 				<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" /> */}
-		{/* 			</svg> */}
-		{/* 		</Apply> */}
-		{/* 	</div> */}
-		{/* </Apply> */}
+		<Apply className="-z-10">
+			<div className="absolute inset-x-0 top-full">
+				<Apply className="text-gray-300">
+					<svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
+						<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" />
+					</svg>
+				</Apply>
+			</div>
+		</Apply>
 
-		{/* <Apply className="-z-10"> */}
-		{/* 	<div className="fixed inset-x-0 top-0"> */}
-		{/* 		<div className="h-24 bg-gray-200" /> */}
-		{/* 		<Apply className="text-gray-200"> */}
-		{/* 			<svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
-		{/* 				<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" /> */}
-		{/* 			</svg> */}
-		{/* 		</Apply> */}
-		{/* 	</div> */}
-		{/* </Apply> */}
+		<Apply className="-z-10">
+			<div className="fixed inset-x-0 top-0">
+				<div className="h-24 bg-gray-300" />
+				<Apply className="text-gray-300">
+					<svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg">
+						<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" />
+					</svg>
+				</Apply>
+			</div>
+		</Apply>
 
 	</div>
 )
@@ -362,7 +363,7 @@ function range(max) {
 }
 
 const App = () => (
-	<Apply /* style={{ marginTop: tw(-(18 + 6)) }} */>
+	<Apply style={{ marginTop: tw(-(18 + 6)) }}>
 		{/* NOTE: Uses items-start because of sticky top-*. */}
 		<div className="flex flex-row justify-center items-start">
 			<div className="w-full" style={{ maxWidth: px(1152) }}>
@@ -370,11 +371,11 @@ const App = () => (
 				{/* Search */}
 				<div className="-mt-4 pt-4 sticky top-0 z-10">
 					<div className="-mx-4 absolute inset-0 top-0">
-						<div className="h-4 bg-gray-200" />
-						<div className="h-9 bg-gray-200" />
+						<div className="h-4 bg-gray-300" />
+						<div className="h-9 bg-gray-300" />
 						{/* NOTE: bg-gradient-to-b ... to-transparent
 						does not work because of Safari. */}
-						<div className="h-9" style={{ backgroundImage: "linear-gradient(var(--gray-200), #ffffff00)" }} />
+						<div className="h-9" style={{ backgroundImage: "linear-gradient(var(--gray-300), #ffffff00)" }} />
 					</div>
 					<div className="rounded-6 shadow-2">
 						<div className="rounded-6" style={{ height: tw(18) }}>
@@ -436,6 +437,7 @@ const Layout = () => {
 			<header>
 				<Hero />
 			</header>
+
 			<main className="px-4">
 				<App />
 			</main>
