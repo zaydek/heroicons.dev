@@ -47,7 +47,7 @@ const AbsoluteExternalLinks = () => (
 			<a href="TODO" {...target_blank}>
 				<p className="twemoji px-4 py-0.5 pt-4 font-medium no-underline hover:underline text-purple-50">
 					<span className="inline-flex flex-row items-center">
-						<Apply className="relative w-6 h-6 overflow-visible">
+						<Apply className="w-6 h-6 overflow-visible">
 							<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
 								<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
 								<path fill="#664500" d="M18 21.849c-2.966 0-4.935-.346-7.369-.819-.557-.106-1.638 0-1.638 1.638 0 3.275 3.763 7.369 9.007 7.369s9.007-4.094 9.007-7.369c0-1.638-1.082-1.745-1.638-1.638-2.434.473-4.402.819-7.369.819" />
