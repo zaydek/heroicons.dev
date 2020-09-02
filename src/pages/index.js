@@ -27,7 +27,8 @@ const Media = Apply
 
 const AbsoluteExternalLinks = () => (
 	<Media className="hidden lg:block">
-		<nav className="-my-0.5 absolute left-0 top-0">
+		{/* NOTE: Must use z-20 for hover events to work. */}
+		<nav className="-my-0.5 absolute left-0 top-0 z-20">
 
 			<style>{`
 
@@ -278,7 +279,7 @@ const Hero = ({ state, dispatch }) => (
 
 		{/* NOTE: Use px-* here because of backgrounds. */}
 		<header className="px-4 sm:px-6 flex flex-row justify-center bg-theme">
-			<div className="w-full max-w-screen-xl">
+			<div className="w-full max-w-screen-xl z-10">
 				<div className="h-16" />
 
 				<div className="flex flex-row justify-center">
@@ -316,19 +317,29 @@ const Hero = ({ state, dispatch }) => (
 			</Apply>
 		</div>
 
+		<div className="fixed inset-x-0 top-0 pointer-events-none" style={{ transform: "translateZ(0)" }}>
+			<div className="h-24 bg-theme" />
+			<Apply className="text-theme">
+				<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" />
+				</svg>
+			</Apply>
+		</div>
+
 		{/* Background (CSS) */}
-		<style>{`
-
-html {
-	/* https://yoksel.github.io/url-encoder */
-	background-attachment: fixed;
-	background-image: url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 16 2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H0V1C1.33301 1.33398 4 2 8 2C12 2 14.667 1.33398 16 1V0Z' /%3E%3C/svg%3E");
-	background-repeat: no-repeat;
-	background-size: contain;
-}
-
-`}
-		</style>
+		{/* */}
+		{/* https://yoksel.github.io/url-encoder */}
+		{/* 		<style>{` */}
+		{/*  */}
+		{/* html { */}
+		{/* 	background-attachment: fixed; */}
+		{/* 	background-image: url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 16 2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H0V1C1.33301 1.33398 4 2 8 2C12 2 14.667 1.33398 16 1V0Z' /%3E%3C/svg%3E"); */}
+		{/* 	background-repeat: no-repeat; */}
+		{/* 	background-size: contain; */}
+		{/* } */}
+		{/*  */}
+		{/* `} */}
+		{/* 		</style> */}
 
 	</div>
 )
@@ -663,7 +674,7 @@ const IconApp = ({ state, dispatch }) => (
 
 			{/* Search */}
 			<div className="-mt-4 pt-4 sticky top-0 z-10">
-				<div className="-mx-4 absolute inset-x-0 top-0">
+				<div className="-mx-2 absolute inset-x-0 top-0">
 					<div className="h-4 bg-theme" />
 					<div className="h-9 bg-theme" />
 				</div>
@@ -680,16 +691,10 @@ const IconApp = ({ state, dispatch }) => (
 			{/* Icons */}
 			<div className="h-6" />
 			<div className="rounded-6 shadow-2">
+				{/* PERF: Remove overflow-hidden if possible;
+				propagate border-radius to <MemoIcon>. */}
 				<div className="bg-white rounded-6 overflow-hidden" style={{ minHeight: `calc(100vh - ${tw(4 + 18 + 6 + 24)})` }}>
-					{/* TODO: grid-cols-* depends on <aside> */}
-					<div
-						className={
-							"grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-5 xl:grid-cols-6"
-							// !state.controls.show
-							// 	? "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
-							// 	: "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
-						}
-					>
+					<div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-5 xl:grid-cols-6">
 						{state.search.results.map((each, x) => (
 							<div key={each.name} className="pb-full relative">
 								<div className="absolute inset-0">
