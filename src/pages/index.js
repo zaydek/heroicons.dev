@@ -379,7 +379,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 		}
 	}, [query, dispatch])
 
-	const [showVariantOutline, setShowVariantOutline] = React.useState(false)
+	// const [showVariantOutline, setShowVariantOutline] = React.useState(false)
 	const [copyAsJSX, setCopyAsJSX] = React.useState(false)
 	const [showControls, setShowControls] = React.useState(false)
 
@@ -387,22 +387,13 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 		// NOTE: Use h-full because of absolute context.
 		<div className="relative h-full">
 
-			{/* 			<style>{` */}
-			{/*  */}
-			{/* html { */}
-			{/* 	scroll-behavior: smooth; */}
-			{/* } */}
-			{/*  */}
-			{/* `} */}
-			{/* 			</style> */}
-
 			{/* LHS */}
 			<div className="absolute left-0 inset-y-0">
 				<div className="px-8 pr-4 flex flex-row h-full">
 					<div className="flex flex-row items-center">
 						<Apply
 							className="w-6 h-6 text-gray-400"
-							style={{ color: inputElementFocused && "var(--theme)" }}
+							style={{ color: inputElementFocused && "var(--purple-500)" }}
 						>
 							<SVGSearchOutline />
 						</Apply>
@@ -416,11 +407,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 					<input
 						ref={inputRef}
 						className="px-16 text-xl placeholder-gray-400 text-gray-800 bg-white rounded-6"
-						style={{
-							paddingLeft: tw(8 + 6 + 4),
-							// boxShadow: inputElementFocused && "inset 0 0 0 3px hsl(200, 100%, 75%)",
-						}}
-						// placeholder="Try searching ‘new’"
+						style={{ paddingLeft: tw(8 + 6 + 4) }}
 						placeholder="Search"
 						value={query}
 						onFocus={e => setInputElementFocused(true)}
@@ -438,16 +425,26 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 					{/* 1st button */}
 					<Reset className="focus:outline-none">
-						<button className="px-1.5 flex flex-row items-center" onClick={e => setShowVariantOutline(!showVariantOutline)}>
+						<button
+							className="px-1.5 flex flex-row items-center"
+							onClick={e => (
+								dispatch({
+									type: "UPDATE_CONTROLS",
+									controlType: "variant",
+									key: !state.controls.variant.solid ? "solid" : "outline",
+									value: true,
+								})
+							)}
+						>
 							<Apply
 								className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
 								style={{
-									color: showVariantOutline && "var(--purple-50)",
-									backgroundColor: showVariantOutline && "var(--purple-500)",
+									color: state.controls.variant.outline && "var(--purple-50)",
+									backgroundColor: state.controls.variant.outline && "var(--purple-500)",
 								}}
 							>
 								<Apply className="transition duration-200 ease-in-out">
-									{!showVariantOutline ? (
+									{!state.controls.variant.outline ? (
 										<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 											<path strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
 										</svg>
@@ -529,7 +526,9 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 	)
 }, (prev, next) => {
 	const ok = (
+		// NOTE: search.query updates search.results.
 		prev.state.search.query === next.state.search.query &&
+		prev.state.controls === next.state.controls &&
 		prev.dispatch === next.dispatch
 	)
 	return ok
@@ -709,7 +708,6 @@ const IconApp = ({ state, dispatch }) => (
 const Layout = () => {
 	// TODO: Add support for syncing to localStorage.
 	const [state, dispatch] = useIconsReducer()
-	console.log({ query: state.search.query })
 
 	React.useEffect(() => {
 		if (navigator.userAgent.includes("Chrome")) {
@@ -717,6 +715,8 @@ const Layout = () => {
 			html.classList.add("detected-chrome")
 		}
 	}, [])
+
+	// console.log(state)
 
 	return (
 		<div>

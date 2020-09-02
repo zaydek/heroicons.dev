@@ -59,36 +59,31 @@ const actions = state => ({
 			.trim()
 			.toLowerCase()
 			.replace(/ +/g, "-")
-
 		const safe = state.search.query.safe
-
-		// "":
 		if (safe === "") {
 			state.search.results = dataset
 			return
 		}
-
-		// "new":
 		if (safe === "new") {
 			state.search.results = dataset.filter(each => each.new)
 			return
 		}
-
 		state.search.results = dataset.filter(each => {
 			return each.tags.some(each => {
 				return each.startsWith(safe)
 			})
 		})
-		// console.log(state.search.results)
-
-		// state.results = dataset.filter(each => {
-		// 	// each.searchIndex = each.name.indexOf(state.form.search.safe)
-		// 	// return each.searchIndex >= 0
-		// 	// FIXME
-		// 	return true
-		// })
-
 	},
+	updateControls(controlType, key, value) {
+		// XOR:
+		if (typeof value === "boolean") {
+			Object.keys(state.controls[controlType]).map(each => {
+				state.controls[controlType][each] = false
+			})
+		}
+		state.controls[controlType][key] = value
+	},
+
 	// showControls() {
 	// 	state.controls.show
 	// },
@@ -107,6 +102,9 @@ function IconsReducer(state, action) {
 	switch (action.type) {
 	case "SEARCH":
 		actions(state).search(action.query)
+		return
+	case "UPDATE_CONTROLS":
+		actions(state).updateControls(action.controlType, action.key, action.value)
 		return
 	// case "TOGGLE_CONTROLS":
 	// 	actions(state).toggleControls()
