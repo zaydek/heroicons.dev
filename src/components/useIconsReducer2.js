@@ -1,4 +1,4 @@
-import originalDataset from "data/dataset"
+import dataset from "data/dataset"
 import React from "react"
 import { useImmerReducer } from "use-immer"
 
@@ -10,10 +10,11 @@ function shortHash() {
 	return Math.random().toString(16).slice(2, 6)
 }
 
-const dataset = originalDataset
-
 const initialState = {
-	query: "",
+	search: {
+		query: "",
+		results: dataset, // NOTE: Do not marshal to localStorage.
+	},
 	controls: {
 		show: true,
 		variant: {
@@ -49,6 +50,22 @@ const initialState = {
 }
 
 const actions = state => ({
+	search(query) {
+		state.query = query
+		// state.results =
+	},
+	// showControls() {
+	// 	state.controls.show
+	// },
+	// showControls() {
+	// 	// ...
+	// },
+	// emitNotification(action.__type, action.description, action.icon) {
+	// 	// ...
+	// },
+	// hideNotification() {
+	// 	// ...
+	// },
 })
 
 function IconsReducer(state, action) {
@@ -56,18 +73,18 @@ function IconsReducer(state, action) {
 	case "SEARCH":
 		actions(state).search(action.query)
 		return
-	case "TOGGLE_CONTROLS":
-		actions(state).showControls()
-		return
-	case "UPDATE_CONTROLS":
-		actions(state).showControls()
-		return
-	case "EMIT_NOTIFICATION":
-		actions(state).emitNotification(action.__type, action.description, action.icon)
-		return
-	case "HIDE_NOTIFICATION":
-		actions(state).hideNotification()
-		return
+	// case "TOGGLE_CONTROLS":
+	// 	actions(state).toggleControls()
+	// 	return
+	// case "UPDATE_CONTROLS":
+	// 	actions(state).updateControls(action.__type, )
+	// 	return
+	// case "EMIT_NOTIFICATION":
+	// 	actions(state).emitNotification(action.__type, action.description, action.icon)
+	// 	return
+	// case "HIDE_NOTIFICATION":
+	// 	actions(state).hideNotification()
+	// 	return
 	default:
 		throw new Error(`IconsReducer: type mismatch; action.type=${action.type}`)
 	}

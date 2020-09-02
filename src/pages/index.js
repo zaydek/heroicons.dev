@@ -5,6 +5,7 @@ import Reset from "lib/x/Reset"
 import target_blank from "lib/x/target_blank"
 import Transition from "lib/x/Transition"
 import tw from "lib/x/twToRem"
+import useIconsReducer from "components/useIconsReducer2" // FIXME
 
 import SVGCode from "heroicons-0.4.1/solid/Code"
 import SVGCog from "heroicons-0.4.1/solid/Cog"
@@ -268,7 +269,7 @@ const Sponsors = () => (
 	</div>
 )
 
-const Hero = () => (
+const MemoHero = React.memo((state, dispatch) => (
 	<div className="relative">
 
 		<AbsoluteExternalLinks />
@@ -334,7 +335,9 @@ const Hero = () => (
 		</div>
 
 	</div>
-)
+), (prev, next) => {
+	return true
+})
 
 const Search = () => {
 	const [query, setQuery] = React.useState("")
@@ -564,7 +567,7 @@ const MemoIcon = React.memo(() => (
 	</article>
 ))
 
-const IconApp = () => (
+const MemoIconApp = React.memo(({ state, dispatch }) => (
 	<div className="px-4 sm:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_TW) }}>
 
 		{/* LHS */}
@@ -619,9 +622,14 @@ const IconApp = () => (
 		{/* </Media> */}
 
 	</div>
-)
+), (prev, next) => {
+	return true
+})
 
 const Layout = () => {
+	// TODO: Add support for syncing to localStorage.
+	const [state, dispatch] = useIconsReducer()
+
 	React.useEffect(() => {
 		if (navigator.userAgent.includes("Chrome")) {
 			const html = document.body.parentElement
@@ -654,8 +662,14 @@ html.detected-chrome {
 `}
 			</style>
 
-			<Hero />
-			<IconApp />
+			<MemoHero
+				state={state}
+				dispatch={dispatch}
+			/>
+			<MemoIconApp
+				state={state}
+				dispatch={dispatch}
+			/>
 			<div className="h-24" />
 
 		</div>
