@@ -269,7 +269,7 @@ const Sponsors = () => (
 	</div>
 )
 
-const MemoHero = React.memo((state, dispatch) => (
+const Hero = ({ state, dispatch }) => (
 	<div className="relative">
 
 		<AbsoluteExternalLinks />
@@ -335,12 +335,23 @@ const MemoHero = React.memo((state, dispatch) => (
 		</div>
 
 	</div>
-), (prev, next) => {
-	return true
-})
+)
 
-const Search = () => {
-	const [query, setQuery] = React.useState("")
+const MemoSearch = React.memo(({ state, dispatch }) => {
+	const [query, setQuery] = React.useState(() => state.search.query)
+
+	// Debounces search (15ms).
+	React.useEffect(() => {
+		const id = setTimeout(() => {
+			dispatch({
+				type: "SEARCH",
+				query,
+			})
+		}, 15)
+		return () => {
+			clearTimeout(id)
+		}
+	}, [query, dispatch])
 
 	const [showVariantOutline, setShowVariantOutline] = React.useState(false)
 	const [copyAsJSX, setCopyAsJSX] = React.useState(false)
@@ -469,9 +480,15 @@ const Search = () => {
 
 		</div>
 	)
-}
+}, (prev, next) => {
+	const ok = (
+		prev.state.search.query === next.state.search.query &&
+		prev.dispatch === next.dispatch
+	)
+	return ok
+})
 
-const Controls = () => (
+const MemoControls = () => (
 	<div>
 		<br />
 		<br />
@@ -541,7 +558,7 @@ const Controls = () => (
 	// </div>
 )
 
-const MemoIcon = React.memo(() => (
+const MemoIcon = React.memo((/* TODO */) => (
 	// NOTE: Use h-full because of absolute context.
 	<article className="relative h-full" style={{ boxShadow: "inset 0 0 0 var(--box-shadow-spread) var(--gray-200), 0 0 0 var(--box-shadow-spread) var(--gray-200)" }}>
 
@@ -567,7 +584,7 @@ const MemoIcon = React.memo(() => (
 	</article>
 ))
 
-const MemoIconApp = React.memo(({ state, dispatch }) => (
+const IconApp = ({ state, dispatch }) => (
 	<div className="px-4 sm:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_TW) }}>
 
 		{/* LHS */}
@@ -581,7 +598,10 @@ const MemoIconApp = React.memo(({ state, dispatch }) => (
 				</div>
 				<div className="rounded-6 shadow-2">
 					<div className="rounded-6" style={{ height: tw(18) }}>
-						<Search />
+						<MemoSearch
+							state={state}
+							dispatch={dispatch}
+						/>
 					</div>
 				</div>
 			</div>
@@ -615,20 +635,22 @@ const MemoIconApp = React.memo(({ state, dispatch }) => (
 		{/* 		<div className="rounded-6 shadow-2"> */}
 		{/* 			{/* TODO: Put py-* here. */} */}
 		{/* 			<div className="w-96 bg-white rounded-6"> */}
-		{/* 				<Controls /> */}
+		{/* 				<MemoControls */}
+		{/* 					state={state} */}
+		{/* 					dispatch={dispatch} */}
+		{/* 				/> */}
 		{/* 			</div> */}
 		{/* 		</div> */}
 		{/* 	</aside> */}
 		{/* </Media> */}
 
 	</div>
-), (prev, next) => {
-	return true
-})
+)
 
 const Layout = () => {
 	// TODO: Add support for syncing to localStorage.
 	const [state, dispatch] = useIconsReducer()
+	console.log({ query: state.search.query })
 
 	React.useEffect(() => {
 		if (navigator.userAgent.includes("Chrome")) {
@@ -662,11 +684,11 @@ html.detected-chrome {
 `}
 			</style>
 
-			<MemoHero
+			<Hero
 				state={state}
 				dispatch={dispatch}
 			/>
-			<MemoIconApp
+			<IconApp
 				state={state}
 				dispatch={dispatch}
 			/>

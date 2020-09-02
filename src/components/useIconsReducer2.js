@@ -51,7 +51,7 @@ const initialState = {
 
 const actions = state => ({
 	search(query) {
-		state.query = query
+		state.search.query = query
 		// state.results =
 	},
 	// showControls() {
