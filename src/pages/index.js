@@ -239,31 +239,33 @@ const Sponsors = () => (
 
 		<div className="-mx-1.5 -my-1 flex flex-row flex-wrap justify-center items-center">
 
-			{range(6).map(each => (
-				<div className="mx-2 my-1.5 relative">
-					<div
-						className="h-14 bg-purple-50 rounded-full"
-						style={{
-							"--bg-opacity": 0.1875,
-							width: tw(36 + Math.floor(Math.random() * (48 - 36))),
-						}}
-					/>
-					<Media className="hidden xl:block">
-						<div className="p-2 absolute inset-x-0 top-full">
-							<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-75">
-								{/* <span className="inline-flex flex-row items-center"> */}
-								{/* 	QAWolf */}
-								{/* 	<span style={{ width: "0.33ch" }} /> */}
-								{/* 	<Apply className="w-3 h-3 opacity-75"> */}
-								{/* 		<SVGExternalLink /> */}
-								{/* 	</Apply> */}
-								{/* </span> */}
-								QAWolf
-							</p>
-						</div>
-					</Media>
-				</div>
-			))}
+			{React.useMemo(() => (
+				range(6).map(each => (
+					<div className="mx-2 my-1.5 relative">
+						<div
+							className="h-14 bg-purple-50 rounded-full"
+							style={{
+								"--bg-opacity": 0.1875,
+								width: tw(36 + Math.floor(Math.random() * (48 - 36))),
+							}}
+						/>
+						<Media className="hidden xl:block">
+							<div className="p-2 absolute inset-x-0 top-full">
+								<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-75">
+									{/* <span className="inline-flex flex-row items-center"> */}
+									{/* 	QAWolf */}
+									{/* 	<span style={{ width: "0.33ch" }} /> */}
+									{/* 	<Apply className="w-3 h-3 opacity-75"> */}
+									{/* 		<SVGExternalLink /> */}
+									{/* 	</Apply> */}
+									{/* </span> */}
+									QAWolf
+								</p>
+							</div>
+						</Media>
+					</div>
+				))
+			), [])}
 
 		</div>
 
@@ -308,27 +310,16 @@ const Hero = ({ state, dispatch }) => (
 
 		<div className="absolute inset-x-0 top-full pointer-events-none">
 			<Apply className="text-theme">
-				{/* <svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
-				{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" /> */}
-				{/* </svg> */}
-				{/* <svg fill="currentColor" viewBox="0 0 10 1" xmlns="http://www.w3.org/2000/svg"> */}
-				{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M5 0.999999C2.5 1 0.625 0.333333 0 0L10 -1.74846e-06C9.27083 0.333332 7.5 0.999999 5 0.999999Z" /> */}
-				{/* </svg> */}
 				<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
 					<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" />
 				</svg>
 			</Apply>
 		</div>
 
-		<div className="fixed inset-x-0 top-0 pointer-events-none">
+		{/* TODO: Change to background? */}
+		<div className="fixed inset-x-0 top-0 pointer-events-none" style={{ transform: "translateZ(0)" }}>
 			<div className="h-24 bg-theme" />
 			<Apply className="text-theme">
-				{/* <svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
-				{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" /> */}
-				{/* </svg> */}
-				{/* <svg fill="currentColor" viewBox="0 0 10 1" xmlns="http://www.w3.org/2000/svg"> */}
-				{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M5 0.999999C2.5 1 0.625 0.333333 0 0L10 -1.74846e-06C9.27083 0.333332 7.5 0.999999 5 0.999999Z" /> */}
-				{/* </svg> */}
 				<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
 					<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" />
 				</svg>
@@ -393,7 +384,10 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							className="w-6 h-6 text-gray-400"
 							style={{ color: inputElementFocused && "var(--purple-500)" }}
 						>
-							<SVGSearchOutline />
+							{/* <SVGSearchOutline /> */}
+							<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.4} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+							</svg>
 						</Apply>
 					</div>
 				</div>
@@ -492,38 +486,38 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 					</Reset>
 
 					{/* Button */}
-					<Reset className="focus:outline-none">
-						<button
-							className="px-1.5 hidden md:flex md:flex-row md:items-center"
-							// onClick={e => setShowControls(!showControls)}
-							onClick={e => (
-								dispatch({
-									type: "TOGGLE_SHOW_CONTROLS",
-								})
-							)}
-						>
-							<Transition
-								on={state.controls.show}
-								className="transition duration-200 ease-in-out"
-								from="transform rotate-0"
-								to="transform rotate-90"
-							>
-								<div>
-									<Apply
-										className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
-										style={{
-											color: state.controls.show && "var(--purple-50)",
-											backgroundColor: state.controls.show && "var(--purple-500)",
-										}}
-									>
-										<Apply className="transition duration-200 ease-in-out">
-											<SVGCog />
-										</Apply>
-									</Apply>
-								</div>
-							</Transition>
-						</button>
-					</Reset>
+					{/* <Reset className="focus:outline-none"> */}
+					{/* 	<button */}
+					{/* 		className="px-1.5 hidden lg:flex lg:flex-row lg:items-center" */}
+					{/* 		// onClick={e => setShowControls(!showControls)} */}
+					{/* 		onClick={e => ( */}
+					{/* 			dispatch({ */}
+					{/* 				type: "TOGGLE_SHOW_CONTROLS", */}
+					{/* 			}) */}
+					{/* 		)} */}
+					{/* 	> */}
+					{/* 		<Transition */}
+					{/* 			on={state.controls.show} */}
+					{/* 			className="transition duration-200 ease-in-out" */}
+					{/* 			from="transform rotate-0" */}
+					{/* 			to="transform rotate-90" */}
+					{/* 		> */}
+					{/* 			<div> */}
+					{/* 				<Apply */}
+					{/* 					className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible" */}
+					{/* 					style={{ */}
+					{/* 						color: state.controls.show && "var(--purple-50)", */}
+					{/* 						backgroundColor: state.controls.show && "var(--purple-500)", */}
+					{/* 					}} */}
+					{/* 				> */}
+					{/* 					<Apply className="transition duration-200 ease-in-out"> */}
+					{/* 						<SVGCog /> */}
+					{/* 					</Apply> */}
+					{/* 				</Apply> */}
+					{/* 			</div> */}
+					{/* 		</Transition> */}
+					{/* 	</button> */}
+					{/* </Reset> */}
 
 				</div>
 			</div>
@@ -542,10 +536,6 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 const MemoControls = React.memo(() => (
 	<div>
-		<br />
-		<br />
-		<br />
-		<br />
 		<br />
 		<br />
 		<br />
@@ -665,7 +655,7 @@ const IconApp = ({ state, dispatch }) => (
 	<div className="px-4 sm:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_TW) }}>
 
 		{/* LHS */}
-		<main className="flex-1 w-full !max-w-screen-xl z-10" style={{ maxWidth: px(192 * 6) }}>
+		<main className="flex-1 w-full !max-w-screen-xl z-10" style={{ maxWidth: px(192 * 6) /* , transform: "translateZ(0)" */ }}>
 
 			{/* Search */}
 			<div className="-mt-4 pt-4 sticky top-0 z-10">
@@ -690,9 +680,10 @@ const IconApp = ({ state, dispatch }) => (
 					{/* TODO: grid-cols-* depends on <aside> */}
 					<div
 						className={
-							!state.controls.show
-								? "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
-								: "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
+							"grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5"
+							// !state.controls.show
+							// 	? "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+							// 	: "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
 						}
 					>
 						{state.search.results.map((each, x) => (
@@ -712,26 +703,16 @@ const IconApp = ({ state, dispatch }) => (
 		</main>
 
 		{/* Controls */}
-		{state.controls.show && (
-			<>
-				<Media className="hidden md:block">
-					<div className="flex-shrink-0 w-6" />
-				</Media>
-				<Media className="hidden md:block">
-					<aside className="-mt-4 pt-4 sticky top-0">
-						<div className="rounded-6 shadow-2">
-							{/* TODO: Put py-* here. */}
-							<div className="w-96 bg-white rounded-6">
-								<MemoControls
-									state={state}
-									dispatch={dispatch}
-								/>
-							</div>
-						</div>
-					</aside>
-				</Media>
-			</>
-		)}
+		<aside className="-mt-4 pl-6 pt-4 sticky top-0 hidden lg:block">
+			<div className="rounded-6 shadow-2">
+				<div className="w-96 bg-white rounded-6">
+					<MemoControls
+						state={state}
+						dispatch={dispatch}
+					/>
+				</div>
+			</div>
+		</aside>
 
 	</div>
 )
