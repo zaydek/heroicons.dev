@@ -339,7 +339,17 @@ const Hero = ({ state, dispatch }) => (
 )
 
 const MemoSearch = React.memo(({ state, dispatch }) => {
+	const inputRef = React.useRef(null)
 	const [query, setQuery] = React.useState(() => state.search.query.user)
+
+	const mounted = React.useRef(false)
+	React.useEffect(() => {
+		if (!mounted.current) {
+			mounted.current = true
+			return
+		}
+		window.scrollTo(0, document.documentElement.scrollTop + inputRef.current.getBoundingClientRect().y - 24 /* tw(6) */)
+	}, [query])
 
 	// Debounces search.
 	React.useEffect(() => {
@@ -376,6 +386,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 			{/* Search */}
 			<Reset className="block w-full h-full focus:outline-none">
 				<input
+					ref={inputRef}
 					className="px-16 text-xl placeholder-gray-400 text-gray-800 bg-white rounded-6"
 					style={{ paddingLeft: tw(8 + 6 + 4) }}
 					// placeholder="Try searching ‘new’"
@@ -676,6 +687,10 @@ const Layout = () => {
 		<div>
 
 			<style>{`
+
+html {
+	scroll-behavior: smooth;
+}
 
 html {
 	--theme: hsl(270, 100%, 50%);
