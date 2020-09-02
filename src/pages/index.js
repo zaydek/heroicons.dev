@@ -642,7 +642,8 @@ const IconApp = () => (
 					{/* Icons */}
 					<div className="h-6" />
 					<div className="rounded-6 shadow-2">
-						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 bg-white rounded-6 overflow-hidden" /* style={{ transform: "translateZ(0)" }} */>
+						{/* TODO: Dependent on <aside> */}
+						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 bg-white rounded-6 overflow-hidden" /* style={{ transform: "translateZ(0)" }} */>
 
 							{range(200).map((each, x) => (
 								// TODO: each.name
@@ -672,13 +673,6 @@ const IconApp = () => (
 					</div>
 				</aside>
 			</Apply>
-
-			{/* <div className="hidden sm:block"> */}
-			{/* 	<div className="h-8" /> */}
-			{/* 	<div className="flex flex-row justify-center"> */}
-			{/* 		<CTAButtons /> */}
-			{/* 	</div> */}
-			{/* </div> */}
 
 		</div>
 	</Apply>
