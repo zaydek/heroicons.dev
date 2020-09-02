@@ -616,23 +616,24 @@ const IconApp = ({ state, dispatch }) => (
 			{/* Icons */}
 			<div className="h-6" />
 			<div className="rounded-6 shadow-2">
-				{/* TODO: grid-cols-* depends on <aside> */}
-				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 overflow-hidden" /* style={{ transform: "translateZ(0)" }} */>
-					{state.search.results.map((each, x) => (
-						<div key={each.name} className="pb-full relative">
-							<div className="absolute inset-0">
-								<MemoIcon
-									variantKey={
-										Object
-											.keys(state.controls.variant)
-											.find(each => state.controls.variant[each] === true)
-										}
-									icon={each}
-								/>
+				<div className="bg-white rounded-6 overflow-hidden" style={{ minHeight: `calc(100vh - ${tw(4 + 18 + 6 + 24)})` }}>
+					{/* TODO: grid-cols-* depends on <aside> */}
+					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+						{state.search.results.map((each, x) => (
+							<div key={each.name} className="pb-full relative">
+								<div className="absolute inset-0">
+									<MemoIcon
+										variantKey={
+											Object
+												.keys(state.controls.variant)
+												.find(each => state.controls.variant[each] === true)
+											}
+										icon={each}
+									/>
+								</div>
 							</div>
-						</div>
-					))}
-
+						))}
+					</div>
 				</div>
 			</div>
 
