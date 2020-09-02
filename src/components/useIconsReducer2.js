@@ -14,7 +14,7 @@ const initialState = {
 	search: {
 		query: {
 			user: "",
-			internal: "",
+			safe: "",
 		},
 		results: dataset, // NOTE: Do not marshal to localStorage.
 	},
@@ -55,24 +55,26 @@ const initialState = {
 const actions = state => ({
 	search(query) {
 		state.search.query.user = query
-		state.search.query.internal = query
+		state.search.query.safe = query
 			.trim()
 			.toLowerCase()
 			.replace(/ +/g, "-")
 
+		const safe = state.search.query.safe
+
 		// "":
-		if (state.search.query.internal === "") {
+		if (safe === "") {
 			state.search.results = dataset
 			return
 		}
 
 		// "new":
-		if (state.search.query.internal === "new") {
+		if (safe === "new") {
 			state.search.results = dataset.filter(each => each.new)
 			return
 		}
 
-		// state.results = dataset.filter(each => each.name)
+		state.search.results = dataset.filter(each => each.name.includes(safe))
 
 		// state.results = dataset.filter(each => {
 		// 	// each.searchIndex = each.name.indexOf(state.form.search.safe)

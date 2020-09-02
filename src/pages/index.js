@@ -662,7 +662,7 @@ const IconApp = ({ state, dispatch }) => (
 const Layout = () => {
 	// TODO: Add support for syncing to localStorage.
 	const [state, dispatch] = useIconsReducer()
-	console.log({ query: state.search.query.internal })
+	console.log({ query: state.search.query })
 
 	React.useEffect(() => {
 		if (navigator.userAgent.includes("Chrome")) {
