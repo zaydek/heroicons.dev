@@ -316,15 +316,18 @@ const Hero = ({ state, dispatch }) => (
 			</Apply>
 		</div>
 
-		{/* TODO: Change to background? */}
-		<div className="fixed inset-x-0 top-0 pointer-events-none" style={{ transform: "translateZ(0)" }}>
-			<div className="h-24 bg-theme" />
-			<Apply className="text-theme">
-				<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
-					<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" />
-				</svg>
-			</Apply>
-		</div>
+		<style>{`
+
+html {
+	/* https://yoksel.github.io/url-encoder */
+	background-attachment: fixed;
+	background-image: url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 16 2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H0V1C1.33301 1.33398 4 2 8 2C12 2 14.667 1.33398 16 1V0Z' /%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+`}
+		</style>
 
 	</div>
 )
@@ -610,7 +613,7 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 
 		{/* New */}
 		{icon.new && (
-			<div className="p-4 absolute right-0 top-0">
+			<div className="p-3 absolute right-0 top-0">
 				<div className="w-3 h-3 bg-purple-500 rounded-full" />
 			</div>
 		)}
@@ -638,10 +641,10 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 		</div>
 
 		{/* Text */}
-		<div className="pb-4 absolute inset-x-0 bottom-0">
-			<div className="flex flex-row justify-center">
+		<div className="py-3 absolute inset-x-0 bottom-0">
+			<div className="px-2 flex flex-row justify-center">
 				<Reset className="subpixel-antialiased">
-					<p className="!text-sm tracking-wide leading-none text-gray-800" style={{ fontSize: px(13) }}>
+					<p className="!text-sm tracking-wide leading-none truncate text-gray-800" style={{ fontSize: px(13) }}>
 						{icon.name}
 					</p>
 				</Reset>
@@ -680,7 +683,7 @@ const IconApp = ({ state, dispatch }) => (
 					{/* TODO: grid-cols-* depends on <aside> */}
 					<div
 						className={
-							"grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5"
+							"grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-5 xl:grid-cols-6"
 							// !state.controls.show
 							// 	? "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
 							// 	: "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
