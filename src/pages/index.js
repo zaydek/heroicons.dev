@@ -399,10 +399,12 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							className="w-6 h-6 text-gray-400"
 							style={{ color: inputElementFocused && "var(--purple-500)" }}
 						>
-							{/* <SVGSearchOutline /> */}
-							<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.4} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-							</svg>
+							<Apply className="transition duration-200 ease-in-out">
+								{/* <SVGSearchOutline /> */}
+								<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+								</svg>
+							</Apply>
 						</Apply>
 					</div>
 				</div>
@@ -414,7 +416,10 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 					<input
 						ref={inputRef}
 						className="px-16 text-xl placeholder-gray-400 text-gray-800 bg-white rounded-6"
-						style={{ paddingLeft: tw(8 + 6 + 4) }}
+						style={{
+							paddingLeft: tw(8 + 6 + 4),
+							paddingRight: tw(4 + 6 + 3 + 6 + 8),
+						}}
 						placeholder="Search"
 						value={query}
 						onFocus={e => setInputElementFocused(true)}
@@ -428,7 +433,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 			{/* RHS */}
 			<div className="absolute right-0 inset-y-0">
-				<div className="-mx-1.5 px-8 pl-3 flex flex-row h-full">
+				<div className="-mx-1.5 px-8 pl-4 flex flex-row h-full">
 
 					{/* Button */}
 					<Reset className="focus:outline-none">
@@ -476,8 +481,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 								}}
 							>
 								<Apply className="transition duration-200 ease-in-out">
-									{/* NOTE: Use SVGs not React components
-									because React remounts components. *}
+									{/* NOTE: Use SVGs not React components because React remounts components. *}
 									{/* {!copyAsJSX ? ( */}
 									{/* 	<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
 									{/* 		<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /> */}
@@ -568,55 +572,6 @@ const MemoControls = React.memo(() => (
 		<br />
 		<br />
 	</div>
-
-	// <div>
-	//
-	// 	<section className="px-6 py-4">
-	// 		<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
-	// 			<span className="inline-flex flex-row justify-between w-full">
-	// 				<span>
-	// 					COPY TO CLIPBOARD
-	// 				</span>
-	// 				<span>
-	// 					OR DOWNLOAD
-	// 				</span>
-	// 			</span>
-	// 		</h6>
-	// 		<div className="h-4" />
-	// 		<div className="flex flex-row justify-between items-center">
-	// 			<div className="space-x-2 flex flex-row">
-	// 				<div className="w-10 h-10 bg-gray-100 rounded-full" />
-	// 				<div className="w-10 h-10 bg-gray-100 rounded-full" />
-	// 				<div className="w-10 h-10 bg-gray-100 rounded-full" />
-	// 			</div>
-	// 		</div>
-	// 	</section>
-	//
-	// 	<hr className="border-t border-gray-200" />
-	// 	<section className="px-6 py-4">
-	// 		<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
-	// 			SIZE
-	// 		</h6>
-	// 		<div className="h-4" />
-	// 		<div className="flex flex-row justify-between items-center">
-	// 			<div className="w-64 h-1 bg-gray-100 rounded-full" />
-	// 			<div className="w-16 h-8 bg-gray-100 rounded-full" />
-	// 		</div>
-	// 	</section>
-	//
-	// 	<hr className="border-t border-gray-200" />
-	// 	<section className="px-6 py-4">
-	// 		<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
-	// 			STROKE-WIDTH
-	// 		</h6>
-	// 		<div className="h-4" />
-	// 		<div className="flex flex-row justify-between items-center">
-	// 			<div className="w-64 h-1 bg-gray-100 rounded-full" />
-	// 			<div className="w-16 h-8 bg-gray-100 rounded-full" />
-	// 		</div>
-	// 	</section>
-	//
-	// </div>
 ))
 
 const MemoIcon = React.memo(({ variantKey, icon }) => (
@@ -630,21 +585,6 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 			</div>
 		)}
 
-		{/* <Apply className={variantKey !== "solid" && "hidden"}> */}
-		{/* 	<div className="flex flex-row justify-center items-center h-full"> */}
-		{/* 		<Apply className="w-8 h-8 text-gray-800"> */}
-		{/* 			<SVG svg={icon.icons.solid} /> */}
-		{/* 		</Apply> */}
-		{/* 	</div> */}
-		{/* </Apply> */}
-		{/* <Apply className={variantKey !== "outline" && "hidden"}> */}
-		{/* 	<div className="flex flex-row justify-center items-center h-full"> */}
-		{/* 		<Apply className="w-8 h-8 text-gray-800"> */}
-		{/* 			<SVG svg={icon.icons.outline} /> */}
-		{/* 		</Apply> */}
-		{/* 	</div> */}
-		{/* </Apply> */}
-
 		{/* Icon */}
 		<div className="flex flex-row justify-center items-center h-full">
 			<Apply className="w-8 h-8 text-gray-800">
@@ -652,7 +592,7 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 			</Apply>
 		</div>
 
-		{/* Text */}
+		{/* Name */}
 		<div className="py-3 absolute inset-x-0 bottom-0">
 			<div className="px-2 flex flex-row justify-center">
 				<Reset className="subpixel-antialiased">
@@ -691,8 +631,7 @@ const IconApp = ({ state, dispatch }) => (
 			{/* Icons */}
 			<div className="h-6" />
 			<div className="rounded-6 shadow-2">
-				{/* PERF: Remove overflow-hidden if possible;
-				propagate border-radius to <MemoIcon>. */}
+				{/* PERF: Remove overflow-hidden if possible; propagate border-radius to <MemoIcon>. */}
 				<div className="bg-white rounded-6 overflow-hidden" style={{ minHeight: `calc(100vh - ${tw(4 + 18 + 6 + 24)})` }}>
 					<div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-5 xl:grid-cols-6">
 						{state.search.results.map((each, x) => (
