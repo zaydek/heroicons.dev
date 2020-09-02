@@ -59,8 +59,8 @@ const AbsoluteExternalLinks = () => (
 							</svg>
 						</Apply>
 						<span style={{ width: "1ch" }} />
-						{/* Share with your followers on Twitter! */}
-						Tweet thank you on Twitter!
+						{/* Say thank you on Twitter! */}
+						Share with your followers on Twitter!
 					</span>
 				</p>
 			</a>
@@ -469,54 +469,73 @@ const Search = () => {
 }
 
 const Controls = () => (
-	<div className="py-2">
-
-		<section className="px-6 py-4">
-			<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
-				<span className="inline-flex flex-row justify-between w-full">
-					<span>
-						COPY TO CLIPBOARD
-					</span>
-					<span>
-						OR DOWNLOAD
-					</span>
-				</span>
-			</h6>
-			<div className="h-4" />
-			<div className="flex flex-row justify-between items-center">
-				<div className="space-x-2 flex flex-row">
-					<div className="w-10 h-10 bg-gray-100 rounded-full" />
-					<div className="w-10 h-10 bg-gray-100 rounded-full" />
-					<div className="w-10 h-10 bg-gray-100 rounded-full" />
-				</div>
-			</div>
-		</section>
-
-		<hr className="border-t border-gray-200" />
-		<section className="px-6 py-4">
-			<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
-				SIZE
-			</h6>
-			<div className="h-4" />
-			<div className="flex flex-row justify-between items-center">
-				<div className="w-64 h-1 bg-gray-100 rounded-full" />
-				<div className="w-16 h-8 bg-gray-100 rounded-full" />
-			</div>
-		</section>
-
-		<hr className="border-t border-gray-200" />
-		<section className="px-6 py-4">
-			<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
-				STROKE-WIDTH
-			</h6>
-			<div className="h-4" />
-			<div className="flex flex-row justify-between items-center">
-				<div className="w-64 h-1 bg-gray-100 rounded-full" />
-				<div className="w-16 h-8 bg-gray-100 rounded-full" />
-			</div>
-		</section>
-
+	<div>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
 	</div>
+
+	// <div>
+	//
+	// 	<section className="px-6 py-4">
+	// 		<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
+	// 			<span className="inline-flex flex-row justify-between w-full">
+	// 				<span>
+	// 					COPY TO CLIPBOARD
+	// 				</span>
+	// 				<span>
+	// 					OR DOWNLOAD
+	// 				</span>
+	// 			</span>
+	// 		</h6>
+	// 		<div className="h-4" />
+	// 		<div className="flex flex-row justify-between items-center">
+	// 			<div className="space-x-2 flex flex-row">
+	// 				<div className="w-10 h-10 bg-gray-100 rounded-full" />
+	// 				<div className="w-10 h-10 bg-gray-100 rounded-full" />
+	// 				<div className="w-10 h-10 bg-gray-100 rounded-full" />
+	// 			</div>
+	// 		</div>
+	// 	</section>
+	//
+	// 	<hr className="border-t border-gray-200" />
+	// 	<section className="px-6 py-4">
+	// 		<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
+	// 			SIZE
+	// 		</h6>
+	// 		<div className="h-4" />
+	// 		<div className="flex flex-row justify-between items-center">
+	// 			<div className="w-64 h-1 bg-gray-100 rounded-full" />
+	// 			<div className="w-16 h-8 bg-gray-100 rounded-full" />
+	// 		</div>
+	// 	</section>
+	//
+	// 	<hr className="border-t border-gray-200" />
+	// 	<section className="px-6 py-4">
+	// 		<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
+	// 			STROKE-WIDTH
+	// 		</h6>
+	// 		<div className="h-4" />
+	// 		<div className="flex flex-row justify-between items-center">
+	// 			<div className="w-64 h-1 bg-gray-100 rounded-full" />
+	// 			<div className="w-16 h-8 bg-gray-100 rounded-full" />
+	// 		</div>
+	// 	</section>
+	//
+	// </div>
 )
 
 const MemoIcon = React.memo(() => (
@@ -591,6 +610,7 @@ const IconApp = () => (
 		<Media className="hidden lg:block">
 			<aside className="-mt-4 pt-4 sticky top-0">
 				<div className="rounded-6 shadow-2">
+					{/* TODO: Put py-* here. */}
 					<div className="w-96 bg-white rounded-6">
 						<Controls />
 					</div>
