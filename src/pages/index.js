@@ -151,7 +151,7 @@ const CTAButtons = () => (
 				<div className="px-5 py-4 bg-purple-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
 						<span className="inline-flex flex-row items-center">
-							<Apply className="mr-1 w-5 h-5" style={{ filter: "brightness(125%)" }}>
+							<Apply className="mr-1 w-4 h-4 transform scale-110" style={{ filter: "brightness(125%)" }}>
 								<svg viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg">
 									<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
 									<path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
@@ -162,10 +162,6 @@ const CTAButtons = () => (
 							</Apply>
 							<span style={{ width: "0.33ch" }} />
 							Open in Figma
-							{/* <span style={{ width: "0.33ch" }} /> */}
-							{/* <Apply className="w-5 h-5 opacity-75 transform scale-90"> */}
-							{/* 	<SVGExternalLink /> */}
-							{/* </Apply> */}
 						</span>
 					</p>
 				</div>
@@ -178,17 +174,16 @@ const CTAButtons = () => (
 				<div className="px-5 py-4 bg-purple-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
 						<span className="inline-flex flex-row items-center">
-							<Apply className="mr-1 w-5 h-5">
+							<Apply className="mr-1 w-4 h-4 transform scale-110">
+								{/* <svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"> */}
+								{/* 	<path fillRule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" /> */}
+								{/* </svg> */}
 								<svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-									<path fillRule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+									<path d="M7.975 16a9.39 9.39 0 003.169-.509c-.473.076-.652-.229-.652-.486l.004-.572c.003-.521.01-1.3.01-2.197 0-.944-.316-1.549-.68-1.863 2.24-.252 4.594-1.108 4.594-4.973 0-1.108-.39-2.002-1.032-2.707.1-.251.453-1.284-.1-2.668 0 0-.844-.277-2.77 1.032A9.345 9.345 0 008 .717c-.856 0-1.712.113-2.518.34C3.556-.24 2.712.025 2.712.025c-.553 1.384-.2 2.417-.1 2.668-.642.705-1.033 1.612-1.033 2.707 0 3.852 2.342 4.72 4.583 4.973-.29.252-.554.692-.642 1.347-.58.264-2.027.692-2.933-.831-.19-.302-.756-1.045-1.549-1.032-.843.012-.34.478.013.667.428.239.919 1.133 1.032 1.422.201.567.856 1.65 3.386 1.184 0 .55.006 1.079.01 1.447l.003.428c0 .265-.189.567-.692.479 1.007.34 1.926.516 3.185.516z" />
 								</svg>
 							</Apply>
 							<span style={{ width: "0.33ch" }} />
 							Open in GitHub
-							{/* <span style={{ width: "0.33ch" }} /> */}
-							{/* <Apply className="w-5 h-5 opacity-75 transform scale-90"> */}
-							{/* 	<SVGExternalLink /> */}
-							{/* </Apply> */}
 						</span>
 					</p>
 				</div>
@@ -292,12 +287,12 @@ const Hero = () => (
 					<Attribution />
 				</div>
 
-				<div className="hidden sm:block">
-					<div className="h-12" />
-					<div className="flex flex-row justify-center">
-						<CTAButtons />
-					</div>
+				{/* <div className="hidden sm:block"> */}
+				<div className="h-8" />
+				<div className="flex flex-row justify-center">
+					<CTAButtons />
 				</div>
+				{/* </div> */}
 
 				<div className="h-16" />
 				<div className="flex flex-row justify-center">
