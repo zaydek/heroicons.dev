@@ -340,15 +340,30 @@ const Hero = ({ state, dispatch }) => (
 
 const MemoSearch = React.memo(({ state, dispatch }) => {
 	const inputRef = React.useRef(null)
+
+	const [inputElementFocused, setInputElementFocused] = React.useState(false)
 	const [query, setQuery] = React.useState(() => state.search.query.user)
 
-	const mounted = React.useRef(false)
+	// Polyfill for <... autoFocus>.
 	React.useEffect(() => {
-		if (!mounted.current) {
-			mounted.current = true
-			return
+		if (inputRef.current.autofocus) {
+			inputRef.current.focus()
 		}
-		window.scrollTo(0, document.documentElement.scrollTop + inputRef.current.getBoundingClientRect().y - 24 /* tw(6) */)
+	}, [])
+
+	// Auto-scrolls on input (window must be *not* scrolled).
+	const rerenderCounter = React.useRef(0)
+	React.useEffect(() => {
+		rerenderCounter.current++
+		if (rerenderCounter.current === 2) {
+			const y = document.documentElement.scrollTop
+			if (y) {
+				// No-op
+				return
+			}
+			const offset = inputRef.current.getBoundingClientRect().y - 24 // tw(6)
+			window.scrollTo(0, y + offset)
+		}
 	}, [query])
 
 	// Debounces search.
@@ -372,11 +387,23 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 		// NOTE: Use h-full because of absolute context.
 		<div className="relative h-full">
 
+			{/* 			<style>{` */}
+			{/*  */}
+			{/* html { */}
+			{/* 	scroll-behavior: smooth; */}
+			{/* } */}
+			{/*  */}
+			{/* `} */}
+			{/* 			</style> */}
+
 			{/* LHS */}
 			<div className="absolute left-0 inset-y-0">
 				<div className="px-8 pr-4 flex flex-row h-full">
 					<div className="flex flex-row items-center">
-						<Apply className="w-6 h-6 text-gray-400">
+						<Apply
+							className="w-6 h-6 text-gray-400"
+							style={{ color: inputElementFocused && "var(--theme)" }}
+						>
 							<SVGSearchOutline />
 						</Apply>
 					</div>
@@ -385,16 +412,24 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 			{/* Search */}
 			<Reset className="block w-full h-full focus:outline-none">
-				<input
-					ref={inputRef}
-					className="px-16 text-xl placeholder-gray-400 text-gray-800 bg-white rounded-6"
-					style={{ paddingLeft: tw(8 + 6 + 4) }}
-					// placeholder="Try searching ‘new’"
-					placeholder="Search"
-					value={query}
-					onChange={e => setQuery(e.target.value)}
-					{...disableAutoCorrect}
-				/>
+				<Apply className="transition duration-200 ease-in-out">
+					<input
+						ref={inputRef}
+						className="px-16 text-xl placeholder-gray-400 text-gray-800 bg-white rounded-6"
+						style={{
+							paddingLeft: tw(8 + 6 + 4),
+							// boxShadow: inputElementFocused && "inset 0 0 0 3px hsl(200, 100%, 75%)",
+						}}
+						// placeholder="Try searching ‘new’"
+						placeholder="Search"
+						value={query}
+						onFocus={e => setInputElementFocused(true)}
+						onBlur={e => setInputElementFocused(false)}
+						onChange={e => setQuery(e.target.value)}
+						autoFocus
+						{...disableAutoCorrect}
+					/>
+				</Apply>
 			</Reset>
 
 			{/* RHS */}
@@ -638,7 +673,7 @@ const IconApp = ({ state, dispatch }) => (
 											Object
 												.keys(state.controls.variant)
 												.find(each => state.controls.variant[each] === true)
-											}
+										}
 										icon={each}
 									/>
 								</div>
@@ -687,10 +722,6 @@ const Layout = () => {
 		<div>
 
 			<style>{`
-
-html {
-	scroll-behavior: smooth;
-}
 
 html {
 	--theme: hsl(270, 100%, 50%);

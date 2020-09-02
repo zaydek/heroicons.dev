@@ -76,7 +76,7 @@ const actions = state => ({
 
 		state.search.results = dataset.filter(each => {
 			return each.tags.some(each => {
-				return each.includes(safe)
+				return each.startsWith(safe)
 			})
 		})
 		// console.log(state.search.results)
