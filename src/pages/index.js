@@ -439,12 +439,12 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							<Apply
 								className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
 								style={{
-									color: state.controls.variant.outline && "var(--purple-50)",
-									backgroundColor: state.controls.variant.outline && "var(--purple-500)",
+									color: state.controls.variant.solid && "var(--purple-50)",
+									backgroundColor: state.controls.variant.solid && "var(--purple-500)",
 								}}
 							>
 								<Apply className="transition duration-200 ease-in-out">
-									{!state.controls.variant.outline ? (
+									{!state.controls.variant.solid ? (
 										<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 											<path strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
 										</svg>
@@ -683,11 +683,7 @@ const IconApp = ({ state, dispatch }) => (
 							<div key={each.name} className="pb-full relative">
 								<div className="absolute inset-0">
 									<MemoIcon
-										variantKey={
-											Object
-												.keys(state.controls.variant)
-												.find(each => state.controls.variant[each] === true)
-										}
+										variantKey={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
 										icon={each}
 									/>
 								</div>

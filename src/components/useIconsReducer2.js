@@ -21,8 +21,8 @@ const initialState = {
 	controls: {
 		show: true,
 		variant: {
-			solid: true,
-			outline: false,
+			solid: false,
+			outline: true,
 			all: false,
 		},
 		copyAs: {
