@@ -568,7 +568,7 @@ const IconApp = () => (
 	<div className="px-4 sm:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_TW) }}>
 
 		{/* LHS */}
-		<main className="flex-1 z-10">
+		<main className="flex-1 w-full !max-w-screen-xl z-10" style={{ maxWidth: px(192 * 6) }}>
 
 			{/* Search */}
 			<div className="-mt-4 pt-4 sticky top-0 z-10">
@@ -587,7 +587,7 @@ const IconApp = () => (
 			<div className="h-6" />
 			<div className="rounded-6 shadow-2">
 				{/* TODO: grid-cols-* depends on <aside> */}
-				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 bg-white rounded-6 overflow-hidden" /* style={{ transform: "translateZ(0)" }} */>
+				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 overflow-hidden" /* style={{ transform: "translateZ(0)" }} */>
 
 					{range(200).map((each, x) => (
 						// TODO: each.name
@@ -604,19 +604,19 @@ const IconApp = () => (
 		</main>
 
 		{/* Controls */}
-		<Media className="hidden lg:block">
-			<div className="flex-shrink-0 w-6" />
-		</Media>
-		<Media className="hidden lg:block">
-			<aside className="-mt-4 pt-4 sticky top-0">
-				<div className="rounded-6 shadow-2">
-					{/* TODO: Put py-* here. */}
-					<div className="w-96 bg-white rounded-6">
-						<Controls />
-					</div>
-				</div>
-			</aside>
-		</Media>
+		{/* <Media className="hidden lg:block"> */}
+		{/* 	<div className="flex-shrink-0 w-6" /> */}
+		{/* </Media> */}
+		{/* <Media className="hidden lg:block"> */}
+		{/* 	<aside className="-mt-4 pt-4 sticky top-0"> */}
+		{/* 		<div className="rounded-6 shadow-2"> */}
+		{/* 			{/* TODO: Put py-* here. */} */}
+		{/* 			<div className="w-96 bg-white rounded-6"> */}
+		{/* 				<Controls /> */}
+		{/* 			</div> */}
+		{/* 		</div> */}
+		{/* 	</aside> */}
+		{/* </Media> */}
 
 	</div>
 )

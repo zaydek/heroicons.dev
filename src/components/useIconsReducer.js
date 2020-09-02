@@ -94,7 +94,7 @@ const actions = state => ({
 	},
 })
 
-function HeroiconsReducer(state, action) {
+function IconsReducer(state, action) {
 	switch (action.type) {
 	case "UPDATE_FORM_SEARCH":
 		actions(state).updateFormSearch(action.text)
@@ -112,12 +112,12 @@ function HeroiconsReducer(state, action) {
 		actions(state).hideNotification()
 		return
 	default:
-		throw new Error(`HeroiconsReducer: type mismatch; action.type=${action.type}`)
+		throw new Error(`IconsReducer: type mismatch; action.type=${action.type}`)
 	}
 }
 
-function useHeroiconsReducer() {
-	return useImmerReducer(HeroiconsReducer, {}, () => initialState)
+function useIconsReducer() {
+	return useImmerReducer(IconsReducer, {}, () => initialState)
 }
 
-export default useHeroiconsReducer
+export default useIconsReducer
