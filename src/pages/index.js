@@ -113,31 +113,30 @@ const HeroiconsLogo = () => (
 )
 
 const Attribution = () => (
-	<h2 className="text-center font-medium text-xl leading-snug text-purple-50">
+	<h2 className="text-center font-medium text-xl text-purple-50">
 		<span className="inline-flex flex-row flex-wrap justify-center items-center">
-			Free, MIT-licensed icons by
-			<span style={{ width: "0.33ch" }} />
-			<span className="font-semibold no-underline hover:underline">
-				{/* Steve Schoger */}
-				@steveschoger
+			<span className="inline-flex flex-row flex-wrap justify-center items-center">
+				<span className="hidden sm:inline">
+					Beautiful, MIT-licensed icons by
+				</span>
+				<span className="inline sm:hidden">
+					Beautiful icons by
+				</span>
+				<span style={{ width: "0.33ch" }} />
+				<a className="font-semibold no-underline hover:underline" href="https://twitter.com/steveschoger" {...target_blank}>
+					@steveschoger
+				</a>
+				{"."}
 			</span>
 			<span style={{ width: "0.33ch" }} />
-			<Apply className="w-5 h-5 opacity-75">
-				<SVGExternalLink />
-			</Apply>
-		</span>
-		<br />
-		<span className="inline-flex flex-row flex-wrap justify-center items-center">
-			App by
-			<span style={{ width: "0.33ch" }} />
-			<span className="font-semibold no-underline hover:underline">
-				{/* Zaydek MG */}
-				@username_ZAYDEK
+			<span className="inline-flex lg:flex-row flex-wrap justify-center items-center">
+				Viewer by
+				<span style={{ width: "0.33ch" }} />
+				<a className="font-semibold no-underline hover:underline" href="https://twitter.com/username_ZAYDEK" {...target_blank}>
+					@username_ZAYDEK
+				</a>
+				{"."}
 			</span>
-			<span style={{ width: "0.33ch" }} />
-			<Apply className="w-5 h-5 opacity-75">
-				<SVGExternalLink />
-			</Apply>
 		</span>
 	</h2>
 )
@@ -293,7 +292,7 @@ const Hero = () => (
 				</div>
 
 				<div className="hidden sm:block">
-					<div className="h-8" />
+					<div className="h-12" />
 					<div className="flex flex-row justify-center">
 						<CTAButtons />
 					</div>
@@ -369,7 +368,7 @@ const Search = () => {
 					className="px-16 text-xl placeholder-gray-400 text-gray-800 bg-white rounded-6"
 					style={{ paddingLeft: tw(8 + 6 + 4) }}
 					// placeholder="Try searching ‘new’"
-					placeholder="Search 220+ Icons"
+					placeholder="Search"
 					value={query}
 					onChange={e => setQuery(e.target.value)}
 					{...disableAutoCorrect}
