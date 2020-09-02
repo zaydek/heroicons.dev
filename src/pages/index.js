@@ -615,10 +615,25 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 			</div>
 		)}
 
+		{/* <Apply className={variantKey !== "solid" && "hidden"}> */}
+		{/* 	<div className="flex flex-row justify-center items-center h-full"> */}
+		{/* 		<Apply className="w-8 h-8 text-gray-800"> */}
+		{/* 			<SVG svg={icon.icons.solid} /> */}
+		{/* 		</Apply> */}
+		{/* 	</div> */}
+		{/* </Apply> */}
+		{/* <Apply className={variantKey !== "outline" && "hidden"}> */}
+		{/* 	<div className="flex flex-row justify-center items-center h-full"> */}
+		{/* 		<Apply className="w-8 h-8 text-gray-800"> */}
+		{/* 			<SVG svg={icon.icons.outline} /> */}
+		{/* 		</Apply> */}
+		{/* 	</div> */}
+		{/* </Apply> */}
+
 		{/* Icon */}
 		<div className="flex flex-row justify-center items-center h-full">
 			<Apply className="w-8 h-8 text-gray-800">
-				<SVG svg={icon.icons[variantKey]} />
+				<SVG id={icon.name} svg={icon.icons[variantKey]} />
 			</Apply>
 		</div>
 
