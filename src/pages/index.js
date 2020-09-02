@@ -581,7 +581,7 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 		<div className="pb-4 absolute inset-x-0 bottom-0">
 			<div className="flex flex-row justify-center">
 				<Reset className="subpixel-antialiased">
-					<p className="leading-none text-gray-600" style={{ fontSize: px(13) }}>
+					<p className="!text-sm tracking-wide leading-none text-gray-600" style={{ fontSize: px(13) }}>
 						{icon.name}
 					</p>
 				</Reset>

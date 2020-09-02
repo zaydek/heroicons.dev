@@ -2040,7 +2040,9 @@ function autoTags(originalName) {
 		const alt = tags[each.name]
 		const altAuto = []
 		if (alt !== undefined) {
-			altAuto.push(...alt.map(each => autoTags(each)))
+			for (const each of alt) {
+				altAuto.push(...autoTags(each))
+			}
 		}
 		const deduped = [...new Set([...auto, ...altAuto])]
 		each.tags.push(...deduped)

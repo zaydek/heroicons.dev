@@ -74,7 +74,12 @@ const actions = state => ({
 			return
 		}
 
-		state.search.results = dataset.filter(each => each.name.includes(safe))
+		state.search.results = dataset.filter(each => {
+			return each.tags.some(each => {
+				return each.includes(safe)
+			})
+		})
+		// console.log(state.search.results)
 
 		// state.results = dataset.filter(each => {
 		// 	// each.searchIndex = each.name.indexOf(state.form.search.safe)
