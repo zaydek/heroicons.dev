@@ -340,14 +340,14 @@ const Hero = ({ state, dispatch }) => (
 const MemoSearch = React.memo(({ state, dispatch }) => {
 	const [query, setQuery] = React.useState(() => state.search.query)
 
-	// Debounces search (15ms).
+	// Debounces search.
 	React.useEffect(() => {
 		const id = setTimeout(() => {
 			dispatch({
 				type: "SEARCH",
 				query,
 			})
-		}, 15)
+		}, 30)
 		return () => {
 			clearTimeout(id)
 		}
@@ -612,6 +612,7 @@ const IconApp = ({ state, dispatch }) => (
 				{/* TODO: grid-cols-* depends on <aside> */}
 				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 overflow-hidden" /* style={{ transform: "translateZ(0)" }} */>
 
+					{/* state.search.results */}
 					{range(200).map((each, x) => (
 						// TODO: each.name
 						<div key={each.name} className="pb-full relative">

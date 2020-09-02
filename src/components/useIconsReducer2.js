@@ -53,6 +53,14 @@ const actions = state => ({
 	search(query) {
 		state.search.query = query
 		// state.results =
+
+		// state.results = dataset.filter(each => {
+		// 	// each.searchIndex = each.name.indexOf(state.form.search.safe)
+		// 	// return each.searchIndex >= 0
+		// 	// FIXME
+		// 	return true
+		// })
+
 	},
 	// showControls() {
 	// 	state.controls.show
