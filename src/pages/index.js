@@ -25,8 +25,8 @@ const Media = Apply
 
 const AbsoluteExternalLinks = () => (
 	<Media className="hidden lg:block">
-		{/* NOTE: Must use z-20 or more because of hover events. */}
-		<div className="-my-0.5 absolute left-0 top-0 z-20">
+		{/* NOTE: Must use z-20 or more for hover events to work. */}
+		<nav className="-my-0.5 absolute left-0 top-0 z-20">
 
 			<style>{`
 
@@ -83,7 +83,7 @@ const AbsoluteExternalLinks = () => (
 				</p>
 			</a>
 
-		</div>
+		</nav>
 	</Media>
 )
 
@@ -309,7 +309,7 @@ const Hero = () => (
 			</div>
 		</header>
 
-		<div className="absolute inset-x-0 top-full">
+		<div className="absolute inset-x-0 top-full pointer-events-none">
 			<Apply className="text-theme">
 				{/* <svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
 				{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M4 0.999999C2 1 0.5 0.333333 0 0L8 -1.39876e-06C7.41667 0.333332 6 0.999999 4 0.999999Z" /> */}
@@ -323,7 +323,7 @@ const Hero = () => (
 			</Apply>
 		</div>
 
-		<div className="fixed inset-x-0 top-0">
+		<div className="fixed inset-x-0 top-0 pointer-events-none">
 			<div className="h-24 bg-theme" />
 			<Apply className="text-theme">
 				{/* <svg fill="currentColor" viewBox="0 0 8 1" xmlns="http://www.w3.org/2000/svg"> */}
@@ -349,7 +349,7 @@ const Search = () => {
 	const [showControls, setShowControls] = React.useState(false)
 
 	return (
-		// NOTE: Use h-full because of absolute inset-0.
+		// NOTE: Use h-full because of absolute context.
 		<div className="relative h-full">
 
 			{/* LHS */}
@@ -474,7 +474,7 @@ const Search = () => {
 }
 
 const Controls = () => (
-	<div className="py-4">
+	<div className="py-2">
 
 		<section className="px-6 py-4">
 			<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
@@ -482,9 +482,9 @@ const Controls = () => (
 					<span>
 						COPY TO CLIPBOARD
 					</span>
-					{/* <span> */}
-					{/* 	DOWNLOAD */}
-					{/* </span> */}
+					<span>
+						OR DOWNLOAD
+					</span>
 				</span>
 			</h6>
 			<div className="h-4" />
@@ -494,11 +494,9 @@ const Controls = () => (
 					<div className="w-10 h-10 bg-gray-100 rounded-full" />
 					<div className="w-10 h-10 bg-gray-100 rounded-full" />
 				</div>
-				{/* <div className="w-10 h-10 bg-gray-100 rounded-full" /> */}
 			</div>
 		</section>
 
-		{/* TODO: Add overflow-visible. */}
 		<hr className="border-t border-gray-200" />
 		<section className="px-6 py-4">
 			<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
@@ -523,78 +521,19 @@ const Controls = () => (
 			</div>
 		</section>
 
-		{/* Section: Size */}
-		{/* */}
-		{/* TODO: Add overflow-visible. */}
-		{/* <hr className="border-t border-gray-200" /> */}
-		{/* <section className="px-6 py-4"> */}
-		{/* 	<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}> */}
-		{/* 		CARBON ADS */}
-		{/* 	</h6> */}
-		{/* 	<div className="h-4" /> */}
-		{/* 	<div className="w-80 h-32 bg-gray-100 rounded-2" /> */}
-		{/* </section> */}
-
-		{/* Section: Class names */}
-		{/* */}
-		{/* TODO: Add overflow-visible. */}
-		{/* <hr className="border-t border-gray-200" /> */}
-		{/* <section className="px-6 py-4"> */}
-		{/* 	<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}> */}
-		{/* 		CLASS NAMES */}
-		{/* 	</h6> */}
-		{/* 	<div className="h-4" /> */}
-		{/* 	<div className="flex flex-row justify-between items-center"> */}
-		{/* 		<div className="w-64 h-1 bg-gray-100 rounded-full" /> */}
-		{/* 		<div className="w-16 h-8 bg-gray-100 rounded-full" /> */}
-		{/* 	</div> */}
-		{/* </section> */}
-
-		{/* Section: Stroke-width */}
-		{/* */}
-		{/* TODO: Heroicons do not currently export stroke-width as an API. */}
-		{/* <hr className="border-t border-gray-200" /> */}
-		{/* <section className="px-6 py-6"> */}
-		{/* 	<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}> */}
-		{/* 		STROKE-WIDTH */}
-		{/* 	</h6> */}
-		{/* 	<div className="h-4" /> */}
-		{/* 	<div className="flex flex-row justify-between items-center"> */}
-		{/* 		<div className="w-64 h-1 bg-gray-100 rounded-full" /> */}
-		{/* 		<div className="w-16 h-8 bg-gray-100 rounded-full" /> */}
-		{/* 	</div> */}
-		{/* </section> */}
-
-		{/* <hr className="border-t border-gray-200" /> */}
-
-		{/* <div className="h-36" /> */}
-
-		{/* <div */}
-		{/* 	className="-mt-24 sticky h-24 rounded-b-6 z-10" */}
-		{/* 	style={{ */}
-		{/* 		bottom: tw(8), */}
-		{/* 		boxShadow: ` */}
-		{/* 			0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), */}
-		{/* 			0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), */}
-		{/* 			0 ${tw(6)} 0 ${tw(6)} var(--gray-50) */}
-		{/* 		`, */}
-		{/* 		clipPath: "inset(50% -100% -100% -100%)", */}
-		{/* 	}} */}
-		{/* /> */}
-
 	</div>
 )
 
 const MemoIcon = React.memo(() => (
-	// NOTE: Use h-full because of absolute inset-0.
+	// NOTE: Use h-full because of absolute context.
 	<article className="relative h-full" style={{ boxShadow: "inset 0 0 0 var(--box-shadow-spread) var(--gray-200), 0 0 0 var(--box-shadow-spread) var(--gray-200)" }}>
 
 		{/* New */}
-		{/* <div className="p-4 absolute right-0 top-0"> */}
-		{/* 	{Math.floor(Math.random() * 5) === 0 && ( */}
-		{/* 		<div className="w-3 h-3 bg-theme rounded-full animate-pulse" /> */}
-		{/* 	)} */}
-		{/* </div> */}
+		<div className="p-4 absolute right-0 top-0">
+			{Math.floor(Math.random() * 10) === 0 && (
+				<div className="w-3 h-3 bg-purple-500 rounded-full" />
+			)}
+		</div>
 
 		{/* Icon */}
 		<div className="flex flex-row justify-center items-center h-full">
@@ -650,7 +589,7 @@ const IconApp = () => (
 
 		</main>
 
-		{/* RHS */}
+		{/* Controls */}
 		<Media className="hidden lg:block">
 			<div className="flex-shrink-0 w-6" />
 		</Media>
