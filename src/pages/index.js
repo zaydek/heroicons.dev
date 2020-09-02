@@ -15,23 +15,23 @@ import SVGCodeOutline from "heroicons-0.4.1/outline/Code"
 import SVGFlagOutline from "heroicons-0.4.1/outline/Flag"
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
-const MARGIN_TOP_TW = 18 * 2+ 6
+const MARGIN_TOP_TW = 18 * 2 + 6
 
 function range(max) {
 	return Array(max).fill().map((_, x) => x)
 }
 
-const AbsoluteExternalLinks = () => (
-	// NOTE: Must use z-20+ because of hover.
-	<div className="-my-0.5 absolute left-0 top-0 z-20">
+const Media = Apply
 
-		<style>{`
+const AbsoluteExternalLinks = () => (
+	<Media className="hidden lg:block">
+		{/* NOTE: Must use z-20 or more because of hover events. */}
+		<div className="-my-0.5 absolute left-0 top-0 z-20">
+
+			<style>{`
 
 .twemoji:hover .twemoji-eyes {
-	animation-name: cartoon-eyes;
-	animation-duration: 300ms;
-	animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	animation-iteration-count: infinite;
+	animation: cartoon-eyes 300ms cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 @keyframes cartoon-eyes {
@@ -43,10 +43,9 @@ const AbsoluteExternalLinks = () => (
 	}
 }
 
-`}
-		</style>
+	`}
+			</style>
 
-		<Apply className="hidden xl:block">
 			<a href="TODO" {...target_blank}>
 				<p className="twemoji px-4 py-0.5 pt-4 font-medium no-underline hover:underline text-purple-50">
 					<span className="inline-flex flex-row items-center">
@@ -64,9 +63,7 @@ const AbsoluteExternalLinks = () => (
 					</span>
 				</p>
 			</a>
-		</Apply>
 
-		<Apply className="hidden xl:block">
 			<a href="TODO" {...target_blank}>
 				<p className="twemoji px-4 py-0.5 pb-4 font-medium no-underline hover:underline text-purple-50">
 					<span className="inline-flex flex-row items-center">
@@ -85,9 +82,9 @@ const AbsoluteExternalLinks = () => (
 					</span>
 				</p>
 			</a>
-		</Apply>
 
-	</div>
+		</div>
+	</Media>
 )
 
 const HeroiconsLogo = () => (
@@ -205,7 +202,7 @@ const Sponsors = () => (
 	<div className="relative">
 
 		{/* Center */}
-		<Apply className="block xl:hidden">
+		<Media className="block xl:hidden">
 			<div className="py-4 absolute inset-x-0 bottom-full">
 				<h6 className="text-center font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
@@ -217,10 +214,10 @@ const Sponsors = () => (
 					</span>
 				</h6>
 			</div>
-		</Apply>
+		</Media>
 
 		{/* LHS */}
-		<Apply className="hidden xl:block">
+		<Media className="hidden xl:block">
 			<div className="px-8 py-4 absolute left-0 bottom-full">
 				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
@@ -232,16 +229,16 @@ const Sponsors = () => (
 					</span>
 				</h6>
 			</div>
-		</Apply>
+		</Media>
 
 		{/* RHS */}
-		<Apply className="hidden xl:block">
+		<Media className="hidden xl:block">
 			<div className="px-8 py-4 absolute right-0 bottom-full">
 				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					UNAFFILIATED WITH TAILWIND LABS
 				</h6>
 			</div>
-		</Apply>
+		</Media>
 
 		<div className="-mx-1.5 -my-1 flex flex-row flex-wrap justify-center items-center">
 
@@ -254,7 +251,7 @@ const Sponsors = () => (
 							width: tw(36 + Math.floor(Math.random() * (48 - 36))),
 						}}
 					/>
-					<Apply className="hidden xl:block">
+					<Media className="hidden xl:block">
 						<div className="p-2 absolute inset-x-0 top-full">
 							<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-75">
 								{/* <span className="inline-flex flex-row items-center"> */}
@@ -267,7 +264,7 @@ const Sponsors = () => (
 								QAWolf
 							</p>
 						</div>
-					</Apply>
+					</Media>
 				</div>
 			))}
 
@@ -282,7 +279,7 @@ const Hero = () => (
 		<AbsoluteExternalLinks />
 
 		{/* NOTE: Use px-* here because of backgrounds. */}
-		<div className="px-4 sm:px-6 flex flex-row justify-center bg-theme">
+		<header className="px-4 sm:px-6 flex flex-row justify-center bg-theme">
 			<div className="w-full max-w-screen-xl z-10">
 				<div className="h-16" />
 
@@ -310,7 +307,7 @@ const Hero = () => (
 				<div className="h-16" />
 				<div style={{ height: tw(MARGIN_TOP_TW) }} />
 			</div>
-		</div>
+		</header>
 
 		<div className="absolute inset-x-0 top-full">
 			<Apply className="text-theme">
@@ -353,128 +350,126 @@ const Search = () => {
 
 	return (
 		// NOTE: Use h-full because of absolute inset-0.
-		<Apply className="h-full">
-			<div className="relative">
+		<div className="relative h-full">
 
-				{/* LHS */}
-				<div className="absolute left-0 inset-y-0">
-					<div className="px-8 pr-4 flex flex-row h-full">
-						<div className="flex flex-row items-center">
-							<Apply className="w-6 h-6 text-gray-400">
-								<SVGSearchOutline />
-							</Apply>
-						</div>
+			{/* LHS */}
+			<div className="absolute left-0 inset-y-0">
+				<div className="px-8 pr-4 flex flex-row h-full">
+					<div className="flex flex-row items-center">
+						<Apply className="w-6 h-6 text-gray-400">
+							<SVGSearchOutline />
+						</Apply>
 					</div>
 				</div>
-
-				{/* Search */}
-				<Reset className="block w-full h-full focus:outline-none">
-					<input
-						className="px-16 text-xl placeholder-gray-400 text-gray-800 bg-white rounded-6"
-						style={{ paddingLeft: tw(8 + 6 + 4) }}
-						// placeholder="Try searching ‘new’"
-						placeholder="Search 220+ Icons"
-						value={query}
-						onChange={e => setQuery(e.target.value)}
-						{...disableAutoCorrect}
-					/>
-				</Reset>
-
-				{/* RHS */}
-				<div className="absolute right-0 inset-y-0">
-					<div className="-mx-1.5 px-8 pl-3 flex flex-row h-full">
-
-						{/* 1st button */}
-						<Reset className="focus:outline-none">
-							<button className="px-1.5 flex flex-row items-center" onClick={e => setShowVariantOutline(!showVariantOutline)}>
-								<Apply
-									className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
-									style={{
-										color: showVariantOutline && "var(--purple-50)",
-										backgroundColor: showVariantOutline && "var(--purple-500)",
-									}}
-								>
-									<Apply className="transition duration-200 ease-in-out">
-										{!showVariantOutline ? (
-											<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-												<path strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
-											</svg>
-										) : (
-											<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-												<path fillRule="evenodd" clipRule="evenodd" d="M2.166 4.99836C5.06114 4.96236 7.84481 3.87682 10 1.94336C12.155 3.87718 14.9387 4.96308 17.834 4.99936C17.944 5.64936 18 6.31936 18 7.00036C18 12.2254 14.66 16.6704 10 18.3174C5.34 16.6694 2 12.2244 2 6.99936C2 6.31736 2.057 5.64936 2.166 4.99836Z" />
-											</svg>
-										)}
-									</Apply>
-								</Apply>
-							</button>
-						</Reset>
-
-						{/* 2nd button */}
-						<Reset className="focus:outline-none">
-							<button className="px-1.5 flex flex-row items-center" onClick={e => setCopyAsJSX(!copyAsJSX)}>
-								<Apply
-									className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
-									style={{
-										color: copyAsJSX && "var(--purple-50)",
-										backgroundColor: copyAsJSX && "var(--purple-500)",
-									}}
-								>
-									<Apply className="transition duration-200 ease-in-out">
-										{/* NOTE: Use SVGs not React components
-										because React remounts components. *}
-										{/* {!copyAsJSX ? ( */}
-										{/* 	<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
-										{/* 		<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /> */}
-										{/* 	</svg> */}
-										{/* ) : ( */}
-										{/* 	<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
-										{/* 		<path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" /> */}
-										{/* 	</svg> */}
-										{/* )} */}
-										<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												strokeWidth={!copyAsJSX ? 2 : 2.4}
-												d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-											/>
-										</svg>
-									</Apply>
-								</Apply>
-							</button>
-						</Reset>
-
-						{/* 3rd button */}
-						<Reset className="focus:outline-none">
-							<button className="px-1.5 flex flex-row items-center" onClick={e => setShowControls(!showControls)}>
-								<Transition
-									on={showControls}
-									className="transition duration-200 ease-in-out"
-									from="transform rotate-0"
-									to="transform rotate-90"
-								>
-									<div>
-										<Apply
-											className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
-											style={{
-												color: showControls && "var(--purple-50)",
-												backgroundColor: showControls && "var(--purple-500)",
-											}}
-										>
-											<Apply className="transition duration-200 ease-in-out">
-												<SVGCog />
-											</Apply>
-										</Apply>
-									</div>
-								</Transition>
-							</button>
-						</Reset>
-
-					</div>
-				</div>
-
 			</div>
-		</Apply>
+
+			{/* Search */}
+			<Reset className="block w-full h-full focus:outline-none">
+				<input
+					className="px-16 text-xl placeholder-gray-400 text-gray-800 bg-white rounded-6"
+					style={{ paddingLeft: tw(8 + 6 + 4) }}
+					// placeholder="Try searching ‘new’"
+					placeholder="Search 220+ Icons"
+					value={query}
+					onChange={e => setQuery(e.target.value)}
+					{...disableAutoCorrect}
+				/>
+			</Reset>
+
+			{/* RHS */}
+			<div className="absolute right-0 inset-y-0">
+				<div className="-mx-1.5 px-8 pl-3 flex flex-row h-full">
+
+					{/* 1st button */}
+					<Reset className="focus:outline-none">
+						<button className="px-1.5 flex flex-row items-center" onClick={e => setShowVariantOutline(!showVariantOutline)}>
+							<Apply
+								className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
+								style={{
+									color: showVariantOutline && "var(--purple-50)",
+									backgroundColor: showVariantOutline && "var(--purple-500)",
+								}}
+							>
+								<Apply className="transition duration-200 ease-in-out">
+									{!showVariantOutline ? (
+										<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+											<path strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
+										</svg>
+									) : (
+										<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+											<path fillRule="evenodd" clipRule="evenodd" d="M2.166 4.99836C5.06114 4.96236 7.84481 3.87682 10 1.94336C12.155 3.87718 14.9387 4.96308 17.834 4.99936C17.944 5.64936 18 6.31936 18 7.00036C18 12.2254 14.66 16.6704 10 18.3174C5.34 16.6694 2 12.2244 2 6.99936C2 6.31736 2.057 5.64936 2.166 4.99836Z" />
+										</svg>
+									)}
+								</Apply>
+							</Apply>
+						</button>
+					</Reset>
+
+					{/* 2nd button */}
+					<Reset className="focus:outline-none">
+						<button className="px-1.5 flex flex-row items-center" onClick={e => setCopyAsJSX(!copyAsJSX)}>
+							<Apply
+								className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
+								style={{
+									color: copyAsJSX && "var(--purple-50)",
+									backgroundColor: copyAsJSX && "var(--purple-500)",
+								}}
+							>
+								<Apply className="transition duration-200 ease-in-out">
+									{/* NOTE: Use SVGs not React components
+									because React remounts components. *}
+									{/* {!copyAsJSX ? ( */}
+									{/* 	<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
+									{/* 		<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /> */}
+									{/* 	</svg> */}
+									{/* ) : ( */}
+									{/* 	<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
+									{/* 		<path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" /> */}
+									{/* 	</svg> */}
+									{/* )} */}
+									<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth={!copyAsJSX ? 2 : 2.4}
+											d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+										/>
+									</svg>
+								</Apply>
+							</Apply>
+						</button>
+					</Reset>
+
+					{/* 3rd button */}
+					<Reset className="focus:outline-none">
+						<button className="px-1.5 hidden lg:flex lg:flex-row lg:items-center" onClick={e => setShowControls(!showControls)}>
+							<Transition
+								on={showControls}
+								className="transition duration-200 ease-in-out"
+								from="transform rotate-0"
+								to="transform rotate-90"
+							>
+								<div>
+									<Apply
+										className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
+										style={{
+											color: showControls && "var(--purple-50)",
+											backgroundColor: showControls && "var(--purple-500)",
+										}}
+									>
+										<Apply className="transition duration-200 ease-in-out">
+											<SVGCog />
+										</Apply>
+									</Apply>
+								</div>
+							</Transition>
+						</button>
+					</Reset>
+
+				</div>
+			</div>
+
+		</div>
 	)
 }
 
@@ -592,96 +587,91 @@ const Controls = () => (
 
 const MemoIcon = React.memo(() => (
 	// NOTE: Use h-full because of absolute inset-0.
-	<Apply className="h-full">
-		<div className="relative shadow-grid">
+	<article className="relative h-full" style={{ boxShadow: "inset 0 0 0 var(--box-shadow-spread) var(--gray-200), 0 0 0 var(--box-shadow-spread) var(--gray-200)" }}>
 
-			{/* New */}
-			{/* <div className="p-4 absolute right-0 top-0"> */}
-			{/* 	{Math.floor(Math.random() * 5) === 0 && ( */}
-			{/* 		<div className="w-3 h-3 bg-theme rounded-full animate-pulse" /> */}
-			{/* 	)} */}
-			{/* </div> */}
+		{/* New */}
+		{/* <div className="p-4 absolute right-0 top-0"> */}
+		{/* 	{Math.floor(Math.random() * 5) === 0 && ( */}
+		{/* 		<div className="w-3 h-3 bg-theme rounded-full animate-pulse" /> */}
+		{/* 	)} */}
+		{/* </div> */}
 
-			{/* Icon */}
-			<div className="flex flex-row justify-center items-center h-full">
-				<div className="w-8 h-8 bg-gray-500 rounded-full" />
-			</div>
-
-			{/* Text */}
-			<div className="pb-4 absolute inset-x-0 bottom-0">
-				<div className="flex flex-row justify-center">
-					<div className="w-24 h-3 bg-gray-300 rounded-1" />
-				</div>
-			</div>
-
+		{/* Icon */}
+		<div className="flex flex-row justify-center items-center h-full">
+			<div className="w-8 h-8 bg-gray-500 rounded-full" />
 		</div>
-	</Apply>
+
+		{/* Text */}
+		<div className="pb-4 absolute inset-x-0 bottom-0">
+			<div className="flex flex-row justify-center">
+				<div className="w-24 h-3 bg-gray-300 rounded-1" />
+			</div>
+		</div>
+
+	</article>
 ))
 
 const IconApp = () => (
-	<Apply style={{ marginTop: tw(-MARGIN_TOP_TW) }}>
-		<div className="flex flex-row justify-center items-start">
+	<div className="px-4 sm:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_TW) }}>
 
-			{/* LHS */}
-			<Apply className="flex-1">
-				<main className="z-10">
+		{/* LHS */}
+		<main className="flex-1 z-10">
 
-					{/* Search */}
-					<div className="-mt-4 pt-4 sticky top-0 z-10">
-						<div className="-mx-4 absolute inset-x-0 top-0">
-							<div className="h-4 bg-theme" />
-							<div className="h-9 bg-theme" />
-						</div>
-						<div className="rounded-6 shadow-2">
-							<div className="rounded-6" style={{ height: tw(18) }}>
-								<Search />
+			{/* Search */}
+			<div className="-mt-4 pt-4 sticky top-0 z-10">
+				<div className="-mx-4 absolute inset-x-0 top-0">
+					<div className="h-4 bg-theme" />
+					<div className="h-9 bg-theme" />
+				</div>
+				<div className="rounded-6 shadow-2">
+					<div className="rounded-6" style={{ height: tw(18) }}>
+						<Search />
+					</div>
+				</div>
+			</div>
+
+			{/* Icons */}
+			<div className="h-6" />
+			<div className="rounded-6 shadow-2">
+				{/* TODO: grid-cols-* depends on <aside> */}
+				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 bg-white rounded-6 overflow-hidden" /* style={{ transform: "translateZ(0)" }} */>
+
+					{range(200).map((each, x) => (
+						// TODO: each.name
+						<div key={each.name} className="pb-full relative">
+							<div className="absolute inset-0">
+								<MemoIcon />
 							</div>
 						</div>
+					))}
+
+				</div>
+			</div>
+
+		</main>
+
+		{/* RHS */}
+		<Media className="hidden lg:block">
+			<div className="flex-shrink-0 w-6" />
+		</Media>
+		<Media className="hidden lg:block">
+			<aside className="-mt-4 pt-4 sticky top-0">
+				<div className="rounded-6 shadow-2">
+					<div className="w-96 bg-white rounded-6">
+						<Controls />
 					</div>
+				</div>
+			</aside>
+		</Media>
 
-					{/* Icons */}
-					<div className="h-6" />
-					<div className="rounded-6 shadow-2">
-						{/* TODO: Dependent on <aside> */}
-						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 bg-white rounded-6 overflow-hidden" /* style={{ transform: "translateZ(0)" }} */>
-
-							{range(200).map((each, x) => (
-								// TODO: each.name
-								<div key={each.name} className="pb-full relative">
-									<div className="absolute inset-0">
-										<MemoIcon />
-									</div>
-								</div>
-							))}
-
-						</div>
-					</div>
-
-				</main>
-			</Apply>
-
-			{/* RHS */}
-			<Apply className="hidden lg:block">
-				<div className="flex-shrink-0 w-6" />
-			</Apply>
-			<Apply className="hidden lg:block">
-				<aside className="-mt-4 pt-4 sticky top-0">
-					<div className="rounded-6 shadow-2">
-						<div className="w-96 bg-white rounded-6">
-							<Controls />
-						</div>
-					</div>
-				</aside>
-			</Apply>
-
-		</div>
-	</Apply>
+	</div>
 )
 
 const Layout = () => {
 	React.useEffect(() => {
 		if (navigator.userAgent.includes("Chrome")) {
-			document.body.classList.add("chrome")
+			const html = document.body.parentElement
+			html.classList.add("detected-chrome")
 		}
 	}, [])
 
@@ -700,25 +690,20 @@ html {
 	background-color: var(--theme);
 }
 
-.shadow-grid {
-	box-shadow: inset 0 0 0 1px var(--gray-200), 0 0 0 1px var(--gray-200);
+html {
+	--box-shadow-spread: 1px;
 }
-.chrome .shadow-grid {
-	box-shadow: inset 0 0 0 0.5px var(--gray-200), 0 0 0 0.5px var(--gray-200);
+html.detected-chrome {
+	--box-shadow-spread: 0.5px;
 }
 
 `}
 			</style>
 
-			<header>
-				<Hero />
-			</header>
-
-			<main className="px-4 sm:px-6">
-				<IconApp />
-			</main>
-
+			<Hero />
+			<IconApp />
 			<div className="h-24" />
+
 		</div>
 	)
 }
