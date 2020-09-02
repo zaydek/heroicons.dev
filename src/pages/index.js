@@ -2,6 +2,7 @@ import Apply from "lib/x/Apply"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import px from "lib/x/pxToRem"
 import Reset from "lib/x/Reset"
+import SVG from "components/SVG"
 import target_blank from "lib/x/target_blank"
 import Transition from "lib/x/Transition"
 import tw from "lib/x/twToRem"
@@ -558,7 +559,7 @@ const MemoControls = () => (
 	// </div>
 )
 
-const MemoIcon = React.memo(({ icon }) => (
+const MemoIcon = React.memo(({ variantKey, icon }) => (
 	// NOTE: Use h-full because of absolute context.
 	<article className="relative h-full" style={{ boxShadow: "inset 0 0 0 var(--box-shadow-spread) var(--gray-200), 0 0 0 var(--box-shadow-spread) var(--gray-200)" }}>
 
@@ -571,11 +572,12 @@ const MemoIcon = React.memo(({ icon }) => (
 
 		{/* Icon */}
 		<div className="flex flex-row justify-center items-center h-full">
-			<div className="w-8 h-8 bg-gray-500 rounded-full" />
+			<Apply className="w-8 h-8 text-gray-800">
+				<SVG svg={icon.icons[variantKey]} />
+			</Apply>
 		</div>
 
 		{/* Text */}
-		{/* <div className="w-24 h-3 bg-gray-300 rounded-1" /> */}
 		<div className="pb-4 absolute inset-x-0 bottom-0">
 			<div className="flex flex-row justify-center">
 				<p className="text-sm tracking-wide leading-none text-gray-800">
@@ -614,11 +616,17 @@ const IconApp = ({ state, dispatch }) => (
 			<div className="rounded-6 shadow-2">
 				{/* TODO: grid-cols-* depends on <aside> */}
 				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 overflow-hidden" /* style={{ transform: "translateZ(0)" }} */>
-
 					{state.search.results.map((each, x) => (
 						<div key={each.name} className="pb-full relative">
 							<div className="absolute inset-0">
-								<MemoIcon icon={each} />
+								<MemoIcon
+									variantKey={
+										Object
+											.keys(state.controls.variant)
+											.find(each => state.controls.variant[each] === true)
+										}
+									icon={each}
+								/>
 							</div>
 						</div>
 					))}
