@@ -478,6 +478,118 @@ const Search = () => {
 	)
 }
 
+const Controls = () => (
+	<div className="py-4">
+
+		<section className="px-6 py-4">
+			<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
+				<span className="inline-flex flex-row justify-between w-full">
+					<span>
+						COPY TO CLIPBOARD
+					</span>
+					{/* <span> */}
+					{/* 	DOWNLOAD */}
+					{/* </span> */}
+				</span>
+			</h6>
+			<div className="h-4" />
+			<div className="flex flex-row justify-between items-center">
+				<div className="space-x-2 flex flex-row">
+					<div className="w-10 h-10 bg-gray-100 rounded-full" />
+					<div className="w-10 h-10 bg-gray-100 rounded-full" />
+					<div className="w-10 h-10 bg-gray-100 rounded-full" />
+				</div>
+				{/* <div className="w-10 h-10 bg-gray-100 rounded-full" /> */}
+			</div>
+		</section>
+
+		{/* TODO: Add overflow-visible. */}
+		<hr className="border-t border-gray-200" />
+		<section className="px-6 py-4">
+			<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
+				SIZE
+			</h6>
+			<div className="h-4" />
+			<div className="flex flex-row justify-between items-center">
+				<div className="w-64 h-1 bg-gray-100 rounded-full" />
+				<div className="w-16 h-8 bg-gray-100 rounded-full" />
+			</div>
+		</section>
+
+		<hr className="border-t border-gray-200" />
+		<section className="px-6 py-4">
+			<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}>
+				STROKE-WIDTH
+			</h6>
+			<div className="h-4" />
+			<div className="flex flex-row justify-between items-center">
+				<div className="w-64 h-1 bg-gray-100 rounded-full" />
+				<div className="w-16 h-8 bg-gray-100 rounded-full" />
+			</div>
+		</section>
+
+		{/* Section: Size */}
+		{/* */}
+		{/* TODO: Add overflow-visible. */}
+		{/* <hr className="border-t border-gray-200" /> */}
+		{/* <section className="px-6 py-4"> */}
+		{/* 	<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}> */}
+		{/* 		CARBON ADS */}
+		{/* 	</h6> */}
+		{/* 	<div className="h-4" /> */}
+		{/* 	<div className="w-80 h-32 bg-gray-100 rounded-2" /> */}
+		{/* </section> */}
+
+		{/* Section: Class names */}
+		{/* */}
+		{/* TODO: Add overflow-visible. */}
+		{/* <hr className="border-t border-gray-200" /> */}
+		{/* <section className="px-6 py-4"> */}
+		{/* 	<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}> */}
+		{/* 		CLASS NAMES */}
+		{/* 	</h6> */}
+		{/* 	<div className="h-4" /> */}
+		{/* 	<div className="flex flex-row justify-between items-center"> */}
+		{/* 		<div className="w-64 h-1 bg-gray-100 rounded-full" /> */}
+		{/* 		<div className="w-16 h-8 bg-gray-100 rounded-full" /> */}
+		{/* 	</div> */}
+		{/* </section> */}
+
+		{/* Section: Stroke-width */}
+		{/* */}
+		{/* TODO: Heroicons do not currently export stroke-width as an API. */}
+		{/* <hr className="border-t border-gray-200" /> */}
+		{/* <section className="px-6 py-6"> */}
+		{/* 	<h6 className="font-bold tracking-wider leading-none text-gray-500" style={{ fontSize: "0.625rem" }}> */}
+		{/* 		STROKE-WIDTH */}
+		{/* 	</h6> */}
+		{/* 	<div className="h-4" /> */}
+		{/* 	<div className="flex flex-row justify-between items-center"> */}
+		{/* 		<div className="w-64 h-1 bg-gray-100 rounded-full" /> */}
+		{/* 		<div className="w-16 h-8 bg-gray-100 rounded-full" /> */}
+		{/* 	</div> */}
+		{/* </section> */}
+
+		{/* <hr className="border-t border-gray-200" /> */}
+
+		{/* <div className="h-36" /> */}
+
+		{/* <div */}
+		{/* 	className="-mt-24 sticky h-24 rounded-b-6 z-10" */}
+		{/* 	style={{ */}
+		{/* 		bottom: tw(8), */}
+		{/* 		boxShadow: ` */}
+		{/* 			0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), */}
+		{/* 			0 0 0 1px rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), */}
+		{/* 			0 ${tw(6)} 0 ${tw(6)} var(--gray-50) */}
+		{/* 		`, */}
+		{/* 		clipPath: "inset(50% -100% -100% -100%)", */}
+		{/* 	}} */}
+		{/* /> */}
+
+	</div>
+)
+
 const MemoIcon = React.memo(() => (
 	// NOTE: Use h-full because of absolute inset-0.
 	<Apply className="h-full">
@@ -506,49 +618,46 @@ const MemoIcon = React.memo(() => (
 	</Apply>
 ))
 
-const App = () => (
+const IconApp = () => (
 	<Apply style={{ marginTop: tw(-MARGIN_TOP_TW) }}>
 		<div className="flex flex-row justify-center items-start">
 
 			{/* LHS */}
-			<main className="w-full !max-w-screen-xl z-10" style={{ maxWidth: px(1280) }}>
+			<Apply className="flex-1">
+				<main className="z-10">
 
-				{/* Search */}
-				<div className="-mt-4 pt-4 sticky top-0 z-10">
-					<div className="-mx-4 absolute inset-x-0 top-0">
-						<div className="h-4 bg-theme" />
-						<div className="h-9 bg-theme" />
-					</div>
-					<div className="rounded-6 shadow-2">
-						<div className="rounded-6" style={{ height: tw(18) }}>
-							<Search />
+					{/* Search */}
+					<div className="-mt-4 pt-4 sticky top-0 z-10">
+						<div className="-mx-4 absolute inset-x-0 top-0">
+							<div className="h-4 bg-theme" />
+							<div className="h-9 bg-theme" />
+						</div>
+						<div className="rounded-6 shadow-2">
+							<div className="rounded-6" style={{ height: tw(18) }}>
+								<Search />
+							</div>
 						</div>
 					</div>
-				</div>
 
-				{/* Icons */}
-				<div className="h-6" />
-				<div className="rounded-6 shadow-2">
-					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 bg-white rounded-6 overflow-hidden" /* style={{ transform: "translateZ(0)" }} */>
+					{/* Icons */}
+					<div className="h-6" />
+					<div className="rounded-6 shadow-2">
+						<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 bg-white rounded-6 overflow-hidden" /* style={{ transform: "translateZ(0)" }} */>
 
-						{range(200).map((each, x) => (
-							// TODO: each.name
-							<div key={each.name} className="pb-full relative">
-								<div className="absolute inset-0">
-									{/* <MemoIcon */}
-									{/* 	state={state} */}
-									{/* 	dispatch={dispatch} */}
-									{/* 	icon={each} */}
-									{/* /> */}
-									<MemoIcon />
+							{range(200).map((each, x) => (
+								// TODO: each.name
+								<div key={each.name} className="pb-full relative">
+									<div className="absolute inset-0">
+										<MemoIcon />
+									</div>
 								</div>
-							</div>
-						))}
+							))}
 
+						</div>
 					</div>
-				</div>
 
-			</main>
+				</main>
+			</Apply>
 
 			{/* RHS */}
 			<Apply className="flex-shrink-0">
@@ -557,23 +666,7 @@ const App = () => (
 			<aside className="-mt-4 pt-4 sticky top-0">
 				<div className="rounded-6 shadow-2">
 					<div className="w-96 bg-white rounded-6">
-						<br />
-						<br />
-						<br />
-						<br />
-						<br />
-						<br />
-						<br />
-						<br />
-						<br />
-						<br />
-						<br />
-						<br />
-						<br />
-						<br />
-						<br />
-						<br />
-						<br />
+						<Controls />
 					</div>
 				</div>
 			</aside>
@@ -619,10 +712,10 @@ html {
 			</header>
 
 			<main className="px-4 sm:px-6">
-				<App />
+				<IconApp />
 			</main>
 
-			<div className="h-32" />
+			<div className="h-24" />
 		</div>
 	)
 }
