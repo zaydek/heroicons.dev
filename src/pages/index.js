@@ -660,16 +660,25 @@ const IconApp = () => (
 			</Apply>
 
 			{/* RHS */}
-			<Apply className="flex-shrink-0">
-				<div className="w-6" />
+			<Apply className="hidden lg:block">
+				<div className="flex-shrink-0 w-6" />
 			</Apply>
-			<aside className="-mt-4 pt-4 sticky top-0">
-				<div className="rounded-6 shadow-2">
-					<div className="w-96 bg-white rounded-6">
-						<Controls />
+			<Apply className="hidden lg:block">
+				<aside className="-mt-4 pt-4 sticky top-0">
+					<div className="rounded-6 shadow-2">
+						<div className="w-96 bg-white rounded-6">
+							<Controls />
+						</div>
 					</div>
-				</div>
-			</aside>
+				</aside>
+			</Apply>
+
+			{/* <div className="hidden sm:block"> */}
+			{/* 	<div className="h-8" /> */}
+			{/* 	<div className="flex flex-row justify-center"> */}
+			{/* 		<CTAButtons /> */}
+			{/* 	</div> */}
+			{/* </div> */}
 
 		</div>
 	</Apply>
