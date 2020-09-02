@@ -338,7 +338,7 @@ const Hero = ({ state, dispatch }) => (
 )
 
 const MemoSearch = React.memo(({ state, dispatch }) => {
-	const [query, setQuery] = React.useState(() => state.search.query)
+	const [query, setQuery] = React.useState(() => state.search.query.user)
 
 	// Debounces search.
 	React.useEffect(() => {
@@ -558,16 +558,16 @@ const MemoControls = () => (
 	// </div>
 )
 
-const MemoIcon = React.memo((/* TODO */) => (
+const MemoIcon = React.memo(({ icon }) => (
 	// NOTE: Use h-full because of absolute context.
 	<article className="relative h-full" style={{ boxShadow: "inset 0 0 0 var(--box-shadow-spread) var(--gray-200), 0 0 0 var(--box-shadow-spread) var(--gray-200)" }}>
 
 		{/* New */}
-		<div className="p-4 absolute right-0 top-0">
-			{Math.floor(Math.random() * 10) === 0 && (
+		{icon.new && (
+			<div className="p-4 absolute right-0 top-0">
 				<div className="w-3 h-3 bg-purple-500 rounded-full" />
-			)}
-		</div>
+			</div>
+		)}
 
 		{/* Icon */}
 		<div className="flex flex-row justify-center items-center h-full">
@@ -575,9 +575,12 @@ const MemoIcon = React.memo((/* TODO */) => (
 		</div>
 
 		{/* Text */}
+		{/* <div className="w-24 h-3 bg-gray-300 rounded-1" /> */}
 		<div className="pb-4 absolute inset-x-0 bottom-0">
 			<div className="flex flex-row justify-center">
-				<div className="w-24 h-3 bg-gray-300 rounded-1" />
+				<p className="text-sm tracking-wide leading-none text-gray-800">
+					{icon.name}
+				</p>
 			</div>
 		</div>
 
@@ -612,12 +615,10 @@ const IconApp = ({ state, dispatch }) => (
 				{/* TODO: grid-cols-* depends on <aside> */}
 				<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 bg-white rounded-6 overflow-hidden" /* style={{ transform: "translateZ(0)" }} */>
 
-					{/* state.search.results */}
-					{range(200).map((each, x) => (
-						// TODO: each.name
+					{state.search.results.map((each, x) => (
 						<div key={each.name} className="pb-full relative">
 							<div className="absolute inset-0">
-								<MemoIcon />
+								<MemoIcon icon={each} />
 							</div>
 						</div>
 					))}
@@ -651,7 +652,7 @@ const IconApp = ({ state, dispatch }) => (
 const Layout = () => {
 	// TODO: Add support for syncing to localStorage.
 	const [state, dispatch] = useIconsReducer()
-	console.log({ query: state.search.query })
+	console.log({ query: state.search.query.internal })
 
 	React.useEffect(() => {
 		if (navigator.userAgent.includes("Chrome")) {

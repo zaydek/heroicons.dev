@@ -12,7 +12,10 @@ function shortHash() {
 
 const initialState = {
 	search: {
-		query: "",
+		query: {
+			user: "",
+			internal: "",
+		},
 		results: dataset, // NOTE: Do not marshal to localStorage.
 	},
 	controls: {
@@ -51,8 +54,25 @@ const initialState = {
 
 const actions = state => ({
 	search(query) {
-		state.search.query = query
-		// state.results =
+		state.search.query.user = query
+		state.search.query.internal = query
+			.trim()
+			.toLowerCase()
+			.replace(/ +/g, "-")
+
+		// "":
+		if (state.search.query.internal === "") {
+			state.search.results = dataset
+			return
+		}
+
+		// "new":
+		if (state.search.query.internal === "new") {
+			state.search.results = dataset.filter(each => each.new)
+			return
+		}
+
+		// state.results = dataset.filter(each => each.name)
 
 		// state.results = dataset.filter(each => {
 		// 	// each.searchIndex = each.name.indexOf(state.form.search.safe)
