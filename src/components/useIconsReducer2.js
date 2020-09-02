@@ -74,6 +74,9 @@ const actions = state => ({
 			})
 		})
 	},
+	toggleShowControls() {
+		state.controls.show = !state.controls.show
+	},
 	updateControls(controlType, key, value) {
 		// XOR:
 		if (typeof value === "boolean") {
@@ -103,12 +106,12 @@ function IconsReducer(state, action) {
 	case "SEARCH":
 		actions(state).search(action.query)
 		return
+	case "TOGGLE_SHOW_CONTROLS":
+		actions(state).toggleShowControls()
+		return
 	case "UPDATE_CONTROLS":
 		actions(state).updateControls(action.controlType, action.key, action.value)
 		return
-	// case "TOGGLE_CONTROLS":
-	// 	actions(state).toggleControls()
-	// 	return
 	// case "UPDATE_CONTROLS":
 	// 	actions(state).updateControls(action.__type, )
 	// 	return

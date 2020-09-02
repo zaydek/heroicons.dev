@@ -355,7 +355,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 	const rerenderCounter = React.useRef(0)
 	React.useEffect(() => {
 		rerenderCounter.current++
-		if (rerenderCounter.current === 2) {
+		if (rerenderCounter.current >= 2) {
 			const y = document.documentElement.scrollTop
 			if (y) {
 				// No-op
@@ -379,9 +379,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 		}
 	}, [query, dispatch])
 
-	// const [showVariantOutline, setShowVariantOutline] = React.useState(false)
 	const [copyAsJSX, setCopyAsJSX] = React.useState(false)
-	const [showControls, setShowControls] = React.useState(false)
 
 	return (
 		// NOTE: Use h-full because of absolute context.
@@ -423,7 +421,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 			<div className="absolute right-0 inset-y-0">
 				<div className="-mx-1.5 px-8 pl-3 flex flex-row h-full">
 
-					{/* 1st button */}
+					{/* Button */}
 					<Reset className="focus:outline-none">
 						<button
 							className="px-1.5 flex flex-row items-center"
@@ -458,7 +456,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						</button>
 					</Reset>
 
-					{/* 2nd button */}
+					{/* Button */}
 					<Reset className="focus:outline-none">
 						<button className="px-1.5 flex flex-row items-center" onClick={e => setCopyAsJSX(!copyAsJSX)}>
 							<Apply
@@ -493,11 +491,19 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						</button>
 					</Reset>
 
-					{/* 3rd button */}
+					{/* Button */}
 					<Reset className="focus:outline-none">
-						<button className="px-1.5 hidden lg:flex lg:flex-row lg:items-center" onClick={e => setShowControls(!showControls)}>
+						<button
+							className="px-1.5 hidden md:flex md:flex-row md:items-center"
+							// onClick={e => setShowControls(!showControls)}
+							onClick={e => (
+								dispatch({
+									type: "TOGGLE_SHOW_CONTROLS",
+								})
+							)}
+						>
 							<Transition
-								on={showControls}
+								on={state.controls.show}
 								className="transition duration-200 ease-in-out"
 								from="transform rotate-0"
 								to="transform rotate-90"
@@ -506,8 +512,8 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 									<Apply
 										className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
 										style={{
-											color: showControls && "var(--purple-50)",
-											backgroundColor: showControls && "var(--purple-500)",
+											color: state.controls.show && "var(--purple-50)",
+											backgroundColor: state.controls.show && "var(--purple-500)",
 										}}
 									>
 										<Apply className="transition duration-200 ease-in-out">
@@ -534,8 +540,12 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 	return ok
 })
 
-const MemoControls = () => (
+const MemoControls = React.memo(() => (
 	<div>
+		<br />
+		<br />
+		<br />
+		<br />
 		<br />
 		<br />
 		<br />
@@ -602,11 +612,11 @@ const MemoControls = () => (
 	// 	</section>
 	//
 	// </div>
-)
+))
 
 const MemoIcon = React.memo(({ variantKey, icon }) => (
 	// NOTE: Use h-full because of absolute context.
-	<article className="relative h-full" style={{ boxShadow: "inset 0 0 0 var(--box-shadow-spread) var(--gray-200), 0 0 0 var(--box-shadow-spread) var(--gray-200)" }}>
+	<article className="relative h-full" style={{ boxShadow: "inset 0 0 0 1px var(--gray-100), 0 0 0 1px var(--gray-100)" }}>
 
 		{/* New */}
 		{icon.new && (
@@ -641,7 +651,7 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 		<div className="pb-4 absolute inset-x-0 bottom-0">
 			<div className="flex flex-row justify-center">
 				<Reset className="subpixel-antialiased">
-					<p className="!text-sm tracking-wide leading-none text-gray-600" style={{ fontSize: px(13) }}>
+					<p className="!text-sm tracking-wide leading-none text-gray-800" style={{ fontSize: px(13) }}>
 						{icon.name}
 					</p>
 				</Reset>
@@ -678,7 +688,13 @@ const IconApp = ({ state, dispatch }) => (
 			<div className="rounded-6 shadow-2">
 				<div className="bg-white rounded-6 overflow-hidden" style={{ minHeight: `calc(100vh - ${tw(4 + 18 + 6 + 24)})` }}>
 					{/* TODO: grid-cols-* depends on <aside> */}
-					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+					<div
+						className={
+							!state.controls.show
+								? "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+								: "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
+						}
+					>
 						{state.search.results.map((each, x) => (
 							<div key={each.name} className="pb-full relative">
 								<div className="absolute inset-0">
@@ -696,22 +712,26 @@ const IconApp = ({ state, dispatch }) => (
 		</main>
 
 		{/* Controls */}
-		{/* <Media className="hidden lg:block"> */}
-		{/* 	<div className="flex-shrink-0 w-6" /> */}
-		{/* </Media> */}
-		{/* <Media className="hidden lg:block"> */}
-		{/* 	<aside className="-mt-4 pt-4 sticky top-0"> */}
-		{/* 		<div className="rounded-6 shadow-2"> */}
-		{/* 			{/* TODO: Put py-* here. */} */}
-		{/* 			<div className="w-96 bg-white rounded-6"> */}
-		{/* 				<MemoControls */}
-		{/* 					state={state} */}
-		{/* 					dispatch={dispatch} */}
-		{/* 				/> */}
-		{/* 			</div> */}
-		{/* 		</div> */}
-		{/* 	</aside> */}
-		{/* </Media> */}
+		{state.controls.show && (
+			<>
+				<Media className="hidden md:block">
+					<div className="flex-shrink-0 w-6" />
+				</Media>
+				<Media className="hidden md:block">
+					<aside className="-mt-4 pt-4 sticky top-0">
+						<div className="rounded-6 shadow-2">
+							{/* TODO: Put py-* here. */}
+							<div className="w-96 bg-white rounded-6">
+								<MemoControls
+									state={state}
+									dispatch={dispatch}
+								/>
+							</div>
+						</div>
+					</aside>
+				</Media>
+			</>
+		)}
 
 	</div>
 )
@@ -720,12 +740,12 @@ const Layout = () => {
 	// TODO: Add support for syncing to localStorage.
 	const [state, dispatch] = useIconsReducer()
 
-	React.useEffect(() => {
-		if (navigator.userAgent.includes("Chrome")) {
-			const html = document.body.parentElement
-			html.classList.add("detected-chrome")
-		}
-	}, [])
+	// React.useEffect(() => {
+	// 	if (navigator.userAgent.includes("Chrome")) {
+	// 		const html = document.body.parentElement
+	// 		html.classList.add("detected-chrome")
+	// 	}
+	// }, [])
 
 	// console.log(state)
 
@@ -744,12 +764,12 @@ html {
 	background-color: var(--theme);
 }
 
-html {
-	--box-shadow-spread: 1px;
-}
-html.detected-chrome {
-	--box-shadow-spread: 0.5px;
-}
+/* html { */
+/* 	--box-shadow-spread: 1px; */
+/* } */
+/* html.detected-chrome { */
+/* 	--box-shadow-spread: 0.5px; */
+/* } */
 
 `}
 			</style>
