@@ -46,7 +46,7 @@ const AbsoluteExternalLinks = () => (
 	`}
 			</style>
 
-			<a href="TODO" {...target_blank}>
+			<a href={`https://twitter.com/intent/tweet?text=${"Thanks @steveschoger for Heroicons and @username_ZAYDEK for heroicons.dev! 🔥"}&url=https://heroicons.dev`} {...target_blank}>
 				<p className="twemoji px-4 py-0.5 pt-4 font-medium no-underline hover:underline text-purple-50">
 					<span className="inline-flex flex-row items-center">
 						<Apply className="w-6 h-6 overflow-visible">
@@ -59,12 +59,13 @@ const AbsoluteExternalLinks = () => (
 							</svg>
 						</Apply>
 						<span style={{ width: "1ch" }} />
+						{/* Share with your followers on Twitter! */}
 						Tweet thank you on Twitter!
 					</span>
 				</p>
 			</a>
 
-			<a href="TODO" {...target_blank}>
+			<a href="https://github.com/codex-zaydek/heroicons.dev" {...target_blank}>
 				<p className="twemoji px-4 py-0.5 pb-4 font-medium no-underline hover:underline text-purple-50">
 					<span className="inline-flex flex-row items-center">
 						<Apply className="w-6 h-6 overflow-visible">
@@ -78,7 +79,7 @@ const AbsoluteExternalLinks = () => (
 							</svg>
 						</Apply>
 						<span style={{ width: "1ch" }} />
-						Star on GitHub
+						Star viewer on GitHub
 					</span>
 				</p>
 			</a>
