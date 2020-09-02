@@ -80,11 +80,11 @@ Once I’ve added you to the site, click ‘Are you a GitHub Sponsor? Click here
 - [Tweet thank you on Twitter!](https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev)
 - [Sponsor **@codex-zaydek**!](https://github.com/sponsors/codex-zaydek)
 
--->
-
 ## License
 
 Open source software licensed as MIT.
+
+<!--
 
 ---
 
@@ -93,6 +93,10 @@ Follow me on Twitter [@username_ZAYDEK](https://twitter.com/username_ZAYDEK)! �
 <br>
 
 ---
+
+-->
+
+# Next.js
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
