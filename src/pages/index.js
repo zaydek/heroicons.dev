@@ -27,8 +27,7 @@ const Media = Apply
 
 const AbsoluteExternalLinks = () => (
 	<Media className="hidden lg:block">
-		{/* NOTE: Must use z-20 or more for hover events to work. */}
-		<nav className="-my-0.5 absolute left-0 top-0 z-20">
+		<nav className="-my-0.5 absolute left-0 top-0">
 
 			<style>{`
 
@@ -279,7 +278,7 @@ const Hero = ({ state, dispatch }) => (
 
 		{/* NOTE: Use px-* here because of backgrounds. */}
 		<header className="px-4 sm:px-6 flex flex-row justify-center bg-theme">
-			<div className="w-full max-w-screen-xl z-10">
+			<div className="w-full max-w-screen-xl">
 				<div className="h-16" />
 
 				<div className="flex flex-row justify-center">
@@ -308,6 +307,7 @@ const Hero = ({ state, dispatch }) => (
 			</div>
 		</header>
 
+		{/* Background */}
 		<div className="absolute inset-x-0 top-full pointer-events-none">
 			<Apply className="text-theme">
 				<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
@@ -316,6 +316,7 @@ const Hero = ({ state, dispatch }) => (
 			</Apply>
 		</div>
 
+		{/* Background (CSS) */}
 		<style>{`
 
 html {
