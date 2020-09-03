@@ -648,32 +648,31 @@ const IconApp = ({ state, dispatch }) => {
 				</div>
 
 				{/* Icons */}
-				{/* */}
-				{/* 2xl: 24 (984 / 6) 24 384 24 / 6
-				{/* xl:  24 (824 / 5) 24 384 24 / 5
-				{/* lg:  24 (976 / 4) 24
-				{/* md:  24 (720 / 4) 24
-				{/* sm:  16 (608 / 3) 16
-				{/* xs:  16 (608 / 3) 16
-				{/* */}
-				<div className="pt-0 lg:pt-6">
-					<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
-						<div className="bg-white overflow-hidden" style={{ minHeight: `calc(100vh - ${tw(media.lg ? 18 : 4 + 18 + 6 + 24)})` }}>
-							<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5">
-								{state.search.results.map((each, x) => (
-									<div key={each.name} className="pb-full relative">
-										<div className="absolute inset-0">
-											<MemoIcon
-												variantKey={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
-												icon={each}
-											/>
-										</div>
+				{/* <div className="pt-0 lg:pt-6"> */}
+				<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
+					<div
+						className="bg-white !overflow-hidden"
+						style={{
+							marginTop: tw(-18),
+							paddingTop: tw(18),
+							minHeight: `calc(100vh - ${tw(media.lg ? 18 : 4 + 18 + 6 + 24)})`,
+						}}
+					>
+						<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5">
+							{state.search.results.map((each, x) => (
+								<div key={each.name} className="pb-full relative">
+									<div className="absolute inset-0">
+										<MemoIcon
+											variantKey={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
+											icon={each}
+										/>
 									</div>
-								))}
-							</div>
+								</div>
+							))}
 						</div>
-					</Apply>
-				</div>
+					</div>
+				</Apply>
+				{/* </div> */}
 
 			</main>
 
