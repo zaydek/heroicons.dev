@@ -41,6 +41,7 @@ module.exports = {
 			},
 			fontFamily: {
 				sans: [...defaultTheme.fontFamily.sans.slice(0, 3), "Inter", ...defaultTheme.fontFamily.sans.slice(3)],
+				// mono: ["'IBM Plex Mono'", ...defaultTheme.fontFamily.mono],
 			},
 		},
 		screens: {

@@ -308,8 +308,8 @@ const Hero = ({ state, dispatch }) => (
 			</div>
 		</header>
 
-		{/* Background */}
-		<div className="absolute inset-x-0 top-full pointer-events-none">
+		{/* Background (1 of 2) */}
+		<div className="absolute inset-x-0 top-full pointer-events-none" style={{ zIndex: -1 }}>
 			<Apply className="text-theme">
 				<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
 					<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" />
@@ -317,14 +317,17 @@ const Hero = ({ state, dispatch }) => (
 			</Apply>
 		</div>
 
-		<div className="fixed inset-x-0 top-0 pointer-events-none" style={{ transform: "translateZ(0)" }}>
-			<div className="h-24 bg-theme" />
-			<Apply className="text-theme">
-				<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
-					<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" />
-				</svg>
-			</Apply>
-		</div>
+		{/* Background (2 of 2) */}
+		<Media className="hidden sm:block">
+			<div className="fixed inset-x-0 top-0 pointer-events-none" style={{ zIndex: -1 }}>
+				<div className="h-24 bg-theme" />
+				<Apply className="text-theme">
+					<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
+						<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" />
+					</svg>
+				</Apply>
+			</div>
+		</Media>
 
 		{/* Background (CSS) */}
 		{/* */}
@@ -357,19 +360,18 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 		}
 	}, [])
 
-	// Auto-scrolls on input (window must be *not* scrolled).
-	const rerenderCounter = React.useRef(0)
+	// Auto-scrolls on input.
+	const mounted = React.useRef(0)
 	React.useEffect(() => {
-		rerenderCounter.current++
-		if (rerenderCounter.current >= 2) {
-			const y = document.documentElement.scrollTop
-			if (y) {
-				// No-op
-				return
-			}
-			const offset = inputRef.current.getBoundingClientRect().y - 24 // tw(6)
-			window.scrollTo(0, y + offset)
+		if (!mounted.current) {
+			mounted.current = true
+			return
 		}
+		const y = (
+			document.documentElement.scrollTop +
+			(-24 + inputRef.current.getBoundingClientRect().y)
+		)
+		window.scrollTo(0, y)
 	}, [query])
 
 	// Debounces search.
@@ -576,12 +578,12 @@ const MemoControls = React.memo(() => (
 
 const MemoIcon = React.memo(({ variantKey, icon }) => (
 	// NOTE: Use h-full because of absolute context.
-	<article className="relative h-full" style={{ boxShadow: "inset 0 0 0 var(--shadow-spread) var(--shadow-color), 0 0 0 var(--shadow-spread) var(--shadow-color)" }}>
+	<article className="relative h-full" style={{ boxShadow: "var(--shadow)" }}>
 
 		{/* New */}
 		{icon.new && (
-			<div className="p-4 absolute right-0 top-0">
-				<div className="w-3 h-3 bg-purple-500 rounded-full" />
+			<div className="p-3 absolute right-0 top-0">
+				<div className="w-2.5 h-2.5 bg-purple-500 rounded-full" />
 			</div>
 		)}
 
@@ -593,14 +595,14 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 		</div>
 
 		{/* Name */}
-		<div className="px-3 py-4 absolute inset-x-0 bottom-0">
-			<div className="flex flex-row justify-center">
-				<Reset className="subpixel-antialiased">
-					<p className="text-center tracking-wide leading-tight text-gray-600" style={{ fontSize: px(13) }}>
+		<div className="p-3 absolute inset-x-0 bottom-0">
+			<Reset className="subpixel-antialiased">
+				<Apply className="mx-auto">
+					<p className="text-center text-xs tracking-wide leading-tight text-gray-600" style={{ fontSize: px(13) }}>
 						{icon.name}
 					</p>
-				</Reset>
-			</div>
+				</Apply>
+			</Reset>
 		</div>
 
 	</article>
@@ -610,31 +612,39 @@ const IconApp = ({ state, dispatch }) => (
 	<div className="px-4 sm:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_TW) }}>
 
 		{/* LHS */}
-		<main className="flex-1 w-full !max-w-screen-xl z-10" style={{ maxWidth: px(192 * 6) /* , transform: "translateZ(0)" */ }}>
+		<main className="flex-1 w-full !max-w-screen-xl z-10" style={{ maxWidth: px(1440 - 24 - 24 - 384 - 24) }}>
 
 			{/* Search */}
-			<div className="-mt-4 pt-4 sticky top-0 z-10">
-				<div className="-mx-6 absolute inset-x-0 top-0" style={{ zIndex: -1 }}>
-					<div className="h-4 bg-theme" />
-					<div className="h-6 bg-theme" />
-					<div className="h-6" style={{ backgroundImage: "linear-gradient(hsla(270, 100%, 50%, 1), hsla(270, 100%, 50%, 0))" }} />
-				</div>
-				<div className="rounded-6 shadow-2">
-					<div className="bg-white rounded-6" style={{ height: tw(18) }}>
+			<div className="-mt-4 pt-4 static sm:sticky top-0 z-10">
+				<Media className="hidden sm:block">
+					<div className="-mx-6 absolute inset-x-0 top-0" style={{ zIndex: -1 }}>
+						<div className="h-4 bg-theme" />
+						<div className="h-6 bg-theme" />
+						<div className="h-6" style={{ backgroundImage: "linear-gradient(hsla(270, 100%, 50%, 1), hsla(270, 100%, 50%, 0))" }} />
+					</div>
+				</Media>
+				<Apply className="rounded-6 shadow-2">
+					<div className="bg-white" style={{ height: tw(18) }}>
 						<MemoSearch
 							state={state}
 							dispatch={dispatch}
 						/>
 					</div>
-				</div>
+				</Apply>
 			</div>
 
 			{/* Icons */}
+			{/* */}
+			{/* 2xl: 24 (984 / 6) 24 384 24 / 6
+			{/* xl:  24 (824 / 5) 24 384 24 / 5
+			{/* lg:  24 (976 / 6) 24
+			{/* md:  24 (720 / 5) 24
+			{/* sm:  16 (608 / 4) 16
+			{/* */}
 			<div className="h-6" />
-			<div className="rounded-6 shadow-2">
-				{/* PERF: Remove overflow-hidden if possible; propagate border-radius to <MemoIcon>. */}
-				<div className="bg-white rounded-6 overflow-hidden" style={{ minHeight: `calc(100vh - ${tw(4 + 18 + 6 + 24)})` }}>
-					<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5">
+			<Apply className="rounded-6 shadow-2">
+				<div className="bg-white overflow-hidden" style={{ minHeight: `calc(100vh - ${tw(4 + 18 + 6 + 24)})` }}>
+					<div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-6">
 						{state.search.results.map((each, x) => (
 							<div key={each.name} className="pb-full relative">
 								<div className="absolute inset-0">
@@ -647,21 +657,23 @@ const IconApp = ({ state, dispatch }) => (
 						))}
 					</div>
 				</div>
-			</div>
+			</Apply>
 
 		</main>
 
 		{/* Controls */}
-		<aside className="-mt-4 pl-6 pt-4 sticky top-0 hidden lg:block">
-			<div className="rounded-6 shadow-2">
-				<div className="w-96 bg-white rounded-6">
-					<MemoControls
-						state={state}
-						dispatch={dispatch}
-					/>
-				</div>
-			</div>
-		</aside>
+		<Media className="hidden lg:block">
+			<aside className="-mt-4 pl-6 pt-4 sticky top-0">
+				<Apply className="rounded-6 shadow-2">
+					<div className="w-96 bg-white">
+						<MemoControls
+							state={state}
+							dispatch={dispatch}
+						/>
+					</div>
+				</Apply>
+			</aside>
+		</Media>
 
 	</div>
 )
@@ -693,12 +705,10 @@ html {
 }
 
 html {
-	--shadow-spread: 1px;
-	--shadow-color: var(--gray-100);
+	--shadow: inset 0 0 0 1px var(--gray-100), 0 0 0 1px var(--gray-100);
 }
 html.detected-chrome {
-	--shadow-spread: 0.5px;
-	--shadow-color: var(--gray-200);
+	--shadow: inset 0 0 0 0.5px var(--gray-200), 0 0 0 0.5px var(--gray-200);
 }
 
 `}
