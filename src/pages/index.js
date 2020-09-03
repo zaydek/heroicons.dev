@@ -576,7 +576,7 @@ const MemoControls = React.memo(() => (
 
 const MemoIcon = React.memo(({ variantKey, icon }) => (
 	// NOTE: Use h-full because of absolute context.
-	<article className="relative h-full" style={{ boxShadow: "inset 0 0 0 0.5px var(--gray-200), 0 0 0 0.5px var(--gray-200)" }}>
+	<article className="relative h-full" style={{ boxShadow: "inset 0 0 0 var(--shadow-spread) var(--shadow-color), 0 0 0 var(--shadow-spread) var(--shadow-color)" }}>
 
 		{/* New */}
 		{icon.new && (
@@ -670,14 +670,12 @@ const Layout = () => {
 	// TODO: Add support for syncing to localStorage.
 	const [state, dispatch] = useIconsReducer()
 
-	// React.useEffect(() => {
-	// 	if (navigator.userAgent.includes("Chrome")) {
-	// 		const html = document.body.parentElement
-	// 		html.classList.add("detected-chrome")
-	// 	}
-	// }, [])
-
-	// console.log(state)
+	React.useEffect(() => {
+		if (navigator.userAgent.includes("Chrome")) {
+			const html = document.body.parentElement
+			html.classList.add("detected-chrome")
+		}
+	}, [])
 
 	return (
 		<div>
@@ -694,12 +692,14 @@ html {
 	background-color: var(--theme);
 }
 
-/* html { */
-/* 	--box-shadow-spread: 1px; */
-/* } */
-/* html.detected-chrome { */
-/* 	--box-shadow-spread: 0.5px; */
-/* } */
+html {
+	--shadow-spread: 1px;
+	--shadow-color: var(--gray-100);
+}
+html.detected-chrome {
+	--shadow-spread: 0.5px;
+	--shadow-color: var(--gray-200);
+}
 
 `}
 			</style>
