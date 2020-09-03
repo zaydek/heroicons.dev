@@ -7,6 +7,7 @@ import target_blank from "lib/x/target_blank"
 import Transition from "lib/x/Transition"
 import tw from "lib/x/twToRem"
 import useIconsReducer from "components/useIconsReducer2" // FIXME
+import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 
 import SVGCode from "heroicons-0.4.1/solid/Code"
 import SVGCog from "heroicons-0.4.1/solid/Cog"
@@ -18,6 +19,15 @@ import SVGFlagOutline from "heroicons-0.4.1/outline/Flag"
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
 const MARGIN_TOP_TW = 18 * 2 + 6
+
+const screens = {
+	/* eslint-disable no-multi-spaces */
+	sm: `${16 +  640 + 16}px`,
+	md: `${16 +  768 + 16}px`,
+	lg: `${16 + 1024 + 16}px`,
+	xl: `${16 + 1280 + 16}px`,
+	/* eslint-enable no-multi-spaces */
+}
 
 function range(max) {
 	return Array(max).fill().map((_, x) => x)
@@ -241,7 +251,7 @@ const Sponsors = () => (
 
 			{React.useMemo(() => (
 				range(6).map(each => (
-					<div className="mx-2 my-1.5 relative">
+					<div key={each} className="mx-2 my-1.5 relative">
 						<div
 							className="h-14 bg-purple-50 rounded-full"
 							style={{
@@ -279,7 +289,7 @@ const Hero = ({ state, dispatch }) => (
 
 		{/* NOTE: Use px-* here because of backgrounds. */}
 		<header className="px-4 lg:px-6 flex flex-row justify-center bg-theme">
-			<div className="w-full max-w-screen-xl z-10">
+			<div className="w-full max-w-screen-xl">
 				<div className="h-16" />
 
 				<div className="flex flex-row justify-center">
@@ -310,8 +320,8 @@ const Hero = ({ state, dispatch }) => (
 			</div>
 		</header>
 
-		{/* Background (1 of 2) */}
-		<div className="absolute inset-x-0 top-full pointer-events-none" style={{ zIndex: -1 }}>
+		{/* Background */}
+		<div className="absolute inset-x-0 top-full pointer-events-none">
 			<Apply className="text-theme">
 				<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
 					<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" />
@@ -319,38 +329,39 @@ const Hero = ({ state, dispatch }) => (
 			</Apply>
 		</div>
 
-		{/* Background (2 of 2) */}
-		{/* <Media className="hidden sm:block"> */}
-		<div className="fixed inset-x-0 top-0 pointer-events-none" style={{ zIndex: -1 }}>
-			<div className="h-24 bg-theme" />
-			<Apply className="text-theme">
-				<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
-					<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" />
-				</svg>
-			</Apply>
-		</div>
-		{/* </Media> */}
+		{/* Background (attached) */}
+		<style>{`
 
-		{/* Background (CSS) */}
-		{/* */}
-		{/* https://yoksel.github.io/url-encoder */}
-		{/* 		<style>{` */}
-		{/*  */}
-		{/* html { */}
-		{/* 	background-attachment: fixed; */}
-		{/* 	background-image: url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 16 2' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 0H0V1C1.33301 1.33398 4 2 8 2C12 2 14.667 1.33398 16 1V0Z' /%3E%3C/svg%3E"); */}
-		{/* 	background-repeat: no-repeat; */}
-		{/* 	background-size: contain; */}
-		{/* } */}
-		{/*  */}
-		{/* `} */}
-		{/* 		</style> */}
+@media (min-width: ${screens.lg}) {
+	html {
+		background-attachment:
+			fixed,
+			fixed;
+		background-image:
+			url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
+			url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 16 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z' /%3E%3C/svg%3E");
+		background-repeat:
+			repeat-x,
+			no-repeat;
+		background-size:
+			96px,
+			100%;
+		background-position:
+			0 0,
+			0 96px;
+	}
+}
+
+`}
+		</style>
 
 	</div>
 )
 
 const MemoSearch = React.memo(({ state, dispatch }) => {
 	const inputRef = React.useRef(null)
+
+	const media = useLayoutBreakpoints(screens)
 
 	const [inputElementFocused, setInputElementFocused] = React.useState(false)
 	const [query, setQuery] = React.useState(() => state.search.query.user)
@@ -362,19 +373,17 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 		}
 	}, [])
 
-	// // Auto-scrolls on input.
-	// const mounted = React.useRef(0)
-	// React.useEffect(() => {
-	// 	if (!mounted.current) {
-	// 		mounted.current = true
-	// 		return
-	// 	}
-	// 	const y = (
-	// 		document.documentElement.scrollTop +
-	// 		(-24 + inputRef.current.getBoundingClientRect().y)
-	// 	)
-	// 	window.scrollTo(0, y)
-	// }, [query])
+	// Auto-scrolls on input.
+	const mounted = React.useRef(false)
+	React.useEffect(() => {
+		if (!mounted.current) {
+			mounted.current = true
+			return
+		}
+		const y = document.documentElement.scrollTop + (!media.lg ? -24 : 0) +
+			inputRef.current.getBoundingClientRect().y
+		window.scrollTo(0, y)
+	}, [media.lg, query])
 
 	// Debounces search.
 	React.useEffect(() => {
@@ -584,8 +593,8 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 
 		{/* New */}
 		{icon.new && (
-			<div className="p-3 absolute right-0 top-0">
-				<div className="w-2.5 h-2.5 bg-purple-500 rounded-full" />
+			<div className="p-4 absolute right-0 top-0">
+				<div className="w-3 h-3 bg-purple-500 rounded-full" />
 			</div>
 		)}
 
@@ -597,90 +606,94 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 		</div>
 
 		{/* Name */}
-		<div className="p-3 absolute inset-x-0 bottom-0">
-			<Reset className="subpixel-antialiased">
-				<Apply className="mx-auto">
+		<div className="p-4 absolute inset-x-0 bottom-0">
+			<div className="flex flex-row justify-center">
+				<Reset className="subpixel-antialiased">
 					<p className="text-center text-xs tracking-wide leading-tight text-gray-600" style={{ fontSize: px(13) }}>
 						{icon.name}
 					</p>
-				</Apply>
-			</Reset>
+				</Reset>
+			</div>
 		</div>
 
 	</article>
 ))
 
-const IconApp = ({ state, dispatch }) => (
-	<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_TW) }}>
+const IconApp = ({ state, dispatch }) => {
+	const media = useLayoutBreakpoints(screens)
 
-		{/* LHS */}
-		<main className="flex-1 w-full max-w-screen-lg z-10">
+	return (
+		<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_TW) }}>
 
-			{/* Search */}
-			<div className="mt-0 lg:-mt-4 pt-0 lg:pt-4 sticky top-0 z-10">
-				<Media className="hidden lg:block">
-					<div className="-mx-6 absolute inset-x-0 top-0" style={{ zIndex: -1 }}>
-						<div className="h-4 bg-theme" />
-						<div className="h-6 bg-theme" />
-						<div className="h-6" style={{ backgroundImage: "linear-gradient(hsla(270, 100%, 50%, 1), hsla(270, 100%, 50%, 0))" }} />
-					</div>
-				</Media>
-				<Apply className="rounded-0 lg:rounded-6 shadow-2">
-					<div className="bg-white" style={{ height: tw(18) }}>
-						<MemoSearch
-							state={state}
-							dispatch={dispatch}
-						/>
-					</div>
-				</Apply>
-			</div>
+			{/* LHS */}
+			<main className="flex-1 w-full max-w-screen-lg z-10">
 
-			{/* Icons */}
-			{/* */}
-			{/* 2xl: 24 (984 / 6) 24 384 24 / 6
-			{/* xl:  24 (824 / 5) 24 384 24 / 5
-			{/* lg:  24 (976 / 4) 24
-			{/* md:  24 (720 / 4) 24
-			{/* sm:  16 (608 / 3) 16
-			{/* xs:  16 (608 / 3) 16
-			{/* */}
-			<div className="pt-0 lg:pt-6">
-				<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
-					<div className="bg-white overflow-hidden" style={{ minHeight: `calc(100vh - ${tw(4 + 18 + 6 + 24)})` }}>
-						<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5">
-							{state.search.results.map((each, x) => (
-								<div key={each.name} className="pb-full relative">
-									<div className="absolute inset-0">
-										<MemoIcon
-											variantKey={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
-											icon={each}
-										/>
-									</div>
-								</div>
-							))}
+				{/* Search */}
+				<div className="mt-0 lg:-mt-4 pt-0 lg:pt-4 sticky top-0 z-10">
+					<Media className="hidden lg:block">
+						<div className="-mx-6 absolute inset-x-0 top-0" style={{ zIndex: -1 }}>
+							<div className="h-4 bg-theme" />
+							<div className="h-6 bg-theme" />
+							<div className="h-6" style={{ backgroundImage: "linear-gradient(hsla(270, 100%, 50%, 1), hsla(270, 100%, 50%, 0))" }} />
 						</div>
-					</div>
-				</Apply>
-			</div>
+					</Media>
+					<Apply className="rounded-0 lg:rounded-6 shadow-2">
+						<div className="bg-white" style={{ height: tw(18) }}>
+							<MemoSearch
+								state={state}
+								dispatch={dispatch}
+							/>
+						</div>
+					</Apply>
+				</div>
 
-		</main>
+				{/* Icons */}
+				{/* */}
+				{/* 2xl: 24 (984 / 6) 24 384 24 / 6
+				{/* xl:  24 (824 / 5) 24 384 24 / 5
+				{/* lg:  24 (976 / 4) 24
+				{/* md:  24 (720 / 4) 24
+				{/* sm:  16 (608 / 3) 16
+				{/* xs:  16 (608 / 3) 16
+				{/* */}
+				<div className="pt-0 lg:pt-6">
+					<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
+						<div className="bg-white overflow-hidden" style={{ minHeight: `calc(100vh - ${tw(media.lg ? 18 : 4 + 18 + 6 + 24)})` }}>
+							<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5">
+								{state.search.results.map((each, x) => (
+									<div key={each.name} className="pb-full relative">
+										<div className="absolute inset-0">
+											<MemoIcon
+												variantKey={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
+												icon={each}
+											/>
+										</div>
+									</div>
+								))}
+							</div>
+						</div>
+					</Apply>
+				</div>
 
-		{/* Controls */}
-		<Media className="hidden lg:block">
-			<aside className="-mt-4 pl-6 pt-4 sticky top-0">
-				<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
-					<div className="w-96 bg-white">
-						<MemoControls
-							state={state}
-							dispatch={dispatch}
-						/>
-					</div>
-				</Apply>
-			</aside>
-		</Media>
+			</main>
 
-	</div>
-)
+			{/* Controls */}
+			<Media className="hidden lg:block">
+				<aside className="-mt-4 pl-6 pt-4 sticky top-0">
+					<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
+						<div className="w-96 bg-white">
+							<MemoControls
+								state={state}
+								dispatch={dispatch}
+							/>
+						</div>
+					</Apply>
+				</aside>
+			</Media>
+
+		</div>
+	)
+}
 
 const Layout = () => {
 	// TODO: Add support for syncing to localStorage.
