@@ -120,10 +120,10 @@ const Attribution = () => (
 		<span className="inline-flex flex-row flex-wrap justify-center items-center">
 			<span className="inline-flex flex-row flex-wrap justify-center items-center">
 				<span className="hidden sm:inline">
-					Beautiful, MIT-licensed icons by
+					MIT-licensed open source icons by
 				</span>
 				<span className="inline sm:hidden">
-					Beautiful icons by
+					MIT icons by
 				</span>
 				<span style={{ width: "0.33ch" }} />
 				<a className="font-semibold no-underline hover:underline" href="https://twitter.com/steveschoger" {...target_blank}>
@@ -411,11 +411,11 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 			</div>
 
 			{/* Search */}
-			<Reset className="block w-full h-full focus:outline-none">
+			<Reset className="block w-full h-full bg-transparent focus:outline-none">
 				<Apply className="transition duration-200 ease-in-out">
 					<input
 						ref={inputRef}
-						className="px-16 text-xl placeholder-gray-400 text-gray-800 bg-white rounded-6"
+						className="px-16 text-xl placeholder-gray-400 text-gray-800 rounded-6"
 						style={{
 							paddingLeft: tw(8 + 6 + 4),
 							paddingRight: tw(4 + 6 + 3 + 6 + 8),
@@ -576,11 +576,11 @@ const MemoControls = React.memo(() => (
 
 const MemoIcon = React.memo(({ variantKey, icon }) => (
 	// NOTE: Use h-full because of absolute context.
-	<article className="relative h-full" style={{ boxShadow: "inset 0 0 0 1px var(--gray-100), 0 0 0 1px var(--gray-100)" }}>
+	<article className="relative h-full" style={{ boxShadow: "inset 0 0 0 0.5px var(--gray-200), 0 0 0 0.5px var(--gray-200)" }}>
 
 		{/* New */}
 		{icon.new && (
-			<div className="p-3 absolute right-0 top-0">
+			<div className="p-4 absolute right-0 top-0">
 				<div className="w-3 h-3 bg-purple-500 rounded-full" />
 			</div>
 		)}
@@ -593,10 +593,10 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 		</div>
 
 		{/* Name */}
-		<div className="py-3 absolute inset-x-0 bottom-0">
-			<div className="px-2 flex flex-row justify-center">
+		<div className="px-3 py-4 absolute inset-x-0 bottom-0">
+			<div className="flex flex-row justify-center">
 				<Reset className="subpixel-antialiased">
-					<p className="!text-sm tracking-wide leading-none truncate text-gray-800" style={{ fontSize: px(13) }}>
+					<p className="text-center tracking-wide leading-tight text-gray-600" style={{ fontSize: px(13) }}>
 						{icon.name}
 					</p>
 				</Reset>
@@ -614,12 +614,13 @@ const IconApp = ({ state, dispatch }) => (
 
 			{/* Search */}
 			<div className="-mt-4 pt-4 sticky top-0 z-10">
-				<div className="-mx-2 absolute inset-x-0 top-0">
+				<div className="-mx-6 absolute inset-x-0 top-0" style={{ zIndex: -1 }}>
 					<div className="h-4 bg-theme" />
-					<div className="h-9 bg-theme" />
+					<div className="h-6 bg-theme" />
+					<div className="h-6" style={{ backgroundImage: "linear-gradient(hsla(270, 100%, 50%, 1), hsla(270, 100%, 50%, 0))" }} />
 				</div>
 				<div className="rounded-6 shadow-2">
-					<div className="rounded-6" style={{ height: tw(18) }}>
+					<div className="bg-white rounded-6" style={{ height: tw(18) }}>
 						<MemoSearch
 							state={state}
 							dispatch={dispatch}
@@ -633,7 +634,7 @@ const IconApp = ({ state, dispatch }) => (
 			<div className="rounded-6 shadow-2">
 				{/* PERF: Remove overflow-hidden if possible; propagate border-radius to <MemoIcon>. */}
 				<div className="bg-white rounded-6 overflow-hidden" style={{ minHeight: `calc(100vh - ${tw(4 + 18 + 6 + 24)})` }}>
-					<div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-5 xl:grid-cols-6">
+					<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5">
 						{state.search.results.map((each, x) => (
 							<div key={each.name} className="pb-full relative">
 								<div className="absolute inset-0">
