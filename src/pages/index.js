@@ -278,7 +278,7 @@ const Hero = ({ state, dispatch }) => (
 		<AbsoluteExternalLinks />
 
 		{/* NOTE: Use px-* here because of backgrounds. */}
-		<header className="px-4 sm:px-6 flex flex-row justify-center bg-theme">
+		<header className="px-4 lg:px-6 flex flex-row justify-center bg-theme">
 			<div className="w-full max-w-screen-xl z-10">
 				<div className="h-16" />
 
@@ -298,9 +298,11 @@ const Hero = ({ state, dispatch }) => (
 				</div>
 				{/* </div> */}
 
-				<div className="h-16" />
-				<div className="flex flex-row justify-center">
-					<Sponsors />
+				<div className="hidden sm:block">
+					<div className="h-16" />
+					<div className="flex flex-row justify-center">
+						<Sponsors />
+					</div>
 				</div>
 
 				<div className="h-16" />
@@ -318,16 +320,16 @@ const Hero = ({ state, dispatch }) => (
 		</div>
 
 		{/* Background (2 of 2) */}
-		<Media className="hidden sm:block">
-			<div className="fixed inset-x-0 top-0 pointer-events-none" style={{ zIndex: -1 }}>
-				<div className="h-24 bg-theme" />
-				<Apply className="text-theme">
-					<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
-						<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" />
-					</svg>
-				</Apply>
-			</div>
-		</Media>
+		{/* <Media className="hidden sm:block"> */}
+		<div className="fixed inset-x-0 top-0 pointer-events-none" style={{ zIndex: -1 }}>
+			<div className="h-24 bg-theme" />
+			<Apply className="text-theme">
+				<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
+					<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" />
+				</svg>
+			</Apply>
+		</div>
+		{/* </Media> */}
 
 		{/* Background (CSS) */}
 		{/* */}
@@ -360,19 +362,19 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 		}
 	}, [])
 
-	// Auto-scrolls on input.
-	const mounted = React.useRef(0)
-	React.useEffect(() => {
-		if (!mounted.current) {
-			mounted.current = true
-			return
-		}
-		const y = (
-			document.documentElement.scrollTop +
-			(-24 + inputRef.current.getBoundingClientRect().y)
-		)
-		window.scrollTo(0, y)
-	}, [query])
+	// // Auto-scrolls on input.
+	// const mounted = React.useRef(0)
+	// React.useEffect(() => {
+	// 	if (!mounted.current) {
+	// 		mounted.current = true
+	// 		return
+	// 	}
+	// 	const y = (
+	// 		document.documentElement.scrollTop +
+	// 		(-24 + inputRef.current.getBoundingClientRect().y)
+	// 	)
+	// 	window.scrollTo(0, y)
+	// }, [query])
 
 	// Debounces search.
 	React.useEffect(() => {
@@ -417,7 +419,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 				<Apply className="transition duration-200 ease-in-out">
 					<input
 						ref={inputRef}
-						className="px-16 text-xl placeholder-gray-400 text-gray-800 rounded-6"
+						className="px-16 text-xl placeholder-gray-400 text-gray-800 rounded-0 lg:rounded-6"
 						style={{
 							paddingLeft: tw(8 + 6 + 4),
 							paddingRight: tw(4 + 6 + 3 + 6 + 8),
@@ -609,21 +611,21 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 ))
 
 const IconApp = ({ state, dispatch }) => (
-	<div className="px-4 sm:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_TW) }}>
+	<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_TW) }}>
 
 		{/* LHS */}
-		<main className="flex-1 w-full !max-w-screen-xl z-10" style={{ maxWidth: px(1440 - 24 - 24 - 384 - 24) }}>
+		<main className="flex-1 w-full max-w-screen-lg z-10">
 
 			{/* Search */}
-			<div className="-mt-4 pt-4 static sm:sticky top-0 z-10">
-				<Media className="hidden sm:block">
+			<div className="mt-0 lg:-mt-4 pt-0 lg:pt-4 sticky top-0 z-10">
+				<Media className="hidden lg:block">
 					<div className="-mx-6 absolute inset-x-0 top-0" style={{ zIndex: -1 }}>
 						<div className="h-4 bg-theme" />
 						<div className="h-6 bg-theme" />
 						<div className="h-6" style={{ backgroundImage: "linear-gradient(hsla(270, 100%, 50%, 1), hsla(270, 100%, 50%, 0))" }} />
 					</div>
 				</Media>
-				<Apply className="rounded-6 shadow-2">
+				<Apply className="rounded-0 lg:rounded-6 shadow-2">
 					<div className="bg-white" style={{ height: tw(18) }}>
 						<MemoSearch
 							state={state}
@@ -637,34 +639,36 @@ const IconApp = ({ state, dispatch }) => (
 			{/* */}
 			{/* 2xl: 24 (984 / 6) 24 384 24 / 6
 			{/* xl:  24 (824 / 5) 24 384 24 / 5
-			{/* lg:  24 (976 / 6) 24
-			{/* md:  24 (720 / 5) 24
-			{/* sm:  16 (608 / 4) 16
+			{/* lg:  24 (976 / 4) 24
+			{/* md:  24 (720 / 4) 24
+			{/* sm:  16 (608 / 3) 16
+			{/* xs:  16 (608 / 3) 16
 			{/* */}
-			<div className="h-6" />
-			<Apply className="rounded-6 shadow-2">
-				<div className="bg-white overflow-hidden" style={{ minHeight: `calc(100vh - ${tw(4 + 18 + 6 + 24)})` }}>
-					<div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-6">
-						{state.search.results.map((each, x) => (
-							<div key={each.name} className="pb-full relative">
-								<div className="absolute inset-0">
-									<MemoIcon
-										variantKey={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
-										icon={each}
-									/>
+			<div className="pt-0 lg:pt-6">
+				<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
+					<div className="bg-white overflow-hidden" style={{ minHeight: `calc(100vh - ${tw(4 + 18 + 6 + 24)})` }}>
+						<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5">
+							{state.search.results.map((each, x) => (
+								<div key={each.name} className="pb-full relative">
+									<div className="absolute inset-0">
+										<MemoIcon
+											variantKey={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
+											icon={each}
+										/>
+									</div>
 								</div>
-							</div>
-						))}
+							))}
+						</div>
 					</div>
-				</div>
-			</Apply>
+				</Apply>
+			</div>
 
 		</main>
 
 		{/* Controls */}
 		<Media className="hidden lg:block">
 			<aside className="-mt-4 pl-6 pt-4 sticky top-0">
-				<Apply className="rounded-6 shadow-2">
+				<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
 					<div className="w-96 bg-white">
 						<MemoControls
 							state={state}
@@ -722,7 +726,10 @@ html.detected-chrome {
 				state={state}
 				dispatch={dispatch}
 			/>
-			<div className="h-24" />
+
+			<Media className="hidden lg:block">
+				<div className="h-24" />
+			</Media>
 
 		</div>
 	)
