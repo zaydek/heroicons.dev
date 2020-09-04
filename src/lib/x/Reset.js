@@ -1,2 +1,1 @@
-import Reset from "lib/x/Apply"
-export default Reset
+export { default } from "lib/x/Apply"

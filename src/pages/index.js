@@ -362,17 +362,19 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 	const media = useLayoutBreakpoints(screens)
 
-	const [inputElementFocused, setInputElementFocused] = React.useState(true /* autofocus */)
+	const [inputElementFocused, setInputElementFocused] = React.useState(true)
 	const [query, setQuery] = React.useState(() => state.search.query.user)
 
-	// Polyfill for <... autoFocus>.
+	const [tooltip, setTooltip] = React.useState("")
+
+	// Auto-focuses.
 	React.useEffect(() => {
 		if (inputRef.current.autofocus) {
 			inputRef.current.focus()
 		}
 	}, [])
 
-	// Auto-scrolls on input.
+	// Auto-scrolls.
 	const mounted = React.useRef(false)
 	React.useEffect(() => {
 		if (!mounted.current) {
@@ -415,7 +417,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							<Apply className="transition duration-200 ease-in-out">
 								{/* <SVGSearchOutline /> */}
 								<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.4} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
 								</svg>
 							</Apply>
 						</Apply>
@@ -451,7 +453,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 					{/* Button */}
 					<Reset className="focus:outline-none">
 						<button
-							className="px-1 flex flex-row items-center"
+							className="px-1 relative flex flex-row items-center"
 							onClick={e => (
 								dispatch({
 									type: "UPDATE_CONTROLS",
@@ -480,13 +482,18 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										</svg>
 									)}
 								</Apply>
+								{/* {true && ( */}
+								{/* 	<div className="absolute right-0 top-full"> */}
+								{/* 		hello */}
+								{/* 	</div> */}
+								{/* )} */}
 							</Apply>
 						</button>
 					</Reset>
 
 					{/* Button */}
 					<Reset className="focus:outline-none">
-						<button className="px-1 hidden sm:flex sm:flex-row sm:items-center" onClick={e => setCopyAsJSX(!copyAsJSX)}>
+						<button className="px-1 relative hidden sm:flex sm:flex-row sm:items-center" onClick={e => setCopyAsJSX(!copyAsJSX)}>
 							<Apply
 								className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
 								style={{
@@ -506,13 +513,18 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										</svg>
 									)}
 								</Apply>
+								{/* {tooltip === "TODO" && ( */}
+								{/* 	<div className="absolute right-0 top-full"> */}
+								{/* 		hello */}
+								{/* 	</div> */}
+								{/* )} */}
 							</Apply>
 						</button>
 					</Reset>
 
 					{/* Button */}
 					<Reset className="focus:outline-none">
-						<button className="px-1 flex flex-row items-center" onClick={e => setDarkMode(!darkMode)}>
+						<button className="px-1 relative flex flex-row items-center" onClick={e => setDarkMode(!darkMode)}>
 							<Apply
 								className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
 								style={{
@@ -534,6 +546,11 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										</svg>
 									)}
 								</Apply>
+								{/* {tooltip === "TODO" && ( */}
+								{/* 	<div className="absolute right-0 top-full"> */}
+								{/* 		hello */}
+								{/* 	</div> */}
+								{/* )} */}
 							</Apply>
 						</button>
 					</Reset>

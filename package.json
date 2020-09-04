@@ -5,7 +5,7 @@
 		"tailwind-build": "NODE_ENV=production yarn tailwind-dev",
 		"dev": "next dev",
 		"build": "next build",
-		"compile": "rm -rf .next && yarn tailwind-build && yarn build && yarn next export && osascript -e 'display notification \"Production build ready\" with title \"yarn compile\"' && yarn tailwind-dev && osascript -e 'display notification \"Development build ready\" with title \"yarn tailwind-dev\"'",
+		"out": "rm -rf .next && yarn tailwind-build && yarn build && yarn next export && osascript -e 'display notification \"Production build ready\" with title \"yarn compile\"' && yarn tailwind-dev && osascript -e 'display notification \"Development build ready\" with title \"yarn tailwind-dev\"'",
 		"start": "next start"
 	},
 	"dependencies": {
