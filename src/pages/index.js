@@ -1,6 +1,7 @@
 import Apply from "lib/x/Apply"
 import ApplyDisplay from "lib/x/ApplyDisplay"
 import ApplyReset from "lib/x/ApplyReset"
+import ApplyTransition from "lib/x/ApplyTransition"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import px from "lib/x/pxToRem"
 import SVG from "components/SVG"
@@ -426,12 +427,10 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							className="w-6 h-6 text-gray-400"
 							style={{ color: inputElementFocused && "var(--purple-500)" }}
 						>
-							<Apply className="transition duration-200 ease-in-out">
-								{/* <SVGSearchOutline /> */}
-								<svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.4} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-								</svg>
-							</Apply>
+							{/* <SVGSearchOutline /> */}
+							<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={!inputElementFocused ? 2 : 2.4} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+							</svg>
 						</Apply>
 					</div>
 				</div>
@@ -463,28 +462,30 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 				<div className="-mx-1 px-8 pl-4 flex flex-row h-full">
 
 					{/* Button */}
-					<ApplyReset className="focus:outline-none">
-						<button
-							className="px-1 relative flex flex-row items-center"
-							onMouseEnter={e => setTooltip("variant")}
-							onMouseLeave={e => setTooltip("")}
-							onClick={e => (
-								dispatch({
-									type: "UPDATE_CONTROLS",
-									controlType: "variant",
-									key: !state.controls.variant.solid ? "solid" : "outline",
-									value: true,
-								})
-							)}
-						>
-							<Apply
-								className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
+					<div
+						className="px-1 flex flex-row items-center"
+						onFocus={e => setTooltip("variant")}
+						onBlur={e => setTooltip("")}
+						onMouseEnter={e => setTooltip("variant")}
+						onMouseLeave={e => setTooltip("")}
+					>
+						<Apply className="focus:outline-none transition duration-200 ease-in-out">
+							<button
+								className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full"
 								style={{
 									color: state.controls.variant.solid && "var(--purple-50)",
 									backgroundColor: state.controls.variant.solid && "var(--purple-500)",
 								}}
+								onClick={e => (
+									dispatch({
+										type: "UPDATE_CONTROLS",
+										controlType: "variant",
+										key: !state.controls.variant.solid ? "solid" : "outline",
+										value: true,
+									})
+								)}
 							>
-								<Apply className="transition duration-200 ease-in-out">
+								<Apply className="w-6 h-6 overflow-visible">
 									{/* NOTE: Use SVGs not because React remounts components. */}
 									{!state.controls.variant.solid ? (
 										<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -496,17 +497,17 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										</svg>
 									)}
 								</Apply>
-							</Apply>
-							{tooltip === "variant" && (
-								<div className="-mt-2 pr-1 absolute right-0 top-full">
-									<Tooltip>
-										<strong>Switch to Solid Icons</strong><br />
-										You are viewing Outline Icons
-									</Tooltip>
-								</div>
-							)}
-						</button>
-					</ApplyReset>
+								{tooltip === "variant" && (
+									<div className="pt-2 !-mt-2 !pr-1 absolute right-0 top-full">
+										<Tooltip>
+											<strong>Switch to Solid Icons</strong><br />
+											You are viewing Outline Icons
+										</Tooltip>
+									</div>
+								)}
+							</button>
+						</Apply>
+					</div>
 
 					{/* Button */}
 					<ApplyReset className="focus:outline-none">
