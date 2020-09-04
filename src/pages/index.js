@@ -454,6 +454,8 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 					<Reset className="focus:outline-none">
 						<button
 							className="px-1 relative flex flex-row items-center"
+							onMouseEnter={e => setTooltip("variant")}
+							onMouseLeave={e => setTooltip("")}
 							onClick={e => (
 								dispatch({
 									type: "UPDATE_CONTROLS",
@@ -482,12 +484,19 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										</svg>
 									)}
 								</Apply>
-								{/* {true && ( */}
-								{/* 	<div className="absolute right-0 top-full"> */}
-								{/* 		hello */}
-								{/* 	</div> */}
-								{/* )} */}
 							</Apply>
+							{tooltip === "variant" && (
+								<div className="-mt-2 pr-1 absolute right-0 top-full">
+									<div className="rounded-2 shadow-2">
+										<div className="px-3 py-2 bg-white rounded-2 shadow-px-4">
+											<p className="text-left whitespace-pre font-medium text-sm text-gray-600">
+												<strong>Switch to Solid Icons</strong><br />
+												You are viewing Outline Icons
+											</p>
+										</div>
+									</div>
+								</div>
+							)}
 						</button>
 					</Reset>
 
