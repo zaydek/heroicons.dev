@@ -510,7 +510,15 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 					{/* Button */}
 					<ApplyReset className="focus:outline-none">
-						<button className="px-1 relative hidden sm:flex sm:flex-row sm:items-center" onClick={e => setCopyAsJSX(!copyAsJSX)}>
+						<button
+							className="px-1 relative hidden sm:flex sm:flex-row sm:items-center"
+							onMouseEnter={e => setTooltip("jsx")}
+							onMouseLeave={e => setTooltip("")}
+							onClick={e => (
+								// TODO
+								setCopyAsJSX(!copyAsJSX)
+							)}
+						>
 							<Apply
 								className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
 								style={{
@@ -530,18 +538,29 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										</svg>
 									)}
 								</Apply>
-								{/* {tooltip === "TODO" && ( */}
-								{/* 	<div className="absolute right-0 top-full"> */}
-								{/* 		hello */}
-								{/* 	</div> */}
-								{/* )} */}
 							</Apply>
+							{tooltip === "jsx" && (
+								<div className="-mt-2 pr-1 absolute right-0 top-full">
+									<Tooltip>
+										<strong>Enable Copy as JSX</strong><br />
+										Copy as SVG currently enabled
+									</Tooltip>
+								</div>
+							)}
 						</button>
 					</ApplyReset>
 
 					{/* Button */}
 					<ApplyReset className="focus:outline-none">
-						<button className="px-1 relative flex flex-row items-center" onClick={e => setDarkMode(!darkMode)}>
+						<button
+							className="px-1 relative flex flex-row items-center"
+							onMouseEnter={e => setTooltip("theme")}
+							onMouseLeave={e => setTooltip("")}
+							onClick={e => (
+								// TODO
+								setDarkMode(!darkMode)
+							)}
+						>
 							<Apply
 								className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
 								style={{
@@ -563,12 +582,15 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										</svg>
 									)}
 								</Apply>
-								{/* {tooltip === "TODO" && ( */}
-								{/* 	<div className="absolute right-0 top-full"> */}
-								{/* 		hello */}
-								{/* 	</div> */}
-								{/* )} */}
 							</Apply>
+							{tooltip === "theme" && (
+								<div className="-mt-2 pr-1 absolute right-0 top-full">
+									<Tooltip>
+										<strong>Enable Dark Mode</strong><br />
+										Light Mode currently enabled
+									</Tooltip>
+								</div>
+							)}
 						</button>
 					</ApplyReset>
 
