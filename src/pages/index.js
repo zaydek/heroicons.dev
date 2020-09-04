@@ -3,12 +3,14 @@ import ApplyMedia from "lib/x/ApplyMedia"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import px from "lib/x/pxToRem"
 import Reset from "lib/x/Reset"
+import screens from "./_screens"
 import SVG from "components/SVG"
 import target_blank from "lib/x/target_blank"
 import Transition from "lib/x/Transition"
 import tw from "lib/x/twToRem"
 import useIconsReducer from "components/useIconsReducer2" // FIXME
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
+import { Space, EnSpace, EmSpace } from "lib/x/Spaces"
 
 import SVGCode from "heroicons-0.4.1/solid/Code"
 import SVGCog from "heroicons-0.4.1/solid/Cog"
@@ -19,20 +21,7 @@ import SVGCodeOutline from "heroicons-0.4.1/outline/Code"
 import SVGFlagOutline from "heroicons-0.4.1/outline/Flag"
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
-const MARGIN_TOP_TW = 18 * 2 + 6
-
-const screens = {
-	/* eslint-disable no-multi-spaces */
-	sm: `${16 +  640 + 16}px`,
-	md: `${16 +  768 + 16}px`,
-	lg: `${16 + 1024 + 16}px`,
-	xl: `${16 + 1280 + 16}px`,
-	/* eslint-enable no-multi-spaces */
-}
-
-const Space = () => <span style={{ width: "0.33ch" }} />
-const EnSpace = () => <span style={{ width: "0.67ch" }} />
-const EmSpace = () => <span style={{ width: "1ch" }} />
+const MARGIN_TOP_OFFSET_TW = 18 * 2 + 6
 
 const AbsoluteExternalLinks = () => (
 	<ApplyMedia className="hidden lg:block">
@@ -310,7 +299,7 @@ const Hero = ({ state, dispatch }) => (
 				</div>
 
 				<div className="h-16" />
-				<div style={{ height: tw(MARGIN_TOP_TW) }} />
+				<div style={{ height: tw(MARGIN_TOP_OFFSET_TW) }} />
 			</div>
 		</header>
 
@@ -617,7 +606,7 @@ const IconApp = ({ state, dispatch }) => {
 	const media = useLayoutBreakpoints(screens)
 
 	return (
-		<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_TW) }}>
+		<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_OFFSET_TW) }}>
 
 			{/* LHS */}
 			<main className="flex-1 w-full max-w-screen-lg z-10">
