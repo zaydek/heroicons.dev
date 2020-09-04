@@ -1,4 +1,5 @@
 import Apply from "lib/x/Apply"
+import ApplyMedia from "lib/x/ApplyMedia"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import px from "lib/x/pxToRem"
 import Reset from "lib/x/Reset"
@@ -29,16 +30,13 @@ const screens = {
 	/* eslint-enable no-multi-spaces */
 }
 
-function range(max) {
-	return Array(max).fill().map((_, x) => x)
-}
-
-const Media = Apply
+const Space = () => <span style={{ width: "0.33ch" }} />
+const EnSpace = () => <span style={{ width: "0.67ch" }} />
+const EmSpace = () => <span style={{ width: "1ch" }} />
 
 const AbsoluteExternalLinks = () => (
-	<Media className="hidden lg:block">
-		{/* NOTE: Must use z-20 for hover events to work. */}
-		<nav className="-my-0.5 absolute left-0 top-0 z-20">
+	<ApplyMedia className="hidden lg:block">
+		<nav className="-my-0.5 absolute left-0 top-0">
 
 			<style>{`
 
@@ -55,7 +53,7 @@ const AbsoluteExternalLinks = () => (
 	}
 }
 
-	`}
+`}
 			</style>
 
 			<a href={`https://twitter.com/intent/tweet?text=${"Thanks @steveschoger for Heroicons and @username_ZAYDEK for heroicons.dev! 🔥"}&url=https://heroicons.dev`} {...target_blank}>
@@ -70,8 +68,7 @@ const AbsoluteExternalLinks = () => (
 								</Apply>
 							</svg>
 						</Apply>
-						<span style={{ width: "1ch" }} />
-						{/* Say thank you on Twitter! */}
+						<EmSpace />
 						Share with your followers on Twitter!
 					</span>
 				</p>
@@ -90,14 +87,14 @@ const AbsoluteExternalLinks = () => (
 								</Apply>
 							</svg>
 						</Apply>
-						<span style={{ width: "1ch" }} />
+						<EmSpace />
 						Star viewer on GitHub
 					</span>
 				</p>
 			</a>
 
 		</nav>
-	</Media>
+	</ApplyMedia>
 )
 
 const HeroiconsLogo = () => (
@@ -135,16 +132,16 @@ const Attribution = () => (
 				<span className="inline sm:hidden">
 					MIT icons by
 				</span>
-				<span style={{ width: "0.33ch" }} />
+				<Space />
 				<a className="font-semibold no-underline hover:underline" href="https://twitter.com/steveschoger" {...target_blank}>
 					@steveschoger
 				</a>
 				{"."}
 			</span>
-			<span style={{ width: "0.33ch" }} />
+			<Space />
 			<span className="inline-flex lg:flex-row flex-wrap justify-center items-center">
 				Viewer by
-				<span style={{ width: "0.33ch" }} />
+				<Space />
 				<a className="font-semibold no-underline hover:underline" href="https://twitter.com/username_ZAYDEK" {...target_blank}>
 					@username_ZAYDEK
 				</a>
@@ -154,11 +151,11 @@ const Attribution = () => (
 	</h2>
 )
 
+// <a href="https://github.com/tailwindlabs/heroicons/archive/v0.4.1.zip" {...target_blank}>
 const CTAButtons = () => (
 	<div className="flex flex-col sm:flex-row w-full sm:w-auto">
 
 		<Reset className="block">
-			{/* <a href="https://github.com/tailwindlabs/heroicons/archive/v0.4.1.zip" {...target_blank}> */}
 			<a href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}>
 				<div className="px-5 py-4 bg-purple-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
@@ -172,7 +169,7 @@ const CTAButtons = () => (
 									<path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
 								</svg>
 							</Apply>
-							<span style={{ width: "0.33ch" }} />
+							<Space />
 							Open in Figma
 						</span>
 					</p>
@@ -187,14 +184,11 @@ const CTAButtons = () => (
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
 						<span className="inline-flex flex-row items-center">
 							<Apply className="mr-1 w-4 h-4 transform scale-110">
-								{/* <svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"> */}
-								{/* 	<path fillRule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" /> */}
-								{/* </svg> */}
 								<svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
 									<path d="M7.975 16a9.39 9.39 0 003.169-.509c-.473.076-.652-.229-.652-.486l.004-.572c.003-.521.01-1.3.01-2.197 0-.944-.316-1.549-.68-1.863 2.24-.252 4.594-1.108 4.594-4.973 0-1.108-.39-2.002-1.032-2.707.1-.251.453-1.284-.1-2.668 0 0-.844-.277-2.77 1.032A9.345 9.345 0 008 .717c-.856 0-1.712.113-2.518.34C3.556-.24 2.712.025 2.712.025c-.553 1.384-.2 2.417-.1 2.668-.642.705-1.033 1.612-1.033 2.707 0 3.852 2.342 4.72 4.583 4.973-.29.252-.554.692-.642 1.347-.58.264-2.027.692-2.933-.831-.19-.302-.756-1.045-1.549-1.032-.843.012-.34.478.013.667.428.239.919 1.133 1.032 1.422.201.567.856 1.65 3.386 1.184 0 .55.006 1.079.01 1.447l.003.428c0 .265-.189.567-.692.479 1.007.34 1.926.516 3.185.516z" />
 								</svg>
 							</Apply>
-							<span style={{ width: "0.33ch" }} />
+							<Space />
 							Open in GitHub
 						</span>
 					</p>
@@ -209,48 +203,49 @@ const Sponsors = () => (
 	<div className="relative">
 
 		{/* Center */}
-		<Media className="block xl:hidden">
+		<ApplyMedia className="block xl:hidden">
 			<div className="py-4 absolute inset-x-0 bottom-full">
 				<h6 className="text-center font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
 						OUR SPONSORS
-						<span style={{ width: "0.67ch" }} />
+						<EnSpace />
 						&middot;
-						<span style={{ width: "0.67ch" }} />
+						<EnSpace />
 						UNAFFILIATED WITH TAILWIND LABS
 					</span>
 				</h6>
 			</div>
-		</Media>
+		</ApplyMedia>
 
 		{/* LHS */}
-		<Media className="hidden xl:block">
+		<ApplyMedia className="hidden xl:block">
 			<div className="px-8 py-4 absolute left-0 bottom-full">
 				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
 						OUR SPONSORS
-						<span style={{ width: "0.67ch" }} />
+						<EnSpace />
 						&middot;
-						<span style={{ width: "0.67ch" }} />
+						<EnSpace />
 						BECOME A SPONSOR
 					</span>
 				</h6>
 			</div>
-		</Media>
+		</ApplyMedia>
 
 		{/* RHS */}
-		<Media className="hidden xl:block">
+		<ApplyMedia className="hidden xl:block">
 			<div className="px-8 py-4 absolute right-0 bottom-full">
 				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					UNAFFILIATED WITH TAILWIND LABS
 				</h6>
 			</div>
-		</Media>
+		</ApplyMedia>
 
 		<div className="-mx-1.5 -my-1 flex flex-row flex-wrap justify-center items-center">
 
+			{/* TODO */}
 			{React.useMemo(() => (
-				range(6).map(each => (
+				[1, 2, 3, 4, 5, 6].map(each => (
 					<div key={each} className="mx-2 my-1.5 relative">
 						<div
 							className="h-14 bg-purple-50 rounded-full"
@@ -259,20 +254,19 @@ const Sponsors = () => (
 								width: tw(36 + Math.floor(Math.random() * (48 - 36))),
 							}}
 						/>
-						<Media className="hidden xl:block">
+						<ApplyMedia className="hidden xl:block">
 							<div className="p-2 absolute inset-x-0 top-full">
 								<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-75">
-									{/* <span className="inline-flex flex-row items-center"> */}
-									{/* 	QAWolf */}
-									{/* 	<span style={{ width: "0.33ch" }} /> */}
-									{/* 	<Apply className="w-3 h-3 opacity-75"> */}
-									{/* 		<SVGExternalLink /> */}
-									{/* 	</Apply> */}
-									{/* </span> */}
-									QAWolf
+									<span className="inline-flex flex-row items-center">
+										QAWolf
+										<Space />
+										<Apply className="w-3 h-3 opacity-75">
+											<SVGExternalLink />
+										</Apply>
+									</span>
 								</p>
 							</div>
-						</Media>
+						</ApplyMedia>
 					</div>
 				))
 			), [])}
@@ -380,7 +374,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 			mounted.current = true
 			return
 		}
-		const y = document.documentElement.scrollTop + (!media.lg ? -24 : 0) +
+		const y = document.documentElement.scrollTop + (!media.lg ? -16 : 0) +
 			inputRef.current.getBoundingClientRect().y
 		window.scrollTo(0, y)
 	}, [media.lg, query])
@@ -428,7 +422,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 				<Apply className="transition duration-200 ease-in-out">
 					<input
 						ref={inputRef}
-						className="px-16 text-xl placeholder-gray-400 text-gray-800 rounded-0 lg:rounded-6"
+						className="px-16 text-xl placeholder-gray-400 text-gray-800"
 						style={{
 							paddingLeft: tw(8 + 6 + 4),
 							paddingRight: tw(4 + 6 + 3 + 6 + 8),
@@ -592,11 +586,11 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 	<article className="relative h-full" style={{ boxShadow: "var(--shadow)" }}>
 
 		{/* New */}
-		{icon.new && (
-			<div className="p-4 absolute right-0 top-0">
-				<div className="w-3 h-3 bg-purple-500 rounded-full" />
-			</div>
-		)}
+		{/* {icon.new && ( */}
+		{/* 	<div className="p-4 absolute right-0 top-0"> */}
+		{/* 		<div className="w-3 h-3 bg-purple-500 rounded-full" /> */}
+		{/* 	</div> */}
+		{/* )} */}
 
 		{/* Icon */}
 		<div className="flex flex-row justify-center items-center h-full">
@@ -630,14 +624,14 @@ const IconApp = ({ state, dispatch }) => {
 
 				{/* Search */}
 				<div className="mt-0 lg:-mt-4 pt-0 lg:pt-4 sticky top-0 z-10">
-					<Media className="hidden lg:block">
+					<ApplyMedia className="hidden lg:block">
 						<div className="-mx-6 absolute inset-x-0 top-0" style={{ zIndex: -1 }}>
 							<div className="h-4 bg-theme" />
 							<div className="h-6 bg-theme" />
 							<div className="h-6" style={{ backgroundImage: "linear-gradient(hsla(270, 100%, 50%, 1), hsla(270, 100%, 50%, 0))" }} />
 						</div>
-					</Media>
-					<Apply className="rounded-0 lg:rounded-6 shadow-2">
+					</ApplyMedia>
+					<Apply className="rounded-t-0 lg:rounded-t-6 shadow-2">
 						<div className="bg-white" style={{ height: tw(18) }}>
 							<MemoSearch
 								state={state}
@@ -648,14 +642,13 @@ const IconApp = ({ state, dispatch }) => {
 				</div>
 
 				{/* Icons */}
-				{/* <div className="pt-0 lg:pt-6"> */}
 				<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
 					<div
 						className="bg-white !overflow-hidden"
 						style={{
 							marginTop: tw(-18),
 							paddingTop: tw(18),
-							minHeight: `calc(100vh - ${tw(media.lg ? 18 : 4 + 18 + 6 + 24)})`,
+							minHeight: `calc(100vh - ${tw(media.lg ? 0 : 4 + 24)})`,
 						}}
 					>
 						<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5">
@@ -672,12 +665,11 @@ const IconApp = ({ state, dispatch }) => {
 						</div>
 					</div>
 				</Apply>
-				{/* </div> */}
 
 			</main>
 
 			{/* Controls */}
-			<Media className="hidden lg:block">
+			<ApplyMedia className="hidden lg:block">
 				<aside className="-mt-4 pl-6 pt-4 sticky top-0">
 					<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
 						<div className="w-96 bg-white">
@@ -688,7 +680,7 @@ const IconApp = ({ state, dispatch }) => {
 						</div>
 					</Apply>
 				</aside>
-			</Media>
+			</ApplyMedia>
 
 		</div>
 	)
@@ -739,9 +731,9 @@ html.detected-chrome {
 				dispatch={dispatch}
 			/>
 
-			<Media className="hidden lg:block">
+			<ApplyMedia className="hidden lg:block">
 				<div className="h-24" />
-			</Media>
+			</ApplyMedia>
 
 		</div>
 	)
