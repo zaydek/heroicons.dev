@@ -228,10 +228,10 @@ const Sponsors = () => (
 				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
 						OUR SPONSORS
-						<EnSpace />
-						&middot;
-						<EnSpace />
-						BECOME A SPONSOR
+						{/* <EnSpace /> */}
+						{/* &middot; */}
+						{/* <EnSpace /> */}
+						{/* BECOME A SPONSOR */}
 					</span>
 				</h6>
 			</div>
@@ -259,19 +259,19 @@ const Sponsors = () => (
 								width: tw(36 + Math.floor(Math.random() * (48 - 36))),
 							}}
 						/>
-						<ApplyDisplay className="hidden xl:block">
-							<div className="p-2 absolute inset-x-0 top-full">
-								<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-75">
-									<span className="inline-flex flex-row items-center">
-										QAWolf
-										<Space />
-										<Apply className="w-3 h-3 opacity-75">
-											<SVGExternalLink />
-										</Apply>
-									</span>
-								</p>
-							</div>
-						</ApplyDisplay>
+						{/* <ApplyDisplay className="hidden xl:block"> */}
+						{/* 	<div className="p-2 absolute inset-x-0 top-full"> */}
+						{/* 		<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-75"> */}
+						{/* 			<span className="inline-flex flex-row items-center"> */}
+						{/* 				QAWolf */}
+						{/* 				<Space /> */}
+						{/* 				<Apply className="w-3 h-3 opacity-75"> */}
+						{/* 					<SVGExternalLink /> */}
+						{/* 				</Apply> */}
+						{/* 			</span> */}
+						{/* 		</p> */}
+						{/* 	</div> */}
+						{/* </ApplyDisplay> */}
 					</div>
 				))
 			), [])}
@@ -362,7 +362,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 	const media = useLayoutBreakpoints(screens)
 
-	const [inputElementFocused, setInputElementFocused] = React.useState(false)
+	const [inputElementFocused, setInputElementFocused] = React.useState(true /* autofocus */)
 	const [query, setQuery] = React.useState(() => state.search.query.user)
 
 	// Polyfill for <... autoFocus>.
