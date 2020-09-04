@@ -1,8 +1,8 @@
 import Apply from "lib/x/Apply"
 import ApplyDisplay from "lib/x/ApplyDisplay"
+import ApplyReset from "lib/x/ApplyReset"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import px from "lib/x/pxToRem"
-import Reset from "lib/x/Reset"
 import SVG from "components/SVG"
 import target_blank from "lib/x/target_blank"
 import Transition from "lib/x/Transition"
@@ -160,7 +160,7 @@ const Attribution = () => (
 const CTAButtons = () => (
 	<div className="flex flex-col sm:flex-row w-full sm:w-auto">
 
-		<Reset className="block">
+		<ApplyReset className="block">
 			<a href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}>
 				<div className="px-5 py-4 bg-purple-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
@@ -180,10 +180,10 @@ const CTAButtons = () => (
 					</p>
 				</div>
 			</a>
-		</Reset>
+		</ApplyReset>
 
 		<div className="w-3 h-3" />
-		<Reset className="block">
+		<ApplyReset className="block">
 			<a href="https://github.com/tailwindlabs/heroicons" {...target_blank}>
 				<div className="px-5 py-4 bg-purple-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
@@ -199,7 +199,7 @@ const CTAButtons = () => (
 					</p>
 				</div>
 			</a>
-		</Reset>
+		</ApplyReset>
 
 	</div>
 )
@@ -426,7 +426,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 			</div>
 
 			{/* Search */}
-			<Reset className="block w-full h-full bg-transparent focus:outline-none">
+			<ApplyReset className="block w-full h-full bg-transparent focus:outline-none">
 				<Apply className="transition duration-200 ease-in-out">
 					<input
 						ref={inputRef}
@@ -444,14 +444,14 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						{...disableAutoCorrect}
 					/>
 				</Apply>
-			</Reset>
+			</ApplyReset>
 
 			{/* RHS */}
 			<div className="absolute right-0 inset-y-0">
 				<div className="-mx-1 px-8 pl-4 flex flex-row h-full">
 
 					{/* Button */}
-					<Reset className="focus:outline-none">
+					<ApplyReset className="focus:outline-none">
 						<button
 							className="px-1 relative flex flex-row items-center"
 							onMouseEnter={e => setTooltip("variant")}
@@ -489,19 +489,21 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 								<div className="-mt-2 pr-1 absolute right-0 top-full">
 									<div className="rounded-2 shadow-2">
 										<div className="px-3 py-2 bg-white rounded-2 shadow-px-4">
-											<p className="text-left whitespace-pre font-medium text-sm text-gray-600">
-												<strong>Switch to Solid Icons</strong><br />
-												You are viewing Outline Icons
-											</p>
+											<ApplyReset className="text-left whitespace-pre">
+												<p className="font-medium text-sm text-gray-800">
+													<strong>Switch to Solid Icons</strong><br />
+													You are viewing Outline Icons
+												</p>
+											</ApplyReset>
 										</div>
 									</div>
 								</div>
 							)}
 						</button>
-					</Reset>
+					</ApplyReset>
 
 					{/* Button */}
-					<Reset className="focus:outline-none">
+					<ApplyReset className="focus:outline-none">
 						<button className="px-1 relative hidden sm:flex sm:flex-row sm:items-center" onClick={e => setCopyAsJSX(!copyAsJSX)}>
 							<Apply
 								className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
@@ -529,10 +531,10 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 								{/* )} */}
 							</Apply>
 						</button>
-					</Reset>
+					</ApplyReset>
 
 					{/* Button */}
-					<Reset className="focus:outline-none">
+					<ApplyReset className="focus:outline-none">
 						<button className="px-1 relative flex flex-row items-center" onClick={e => setDarkMode(!darkMode)}>
 							<Apply
 								className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
@@ -562,7 +564,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 								{/* )} */}
 							</Apply>
 						</button>
-					</Reset>
+					</ApplyReset>
 
 				</div>
 			</div>
@@ -621,11 +623,11 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 		{/* Name */}
 		<div className="p-3 absolute inset-x-0 bottom-0">
 			<div className="flex flex-row justify-center">
-				<Reset className="subpixel-antialiased">
+				<ApplyReset className="subpixel-antialiased">
 					<p className="text-center text-xs tracking-wide leading-tight text-gray-600" style={{ fontSize: px(13) }}>
 						{icon.name}
 					</p>
-				</Reset>
+				</ApplyReset>
 			</div>
 		</div>
 
