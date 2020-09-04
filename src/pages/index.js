@@ -362,7 +362,7 @@ const Tooltip = ({ children }) => (
 	<div className="rounded-2 shadow-2">
 		<div className="px-3 py-2 bg-white rounded-2 shadow-px-4">
 			<ApplyReset className="text-left whitespace-pre">
-				<p className="font-medium text-sm text-gray-800">
+				<p className="font-medium text-gray-800" style={{ fontSize: px(15) }}>
 					{children}
 				</p>
 			</ApplyReset>
@@ -412,9 +412,6 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 		}
 	}, [query, dispatch])
 
-	const [copyAsJSX, setCopyAsJSX] = React.useState(false)
-	const [darkMode, setDarkMode] = React.useState(false)
-
 	return (
 		// NOTE: Use h-full because of the absolute context.
 		<div className="relative h-full">
@@ -438,23 +435,21 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 			{/* Search */}
 			<ApplyReset className="block w-full h-full bg-transparent focus:outline-none">
-				<Apply className="transition duration-200 ease-in-out">
-					<input
-						ref={inputRef}
-						className="px-16 text-xl placeholder-gray-400 text-gray-800"
-						style={{
-							paddingLeft: tw(8 + 6 + 4),
-							paddingRight: tw(4 + (10 + 1) + (1 + 10 + 1) + (1 + 10) + 8), // TODO: Add media.sm here.
-						}}
-						placeholder="Search"
-						value={query}
-						onFocus={e => setInputElementFocused(true)}
-						onBlur={e => setInputElementFocused(false)}
-						onChange={e => setQuery(e.target.value)}
-						autoFocus
-						{...disableAutoCorrect}
-					/>
-				</Apply>
+				<input
+					ref={inputRef}
+					className="px-16 text-xl placeholder-gray-400 text-gray-800"
+					style={{
+						paddingLeft: tw(8 + 6 + 4),
+						paddingRight: tw(4 + (10 + 1) + (1 + 10 + 1) + (1 + 10) + 8), // TODO: Add media.sm here.
+					}}
+					placeholder="Search"
+					value={query}
+					onFocus={e => setInputElementFocused(true)}
+					onBlur={e => setInputElementFocused(false)}
+					onChange={e => setQuery(e.target.value)}
+					autoFocus
+					{...disableAutoCorrect}
+				/>
 			</ApplyReset>
 
 			{/* RHS */}
@@ -469,131 +464,149 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						onMouseEnter={e => setTooltip("variant")}
 						onMouseLeave={e => setTooltip("")}
 					>
-						<Apply className="focus:outline-none transition duration-200 ease-in-out">
-							<button
-								className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full"
-								style={{
-									color: state.controls.variant.solid && "var(--purple-50)",
-									backgroundColor: state.controls.variant.solid && "var(--purple-500)",
-								}}
-								onClick={e => (
-									dispatch({
-										type: "UPDATE_CONTROLS",
-										controlType: "variant",
-										key: !state.controls.variant.solid ? "solid" : "outline",
-										value: true,
-									})
-								)}
-							>
-								<Apply className="w-6 h-6 overflow-visible">
-									{/* NOTE: Use SVGs not because React remounts components. */}
-									{!state.controls.variant.solid ? (
-										<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
-										</svg>
-									) : (
-										<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-											<path fillRule="evenodd" clipRule="evenodd" d="M2.166 4.99836C5.06114 4.96236 7.84481 3.87682 10 1.94336C12.155 3.87718 14.9387 4.96308 17.834 4.99936C17.944 5.64936 18 6.31936 18 7.00036C18 12.2254 14.66 16.6704 10 18.3174C5.34 16.6694 2 12.2244 2 6.99936C2 6.31736 2.057 5.64936 2.166 4.99836Z" />
-										</svg>
+						<ApplyReset className="focus:outline-none">
+							<ApplyTransition>
+								<button
+									className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full"
+									style={{
+										color: state.controls.variant.solid && "var(--purple-50)",
+										backgroundColor: state.controls.variant.solid && "var(--purple-500)",
+									}}
+									onClick={e => (
+										dispatch({
+											type: "UPDATE_CONTROLS",
+											controlType: "variant",
+											key: !state.controls.variant.solid ? "solid" : "outline",
+											value: true,
+										})
 									)}
-								</Apply>
-								{tooltip === "variant" && (
-									<div className="pt-2 !-mt-2 !pr-1 absolute right-0 top-full">
-										<Tooltip>
-											<strong>Switch to Solid Icons</strong><br />
-											You are viewing Outline Icons
-										</Tooltip>
-									</div>
-								)}
-							</button>
-						</Apply>
+								>
+									{/* NOTE: Use SVGs not components. */}
+									<Apply className="w-6 h-6 overflow-visible">
+										{!state.controls.variant.solid ? (
+											<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
+											</svg>
+										) : (
+											<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+												<path fillRule="evenodd" clipRule="evenodd" d="M2.166 4.99836C5.06114 4.96236 7.84481 3.87682 10 1.94336C12.155 3.87718 14.9387 4.96308 17.834 4.99936C17.944 5.64936 18 6.31936 18 7.00036C18 12.2254 14.66 16.6704 10 18.3174C5.34 16.6694 2 12.2244 2 6.99936C2 6.31736 2.057 5.64936 2.166 4.99836Z" />
+											</svg>
+										)}
+									</Apply>
+									{tooltip === "variant" && (
+										<div className="pt-2 absolute right-0 top-full">
+											<Tooltip>
+												<strong>Switch to {!state.controls.variant.solid ? "Solid" : "Outline"} Icons</strong><br />
+												You are viewing {!state.controls.variant.solid ? "Outline" : "Solid"} Icons
+											</Tooltip>
+										</div>
+									)}
+								</button>
+							</ApplyTransition>
+						</ApplyReset>
 					</div>
 
 					{/* Button */}
-					<ApplyReset className="focus:outline-none">
-						<button
-							className="px-1 relative hidden sm:flex sm:flex-row sm:items-center"
-							onMouseEnter={e => setTooltip("jsx")}
-							onMouseLeave={e => setTooltip("")}
-							onClick={e => (
-								// TODO
-								setCopyAsJSX(!copyAsJSX)
-							)}
-						>
-							<Apply
-								className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
-								style={{
-									color: copyAsJSX && "var(--purple-50)",
-									backgroundColor: copyAsJSX && "var(--purple-500)",
-								}}
-							>
-								<Apply className="transition duration-200 ease-in-out">
-									{/* NOTE: Use SVGs not because React remounts components. */}
-									{!copyAsJSX ? (
-										<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-										</svg>
-									) : (
-										<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-											<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
-										</svg>
+					<div
+						className="px-1 flex flex-row items-center"
+						onFocus={e => setTooltip("copyAs")}
+						onBlur={e => setTooltip("")}
+						onMouseEnter={e => setTooltip("copyAs")}
+						onMouseLeave={e => setTooltip("")}
+					>
+						<ApplyReset className="focus:outline-none">
+							<ApplyTransition>
+								<button
+									className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full"
+									style={{
+										color: state.controls.copyAs.jsxLiteral && "var(--purple-50)",
+										backgroundColor: state.controls.copyAs.jsxLiteral && "var(--purple-500)",
+									}}
+									onClick={e => (
+										dispatch({
+											type: "UPDATE_CONTROLS",
+											controlType: "copyAs",
+											key: !state.controls.copyAs.jsxLiteral ? "jsxLiteral" : "svgLiteral",
+											value: true,
+										})
 									)}
-								</Apply>
-							</Apply>
-							{tooltip === "jsx" && (
-								<div className="-mt-2 pr-1 absolute right-0 top-full">
-									<Tooltip>
-										<strong>Enable Copy as JSX</strong><br />
-										Copy as SVG currently enabled
-									</Tooltip>
-								</div>
-							)}
-						</button>
-					</ApplyReset>
+								>
+									{/* NOTE: Use SVGs not components. */}
+									<Apply className="w-6 h-6 overflow-visible">
+										{!state.controls.copyAs.jsxLiteral ? (
+											<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+											</svg>
+										) : (
+											<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+												<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
+											</svg>
+										)}
+									</Apply>
+									{tooltip === "copyAs" && (
+										<div className="pt-2 absolute right-0 top-full">
+											<Tooltip>
+												<strong>Enable Copy as {!state.controls.copyAs.jsxLiteral ? "JSX" : "SVG"}</strong><br />
+												Copy as {!state.controls.copyAs.jsxLiteral ? "SVG" : "JSX"} currently enabled
+											</Tooltip>
+										</div>
+									)}
+								</button>
+							</ApplyTransition>
+						</ApplyReset>
+					</div>
 
 					{/* Button */}
-					<ApplyReset className="focus:outline-none">
-						<button
-							className="px-1 relative flex flex-row items-center"
-							onMouseEnter={e => setTooltip("theme")}
-							onMouseLeave={e => setTooltip("")}
-							onClick={e => (
-								// TODO
-								setDarkMode(!darkMode)
-							)}
-						>
-							<Apply
-								className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
-								style={{
-									color: darkMode && "var(--purple-50)",
-									backgroundColor: darkMode && "var(--purple-500)",
-								}}
-							>
-								<Apply className="transition duration-200 ease-in-out">
-									{/* NOTE: Use SVGs not because React remounts components. */}
-									{!darkMode ? (
-										<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-											{/* <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /> */}
-										</svg>
-									) : (
-										<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-											<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-											{/* <path fillRule="evenodd" clipRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" /> */}
-										</svg>
+					<div
+						className="px-1 flex flex-row items-center"
+						onFocus={e => setTooltip("theme")}
+						onBlur={e => setTooltip("")}
+						onMouseEnter={e => setTooltip("theme")}
+						onMouseLeave={e => setTooltip("")}
+					>
+						<ApplyReset className="focus:outline-none">
+							<ApplyTransition>
+								<button
+									className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full"
+									style={{
+										color: state.controls.theme.darkMode && "var(--purple-50)",
+										backgroundColor: state.controls.theme.darkMode && "var(--purple-500)",
+									}}
+									onClick={e => (
+										dispatch({
+											type: "UPDATE_CONTROLS",
+											controlType: "theme",
+											key: !state.controls.theme.darkMode ? "darkMode" : "lightMode",
+											value: true,
+										})
 									)}
-								</Apply>
-							</Apply>
-							{tooltip === "theme" && (
-								<div className="-mt-2 pr-1 absolute right-0 top-full">
-									<Tooltip>
-										<strong>Enable Dark Mode</strong><br />
-										Light Mode currently enabled
-									</Tooltip>
-								</div>
-							)}
-						</button>
-					</ApplyReset>
+								>
+									{/* NOTE: Use SVGs not components. */}
+									<Apply className="w-6 h-6 overflow-visible">
+										{!state.controls.theme.darkMode ? (
+											<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+												{/* <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /> */}
+												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+											</svg>
+										) : (
+											<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+												{/* <path fillRule="evenodd" clipRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" /> */}
+												<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+											</svg>
+										)}
+									</Apply>
+									{tooltip === "theme" && (
+										<div className="pt-2 absolute right-0 top-full">
+											<Tooltip>
+												<strong>Enable {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}</strong><br />
+												{!state.controls.theme.darkMode ? "Light Mode" : "Dark Mode"} currently enabled
+											</Tooltip>
+										</div>
+									)}
+								</button>
+							</ApplyTransition>
+						</ApplyReset>
+					</div>
 
 				</div>
 			</div>

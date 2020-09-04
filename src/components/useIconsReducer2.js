@@ -21,22 +21,25 @@ const initialState = {
 	controls: {
 		variant: {
 			solid: false,
-			outline: true,
+			outline: true, // (Default)
 			all: false,
 		},
 		copyAs: {
 			name: false,
-			svgLiteral: true,
+			svgLiteral: true, // (Default)
 			jsxLiteral: false,
 			jsxImport: false,
 			jsxComponent: false,
 			bladeComponent: false,
 			download: false,
 		},
-		darkMode: false, // TODO
-		size: 32,
-		strokeWidth: 2,
-		classes: "{name}-{variant} w-6 h-6",
+		theme: {
+			lightMode: true, // (Default)
+			darkMode: false,
+		},
+		// size: 32,
+		// strokeWidth: 2,
+		// classes: "{name}-{variant} w-6 h-6",
 	},
 	notif: {
 		visible: false,
