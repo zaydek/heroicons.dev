@@ -790,10 +790,15 @@ const AppNotification = ({ state, dispatch }) => (
 		to="opacity-100 transform translate-y-0 pointer-events-auto"
 	>
 		<div className="p-3 fixed left-0 bottom-0 z-30">
-			<div className="rounded-2 shadow-4">
-				<Apply className="rounded-2 shadow-4">
+			<div className="rounded-1 shadow-4">
+				<Apply className="rounded-1 shadow-2">
 					<div className="px-3 py-2 bg-gray-800">
-						<p className="font-semibold text-gray-100">
+						<div className="py-px">
+
+			{/* <div className="rounded-2 shadow-4"> */}
+				{/* <Apply className="rounded-2 shadow-4"> */}
+					{/* <div className="px-3 py-2 bg-gray-800"> */}
+						<p className="font-semibold text-gray-50">
 							<ApplyReset className="align-top">
 								<span className="inline-flex flex-row items-center">
 
@@ -816,6 +821,8 @@ const AppNotification = ({ state, dispatch }) => (
 								</span>
 							</ApplyReset>
 						</p>
+
+					</div>
 
 						{/* {state.notif.notifInfo && ( */}
 						{/* 	<div className="flex flex-row items-center h-6"> */}
