@@ -22,6 +22,13 @@ import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
 const MARGIN_TOP_OFFSET_TW = 18 * 2 + 6
 
+// https://dev.to/patarapolw/fake-tagged-template-string-literal-to-enable-syntax-highlighting-in-vscode-34g1
+function tpl(arr, ...args) {
+	return arr.map((each, x) => `${each}${args[x] || ""}`).join("")
+}
+
+const css = tpl
+
 const screens = {
 	/* eslint-disable no-multi-spaces */
 	sm: `${16 +  640 + 16}px`,
@@ -35,7 +42,7 @@ const AbsoluteExternalLinks = () => (
 	<ApplyDisplay className="hidden lg:block">
 		<nav className="-my-0.5 absolute left-0 top-0">
 
-			<style>{`
+			<style>{css`
 
 .twemoji:hover .twemoji-eyes {
 	animation: cartoon-eyes 300ms cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -324,7 +331,7 @@ const Hero = ({ state, dispatch }) => (
 		</div>
 
 		{/* Background (attached) */}
-		<style>{`
+		<style>{css`
 
 @media (min-width: ${screens.lg}) {
 	html {
@@ -643,11 +650,11 @@ const IconApp = ({ state, dispatch }) => {
 					</div>
 				</Apply>
 
-				<style>{`
+				<style>{css`
 
 #app-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(${tw(40)}, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 
 	/* NOTE: Use gap: 1px to make the 1px outline appear as 0.5px. */
 	gap: 1px;
@@ -715,7 +722,7 @@ const Layout = () => {
 	return (
 		<div>
 
-			<style>{`
+			<style>{css`
 
 html {
 	--theme: hsl(270, 100%, 50%);
