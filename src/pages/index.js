@@ -1,5 +1,5 @@
 import Apply from "lib/x/Apply"
-import ApplyMedia from "lib/x/ApplyMedia"
+import ApplyDisplay from "lib/x/ApplyDisplay"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import px from "lib/x/pxToRem"
 import Reset from "lib/x/Reset"
@@ -24,7 +24,7 @@ import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 const MARGIN_TOP_OFFSET_TW = 18 * 2 + 6
 
 const AbsoluteExternalLinks = () => (
-	<ApplyMedia className="hidden lg:block">
+	<ApplyDisplay className="hidden lg:block">
 		<nav className="-my-0.5 absolute left-0 top-0">
 
 			<style>{`
@@ -83,7 +83,7 @@ const AbsoluteExternalLinks = () => (
 			</a>
 
 		</nav>
-	</ApplyMedia>
+	</ApplyDisplay>
 )
 
 const HeroiconsLogo = () => (
@@ -192,7 +192,7 @@ const Sponsors = () => (
 	<div className="relative">
 
 		{/* Center */}
-		<ApplyMedia className="block xl:hidden">
+		<ApplyDisplay className="block xl:hidden">
 			<div className="py-4 absolute inset-x-0 bottom-full">
 				<h6 className="text-center font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
@@ -204,10 +204,10 @@ const Sponsors = () => (
 					</span>
 				</h6>
 			</div>
-		</ApplyMedia>
+		</ApplyDisplay>
 
 		{/* LHS */}
-		<ApplyMedia className="hidden xl:block">
+		<ApplyDisplay className="hidden xl:block">
 			<div className="px-8 py-4 absolute left-0 bottom-full">
 				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					<span className="inline-flex flex-row items-center">
@@ -219,16 +219,16 @@ const Sponsors = () => (
 					</span>
 				</h6>
 			</div>
-		</ApplyMedia>
+		</ApplyDisplay>
 
 		{/* RHS */}
-		<ApplyMedia className="hidden xl:block">
+		<ApplyDisplay className="hidden xl:block">
 			<div className="px-8 py-4 absolute right-0 bottom-full">
 				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					UNAFFILIATED WITH TAILWIND LABS
 				</h6>
 			</div>
-		</ApplyMedia>
+		</ApplyDisplay>
 
 		<div className="-mx-1.5 -my-1 flex flex-row flex-wrap justify-center items-center">
 
@@ -243,7 +243,7 @@ const Sponsors = () => (
 								width: tw(36 + Math.floor(Math.random() * (48 - 36))),
 							}}
 						/>
-						<ApplyMedia className="hidden xl:block">
+						<ApplyDisplay className="hidden xl:block">
 							<div className="p-2 absolute inset-x-0 top-full">
 								<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-75">
 									<span className="inline-flex flex-row items-center">
@@ -255,7 +255,7 @@ const Sponsors = () => (
 									</span>
 								</p>
 							</div>
-						</ApplyMedia>
+						</ApplyDisplay>
 					</div>
 				))
 			), [])}
@@ -384,7 +384,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 	const [copyAsJSX, setCopyAsJSX] = React.useState(false)
 
 	return (
-		// NOTE: Use h-full because of absolute context.
+		// NOTE: Use h-full because of the absolute context.
 		<div className="relative h-full">
 
 			{/* LHS */}
@@ -571,8 +571,8 @@ const MemoControls = React.memo(() => (
 ))
 
 const MemoIcon = React.memo(({ variantKey, icon }) => (
-	// NOTE: Use h-full because of absolute context.
-	<article className="relative h-full" style={{ boxShadow: "var(--shadow)" }}>
+	// NOTE: Use h-full because of the absolute context.
+	<div className="relative h-full" style={{ outline: "1px solid var(--gray-200)" }}>
 
 		{/* New */}
 		{/* {icon.new && ( */}
@@ -599,7 +599,7 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 			</div>
 		</div>
 
-	</article>
+	</div>
 ))
 
 const IconApp = ({ state, dispatch }) => {
@@ -612,44 +612,46 @@ const IconApp = ({ state, dispatch }) => {
 			<main className="flex-1 w-full max-w-screen-lg z-10">
 
 				{/* Search */}
-				<div className="mt-0 lg:-mt-4 pt-0 lg:pt-4 sticky top-0 z-10">
-					<ApplyMedia className="hidden lg:block">
-						<div className="-mx-6 absolute inset-x-0 top-0" style={{ zIndex: -1 }}>
-							<div className="h-4 bg-theme" />
-							<div className="h-6 bg-theme" />
-							<div className="h-6" style={{ backgroundImage: "linear-gradient(hsla(270, 100%, 50%, 1), hsla(270, 100%, 50%, 0))" }} />
-						</div>
-					</ApplyMedia>
-					<Apply className="rounded-t-0 lg:rounded-t-6 shadow-2">
-						<div className="bg-white" style={{ height: tw(18) }}>
-							<MemoSearch
-								state={state}
-								dispatch={dispatch}
-							/>
-						</div>
-					</Apply>
-				</div>
+				<Apply className="mt-0 lg:-mt-4 pt-0 lg:pt-4">
+					<div className="sticky top-0 z-10">
+						<ApplyDisplay className="hidden lg:block">
+							<div className="-mx-6 absolute inset-x-0 top-0" style={{ zIndex: -1 }}>
+								<div className="h-4 bg-theme" />
+								<div className="h-6 bg-theme" />
+								<div className="h-6" style={{ backgroundImage: "linear-gradient(hsla(270, 100%, 50%, 1), hsla(270, 100%, 50%, 0))" }} />
+							</div>
+						</ApplyDisplay>
+						<Apply className="rounded-t-0 lg:rounded-t-6 shadow-2">
+							<div className="bg-white" style={{ height: tw(18) }}>
+								<MemoSearch
+									state={state}
+									dispatch={dispatch}
+								/>
+							</div>
+						</Apply>
+					</div>
+				</Apply>
 
 				{/* Icons */}
 				<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
 					<div
-						className="bg-white !overflow-hidden"
+						className="bg-white overflow-hidden"
 						style={{
 							marginTop: tw(-18),
 							paddingTop: tw(18),
 							minHeight: `calc(100vh - ${tw(media.lg ? 0 : 4 + 24)})`,
 						}}
 					>
-						<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5">
+						<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5 gap-px">
 							{state.search.results.map((each, x) => (
-								<div key={each.name} className="pb-full relative">
+								<article key={each.name} className="pb-full relative">
 									<div className="absolute inset-0">
 										<MemoIcon
 											variantKey={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
 											icon={each}
 										/>
 									</div>
-								</div>
+								</article>
 							))}
 						</div>
 					</div>
@@ -658,7 +660,7 @@ const IconApp = ({ state, dispatch }) => {
 			</main>
 
 			{/* Controls */}
-			<ApplyMedia className="hidden lg:block">
+			<ApplyDisplay className="hidden lg:block">
 				<aside className="-mt-4 pl-6 pt-4 sticky top-0">
 					<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
 						<div className="w-96 bg-white">
@@ -669,7 +671,7 @@ const IconApp = ({ state, dispatch }) => {
 						</div>
 					</Apply>
 				</aside>
-			</ApplyMedia>
+			</ApplyDisplay>
 
 		</div>
 	)
@@ -701,13 +703,6 @@ html {
 	background-color: var(--theme);
 }
 
-html {
-	--shadow: inset 0 0 0 1px var(--gray-100), 0 0 0 1px var(--gray-100);
-}
-html.detected-chrome {
-	--shadow: inset 0 0 0 0.5px var(--gray-200), 0 0 0 0.5px var(--gray-200);
-}
-
 `}
 			</style>
 
@@ -720,9 +715,9 @@ html.detected-chrome {
 				dispatch={dispatch}
 			/>
 
-			<ApplyMedia className="hidden lg:block">
+			<ApplyDisplay className="hidden lg:block">
 				<div className="h-24" />
-			</ApplyMedia>
+			</ApplyDisplay>
 
 		</div>
 	)
