@@ -13,6 +13,7 @@ import { Space, EnSpace, EmSpace } from "lib/x/Spaces"
 
 import SVGCode from "heroicons-0.4.1/solid/Code"
 import SVGCog from "heroicons-0.4.1/solid/Cog"
+import SVGGift from "heroicons-0.4.1/solid/Sparkles"
 import SVGExternalLink from "heroicons-0.4.1/solid/ExternalLink"
 import SVGFlag from "heroicons-0.4.1/solid/Flag"
 
@@ -130,11 +131,11 @@ const Attribution = () => (
 	<h2 className="text-center font-medium text-xl text-purple-50">
 		<span className="inline-flex flex-row flex-wrap justify-center items-center">
 			<span className="inline-flex flex-row flex-wrap justify-center items-center">
-				<span className="hidden sm:inline">
-					Beautiful, MIT open source icons by
-				</span>
 				<span className="inline sm:hidden">
 					MIT icons by
+				</span>
+				<span className="hidden sm:inline">
+					Beautiful, MIT open source icons by
 				</span>
 				<Space />
 				<a className="font-semibold no-underline hover:underline" href="https://twitter.com/steveschoger" {...target_blank}>
@@ -142,9 +143,6 @@ const Attribution = () => (
 				</a>
 				{"."}
 			</span>
-			{/* </span> */}
-			{/* <br /> */}
-			{/* <span className="inline-flex flex-row flex-wrap justify-center items-center"> */}
 			<Space />
 			<span className="inline-flex lg:flex-row flex-wrap justify-center items-center">
 				Viewer by
@@ -400,6 +398,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 	}, [query, dispatch])
 
 	const [copyAsJSX, setCopyAsJSX] = React.useState(false)
+	const [darkMode, setDarkMode] = React.useState(false)
 
 	return (
 		// NOTE: Use h-full because of the absolute context.
@@ -432,7 +431,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						className="px-16 text-xl placeholder-gray-400 text-gray-800"
 						style={{
 							paddingLeft: tw(8 + 6 + 4),
-							paddingRight: tw(4 + 6 + 3 + 6 + 8),
+							paddingRight: tw(4 + (10 + 1) + (1 + 10 + 1) + (1 + 10) + 8), // TODO: Add media.sm here.
 						}}
 						placeholder="Search"
 						value={query}
@@ -447,12 +446,12 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 			{/* RHS */}
 			<div className="absolute right-0 inset-y-0">
-				<div className="-mx-1.5 px-8 pl-4 flex flex-row h-full">
+				<div className="-mx-1 px-8 pl-4 flex flex-row h-full">
 
 					{/* Button */}
 					<Reset className="focus:outline-none">
 						<button
-							className="px-1.5 flex flex-row items-center"
+							className="px-1 flex flex-row items-center"
 							onClick={e => (
 								dispatch({
 									type: "UPDATE_CONTROLS",
@@ -470,9 +469,10 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 								}}
 							>
 								<Apply className="transition duration-200 ease-in-out">
+									{/* NOTE: Use SVGs not because React remounts components. */}
 									{!state.controls.variant.solid ? (
 										<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-											<path strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
+											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
 										</svg>
 									) : (
 										<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -486,7 +486,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 					{/* Button */}
 					<Reset className="focus:outline-none">
-						<button className="px-1.5 flex flex-row items-center" onClick={e => setCopyAsJSX(!copyAsJSX)}>
+						<button className="px-1 hidden sm:flex sm:flex-row sm:items-center" onClick={e => setCopyAsJSX(!copyAsJSX)}>
 							<Apply
 								className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
 								style={{
@@ -495,62 +495,48 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 								}}
 							>
 								<Apply className="transition duration-200 ease-in-out">
-									{/* NOTE: Use SVGs not React components because React remounts components. *}
-									{/* {!copyAsJSX ? ( */}
-									{/* 	<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
-									{/* 		<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /> */}
-									{/* 	</svg> */}
-									{/* ) : ( */}
-									{/* 	<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
-									{/* 		<path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" /> */}
-									{/* 	</svg> */}
-									{/* )} */}
-									<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={!copyAsJSX ? 2 : 2.4}
-											d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-										/>
-									</svg>
+									{/* NOTE: Use SVGs not because React remounts components. */}
+									{!copyAsJSX ? (
+										<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+										</svg>
+									) : (
+										<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+											<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
+										</svg>
+									)}
 								</Apply>
 							</Apply>
 						</button>
 					</Reset>
 
 					{/* Button */}
-					{/* <Reset className="focus:outline-none"> */}
-					{/* 	<button */}
-					{/* 		className="px-1.5 hidden lg:flex lg:flex-row lg:items-center" */}
-					{/* 		// onClick={e => setShowControls(!showControls)} */}
-					{/* 		onClick={e => ( */}
-					{/* 			dispatch({ */}
-					{/* 				type: "TOGGLE_SHOW_CONTROLS", */}
-					{/* 			}) */}
-					{/* 		)} */}
-					{/* 	> */}
-					{/* 		<Transition */}
-					{/* 			on={state.controls.show} */}
-					{/* 			className="transition duration-200 ease-in-out" */}
-					{/* 			from="transform rotate-0" */}
-					{/* 			to="transform rotate-90" */}
-					{/* 		> */}
-					{/* 			<div> */}
-					{/* 				<Apply */}
-					{/* 					className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible" */}
-					{/* 					style={{ */}
-					{/* 						color: state.controls.show && "var(--purple-50)", */}
-					{/* 						backgroundColor: state.controls.show && "var(--purple-500)", */}
-					{/* 					}} */}
-					{/* 				> */}
-					{/* 					<Apply className="transition duration-200 ease-in-out"> */}
-					{/* 						<SVGCog /> */}
-					{/* 					</Apply> */}
-					{/* 				</Apply> */}
-					{/* 			</div> */}
-					{/* 		</Transition> */}
-					{/* 	</button> */}
-					{/* </Reset> */}
+					<Reset className="focus:outline-none">
+						<button className="px-1 flex flex-row items-center" onClick={e => setDarkMode(!darkMode)}>
+							<Apply
+								className="p-2 w-10 h-10 text-purple-500 bg-purple-50 hover:bg-purple-100 rounded-full overflow-visible"
+								style={{
+									color: darkMode && "var(--purple-50)",
+									backgroundColor: darkMode && "var(--purple-500)",
+								}}
+							>
+								<Apply className="transition duration-200 ease-in-out">
+									{/* NOTE: Use SVGs not because React remounts components. */}
+									{!darkMode ? (
+										<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+											{/* <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /> */}
+										</svg>
+									) : (
+										<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+											<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+											{/* <path fillRule="evenodd" clipRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" /> */}
+										</svg>
+									)}
+								</Apply>
+							</Apply>
+						</button>
+					</Reset>
 
 				</div>
 			</div>

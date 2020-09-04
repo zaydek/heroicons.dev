@@ -19,7 +19,6 @@ const initialState = {
 		results: dataset, // NOTE: Do not marshal to localStorage.
 	},
 	controls: {
-		show: true,
 		variant: {
 			solid: false,
 			outline: true,
@@ -34,12 +33,13 @@ const initialState = {
 			bladeComponent: false,
 			download: false,
 		},
+		darkMode: false, // TODO
 		size: 32,
 		strokeWidth: 2,
 		classes: "{name}-{variant} w-6 h-6",
 	},
 	notif: {
-		show: false,
+		visible: false,
 		type: {
 			variant: false,
 			copyAs: false,
@@ -75,7 +75,7 @@ const actions = state => ({
 		})
 	},
 	toggleShowControls() {
-		state.controls.show = !state.controls.show
+		state.controls.visible = !state.controls.visible
 	},
 	updateControls(controlType, key, value) {
 		// XOR:
@@ -88,7 +88,7 @@ const actions = state => ({
 	},
 
 	// showControls() {
-	// 	state.controls.show
+	// 	state.controls.visible
 	// },
 	// showControls() {
 	// 	// ...
