@@ -358,15 +358,33 @@ const Hero = ({ state, dispatch }) => (
 	</div>
 )
 
+// const Tooltip = ({ children }) => (
+// 	<div className="rounded-2 shadow-4">
+// 		<Apply className="rounded-2 shadow-px-2">
+// 			<div className="px-3 py-2 bg-white ">
+// 				<ApplyReset className="text-left whitespace-pre">
+// 					<p className="font-medium text-gray-800" style={{ fontSize: px(15) }}>
+// 						{children}
+// 					</p>
+// 				</ApplyReset>
+// 			</div>
+// 		</Apply>
+// 	</div>
+// )
+
 const Tooltip = ({ children }) => (
-	<div className="rounded-2 shadow-2">
-		<div className="px-3 py-2 bg-white rounded-2 shadow-px-4">
-			<ApplyReset className="text-left whitespace-pre">
-				<p className="font-medium text-gray-800" style={{ fontSize: px(15) }}>
-					{children}
-				</p>
-			</ApplyReset>
-		</div>
+	<div className="rounded-1 shadow-4">
+		<Apply className="rounded-1 shadow-2">
+			<div className="px-3 py-2 bg-gray-50">
+				<div className="py-px">
+					<ApplyReset className="text-left whitespace-pre">
+						<p className="font-medium text-gray-800" style={{ fontSize: px(15) }}>
+							{children}
+						</p>
+					</ApplyReset>
+				</div>
+			</div>
+		</Apply>
 	</div>
 )
 
@@ -496,8 +514,8 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 									{tooltip === "variant" && (
 										<div className="pt-2 absolute right-0 top-full">
 											<Tooltip>
-												<strong>Switch to {!state.controls.variant.solid ? "Solid" : "Outline"} Icons</strong><br />
-												You are viewing {!state.controls.variant.solid ? "Outline" : "Solid"} Icons
+												Switch to {!state.controls.variant.solid ? "Solid" : "Outline"} Icons<br />
+												{/* <span className="text-sm text-gray-600">You are viewing {!state.controls.variant.solid ? "Outline" : "Solid"} Icons</span> */}
 											</Tooltip>
 										</div>
 									)}
@@ -546,8 +564,8 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 									{tooltip === "copyAs" && (
 										<div className="pt-2 absolute right-0 top-full">
 											<Tooltip>
-												<strong>Enable Copy as {!state.controls.copyAs.jsxLiteral ? "JSX" : "SVG"}</strong><br />
-												Copy as {!state.controls.copyAs.jsxLiteral ? "SVG" : "JSX"} currently enabled
+												Enable Copy as {!state.controls.copyAs.jsxLiteral ? "JSX" : "SVG"}
+												{/* Copy as {!state.controls.copyAs.jsxLiteral ? "SVG" : "JSX"} currently enabled */}
 											</Tooltip>
 										</div>
 									)}
@@ -598,8 +616,8 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 									{tooltip === "theme" && (
 										<div className="pt-2 absolute right-0 top-full">
 											<Tooltip>
-												<strong>Enable {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}</strong><br />
-												{!state.controls.theme.darkMode ? "Light Mode" : "Dark Mode"} currently enabled
+												Enable {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}
+												{/* {!state.controls.theme.darkMode ? "Light Mode" : "Dark Mode"} currently enabled */}
 											</Tooltip>
 										</div>
 									)}
@@ -764,6 +782,81 @@ const IconApp = ({ state, dispatch }) => {
 	)
 }
 
+const AppNotification = ({ state, dispatch }) => (
+	<Transition
+		on={state.notif.visible + (!state.notif.context ? "" : "-" + state.notif.context)}
+		className="transition duration-200 ease-in-out"
+		from="opacity-0 transform translate-y-4 pointer-events-none"
+		to="opacity-100 transform translate-y-0 pointer-events-auto"
+	>
+		<div className="p-3 fixed left-0 bottom-0 z-30">
+			<div className="rounded-2 shadow-4">
+				<Apply className="rounded-2 shadow-4">
+					<div className="px-3 py-2 bg-gray-800">
+						<p className="font-semibold text-gray-100">
+							<ApplyReset className="align-top">
+								<span className="inline-flex flex-row items-center">
+
+									{/* {state.notif.controlType.variant && ( */}
+									<Apply className="w-5 h-5">
+										{!!state.controls.variant.solid ? (
+											<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+											</svg>
+										) : (
+											<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+												<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
+											</svg>
+										)}
+									</Apply>
+									{/* )} */}
+
+									<EmSpace />
+									Copied badge-check as SVG
+								</span>
+							</ApplyReset>
+						</p>
+
+						{/* {state.notif.notifInfo && ( */}
+						{/* 	<div className="flex flex-row items-center h-6"> */}
+						{/* 		<SVG className="mr-3 w-5 h-5 text-indigo-50" svg={state.notif.notifInfo.icon} /> */}
+						{/* 	</div> */}
+						{/* )} */}
+
+						{/* Form */}
+						{/* {state.notif.notifType.startsWith("form") && ( */}
+						{/* 	<p className="font-semibold text-indigo-50"> */}
+						{/* 		{state.notif.notifType === "form-jsx" && ( */}
+						{/* 			!state.form.copyAsReact */}
+						{/* 				? "Enabled Copy as HTML" */}
+						{/* 				: "Enabled Copy as JSX" */}
+						{/* 		)} */}
+						{/* 		{state.notif.notifType === "form-alt" && ( */}
+						{/* 			!state.form.showOutline */}
+						{/* 				? "Switched to Solid Icons" */}
+						{/* 				: "Switched to Outline Icons" */}
+						{/* 		)} */}
+						{/* 	</p> */}
+						{/* )} */}
+
+						{/* Icon */}
+						{/* {state.notif.notifType === "icon" && ( */}
+						{/* 	<p className="font-semibold text-indigo-50"> */}
+						{/* 		Copied{" "} */}
+						{/* 		<span className="font-mono"> */}
+						{/* 			{state.notif.notifInfo.name} */}
+						{/* 		</span>{" "} */}
+						{/* 		as {!state.form.copyAsReact ? "HTML" : "JSX"} */}
+						{/* 	</p> */}
+						{/* )} */}
+
+					</div>
+				</Apply>
+			</div>
+		</div>
+	</Transition>
+)
+
 const Layout = () => {
 	// TODO: Add support for syncing to localStorage.
 	const [state, dispatch] = useIconsReducer()
@@ -797,6 +890,7 @@ html {
 				state={state}
 				dispatch={dispatch}
 			/>
+
 			<IconApp
 				state={state}
 				dispatch={dispatch}
@@ -805,6 +899,11 @@ html {
 			<ApplyDisplay className="hidden lg:block">
 				<div className="h-24" />
 			</ApplyDisplay>
+
+			<AppNotification
+				state={state}
+				dispatch={dispatch}
+			/>
 
 		</div>
 	)
