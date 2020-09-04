@@ -5,9 +5,11 @@ import { useImmerReducer } from "use-immer"
 import CodeSolidSVG from "heroicons-0.4.1/solid/Code"
 import SwitchHorizontalSolidSVG from "heroicons-0.4.1/solid/SwitchHorizontal"
 
-// Generates a 4-character hash.
-function shortHash() {
-	return Math.random().toString(16).slice(2, 6)
+// Disables all properties of an object (sets to false).
+function disableAll(obj) {
+	Object.keys(obj).map(each => {
+		obj[each] = false
+	})
 }
 
 const initialState = {
@@ -43,25 +45,22 @@ const initialState = {
 	},
 	notif: {
 		visible: false,
-		type: {
+		controlType: {
 			variant: false,
 			copyAs: false,
-			size: false,
-			strokeWidth: false,
-			classes: false,
+			theme: false,
+			// size: false,
+			// strokeWidth: false,
+			// classes: false,
 		},
-		description: "",
-		icon: null,
+		context: "",
 	},
 }
 
 const actions = state => ({
 	search(query) {
 		state.search.query.user = query
-		state.search.query.safe = query
-			.trim()
-			.toLowerCase()
-			.replace(/ +/g, "-")
+		state.search.query.safe = query.trim().toLowerCase().replace(/ +/g, "-")
 		const safe = state.search.query.safe
 		if (safe === "") {
 			state.search.results = dataset
@@ -81,27 +80,21 @@ const actions = state => ({
 		state.controls.visible = !state.controls.visible
 	},
 	updateControls(controlType, key, value) {
-		// XOR:
 		if (typeof value === "boolean") {
-			Object.keys(state.controls[controlType]).map(each => {
-				state.controls[controlType][each] = false
-			})
+			disableAll(state.controls[controlType])
 		}
 		state.controls[controlType][key] = value
+		this.emitNotification(controlType)
 	},
-
-	// showControls() {
-	// 	state.controls.visible
-	// },
-	// showControls() {
-	// 	// ...
-	// },
-	// emitNotification(action.__type, action.description, action.icon) {
-	// 	// ...
-	// },
-	// hideNotification() {
-	// 	// ...
-	// },
+	emitNotification(controlType, context = "") {
+		state.notif.visible = true
+		disableAll(state.notif.controlType)
+		state.notif.controlType[controlType] = true
+		state.notif.context = context
+	},
+	hideNotification() {
+		state.notif.visible = false
+	},
 })
 
 function IconsReducer(state, action) {
@@ -115,15 +108,12 @@ function IconsReducer(state, action) {
 	case "UPDATE_CONTROLS":
 		actions(state).updateControls(action.controlType, action.key, action.value)
 		return
-	// case "UPDATE_CONTROLS":
-	// 	actions(state).updateControls(action.__type, )
-	// 	return
-	// case "EMIT_NOTIFICATION":
-	// 	actions(state).emitNotification(action.__type, action.description, action.icon)
-	// 	return
-	// case "HIDE_NOTIFICATION":
-	// 	actions(state).hideNotification()
-	// 	return
+	case "EMIT_NOTIFICATION":
+		actions(state).emitNotification(action.controlType, action.context)
+		return
+	case "HIDE_NOTIFICATION":
+		actions(state).hideNotification()
+		return
 	default:
 		throw new Error(`IconsReducer: type mismatch; action.type=${action.type}`)
 	}
