@@ -3,7 +3,6 @@ import ApplyDisplay from "lib/x/ApplyDisplay"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import px from "lib/x/pxToRem"
 import Reset from "lib/x/Reset"
-import screens from "./_screens"
 import SVG from "components/SVG"
 import target_blank from "lib/x/target_blank"
 import Transition from "lib/x/Transition"
@@ -22,6 +21,15 @@ import SVGFlagOutline from "heroicons-0.4.1/outline/Flag"
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
 const MARGIN_TOP_OFFSET_TW = 18 * 2 + 6
+
+const screens = {
+	/* eslint-disable no-multi-spaces */
+	sm: `${16 +  640 + 16}px`,
+	md: `${16 +  768 + 16}px`,
+	lg: `${16 + 1024 + 16}px`,
+	xl: `${16 + 1280 + 16}px`,
+	/* eslint-enable no-multi-spaces */
+}
 
 const AbsoluteExternalLinks = () => (
 	<ApplyDisplay className="hidden lg:block">
@@ -116,7 +124,7 @@ const Attribution = () => (
 		<span className="inline-flex flex-row flex-wrap justify-center items-center">
 			<span className="inline-flex flex-row flex-wrap justify-center items-center">
 				<span className="hidden sm:inline">
-					MIT-licensed open source icons by
+					Beautiful, MIT open source icons by
 				</span>
 				<span className="inline sm:hidden">
 					MIT icons by
@@ -127,6 +135,9 @@ const Attribution = () => (
 				</a>
 				{"."}
 			</span>
+			{/* </span> */}
+			{/* <br /> */}
+			{/* <span className="inline-flex flex-row flex-wrap justify-center items-center"> */}
 			<Space />
 			<span className="inline-flex lg:flex-row flex-wrap justify-center items-center">
 				Viewer by
@@ -279,7 +290,7 @@ const Hero = ({ state, dispatch }) => (
 					<HeroiconsLogo />
 				</div>
 
-				<div className="h-4" />
+				<div className="h-2" />
 				<div className="flex flex-row justify-center">
 					<Attribution />
 				</div>
@@ -575,11 +586,11 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 	<div className="relative h-full" style={{ outline: "1px solid var(--gray-200)" }}>
 
 		{/* New */}
-		{/* {icon.new && ( */}
-		{/* 	<div className="p-4 absolute right-0 top-0"> */}
-		{/* 		<div className="w-3 h-3 bg-purple-500 rounded-full" /> */}
-		{/* 	</div> */}
-		{/* )} */}
+		{icon.new && (
+			<div className="p-3 absolute right-0 top-0">
+				<div className="w-2.5 h-2.5 bg-purple-500 rounded-full" />
+			</div>
+		)}
 
 		{/* Icon */}
 		<div className="flex flex-row justify-center items-center h-full">
@@ -589,7 +600,7 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 		</div>
 
 		{/* Name */}
-		<div className="p-4 absolute inset-x-0 bottom-0">
+		<div className="p-3 absolute inset-x-0 bottom-0">
 			<div className="flex flex-row justify-center">
 				<Reset className="subpixel-antialiased">
 					<p className="text-center text-xs tracking-wide leading-tight text-gray-600" style={{ fontSize: px(13) }}>
@@ -632,6 +643,19 @@ const IconApp = ({ state, dispatch }) => {
 					</div>
 				</Apply>
 
+				<style>{`
+
+#app-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(${tw(40)}, 1fr));
+
+	/* NOTE: Use gap: 1px to make the 1px outline appear as 0.5px. */
+	gap: 1px;
+}
+
+`}
+				</style>
+
 				{/* Icons */}
 				<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
 					<div
@@ -642,7 +666,7 @@ const IconApp = ({ state, dispatch }) => {
 							minHeight: `calc(100vh - ${tw(media.lg ? 0 : 4 + 24)})`,
 						}}
 					>
-						<div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5 gap-px">
+						<div id="app-grid">
 							{state.search.results.map((each, x) => (
 								<article key={each.name} className="pb-full relative">
 									<div className="absolute inset-0">
