@@ -357,6 +357,18 @@ const Hero = ({ state, dispatch }) => (
 	</div>
 )
 
+const Tooltip = ({ children }) => (
+	<div className="rounded-2 shadow-2">
+		<div className="px-3 py-2 bg-white rounded-2 shadow-px-4">
+			<ApplyReset className="text-left whitespace-pre">
+				<p className="font-medium text-sm text-gray-800">
+					{children}
+				</p>
+			</ApplyReset>
+		</div>
+	</div>
+)
+
 const MemoSearch = React.memo(({ state, dispatch }) => {
 	const inputRef = React.useRef(null)
 
@@ -487,16 +499,10 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							</Apply>
 							{tooltip === "variant" && (
 								<div className="-mt-2 pr-1 absolute right-0 top-full">
-									<div className="rounded-2 shadow-2">
-										<div className="px-3 py-2 bg-white rounded-2 shadow-px-4">
-											<ApplyReset className="text-left whitespace-pre">
-												<p className="font-medium text-sm text-gray-800">
-													<strong>Switch to Solid Icons</strong><br />
-													You are viewing Outline Icons
-												</p>
-											</ApplyReset>
-										</div>
-									</div>
+									<Tooltip>
+										<strong>Switch to Solid Icons</strong><br />
+										You are viewing Outline Icons
+									</Tooltip>
 								</div>
 							)}
 						</button>
