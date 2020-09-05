@@ -18,7 +18,9 @@
 	"devDependencies": {
 		"@tailwindcss/ui": "latest",
 		"babel-eslint": "latest",
+		"babel-jest": "latest",
 		"eslint": "latest",
+		"jest": "latest",
 		"tailwindcss": "latest"
 	}
 }
