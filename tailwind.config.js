@@ -52,14 +52,18 @@ module.exports = {
 			},
 		},
 		screens: {
-			sm: `${640}px`,
-			md: `${768}px`,
-			lg: `${24 + 1024 + 24}px`,
-			xl: `${24 + 1280 + 24}px`,
+			sm: (640) + "px",
+			md: (768) + "px",
+			lg: (24 + 1024 + 24) + "px",
+			xl: (24 + 1280 + 24) + "px",
+			"ultra-wide": 2048 + "px", // (24 + 1168 + 24 + 392 + 24) + "px",
+			// "ultra-wide-w-sidebar": (24 + 392 + 24 + 1280 + 24 + 392 + 24) + "px",
 		},
 	},
 	variants: {
 		...defaultVariants,
 		typography: [],
+
+		textColor: [...defaultVariants.textColor, "group-hover"],
 	},
 }

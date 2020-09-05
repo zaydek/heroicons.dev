@@ -3,13 +3,12 @@ import ApplyDisplay from "lib/x/ApplyDisplay"
 import ApplyReset from "lib/x/ApplyReset"
 import ApplyTransition from "lib/x/ApplyTransition"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
-import px from "lib/x/pxToRem"
 import SVG from "components/SVG"
 import target_blank from "lib/x/target_blank"
 import Transition from "lib/x/Transition"
-import tw from "lib/x/twToRem"
 import useIconsReducer from "components/useIconsReducer2" // FIXME
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
+import { rem, px, tw } from "lib/x/cssUnits"
 import { Space, EnSpace, EmSpace } from "lib/x/Spaces"
 
 import SVGCode from "heroicons-0.4.1/solid/Code"
@@ -24,7 +23,7 @@ import SVGCodeOutline from "heroicons-0.4.1/outline/Code"
 import SVGFlagOutline from "heroicons-0.4.1/outline/Flag"
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
-const MARGIN_TOP_OFFSET_TW = 18 * 2 + 6
+const MARGIN_TOP_OFFSET_TW = 18 + 6
 
 // https://dev.to/patarapolw/fake-tagged-template-string-literal-to-enable-syntax-highlighting-in-vscode-34g1
 function tpl(arr, ...args) {
@@ -440,217 +439,219 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 	return (
 		// NOTE: Use h-full because of the absolute context.
-		<div className="relative h-full">
+		<ApplyReset className="h-full">
+			<div className="relative">
 
-			{/* LHS */}
-			<div className="absolute left-0 inset-y-0">
-				<div className="px-8 pr-4 flex flex-row h-full">
-					<div className="flex flex-row items-center">
-						<Apply
-							className="w-6 h-6 text-gray-400"
-							style={{ color: inputElementFocused && "var(--purple-500)" }}
+				{/* LHS */}
+				<div className="absolute left-0 inset-y-0">
+					<div className="px-8 pr-4 flex flex-row h-full">
+						<div className="flex flex-row items-center">
+							<Apply
+								className="w-6 h-6 text-gray-400"
+								style={{ color: inputElementFocused && "var(--purple-500)" }}
+							>
+								{/* <SVGSearchOutline /> */}
+								<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={!inputElementFocused ? 2 : 2.4} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+								</svg>
+							</Apply>
+						</div>
+					</div>
+				</div>
+
+				{/* Search */}
+				<ApplyReset className="block w-full h-full bg-transparent focus:outline-none">
+					<input
+						ref={inputRef}
+						className="px-16 text-xl placeholder-gray-400 text-gray-800"
+						style={{
+							paddingLeft: tw(8 + 6 + 4),
+							paddingRight: tw(4 + (10 + 1) + (1 + 10 + 1) + (1 + 10) + 8), // TODO: Add media.sm here.
+						}}
+						placeholder="Search"
+						value={query}
+						onFocus={e => setInputElementFocused(true)}
+						onBlur={e => setInputElementFocused(false)}
+						onChange={e => setQuery(e.target.value)}
+						autoFocus
+						{...disableAutoCorrect}
+					/>
+				</ApplyReset>
+
+				{/* RHS */}
+				<div className="absolute right-0 inset-y-0">
+					<div className="-mx-1 px-8 pl-4 flex flex-row h-full">
+
+						{/* Button */}
+						<div
+							className="px-1 flex flex-row items-center"
+							onFocus={e => setTooltip("variant")}
+							onBlur={e => setTooltip("")}
+							onMouseEnter={e => setTooltip("variant")}
+							onMouseLeave={e => setTooltip("")}
 						>
-							{/* <SVGSearchOutline /> */}
-							<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={!inputElementFocused ? 2 : 2.4} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-							</svg>
-						</Apply>
-					</div>
-				</div>
-			</div>
-
-			{/* Search */}
-			<ApplyReset className="block w-full h-full bg-transparent focus:outline-none">
-				<input
-					ref={inputRef}
-					className="px-16 text-xl placeholder-gray-400 text-gray-800"
-					style={{
-						paddingLeft: tw(8 + 6 + 4),
-						paddingRight: tw(4 + (10 + 1) + (1 + 10 + 1) + (1 + 10) + 8), // TODO: Add media.sm here.
-					}}
-					placeholder="Search"
-					value={query}
-					onFocus={e => setInputElementFocused(true)}
-					onBlur={e => setInputElementFocused(false)}
-					onChange={e => setQuery(e.target.value)}
-					autoFocus
-					{...disableAutoCorrect}
-				/>
-			</ApplyReset>
-
-			{/* RHS */}
-			<div className="absolute right-0 inset-y-0">
-				<div className="-mx-1 px-8 pl-4 flex flex-row h-full">
-
-					{/* Button */}
-					<div
-						className="px-1 flex flex-row items-center"
-						onFocus={e => setTooltip("variant")}
-						onBlur={e => setTooltip("")}
-						onMouseEnter={e => setTooltip("variant")}
-						onMouseLeave={e => setTooltip("")}
-					>
-						<ApplyReset className="focus:outline-none">
-							<ApplyTransition>
-								<button
-									className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full"
-									style={{
-										color: state.controls.variant.solid && "var(--purple-50)",
-										backgroundColor: state.controls.variant.solid && "var(--purple-500)",
-									}}
-									onClick={e => (
-										dispatch({
-											type: "UPDATE_CONTROLS",
-											controlType: "variant",
-											key: !state.controls.variant.solid ? "solid" : "outline",
-											value: true,
-										})
-									)}
-								>
-									{/* NOTE: Use SVGs not components. */}
-									<Apply className="w-6 h-6 overflow-visible">
-										{!state.controls.variant.solid ? (
-											<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
-											</svg>
-										) : (
-											<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-												<path fillRule="evenodd" clipRule="evenodd" d="M2.166 4.99836C5.06114 4.96236 7.84481 3.87682 10 1.94336C12.155 3.87718 14.9387 4.96308 17.834 4.99936C17.944 5.64936 18 6.31936 18 7.00036C18 12.2254 14.66 16.6704 10 18.3174C5.34 16.6694 2 12.2244 2 6.99936C2 6.31736 2.057 5.64936 2.166 4.99836Z" />
-											</svg>
+							<ApplyReset className="focus:outline-none">
+								<ApplyTransition>
+									<button
+										className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full"
+										style={{
+											color: state.controls.variant.solid && "var(--purple-50)",
+											backgroundColor: state.controls.variant.solid && "var(--purple-500)",
+										}}
+										onClick={e => (
+											dispatch({
+												type: "UPDATE_CONTROLS",
+												controlType: "variant",
+												key: !state.controls.variant.solid ? "solid" : "outline",
+												value: true,
+											})
 										)}
-									</Apply>
-									{tooltip === "variant" && (
-										<div className="pt-2 absolute right-0 top-full">
-											<DarkTooltip>
-												<TextRow>
-													<Apply className="w-4 h-4">
-														<SVGSwitchHorizontal />
-													</Apply>
-													<EnSpace />
+									>
+										{/* NOTE: Use SVGs not components. */}
+										<Apply className="w-6 h-6 overflow-visible">
+											{!state.controls.variant.solid ? (
+												<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
+												</svg>
+											) : (
+												<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+													<path fillRule="evenodd" clipRule="evenodd" d="M2.166 4.99836C5.06114 4.96236 7.84481 3.87682 10 1.94336C12.155 3.87718 14.9387 4.96308 17.834 4.99936C17.944 5.64936 18 6.31936 18 7.00036C18 12.2254 14.66 16.6704 10 18.3174C5.34 16.6694 2 12.2244 2 6.99936C2 6.31736 2.057 5.64936 2.166 4.99836Z" />
+												</svg>
+											)}
+										</Apply>
+										{tooltip === "variant" && (
+											<div className="pt-2 absolute right-0 top-full">
+												<DarkTooltip>
+													{/* <TextRow> */}
+													{/* 	<Apply className="w-4 h-4"> */}
+													{/* 		<SVGSwitchHorizontal /> */}
+													{/* 	</Apply> */}
+													{/* 	<EnSpace /> */}
 													Switch to {!state.controls.variant.solid ? "Solid" : "Outline"} Icons
-												</TextRow>
-											</DarkTooltip>
-										</div>
-									)}
-								</button>
-							</ApplyTransition>
-						</ApplyReset>
-					</div>
-
-					{/* Button */}
-					<div
-						className="px-1 flex flex-row items-center"
-						onFocus={e => setTooltip("copyAs")}
-						onBlur={e => setTooltip("")}
-						onMouseEnter={e => setTooltip("copyAs")}
-						onMouseLeave={e => setTooltip("")}
-					>
-						<ApplyReset className="focus:outline-none">
-							<ApplyTransition>
-								<button
-									className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full"
-									style={{
-										color: state.controls.copyAs.jsxLiteral && "var(--purple-50)",
-										backgroundColor: state.controls.copyAs.jsxLiteral && "var(--purple-500)",
-									}}
-									onClick={e => (
-										dispatch({
-											type: "UPDATE_CONTROLS",
-											controlType: "copyAs",
-											key: !state.controls.copyAs.jsxLiteral ? "jsxLiteral" : "svgLiteral",
-											value: true,
-										})
-									)}
-								>
-									{/* NOTE: Use SVGs not components. */}
-									<Apply className="w-6 h-6 overflow-visible">
-										{!state.controls.copyAs.jsxLiteral ? (
-											<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-											</svg>
-										) : (
-											<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-												<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
-											</svg>
+													{/* </TextRow> */}
+												</DarkTooltip>
+											</div>
 										)}
-									</Apply>
-									{tooltip === "copyAs" && (
-										<div className="pt-2 absolute right-0 top-full">
-											<DarkTooltip>
-												<TextRow>
-													<Apply className="w-4 h-4">
-														<SVGCursorClick />
-													</Apply>
-													<EnSpace />
+									</button>
+								</ApplyTransition>
+							</ApplyReset>
+						</div>
+
+						{/* Button */}
+						<div
+							className="px-1 flex flex-row items-center"
+							onFocus={e => setTooltip("copyAs")}
+							onBlur={e => setTooltip("")}
+							onMouseEnter={e => setTooltip("copyAs")}
+							onMouseLeave={e => setTooltip("")}
+						>
+							<ApplyReset className="focus:outline-none">
+								<ApplyTransition>
+									<button
+										className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full"
+										style={{
+											color: state.controls.copyAs.jsxLiteral && "var(--purple-50)",
+											backgroundColor: state.controls.copyAs.jsxLiteral && "var(--purple-500)",
+										}}
+										onClick={e => (
+											dispatch({
+												type: "UPDATE_CONTROLS",
+												controlType: "copyAs",
+												key: !state.controls.copyAs.jsxLiteral ? "jsxLiteral" : "svgLiteral",
+												value: true,
+											})
+										)}
+									>
+										{/* NOTE: Use SVGs not components. */}
+										<Apply className="w-6 h-6 overflow-visible">
+											{!state.controls.copyAs.jsxLiteral ? (
+												<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+												</svg>
+											) : (
+												<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+													<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
+												</svg>
+											)}
+										</Apply>
+										{tooltip === "copyAs" && (
+											<div className="pt-2 absolute right-0 top-full">
+												<DarkTooltip>
+													{/* <TextRow> */}
+													{/* 	<Apply className="w-4 h-4"> */}
+													{/* 		<SVGCursorClick /> */}
+													{/* 	</Apply> */}
+													{/* 	<EnSpace /> */}
 													Enable Copy as {!state.controls.copyAs.jsxLiteral ? "JSX" : "SVG"}
-												</TextRow>
-											</DarkTooltip>
-										</div>
-									)}
-								</button>
-							</ApplyTransition>
-						</ApplyReset>
+													{/* </TextRow> */}
+												</DarkTooltip>
+											</div>
+										)}
+									</button>
+								</ApplyTransition>
+							</ApplyReset>
+						</div>
+
+						{/* Button */}
+						{/* <div */}
+						{/* 	className="px-1 flex flex-row items-center" */}
+						{/* 	onFocus={e => setTooltip("theme")} */}
+						{/* 	onBlur={e => setTooltip("")} */}
+						{/* 	onMouseEnter={e => setTooltip("theme")} */}
+						{/* 	onMouseLeave={e => setTooltip("")} */}
+						{/* > */}
+						{/* 	<ApplyReset className="focus:outline-none"> */}
+						{/* 		<ApplyTransition> */}
+						{/* 			<button */}
+						{/* 				className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full" */}
+						{/* 				style={{ */}
+						{/* 					color: state.controls.theme.darkMode && "var(--purple-50)", */}
+						{/* 					backgroundColor: state.controls.theme.darkMode && "var(--purple-500)", */}
+						{/* 				}} */}
+						{/* 				onClick={e => ( */}
+						{/* 					dispatch({ */}
+						{/* 						type: "UPDATE_CONTROLS", */}
+						{/* 						controlType: "theme", */}
+						{/* 						key: !state.controls.theme.darkMode ? "darkMode" : "lightMode", */}
+						{/* 						value: true, */}
+						{/* 					}) */}
+						{/* 				)} */}
+						{/* 			> */}
+						{/* 				// NOTE: Use SVGs not components. */}
+						{/* 				<Apply className="w-6 h-6 overflow-visible"> */}
+						{/* 					{!state.controls.theme.darkMode ? ( */}
+						{/* 						<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
+						{/* 							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /> */}
+						{/* 						</svg> */}
+						{/* 					) : ( */}
+						{/* 						<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
+						{/* 							<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /> */}
+						{/* 						</svg> */}
+						{/* 					)} */}
+						{/* 				</Apply> */}
+						{/* 				{tooltip === "theme" && ( */}
+						{/* 					<div className="pt-2 absolute right-0 top-full"> */}
+						{/* 						<DarkTooltip> */}
+						{/* 							<TextRow> */}
+						{/* 								<Apply className="w-4 h-4"> */}
+						{/* 									<SVGCursorClick /> */}
+						{/* 								</Apply> */}
+						{/* 								<EnSpace /> */}
+						{/* 								Click to Enable {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"} */}
+						{/* 							</TextRow> */}
+						{/* 						</DarkTooltip> */}
+						{/* 					</div> */}
+						{/* 				)} */}
+						{/* 			</button> */}
+						{/* 		</ApplyTransition> */}
+						{/* 	</ApplyReset> */}
+						{/* </div> */}
+
 					</div>
-
-					{/* Button */}
-					{/* <div */}
-					{/* 	className="px-1 flex flex-row items-center" */}
-					{/* 	onFocus={e => setTooltip("theme")} */}
-					{/* 	onBlur={e => setTooltip("")} */}
-					{/* 	onMouseEnter={e => setTooltip("theme")} */}
-					{/* 	onMouseLeave={e => setTooltip("")} */}
-					{/* > */}
-					{/* 	<ApplyReset className="focus:outline-none"> */}
-					{/* 		<ApplyTransition> */}
-					{/* 			<button */}
-					{/* 				className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full" */}
-					{/* 				style={{ */}
-					{/* 					color: state.controls.theme.darkMode && "var(--purple-50)", */}
-					{/* 					backgroundColor: state.controls.theme.darkMode && "var(--purple-500)", */}
-					{/* 				}} */}
-					{/* 				onClick={e => ( */}
-					{/* 					dispatch({ */}
-					{/* 						type: "UPDATE_CONTROLS", */}
-					{/* 						controlType: "theme", */}
-					{/* 						key: !state.controls.theme.darkMode ? "darkMode" : "lightMode", */}
-					{/* 						value: true, */}
-					{/* 					}) */}
-					{/* 				)} */}
-					{/* 			> */}
-					{/* 				// NOTE: Use SVGs not components. */}
-					{/* 				<Apply className="w-6 h-6 overflow-visible"> */}
-					{/* 					{!state.controls.theme.darkMode ? ( */}
-					{/* 						<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
-					{/* 							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /> */}
-					{/* 						</svg> */}
-					{/* 					) : ( */}
-					{/* 						<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
-					{/* 							<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /> */}
-					{/* 						</svg> */}
-					{/* 					)} */}
-					{/* 				</Apply> */}
-					{/* 				{tooltip === "theme" && ( */}
-					{/* 					<div className="pt-2 absolute right-0 top-full"> */}
-					{/* 						<DarkTooltip> */}
-					{/* 							<TextRow> */}
-					{/* 								<Apply className="w-4 h-4"> */}
-					{/* 									<SVGCursorClick /> */}
-					{/* 								</Apply> */}
-					{/* 								<EnSpace /> */}
-					{/* 								Click to Enable {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"} */}
-					{/* 							</TextRow> */}
-					{/* 						</DarkTooltip> */}
-					{/* 					</div> */}
-					{/* 				)} */}
-					{/* 			</button> */}
-					{/* 		</ApplyTransition> */}
-					{/* 	</ApplyReset> */}
-					{/* </div> */}
-
 				</div>
-			</div>
 
-		</div>
+			</div>
+		</ApplyReset>
 	)
 }, (prev, next) => {
 	const ok = (
@@ -662,73 +663,87 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 	return ok
 })
 
-// const MemoControls = React.memo(() => (
-// 	<div>
-// 		<br />
-// 		<br />
-// 		<br />
-// 		<br />
-// 		<br />
-// 		<br />
-// 		<br />
-// 		<br />
-// 		<br />
-// 		<br />
-// 		<br />
-// 		<br />
-// 		<br />
-// 		<br />
-// 		<br />
-// 		<br />
-// 	</div>
-// ))
+const MemoControls = React.memo(() => (
+	<div>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+	</div>
+))
 
 const MemoIcon = React.memo(({ variant, copyAsJSXLiteral, icon }) => (
 	// NOTE: Use h-full because of the absolute context.
-	<div className="relative h-full" style={{ outline: "1px solid var(--gray-200)" }}>
+	<ApplyReset className="block w-full h-full">
+		<button className="group relative hover:bg-blue-50 hover:bg-opacity-50" style={{ outline: "1px solid var(--gray-200)" }}>
 
-		{/* New */}
-		{icon.new && (
-			<div className="p-4 absolute right-0 top-0">
-				<div className="w-2 h-2 bg-purple-500 rounded-full" />
+			{/* New */}
+			{icon.new && (
+				<div className="p-4 absolute right-0 top-0">
+					<div className="w-2 h-2 bg-purple-500 rounded-full" />
+				</div>
+			)}
+
+			{/* Icon */}
+			<div className="flex flex-row justify-center items-center h-full">
+				<Apply className="w-8 h-8 text-gray-800 group-hover:text-blue-500">
+					<SVG id={icon.name} svg={icon.icons[variant]} />
+				</Apply>
 			</div>
-		)}
 
-		{/* Icon */}
-		<div className="flex flex-row justify-center items-center h-full">
-			<Apply className="w-8 h-8 text-gray-800">
-				<SVG id={icon.name} svg={icon.icons[variant]} />
-			</Apply>
-		</div>
-
-		{/* Name */}
-		<div className="p-4 absolute inset-x-0 bottom-0">
-			<div className="flex flex-row justify-center">
-				<ApplyReset className="subpixel-antialiased">
-					<p className="text-center text-xs tracking-wide leading-tight text-gray-600" style={{ fontSize: px(13) }}>
-						{/* {"<"} */}
-						{!copyAsJSXLiteral ? (
-							icon.name
-						) : (
-							icon.name.split("-").map(each => each[0].toUpperCase() + each.slice(1)).join("")
-						)}
-						{/* {!copyAsJSXLiteral ? ">" : " />"} */}
-					</p>
-				</ApplyReset>
+			{/* Name */}
+			<div className="p-4 absolute inset-x-0 bottom-0 cursor-text select-text">
+				<div className="flex flex-row justify-center">
+					<ApplyReset className="subpixel-antialiased">
+						<p className="text-center text-xs tracking-wide leading-tight text-gray-600" style={{ fontSize: px(13) }}>
+							{/* {"<"} */}
+							{!copyAsJSXLiteral ? (
+								icon.name
+							) : (
+								icon.name.split("-").map(each => each[0].toUpperCase() + each.slice(1)).join("")
+							)}
+							{/* {!copyAsJSXLiteral ? ">" : " />"} */}
+						</p>
+					</ApplyReset>
+				</div>
 			</div>
-		</div>
 
-	</div>
+		</button>
+	</ApplyReset>
 ))
 
 const IconApp = ({ state, dispatch }) => {
 	const media = useLayoutBreakpoints(screens)
 
 	return (
-		<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_OFFSET_TW) }}>
+		<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_OFFSET_TW) /* , maxWidth: rem(128) */ }}>
+
+			{/* Ultra-wide displays only */}
+			<ApplyDisplay className="hidden ultra-wide:block">
+				<div className="w-96" />
+			</ApplyDisplay>
+
+			{/* Ultra-wide displays only */}
+			<ApplyDisplay className="hidden ultra-wide:block">
+				<div className="w-6" />
+			</ApplyDisplay>
 
 			{/* LHS */}
-			<main className="flex-1 w-full max-w-screen-xl z-10">
+			{/* */}
+			{/* NOTE: Use 1168 for 2048 - 24 - 392 - 24 - 24 - 392 - 24. */}
+			<main className="!flex-shrink-0 w-full z-10" style={{ maxWidth: 1168 }}>
 
 				{/* Search */}
 				<Apply className="mt-0 lg:-mt-4 pt-0 lg:pt-4">
@@ -793,18 +808,18 @@ const IconApp = ({ state, dispatch }) => {
 			</main>
 
 			{/* Controls */}
-			{/* <ApplyDisplay className="hidden lg:block"> */}
-			{/* 	<aside className="-mt-4 pl-6 pt-4 sticky top-0"> */}
-			{/* 		<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2"> */}
-			{/* 			<div className="w-96 bg-white"> */}
-			{/* 				<MemoControls */}
-			{/* 					state={state} */}
-			{/* 					dispatch={dispatch} */}
-			{/* 				/> */}
-			{/* 			</div> */}
-			{/* 		</Apply> */}
-			{/* 	</aside> */}
-			{/* </ApplyDisplay> */}
+			<ApplyDisplay className="hidden lg:block">
+				<aside className="-mt-4 pl-6 pt-4 sticky top-0">
+					<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
+						<div className="w-96 bg-white">
+							<MemoControls
+								state={state}
+								dispatch={dispatch}
+							/>
+						</div>
+					</Apply>
+				</aside>
+			</ApplyDisplay>
 
 		</div>
 	)
