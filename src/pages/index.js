@@ -448,7 +448,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						<div className="flex flex-row items-center">
 							<Apply
 								className="w-6 h-6 text-gray-400"
-								style={{ color: inputElementFocused && "var(--purple-500)" }}
+								style={{ color: inputElementFocused && "var(--purple-600)" }}
 							>
 								{/* <SVGSearchOutline /> */}
 								<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -698,7 +698,6 @@ const MemoIcon = React.memo(({ variant, copyAsJSXLiteral, icon }) => (
 
 			{/* Icon */}
 			<div className="flex flex-row justify-center items-center h-full">
-				{/* ... */}
 				<div className="w-16 h-16 bg-transparent group-hover:bg-purple-50 group-focus:bg-purple-50 rounded-full transform scale-0 group-hover:scale-100 group-focus:scale-100 transition duration-200 ease-out" />
 			</div>
 			<div className="absolute inset-0">
