@@ -360,29 +360,29 @@ const Hero = ({ state, dispatch }) => (
 	</div>
 )
 
-const LightTooltip = ({ children }) => (
-	<div className="rounded-1 shadow-4">
-		<Apply className="rounded-1 shadow-px-2">
-			<div className="px-3 py-2 bg-white">
-				<ApplyReset className="text-left whitespace-pre">
-					<p
-						className="font-medium text-gray-700"
-						style={{
-							fontSize: px(14),
-							letterSpacing: "0.0125em",
-						}}
-					>
-						{children}
-					</p>
-				</ApplyReset>
-			</div>
-		</Apply>
-	</div>
-)
+// const LightTooltip = ({ children }) => (
+// 	<div className="rounded-1 shadow-4">
+// 		<Apply className="rounded-1 shadow-px-2">
+// 			<div className="px-3 py-2 bg-white">
+// 				<ApplyReset className="text-left whitespace-pre">
+// 					<p
+// 						className="font-medium text-gray-700"
+// 						style={{
+// 							fontSize: px(14),
+// 							letterSpacing: "0.0125em",
+// 						}}
+// 					>
+// 						{children}
+// 					</p>
+// 				</ApplyReset>
+// 			</div>
+// 		</Apply>
+// 	</div>
+// )
 
 const DarkTooltip = ({ children }) => (
 	<div className="rounded-1 shadow-4">
-		<Apply className="rounded-1 shadow-px-2">
+		<Apply className="rounded-1 shadow-2">
 			<div className="px-3 py-2 bg-gray-800">
 				<ApplyReset className="text-left whitespace-pre">
 					<p
@@ -524,18 +524,16 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										)}
 									</Apply>
 									{tooltip === "variant" && (
-										<div className="pt-2 absolute left-1/2 top-full">
-											<div className="transform -translate-x-1/2">
-												<DarkTooltip>
-													<TextRow>
-														<Apply className="w-4 h-4">
-															<SVGSwitchHorizontal />
-														</Apply>
-														<EnSpace />
-														Switch to {!state.controls.variant.solid ? "Solid" : "Outline"} Icons
-													</TextRow>
-												</DarkTooltip>
-											</div>
+										<div className="pt-2 absolute left-auto md:left-1/2 right-0 md:right-auto top-full transform translate-x-0 lg:-translate-x-1/2">
+											<DarkTooltip>
+												<TextRow>
+													<Apply className="w-4 h-4">
+														<SVGSwitchHorizontal />
+													</Apply>
+													<EnSpace />
+													Switch to {!state.controls.variant.solid ? "Solid" : "Outline"} Icons
+												</TextRow>
+											</DarkTooltip>
 										</div>
 									)}
 								</button>
@@ -581,18 +579,16 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										)}
 									</Apply>
 									{tooltip === "copyAs" && (
-										<div className="pt-2 absolute left-1/2 top-full">
-											<div className="transform -translate-x-1/2">
-												<DarkTooltip>
-													<TextRow>
-														<Apply className="w-4 h-4">
-															<SVGCursorClick />
-														</Apply>
-														<EnSpace />
-														Click to Copy as {!state.controls.copyAs.jsxLiteral ? "JSX" : "SVG"}
-													</TextRow>
-												</DarkTooltip>
-											</div>
+										<div className="pt-2 absolute left-auto md:left-1/2 right-0 md:right-auto top-full transform translate-x-0 lg:-translate-x-1/2">
+											<DarkTooltip>
+												<TextRow>
+													<Apply className="w-4 h-4">
+														<SVGCursorClick />
+													</Apply>
+													<EnSpace />
+													Click to Copy as {!state.controls.copyAs.jsxLiteral ? "JSX" : "SVG"}
+												</TextRow>
+											</DarkTooltip>
 										</div>
 									)}
 								</button>
@@ -640,18 +636,16 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										)}
 									</Apply>
 									{tooltip === "theme" && (
-										<div className="pt-2 absolute left-1/2 top-full">
-											<div className="transform -translate-x-1/2">
-												<DarkTooltip>
-													<TextRow>
-														<Apply className="w-4 h-4">
-															<SVGCursorClick />
-														</Apply>
-														<EnSpace />
-														Click to Enable {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}
-													</TextRow>
-												</DarkTooltip>
-											</div>
+										<div className="pt-2 absolute left-auto md:left-1/2 right-0 md:right-auto top-full transform translate-x-0 lg:-translate-x-1/2">
+											<DarkTooltip>
+												<TextRow>
+													<Apply className="w-4 h-4">
+														<SVGCursorClick />
+													</Apply>
+													<EnSpace />
+													Click to Enable {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}
+												</TextRow>
+											</DarkTooltip>
 										</div>
 									)}
 								</button>
