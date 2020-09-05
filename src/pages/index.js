@@ -2,9 +2,11 @@ import Apply from "lib/x/Apply"
 import ApplyDisplay from "lib/x/ApplyDisplay"
 import ApplyReset from "lib/x/ApplyReset"
 import ApplyTransition from "lib/x/ApplyTransition"
+import css from "lib/x/tpl"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import SVG from "components/SVG"
 import target_blank from "lib/x/target_blank"
+import toCamelCase from "components/toCamelCase"
 import Transition from "lib/x/Transition"
 import useIconsReducer from "components/useIconsReducer2" // FIXME
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
@@ -25,18 +27,11 @@ import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
 const MARGIN_TOP_OFFSET_TW = 18 + 6
 
-// https://dev.to/patarapolw/fake-tagged-template-string-literal-to-enable-syntax-highlighting-in-vscode-34g1
-function tpl(arr, ...args) {
-	return arr.map((each, x) => `${each}${args[x] || ""}`).join("")
-}
-
-const css = tpl
-
 const screens = {
-	sm: `${640}px`,
-	md: `${768}px`,
-	lg: `${24 + 1024 + 24}px`,
-	xl: `${24 + 1280 + 24}px`,
+	sm: (640) + "px",
+	md: (768) + "px",
+	lg: (24 + 1024 + 24) + "px",
+	xl: (24 + 1280 + 24) + "px",
 }
 
 const AbsoluteExternalLinks = () => (
@@ -50,7 +45,8 @@ const AbsoluteExternalLinks = () => (
 }
 
 @keyframes cartoon-eyes {
-	0%, 100% {
+	0%,
+	100% {
 		transform: scale(1);
 	}
 	50% {
@@ -341,11 +337,11 @@ const Hero = ({ state, dispatch }) => (
 			repeat-x,
 			no-repeat;
 		background-size:
-			96px,
+			112px,
 			100%;
 		background-position:
 			0 0,
-			0 96px;
+			0 112px;
 	}
 }
 
@@ -412,17 +408,19 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 		}
 	}, [])
 
-	// // Auto-scrolls.
-	// const mounted = React.useRef(false)
-	// React.useEffect(() => {
-	// 	if (!mounted.current) {
-	// 		mounted.current = true
-	// 		return
-	// 	}
-	// 	const y = document.documentElement.scrollTop + (!media.lg ? -16 : 0) +
-	// 		inputRef.current.getBoundingClientRect().y
-	// 	window.scrollTo(0, y)
-	// }, [media.lg, query])
+	// Auto-scrolls.
+	const mounted = React.useRef(false)
+	React.useEffect(() => {
+		if (process.env.NODE_ENV === "production") {
+			if (!mounted.current) {
+				mounted.current = true
+				return
+			}
+			const y = document.documentElement.scrollTop + (!media.lg ? -16 : 0) +
+				inputRef.current.getBoundingClientRect().y
+			window.scrollTo(0, y)
+		}
+	}, [media.lg, query])
 
 	// Debounces search.
 	React.useEffect(() => {
@@ -593,59 +591,15 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						</div>
 
 						{/* Button */}
-						{/* <div */}
-						{/* 	className="px-1 flex flex-row items-center" */}
-						{/* 	onFocus={e => setTooltip("theme")} */}
-						{/* 	onBlur={e => setTooltip("")} */}
-						{/* 	onMouseEnter={e => setTooltip("theme")} */}
-						{/* 	onMouseLeave={e => setTooltip("")} */}
-						{/* > */}
-						{/* 	<ApplyReset className="focus:outline-none"> */}
-						{/* 		<ApplyTransition> */}
-						{/* 			<button */}
-						{/* 				className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full" */}
-						{/* 				style={{ */}
-						{/* 					color: state.controls.theme.darkMode && "var(--purple-50)", */}
-						{/* 					backgroundColor: state.controls.theme.darkMode && "var(--purple-500)", */}
-						{/* 				}} */}
-						{/* 				onClick={e => ( */}
-						{/* 					dispatch({ */}
-						{/* 						type: "UPDATE_CONTROLS", */}
-						{/* 						controlType: "theme", */}
-						{/* 						key: !state.controls.theme.darkMode ? "darkMode" : "lightMode", */}
-						{/* 						value: true, */}
-						{/* 					}) */}
-						{/* 				)} */}
-						{/* 			> */}
-						{/* 				// NOTE: Use SVGs not components. */}
-						{/* 				<Apply className="w-6 h-6 overflow-visible"> */}
-						{/* 					{!state.controls.theme.darkMode ? ( */}
-						{/* 						<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
-						{/* 							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /> */}
-						{/* 						</svg> */}
-						{/* 					) : ( */}
-						{/* 						<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
-						{/* 							<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /> */}
-						{/* 						</svg> */}
-						{/* 					)} */}
-						{/* 				</Apply> */}
-						{/* 				{tooltip === "theme" && ( */}
-						{/* 					<div className="pt-2 absolute right-0 top-full"> */}
-						{/* 						<LightTooltip> */}
-						{/* 							<TextRow> */}
-						{/* 								<Apply className="w-4 h-4"> */}
-						{/* 									<SVGCursorClick /> */}
-						{/* 								</Apply> */}
-						{/* 								<EnSpace /> */}
-						{/* 								Click to Enable {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"} */}
-						{/* 							</TextRow> */}
-						{/* 						</LightTooltip> */}
-						{/* 					</div> */}
-						{/* 				)} */}
-						{/* 			</button> */}
-						{/* 		</ApplyTransition> */}
-						{/* 	</ApplyReset> */}
-						{/* </div> */}
+						{/* {!state.controls.theme.darkMode ? ( */}
+						{/* 	<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
+						{/* 		<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /> */}
+						{/* 	</svg> */}
+						{/* ) : ( */}
+						{/* 	<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
+						{/* 		<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /> */}
+						{/* 	</svg> */}
+						{/* )} */}
 
 					</div>
 				</div>
@@ -690,11 +644,11 @@ const MemoIcon = React.memo(({ variant, copyAsJSXLiteral, icon }) => (
 		<button className="group relative" style={{ outline: "1px solid var(--gray-200)" }}>
 
 			{/* New */}
-			{icon.new && (
-				<div className="p-4 absolute right-0 top-0 pointer-events-none">
-					<div className="w-2 h-2 bg-purple-500 rounded-full" />
-				</div>
-			)}
+			{/* {icon.new && ( */}
+			{/* 	<div className="p-4 absolute right-0 top-0 pointer-events-none"> */}
+			{/* 		<div className="w-2 h-2 bg-purple-500 rounded-full" /> */}
+			{/* 	</div> */}
+			{/* )} */}
 
 			{/* Icon */}
 			<div className="flex flex-row justify-center items-center h-full">
@@ -703,7 +657,10 @@ const MemoIcon = React.memo(({ variant, copyAsJSXLiteral, icon }) => (
 			<div className="absolute inset-0">
 				<div className="flex flex-row justify-center items-center h-full">
 					<Apply className="w-8 h-8 text-gray-800 group-hover:text-purple-800 group-focus:text-purple-800">
-						<SVG id={icon.name} svg={icon.icons[variant]} />
+						<SVG
+							id={icon.name}
+							svg={icon.icons[variant]}
+						/>
 					</Apply>
 				</div>
 			</div>
@@ -713,13 +670,11 @@ const MemoIcon = React.memo(({ variant, copyAsJSXLiteral, icon }) => (
 				<div className="flex flex-row justify-center cursor-text select-text">
 					<ApplyReset className="subpixel-antialiased">
 						<p className="text-center text-xs tracking-wide leading-tight text-gray-600" style={{ fontSize: px(13) }}>
-							{/* {"<"} */}
 							{!copyAsJSXLiteral ? (
 								icon.name
 							) : (
-								icon.name.split("-").map(each => each[0].toUpperCase() + each.slice(1)).join("")
+								toCamelCase(icon.name)
 							)}
-							{/* {!copyAsJSXLiteral ? ">" : " />"} */}
 						</p>
 					</ApplyReset>
 				</div>
@@ -735,20 +690,10 @@ const IconApp = ({ state, dispatch }) => {
 	return (
 		<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_OFFSET_TW) /* , maxWidth: rem(128) */ }}>
 
-			{/* Ultra-wide displays only */}
-			<ApplyDisplay className="hidden ultra-wide:block">
-				<div className="w-96" />
-			</ApplyDisplay>
-
-			{/* Ultra-wide displays only */}
-			<ApplyDisplay className="hidden ultra-wide:block">
-				<div className="w-6" />
-			</ApplyDisplay>
-
 			{/* LHS */}
 			{/* */}
-			{/* NOTE: Use 1168 for 2048 - 24 - 392 - 24 - 24 - 392 - 24. */}
-			<main className="!flex-shrink-0 w-full z-10" style={{ maxWidth: 1168 }}>
+			{/* NOTE: Do not use max-w-screen-xl because of px-*. */}
+			<main className="w-full !max-w-screen-xl z-10" style={{ maxWidth: 1280 }}>
 
 				{/* Search */}
 				<Apply className="mt-0 lg:-mt-4 pt-0 lg:pt-4">
@@ -813,18 +758,18 @@ const IconApp = ({ state, dispatch }) => {
 			</main>
 
 			{/* Controls */}
-			<ApplyDisplay className="hidden lg:block">
-				<aside className="-mt-4 pl-6 pt-4 sticky top-0">
-					<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
-						<div className="w-96 bg-white">
-							<MemoControls
-								state={state}
-								dispatch={dispatch}
-							/>
-						</div>
-					</Apply>
-				</aside>
-			</ApplyDisplay>
+			{/* <ApplyDisplay className="hidden lg:block"> */}
+			{/* 	<aside className="-mt-4 pl-6 pt-4 sticky top-0"> */}
+			{/* 		<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2"> */}
+			{/* 			<div className="w-96 bg-white"> */}
+			{/* 				<MemoControls */}
+			{/* 					state={state} */}
+			{/* 					dispatch={dispatch} */}
+			{/* 				/> */}
+			{/* 			</div> */}
+			{/* 		</Apply> */}
+			{/* 	</aside> */}
+			{/* </ApplyDisplay> */}
 
 		</div>
 	)

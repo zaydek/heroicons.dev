@@ -48,7 +48,6 @@ module.exports = {
 			},
 			fontFamily: {
 				sans: [...defaultTheme.fontFamily.sans.slice(0, 3), "Inter", ...defaultTheme.fontFamily.sans.slice(3)],
-				// mono: ["'IBM Plex Mono'", ...defaultTheme.fontFamily.mono],
 			},
 		},
 		screens: {
@@ -56,8 +55,6 @@ module.exports = {
 			md: (768) + "px",
 			lg: (24 + 1024 + 24) + "px",
 			xl: (24 + 1280 + 24) + "px",
-			"ultra-wide": 2048 + "px", // (24 + 1168 + 24 + 392 + 24) + "px",
-			// "ultra-wide-w-sidebar": (24 + 392 + 24 + 1280 + 24 + 392 + 24) + "px",
 		},
 	},
 	variants: {
