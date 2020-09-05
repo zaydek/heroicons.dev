@@ -702,7 +702,7 @@ const MemoIcon = React.memo(({ variant, copyAsJSXLiteral, icon }) => (
 			</div>
 			<div className="absolute inset-0">
 				<div className="flex flex-row justify-center items-center h-full">
-					<Apply className="w-8 h-8 text-gray-800 group-hover:text-purple-600 group-focus:text-purple-600">
+					<Apply className="w-8 h-8 text-gray-800 group-hover:text-purple-800 group-focus:text-purple-800">
 						<SVG id={icon.name} svg={icon.icons[variant]} />
 					</Apply>
 				</div>
