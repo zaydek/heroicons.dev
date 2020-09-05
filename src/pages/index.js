@@ -775,9 +775,9 @@ const IconApp = ({ state, dispatch }) => {
 	)
 }
 
-const TextRow = ({ children, ...props }) => (
+const TextRow = ({ children }) => (
 	<ApplyReset className="align-top">
-		<span className="inline-flex flex-row items-center" {...props}>
+		<span className="inline-flex flex-row items-center">
 			{children}
 		</span>
 	</ApplyReset>
