@@ -695,8 +695,8 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 
 		{/* New */}
 		{icon.new && (
-			<div className="p-3 absolute right-0 top-0">
-				<div className="w-2.5 h-2.5 bg-purple-500 rounded-full" />
+			<div className="p-4 absolute right-0 top-0">
+				<div className="w-2 h-2 bg-purple-500 rounded-full" />
 			</div>
 		)}
 
@@ -708,7 +708,7 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 		</div>
 
 		{/* Name */}
-		<div className="p-3 absolute inset-x-0 bottom-0">
+		<div className="p-4 absolute inset-x-0 bottom-0">
 			<div className="flex flex-row justify-center">
 				<ApplyReset className="subpixel-antialiased">
 					<p className="text-center text-xs tracking-wide leading-tight text-gray-600" style={{ fontSize: px(13) }}>
