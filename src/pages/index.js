@@ -1,7 +1,6 @@
 import Apply from "lib/x/Apply"
 import ApplyDisplay from "lib/x/ApplyDisplay"
 import ApplyReset from "lib/x/ApplyReset"
-import ApplyTransition from "lib/x/ApplyTransition"
 import css from "lib/x/tpl"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import SVG from "components/SVG"
@@ -351,11 +350,11 @@ const Hero = ({ state, dispatch }) => (
 	</div>
 )
 
-const LightTooltip = ({ children }) => (
+const LightTooltip = ({ apply, children }) => (
 	<div className="rounded-1 shadow-4">
 		<Apply className="rounded-1 shadow-px-2">
 			<div className="px-3 py-2 bg-white">
-				<ApplyReset className="text-left whitespace-pre">
+				<Apply className={apply}>
 					<p
 						className="font-medium text-gray-700"
 						style={{
@@ -365,17 +364,17 @@ const LightTooltip = ({ children }) => (
 					>
 						{children}
 					</p>
-				</ApplyReset>
+				</Apply>
 			</div>
 		</Apply>
 	</div>
 )
 
-const DarkTooltip = ({ children }) => (
+const DarkTooltip = ({ apply, children }) => (
 	<div className="rounded-1 shadow-4">
 		<Apply className="rounded-1 shadow-2">
 			<div className="px-3 py-2 bg-gray-800">
-				<ApplyReset className="text-left whitespace-pre">
+				<Apply className={apply}>
 					<p
 						className="font-medium text-gray-100"
 						style={{
@@ -385,7 +384,7 @@ const DarkTooltip = ({ children }) => (
 					>
 						{children}
 					</p>
-				</ApplyReset>
+				</Apply>
 			</div>
 		</Apply>
 	</div>
@@ -489,7 +488,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							onMouseLeave={e => setTooltip("")}
 						>
 							<ApplyReset className="focus:outline-none">
-								<ApplyTransition>
+								<Apply className="transition duration-200 ease-in-out">
 									<button
 										className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full"
 										style={{
@@ -519,7 +518,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										</Apply>
 										{tooltip === "variant" && (
 											<div className="pt-2 absolute right-0 top-full">
-												<LightTooltip>
+												<LightTooltip apply="text-left whitespace-pre">
 													{/* <TextRow> */}
 													{/* 	<Apply className="w-4 h-4"> */}
 													{/* 		<SVGSwitchHorizontal /> */}
@@ -531,7 +530,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 											</div>
 										)}
 									</button>
-								</ApplyTransition>
+								</Apply>
 							</ApplyReset>
 						</div>
 
@@ -544,7 +543,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							onMouseLeave={e => setTooltip("")}
 						>
 							<ApplyReset className="focus:outline-none">
-								<ApplyTransition>
+								<Apply className="transition duration-200 ease-in-out">
 									<button
 										className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full"
 										style={{
@@ -574,7 +573,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										</Apply>
 										{tooltip === "copyAs" && (
 											<div className="pt-2 absolute right-0 top-full">
-												<LightTooltip>
+												<LightTooltip apply="text-left whitespace-pre">
 													{/* <TextRow> */}
 													{/* 	<Apply className="w-4 h-4"> */}
 													{/* 		<SVGCursorClick /> */}
@@ -586,7 +585,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 											</div>
 										)}
 									</button>
-								</ApplyTransition>
+								</Apply>
 							</ApplyReset>
 						</div>
 
@@ -667,7 +666,7 @@ const MemoIcon = React.memo(({ variant, copyAsJSXLiteral, icon }) => (
 
 			{/* Name */}
 			<div className="p-4 absolute inset-x-0 bottom-0">
-				<div className="flex flex-row justify-center cursor-text select-text">
+				<div className="flex flex-row justify-center cursor-text select-text no-underline hover:underline">
 					<ApplyReset className="subpixel-antialiased">
 						<p className="text-center text-xs tracking-wide leading-tight text-gray-600" style={{ fontSize: px(13) }}>
 							{!copyAsJSXLiteral ? (
@@ -783,6 +782,7 @@ const TextRow = ({ children }) => (
 	</ApplyReset>
 )
 
+// <ApplyReset className="text-left whitespace-pre">
 const AppNotification = ({ state, dispatch }) => (
 	<Transition
 		on={state.notif.visible + (!state.notif.context ? "" : "-" + state.notif.context)}
@@ -792,25 +792,17 @@ const AppNotification = ({ state, dispatch }) => (
 	>
 		<div className="p-3 fixed left-0 bottom-0 z-30">
 			<DarkTooltip>
-				<TextRow>
-					{/* {state.notif.controlType.variant && ( */}
-					<Apply className="w-4 h-4">
-						<SVGPaperClip />
-						{/* TODO */}
-						{/* {!!state.controls.variant.solid ? ( */}
-						{/* 	<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
-						{/* 		<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /> */}
-						{/* 	</svg> */}
-						{/* ) : ( */}
-						{/* 	<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
-						{/* 		<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" /> */}
-						{/* 	</svg> */}
-						{/* )} */}
-					</Apply>
-					{/* )} */}
+				<span className="flex flex-row">
+					<span className="flex flex-row items-center" style={{ height: px(14 * 1.5) }}>
+						<Apply className="w-4 h-4">
+							<SVGPaperClip />
+						</Apply>
+					</span>
 					<EnSpace />
-					Copied <u>badge-check</u> to the Clipboard!
-				</TextRow>
+					<span>
+						Copied <u>badgedasdasdasdasds-check</u> to the Clipboard!
+					</span>
+				</span>
 			</DarkTooltip>
 		</div>
 	</Transition>
