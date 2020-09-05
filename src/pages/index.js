@@ -373,16 +373,16 @@ const Hero = ({ state, dispatch }) => (
 // )
 
 const Tooltip = ({ children }) => (
-	<div className="rounded-1 shadow-4">
-		<Apply className="rounded-1 shadow-2">
-			<div className="px-3 py-2 bg-gray-50">
-				<div className="py-px">
+	<div className="rounded-2 shadow-4">
+		<Apply className="rounded-2 shadow-2">
+			<div className="px-3 py-2 bg-white">
+				{/* <div className="py-px"> */}
 					<ApplyReset className="text-left whitespace-pre">
 						<p className="font-medium text-gray-800" style={{ fontSize: px(15) }}>
 							{children}
 						</p>
 					</ApplyReset>
-				</div>
+				{/* </div> */}
 			</div>
 		</Apply>
 	</div>
@@ -515,7 +515,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										<div className="pt-2 absolute right-0 top-full">
 											<Tooltip>
 												Switch to {!state.controls.variant.solid ? "Solid" : "Outline"} Icons<br />
-												{/* <span className="text-sm text-gray-600">You are viewing {!state.controls.variant.solid ? "Outline" : "Solid"} Icons</span> */}
+												<span className="text-sm text-gray-600">You are viewing {!state.controls.variant.solid ? "Outline" : "Solid"} Icons</span>
 											</Tooltip>
 										</div>
 									)}
@@ -817,7 +817,7 @@ const AppNotification = ({ state, dispatch }) => (
 									{/* )} */}
 
 									<EmSpace />
-									Copied badge-check as SVG
+									Copied `badge-check` as SVG
 								</span>
 							</ApplyReset>
 						</p>
