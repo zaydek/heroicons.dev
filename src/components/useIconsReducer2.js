@@ -24,21 +24,21 @@ const initialState = {
 		variant: {
 			solid: false,
 			outline: true, // (Default)
-			all: false,
+			// all: false,
 		},
 		copyAs: {
-			name: false,
+			// name: false,
 			svgLiteral: true, // (Default)
 			jsxLiteral: false,
-			jsxImport: false,
-			jsxComponent: false,
-			bladeComponent: false,
-			download: false,
+			// jsxImport: false,
+			// jsxComponent: false,
+			// bladeComponent: false,
+			// download: false,
 		},
-		theme: {
-			lightMode: true, // (Default)
-			darkMode: false,
-		},
+		// theme: {
+		// 	lightMode: true, // (Default)
+		// 	darkMode: false,
+		// },
 		// size: 32,
 		// strokeWidth: 2,
 		// classes: "{name}-{variant} w-6 h-6",
@@ -48,7 +48,7 @@ const initialState = {
 		controlType: {
 			variant: false,
 			copyAs: false,
-			theme: false,
+			// theme: false,
 			// size: false,
 			// strokeWidth: false,
 			// classes: false,

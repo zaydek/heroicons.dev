@@ -2021,17 +2021,17 @@ const dataset = [
 	},
 ]
 
-// Generates tags based on a hyphenated name.
+// Auto-generates tags based on a hyphenated name.
 //
 // "zoom" -> ["zoom"]
-// "zoom-out" -> ["zoom-out", "zoom", "out"]
+// "zoom-out" -> ["zoom-out", "zoomout", "zoom", "out"]
 //
-function autoTags(originalName) {
-	const tags = originalName.split("-")
+function autoTags(name) {
+	const tags = name.split("-")
 	if (tags.length === 1) {
 		return tags
 	}
-	return [originalName, ...tags]
+	return [name, tags.join(""), ...tags]
 }
 
 ;(() => {

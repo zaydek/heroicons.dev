@@ -140,7 +140,7 @@ const Attribution = () => (
 					MIT icons by
 				</span>
 				<span className="hidden sm:inline">
-					Beautiful, MIT open source icons by
+					Beautiful, MIT-licensed icons by
 				</span>
 				<Space />
 				<a className="font-semibold no-underline hover:underline" href="https://twitter.com/steveschoger" {...target_blank}>
@@ -520,7 +520,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										)}
 									</Apply>
 									{tooltip === "variant" && (
-										<div className="pt-2 absolute left-auto md:left-1/2 right-0 md:right-auto top-full transform translate-x-0 lg:-translate-x-1/2">
+										<div className="pt-2 absolute right-0 top-full">
 											<DarkTooltip>
 												<TextRow>
 													<Apply className="w-4 h-4">
@@ -575,14 +575,14 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										)}
 									</Apply>
 									{tooltip === "copyAs" && (
-										<div className="pt-2 absolute left-auto md:left-1/2 right-0 md:right-auto top-full transform translate-x-0 lg:-translate-x-1/2">
+										<div className="pt-2 absolute right-0 top-full">
 											<DarkTooltip>
 												<TextRow>
 													<Apply className="w-4 h-4">
 														<SVGCursorClick />
 													</Apply>
 													<EnSpace />
-													Click to Copy as {!state.controls.copyAs.jsxLiteral ? "JSX" : "SVG"}
+													Enable Copy as {!state.controls.copyAs.jsxLiteral ? "JSX" : "SVG"}
 												</TextRow>
 											</DarkTooltip>
 										</div>
@@ -593,61 +593,59 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 					</div>
 
 					{/* Button */}
-					<div
-						className="px-1 flex flex-row items-center"
-						onFocus={e => setTooltip("theme")}
-						onBlur={e => setTooltip("")}
-						onMouseEnter={e => setTooltip("theme")}
-						onMouseLeave={e => setTooltip("")}
-					>
-						<ApplyReset className="focus:outline-none">
-							<ApplyTransition>
-								<button
-									className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full"
-									style={{
-										color: state.controls.theme.darkMode && "var(--purple-50)",
-										backgroundColor: state.controls.theme.darkMode && "var(--purple-500)",
-									}}
-									onClick={e => (
-										dispatch({
-											type: "UPDATE_CONTROLS",
-											controlType: "theme",
-											key: !state.controls.theme.darkMode ? "darkMode" : "lightMode",
-											value: true,
-										})
-									)}
-								>
-									{/* NOTE: Use SVGs not components. */}
-									<Apply className="w-6 h-6 overflow-visible">
-										{!state.controls.theme.darkMode ? (
-											<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-												{/* <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /> */}
-												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-											</svg>
-										) : (
-											<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-												{/* <path fillRule="evenodd" clipRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" /> */}
-												<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-											</svg>
-										)}
-									</Apply>
-									{tooltip === "theme" && (
-										<div className="pt-2 absolute left-auto md:left-1/2 right-0 md:right-auto top-full transform translate-x-0 lg:-translate-x-1/2">
-											<DarkTooltip>
-												<TextRow>
-													<Apply className="w-4 h-4">
-														<SVGCursorClick />
-													</Apply>
-													<EnSpace />
-													Click to Enable {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}
-												</TextRow>
-											</DarkTooltip>
-										</div>
-									)}
-								</button>
-							</ApplyTransition>
-						</ApplyReset>
-					</div>
+					{/* <div */}
+					{/* 	className="px-1 flex flex-row items-center" */}
+					{/* 	onFocus={e => setTooltip("theme")} */}
+					{/* 	onBlur={e => setTooltip("")} */}
+					{/* 	onMouseEnter={e => setTooltip("theme")} */}
+					{/* 	onMouseLeave={e => setTooltip("")} */}
+					{/* > */}
+					{/* 	<ApplyReset className="focus:outline-none"> */}
+					{/* 		<ApplyTransition> */}
+					{/* 			<button */}
+					{/* 				className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full" */}
+					{/* 				style={{ */}
+					{/* 					color: state.controls.theme.darkMode && "var(--purple-50)", */}
+					{/* 					backgroundColor: state.controls.theme.darkMode && "var(--purple-500)", */}
+					{/* 				}} */}
+					{/* 				onClick={e => ( */}
+					{/* 					dispatch({ */}
+					{/* 						type: "UPDATE_CONTROLS", */}
+					{/* 						controlType: "theme", */}
+					{/* 						key: !state.controls.theme.darkMode ? "darkMode" : "lightMode", */}
+					{/* 						value: true, */}
+					{/* 					}) */}
+					{/* 				)} */}
+					{/* 			> */}
+					{/* 				// NOTE: Use SVGs not components. */}
+					{/* 				<Apply className="w-6 h-6 overflow-visible"> */}
+					{/* 					{!state.controls.theme.darkMode ? ( */}
+					{/* 						<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
+					{/* 							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /> */}
+					{/* 						</svg> */}
+					{/* 					) : ( */}
+					{/* 						<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
+					{/* 							<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /> */}
+					{/* 						</svg> */}
+					{/* 					)} */}
+					{/* 				</Apply> */}
+					{/* 				{tooltip === "theme" && ( */}
+					{/* 					<div className="pt-2 absolute right-0 top-full"> */}
+					{/* 						<DarkTooltip> */}
+					{/* 							<TextRow> */}
+					{/* 								<Apply className="w-4 h-4"> */}
+					{/* 									<SVGCursorClick /> */}
+					{/* 								</Apply> */}
+					{/* 								<EnSpace /> */}
+					{/* 								Click to Enable {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"} */}
+					{/* 							</TextRow> */}
+					{/* 						</DarkTooltip> */}
+					{/* 					</div> */}
+					{/* 				)} */}
+					{/* 			</button> */}
+					{/* 		</ApplyTransition> */}
+					{/* 	</ApplyReset> */}
+					{/* </div> */}
 
 				</div>
 			</div>
@@ -664,28 +662,28 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 	return ok
 })
 
-const MemoControls = React.memo(() => (
-	<div>
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-	</div>
-))
+// const MemoControls = React.memo(() => (
+// 	<div>
+// 		<br />
+// 		<br />
+// 		<br />
+// 		<br />
+// 		<br />
+// 		<br />
+// 		<br />
+// 		<br />
+// 		<br />
+// 		<br />
+// 		<br />
+// 		<br />
+// 		<br />
+// 		<br />
+// 		<br />
+// 		<br />
+// 	</div>
+// ))
 
-const MemoIcon = React.memo(({ variantKey, icon }) => (
+const MemoIcon = React.memo(({ variant, copyAsJSXLiteral, icon }) => (
 	// NOTE: Use h-full because of the absolute context.
 	<div className="relative h-full" style={{ outline: "1px solid var(--gray-200)" }}>
 
@@ -699,7 +697,7 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 		{/* Icon */}
 		<div className="flex flex-row justify-center items-center h-full">
 			<Apply className="w-8 h-8 text-gray-800">
-				<SVG id={icon.name} svg={icon.icons[variantKey]} />
+				<SVG id={icon.name} svg={icon.icons[variant]} />
 			</Apply>
 		</div>
 
@@ -708,7 +706,13 @@ const MemoIcon = React.memo(({ variantKey, icon }) => (
 			<div className="flex flex-row justify-center">
 				<ApplyReset className="subpixel-antialiased">
 					<p className="text-center text-xs tracking-wide leading-tight text-gray-600" style={{ fontSize: px(13) }}>
-						{icon.name}
+						{/* {"<"} */}
+						{!copyAsJSXLiteral ? (
+							icon.name
+						) : (
+							icon.name.split("-").map(each => each[0].toUpperCase() + each.slice(1)).join("")
+						)}
+						{/* {!copyAsJSXLiteral ? ">" : " />"} */}
 					</p>
 				</ApplyReset>
 			</div>
@@ -724,7 +728,7 @@ const IconApp = ({ state, dispatch }) => {
 		<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_OFFSET_TW) }}>
 
 			{/* LHS */}
-			<main className="flex-1 w-full max-w-screen-lg z-10">
+			<main className="flex-1 w-full max-w-screen-xl z-10">
 
 				{/* Search */}
 				<Apply className="mt-0 lg:-mt-4 pt-0 lg:pt-4">
@@ -775,7 +779,8 @@ const IconApp = ({ state, dispatch }) => {
 								<article key={each.name} className="pb-full relative">
 									<div className="absolute inset-0">
 										<MemoIcon
-											variantKey={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
+											variant={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
+											copyAsJSXLiteral={state.controls.copyAs.jsxLiteral}
 											icon={each}
 										/>
 									</div>
@@ -788,18 +793,18 @@ const IconApp = ({ state, dispatch }) => {
 			</main>
 
 			{/* Controls */}
-			<ApplyDisplay className="hidden lg:block">
-				<aside className="-mt-4 pl-6 pt-4 sticky top-0">
-					<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
-						<div className="w-96 bg-white">
-							<MemoControls
-								state={state}
-								dispatch={dispatch}
-							/>
-						</div>
-					</Apply>
-				</aside>
-			</ApplyDisplay>
+			{/* <ApplyDisplay className="hidden lg:block"> */}
+			{/* 	<aside className="-mt-4 pl-6 pt-4 sticky top-0"> */}
+			{/* 		<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2"> */}
+			{/* 			<div className="w-96 bg-white"> */}
+			{/* 				<MemoControls */}
+			{/* 					state={state} */}
+			{/* 					dispatch={dispatch} */}
+			{/* 				/> */}
+			{/* 			</div> */}
+			{/* 		</Apply> */}
+			{/* 	</aside> */}
+			{/* </ApplyDisplay> */}
 
 		</div>
 	)
@@ -812,12 +817,6 @@ const TextRow = ({ children, ...props }) => (
 		</span>
 	</ApplyReset>
 )
-
-// <Apply className="w-4 h-4">
-// 	<SVGCursorClick />
-// </Apply>
-// <EnSpace />
-// Click to Enable {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}
 
 const AppNotification = ({ state, dispatch }) => (
 	<Transition
