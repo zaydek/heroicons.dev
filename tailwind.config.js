@@ -64,6 +64,8 @@ module.exports = {
 		...defaultVariants,
 		typography: [],
 
-		textColor: [...defaultVariants.textColor, "group-hover"],
+		backgroundColor: [...defaultVariants.backgroundColor, "group-hover", "group-focus"],
+		scale: [...defaultVariants.scale, "group-hover", "group-focus"],
+		textColor: [...defaultVariants.textColor, "group-hover", "group-focus"],
 	},
 }

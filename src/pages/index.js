@@ -687,25 +687,31 @@ const MemoControls = React.memo(() => (
 const MemoIcon = React.memo(({ variant, copyAsJSXLiteral, icon }) => (
 	// NOTE: Use h-full because of the absolute context.
 	<ApplyReset className="block w-full h-full">
-		<button className="group relative hover:bg-blue-50 hover:bg-opacity-50" style={{ outline: "1px solid var(--gray-200)" }}>
+		<button className="group relative" style={{ outline: "1px solid var(--gray-200)" }}>
 
 			{/* New */}
 			{icon.new && (
-				<div className="p-4 absolute right-0 top-0">
+				<div className="p-4 absolute right-0 top-0 pointer-events-none">
 					<div className="w-2 h-2 bg-purple-500 rounded-full" />
 				</div>
 			)}
 
 			{/* Icon */}
 			<div className="flex flex-row justify-center items-center h-full">
-				<Apply className="w-8 h-8 text-gray-800 group-hover:text-blue-500">
-					<SVG id={icon.name} svg={icon.icons[variant]} />
-				</Apply>
+				{/* ... */}
+				<div className="w-16 h-16 bg-transparent group-hover:bg-purple-50 group-focus:bg-purple-50 rounded-full transform scale-0 group-hover:scale-100 group-focus:scale-100 transition duration-200 ease-out" />
+			</div>
+			<div className="absolute inset-0">
+				<div className="flex flex-row justify-center items-center h-full">
+					<Apply className="w-8 h-8 text-gray-800 group-hover:text-purple-600 group-focus:text-purple-600">
+						<SVG id={icon.name} svg={icon.icons[variant]} />
+					</Apply>
+				</div>
 			</div>
 
 			{/* Name */}
-			<div className="p-4 absolute inset-x-0 bottom-0 cursor-text select-text">
-				<div className="flex flex-row justify-center">
+			<div className="p-4 absolute inset-x-0 bottom-0">
+				<div className="flex flex-row justify-center cursor-text select-text">
 					<ApplyReset className="subpixel-antialiased">
 						<p className="text-center text-xs tracking-wide leading-tight text-gray-600" style={{ fontSize: px(13) }}>
 							{/* {"<"} */}
