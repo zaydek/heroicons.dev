@@ -13,10 +13,12 @@ import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 import { Space, EnSpace, EmSpace } from "lib/x/Spaces"
 
 import SVGCode from "heroicons-0.4.1/solid/Code"
-import SVGCog from "heroicons-0.4.1/solid/Cog"
-import SVGGift from "heroicons-0.4.1/solid/Sparkles"
+// import SVGCog from "heroicons-0.4.1/solid/Cog"
+import SVGCursorClick from "heroicons-0.4.1/solid/CursorClick"
 import SVGExternalLink from "heroicons-0.4.1/solid/ExternalLink"
 import SVGFlag from "heroicons-0.4.1/solid/Flag"
+import SVGGift from "heroicons-0.4.1/solid/Sparkles"
+import SVGSwitchHorizontal from "heroicons-0.4.1/solid/SwitchHorizontal"
 
 import SVGCodeOutline from "heroicons-0.4.1/outline/Code"
 import SVGFlagOutline from "heroicons-0.4.1/outline/Flag"
@@ -64,7 +66,7 @@ const AbsoluteExternalLinks = () => (
 
 			<a href={`https://twitter.com/intent/tweet?text=${"Thanks @steveschoger for Heroicons and @username_ZAYDEK for heroicons.dev! 🔥"}&url=https://heroicons.dev`} {...target_blank}>
 				<p className="twemoji px-4 py-0.5 pt-4 font-medium no-underline hover:underline text-purple-50">
-					<span className="inline-flex flex-row items-center">
+					<span className="inline-flex flex-row items-center align-top">
 						<Apply className="w-6 h-6 overflow-visible">
 							<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
 								<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
@@ -82,7 +84,7 @@ const AbsoluteExternalLinks = () => (
 
 			<a href="https://github.com/codex-zaydek/heroicons.dev" {...target_blank}>
 				<p className="twemoji px-4 py-0.5 pb-4 font-medium no-underline hover:underline text-purple-50">
-					<span className="inline-flex flex-row items-center">
+					<span className="inline-flex flex-row items-center align-top">
 						<Apply className="w-6 h-6 overflow-visible">
 							<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
 								<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
@@ -165,7 +167,7 @@ const CTAButtons = () => (
 			<a href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}>
 				<div className="px-5 py-4 bg-purple-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
-						<span className="inline-flex flex-row items-center">
+						<span className="inline-flex flex-row items-center align-top">
 							<Apply className="mr-1 w-4 h-4 transform scale-110" style={{ filter: "brightness(125%)" }}>
 								<svg viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg">
 									<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
@@ -188,7 +190,7 @@ const CTAButtons = () => (
 			<a href="https://github.com/tailwindlabs/heroicons" {...target_blank}>
 				<div className="px-5 py-4 bg-purple-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
-						<span className="inline-flex flex-row items-center">
+						<span className="inline-flex flex-row items-center align-top">
 							<Apply className="mr-1 w-4 h-4 transform scale-110">
 								<svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
 									<path d="M7.975 16a9.39 9.39 0 003.169-.509c-.473.076-.652-.229-.652-.486l.004-.572c.003-.521.01-1.3.01-2.197 0-.944-.316-1.549-.68-1.863 2.24-.252 4.594-1.108 4.594-4.973 0-1.108-.39-2.002-1.032-2.707.1-.251.453-1.284-.1-2.668 0 0-.844-.277-2.77 1.032A9.345 9.345 0 008 .717c-.856 0-1.712.113-2.518.34C3.556-.24 2.712.025 2.712.025c-.553 1.384-.2 2.417-.1 2.668-.642.705-1.033 1.612-1.033 2.707 0 3.852 2.342 4.72 4.583 4.973-.29.252-.554.692-.642 1.347-.58.264-2.027.692-2.933-.831-.19-.302-.756-1.045-1.549-1.032-.843.012-.34.478.013.667.428.239.919 1.133 1.032 1.422.201.567.856 1.65 3.386 1.184 0 .55.006 1.079.01 1.447l.003.428c0 .265-.189.567-.692.479 1.007.34 1.926.516 3.185.516z" />
@@ -212,7 +214,7 @@ const Sponsors = () => (
 		<ApplyDisplay className="block xl:hidden">
 			<div className="py-4 absolute inset-x-0 bottom-full">
 				<h6 className="text-center font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
-					<span className="inline-flex flex-row items-center">
+					<span className="inline-flex flex-row items-center align-top">
 						OUR SPONSORS
 						<EnSpace />
 						&middot;
@@ -227,7 +229,7 @@ const Sponsors = () => (
 		<ApplyDisplay className="hidden xl:block">
 			<div className="px-8 py-4 absolute left-0 bottom-full">
 				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
-					<span className="inline-flex flex-row items-center">
+					<span className="inline-flex flex-row items-center align-top">
 						OUR SPONSORS
 						{/* <EnSpace /> */}
 						{/* &middot; */}
@@ -263,7 +265,7 @@ const Sponsors = () => (
 						{/* <ApplyDisplay className="hidden xl:block"> */}
 						{/* 	<div className="p-2 absolute inset-x-0 top-full"> */}
 						{/* 		<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-75"> */}
-						{/* 			<span className="inline-flex flex-row items-center"> */}
+						{/* 			<span className="inline-flex flex-row items-center align-top"> */}
 						{/* 				QAWolf */}
 						{/* 				<Space /> */}
 						{/* 				<Apply className="w-3 h-3 opacity-75"> */}
@@ -358,31 +360,41 @@ const Hero = ({ state, dispatch }) => (
 	</div>
 )
 
-// const Tooltip = ({ children }) => (
-// 	<div className="rounded-2 shadow-4">
-// 		<Apply className="rounded-2 shadow-px-2">
-// 			<div className="px-3 py-2 bg-white ">
-// 				<ApplyReset className="text-left whitespace-pre">
-// 					<p className="font-medium text-gray-800" style={{ fontSize: px(15) }}>
-// 						{children}
-// 					</p>
-// 				</ApplyReset>
-// 			</div>
-// 		</Apply>
-// 	</div>
-// )
-
-const Tooltip = ({ children }) => (
-	<div className="rounded-2 shadow-4">
-		<Apply className="rounded-2 shadow-2">
+const LightTooltip = ({ children }) => (
+	<div className="rounded-1 shadow-4">
+		<Apply className="rounded-1 shadow-px-2">
 			<div className="px-3 py-2 bg-white">
-				{/* <div className="py-px"> */}
-					<ApplyReset className="text-left whitespace-pre">
-						<p className="font-medium text-gray-800" style={{ fontSize: px(15) }}>
-							{children}
-						</p>
-					</ApplyReset>
-				{/* </div> */}
+				<ApplyReset className="text-left whitespace-pre">
+					<p
+						className="font-medium text-gray-700"
+						style={{
+							fontSize: px(14),
+							letterSpacing: "0.0125em",
+						}}
+					>
+						{children}
+					</p>
+				</ApplyReset>
+			</div>
+		</Apply>
+	</div>
+)
+
+const DarkTooltip = ({ children }) => (
+	<div className="rounded-1 shadow-4">
+		<Apply className="rounded-1 shadow-px-2">
+			<div className="px-3 py-2 bg-gray-800">
+				<ApplyReset className="text-left whitespace-pre">
+					<p
+						className="font-medium text-gray-100"
+						style={{
+							fontSize: px(14),
+							letterSpacing: "0.0125em",
+						}}
+					>
+						{children}
+					</p>
+				</ApplyReset>
 			</div>
 		</Apply>
 	</div>
@@ -512,11 +524,18 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										)}
 									</Apply>
 									{tooltip === "variant" && (
-										<div className="pt-2 absolute right-0 top-full">
-											<Tooltip>
-												Switch to {!state.controls.variant.solid ? "Solid" : "Outline"} Icons<br />
-												<span className="text-sm text-gray-600">You are viewing {!state.controls.variant.solid ? "Outline" : "Solid"} Icons</span>
-											</Tooltip>
+										<div className="pt-2 absolute left-1/2 top-full">
+											<div className="transform -translate-x-1/2">
+												<DarkTooltip>
+													<TextRow>
+														<Apply className="w-4 h-4">
+															<SVGSwitchHorizontal />
+														</Apply>
+														<EnSpace />
+														Switch to {!state.controls.variant.solid ? "Solid" : "Outline"} Icons
+													</TextRow>
+												</DarkTooltip>
+											</div>
 										</div>
 									)}
 								</button>
@@ -562,11 +581,18 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										)}
 									</Apply>
 									{tooltip === "copyAs" && (
-										<div className="pt-2 absolute right-0 top-full">
-											<Tooltip>
-												Enable Copy as {!state.controls.copyAs.jsxLiteral ? "JSX" : "SVG"}
-												{/* Copy as {!state.controls.copyAs.jsxLiteral ? "SVG" : "JSX"} currently enabled */}
-											</Tooltip>
+										<div className="pt-2 absolute left-1/2 top-full">
+											<div className="transform -translate-x-1/2">
+												<DarkTooltip>
+													<TextRow>
+														<Apply className="w-4 h-4">
+															<SVGCursorClick />
+														</Apply>
+														<EnSpace />
+														Click to Copy as {!state.controls.copyAs.jsxLiteral ? "JSX" : "SVG"}
+													</TextRow>
+												</DarkTooltip>
+											</div>
 										</div>
 									)}
 								</button>
@@ -614,11 +640,18 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										)}
 									</Apply>
 									{tooltip === "theme" && (
-										<div className="pt-2 absolute right-0 top-full">
-											<Tooltip>
-												Enable {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}
-												{/* {!state.controls.theme.darkMode ? "Light Mode" : "Dark Mode"} currently enabled */}
-											</Tooltip>
+										<div className="pt-2 absolute left-1/2 top-full">
+											<div className="transform -translate-x-1/2">
+												<DarkTooltip>
+													<TextRow>
+														<Apply className="w-4 h-4">
+															<SVGCursorClick />
+														</Apply>
+														<EnSpace />
+														Click to Enable {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}
+													</TextRow>
+												</DarkTooltip>
+											</div>
 										</div>
 									)}
 								</button>
@@ -782,6 +815,14 @@ const IconApp = ({ state, dispatch }) => {
 	)
 }
 
+const TextRow = ({ children, ...props }) => (
+	<ApplyReset className="align-top">
+		<span className="inline-flex flex-row items-center" {...props}>
+			{children}
+		</span>
+	</ApplyReset>
+)
+
 const AppNotification = ({ state, dispatch }) => (
 	<Transition
 		on={state.notif.visible + (!state.notif.context ? "" : "-" + state.notif.context)}
@@ -790,79 +831,65 @@ const AppNotification = ({ state, dispatch }) => (
 		to="opacity-100 transform translate-y-0 pointer-events-auto"
 	>
 		<div className="p-3 fixed left-0 bottom-0 z-30">
-			<div className="rounded-1 shadow-4">
-				<Apply className="rounded-1 shadow-2">
-					<div className="px-3 py-2 bg-gray-800">
-						<div className="py-px">
+			<DarkTooltip>
+				<ApplyReset className="align-top">
+					<span className="inline-flex flex-row items-center align-top">
 
-			{/* <div className="rounded-2 shadow-4"> */}
-				{/* <Apply className="rounded-2 shadow-4"> */}
-					{/* <div className="px-3 py-2 bg-gray-800"> */}
-						<p className="font-semibold text-gray-50">
-							<ApplyReset className="align-top">
-								<span className="inline-flex flex-row items-center">
-
-									{/* {state.notif.controlType.variant && ( */}
-									<Apply className="w-5 h-5">
-										{!!state.controls.variant.solid ? (
-											<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-												<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-											</svg>
-										) : (
-											<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-												<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
-											</svg>
-										)}
-									</Apply>
-									{/* )} */}
-
-									<EmSpace />
-									Copied `badge-check` as SVG
-								</span>
-							</ApplyReset>
-						</p>
-
-					</div>
-
-						{/* {state.notif.notifInfo && ( */}
-						{/* 	<div className="flex flex-row items-center h-6"> */}
-						{/* 		<SVG className="mr-3 w-5 h-5 text-indigo-50" svg={state.notif.notifInfo.icon} /> */}
-						{/* 	</div> */}
+						{/* {state.notif.controlType.variant && ( */}
+						<Apply className="w-5 h-5">
+							{!!state.controls.variant.solid ? (
+								<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+								</svg>
+							) : (
+								<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+									<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
+								</svg>
+							)}
+						</Apply>
 						{/* )} */}
 
-						{/* Form */}
-						{/* {state.notif.notifType.startsWith("form") && ( */}
-						{/* 	<p className="font-semibold text-indigo-50"> */}
-						{/* 		{state.notif.notifType === "form-jsx" && ( */}
-						{/* 			!state.form.copyAsReact */}
-						{/* 				? "Enabled Copy as HTML" */}
-						{/* 				: "Enabled Copy as JSX" */}
-						{/* 		)} */}
-						{/* 		{state.notif.notifType === "form-alt" && ( */}
-						{/* 			!state.form.showOutline */}
-						{/* 				? "Switched to Solid Icons" */}
-						{/* 				: "Switched to Outline Icons" */}
-						{/* 		)} */}
-						{/* 	</p> */}
-						{/* )} */}
-
-						{/* Icon */}
-						{/* {state.notif.notifType === "icon" && ( */}
-						{/* 	<p className="font-semibold text-indigo-50"> */}
-						{/* 		Copied{" "} */}
-						{/* 		<span className="font-mono"> */}
-						{/* 			{state.notif.notifInfo.name} */}
-						{/* 		</span>{" "} */}
-						{/* 		as {!state.form.copyAsReact ? "HTML" : "JSX"} */}
-						{/* 	</p> */}
-						{/* )} */}
-
-					</div>
-				</Apply>
-			</div>
+						<EmSpace />
+						Copied `badge-check` as SVG
+					</span>
+				</ApplyReset>
+			</DarkTooltip>
 		</div>
 	</Transition>
 )
+
+// {/* {state.notif.notifInfo && ( */}
+// {/* 	<div className="flex flex-row items-center h-6"> */}
+// {/* 		<SVG className="mr-3 w-5 h-5 text-indigo-50" svg={state.notif.notifInfo.icon} /> */}
+// {/* 	</div> */}
+// {/* )} */}
+//
+// {/* Form */}
+// {/* {state.notif.notifType.startsWith("form") && ( */}
+// {/* 	<p className="font-semibold text-indigo-50"> */}
+// {/* 		{state.notif.notifType === "form-jsx" && ( */}
+// {/* 			!state.form.copyAsReact */}
+// {/* 				? "Enabled Copy as HTML" */}
+// {/* 				: "Enabled Copy as JSX" */}
+// {/* 		)} */}
+// {/* 		{state.notif.notifType === "form-alt" && ( */}
+// {/* 			!state.form.showOutline */}
+// {/* 				? "Switched to Solid Icons" */}
+// {/* 				: "Switched to Outline Icons" */}
+// {/* 		)} */}
+// {/* 	</p> */}
+// {/* )} */}
+//
+// {/* Icon */}
+// {/* {state.notif.notifType === "icon" && ( */}
+// {/* 	<p className="font-semibold text-indigo-50"> */}
+// {/* 		Copied{" "} */}
+// {/* 		<span className="font-mono"> */}
+// {/* 			{state.notif.notifInfo.name} */}
+// {/* 		</span>{" "} */}
+// {/* 		as {!state.form.copyAsReact ? "HTML" : "JSX"} */}
+// {/* 	</p> */}
+// {/* )} */}
 
 const Layout = () => {
 	// TODO: Add support for syncing to localStorage.
