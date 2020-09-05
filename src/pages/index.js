@@ -13,11 +13,11 @@ import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 import { Space, EnSpace, EmSpace } from "lib/x/Spaces"
 
 import SVGCode from "heroicons-0.4.1/solid/Code"
-// import SVGCog from "heroicons-0.4.1/solid/Cog"
 import SVGCursorClick from "heroicons-0.4.1/solid/CursorClick"
 import SVGExternalLink from "heroicons-0.4.1/solid/ExternalLink"
 import SVGFlag from "heroicons-0.4.1/solid/Flag"
 import SVGGift from "heroicons-0.4.1/solid/Sparkles"
+import SVGPaperClip from "heroicons-0.4.1/solid/PaperClip"
 import SVGSwitchHorizontal from "heroicons-0.4.1/solid/SwitchHorizontal"
 
 import SVGCodeOutline from "heroicons-0.4.1/outline/Code"
@@ -829,25 +829,23 @@ const AppNotification = ({ state, dispatch }) => (
 		<div className="p-3 fixed left-0 bottom-0 z-30">
 			<DarkTooltip>
 				<TextRow>
-
 					{/* {state.notif.controlType.variant && ( */}
 					<Apply className="w-4 h-4">
+						<SVGPaperClip />
 						{/* TODO */}
-						{!!state.controls.variant.solid ? (
-							<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-							</svg>
-						) : (
-							<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-								<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
-							</svg>
-						)}
+						{/* {!!state.controls.variant.solid ? ( */}
+						{/* 	<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
+						{/* 		<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /> */}
+						{/* 	</svg> */}
+						{/* ) : ( */}
+						{/* 	<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
+						{/* 		<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" /> */}
+						{/* 	</svg> */}
+						{/* )} */}
 					</Apply>
 					{/* )} */}
-
 					<EnSpace />
-					Copied <u>badge-check</u> as SVG
-
+					Copied <u>badge-check</u> to the Clipboard!
 				</TextRow>
 			</DarkTooltip>
 		</div>
