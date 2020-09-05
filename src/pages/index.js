@@ -66,7 +66,7 @@ const AbsoluteExternalLinks = () => (
 
 			<a href={`https://twitter.com/intent/tweet?text=${"Thanks @steveschoger for Heroicons and @username_ZAYDEK for heroicons.dev! 🔥"}&url=https://heroicons.dev`} {...target_blank}>
 				<p className="twemoji px-4 py-0.5 pt-4 font-medium no-underline hover:underline text-purple-50">
-					<span className="inline-flex flex-row items-center align-top">
+					<TextRow>
 						<Apply className="w-6 h-6 overflow-visible">
 							<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
 								<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
@@ -78,13 +78,13 @@ const AbsoluteExternalLinks = () => (
 						</Apply>
 						<EmSpace />
 						Share with your followers on Twitter!
-					</span>
+					</TextRow>
 				</p>
 			</a>
 
 			<a href="https://github.com/codex-zaydek/heroicons.dev" {...target_blank}>
 				<p className="twemoji px-4 py-0.5 pb-4 font-medium no-underline hover:underline text-purple-50">
-					<span className="inline-flex flex-row items-center align-top">
+					<TextRow>
 						<Apply className="w-6 h-6 overflow-visible">
 							<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
 								<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
@@ -97,7 +97,7 @@ const AbsoluteExternalLinks = () => (
 						</Apply>
 						<EmSpace />
 						Star viewer on GitHub
-					</span>
+					</TextRow>
 				</p>
 			</a>
 
@@ -165,10 +165,10 @@ const CTAButtons = () => (
 
 		<ApplyReset className="block">
 			<a href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}>
-				<div className="px-5 py-4 bg-purple-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
+				<div className="p-5 bg-purple-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
-						<span className="inline-flex flex-row items-center align-top">
-							<Apply className="mr-1 w-4 h-4 transform scale-110" style={{ filter: "brightness(125%)" }}>
+						<TextRow>
+							<Apply className="w-4 h-4 transform scale-110" style={{ filter: "brightness(125%)" }}>
 								<svg viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg">
 									<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
 									<path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
@@ -177,9 +177,9 @@ const CTAButtons = () => (
 									<path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
 								</svg>
 							</Apply>
-							<Space />
+							<EnSpace />
 							Open in Figma
-						</span>
+						</TextRow>
 					</p>
 				</div>
 			</a>
@@ -187,18 +187,18 @@ const CTAButtons = () => (
 
 		<div className="w-3 h-3" />
 		<ApplyReset className="block">
-			<a href="https://github.com/tailwindlabs/heroicons" {...target_blank}>
-				<div className="px-5 py-4 bg-purple-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
+			<a href="https://github.colwindlabs/heroicons" {...target_blank}>
+				<div className="p-5 bg-purple-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
-						<span className="inline-flex flex-row items-center align-top">
-							<Apply className="mr-1 w-4 h-4 transform scale-110">
+						<TextRow>
+							<Apply className="w-4 h-4 transform scale-110">
 								<svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
 									<path d="M7.975 16a9.39 9.39 0 003.169-.509c-.473.076-.652-.229-.652-.486l.004-.572c.003-.521.01-1.3.01-2.197 0-.944-.316-1.549-.68-1.863 2.24-.252 4.594-1.108 4.594-4.973 0-1.108-.39-2.002-1.032-2.707.1-.251.453-1.284-.1-2.668 0 0-.844-.277-2.77 1.032A9.345 9.345 0 008 .717c-.856 0-1.712.113-2.518.34C3.556-.24 2.712.025 2.712.025c-.553 1.384-.2 2.417-.1 2.668-.642.705-1.033 1.612-1.033 2.707 0 3.852 2.342 4.72 4.583 4.973-.29.252-.554.692-.642 1.347-.58.264-2.027.692-2.933-.831-.19-.302-.756-1.045-1.549-1.032-.843.012-.34.478.013.667.428.239.919 1.133 1.032 1.422.201.567.856 1.65 3.386 1.184 0 .55.006 1.079.01 1.447l.003.428c0 .265-.189.567-.692.479 1.007.34 1.926.516 3.185.516z" />
 								</svg>
 							</Apply>
-							<Space />
+							<EnSpace />
 							Open in GitHub
-						</span>
+						</TextRow>
 					</p>
 				</div>
 			</a>
@@ -210,32 +210,26 @@ const CTAButtons = () => (
 const Sponsors = () => (
 	<div className="relative">
 
+		{/* LHS */}
+		<ApplyDisplay className="hidden xl:block">
+			<div className="px-8 py-4 absolute left-0 bottom-full">
+				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
+					OUR SPONSORS
+				</h6>
+			</div>
+		</ApplyDisplay>
+
 		{/* Center */}
 		<ApplyDisplay className="block xl:hidden">
 			<div className="py-4 absolute inset-x-0 bottom-full">
 				<h6 className="text-center font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
-					<span className="inline-flex flex-row items-center align-top">
+					<TextRow>
 						OUR SPONSORS
 						<EnSpace />
 						&middot;
 						<EnSpace />
 						UNAFFILIATED WITH TAILWIND LABS
-					</span>
-				</h6>
-			</div>
-		</ApplyDisplay>
-
-		{/* LHS */}
-		<ApplyDisplay className="hidden xl:block">
-			<div className="px-8 py-4 absolute left-0 bottom-full">
-				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
-					<span className="inline-flex flex-row items-center align-top">
-						OUR SPONSORS
-						{/* <EnSpace /> */}
-						{/* &middot; */}
-						{/* <EnSpace /> */}
-						{/* BECOME A SPONSOR */}
-					</span>
+					</TextRow>
 				</h6>
 			</div>
 		</ApplyDisplay>
@@ -265,13 +259,13 @@ const Sponsors = () => (
 						{/* <ApplyDisplay className="hidden xl:block"> */}
 						{/* 	<div className="p-2 absolute inset-x-0 top-full"> */}
 						{/* 		<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-75"> */}
-						{/* 			<span className="inline-flex flex-row items-center align-top"> */}
-						{/* 				QAWolf */}
+						{/* 			<TextRow> */}
+						{/* 				“10x Browser Tests” */}
 						{/* 				<Space /> */}
 						{/* 				<Apply className="w-3 h-3 opacity-75"> */}
 						{/* 					<SVGExternalLink /> */}
 						{/* 				</Apply> */}
-						{/* 			</span> */}
+						{/* 			</TextRow> */}
 						{/* 		</p> */}
 						{/* 	</div> */}
 						{/* </ApplyDisplay> */}
@@ -417,17 +411,17 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 		}
 	}, [])
 
-	// Auto-scrolls.
-	const mounted = React.useRef(false)
-	React.useEffect(() => {
-		if (!mounted.current) {
-			mounted.current = true
-			return
-		}
-		const y = document.documentElement.scrollTop + (!media.lg ? -16 : 0) +
-			inputRef.current.getBoundingClientRect().y
-		window.scrollTo(0, y)
-	}, [media.lg, query])
+	// // Auto-scrolls.
+	// const mounted = React.useRef(false)
+	// React.useEffect(() => {
+	// 	if (!mounted.current) {
+	// 		mounted.current = true
+	// 		return
+	// 	}
+	// 	const y = document.documentElement.scrollTop + (!media.lg ? -16 : 0) +
+	// 		inputRef.current.getBoundingClientRect().y
+	// 	window.scrollTo(0, y)
+	// }, [media.lg, query])
 
 	// Debounces search.
 	React.useEffect(() => {
@@ -817,6 +811,12 @@ const TextRow = ({ children, ...props }) => (
 	</ApplyReset>
 )
 
+// <Apply className="w-4 h-4">
+// 	<SVGCursorClick />
+// </Apply>
+// <EnSpace />
+// Click to Enable {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}
+
 const AppNotification = ({ state, dispatch }) => (
 	<Transition
 		on={state.notif.visible + (!state.notif.context ? "" : "-" + state.notif.context)}
@@ -826,27 +826,27 @@ const AppNotification = ({ state, dispatch }) => (
 	>
 		<div className="p-3 fixed left-0 bottom-0 z-30">
 			<DarkTooltip>
-				<ApplyReset className="align-top">
-					<span className="inline-flex flex-row items-center align-top">
+				<TextRow>
 
-						{/* {state.notif.controlType.variant && ( */}
-						<Apply className="w-5 h-5">
-							{!!state.controls.variant.solid ? (
-								<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-								</svg>
-							) : (
-								<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-									<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
-								</svg>
-							)}
-						</Apply>
-						{/* )} */}
+					{/* {state.notif.controlType.variant && ( */}
+					<Apply className="w-4 h-4">
+						{/* TODO */}
+						{!!state.controls.variant.solid ? (
+							<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+							</svg>
+						) : (
+							<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+								<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
+							</svg>
+						)}
+					</Apply>
+					{/* )} */}
 
-						<EmSpace />
-						Copied `badge-check` as SVG
-					</span>
-				</ApplyReset>
+					<EnSpace />
+					Copied <u>badge-check</u> as SVG
+
+				</TextRow>
 			</DarkTooltip>
 		</div>
 	</Transition>
