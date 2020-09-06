@@ -409,6 +409,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 	const media = useLayoutBreakpoints(screens)
 
+	const [inputFocused, setInputFocused] = React.useState(true)
 	const [query, setQuery] = React.useState(() => state.search.query.user)
 
 	const [tooltip, setTooltip] = React.useState("")
@@ -450,16 +451,18 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 	return (
 		// NOTE: Use h-full because of the absolute context.
 		<ApplyReset className="h-full">
-			<form className="relative text-gray-400 dark:text-gray-600 focus-within:text-purple-500" onSubmit={e => e.preventDefault()}>
+			<form className="relative" onSubmit={e => e.preventDefault()}>
 
 				{/* LHS */}
 				<div className="absolute left-0 inset-y-0">
 					<div className="px-8 pr-4 flex flex-row h-full">
 						<div className="flex flex-row items-center">
-							<Apply className="w-6 h-6">
-								<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-								</svg>
+							<Apply className="w-6 h-6 text-gray-400 dark:text-gray-600" style={{ color: inputFocused && "var(--purple-500)" }}>
+								<Apply className="transition duration-200 ease-in-out">
+									<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+									</svg>
+								</Apply>
 							</Apply>
 						</div>
 					</div>
@@ -476,6 +479,8 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						}}
 						placeholder="Search"
 						value={query}
+						onFocus={e => setInputFocused(true)}
+						onBlur={e => setInputFocused(false)}
 						onChange={e => setQuery(e.target.value)}
 						autoFocus
 						{...disableAutoCorrect}
@@ -657,27 +662,6 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 	return ok
 })
 
-const MemoControls = React.memo(() => (
-	<div>
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-	</div>
-))
-
 const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
 	// NOTE: Use h-full because of the absolute context.
 	<ApplyReset className="block w-full h-full focus:outline-none">
@@ -686,6 +670,7 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
 			{/* Icon */}
 			<div className="flex flex-row justify-center items-center h-full">
 				<Apply className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transform scale-0 group-hover:scale-100 group-focus:scale-100">
+					{/* NOTE: Use ease-out not ease-in-out. */}
 					<Apply className="transition duration-200 ease-out">
 						<div className="w-20 h-20 bg-transparent bg-purple-500 dark:bg-purple-600 bg-opacity-12.5 dark:bg-opacity-100 rounded-full" />
 					</Apply>
@@ -822,20 +807,6 @@ const IconApp = ({ state, dispatch }) => {
 				</Apply>
 
 			</main>
-
-			{/* Controls */}
-			{/* <ApplyDisplay className="hidden lg:block"> */}
-			{/* 	<aside className="-mt-4 pl-6 pt-4 sticky top-0"> */}
-			{/* 		<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2"> */}
-			{/* 			<div className="w-96 bg-white"> */}
-			{/* 				<MemoControls */}
-			{/* 					state={state} */}
-			{/* 					dispatch={dispatch} */}
-			{/* 				/> */}
-			{/* 			</div> */}
-			{/* 		</Apply> */}
-			{/* 	</aside> */}
-			{/* </ApplyDisplay> */}
 
 		</div>
 	)
