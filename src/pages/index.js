@@ -248,7 +248,7 @@ const Sponsors = () => (
 			{React.useMemo(() => (
 				[1, 2, 3, 4, 5, 6].map(each => (
 					<div key={each} className="mx-2 my-1.5 relative">
-						<div className="h-14 bg-purple-50 bg-opacity-18.75 dark:bg-opacity-12.5 rounded-full" style={{ width: tw(36 + Math.floor(Math.random() * (48 - 36))) }} />
+						<div className="h-14 bg-purple-50 bg-opacity-18.75 rounded-full" style={{ width: tw(36 + Math.floor(Math.random() * (48 - 36))) }} />
 						{/* <ApplyDisplay className="hidden xl:block"> */}
 						{/* 	<div className="p-2 absolute inset-x-0 top-full"> */}
 						{/* 		<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-75"> */}
@@ -327,8 +327,8 @@ const Hero = ({ state, dispatch }) => (
 							fixed,
 							fixed;
 						background-image:
-							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
-							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C8 1 2.66667 0.333333 0 0H32C29.3333 0.333333 24 1 16 1Z' /%3E%3C/svg%3E");
+							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 43.75%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
+							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 43.75%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C8 1 2.66667 0.333333 0 0H32C29.3333 0.333333 24 1 16 1Z' /%3E%3C/svg%3E");
 						background-repeat:
 							repeat-x,
 							no-repeat;
@@ -348,8 +348,8 @@ const Hero = ({ state, dispatch }) => (
 								fixed,
 								fixed;
 							background-image:
-								url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 37.5%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
-								url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 37.5%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C8 1 2.66667 0.333333 0 0H32C29.3333 0.333333 24 1 16 1Z' /%3E%3C/svg%3E");
+								url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 43.75%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
+								url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 43.75%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C8 1 2.66667 0.333333 0 0H32C29.3333 0.333333 24 1 16 1Z' /%3E%3C/svg%3E");
 							background-repeat:
 								repeat-x,
 								no-repeat;
@@ -896,25 +896,14 @@ const Layout = () => {
 	}, [])
 
 	return (
-		<div>
-			<style>
-				{css`
-					html {
-						--theme: hsl(270, 100%, 50%);
-					}
-				`}
-			</style>
-
+		<>
 			<Hero state={state} dispatch={dispatch} />
-
 			<IconApp state={state} dispatch={dispatch} />
 			<ApplyDisplay className="hidden lg:block">
 				<div className="h-24" />
 			</ApplyDisplay>
-
 			<AppNotification state={state} dispatch={dispatch} />
-
-		</div>
+		</>
 	)
 }
 
