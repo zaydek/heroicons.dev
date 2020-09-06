@@ -8,15 +8,13 @@ function disableAll(obj) {
 	})
 }
 
-// NOTE: Do not marshal to localStorage; change results to
-// _results?
 const initialState = {
 	search: {
 		query: {
 			user: "",
-			safe: "",
+			__safe: "",
 		},
-		results: dataset,
+		__results: dataset,
 	},
 	controls: {
 		variant: {
@@ -32,7 +30,7 @@ const initialState = {
 			darkMode: false,
 		},
 	},
-	notif: {
+	__notif: {
 		visible: false,
 		controlType: {
 			variant: false,
@@ -43,33 +41,33 @@ const initialState = {
 	},
 }
 
-// state.results = dataset.filter(each => {
-// 	// each.searchIndex = each.name.indexOf(state.form.search.safe)
+// state.__results = dataset.filter(each => {
+// 	// each.searchIndex = each.name.indexOf(state.form.search.__safe)
 // 	// return each.searchIndex >= 0
 //
 // 	// FIXME
 // 	return true
 // })
-// state.results.sort((a, b) => {
+// state.__results.sort((a, b) => {
 // 	return a.searchIndex - b.searchIndex
 // })
 
 const actions = state => ({
 	search(query) {
 		state.search.query.user = query
-		state.search.query.safe = query.trim().toLowerCase().replace(/ +/g, "-")
-		const safe = state.search.query.safe
-		if (safe === "") {
-			state.search.results = dataset
+		state.search.query.__safe = query.trim().toLowerCase().replace(/ +/g, "-")
+		const __safe = state.search.query.__safe
+		if (__safe === "") {
+			state.search.__results = dataset
 			return
 		}
-		if (safe === "new") {
-			state.search.results = dataset.filter(each => each.new)
+		if (__safe === "new") {
+			state.search.__results = dataset.filter(each => each.new)
 			return
 		}
-		state.search.results = dataset.filter(each => {
+		state.search.__results = dataset.filter(each => {
 			return each.tags.some(each => {
-				return each.startsWith(safe)
+				return each.startsWith(__safe)
 			})
 		})
 	},
@@ -81,13 +79,13 @@ const actions = state => ({
 		this.emitNotification(controlType)
 	},
 	emitNotification(controlType, context = "") {
-		state.notif.visible = true
-		disableAll(state.notif.controlType)
-		state.notif.controlType[controlType] = true
-		state.notif.context = context
+		state.__notif.visible = true
+		disableAll(state.__notif.controlType)
+		state.__notif.controlType[controlType] = true
+		state.__notif.context = context
 	},
 	hideNotification() {
-		state.notif.visible = false
+		state.__notif.visible = false
 	},
 })
 

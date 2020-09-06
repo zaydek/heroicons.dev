@@ -75,9 +75,13 @@ module.exports = {
 		},
 	},
 	variants: {
-		...defaultVariants,
-		opacity: [...defaultVariants.opacity, "group-hover", "group-focus"],
-		scale: [...defaultVariants.scale, "group-hover", "group-focus"],
-		textColor: [...defaultVariants.textColor, "group-hover", "group-focus"],
+		opacity: ({ after }) => after(["group-hover", "group-focus"]),
+		scale: ({ after }) => after(["group-hover", "group-focus"]),
+		textColor: ({ after }) => after(["group-hover", "group-focus"]),
+
+		// ...defaultVariants,
+		// opacity: [...defaultVariants.opacity, "group-hover", "group-focus"],
+		// scale: [...defaultVariants.scale, "group-hover", "group-focus"],
+		// textColor: [...defaultVariants.textColor, "group-hover", "group-focus"],
 	},
 }

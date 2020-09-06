@@ -707,7 +707,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 	)
 }, (prev, next) => {
 	const ok = (
-		// NOTE: search.query updates search.results.
+		// NOTE: search.query updates search.__results.
 		prev.state.search.query === next.state.search.query &&
 		prev.state.controls === next.state.controls &&
 		prev.dispatch === next.dispatch
@@ -874,7 +874,7 @@ const IconApp = ({ state, dispatch }) => {
 						}}
 					>
 						<div id="app-grid">
-							{state.search.results.map((each, x) => (
+							{state.search.__results.map((each, x) => (
 								<article key={each.name} className="pb-full relative">
 									<div className="absolute inset-0">
 										<MemoIcon
@@ -903,10 +903,10 @@ const TextRow = ({ children }) => (
 	</ApplyReset>
 )
 
-// <ApplyReset className="text-left whitespace-pre">
 const AppNotification = ({ state, dispatch }) => (
+	// TODO
 	<Transition
-		on={state.notif.visible + (!state.notif.context ? "" : "-" + state.notif.context)}
+		on={state.__notif.visible + (!state.__notif.context ? "" : "-" + state.__notif.context)}
 		className="transition duration-200 ease-in-out"
 		from="opacity-0 transform translate-y-4 pointer-events-none"
 		to="opacity-100 transform translate-y-0 pointer-events-auto"
@@ -965,8 +965,27 @@ const AppNotification = ({ state, dispatch }) => (
 const Layout = () => {
 	// TODO: Add support for syncing to localStorage.
 	const [state, dispatch] = useIconsReducer()
-	// const [darkMode, setDarkMode] = React.useState(false)
 
+	React.useEffect(() => {
+		const id = setTimeout(() => {
+			localStorage.setItem("heroicons.dev", JSON.stringify(
+				state,
+				(key, value) => {
+					if (key.startsWith("__")) {
+						return undefined
+					}
+					return value
+				},
+				"\t",
+			))
+		}, 1e3)
+		return () => {
+			clearTimeout(id)
+		}
+	}, [state])
+
+	// const [darkMode, setDarkMode] = React.useState(false)
+	//
 	// React.useEffect(() => {
 	// 	const media = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)")
 	// 	if (!media) {
@@ -982,7 +1001,7 @@ const Layout = () => {
 	// 		media.removeListener(handler)
 	// 	}
 	// }, [])
-
+	//
 	// // html.dark
 	// React.useEffect(() => {
 	// 	const h = document.documentElement
@@ -992,7 +1011,7 @@ const Layout = () => {
 	// 		h.classList.add("dark")
 	// 	}
 	// }, [darkMode])
-
+	//
 	// // html.bg-*
 	// React.useEffect(() => {
 	// 	const h = document.documentElement
