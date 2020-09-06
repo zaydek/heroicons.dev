@@ -313,8 +313,11 @@ const Hero = ({ state, dispatch }) => (
 		{/* Background */}
 		<div className="absolute inset-x-0 top-full pointer-events-none">
 			<Apply className="text-theme dark:text-dark-theme">
-				<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
-					<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" />
+				{/* <svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg"> */}
+				{/* 	<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" /> */}
+				{/* </svg> */}
+				<svg fill="currentColor" viewBox="0 0 32 1" xmlns="http://www.w3.org/2000/svg">
+					<path d="M16 1C8 1 2.66667 0.333333 0 0H32C29.3333 0.333333 24 1 16 1Z" />
 				</svg>
 			</Apply>
 		</div>
@@ -330,7 +333,8 @@ const Hero = ({ state, dispatch }) => (
 						fixed;
 					background-image:
 						url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
-						url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 16 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z' /%3E%3C/svg%3E");
+						/* url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 16 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z' /%3E%3C/svg%3E"); */
+						url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C8 1 2.66667 0.333333 0 0H32C29.3333 0.333333 24 1 16 1Z' /%3E%3C/svg%3E");
 					background-repeat:
 						repeat-x,
 						no-repeat;
@@ -349,7 +353,8 @@ const Hero = ({ state, dispatch }) => (
 							fixed;
 						background-image:
 							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 37.5%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
-							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 37.5%25)' viewBox='0 0 16 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z' /%3E%3C/svg%3E");
+							/* url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 37.5%25)' viewBox='0 0 16 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z' /%3E%3C/svg%3E"); */
+							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 37.5%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C8 1 2.66667 0.333333 0 0H32C29.3333 0.333333 24 1 16 1Z' /%3E%3C/svg%3E");
 						background-repeat:
 							repeat-x,
 							no-repeat;
