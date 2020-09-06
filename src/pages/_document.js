@@ -36,7 +36,10 @@ class Document extends NextDocument {
 					<meta property="twitter:image" content="/static/social.png" />
 
 					<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-					<script async src="https://cdn.splitbee.io/sb.js" />
+
+					{process.env.NODE_ENV === "production" && (
+						<script async src="https://cdn.splitbee.io/sb.js" />
+					)}
 
 				</Head>
 				<body>
