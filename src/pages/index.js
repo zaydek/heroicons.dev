@@ -67,7 +67,7 @@ const AbsoluteExternalLinks = () => (
 								</svg>
 							</Apply>
 							<EmSpace />
-							Share with your followers on Twitter!
+							Share with your friends on Twitter!
 						</TextRow>
 					</p>
 				</a>
@@ -240,7 +240,7 @@ const Sponsors = () => (
 			</div>
 		</ApplyDisplay>
 
-		<div className="-mx-1.5 -my-1 flex flex-row flex-wrap justify-center items-center">
+		<div className="-mx-2 -my-1.5 flex flex-row flex-wrap justify-center items-center">
 
 			{/* TODO */}
 			{React.useMemo(() => (
@@ -901,8 +901,8 @@ const Layout = () => {
 			<style>
 				{css`
 					html {
-						--search-bar-height: ${tw(18)};
-						--search-bar-negative-margin: ${tw(18 + 6)};
+						--search-bar-height: ${tw(20)};
+						--search-bar-negative-margin: ${tw(20 + 6)};
 					}
 				`}
 			</style>
