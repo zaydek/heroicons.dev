@@ -461,7 +461,10 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 				<div className="absolute left-0 inset-y-0">
 					<div className="px-8 pr-4 flex flex-row h-full">
 						<div className="flex flex-row items-center">
-							<Apply className="w-6 h-6 text-gray-400" style={{ color: inputElementFocused && "var(--purple-600)" }}>
+							{/* TODO: Add group-hover? */}
+							{/* */}
+							{/* style={{ color: inputElementFocused && "var(--purple-600)" }} */}
+							<Apply className="w-6 h-6 text-gray-400 dark:text-gray-600">
 								<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={!inputElementFocused ? 2 : 2.4} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
 								</svg>
@@ -504,7 +507,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							<ApplyReset className="focus:outline-none">
 								<Apply className="transition duration-200 ease-in-out">
 									<button
-										className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full"
+										className="p-2 relative text-purple-500 bg-purple-600 bg-opacity-10 dark:bg-opacity-25 rounded-full"
 										style={{
 											color: state.controls.variant.solid && "var(--purple-50)",
 											backgroundColor: state.controls.variant.solid && "var(--purple-500)",
@@ -553,7 +556,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							<ApplyReset className="focus:outline-none">
 								<Apply className="transition duration-200 ease-in-out">
 									<button
-										className="p-2 relative text-purple-500 bg-purple-50 hover:bg-purple-100 focus:bg-purple-100 rounded-full"
+										className="p-2 relative text-purple-500 bg-purple-600 bg-opacity-10 dark:bg-opacity-25 rounded-full"
 										style={{
 											color: state.controls.copyAs.jsxLiteral && "var(--purple-50)",
 											backgroundColor: state.controls.copyAs.jsxLiteral && "var(--purple-500)",
