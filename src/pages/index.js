@@ -660,16 +660,18 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 })
 
 const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => {
+	const buttonRef = React.useRef(null)
+
 	const handleClick = e => {
-		// // No-op when the user selected buttonRef.current text:
-		// const selection = document.getSelection()
-		// if (selection.rangeCount) {
-		// 	const range = selection.getRangeAt(0)
-		// 	if (!range.collapsed && buttonRef.current.contains(range.startContainer)) {
-		// 		// No-op
-		// 		return
-		// 	}
-		// }
+		// No-op {icon.name}:
+		const selection = document.getSelection()
+		if (selection.rangeCount) {
+			const range = selection.getRangeAt(0)
+			if (!range.collapsed && buttonRef.current.contains(range.startContainer)) {
+				// No-op
+				return
+			}
+		}
 		try {
 			const svg = document.getElementById(icon.name)
 			const clonedSVG = svg.cloneNode(true)
@@ -690,7 +692,7 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => {
 			}
 
 			copyToClipboardPolyfill(!copyAsJSX ? clonedSVG.outerHTML : toJSX(clonedSVG.outerHTML))
-			svg.closest("button").focus()
+			buttonRef.current.focus()
 		} catch (error) {
 			console.error(`MemoIcon.handleClick: ${error}`)
 		}
@@ -709,7 +711,11 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => {
 	return (
 		// NOTE: Use h-full because of the absolute context.
 		<ApplyReset className="block w-full h-full focus:outline-none">
-			<button className="group relative" onClick={handleClick}>
+			<button
+				ref={buttonRef}
+				className="group relative"
+				onClick={handleClick}
+			>
 
 				{/* Icon */}
 				<div className="flex flex-row justify-center items-center h-full">
