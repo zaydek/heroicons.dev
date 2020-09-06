@@ -1,11 +1,12 @@
 const defaultTheme = require("tailwindcss/defaultTheme")
+const defaultVariants = require("./tailwind-defaultVariants.1.8.3")
 
 const tw = n => `${n * 4 / 16}rem`
 
 module.exports = {
-	dark: "class",
+	// dark: "class",
 	experimental: {
-		darkModeVariant: true,
+		// darkModeVariant: true,
 		uniformColorPalette: true,
 	},
 	plugins: [
@@ -68,15 +69,15 @@ module.exports = {
 			md: (768) + "px",
 			lg: (24 + 1024 + 24) + "px",
 			xl: (24 + 1280 + 24) + "px",
+			dark: {
+				raw: "(prefers-color-scheme: dark)",
+			},
 		},
 	},
 	variants: {
-		// https://github.com/tailwindlabs/tailwindcss/pull/2322#issuecomment-687809373
-		backgroundColor: ({ after }) => after(["dark"]),
-		borderColor: ({ after }) => after(["dark"]),
-		opacity: ({ after }) => after(["group-hover", "group-focus"]),
-		placeholderColor: ({ after }) => after(["dark"]),
-		scale: ({ after }) => after(["group-hover", "group-focus"]),
-		textColor: ({ after }) => after(["group-hover", "group-focus", "dark"]), // *FIXME
+		...defaultVariants,
+		opacity: [...defaultVariants.opacity, "group-hover", "group-focus"],
+		scale: [...defaultVariants.scale, "group-hover", "group-focus"],
+		textColor: [...defaultVariants.textColor, "group-hover", "group-focus"],
 	},
 }
