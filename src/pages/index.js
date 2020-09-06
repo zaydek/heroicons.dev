@@ -132,7 +132,7 @@ const Attribution = () => (
 					MIT icons by
 				</span>
 				<span className="hidden sm:inline">
-					Beautiful, MIT-licensed icons by
+					MIT-licensed icons by
 				</span>
 				<Space />
 				<a className="font-semibold no-underline hover:underline" href="https://twitter.com/steveschoger" {...target_blank}>
@@ -142,7 +142,12 @@ const Attribution = () => (
 			</span>
 			<Space />
 			<span className="inline-flex lg:flex-row flex-wrap justify-center items-center">
-				Viewer by
+				<span className="inline sm:hidden">
+					Viewer by
+				</span>
+				<span className="hidden sm:inline">
+					Unofficial viewer by
+				</span>
 				<Space />
 				<a className="font-semibold no-underline hover:underline" href="https://twitter.com/username_ZAYDEK" {...target_blank}>
 					@username_ZAYDEK
@@ -285,12 +290,12 @@ const Hero = ({ state, dispatch }) => (
 					<Attribution />
 				</div>
 
-				{/* <div className="hidden sm:block"> */}
-				<div className="h-8" />
-				<div className="flex flex-row justify-center">
-					<CTAButtons />
+				<div className="hidden sm:block">
+					<div className="h-8" />
+					<div className="flex flex-row justify-center">
+						<CTAButtons />
+					</div>
 				</div>
-				{/* </div> */}
 
 				<div className="hidden sm:block">
 					<div className="h-16" />
@@ -838,7 +843,7 @@ const AppNotification = ({ state, dispatch }) => (
 					</span>
 					<EnSpace />
 					<span>
-						Copied `badge-check` to the Clipboard!
+						Copied badge-check to the Clipboard!
 					</span>
 				</span>
 			</DarkTooltip>
