@@ -521,7 +521,6 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 											})
 										)}
 									>
-										{/* NOTE: Use SVGs not components. */}
 										<Apply className="w-6 h-6 overflow-visible">
 											{!state.controls.variant.solid ? (
 												<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -570,7 +569,6 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 											})
 										)}
 									>
-										{/* NOTE: Use SVGs not components. */}
 										<Apply className="w-6 h-6 overflow-visible">
 											{!state.controls.copyAs.jsx ? (
 												<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -595,53 +593,52 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						</div>
 
 						{/* Button */}
-						<div
-							className="group px-1 flex flex-row items-center"
-							onFocus={e => setTooltip("theme")}
-							onBlur={e => setTooltip("")}
-							onMouseEnter={e => setTooltip("theme")}
-							onMouseLeave={e => setTooltip("")}
-						>
-							<ApplyReset className="focus:outline-none">
-								<Apply className="transition duration-200 ease-in-out">
-									<button
-										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full"
-										style={{
-											color: state.controls.theme.darkMode && "var(--purple-50)",
-											backgroundColor: state.controls.theme.darkMode && "var(--purple-500)",
-										}}
-										onClick={e => (
-											dispatch({
-												type: "UPDATE_CONTROLS",
-												controlType: "theme",
-												key: !state.controls.theme.darkMode ? "darkMode" : "lightMode",
-												value: true,
-											})
-										)}
-									>
-										{/* NOTE: Use SVGs not components. */}
-										<Apply className="w-6 h-6 overflow-visible">
-											{!state.controls.theme.darkMode ? (
-												<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-												</svg>
-											) : (
-												<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-													<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-												</svg>
-											)}
-										</Apply>
-										{tooltip === "theme" && (
-											<div className="pt-2 absolute right-0 top-full">
-												<Tooltip apply="text-left whitespace-pre">
-													Click to Switch to {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}
-												</Tooltip>
-											</div>
-										)}
-									</button>
-								</Apply>
-							</ApplyReset>
-						</div>
+						{/* <div */}
+						{/* 	className="group px-1 flex flex-row items-center" */}
+						{/* 	onFocus={e => setTooltip("theme")} */}
+						{/* 	onBlur={e => setTooltip("")} */}
+						{/* 	onMouseEnter={e => setTooltip("theme")} */}
+						{/* 	onMouseLeave={e => setTooltip("")} */}
+						{/* > */}
+						{/* 	<ApplyReset className="focus:outline-none"> */}
+						{/* 		<Apply className="transition duration-200 ease-in-out"> */}
+						{/* 			<button */}
+						{/* 				className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full" */}
+						{/* 				style={{ */}
+						{/* 					color: state.controls.theme.darkMode && "var(--purple-50)", */}
+						{/* 					backgroundColor: state.controls.theme.darkMode && "var(--purple-500)", */}
+						{/* 				}} */}
+						{/* 				onClick={e => ( */}
+						{/* 					dispatch({ */}
+						{/* 						type: "UPDATE_CONTROLS", */}
+						{/* 						controlType: "theme", */}
+						{/* 						key: !state.controls.theme.darkMode ? "darkMode" : "lightMode", */}
+						{/* 						value: true, */}
+						{/* 					}) */}
+						{/* 				)} */}
+						{/* 			> */}
+						{/* 				<Apply className="w-6 h-6 overflow-visible"> */}
+						{/* 					{!state.controls.theme.darkMode ? ( */}
+						{/* 						<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
+						{/* 							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /> */}
+						{/* 						</svg> */}
+						{/* 					) : ( */}
+						{/* 						<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
+						{/* 							<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /> */}
+						{/* 						</svg> */}
+						{/* 					)} */}
+						{/* 				</Apply> */}
+						{/* 				{tooltip === "theme" && ( */}
+						{/* 					<div className="pt-2 absolute right-0 top-full"> */}
+						{/* 						<Tooltip apply="text-left whitespace-pre"> */}
+						{/* 							Click to Switch to {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"} */}
+						{/* 						</Tooltip> */}
+						{/* 					</div> */}
+						{/* 				)} */}
+						{/* 			</button> */}
+						{/* 		</Apply> */}
+						{/* 	</ApplyReset> */}
+						{/* </div> */}
 
 					</div>
 				</div>
