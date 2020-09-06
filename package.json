@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"immer": "latest",
+		"lodash": "latest",
 		"next": "latest",
 		"react": "latest",
 		"react-dom": "latest",

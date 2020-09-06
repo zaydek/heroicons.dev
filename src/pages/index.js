@@ -3,7 +3,9 @@ import ApplyDisplay from "lib/x/ApplyDisplay"
 import ApplyReset from "lib/x/ApplyReset"
 import copyToClipboardPolyfill from "utils/copyToClipboardPolyfill"
 import css from "lib/x/tpl"
+import dataset from "data/dataset"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
+import DocumentTitle from "lib/x/DocumentTitle"
 import SVG from "components/SVG"
 import target_blank from "lib/x/target_blank"
 import toCamelCase from "utils/toCamelCase"
@@ -874,6 +876,9 @@ const IconApp = ({ state, dispatch }) => {
 						}}
 					>
 						<div id="app-grid">
+							{state.search.__results.length < dataset.length && (
+								<DocumentTitle title={`${state.search.__results.length} result${state.search.__results.length === 1 ? "" : "s"}`} />
+							)}
 							{state.search.__results.map((each, x) => (
 								<article key={each.name} className="pb-full relative">
 									<div className="absolute inset-0">
@@ -962,13 +967,28 @@ const AppNotification = ({ state, dispatch }) => (
 // {/* 	</p> */}
 // {/* )} */}
 
+const KEY = "heroicons.dev"
+
 const Layout = () => {
 	// TODO: Add support for syncing to localStorage.
 	const [state, dispatch] = useIconsReducer()
 
+	// Gets localStorage (once).
+	React.useEffect(
+		React.useCallback(() => {
+			const prefs = JSON.parse(localStorage.getItem(KEY))
+			if (!prefs) {
+				// No-op
+				return
+			}
+		}, [dispatch]),
+		[],
+	)
+
+	// Sets localStorage (on query).
 	React.useEffect(() => {
 		const id = setTimeout(() => {
-			localStorage.setItem("heroicons.dev", JSON.stringify(
+			localStorage.setItem(KEY, JSON.stringify(
 				state,
 				(key, value) => {
 					if (key.startsWith("__")) {

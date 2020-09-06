@@ -8,6 +8,7 @@ const DocumentTitle = ({ title, children }) => {
 			document.title = originalTitle
 		}
 	}, [title])
+
 	return children || null
 }
 
