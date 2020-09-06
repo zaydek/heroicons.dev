@@ -419,18 +419,43 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 	const [tooltip, setTooltip] = React.useState("")
 
-	// Manages autofocus; <... autofocus> does not work.
+	// Gets query from ?query=etc (once).
+	React.useEffect(() => {
+		if (!window.URLSearchParams) {
+			// No-op
+			return
+		}
+		const params = new URLSearchParams(window.location.search)
+		setQuery(params.get("query") || "")
+	}, [])
+
+	// Sets ?query=etc (on query).
+	React.useEffect(() => {
+		if (!window.URLSearchParams) {
+			// No-op
+			return
+		}
+		if (!query) {
+			window.history.pushState(null, "", "/")
+		} else {
+			const params = new URLSearchParams(window.location.search)
+			params.set("query", query)
+			window.history.pushState(null, "", `/?${params}`)
+		}
+	}, [query])
+
+	// Forces autofocus.
 	React.useEffect(() => {
 		if (inputRef.current.autofocus) {
 			inputRef.current.focus()
 		}
 	}, [])
 
-	// Manages scroll on search.
+	// Auto-scroll handler.
 	const mounted = React.useRef(false)
 	React.useEffect(() => {
 		if (process.env.NODE_ENV === "production") {
-			if (!mounted.current) {
+			if (!mounted.current && !query) {
 				mounted.current = true
 				return
 			}
@@ -440,7 +465,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 		}
 	}, [media.lg, query])
 
-	// Debounces search.
+	// Search handler.
 	React.useEffect(() => {
 		const id = setTimeout(() => {
 			dispatch({
@@ -453,7 +478,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 		}
 	}, [query, dispatch])
 
-	// "/" and "esc" shortcuts.
+	// Shortcut handler.
 	React.useEffect(() => {
 		const handler = e => {
 			const userPressedShortcut = (
