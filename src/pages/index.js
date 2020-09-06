@@ -367,7 +367,7 @@ const Hero = ({ state, dispatch }) => (
 const Tooltip = ({ apply, children }) => (
 	<div className="rounded-1 shadow-4">
 		<Apply className="rounded-1 shadow-px-2 dark:shadow-2">
-			<div className="px-3 py-2 bg-white dark:bg-gray-800">
+			<div className="px-3 py-2 bg-white dark:bg-cool-gray-800">
 				<Apply className={apply}>
 					<p
 						className="font-medium text-gray-800 dark:text-gray-100"
@@ -755,7 +755,7 @@ const IconApp = ({ state, dispatch }) => {
 							</div>
 						</ApplyDisplay>
 						<Apply className="rounded-t-0 lg:rounded-t-6 shadow-2">
-							<div className="bg-white dark:bg-gray-900" style={{ height: tw(18) }}>
+							<div className="bg-white dark:bg-cool-gray-900" style={{ height: tw(18) }}>
 								<MemoSearch state={state} dispatch={dispatch} />
 							</div>
 						</Apply>
@@ -783,7 +783,7 @@ const IconApp = ({ state, dispatch }) => {
 				{/* Icons */}
 				<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
 					<div
-						className="bg-white dark:bg-gray-900 overflow-hidden"
+						className="bg-white dark:bg-cool-gray-900 overflow-hidden"
 						style={{
 							marginTop: tw(-18),
 							paddingTop: tw(18),
