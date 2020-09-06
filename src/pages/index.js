@@ -5,7 +5,7 @@ import css from "lib/x/tpl"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import SVG from "components/SVG"
 import target_blank from "lib/x/target_blank"
-import toCamelCase from "components/toCamelCase"
+import toJSX from "components/toCamelCase"
 import Transition from "lib/x/Transition"
 import useIconsReducer from "components/useIconsReducer2" // FIXME
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
@@ -637,7 +637,7 @@ const MemoControls = React.memo(() => (
 	</div>
 ))
 
-const MemoIcon = React.memo(({ variant, copyAsJSXLiteral, icon }) => (
+const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
 	// NOTE: Use h-full because of the absolute context.
 	<ApplyReset className="block w-full h-full">
 		<button className="group relative" style={{ outline: "1px solid var(--gray-200)" }}>
@@ -656,23 +656,26 @@ const MemoIcon = React.memo(({ variant, copyAsJSXLiteral, icon }) => (
 			<div className="absolute inset-0">
 				<div className="flex flex-row justify-center items-center h-full">
 					<Apply className="w-8 h-8 text-gray-800 group-hover:text-purple-600 group-focus:text-purple-600">
-						<SVG
-							id={icon.name}
-							svg={icon.icons[variant]}
-						/>
+						<SVG id={icon.name} svg={icon.icons[variant]} />
 					</Apply>
 				</div>
 			</div>
 
 			{/* Name */}
-			<div className="p-4 absolute inset-x-0 bottom-0">
-				<div className="flex flex-row justify-center select-text no-underline hover:underline">
+			<div className="p-4 absolute inset-x-0 bottom-0 select-text no-underline hover:underline">
+				<div className="flex flex-row justify-center">
 					<ApplyReset className="subpixel-antialiased">
-						<p className="text-center text-xs tracking-wide leading-tight text-gray-600" style={{ fontSize: px(13) }}>
-							{!copyAsJSXLiteral ? (
+						<p
+							className="text-center text-xs leading-tight text-gray-600"
+							style={{
+								fontSize: px(13),
+								letterSpacing: "0.0125em",
+							}}
+						>
+							{!copyAsJSX ? (
 								icon.name
 							) : (
-								toCamelCase(icon.name)
+								toJSX(icon.name)
 							)}
 						</p>
 					</ApplyReset>
@@ -767,7 +770,7 @@ const IconApp = ({ state, dispatch }) => {
 									<div className="absolute inset-0">
 										<MemoIcon
 											variant={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
-											copyAsJSXLiteral={state.controls.copyAs.jsxLiteral}
+											copyAsJSX={state.controls.copyAs.jsxLiteral}
 											icon={each}
 										/>
 									</div>

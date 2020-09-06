@@ -21,6 +21,6 @@
 		"babel-jest": "latest",
 		"eslint": "latest",
 		"jest": "latest",
-		"tailwindcss": "latest"
+		"tailwindcss": "^1.8.3"
 	}
 }

@@ -1,22 +1,15 @@
 const defaultTheme = require("tailwindcss/defaultTheme")
-const defaultVariants = require("./tailwind-defaultVariants")
 
 const tw = n => `${n * 4 / 16}rem`
 
 module.exports = {
-	// https://github.com/tailwindlabs/tailwindcss/releases#experimental-features
+	// dark: "media",
 	experimental: {
+		// darkModeVariant: true,
 		uniformColorPalette: true,
 	},
-	// future: {
-	// 	removeDeprecatedGapUtilities: true,
-	// },
-	plugins: [
-		require("@tailwindcss/ui"),
-	],
-	purge: [
-		"./src/**/*.js",
-	],
+	plugins: [require("@tailwindcss/ui")],
+	purge: ["./src/**/*.js"],
 	theme: {
 		extend: {
 			borderRadius: {
@@ -58,11 +51,10 @@ module.exports = {
 		},
 	},
 	variants: {
-		...defaultVariants,
 		typography: [],
 
-		backgroundColor: [...defaultVariants.backgroundColor, "group-hover", "group-focus"],
-		scale: [...defaultVariants.scale, "group-hover", "group-focus"],
-		textColor: [...defaultVariants.textColor, "group-hover", "group-focus"],
+		backgroundColor: ({ after }) => after(["group-hover", "group-focus"]),
+		scale: ({ after }) => after(["group-hover", "group-focus"]),
+		textColor: ({ after }) => after(["group-hover", "group-focus"]),
 	},
 }
