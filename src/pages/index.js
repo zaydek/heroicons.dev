@@ -206,19 +206,13 @@ const CTAButtons = () => (
 const Sponsors = () => (
 	<div className="relative">
 
-		{/* LHS */}
-		<ApplyDisplay className="hidden xl:block">
-			<div className="px-8 py-4 absolute left-0 bottom-full">
-				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
-					OUR SPONSORS
-				</h6>
-			</div>
-		</ApplyDisplay>
-
-		{/* Center */}
+		{/* Center (responsive) */}
 		<ApplyDisplay className="block xl:hidden">
 			<div className="py-4 absolute inset-x-0 bottom-full">
-				<h6 className="text-center font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
+				<h6
+					className="text-center font-bold tracking-wide leading-none text-purple-50 opacity-75"
+					style={{ fontSize: "0.6875rem" }}
+				>
 					<TextRow>
 						OUR SPONSORS
 						<EnSpace />
@@ -230,10 +224,25 @@ const Sponsors = () => (
 			</div>
 		</ApplyDisplay>
 
+		{/* LHS */}
+		<ApplyDisplay className="hidden xl:block">
+			<div className="px-8 py-4 absolute left-0 bottom-full">
+				<h6
+					className="font-bold tracking-wide leading-none text-purple-50 opacity-75"
+					style={{ fontSize: "0.6875rem" }}
+				>
+					OUR SPONSORS
+				</h6>
+			</div>
+		</ApplyDisplay>
+
 		{/* RHS */}
 		<ApplyDisplay className="hidden xl:block">
 			<div className="px-8 py-4 absolute right-0 bottom-full">
-				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
+				<h6
+					className="font-bold tracking-wide leading-none text-purple-50 opacity-75"
+					style={{ fontSize: "0.6875rem" }}
+				>
 					UNAFFILIATED WITH TAILWIND LABS
 				</h6>
 			</div>
@@ -355,7 +364,13 @@ const LightTooltip = ({ apply, children }) => (
 		<Apply className="rounded-1 shadow-px-2">
 			<div className="px-3 py-2 bg-white">
 				<Apply className={apply}>
-					<p className="font-medium tracking-wide text-gray-700" style={{ fontSize: px(14) }}>
+					<p
+						className="font-medium text-gray-800"
+						style={{
+							fontSize: px(14),
+							letterSpacing: "0.0125em",
+						}}
+					>
 						{children}
 					</p>
 				</Apply>
@@ -369,7 +384,13 @@ const DarkTooltip = ({ apply, children }) => (
 		<Apply className="rounded-1 shadow-2">
 			<div className="px-3 py-2 bg-gray-800">
 				<Apply className={apply}>
-					<p className="font-medium tracking-wide text-gray-100" style={{ fontSize: px(14) }}>
+					<p
+						className="font-medium text-gray-100"
+						style={{
+							fontSize: px(14),
+							letterSpacing: "0.0125em",
+						}}
+					>
 						{children}
 					</p>
 				</Apply>
@@ -653,7 +674,10 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
 			<div className="p-4 absolute inset-x-0 bottom-0">
 				<div className="-mx-2 -my-1 flex flex-row justify-center">
 					<ApplyReset className="subpixel-antialiased">
-						<p className="px-2 py-1 tracking-wide leading-tight text-gray-600 cursor-text select-text" style={{ fontSize: px(13) }}>
+						<p
+							className="px-2 py-1 tracking-wide leading-tight text-gray-600 cursor-text select-text"
+							style={{ fontSize: px(13) }}
+						>
 							{!copyAsJSX ? (
 								icon.name
 							) : (
