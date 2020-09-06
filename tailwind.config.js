@@ -3,11 +3,10 @@ const defaultTheme = require("tailwindcss/defaultTheme")
 const tw = n => `${n * 4 / 16}rem`
 
 module.exports = {
-	dark: "media",
 	experimental: {
-		darkModeVariant: true,
 		uniformColorPalette: true,
 	},
+	plugins: [require("@tailwindcss/ui")],
 	purge: ["./src/**/*.js"],
 	theme: {
 		extend: {
@@ -40,18 +39,16 @@ module.exports = {
 			fontFamily: {
 				sans: [...defaultTheme.fontFamily.sans.slice(0, 3), "Inter", ...defaultTheme.fontFamily.sans.slice(3)],
 			},
-			inset: {
-				"-1/2": "-50%",
-				"1/2": "50%",
-				"full": "100%",
-				"-full": "-100%",
-			},
 		},
 		screens: {
 			sm: (640) + "px",
 			md: (768) + "px",
 			lg: (24 + 1024 + 24) + "px",
 			xl: (24 + 1280 + 24) + "px",
+
+			"dark": {
+				"raw": "(prefers-color-scheme: dark)",
+			},
 		},
 	},
 	variants: {
