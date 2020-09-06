@@ -13,6 +13,29 @@ class Document extends NextDocument {
 				<title>
 					Heroicons
 				</title>
+
+				{/* Meta */}
+				<meta charset="utf-8" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+				<title>Heroicons – MIT Open Source Icons by Steve Schoger.</title>
+				<meta name="title" content="Heroicons – MIT Open Source Icons by Steve Schoger." />
+				<meta name="description" content="A set of free MIT-licensed high-quality SVG icons for you to use in your web projects." />
+
+				{/* Facebook */}
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="https://heroicons.dev" />
+				<meta property="og:title" content="Heroicons – MIT Open Source Icons by Steve Schoger." />
+				<meta property="og:description" content="A set of free MIT-licensed high-quality SVG icons for you to use in your web projects." />
+				<meta property="og:image" content="https://heroicons.dev/social.png" />
+
+				{/* Twitter */}
+				<meta property="twitter:card" content="summary_large_image" />
+				<meta property="twitter:url" content="https://heroicons.dev" />
+				<meta property="twitter:title" content="Heroicons – MIT Open Source Icons by Steve Schoger." />
+				<meta property="twitter:description" content="A set of free MIT-licensed high-quality SVG icons for you to use in your web projects." />
+				<meta property="twitter:image" content="https://heroicons.dev/social.png" />
+
 				<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 				<script async src="https://cdn.splitbee.io/sb.js" />
 				<body>
