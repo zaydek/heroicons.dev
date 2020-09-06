@@ -728,42 +728,15 @@ const IconApp = ({ state, dispatch }) => {
 					<div className="sticky top-0 z-10">
 						<ApplyDisplay className="hidden lg:block">
 							<div className="-mx-6 absolute inset-x-0 top-0 pointer-events-none" style={{ zIndex: -1 }}>
-
 								<div className="h-4 bg-theme dark:bg-dark-theme" />
-								<div className="h-6 bg-theme dark:bg-dark-theme" />
-
-								{/* <div */}
-								{/* 	className="h-6" */}
-								{/* 	style={{ */}
-								{/* 		backgroundImage: ` */}
-								{/* 			linear-gradient( */}
-								{/* 				hsla(270, 100%, 50%, 1), */}
-								{/* 				hsla(270, 100%, 50%, 0) */}
-								{/* 			)`, */}
-								{/* 	}} */}
-								{/* /> */}
-
-								{/* <div className="h-6" /> */}
-								{/* <div */}
-								{/* 	className="mx-6 h-6" */}
-								{/* 	style={{ */}
-								{/* 		backgroundImage: ` */}
-								{/* 			linear-gradient( */}
-								{/* 				hsla(0, 0%, 100%, 1), */}
-								{/* 				hsla(0, 0%, 100%, 0) */}
-								{/* 			)`, */}
-								{/* 	}} */}
-								{/* /> */}
-
+								<div className="bg-theme dark:bg-dark-theme" style={{ height: "calc(var(--search-bar-height) / 2)" }} />
 							</div>
 						</ApplyDisplay>
-						{/* <div className="rounded-t-0 lg:rounded-t-6 !shadow-2"> */}
-						<Apply className="rounded-t-0 lg:rounded-t-6 !shadow-2">
-							<div className="box-content bg-white dark:bg-cool-gray-900 border-b border-cool-gray-200 dark:border-cool-gray-800" style={{ height: "var(--search-bar-height)" }}>
+						<Apply className="rounded-t-0 lg:rounded-t-6 shadow-2">
+							<div className="box-content bg-white dark:bg-cool-gray-900 border-b border-transparent dark:border-cool-gray-800" style={{ height: "var(--search-bar-height)" }}>
 								<MemoSearch state={state} dispatch={dispatch} />
 							</div>
 						</Apply>
-						{/* </div> */}
 					</div>
 				</Apply>
 
