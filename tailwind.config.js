@@ -3,12 +3,11 @@ const defaultTheme = require("tailwindcss/defaultTheme")
 const tw = n => `${n * 4 / 16}rem`
 
 module.exports = {
-	// dark: "media",
+	dark: "media",
 	experimental: {
-		// darkModeVariant: true,
+		darkModeVariant: true,
 		uniformColorPalette: true,
 	},
-	plugins: [require("@tailwindcss/ui")],
 	purge: ["./src/**/*.js"],
 	theme: {
 		extend: {
@@ -22,13 +21,12 @@ module.exports = {
 			},
 			boxShadow: {
 				"px": defaultTheme.boxShadow.xs,
-				"1":  defaultTheme.boxShadow.sm,
-				"2":  defaultTheme.boxShadow.default,
-				"3":  defaultTheme.boxShadow.md,
-				"4":  defaultTheme.boxShadow.lg,
-				"5":  defaultTheme.boxShadow.xl,
-				"6":  defaultTheme.boxShadow["2xl"],
-
+				"1": defaultTheme.boxShadow.sm,
+				"2": defaultTheme.boxShadow.default,
+				"3": defaultTheme.boxShadow.md,
+				"4": defaultTheme.boxShadow.lg,
+				"5": defaultTheme.boxShadow.xl,
+				"6": defaultTheme.boxShadow["2xl"],
 				"px-1": defaultTheme.boxShadow.xs + ", " + defaultTheme.boxShadow.sm,
 				"px-2": defaultTheme.boxShadow.xs + ", " + defaultTheme.boxShadow.default,
 				"px-3": defaultTheme.boxShadow.xs + ", " + defaultTheme.boxShadow.md,
@@ -41,6 +39,12 @@ module.exports = {
 			},
 			fontFamily: {
 				sans: [...defaultTheme.fontFamily.sans.slice(0, 3), "Inter", ...defaultTheme.fontFamily.sans.slice(3)],
+			},
+			inset: {
+				"-1/2": "-50%",
+				"1/2": "50%",
+				"full": "100%",
+				"-full": "-100%",
 			},
 		},
 		screens: {

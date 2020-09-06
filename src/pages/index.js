@@ -522,7 +522,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 												</svg>
 											)}
 										</Apply>
-										{tooltip === "variant" && (
+										{true && (
 											<div className="pt-2 absolute right-0 top-full">
 												<LightTooltip apply="text-left whitespace-pre">
 													{/* <TextRow> */}
@@ -766,7 +766,11 @@ const IconApp = ({ state, dispatch }) => {
 					>
 						<div id="app-grid">
 							{state.search.results.map((each, x) => (
-								<article key={each.name} className="pb-full relative">
+								<article
+									key={each.name}
+									className="relative"
+									style={{ paddingBottom: "100%" }}
+								>
 									<div className="absolute inset-0">
 										<MemoIcon
 											variant={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
