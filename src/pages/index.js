@@ -37,23 +37,21 @@ const AbsoluteExternalLinks = () => (
 	<ApplyDisplay className="hidden lg:block">
 		<nav className="p-4 absolute left-0 top-0">
 
-			<style>{css`
+			<style>
+				{css`
+					.twemoji:hover .twemoji-eyes {
+						animation: cartoon-eyes 300ms cubic-bezier(0.4, 0, 0.2, 1) infinite;
+					}
 
-.twemoji:hover .twemoji-eyes {
-	animation: cartoon-eyes 300ms cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-@keyframes cartoon-eyes {
-	0%,
-	100% {
-		transform: scale(1);
-	}
-	50% {
-		transform: scale(1.15);
-	}
-}
-
-`}
+					@keyframes cartoon-eyes {
+						0%, 100% {
+							transform: scale(1);
+						}
+						50% {
+							transform: scale(1.15);
+						}
+					}
+				`}
 			</style>
 
 			<div className="-my-1">
@@ -331,29 +329,28 @@ const Hero = ({ state, dispatch }) => (
 		</div>
 
 		{/* Background (attached) */}
-		<style>{css`
-
-@media (min-width: ${screens.lg}) {
-	html {
-		background-attachment:
-			fixed,
-			fixed;
-		background-image:
-			url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
-			url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 16 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z' /%3E%3C/svg%3E");
-		background-repeat:
-			repeat-x,
-			no-repeat;
-		background-size:
-			112px,
-			100%;
-		background-position:
-			0 0,
-			0 112px;
-	}
-}
-
-`}
+		<style>
+			{css`
+				@media (min-width: ${screens.lg}) {
+					html {
+						background-attachment:
+							fixed,
+							fixed;
+						background-image:
+							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
+							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 16 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z' /%3E%3C/svg%3E");
+						background-repeat:
+							repeat-x,
+							no-repeat;
+						background-size:
+							112px,
+							100%;
+						background-position:
+							0 0,
+							0 112px;
+					}
+				}
+			`}
 		</style>
 
 	</div>
@@ -701,7 +698,7 @@ const IconApp = ({ state, dispatch }) => {
 			{/* LHS */}
 			{/* */}
 			{/* NOTE: Do not use max-w-screen-xl because of px-*. */}
-			<main className="w-full !max-w-screen-xl z-10" style={{ maxWidth: 1280 }}>
+			<main className="w-full z-10" style={{ maxWidth: 1280 }}>
 
 				{/* Search */}
 				<Apply className="mt-0 lg:-mt-4 pt-0 lg:pt-4">
@@ -747,17 +744,14 @@ const IconApp = ({ state, dispatch }) => {
 					</div>
 				</Apply>
 
-				<style>{css`
-
-#app-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(calc(160px - 1px), 1fr));
-
-	/* NOTE: Use gap: 1px to make the 1px outline appear as 0.5px. */
-	gap: 1px;
-}
-
-`}
+				<style>
+					{css`
+						#app-grid {
+							display: grid;
+							grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+							gap: 1px;
+						}
+					`}
 				</style>
 
 				{/* Icons */}
@@ -886,13 +880,12 @@ const Layout = () => {
 
 	return (
 		<div>
-			<style>{`
-
-html {
-	--theme: hsl(270, 100%, 50%);
-}
-
-`}
+			<style>
+				{css`
+					html {
+						--theme: hsl(270, 100%, 50%);
+					}
+				`}
 			</style>
 			<Hero
 				state={state}
