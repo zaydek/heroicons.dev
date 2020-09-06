@@ -8,7 +8,7 @@ class Document extends NextDocument {
 
 	render() {
 		return (
-			<Html className="bg-gray-50 antialiased" lang="en">
+			<Html className="bg-gray-50 dark:bg-black antialiased" lang="en">
 				<Head />
 				<title>
 					Heroicons

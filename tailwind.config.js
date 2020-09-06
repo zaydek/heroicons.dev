@@ -6,8 +6,12 @@ module.exports = {
 	experimental: {
 		uniformColorPalette: true,
 	},
-	plugins: [require("@tailwindcss/ui")],
-	purge: ["./src/**/*.js"],
+	plugins: [
+		require("@tailwindcss/ui"),
+	],
+	purge: [
+		"./src/**/*.js",
+	],
 	theme: {
 		extend: {
 			borderRadius: {
@@ -35,9 +39,14 @@ module.exports = {
 			},
 			colors: {
 				theme: "hsl(270, 100%, 50%)",
+				"dark-theme": "hsl(270, 100%, 37.5%)",
 			},
 			fontFamily: {
-				sans: [...defaultTheme.fontFamily.sans.slice(0, 3), "Inter", ...defaultTheme.fontFamily.sans.slice(3)],
+				sans: [
+					...defaultTheme.fontFamily.sans.slice(0, 3),
+					"Inter",
+					...defaultTheme.fontFamily.sans.slice(3),
+				],
 			},
 		},
 		screens: {
@@ -45,7 +54,6 @@ module.exports = {
 			md: (768) + "px",
 			lg: (24 + 1024 + 24) + "px",
 			xl: (24 + 1280 + 24) + "px",
-
 			"dark": {
 				"raw": "(prefers-color-scheme: dark)",
 			},
@@ -53,7 +61,6 @@ module.exports = {
 	},
 	variants: {
 		typography: [],
-
 		backgroundColor: ({ after }) => after(["group-hover", "group-focus"]),
 		scale: ({ after }) => after(["group-hover", "group-focus"]),
 		textColor: ({ after }) => after(["group-hover", "group-focus"]),

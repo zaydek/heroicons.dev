@@ -207,10 +207,7 @@ const Sponsors = () => (
 		{/* Center (responsive) */}
 		<ApplyDisplay className="block xl:hidden">
 			<div className="py-4 absolute inset-x-0 bottom-full">
-				<h6
-					className="text-center font-bold tracking-wide leading-none text-purple-50 opacity-75"
-					style={{ fontSize: "0.6875rem" }}
-				>
+				<h6 className="text-center font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					<TextRow>
 						OUR SPONSORS
 						<EnSpace />
@@ -225,10 +222,7 @@ const Sponsors = () => (
 		{/* LHS */}
 		<ApplyDisplay className="hidden xl:block">
 			<div className="px-8 py-4 absolute left-0 bottom-full">
-				<h6
-					className="font-bold tracking-wide leading-none text-purple-50 opacity-75"
-					style={{ fontSize: "0.6875rem" }}
-				>
+				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					OUR SPONSORS
 				</h6>
 			</div>
@@ -237,10 +231,7 @@ const Sponsors = () => (
 		{/* RHS */}
 		<ApplyDisplay className="hidden xl:block">
 			<div className="px-8 py-4 absolute right-0 bottom-full">
-				<h6
-					className="font-bold tracking-wide leading-none text-purple-50 opacity-75"
-					style={{ fontSize: "0.6875rem" }}
-				>
+				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					UNAFFILIATED WITH TAILWIND LABS
 				</h6>
 			</div>
@@ -287,7 +278,7 @@ const Hero = ({ state, dispatch }) => (
 		<AbsoluteExternalLinks />
 
 		{/* NOTE: Use px-* here because of backgrounds. */}
-		<header className="px-4 lg:px-6 flex flex-row justify-center bg-theme">
+		<header className="px-4 lg:px-6 flex flex-row justify-center bg-theme dark:bg-dark-theme">
 			<div className="w-full max-w-screen-xl">
 				<div className="h-16" />
 
@@ -321,7 +312,7 @@ const Hero = ({ state, dispatch }) => (
 
 		{/* Background */}
 		<div className="absolute inset-x-0 top-full pointer-events-none">
-			<Apply className="text-theme">
+			<Apply className="text-theme dark:text-dark-theme">
 				<svg fill="currentColor" viewBox="0 0 16 1" xmlns="http://www.w3.org/2000/svg">
 					<path d="M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z" />
 				</svg>
@@ -329,16 +320,36 @@ const Hero = ({ state, dispatch }) => (
 		</div>
 
 		{/* Background (attached) */}
+		{/* */}
+		{/* @media (min-width: ${screens.lg}) { */}
 		<style>
 			{css`
-				@media (min-width: ${screens.lg}) {
+				html {
+					background-attachment:
+						fixed,
+						fixed;
+					background-image:
+						url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
+						url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 16 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z' /%3E%3C/svg%3E");
+					background-repeat:
+						repeat-x,
+						no-repeat;
+					background-size:
+						112px,
+						100%;
+					background-position:
+						0 0,
+						0 112px;
+				}
+				/* NOTE: fill='var(--theme)' does not work. */
+				@media (prefers-color-scheme: dark) {
 					html {
 						background-attachment:
 							fixed,
 							fixed;
 						background-image:
-							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
-							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 16 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z' /%3E%3C/svg%3E");
+							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 37.5%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
+							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 37.5%25)' viewBox='0 0 16 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 1C4 1 1.33333 0.333333 0 0H16C14.6667 0.333333 12 1 8 1Z' /%3E%3C/svg%3E");
 						background-repeat:
 							repeat-x,
 							no-repeat;
@@ -356,13 +367,14 @@ const Hero = ({ state, dispatch }) => (
 	</div>
 )
 
-const LightTooltip = ({ apply, children }) => (
+// NOTE: Matches <DarkTooltip> for dark mode.
+const Tooltip = ({ apply, children }) => (
 	<div className="rounded-1 shadow-4">
-		<Apply className="rounded-1 shadow-px-2">
-			<div className="px-3 py-2 bg-white">
+		<Apply className="rounded-1 shadow-px-2 dark:shadow-2">
+			<div className="px-3 py-2 bg-white dark:bg-gray-800">
 				<Apply className={apply}>
 					<p
-						className="font-medium text-gray-800"
+						className="font-medium text-gray-800 dark:text-gray-100"
 						style={{
 							fontSize: px(14),
 							letterSpacing: "0.0125em",
@@ -449,11 +461,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 				<div className="absolute left-0 inset-y-0">
 					<div className="px-8 pr-4 flex flex-row h-full">
 						<div className="flex flex-row items-center">
-							<Apply
-								className="w-6 h-6 text-gray-400"
-								style={{ color: inputElementFocused && "var(--purple-600)" }}
-							>
-								{/* <SVGSearchOutline /> */}
+							<Apply className="w-6 h-6 text-gray-400" style={{ color: inputElementFocused && "var(--purple-600)" }}>
 								<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={!inputElementFocused ? 2 : 2.4} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
 								</svg>
@@ -524,15 +532,9 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										</Apply>
 										{tooltip === "variant" && (
 											<div className="pt-2 absolute right-0 top-full">
-												<LightTooltip apply="text-left whitespace-pre">
-													{/* <TextRow> */}
-													{/* 	<Apply className="w-4 h-4"> */}
-													{/* 		<SVGSwitchHorizontal /> */}
-													{/* 	</Apply> */}
-													{/* 	<EnSpace /> */}
+												<Tooltip apply="text-left whitespace-pre">
 													Switch to {!state.controls.variant.solid ? "Solid" : "Outline"} Icons
-													{/* </TextRow> */}
-												</LightTooltip>
+												</Tooltip>
 											</div>
 										)}
 									</button>
@@ -579,15 +581,9 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										</Apply>
 										{tooltip === "copyAs" && (
 											<div className="pt-2 absolute right-0 top-full">
-												<LightTooltip apply="text-left whitespace-pre">
-													{/* <TextRow> */}
-													{/* 	<Apply className="w-4 h-4"> */}
-													{/* 		<SVGCursorClick /> */}
-													{/* 	</Apply> */}
-													{/* 	<EnSpace /> */}
+												<Tooltip apply="text-left whitespace-pre">
 													Enable Copy as {!state.controls.copyAs.jsxLiteral ? "JSX" : "SVG"}
-													{/* </TextRow> */}
-												</LightTooltip>
+												</Tooltip>
 											</div>
 										)}
 									</button>
@@ -646,7 +642,7 @@ const MemoControls = React.memo(() => (
 const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
 	// NOTE: Use h-full because of the absolute context.
 	<ApplyReset className="block w-full h-full">
-		<button className="group relative" style={{ outline: "1px solid var(--gray-200)" }}>
+		<button className="group relative">
 
 			{/* New */}
 			{/* {icon.new && ( */}
@@ -662,7 +658,7 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
 			<div className="absolute inset-0">
 				<div className="flex flex-row justify-center items-center h-full">
 					<Apply className="w-8 h-8 text-gray-800 group-hover:text-purple-600 group-focus:text-purple-600">
-						<SVG id={icon.name} svg={icon.icons[variant]} />
+						<SVG svg={icon.icons[variant]} />
 					</Apply>
 				</div>
 			</div>
@@ -671,10 +667,7 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
 			<div className="p-4 absolute inset-x-0 bottom-0">
 				<div className="-mx-2 -my-1 flex flex-row justify-center">
 					<ApplyReset className="subpixel-antialiased">
-						<p
-							className="px-2 py-1 tracking-wide leading-tight text-gray-600 cursor-text select-text"
-							style={{ fontSize: px(13) }}
-						>
+						<p className="px-2 py-1 tracking-wide leading-tight text-gray-600 dark:text-gray-400 cursor-text select-text" style={{ fontSize: px(13) }}>
 							{!copyAsJSX ? (
 								icon.name
 							) : (
@@ -693,12 +686,18 @@ const IconApp = ({ state, dispatch }) => {
 	const media = useLayoutBreakpoints(screens)
 
 	return (
-		<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_OFFSET_TW) /* , maxWidth: rem(128) */ }}>
+		<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_OFFSET_TW) }}>
 
 			{/* LHS */}
 			{/* */}
-			{/* NOTE: Do not use max-w-screen-xl because of px-*. */}
-			<main className="w-full z-10" style={{ maxWidth: 1280 }}>
+			{/* NOTE: Do not use w-full max-w-screen-xl because of px-*. */}
+			<main
+				className="z-10"
+				style={{
+					width: "100%",
+					maxWidth: 1280,
+				}}
+			>
 
 				{/* Search */}
 				<Apply className="mt-0 lg:-mt-4 pt-0 lg:pt-4">
@@ -706,18 +705,19 @@ const IconApp = ({ state, dispatch }) => {
 						<ApplyDisplay className="hidden lg:block">
 							<div className="-mx-6 absolute inset-x-0 top-0 pointer-events-none" style={{ zIndex: -1 }}>
 
-								<div className="h-4 bg-theme" />
-								<div className="h-6 bg-theme" />
-								<div
-									className="h-6"
-									style={{
-										backgroundImage: `
-											linear-gradient(
-												hsla(270, 100%, 50%, 1),
-												hsla(270, 100%, 50%, 0)
-											)`,
-									}}
-								/>
+								<div className="h-4 bg-theme dark:bg-dark-theme" />
+								<div className="h-6 bg-theme dark:bg-dark-theme" />
+
+								{/* <div */}
+								{/* 	className="h-6" */}
+								{/* 	style={{ */}
+								{/* 		backgroundImage: ` */}
+								{/* 			linear-gradient( */}
+								{/* 				hsla(270, 100%, 50%, 1), */}
+								{/* 				hsla(270, 100%, 50%, 0) */}
+								{/* 			)`, */}
+								{/* 	}} */}
+								{/* /> */}
 
 								{/* <div className="h-6" /> */}
 								{/* <div */}
@@ -734,7 +734,7 @@ const IconApp = ({ state, dispatch }) => {
 							</div>
 						</ApplyDisplay>
 						<Apply className="rounded-t-0 lg:rounded-t-6 shadow-2">
-							<div className="bg-white" style={{ height: tw(18) }}>
+							<div className="bg-white dark:bg-gray-900" style={{ height: tw(18) }}>
 								<MemoSearch
 									state={state}
 									dispatch={dispatch}
@@ -751,13 +751,21 @@ const IconApp = ({ state, dispatch }) => {
 							grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 							gap: 1px;
 						}
+						#app-grid > * {
+							outline: 1px solid var(--gray-200);
+						}
+						@media (prefers-color-scheme: dark) {
+							#app-grid > * {
+								outline: 1px solid var(--gray-800);
+							}
+						}
 					`}
 				</style>
 
 				{/* Icons */}
 				<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
 					<div
-						className="bg-white overflow-hidden"
+						className="bg-white dark:bg-gray-900 overflow-hidden"
 						style={{
 							marginTop: tw(-18),
 							paddingTop: tw(18),
@@ -887,21 +895,16 @@ const Layout = () => {
 					}
 				`}
 			</style>
-			<Hero
-				state={state}
-				dispatch={dispatch}
-			/>
-			<IconApp
-				state={state}
-				dispatch={dispatch}
-			/>
+
+			<Hero state={state} dispatch={dispatch} />
+
+			<IconApp state={state} dispatch={dispatch} />
 			<ApplyDisplay className="hidden lg:block">
 				<div className="h-24" />
 			</ApplyDisplay>
-			<AppNotification
-				state={state}
-				dispatch={dispatch}
-			/>
+
+			<AppNotification state={state} dispatch={dispatch} />
+
 		</div>
 	)
 }
