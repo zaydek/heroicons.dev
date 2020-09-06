@@ -159,7 +159,7 @@ const CTAButtons = () => (
 
 		<ApplyReset className="block">
 			<a href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}>
-				<div className="p-5 bg-purple-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
+				<div className="p-5 bg-purple-50 bg-opacity-18.75 dark:bg-opacity-12.5 rounded-3">
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
 						<TextRow>
 							<Apply className="w-4 h-4 transform scale-110" style={{ filter: "brightness(125%)" }}>
@@ -182,7 +182,7 @@ const CTAButtons = () => (
 		<div className="w-3 h-3" />
 		<ApplyReset className="block">
 			<a href="https://github.colwindlabs/heroicons" {...target_blank}>
-				<div className="p-5 bg-purple-50 rounded-3" style={{ "--bg-opacity": 0.1875 }}>
+				<div className="p-5 bg-purple-50 bg-opacity-18.75 dark:bg-opacity-12.5 rounded-3">
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
 						<TextRow>
 							<Apply className="w-4 h-4 transform scale-110">
@@ -243,13 +243,7 @@ const Sponsors = () => (
 			{React.useMemo(() => (
 				[1, 2, 3, 4, 5, 6].map(each => (
 					<div key={each} className="mx-2 my-1.5 relative">
-						<div
-							className="h-14 bg-purple-50 rounded-full"
-							style={{
-								"--bg-opacity": 0.1875,
-								width: tw(36 + Math.floor(Math.random() * (48 - 36))),
-							}}
-						/>
+						<div className="h-14 bg-purple-50 bg-opacity-18.75 dark:bg-opacity-12.5 rounded-full" style={{ width: tw(36 + Math.floor(Math.random() * (48 - 36))) }} />
 						{/* <ApplyDisplay className="hidden xl:block"> */}
 						{/* 	<div className="p-2 absolute inset-x-0 top-full"> */}
 						{/* 		<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-75"> */}
@@ -703,11 +697,10 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
 
 			{/* Icon */}
 			<div className="flex flex-row justify-center items-center h-full">
-				{/* <Apply className="transition duration-200 ease-out"> */}
-				{/* 	<div className="w-20 h-20 bg-transparent group-hover:bg-purple-100 group-focus:bg-purple-100 dark:group-hover:bg-purple-600 dark:group-focus:bg-purple-600 rounded-full transform scale-0 group-hover:scale-100 group-focus:scale-100" /> */}
-				{/* </Apply> */}
-				<Apply className="transition duration-200 ease-out">
-					<div className="w-20 h-20 bg-transparent bg-purple-500 dark:bg-purple-600 bg-opacity-10 dark:bg-opacity-100 transform scale-0 group-hover:scale-100 group-focus:scale-100 rounded-full" />
+				<Apply className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transform scale-0 group-hover:scale-100 group-focus:scale-100">
+					<Apply className="transition duration-200 ease-out">
+						<div className="w-20 h-20 bg-transparent bg-purple-500 dark:bg-purple-600 bg-opacity-12.5 dark:bg-opacity-100 rounded-full" />
+					</Apply>
 				</Apply>
 			</div>
 			<div className="absolute inset-0">

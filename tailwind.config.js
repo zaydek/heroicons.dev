@@ -50,7 +50,7 @@ module.exports = {
 			},
 			opacity: {
 				0: "0",
-				6.25: "0.625",
+				6.25: "0.0625",
 				10: "0.10",
 				12.5: "0.125",
 				18.75: "0.1875",
@@ -60,7 +60,7 @@ module.exports = {
 				87.5: "0.875",
 				90: "0.90",
 				93.75: "0.9375",
-				100: "100",
+				100: "1",
 			},
 		},
 		screens: {
@@ -75,8 +75,10 @@ module.exports = {
 	},
 	variants: {
 		typography: [],
+
 		backgroundColor: ({ after }) => after(["group-hover", "group-focus"]),
 		backgroundOpacity: ({ after }) => after(["group-hover", "group-focus"]),
+		opacity: ({ after }) => after(["group-hover", "group-focus"]),
 		scale: ({ after }) => after(["group-hover", "group-focus"]),
 		textColor: ({ after }) => after(["group-hover", "group-focus"]),
 	},
