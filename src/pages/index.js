@@ -24,8 +24,6 @@ import SVGCodeOutline from "heroicons-0.4.1/outline/Code"
 import SVGFlagOutline from "heroicons-0.4.1/outline/Flag"
 import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
 
-const MARGIN_TOP_OFFSET_TW = 18 + 6
-
 const screens = {
 	sm: (640) + "px",
 	md: (768) + "px",
@@ -305,7 +303,7 @@ const Hero = ({ state, dispatch }) => (
 				</div>
 
 				<div className="h-16" />
-				<div style={{ height: tw(MARGIN_TOP_OFFSET_TW) }} />
+				<div style={{ height: "var(--search-bar-height)" }} />
 			</div>
 		</header>
 
@@ -327,8 +325,8 @@ const Hero = ({ state, dispatch }) => (
 							fixed,
 							fixed;
 						background-image:
-							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 43.75%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
-							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 43.75%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C8 1 2.66667 0.333333 0 0H32C29.3333 0.333333 24 1 16 1Z' /%3E%3C/svg%3E");
+							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
+							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C8 1 2.66667 0.333333 0 0H32C29.3333 0.333333 24 1 16 1Z' /%3E%3C/svg%3E");
 						background-repeat:
 							repeat-x,
 							no-repeat;
@@ -712,7 +710,7 @@ const IconApp = ({ state, dispatch }) => {
 	const media = useLayoutBreakpoints(screens)
 
 	return (
-		<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: tw(-MARGIN_TOP_OFFSET_TW) }}>
+		<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: "var(--search-bar-negative-margin)" }}>
 
 			{/* LHS */}
 			{/* */}
@@ -759,11 +757,13 @@ const IconApp = ({ state, dispatch }) => {
 
 							</div>
 						</ApplyDisplay>
-						<Apply className="rounded-t-0 lg:rounded-t-6 shadow-2">
-							<div className="bg-white dark:bg-cool-gray-900" style={{ height: tw(18) }}>
-								<MemoSearch state={state} dispatch={dispatch} />
-							</div>
-						</Apply>
+						<div className="rounded-t-0 lg:rounded-t-6 !shadow-2">
+							<Apply className="rounded-t-0 lg:rounded-t-6 !shadow-2">
+								<div className="box-content bg-white dark:bg-cool-gray-900 border-b border-gray-200 dark:border-gray-800" style={{ height: "var(--search-bar-height)" }}>
+									<MemoSearch state={state} dispatch={dispatch} />
+								</div>
+							</Apply>
+						</div>
 					</div>
 				</Apply>
 
@@ -790,8 +790,8 @@ const IconApp = ({ state, dispatch }) => {
 					<div
 						className="bg-white dark:bg-cool-gray-900 overflow-hidden"
 						style={{
-							marginTop: tw(-18),
-							paddingTop: tw(18),
+							marginTop: "calc(-1 * var(--search-bar-height))",
+							paddingTop: "var(--search-bar-height)",
 							minHeight: `calc(100vh - ${tw(media.lg ? 0 : 4 + 24)})`,
 						}}
 					>
@@ -897,12 +897,23 @@ const Layout = () => {
 
 	return (
 		<>
+
+			<style>
+				{css`
+					html {
+						--search-bar-height: ${tw(18)};
+						--search-bar-negative-margin: ${tw(-1 * (18 + 6))};
+					}
+				`}
+			</style>
+
 			<Hero state={state} dispatch={dispatch} />
 			<IconApp state={state} dispatch={dispatch} />
 			<ApplyDisplay className="hidden lg:block">
 				<div className="h-24" />
 			</ApplyDisplay>
 			<AppNotification state={state} dispatch={dispatch} />
+
 		</>
 	)
 }
