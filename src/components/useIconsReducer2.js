@@ -35,10 +35,10 @@ const initialState = {
 			// bladeComponent: false,
 			// download: false,
 		},
-		// theme: {
-		// 	lightMode: true, // (Default)
-		// 	darkMode: false,
-		// },
+		theme: {
+			lightMode: true, // (Default) // TODO
+			darkMode: false,
+		},
 		// size: 32,
 		// strokeWidth: 2,
 		// classes: "{name}-{variant} w-6 h-6",
@@ -76,9 +76,6 @@ const actions = state => ({
 			})
 		})
 	},
-	toggleShowControls() {
-		state.controls.visible = !state.controls.visible
-	},
 	updateControls(controlType, key, value) {
 		if (typeof value === "boolean") {
 			disableAll(state.controls[controlType])
@@ -101,9 +98,6 @@ function IconsReducer(state, action) {
 	switch (action.type) {
 	case "SEARCH":
 		actions(state).search(action.query)
-		return
-	case "TOGGLE_SHOW_CONTROLS":
-		actions(state).toggleShowControls()
 		return
 	case "UPDATE_CONTROLS":
 		actions(state).updateControls(action.controlType, action.key, action.value)

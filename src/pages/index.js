@@ -503,13 +503,12 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							onBlur={e => setTooltip("")}
 							onMouseEnter={e => setTooltip("variant")}
 							onMouseLeave={e => setTooltip("")}
-							// tabIndex={1}
 						>
 							<ApplyReset className="focus:outline-none">
 								<Apply className="transition duration-200 ease-in-out">
 									<button
 										// NOTE: Use purple-500 not purple-600.
-										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 group-hover:bg-opacity-25 focus:bg-opacity-25 rounded-full"
+										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full"
 										style={{
 											color: state.controls.variant.solid && "var(--purple-50)",
 											backgroundColor: state.controls.variant.solid && "var(--purple-500)",
@@ -554,13 +553,12 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							onBlur={e => setTooltip("")}
 							onMouseEnter={e => setTooltip("copyAs")}
 							onMouseLeave={e => setTooltip("")}
-							// tabIndex={1}
 						>
 							<ApplyReset className="focus:outline-none">
 								<Apply className="transition duration-200 ease-in-out">
 									<button
 										// NOTE: Use purple-500 not purple-600.
-										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 group-hover:bg-opacity-25 focus:bg-opacity-25 rounded-full"
+										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full"
 										style={{
 											color: state.controls.copyAs.jsx && "var(--purple-50)",
 											backgroundColor: state.controls.copyAs.jsx && "var(--purple-500)",
@@ -576,17 +574,23 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 									>
 										{/* NOTE: Use SVGs not components. */}
 										<Apply className="w-6 h-6 overflow-visible">
-											{/* <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
-											{/* 	<path d="M12 9.861A2.139 2.139 0 1 0 12 14.139 2.139 2.139 0 1 0 12 9.861zM6.008 16.255l-.472-.12C2.018 15.246 0 13.737 0 11.996s2.018-3.25 5.536-4.139l.472-.119.133.468a23.53 23.53 0 0 0 1.363 3.578l.101.213-.101.213a23.307 23.307 0 0 0-1.363 3.578l-.133.467zM5.317 8.95c-2.674.751-4.315 1.9-4.315 3.046 0 1.145 1.641 2.294 4.315 3.046a24.95 24.95 0 0 1 1.182-3.046A24.752 24.752 0 0 1 5.317 8.95zM17.992 16.255l-.133-.469a23.357 23.357 0 0 0-1.364-3.577l-.101-.213.101-.213a23.42 23.42 0 0 0 1.364-3.578l.133-.468.473.119c3.517.889 5.535 2.398 5.535 4.14s-2.018 3.25-5.535 4.139l-.473.12zm-.491-4.259c.48 1.039.877 2.06 1.182 3.046 2.675-.752 4.315-1.901 4.315-3.046 0-1.146-1.641-2.294-4.315-3.046a24.788 24.788 0 0 1-1.182 3.046zM5.31 8.945l-.133-.467C4.188 4.992 4.488 2.494 6 1.622c1.483-.856 3.864.155 6.359 2.716l.34.349-.34.349a23.552 23.552 0 0 0-2.422 2.967l-.135.193-.235.02a23.657 23.657 0 0 0-3.785.61l-.472.119zm1.896-6.63c-.268 0-.505.058-.705.173-.994.573-1.17 2.565-.485 5.253a25.122 25.122 0 0 1 3.233-.501 24.847 24.847 0 0 1 2.052-2.544c-1.56-1.519-3.037-2.381-4.095-2.381zM16.795 22.677c-.001 0-.001 0 0 0-1.425 0-3.255-1.073-5.154-3.023l-.34-.349.34-.349a23.53 23.53 0 0 0 2.421-2.968l.135-.193.234-.02a23.63 23.63 0 0 0 3.787-.609l.472-.119.134.468c.987 3.484.688 5.983-.824 6.854a2.38 2.38 0 0 1-1.205.308zm-4.096-3.381c1.56 1.519 3.037 2.381 4.095 2.381h.001c.267 0 .505-.058.704-.173.994-.573 1.171-2.566.485-5.254a25.02 25.02 0 0 1-3.234.501 24.674 24.674 0 0 1-2.051 2.545zM18.69 8.945l-.472-.119a23.479 23.479 0 0 0-3.787-.61l-.234-.02-.135-.193a23.414 23.414 0 0 0-2.421-2.967l-.34-.349.34-.349C14.135 1.778 16.515.767 18 1.622c1.512.872 1.812 3.37.824 6.855l-.134.468zM14.75 7.24c1.142.104 2.227.273 3.234.501.686-2.688.509-4.68-.485-5.253-.988-.571-2.845.304-4.8 2.208A24.849 24.849 0 0 1 14.75 7.24zM7.206 22.677A2.38 2.38 0 0 1 6 22.369c-1.512-.871-1.812-3.369-.823-6.854l.132-.468.472.119c1.155.291 2.429.496 3.785.609l.235.02.134.193a23.596 23.596 0 0 0 2.422 2.968l.34.349-.34.349c-1.898 1.95-3.728 3.023-5.151 3.023zm-1.19-6.427c-.686 2.688-.509 4.681.485 5.254.987.563 2.843-.305 4.8-2.208a24.998 24.998 0 0 1-2.052-2.545 24.976 24.976 0 0 1-3.233-.501zM12 16.878c-.823 0-1.669-.036-2.516-.106l-.235-.02-.135-.193a30.388 30.388 0 0 1-1.35-2.122 30.354 30.354 0 0 1-1.166-2.228l-.1-.213.1-.213a30.3 30.3 0 0 1 1.166-2.228c.414-.716.869-1.43 1.35-2.122l.135-.193.235-.02a29.785 29.785 0 0 1 5.033 0l.234.02.134.193a30.006 30.006 0 0 1 2.517 4.35l.101.213-.101.213a29.6 29.6 0 0 1-2.517 4.35l-.134.193-.234.02c-.847.07-1.694.106-2.517.106zm-2.197-1.084c1.48.111 2.914.111 4.395 0a29.006 29.006 0 0 0 2.196-3.798 28.585 28.585 0 0 0-2.197-3.798 29.031 29.031 0 0 0-4.394 0 28.477 28.477 0 0 0-2.197 3.798 29.114 29.114 0 0 0 2.197 3.798z" /> */}
+											{/* <svg viewBox="-11.5 -10.23174 23 20.46348" xmlns="http://www.w3.org/2000/svg"> */}
+											{/* 	<circle fill="currentColor" cx={0} cy={0} r={2.05} /> */}
+											{/* 	<g fill="none" stroke="currentColor" strokeWidth={1}> */}
+											{/* 		<ellipse rx={11} ry={4.2} /> */}
+											{/* 		<ellipse rx={11} ry={4.2} transform="rotate(60)" /> */}
+											{/* 		<ellipse rx={11} ry={4.2} transform="rotate(120)" /> */}
+											{/* 	</g> */}
 											{/* </svg> */}
-											<svg viewBox="-11.5 -10.23174 23 20.46348" xmlns="http://www.w3.org/2000/svg">
-												<circle fill="currentColor" cx={0} cy={0} r={2.05} />
-												<g fill="none" stroke="currentColor" strokeWidth={1}>
-													<ellipse rx={11} ry={4.2} />
-													<ellipse rx={11} ry={4.2} transform="rotate(60)" />
-													<ellipse rx={11} ry={4.2} transform="rotate(120)" />
-												</g>
-											</svg>
+											{!state.controls.copyAs.jsx ? (
+												<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+												</svg>
+											) : (
+												<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+													<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
+												</svg>
+											)}
 										</Apply>
 										{tooltip === "copyAs" && (
 											<div className="pt-2 absolute right-0 top-full">
@@ -601,15 +605,54 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						</div>
 
 						{/* Button */}
-						{/* {!state.controls.theme.darkMode ? ( */}
-						{/* 	<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
-						{/* 		<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /> */}
-						{/* 	</svg> */}
-						{/* ) : ( */}
-						{/* 	<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
-						{/* 		<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /> */}
-						{/* 	</svg> */}
-						{/* )} */}
+						<div
+							className="group px-1 flex flex-row items-center"
+							onFocus={e => setTooltip("theme")}
+							onBlur={e => setTooltip("")}
+							onMouseEnter={e => setTooltip("theme")}
+							onMouseLeave={e => setTooltip("")}
+						>
+							<ApplyReset className="focus:outline-none">
+								<Apply className="transition duration-200 ease-in-out">
+									<button
+										// NOTE: Use purple-500 not purple-600.
+										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full"
+										style={{
+											color: state.controls.theme.darkMode && "var(--purple-50)",
+											backgroundColor: state.controls.theme.darkMode && "var(--purple-500)",
+										}}
+										onClick={e => (
+											dispatch({
+												type: "UPDATE_CONTROLS",
+												controlType: "theme",
+												key: !state.controls.theme.darkMode ? "darkMode" : "lightMode",
+												value: true,
+											})
+										)}
+									>
+										{/* NOTE: Use SVGs not components. */}
+										<Apply className="w-6 h-6 overflow-visible">
+											{!state.controls.theme.darkMode ? (
+												<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+												</svg>
+											) : (
+												<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+													<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+												</svg>
+											)}
+										</Apply>
+										{tooltip === "theme" && (
+											<div className="pt-2 absolute right-0 top-full">
+												<Tooltip apply="text-left whitespace-pre">
+													Click to Switch to {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}
+												</Tooltip>
+											</div>
+										)}
+									</button>
+								</Apply>
+							</ApplyReset>
+						</div>
 
 					</div>
 				</div>
@@ -650,19 +693,17 @@ const MemoControls = React.memo(() => (
 
 const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
 	// NOTE: Use h-full because of the absolute context.
-	<ApplyReset className="block w-full h-full">
+	<ApplyReset className="block w-full h-full focus:outline-none">
 		<button className="group relative">
-
-			{/* New */}
-			{/* {icon.new && ( */}
-			{/* 	<div className="p-4 absolute right-0 top-0 pointer-events-none"> */}
-			{/* 		<div className="w-2 h-2 bg-purple-500 rounded-full" /> */}
-			{/* 	</div> */}
-			{/* )} */}
 
 			{/* Icon */}
 			<div className="flex flex-row justify-center items-center h-full">
-				<div className="w-20 h-20 bg-transparent group-hover:bg-purple-50 group-focus:bg-purple-50 dark:group-hover:bg-purple-600 dark:group-focus:bg-purple-600 rounded-full transform scale-0 group-hover:scale-100 group-focus:scale-100 transition duration-200 ease-out" />
+				{/* <Apply className="transition duration-200 ease-out"> */}
+				{/* 	<div className="w-20 h-20 bg-transparent group-hover:bg-purple-100 group-focus:bg-purple-100 dark:group-hover:bg-purple-600 dark:group-focus:bg-purple-600 rounded-full transform scale-0 group-hover:scale-100 group-focus:scale-100" /> */}
+				{/* </Apply> */}
+				<Apply className="transition duration-200 ease-out">
+					<div className="w-20 h-20 bg-transparent bg-purple-500 dark:bg-purple-600 bg-opacity-10 dark:bg-opacity-100 transform scale-0 group-hover:scale-100 group-focus:scale-100 rounded-full" />
+				</Apply>
 			</div>
 			<div className="absolute inset-0">
 				<div className="flex flex-row justify-center items-center h-full">
@@ -744,10 +785,7 @@ const IconApp = ({ state, dispatch }) => {
 						</ApplyDisplay>
 						<Apply className="rounded-t-0 lg:rounded-t-6 shadow-2">
 							<div className="bg-white dark:bg-gray-900" style={{ height: tw(18) }}>
-								<MemoSearch
-									state={state}
-									dispatch={dispatch}
-								/>
+								<MemoSearch state={state} dispatch={dispatch} />
 							</div>
 						</Apply>
 					</div>
