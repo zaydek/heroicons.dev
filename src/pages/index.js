@@ -655,7 +655,7 @@ const MemoIcon = React.memo(({ variant, copyAsJSXLiteral, icon }) => (
 			</div>
 			<div className="absolute inset-0">
 				<div className="flex flex-row justify-center items-center h-full">
-					<Apply className="w-8 h-8 text-gray-800 group-hover:text-purple-800 group-focus:text-purple-800">
+					<Apply className="w-8 h-8 text-gray-800 group-hover:text-purple-600 group-focus:text-purple-600">
 						<SVG
 							id={icon.name}
 							svg={icon.icons[variant]}
@@ -666,7 +666,7 @@ const MemoIcon = React.memo(({ variant, copyAsJSXLiteral, icon }) => (
 
 			{/* Name */}
 			<div className="p-4 absolute inset-x-0 bottom-0">
-				<div className="flex flex-row justify-center cursor-text select-text no-underline hover:underline">
+				<div className="flex flex-row justify-center select-text no-underline hover:underline">
 					<ApplyReset className="subpixel-antialiased">
 						<p className="text-center text-xs tracking-wide leading-tight text-gray-600" style={{ fontSize: px(13) }}>
 							{!copyAsJSXLiteral ? (
@@ -698,10 +698,33 @@ const IconApp = ({ state, dispatch }) => {
 				<Apply className="mt-0 lg:-mt-4 pt-0 lg:pt-4">
 					<div className="sticky top-0 z-10">
 						<ApplyDisplay className="hidden lg:block">
-							<div className="-mx-6 absolute inset-x-0 top-0" style={{ zIndex: -1 }}>
+							<div className="-mx-6 absolute inset-x-0 top-0 pointer-events-none" style={{ zIndex: -1 }}>
+
 								<div className="h-4 bg-theme" />
 								<div className="h-6 bg-theme" />
-								<div className="h-6" style={{ backgroundImage: "linear-gradient(hsla(270, 100%, 50%, 1), hsla(270, 100%, 50%, 0))" }} />
+								<div
+									className="h-6"
+									style={{
+										backgroundImage: `
+											linear-gradient(
+												hsla(270, 100%, 50%, 1),
+												hsla(270, 100%, 50%, 0)
+											)`,
+									}}
+								/>
+
+								{/* <div className="h-6" /> */}
+								{/* <div */}
+								{/* 	className="mx-6 h-6" */}
+								{/* 	style={{ */}
+								{/* 		backgroundImage: ` */}
+								{/* 			linear-gradient( */}
+								{/* 				hsla(0, 0%, 100%, 1), */}
+								{/* 				hsla(0, 0%, 100%, 0) */}
+								{/* 			)`, */}
+								{/* 	}} */}
+								{/* /> */}
+
 							</div>
 						</ApplyDisplay>
 						<Apply className="rounded-t-0 lg:rounded-t-6 shadow-2">
@@ -854,41 +877,21 @@ const Layout = () => {
 
 	return (
 		<div>
-
-			<style>{css`
-
-html {
-	--theme: hsl(270, 100%, 50%);
-}
-.text-theme {
-	color: var(--theme);
-}
-.bg-theme {
-	background-color: var(--theme);
-}
-
-`}
-			</style>
-
 			<Hero
 				state={state}
 				dispatch={dispatch}
 			/>
-
 			<IconApp
 				state={state}
 				dispatch={dispatch}
 			/>
-
 			<ApplyDisplay className="hidden lg:block">
 				<div className="h-24" />
 			</ApplyDisplay>
-
 			<AppNotification
 				state={state}
 				dispatch={dispatch}
 			/>
-
 		</div>
 	)
 }

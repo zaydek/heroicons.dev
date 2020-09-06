@@ -1,19 +1,16 @@
 const defaultTheme = require("tailwindcss/defaultTheme")
 const defaultVariants = require("./tailwind-defaultVariants")
 
-// Converts 1tw -> 0.25rem.
-function twToRem(tw) {
-	return `${(tw * 4) / 16}rem`
-}
+const tw = n => `${n * 4 / 16}rem`
 
 module.exports = {
 	// https://github.com/tailwindlabs/tailwindcss/releases#experimental-features
 	experimental: {
 		uniformColorPalette: true,
 	},
-	future: {
-		removeDeprecatedGapUtilities: true,
-	},
+	// future: {
+	// 	removeDeprecatedGapUtilities: true,
+	// },
 	plugins: [
 		require("@tailwindcss/ui"),
 	],
@@ -23,12 +20,12 @@ module.exports = {
 	theme: {
 		extend: {
 			borderRadius: {
-				"1": twToRem(1),
-				"2": twToRem(2),
-				"3": twToRem(3),
-				"4": twToRem(4),
-				"5": twToRem(5),
-				"6": twToRem(6),
+				"1": tw(1),
+				"2": tw(2),
+				"3": tw(3),
+				"4": tw(4),
+				"5": tw(5),
+				"6": tw(6),
 			},
 			boxShadow: {
 				"px": defaultTheme.boxShadow.xs,
@@ -45,6 +42,9 @@ module.exports = {
 				"px-4": defaultTheme.boxShadow.xs + ", " + defaultTheme.boxShadow.lg,
 				"px-5": defaultTheme.boxShadow.xs + ", " + defaultTheme.boxShadow.xl,
 				"px-6": defaultTheme.boxShadow.xs + ", " + defaultTheme.boxShadow["2xl"],
+			},
+			colors: {
+				theme: "hsl(270, 100%, 50%)",
 			},
 			fontFamily: {
 				sans: [...defaultTheme.fontFamily.sans.slice(0, 3), "Inter", ...defaultTheme.fontFamily.sans.slice(3)],
