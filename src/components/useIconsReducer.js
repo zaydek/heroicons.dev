@@ -1,4 +1,5 @@
 import dataset from "data/dataset"
+import merge from "lodash/merge"
 import { useImmerReducer } from "use-immer"
 
 // Disables all properties of an object (sets to false).
@@ -53,6 +54,11 @@ const initialState = {
 // })
 
 const actions = state => ({
+	restorePreferences(prefs) {
+		merge(state, prefs)
+		// TODO
+		console.log(JSON.parse(JSON.stringify(state)))
+	},
 	search(query) {
 		state.search.query.user = query
 		state.search.query.__safe = query.trim().toLowerCase().replace(/ +/g, "-")
@@ -91,6 +97,9 @@ const actions = state => ({
 
 function IconsReducer(state, action) {
 	switch (action.type) {
+	case "RESTORE_PREFERENCES":
+		actions(state).restorePreferences(action.prefs)
+		return
 	case "SEARCH":
 		actions(state).search(action.query)
 		return

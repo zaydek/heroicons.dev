@@ -970,7 +970,6 @@ const AppNotification = ({ state, dispatch }) => (
 const KEY = "heroicons.dev"
 
 const Layout = () => {
-	// TODO: Add support for syncing to localStorage.
 	const [state, dispatch] = useIconsReducer()
 
 	// Gets localStorage (once).
@@ -981,11 +980,15 @@ const Layout = () => {
 				// No-op
 				return
 			}
+			dispatch({
+				type: "RESTORE_PREFERENCES",
+				prefs,
+			})
 		}, [dispatch]),
 		[],
 	)
 
-	// Sets localStorage (on query).
+	// Sets localStorage.
 	React.useEffect(() => {
 		const id = setTimeout(() => {
 			localStorage.setItem(KEY, JSON.stringify(
