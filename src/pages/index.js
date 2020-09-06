@@ -373,7 +373,7 @@ const Tooltip = ({ apply, children }) => (
 			<div className="px-3 py-2 bg-white dark:bg-cool-gray-800">
 				<Apply className={apply}>
 					<p
-						className="font-medium text-gray-800 dark:text-gray-100"
+						className="font-medium text-cool-gray-800 dark:text-cool-gray-100"
 						style={{
 							fontSize: px(14),
 							letterSpacing: "0.0125em",
@@ -390,10 +390,10 @@ const Tooltip = ({ apply, children }) => (
 const DarkTooltip = ({ apply, children }) => (
 	<div className="rounded-1 shadow-4">
 		<Apply className="rounded-1 shadow-2">
-			<div className="px-3 py-2 bg-gray-800">
+			<div className="px-3 py-2 bg-cool-gray-800">
 				<Apply className={apply}>
 					<p
-						className="font-medium text-gray-100"
+						className="font-medium text-cool-gray-100"
 						style={{
 							fontSize: px(14),
 							letterSpacing: "0.0125em",
@@ -460,7 +460,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 				<div className="absolute left-0 inset-y-0">
 					<div className="px-8 pr-4 flex flex-row h-full">
 						<div className="flex flex-row items-center">
-							<Apply className="w-6 h-6 text-gray-400 dark:text-gray-600" style={{ color: inputFocused && "var(--purple-500)" }}>
+							<Apply className="w-6 h-6 text-cool-gray-400 dark:text-cool-gray-600" style={{ color: inputFocused && "var(--purple-500)" }}>
 								<Apply className="transition duration-200 ease-in-out">
 									<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -475,7 +475,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 				<ApplyReset className="block w-full h-full bg-transparent focus:outline-none">
 					<input
 						ref={inputRef}
-						className="px-16 text-xl placeholder-gray-400 dark:placeholder-gray-600 text-gray-800 dark:text-gray-200"
+						className="px-16 text-xl placeholder-cool-gray-400 dark:placeholder-cool-gray-600 text-cool-gray-800 dark:text-cool-gray-200"
 						style={{
 							paddingLeft: tw(8 + 6 + 4),
 							paddingRight: tw(4 + (10 + 1) + (1 + 10 + 1) + (1 + 10) + 8), // TODO: Add media.sm here.
@@ -681,7 +681,7 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
 			</div>
 			<div className="absolute inset-0">
 				<div className="flex flex-row justify-center items-center h-full">
-					<Apply className="w-8 h-8 text-gray-800 dark:text-gray-200 group-hover:text-purple-600 group-focus:text-purple-600 dark:group-hover:text-purple-50 dark:group-focus:text-purple-50">
+					<Apply className="w-8 h-8 text-cool-gray-800 dark:text-cool-gray-200 group-hover:text-purple-600 group-focus:text-purple-600 dark:group-hover:text-purple-50 dark:group-focus:text-purple-50">
 						<SVG id={icon.name} svg={icon.svgs[variant]} />
 					</Apply>
 				</div>
@@ -691,7 +691,7 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
 			<div className="p-4 absolute inset-x-0 bottom-0">
 				<div className="-mx-2 -my-1 flex flex-row justify-center">
 					<ApplyReset className="subpixel-antialiased">
-						<p className="px-2 py-1 tracking-wide leading-tight text-gray-600 dark:text-gray-400 cursor-text select-text" style={{ fontSize: px(13) }}>
+						<p className="px-2 py-1 tracking-wide leading-tight text-cool-gray-600 dark:text-cool-gray-400 cursor-text select-text" style={{ fontSize: px(13) }}>
 							{!copyAsJSX ? (
 								icon.name
 							) : (
@@ -757,13 +757,13 @@ const IconApp = ({ state, dispatch }) => {
 
 							</div>
 						</ApplyDisplay>
-						<div className="rounded-t-0 lg:rounded-t-6 !shadow-2">
-							<Apply className="rounded-t-0 lg:rounded-t-6 !shadow-2">
-								<div className="box-content bg-white dark:bg-cool-gray-900 border-b border-gray-200 dark:border-gray-800" style={{ height: "var(--search-bar-height)" }}>
-									<MemoSearch state={state} dispatch={dispatch} />
-								</div>
-							</Apply>
-						</div>
+						{/* <div className="rounded-t-0 lg:rounded-t-6 !shadow-2"> */}
+						<Apply className="rounded-t-0 lg:rounded-t-6 !shadow-2">
+							<div className="box-content bg-white dark:bg-cool-gray-900 border-b border-cool-gray-200 dark:border-cool-gray-800" style={{ height: "var(--search-bar-height)" }}>
+								<MemoSearch state={state} dispatch={dispatch} />
+							</div>
+						</Apply>
+						{/* </div> */}
 					</div>
 				</Apply>
 
@@ -775,11 +775,11 @@ const IconApp = ({ state, dispatch }) => {
 							gap: 1px;
 						}
 						#app-grid > * {
-							outline: 1px solid var(--gray-200);
+							outline: 1px solid var(--cool-gray-200);
 						}
 						@media (prefers-color-scheme: dark) {
 							#app-grid > * {
-								outline: 1px solid var(--gray-800);
+								outline: 1px solid var(--cool-gray-800);
 							}
 						}
 					`}

@@ -1,8 +1,8 @@
 html {
-	--transparent: transparent;
 	--currentColor: currentColor;
-	--black: #000000;
+	--transparent: transparent;
 	--white: #ffffff;
+	--black: #000000;
 	--gray-50: #f9fafb;
 	--gray-100: #f4f5f7;
 	--gray-200: #e5e7eb;
@@ -13,6 +13,16 @@ html {
 	--gray-700: #374151;
 	--gray-800: #252f3f;
 	--gray-900: #161e2e;
+	--cool-gray-50: #f8fafc;
+	--cool-gray-100: #f1f5f9;
+	--cool-gray-200: #e2e8f0;
+	--cool-gray-300: #cfd8e3;
+	--cool-gray-400: #97a6ba;
+	--cool-gray-500: #64748b;
+	--cool-gray-600: #475569;
+	--cool-gray-700: #364152;
+	--cool-gray-800: #27303f;
+	--cool-gray-900: #1a202e;
 	--red-50: #fdf2f2;
 	--red-100: #fde8e8;
 	--red-200: #fbd5d5;
