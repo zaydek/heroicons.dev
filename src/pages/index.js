@@ -207,9 +207,9 @@ const CTAButtons = () => (
 const Sponsors = () => (
 	<div className="relative">
 
-		{/* Center (responsive) */}
+		{/* Center (<= xl) */}
 		<ApplyDisplay className="block xl:hidden">
-			<div className="py-4 absolute inset-x-0 bottom-full">
+			<div className="py-3 absolute inset-x-0 bottom-full">
 				<h6 className="text-center font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					<TextRow>
 						OUR SPONSORS
@@ -224,7 +224,7 @@ const Sponsors = () => (
 
 		{/* LHS */}
 		<ApplyDisplay className="hidden xl:block">
-			<div className="px-8 py-4 absolute left-0 bottom-full">
+			<div className="px-8 py-3 absolute left-0 bottom-full">
 				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					OUR SPONSORS
 				</h6>
@@ -233,7 +233,7 @@ const Sponsors = () => (
 
 		{/* RHS */}
 		<ApplyDisplay className="hidden xl:block">
-			<div className="px-8 py-4 absolute right-0 bottom-full">
+			<div className="px-8 py-3 absolute right-0 bottom-full">
 				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
 					UNAFFILIATED WITH TAILWIND LABS
 				</h6>
@@ -249,7 +249,7 @@ const Sponsors = () => (
 						<div className="h-14 bg-purple-50 bg-opacity-18.75 rounded-full" style={{ width: tw(36 + Math.floor(Math.random() * (48 - 36))) }} />
 						{/* <ApplyDisplay className="hidden xl:block"> */}
 						{/* 	<div className="p-2 absolute inset-x-0 top-full"> */}
-						{/* 		<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-75"> */}
+						{/* 		<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-87.5"> */}
 						{/* 			<TextRow> */}
 						{/* 				“10x Browser Tests” */}
 						{/* 				<Space /> */}
@@ -303,7 +303,7 @@ const Hero = ({ state, dispatch }) => (
 				</div>
 
 				<div className="h-16" />
-				<div style={{ height: "var(--search-bar-height)" }} />
+				<div style={{ height: "var(--search-bar-negative-margin)" }} />
 			</div>
 		</header>
 
@@ -710,7 +710,7 @@ const IconApp = ({ state, dispatch }) => {
 	const media = useLayoutBreakpoints(screens)
 
 	return (
-		<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: "var(--search-bar-negative-margin)" }}>
+		<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: "calc(-1 * var(--search-bar-negative-margin))" }}>
 
 			{/* LHS */}
 			{/* */}
@@ -902,7 +902,7 @@ const Layout = () => {
 				{css`
 					html {
 						--search-bar-height: ${tw(18)};
-						--search-bar-negative-margin: ${tw(-1 * (18 + 6))};
+						--search-bar-negative-margin: ${tw(18 + 6)};
 					}
 				`}
 			</style>
