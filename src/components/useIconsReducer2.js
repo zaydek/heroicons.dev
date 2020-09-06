@@ -28,8 +28,8 @@ const initialState = {
 		},
 		copyAs: {
 			// name: false,
-			svgLiteral: true, // (Default)
-			jsxLiteral: false,
+			svg: true, // (Default)
+			jsx: false,
 			// jsxImport: false,
 			// jsxComponent: false,
 			// bladeComponent: false,
