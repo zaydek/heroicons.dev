@@ -453,6 +453,35 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 		}
 	}, [query, dispatch])
 
+	// "/" and "esc" shortcuts.
+	React.useEffect(() => {
+		const handler = e => {
+			const userPressedShortcut = (
+				(e.keyCode === 27 || e.key === "Escape") ||
+				(e.keyCode === 191 || e.key === "/")
+			)
+			if (!userPressedShortcut) {
+				// No-op
+				return
+			}
+			// Not focused:
+			if (document.activeElement !== inputRef.current) {
+				e.preventDefault()
+				inputRef.current.focus()
+			// Focused:
+			} else {
+				if (e.keyCode === 27 || e.key === "Escape") {
+					e.preventDefault()
+					setQuery("")
+				}
+			}
+		}
+		document.addEventListener("keydown", handler)
+		return () => {
+			document.removeEventListener("keydown", handler)
+		}
+	}, [query])
+
 	return (
 		// NOTE: Use h-full because of the absolute context.
 		<ApplyReset className="h-full">
@@ -482,7 +511,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							paddingLeft: tw(8 + 6 + 4),
 							paddingRight: tw(4 + (10 + 1) + (1 + 10 + 1) + (1 + 10) + 8),
 						}}
-						placeholder="Search"
+						placeholder={!inputFocused ? "Search (Press \"/\" to Focus)" : "Search"}
 						value={query}
 						onFocus={e => setInputFocused(true)}
 						onBlur={e => setInputFocused(false)}
