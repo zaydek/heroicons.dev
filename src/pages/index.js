@@ -909,12 +909,55 @@ const Layout = () => {
 	// TODO: Add support for syncing to localStorage.
 	const [state, dispatch] = useIconsReducer()
 
+	// const [darkMode, setDarkMode] = React.useState(() => {
+	// 	const ok = (
+	// 		window &&
+	// 		window.matchMedia &&
+	// 		window.matchMedia("(prefers-color-scheme: dark)") &&
+	// 		window.matchMedia("(prefers-color-scheme: dark)").matches
+	// 	)
+	// 	return ok
+	// })
+
+	const [darkMode, setDarkMode] = React.useState(false)
+
 	React.useEffect(() => {
-		if (navigator.userAgent.includes("Chrome")) {
-			const html = document.body.parentElement
-			html.classList.add("detected-chrome")
+		const media = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)")
+		if (!media) {
+			// No-op
+			return
+		}
+		const handler = () => {
+			setDarkMode(media.matches)
+		}
+		handler() // Once
+		media.addListener(handler)
+		return () => {
+			media.removeListener(handler)
 		}
 	}, [])
+
+	// html.dark
+	React.useEffect(() => {
+		const h = document.documentElement
+		if (!darkMode) {
+			h.classList.remove("dark")
+		} else {
+			h.classList.add("dark")
+		}
+	}, [darkMode])
+
+	// html.bg-*
+	React.useEffect(() => {
+		const h = document.documentElement
+		if (!darkMode) {
+			h.classList.remove("bg-black")
+			h.classList.add("bg-gray-50")
+		} else {
+			h.classList.remove("bg-gray-50")
+			h.classList.add("bg-black")
+		}
+	}, [darkMode])
 
 	return (
 		<>

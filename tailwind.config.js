@@ -3,7 +3,9 @@ const defaultTheme = require("tailwindcss/defaultTheme")
 const tw = n => `${n * 4 / 16}rem`
 
 module.exports = {
+	dark: "class",
 	experimental: {
+		darkModeVariant: true,
 		uniformColorPalette: true,
 	},
 	plugins: [
@@ -66,18 +68,15 @@ module.exports = {
 			md: (768) + "px",
 			lg: (24 + 1024 + 24) + "px",
 			xl: (24 + 1280 + 24) + "px",
-			"dark": {
-				"raw": "(prefers-color-scheme: dark)",
-			},
 		},
 	},
 	variants: {
-		typography: [],
-
-		backgroundColor: ({ after }) => after(["group-hover", "group-focus"]),
-		backgroundOpacity: ({ after }) => after(["group-hover", "group-focus"]),
+		// https://github.com/tailwindlabs/tailwindcss/pull/2322#issuecomment-687809373
+		backgroundColor: ({ after }) => after(["dark"]),
+		borderColor: ({ after }) => after(["dark"]),
 		opacity: ({ after }) => after(["group-hover", "group-focus"]),
+		placeholderColor: ({ after }) => after(["dark"]),
 		scale: ({ after }) => after(["group-hover", "group-focus"]),
-		textColor: ({ after }) => after(["group-hover", "group-focus"]),
+		textColor: ({ after }) => after(["group-hover", "group-focus", "dark"]), // *FIXME
 	},
 }
