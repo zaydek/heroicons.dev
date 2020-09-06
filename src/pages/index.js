@@ -7,7 +7,7 @@ import SVG from "components/SVG"
 import target_blank from "lib/x/target_blank"
 import toJSX from "utils/toCamelCase"
 import Transition from "lib/x/Transition"
-import useIconsReducer from "components/useIconsReducer2" // FIXME
+import useIconsReducer from "components/useIconsReducer"
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 import { rem, px, tw } from "lib/x/cssUnits"
 import { Space, EnSpace, EmSpace } from "lib/x/Spaces"
@@ -412,19 +412,18 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 	const media = useLayoutBreakpoints(screens)
 
-	const [inputElementFocused, setInputElementFocused] = React.useState(true)
 	const [query, setQuery] = React.useState(() => state.search.query.user)
 
 	const [tooltip, setTooltip] = React.useState("")
 
-	// Auto-focuses.
+	// Manages autofocus; <... autofocus> does not work.
 	React.useEffect(() => {
 		if (inputRef.current.autofocus) {
 			inputRef.current.focus()
 		}
 	}, [])
 
-	// Auto-scrolls.
+	// Manages scroll on search.
 	const mounted = React.useRef(false)
 	React.useEffect(() => {
 		if (process.env.NODE_ENV === "production") {
@@ -454,18 +453,15 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 	return (
 		// NOTE: Use h-full because of the absolute context.
 		<ApplyReset className="h-full">
-			<div className="relative">
+			<form className="relative text-gray-400 dark:text-gray-600 focus-within:text-purple-500" onSubmit={e => e.preventDefault()}>
 
 				{/* LHS */}
 				<div className="absolute left-0 inset-y-0">
 					<div className="px-8 pr-4 flex flex-row h-full">
 						<div className="flex flex-row items-center">
-							{/* TODO: Add group-hover? */}
-							{/* */}
-							{/* style={{ color: inputElementFocused && "var(--purple-600)" }} */}
-							<Apply className="w-6 h-6 text-gray-400 dark:text-gray-600">
+							<Apply className="w-6 h-6">
 								<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={!inputElementFocused ? 2 : 2.4} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
 								</svg>
 							</Apply>
 						</div>
@@ -476,15 +472,13 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 				<ApplyReset className="block w-full h-full bg-transparent focus:outline-none">
 					<input
 						ref={inputRef}
-						className="px-16 text-xl placeholder-gray-400 text-gray-800"
+						className="px-16 text-xl placeholder-gray-400 dark:placeholder-gray-600 text-gray-800 dark:text-gray-200"
 						style={{
 							paddingLeft: tw(8 + 6 + 4),
 							paddingRight: tw(4 + (10 + 1) + (1 + 10 + 1) + (1 + 10) + 8), // TODO: Add media.sm here.
 						}}
 						placeholder="Search"
 						value={query}
-						onFocus={e => setInputElementFocused(true)}
-						onBlur={e => setInputElementFocused(false)}
 						onChange={e => setQuery(e.target.value)}
 						autoFocus
 						{...disableAutoCorrect}
@@ -506,7 +500,6 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							<ApplyReset className="focus:outline-none">
 								<Apply className="transition duration-200 ease-in-out">
 									<button
-										// NOTE: Use purple-500 not purple-600.
 										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full"
 										style={{
 											color: state.controls.variant.solid && "var(--purple-50)",
@@ -556,7 +549,6 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							<ApplyReset className="focus:outline-none">
 								<Apply className="transition duration-200 ease-in-out">
 									<button
-										// NOTE: Use purple-500 not purple-600.
 										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full"
 										style={{
 											color: state.controls.copyAs.jsx && "var(--purple-50)",
@@ -614,7 +606,6 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							<ApplyReset className="focus:outline-none">
 								<Apply className="transition duration-200 ease-in-out">
 									<button
-										// NOTE: Use purple-500 not purple-600.
 										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full"
 										style={{
 											color: state.controls.theme.darkMode && "var(--purple-50)",
@@ -656,7 +647,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 					</div>
 				</div>
 
-			</div>
+			</form>
 		</ApplyReset>
 	)
 }, (prev, next) => {
@@ -706,7 +697,7 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
 			<div className="absolute inset-0">
 				<div className="flex flex-row justify-center items-center h-full">
 					<Apply className="w-8 h-8 text-gray-800 dark:text-gray-200 group-hover:text-purple-600 group-focus:text-purple-600 dark:group-hover:text-purple-50 dark:group-focus:text-purple-50">
-						<SVG svg={icon.svgs[variant]} />
+						<SVG id={icon.name} svg={icon.svgs[variant]} />
 					</Apply>
 				</div>
 			</div>
