@@ -653,11 +653,11 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
 
 			{/* Icon */}
 			<div className="flex flex-row justify-center items-center h-full">
-				<div className="w-20 h-20 bg-transparent group-hover:bg-purple-50 group-focus:bg-purple-50 rounded-full transform scale-0 group-hover:scale-100 group-focus:scale-100 transition duration-200 ease-out" />
+				<div className="w-20 h-20 bg-transparent group-hover:bg-purple-50 group-focus:bg-purple-50 dark:group-hover:bg-purple-600 dark:group-focus:bg-purple-600 rounded-full transform scale-0 group-hover:scale-100 group-focus:scale-100 transition duration-200 ease-out" />
 			</div>
 			<div className="absolute inset-0">
 				<div className="flex flex-row justify-center items-center h-full">
-					<Apply className="w-8 h-8 text-gray-800 group-hover:text-purple-600 group-focus:text-purple-600">
+					<Apply className="w-8 h-8 text-gray-800 dark:text-gray-200 group-hover:text-purple-600 group-focus:text-purple-600 dark:group-hover:text-purple-50 dark:group-focus:text-purple-50">
 						<SVG svg={icon.icons[variant]} />
 					</Apply>
 				</div>
