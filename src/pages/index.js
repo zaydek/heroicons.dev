@@ -1,11 +1,13 @@
 import Apply from "lib/x/Apply"
 import ApplyDisplay from "lib/x/ApplyDisplay"
 import ApplyReset from "lib/x/ApplyReset"
+import copyToClipboardPolyfill from "utils/copyToClipboardPolyfill"
 import css from "lib/x/tpl"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import SVG from "components/SVG"
 import target_blank from "lib/x/target_blank"
-import toJSX from "utils/toCamelCase"
+import toCamelCase from "utils/toCamelCase"
+import toJSX from "utils/svgToJSX"
 import Transition from "lib/x/Transition"
 import useIconsReducer from "components/useIconsReducer"
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
@@ -657,46 +659,94 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 	return ok
 })
 
-const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
-	// NOTE: Use h-full because of the absolute context.
-	<ApplyReset className="block w-full h-full focus:outline-none">
-		<button className="group relative">
+const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => {
+	const handleClick = e => {
+		// // No-op when the user selected buttonRef.current text:
+		// const selection = document.getSelection()
+		// if (selection.rangeCount) {
+		// 	const range = selection.getRangeAt(0)
+		// 	if (!range.collapsed && buttonRef.current.contains(range.startContainer)) {
+		// 		// No-op
+		// 		return
+		// 	}
+		// }
+		try {
+			const svg = document.getElementById(icon.name)
+			const clonedSVG = svg.cloneNode(true)
 
-			{/* Icon */}
-			<div className="flex flex-row justify-center items-center h-full">
-				<Apply className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transform scale-0 group-hover:scale-100 group-focus:scale-100">
-					{/* NOTE: Use ease-out not ease-in-out. */}
-					<Apply className="transition duration-200 ease-out">
-						<div className="w-20 h-20 bg-transparent bg-purple-500 dark:bg-purple-600 bg-opacity-12.5 dark:bg-opacity-100 rounded-full" />
-					</Apply>
-				</Apply>
-			</div>
-			<div className="absolute inset-0">
+			clonedSVG.removeAttribute("id")
+			clonedSVG.classList.remove(...clonedSVG.classList)
+			clonedSVG.classList.add(...["w-6", "h-6"])
+			clonedSVG.setAttribute("xmlns", "http://www.w3.org/2000/svg")
+
+			// Remove unsorted attributes:
+			const sortedAttrs = [...clonedSVG.attributes].sort((a, b) => a.name.localeCompare(b.name))
+			for (const each of sortedAttrs) {
+				clonedSVG.removeAttributeNode(each)
+			}
+			// Add sorted attributes:
+			for (const each of sortedAttrs) {
+				clonedSVG.setAttributeNode(each)
+			}
+
+			copyToClipboardPolyfill(!copyAsJSX ? clonedSVG.outerHTML : toJSX(clonedSVG.outerHTML))
+			svg.closest("button").focus()
+		} catch (error) {
+			console.error(`MemoIcon.handleClick: ${error}`)
+		}
+		// const notifType = "icon"
+		// const notifInfo = {
+		// 	name: icon.name,
+		// 	icon: icon[!state.form.showOutline ? "solid" : "outline"],
+		// }
+		// dispatch({
+		// 	type: "UPDATE_NOTIFICATION",
+		// 	notifType,
+		// 	notifInfo,
+		// })
+	}
+
+	return (
+		// NOTE: Use h-full because of the absolute context.
+		<ApplyReset className="block w-full h-full focus:outline-none">
+			<button className="group relative" onClick={handleClick}>
+
+				{/* Icon */}
 				<div className="flex flex-row justify-center items-center h-full">
-					<Apply className="w-8 h-8 text-cool-gray-800 dark:text-cool-gray-200 group-hover:text-purple-600 group-focus:text-purple-600 dark:group-hover:text-purple-50 dark:group-focus:text-purple-50">
-						<SVG id={icon.name} svg={icon.svgs[variant]} />
+					<Apply className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transform scale-0 group-hover:scale-100 group-focus:scale-100">
+						{/* NOTE: Use ease-out not ease-in-out. */}
+						<Apply className="transition duration-200 ease-out">
+							<div className="w-20 h-20 bg-transparent bg-purple-500 dark:bg-purple-600 bg-opacity-12.5 dark:bg-opacity-100 rounded-full" />
+						</Apply>
 					</Apply>
 				</div>
-			</div>
-
-			{/* Name */}
-			<div className="p-4 absolute inset-x-0 bottom-0">
-				<div className="-mx-2 -my-1 flex flex-row justify-center">
-					<ApplyReset className="subpixel-antialiased">
-						<p className="px-2 py-1 tracking-wide leading-tight text-cool-gray-600 dark:text-cool-gray-400 cursor-text select-text" style={{ fontSize: px(13) }}>
-							{!copyAsJSX ? (
-								icon.name
-							) : (
-								toJSX(icon.name)
-							)}
-						</p>
-					</ApplyReset>
+				<div className="absolute inset-0">
+					<div className="flex flex-row justify-center items-center h-full">
+						<Apply className="w-8 h-8 text-cool-gray-800 dark:text-cool-gray-200 group-hover:text-purple-600 group-focus:text-purple-600 dark:group-hover:text-purple-50 dark:group-focus:text-purple-50">
+							<SVG id={icon.name} svg={icon.svgs[variant]} />
+						</Apply>
+					</div>
 				</div>
-			</div>
 
-		</button>
-	</ApplyReset>
-))
+				{/* Name */}
+				<div className="p-4 absolute inset-x-0 bottom-0">
+					<div className="-mx-2 -my-1 flex flex-row justify-center">
+						<ApplyReset className="subpixel-antialiased">
+							<p className="px-2 py-1 tracking-wide leading-tight text-cool-gray-600 dark:text-cool-gray-400 cursor-text select-text" style={{ fontSize: px(13) }}>
+								{!copyAsJSX ? (
+									icon.name
+								) : (
+									toCamelCase(icon.name)
+								)}
+							</p>
+						</ApplyReset>
+					</div>
+				</div>
+
+			</button>
+		</ApplyReset>
+	)
+})
 
 const IconApp = ({ state, dispatch }) => {
 	const media = useLayoutBreakpoints(screens)
