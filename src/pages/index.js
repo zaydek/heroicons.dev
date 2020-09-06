@@ -5,7 +5,7 @@ import css from "lib/x/tpl"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import SVG from "components/SVG"
 import target_blank from "lib/x/target_blank"
-import toJSX from "components/toCamelCase"
+import toJSX from "utils/toCamelCase"
 import Transition from "lib/x/Transition"
 import useIconsReducer from "components/useIconsReducer2" // FIXME
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
@@ -706,7 +706,7 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
 			<div className="absolute inset-0">
 				<div className="flex flex-row justify-center items-center h-full">
 					<Apply className="w-8 h-8 text-gray-800 dark:text-gray-200 group-hover:text-purple-600 group-focus:text-purple-600 dark:group-hover:text-purple-50 dark:group-focus:text-purple-50">
-						<SVG svg={icon.icons[variant]} />
+						<SVG svg={icon.svgs[variant]} />
 					</Apply>
 				</div>
 			</div>

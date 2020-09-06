@@ -1,27 +1,17 @@
-// Tests for the presence of "iPhone" or "iPad" in the user
-// agent string.
-function testForiOS() {
-	return navigator.userAgent.match(/iphone|ipad/i)
+function testAppleiOS() {
+	return navigator.userAgent.match(/iPhone|iPad/)
 }
 
-// Copies plaintext to the clipboard. Note that the
-// navigator.clipboard.writeText **does not** work in Safari
-// as of 13.0.x.
-//
 // https://github.com/codex-src/heroicons-viewer/pull/4
-function copyToClipboardPolyfill(plaintext) {
-
-	// Mount a <textarea>:
+function copyToClipboardPolyfill(text) {
 	const textarea = document.createElement("textarea")
 	textarea.style.position = "absolute"
 	textarea.style.left = "-9999px"
 	textarea.style.top = "-9999px"
-	textarea.value = plaintext
+	textarea.value = text
 	document.body.appendChild(textarea)
-
-	// Select and copy the <textarea> text:
 	const selection = document.getSelection()
-	if (testForiOS()) {
+	if (testAppleiOS()) {
 		const range = document.createRange()
 		range.selectNodeContents(textarea)
 		selection.removeAllRanges()
@@ -31,11 +21,8 @@ function copyToClipboardPolyfill(plaintext) {
 		textarea.select()
 	}
 	document.execCommand("copy")
-
-	// Unmount <textarea>:
 	selection.removeAllRanges()
 	document.body.removeChild(textarea)
-
 }
 
 export default copyToClipboardPolyfill

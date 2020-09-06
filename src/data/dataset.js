@@ -6,7 +6,7 @@ const dataset = [
 	{
 		name: "academic-cap",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.AcademicCap,
 			outline: Outline.AcademicCap,
 		},
@@ -15,7 +15,7 @@ const dataset = [
 	{
 		name: "adjustments",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Adjustments,
 			outline: Outline.Adjustments,
 		},
@@ -24,7 +24,7 @@ const dataset = [
 	{
 		name: "annotation",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Annotation,
 			outline: Outline.Annotation,
 		},
@@ -33,7 +33,7 @@ const dataset = [
 	{
 		name: "archive",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Archive,
 			outline: Outline.Archive,
 		},
@@ -42,7 +42,7 @@ const dataset = [
 	{
 		name: "arrow-circle-down",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ArrowCircleDown,
 			outline: Outline.ArrowCircleDown,
 		},
@@ -51,7 +51,7 @@ const dataset = [
 	{
 		name: "arrow-circle-left",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ArrowCircleLeft,
 			outline: Outline.ArrowCircleLeft,
 		},
@@ -60,7 +60,7 @@ const dataset = [
 	{
 		name: "arrow-circle-right",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ArrowCircleRight,
 			outline: Outline.ArrowCircleRight,
 		},
@@ -69,7 +69,7 @@ const dataset = [
 	{
 		name: "arrow-circle-up",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ArrowCircleUp,
 			outline: Outline.ArrowCircleUp,
 		},
@@ -78,7 +78,7 @@ const dataset = [
 	{
 		name: "arrow-down",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ArrowDown,
 			outline: Outline.ArrowDown,
 		},
@@ -87,7 +87,7 @@ const dataset = [
 	{
 		name: "arrow-left",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ArrowLeft,
 			outline: Outline.ArrowLeft,
 		},
@@ -96,7 +96,7 @@ const dataset = [
 	{
 		name: "arrow-narrow-down",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ArrowNarrowDown,
 			outline: Outline.ArrowNarrowDown,
 		},
@@ -105,7 +105,7 @@ const dataset = [
 	{
 		name: "arrow-narrow-left",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ArrowNarrowLeft,
 			outline: Outline.ArrowNarrowLeft,
 		},
@@ -114,7 +114,7 @@ const dataset = [
 	{
 		name: "arrow-narrow-right",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ArrowNarrowRight,
 			outline: Outline.ArrowNarrowRight,
 		},
@@ -123,7 +123,7 @@ const dataset = [
 	{
 		name: "arrow-narrow-up",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ArrowNarrowUp,
 			outline: Outline.ArrowNarrowUp,
 		},
@@ -132,7 +132,7 @@ const dataset = [
 	{
 		name: "arrow-right",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ArrowRight,
 			outline: Outline.ArrowRight,
 		},
@@ -141,7 +141,7 @@ const dataset = [
 	{
 		name: "arrows-expand",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ArrowsExpand,
 			outline: Outline.ArrowsExpand,
 		},
@@ -150,7 +150,7 @@ const dataset = [
 	{
 		name: "arrow-up",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ArrowUp,
 			outline: Outline.ArrowUp,
 		},
@@ -159,7 +159,7 @@ const dataset = [
 	{
 		name: "at-symbol",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.AtSymbol,
 			outline: Outline.AtSymbol,
 		},
@@ -168,7 +168,7 @@ const dataset = [
 	{
 		name: "backspace",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Backspace,
 			outline: Outline.Backspace,
 		},
@@ -177,7 +177,7 @@ const dataset = [
 	{
 		name: "badge-check",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.BadgeCheck,
 			outline: Outline.BadgeCheck,
 		},
@@ -186,7 +186,7 @@ const dataset = [
 	{
 		name: "ban",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Ban,
 			outline: Outline.Ban,
 		},
@@ -195,7 +195,7 @@ const dataset = [
 	{
 		name: "beaker",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Beaker,
 			outline: Outline.Beaker,
 		},
@@ -204,7 +204,7 @@ const dataset = [
 	{
 		name: "bell",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Bell,
 			outline: Outline.Bell,
 		},
@@ -213,7 +213,7 @@ const dataset = [
 	{
 		name: "bookmark",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Bookmark,
 			outline: Outline.Bookmark,
 		},
@@ -222,7 +222,7 @@ const dataset = [
 	{
 		name: "bookmark-alt",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.BookmarkAlt,
 			outline: Outline.BookmarkAlt,
 		},
@@ -231,7 +231,7 @@ const dataset = [
 	{
 		name: "book-open",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.BookOpen,
 			outline: Outline.BookOpen,
 		},
@@ -240,7 +240,7 @@ const dataset = [
 	{
 		name: "briefcase",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Briefcase,
 			outline: Outline.Briefcase,
 		},
@@ -249,7 +249,7 @@ const dataset = [
 	{
 		name: "cake",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Cake,
 			outline: Outline.Cake,
 		},
@@ -258,7 +258,7 @@ const dataset = [
 	{
 		name: "calculator",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Calculator,
 			outline: Outline.Calculator,
 		},
@@ -267,7 +267,7 @@ const dataset = [
 	{
 		name: "calendar",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Calendar,
 			outline: Outline.Calendar,
 		},
@@ -276,7 +276,7 @@ const dataset = [
 	{
 		name: "camera",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Camera,
 			outline: Outline.Camera,
 		},
@@ -285,7 +285,7 @@ const dataset = [
 	{
 		name: "cash",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Cash,
 			outline: Outline.Cash,
 		},
@@ -294,7 +294,7 @@ const dataset = [
 	{
 		name: "chart-bar",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ChartBar,
 			outline: Outline.ChartBar,
 		},
@@ -303,7 +303,7 @@ const dataset = [
 	{
 		name: "chart-pie",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ChartPie,
 			outline: Outline.ChartPie,
 		},
@@ -312,7 +312,7 @@ const dataset = [
 	{
 		name: "chart-square-bar",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ChartSquareBar,
 			outline: Outline.ChartSquareBar,
 		},
@@ -321,7 +321,7 @@ const dataset = [
 	{
 		name: "chat",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Chat,
 			outline: Outline.Chat,
 		},
@@ -330,7 +330,7 @@ const dataset = [
 	{
 		name: "chat-alt",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ChatAlt,
 			outline: Outline.ChatAlt,
 		},
@@ -339,7 +339,7 @@ const dataset = [
 	{
 		name: "chat-alt2",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ChatAlt2,
 			outline: Outline.ChatAlt2,
 		},
@@ -348,7 +348,7 @@ const dataset = [
 	{
 		name: "check",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Check,
 			outline: Outline.Check,
 		},
@@ -357,7 +357,7 @@ const dataset = [
 	{
 		name: "check-circle",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.CheckCircle,
 			outline: Outline.CheckCircle,
 		},
@@ -366,7 +366,7 @@ const dataset = [
 	{
 		name: "chevron-double-down",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ChevronDoubleDown,
 			outline: Outline.ChevronDoubleDown,
 		},
@@ -375,7 +375,7 @@ const dataset = [
 	{
 		name: "chevron-double-left",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ChevronDoubleLeft,
 			outline: Outline.ChevronDoubleLeft,
 		},
@@ -384,7 +384,7 @@ const dataset = [
 	{
 		name: "chevron-double-right",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ChevronDoubleRight,
 			outline: Outline.ChevronDoubleRight,
 		},
@@ -393,7 +393,7 @@ const dataset = [
 	{
 		name: "chevron-double-up",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ChevronDoubleUp,
 			outline: Outline.ChevronDoubleUp,
 		},
@@ -402,7 +402,7 @@ const dataset = [
 	{
 		name: "chevron-down",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ChevronDown,
 			outline: Outline.ChevronDown,
 		},
@@ -411,7 +411,7 @@ const dataset = [
 	{
 		name: "chevron-left",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ChevronLeft,
 			outline: Outline.ChevronLeft,
 		},
@@ -420,7 +420,7 @@ const dataset = [
 	{
 		name: "chevron-right",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ChevronRight,
 			outline: Outline.ChevronRight,
 		},
@@ -429,7 +429,7 @@ const dataset = [
 	{
 		name: "chevron-up",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ChevronUp,
 			outline: Outline.ChevronUp,
 		},
@@ -438,7 +438,7 @@ const dataset = [
 	{
 		name: "chip",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Chip,
 			outline: Outline.Chip,
 		},
@@ -447,7 +447,7 @@ const dataset = [
 	{
 		name: "clipboard",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Clipboard,
 			outline: Outline.Clipboard,
 		},
@@ -456,7 +456,7 @@ const dataset = [
 	{
 		name: "clipboard-check",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ClipboardCheck,
 			outline: Outline.ClipboardCheck,
 		},
@@ -465,7 +465,7 @@ const dataset = [
 	{
 		name: "clipboard-copy",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ClipboardCopy,
 			outline: Outline.ClipboardCopy,
 		},
@@ -474,7 +474,7 @@ const dataset = [
 	{
 		name: "clipboard-list",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ClipboardList,
 			outline: Outline.ClipboardList,
 		},
@@ -483,7 +483,7 @@ const dataset = [
 	{
 		name: "clock",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Clock,
 			outline: Outline.Clock,
 		},
@@ -492,7 +492,7 @@ const dataset = [
 	{
 		name: "cloud",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Cloud,
 			outline: Outline.Cloud,
 		},
@@ -501,7 +501,7 @@ const dataset = [
 	{
 		name: "cloud-download",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.CloudDownload,
 			outline: Outline.CloudDownload,
 		},
@@ -510,7 +510,7 @@ const dataset = [
 	{
 		name: "cloud-upload",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.CloudUpload,
 			outline: Outline.CloudUpload,
 		},
@@ -519,7 +519,7 @@ const dataset = [
 	{
 		name: "code",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Code,
 			outline: Outline.Code,
 		},
@@ -528,7 +528,7 @@ const dataset = [
 	{
 		name: "cog",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Cog,
 			outline: Outline.Cog,
 		},
@@ -537,7 +537,7 @@ const dataset = [
 	{
 		name: "collection",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Collection,
 			outline: Outline.Collection,
 		},
@@ -546,7 +546,7 @@ const dataset = [
 	{
 		name: "color-swatch",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ColorSwatch,
 			outline: Outline.ColorSwatch,
 		},
@@ -555,7 +555,7 @@ const dataset = [
 	{
 		name: "credit-card",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.CreditCard,
 			outline: Outline.CreditCard,
 		},
@@ -564,7 +564,7 @@ const dataset = [
 	{
 		name: "cube",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Cube,
 			outline: Outline.Cube,
 		},
@@ -573,7 +573,7 @@ const dataset = [
 	{
 		name: "cube-transparent",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.CubeTransparent,
 			outline: Outline.CubeTransparent,
 		},
@@ -582,7 +582,7 @@ const dataset = [
 	{
 		name: "currency-bangladeshi",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.CurrencyBangladeshi,
 			outline: Outline.CurrencyBangladeshi,
 		},
@@ -591,7 +591,7 @@ const dataset = [
 	{
 		name: "currency-dollar",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.CurrencyDollar,
 			outline: Outline.CurrencyDollar,
 		},
@@ -600,7 +600,7 @@ const dataset = [
 	{
 		name: "currency-euro",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.CurrencyEuro,
 			outline: Outline.CurrencyEuro,
 		},
@@ -609,7 +609,7 @@ const dataset = [
 	{
 		name: "currency-pound",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.CurrencyPound,
 			outline: Outline.CurrencyPound,
 		},
@@ -618,7 +618,7 @@ const dataset = [
 	{
 		name: "currency-rupee",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.CurrencyRupee,
 			outline: Outline.CurrencyRupee,
 		},
@@ -627,7 +627,7 @@ const dataset = [
 	{
 		name: "currency-yen",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.CurrencyYen,
 			outline: Outline.CurrencyYen,
 		},
@@ -636,7 +636,7 @@ const dataset = [
 	{
 		name: "cursor-click",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.CursorClick,
 			outline: Outline.CursorClick,
 		},
@@ -645,7 +645,7 @@ const dataset = [
 	{
 		name: "database",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Database,
 			outline: Outline.Database,
 		},
@@ -654,7 +654,7 @@ const dataset = [
 	{
 		name: "desktop-computer",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.DesktopComputer,
 			outline: Outline.DesktopComputer,
 		},
@@ -663,7 +663,7 @@ const dataset = [
 	{
 		name: "device-mobile",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.DeviceMobile,
 			outline: Outline.DeviceMobile,
 		},
@@ -672,7 +672,7 @@ const dataset = [
 	{
 		name: "device-tablet",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.DeviceTablet,
 			outline: Outline.DeviceTablet,
 		},
@@ -681,7 +681,7 @@ const dataset = [
 	{
 		name: "document",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Document,
 			outline: Outline.Document,
 		},
@@ -690,7 +690,7 @@ const dataset = [
 	{
 		name: "document-add",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.DocumentAdd,
 			outline: Outline.DocumentAdd,
 		},
@@ -699,7 +699,7 @@ const dataset = [
 	{
 		name: "document-download",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.DocumentDownload,
 			outline: Outline.DocumentDownload,
 		},
@@ -708,7 +708,7 @@ const dataset = [
 	{
 		name: "document-duplicate",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.DocumentDuplicate,
 			outline: Outline.DocumentDuplicate,
 		},
@@ -717,7 +717,7 @@ const dataset = [
 	{
 		name: "document-remove",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.DocumentRemove,
 			outline: Outline.DocumentRemove,
 		},
@@ -726,7 +726,7 @@ const dataset = [
 	{
 		name: "document-report",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.DocumentReport,
 			outline: Outline.DocumentReport,
 		},
@@ -735,7 +735,7 @@ const dataset = [
 	{
 		name: "document-search",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.DocumentSearch,
 			outline: Outline.DocumentSearch,
 		},
@@ -744,7 +744,7 @@ const dataset = [
 	{
 		name: "document-text",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.DocumentText,
 			outline: Outline.DocumentText,
 		},
@@ -753,7 +753,7 @@ const dataset = [
 	{
 		name: "dots-circle-horizontal",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.DotsCircleHorizontal,
 			outline: Outline.DotsCircleHorizontal,
 		},
@@ -762,7 +762,7 @@ const dataset = [
 	{
 		name: "dots-horizontal",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.DotsHorizontal,
 			outline: Outline.DotsHorizontal,
 		},
@@ -771,7 +771,7 @@ const dataset = [
 	{
 		name: "dots-vertical",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.DotsVertical,
 			outline: Outline.DotsVertical,
 		},
@@ -780,7 +780,7 @@ const dataset = [
 	{
 		name: "download",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Download,
 			outline: Outline.Download,
 		},
@@ -789,7 +789,7 @@ const dataset = [
 	{
 		name: "duplicate",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Duplicate,
 			outline: Outline.Duplicate,
 		},
@@ -798,7 +798,7 @@ const dataset = [
 	{
 		name: "emoji-happy",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.EmojiHappy,
 			outline: Outline.EmojiHappy,
 		},
@@ -807,7 +807,7 @@ const dataset = [
 	{
 		name: "emoji-sad",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.EmojiSad,
 			outline: Outline.EmojiSad,
 		},
@@ -816,7 +816,7 @@ const dataset = [
 	{
 		name: "exclamation",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Exclamation,
 			outline: Outline.Exclamation,
 		},
@@ -825,7 +825,7 @@ const dataset = [
 	{
 		name: "exclamation-circle",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ExclamationCircle,
 			outline: Outline.ExclamationCircle,
 		},
@@ -834,7 +834,7 @@ const dataset = [
 	{
 		name: "external-link",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ExternalLink,
 			outline: Outline.ExternalLink,
 		},
@@ -843,7 +843,7 @@ const dataset = [
 	{
 		name: "eye",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Eye,
 			outline: Outline.Eye,
 		},
@@ -852,7 +852,7 @@ const dataset = [
 	{
 		name: "eye-off",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.EyeOff,
 			outline: Outline.EyeOff,
 		},
@@ -861,7 +861,7 @@ const dataset = [
 	{
 		name: "fast-forward",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.FastForward,
 			outline: Outline.FastForward,
 		},
@@ -870,7 +870,7 @@ const dataset = [
 	{
 		name: "film",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Film,
 			outline: Outline.Film,
 		},
@@ -879,7 +879,7 @@ const dataset = [
 	{
 		name: "filter",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Filter,
 			outline: Outline.Filter,
 		},
@@ -888,7 +888,7 @@ const dataset = [
 	{
 		name: "finger-print",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.FingerPrint,
 			outline: Outline.FingerPrint,
 		},
@@ -897,7 +897,7 @@ const dataset = [
 	{
 		name: "fire",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Fire,
 			outline: Outline.Fire,
 		},
@@ -906,7 +906,7 @@ const dataset = [
 	{
 		name: "flag",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Flag,
 			outline: Outline.Flag,
 		},
@@ -915,7 +915,7 @@ const dataset = [
 	{
 		name: "folder",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Folder,
 			outline: Outline.Folder,
 		},
@@ -924,7 +924,7 @@ const dataset = [
 	{
 		name: "folder-add",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.FolderAdd,
 			outline: Outline.FolderAdd,
 		},
@@ -933,7 +933,7 @@ const dataset = [
 	{
 		name: "folder-download",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.FolderDownload,
 			outline: Outline.FolderDownload,
 		},
@@ -942,7 +942,7 @@ const dataset = [
 	{
 		name: "folder-open",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.FolderOpen,
 			outline: Outline.FolderOpen,
 		},
@@ -951,7 +951,7 @@ const dataset = [
 	{
 		name: "folder-remove",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.FolderRemove,
 			outline: Outline.FolderRemove,
 		},
@@ -960,7 +960,7 @@ const dataset = [
 	{
 		name: "gift",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Gift,
 			outline: Outline.Gift,
 		},
@@ -969,7 +969,7 @@ const dataset = [
 	{
 		name: "globe",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Globe,
 			outline: Outline.Globe,
 		},
@@ -978,7 +978,7 @@ const dataset = [
 	{
 		name: "globe-alt",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.GlobeAlt,
 			outline: Outline.GlobeAlt,
 		},
@@ -987,7 +987,7 @@ const dataset = [
 	{
 		name: "hand",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Hand,
 			outline: Outline.Hand,
 		},
@@ -996,7 +996,7 @@ const dataset = [
 	{
 		name: "hashtag",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Hashtag,
 			outline: Outline.Hashtag,
 		},
@@ -1005,7 +1005,7 @@ const dataset = [
 	{
 		name: "heart",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Heart,
 			outline: Outline.Heart,
 		},
@@ -1014,7 +1014,7 @@ const dataset = [
 	{
 		name: "home",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Home,
 			outline: Outline.Home,
 		},
@@ -1023,7 +1023,7 @@ const dataset = [
 	{
 		name: "identification",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Identification,
 			outline: Outline.Identification,
 		},
@@ -1032,7 +1032,7 @@ const dataset = [
 	{
 		name: "inbox",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Inbox,
 			outline: Outline.Inbox,
 		},
@@ -1041,7 +1041,7 @@ const dataset = [
 	{
 		name: "inbox-in",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.InboxIn,
 			outline: Outline.InboxIn,
 		},
@@ -1050,7 +1050,7 @@ const dataset = [
 	{
 		name: "information-circle",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.InformationCircle,
 			outline: Outline.InformationCircle,
 		},
@@ -1059,7 +1059,7 @@ const dataset = [
 	{
 		name: "key",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Key,
 			outline: Outline.Key,
 		},
@@ -1068,7 +1068,7 @@ const dataset = [
 	{
 		name: "library",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Library,
 			outline: Outline.Library,
 		},
@@ -1077,7 +1077,7 @@ const dataset = [
 	{
 		name: "light-bulb",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.LightBulb,
 			outline: Outline.LightBulb,
 		},
@@ -1086,7 +1086,7 @@ const dataset = [
 	{
 		name: "lightning-bolt",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.LightningBolt,
 			outline: Outline.LightningBolt,
 		},
@@ -1095,7 +1095,7 @@ const dataset = [
 	{
 		name: "link",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Link,
 			outline: Outline.Link,
 		},
@@ -1104,7 +1104,7 @@ const dataset = [
 	{
 		name: "location-marker",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.LocationMarker,
 			outline: Outline.LocationMarker,
 		},
@@ -1113,7 +1113,7 @@ const dataset = [
 	{
 		name: "lock-closed",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.LockClosed,
 			outline: Outline.LockClosed,
 		},
@@ -1122,7 +1122,7 @@ const dataset = [
 	{
 		name: "lock-open",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.LockOpen,
 			outline: Outline.LockOpen,
 		},
@@ -1131,7 +1131,7 @@ const dataset = [
 	{
 		name: "login",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Login,
 			outline: Outline.Login,
 		},
@@ -1140,7 +1140,7 @@ const dataset = [
 	{
 		name: "logout",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Logout,
 			outline: Outline.Logout,
 		},
@@ -1149,7 +1149,7 @@ const dataset = [
 	{
 		name: "mail",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Mail,
 			outline: Outline.Mail,
 		},
@@ -1158,7 +1158,7 @@ const dataset = [
 	{
 		name: "mail-open",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.MailOpen,
 			outline: Outline.MailOpen,
 		},
@@ -1167,7 +1167,7 @@ const dataset = [
 	{
 		name: "map",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Map,
 			outline: Outline.Map,
 		},
@@ -1176,7 +1176,7 @@ const dataset = [
 	{
 		name: "menu",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Menu,
 			outline: Outline.Menu,
 		},
@@ -1185,7 +1185,7 @@ const dataset = [
 	{
 		name: "menu-alt1",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.MenuAlt1,
 			outline: Outline.MenuAlt1,
 		},
@@ -1194,7 +1194,7 @@ const dataset = [
 	{
 		name: "menu-alt2",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.MenuAlt2,
 			outline: Outline.MenuAlt2,
 		},
@@ -1203,7 +1203,7 @@ const dataset = [
 	{
 		name: "menu-alt3",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.MenuAlt3,
 			outline: Outline.MenuAlt3,
 		},
@@ -1212,7 +1212,7 @@ const dataset = [
 	{
 		name: "menu-alt4",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.MenuAlt4,
 			outline: Outline.MenuAlt4,
 		},
@@ -1221,7 +1221,7 @@ const dataset = [
 	{
 		name: "microphone",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Microphone,
 			outline: Outline.Microphone,
 		},
@@ -1230,7 +1230,7 @@ const dataset = [
 	{
 		name: "minus",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Minus,
 			outline: Outline.Minus,
 		},
@@ -1239,7 +1239,7 @@ const dataset = [
 	{
 		name: "minus-circle",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.MinusCircle,
 			outline: Outline.MinusCircle,
 		},
@@ -1248,7 +1248,7 @@ const dataset = [
 	{
 		name: "moon",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Moon,
 			outline: Outline.Moon,
 		},
@@ -1257,7 +1257,7 @@ const dataset = [
 	{
 		name: "music-note",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.MusicNote,
 			outline: Outline.MusicNote,
 		},
@@ -1266,7 +1266,7 @@ const dataset = [
 	{
 		name: "newspaper",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Newspaper,
 			outline: Outline.Newspaper,
 		},
@@ -1275,7 +1275,7 @@ const dataset = [
 	{
 		name: "office-building",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.OfficeBuilding,
 			outline: Outline.OfficeBuilding,
 		},
@@ -1284,7 +1284,7 @@ const dataset = [
 	{
 		name: "paper-airplane",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.PaperAirplane,
 			outline: Outline.PaperAirplane,
 		},
@@ -1293,7 +1293,7 @@ const dataset = [
 	{
 		name: "paper-clip",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.PaperClip,
 			outline: Outline.PaperClip,
 		},
@@ -1302,7 +1302,7 @@ const dataset = [
 	{
 		name: "pause",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Pause,
 			outline: Outline.Pause,
 		},
@@ -1311,7 +1311,7 @@ const dataset = [
 	{
 		name: "pencil",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Pencil,
 			outline: Outline.Pencil,
 		},
@@ -1320,7 +1320,7 @@ const dataset = [
 	{
 		name: "pencil-alt",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.PencilAlt,
 			outline: Outline.PencilAlt,
 		},
@@ -1329,7 +1329,7 @@ const dataset = [
 	{
 		name: "phone",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Phone,
 			outline: Outline.Phone,
 		},
@@ -1338,7 +1338,7 @@ const dataset = [
 	{
 		name: "phone-incoming",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.PhoneIncoming,
 			outline: Outline.PhoneIncoming,
 		},
@@ -1347,7 +1347,7 @@ const dataset = [
 	{
 		name: "phone-missed-call",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.PhoneMissedCall,
 			outline: Outline.PhoneMissedCall,
 		},
@@ -1356,7 +1356,7 @@ const dataset = [
 	{
 		name: "phone-outgoing",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.PhoneOutgoing,
 			outline: Outline.PhoneOutgoing,
 		},
@@ -1365,7 +1365,7 @@ const dataset = [
 	{
 		name: "photograph",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Photograph,
 			outline: Outline.Photograph,
 		},
@@ -1374,7 +1374,7 @@ const dataset = [
 	{
 		name: "play",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Play,
 			outline: Outline.Play,
 		},
@@ -1383,7 +1383,7 @@ const dataset = [
 	{
 		name: "plus",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Plus,
 			outline: Outline.Plus,
 		},
@@ -1392,7 +1392,7 @@ const dataset = [
 	{
 		name: "plus-circle",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.PlusCircle,
 			outline: Outline.PlusCircle,
 		},
@@ -1401,7 +1401,7 @@ const dataset = [
 	{
 		name: "presentation-chart-bar",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.PresentationChartBar,
 			outline: Outline.PresentationChartBar,
 		},
@@ -1410,7 +1410,7 @@ const dataset = [
 	{
 		name: "presentation-chart-line",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.PresentationChartLine,
 			outline: Outline.PresentationChartLine,
 		},
@@ -1419,7 +1419,7 @@ const dataset = [
 	{
 		name: "printer",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Printer,
 			outline: Outline.Printer,
 		},
@@ -1428,7 +1428,7 @@ const dataset = [
 	{
 		name: "puzzle",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Puzzle,
 			outline: Outline.Puzzle,
 		},
@@ -1437,7 +1437,7 @@ const dataset = [
 	{
 		name: "qrcode",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Qrcode,
 			outline: Outline.Qrcode,
 		},
@@ -1446,7 +1446,7 @@ const dataset = [
 	{
 		name: "question-mark-circle",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.QuestionMarkCircle,
 			outline: Outline.QuestionMarkCircle,
 		},
@@ -1455,7 +1455,7 @@ const dataset = [
 	{
 		name: "receipt-refund",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ReceiptRefund,
 			outline: Outline.ReceiptRefund,
 		},
@@ -1464,7 +1464,7 @@ const dataset = [
 	{
 		name: "receipt-tax",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ReceiptTax,
 			outline: Outline.ReceiptTax,
 		},
@@ -1473,7 +1473,7 @@ const dataset = [
 	{
 		name: "refresh",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Refresh,
 			outline: Outline.Refresh,
 		},
@@ -1482,7 +1482,7 @@ const dataset = [
 	{
 		name: "reply",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Reply,
 			outline: Outline.Reply,
 		},
@@ -1491,7 +1491,7 @@ const dataset = [
 	{
 		name: "rewind",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Rewind,
 			outline: Outline.Rewind,
 		},
@@ -1500,7 +1500,7 @@ const dataset = [
 	{
 		name: "rss",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Rss,
 			outline: Outline.Rss,
 		},
@@ -1509,7 +1509,7 @@ const dataset = [
 	{
 		name: "save",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Save,
 			outline: Outline.Save,
 		},
@@ -1518,7 +1518,7 @@ const dataset = [
 	{
 		name: "save-as",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.SaveAs,
 			outline: Outline.SaveAs,
 		},
@@ -1527,7 +1527,7 @@ const dataset = [
 	{
 		name: "scale",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Scale,
 			outline: Outline.Scale,
 		},
@@ -1536,7 +1536,7 @@ const dataset = [
 	{
 		name: "scissors",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Scissors,
 			outline: Outline.Scissors,
 		},
@@ -1545,7 +1545,7 @@ const dataset = [
 	{
 		name: "search",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Search,
 			outline: Outline.Search,
 		},
@@ -1554,7 +1554,7 @@ const dataset = [
 	{
 		name: "search-circle",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.SearchCircle,
 			outline: Outline.SearchCircle,
 		},
@@ -1563,7 +1563,7 @@ const dataset = [
 	{
 		name: "selector",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Selector,
 			outline: Outline.Selector,
 		},
@@ -1572,7 +1572,7 @@ const dataset = [
 	{
 		name: "server",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Server,
 			outline: Outline.Server,
 		},
@@ -1581,7 +1581,7 @@ const dataset = [
 	{
 		name: "share",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Share,
 			outline: Outline.Share,
 		},
@@ -1590,7 +1590,7 @@ const dataset = [
 	{
 		name: "shield-check",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ShieldCheck,
 			outline: Outline.ShieldCheck,
 		},
@@ -1599,7 +1599,7 @@ const dataset = [
 	{
 		name: "shield-exclamation",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ShieldExclamation,
 			outline: Outline.ShieldExclamation,
 		},
@@ -1608,7 +1608,7 @@ const dataset = [
 	{
 		name: "shopping-bag",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ShoppingBag,
 			outline: Outline.ShoppingBag,
 		},
@@ -1617,7 +1617,7 @@ const dataset = [
 	{
 		name: "shopping-cart",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ShoppingCart,
 			outline: Outline.ShoppingCart,
 		},
@@ -1626,7 +1626,7 @@ const dataset = [
 	{
 		name: "sort-ascending",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.SortAscending,
 			outline: Outline.SortAscending,
 		},
@@ -1635,7 +1635,7 @@ const dataset = [
 	{
 		name: "sort-descending",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.SortDescending,
 			outline: Outline.SortDescending,
 		},
@@ -1644,7 +1644,7 @@ const dataset = [
 	{
 		name: "sparkles",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Sparkles,
 			outline: Outline.Sparkles,
 		},
@@ -1653,7 +1653,7 @@ const dataset = [
 	{
 		name: "speakerphone",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Speakerphone,
 			outline: Outline.Speakerphone,
 		},
@@ -1662,7 +1662,7 @@ const dataset = [
 	{
 		name: "star",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Star,
 			outline: Outline.Star,
 		},
@@ -1671,7 +1671,7 @@ const dataset = [
 	{
 		name: "status-offline",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.StatusOffline,
 			outline: Outline.StatusOffline,
 		},
@@ -1680,7 +1680,7 @@ const dataset = [
 	{
 		name: "status-online",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.StatusOnline,
 			outline: Outline.StatusOnline,
 		},
@@ -1689,7 +1689,7 @@ const dataset = [
 	{
 		name: "stop",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Stop,
 			outline: Outline.Stop,
 		},
@@ -1698,7 +1698,7 @@ const dataset = [
 	{
 		name: "sun",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Sun,
 			outline: Outline.Sun,
 		},
@@ -1707,7 +1707,7 @@ const dataset = [
 	{
 		name: "support",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Support,
 			outline: Outline.Support,
 		},
@@ -1716,7 +1716,7 @@ const dataset = [
 	{
 		name: "switch-horizontal",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.SwitchHorizontal,
 			outline: Outline.SwitchHorizontal,
 		},
@@ -1725,7 +1725,7 @@ const dataset = [
 	{
 		name: "switch-vertical",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.SwitchVertical,
 			outline: Outline.SwitchVertical,
 		},
@@ -1734,7 +1734,7 @@ const dataset = [
 	{
 		name: "table",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Table,
 			outline: Outline.Table,
 		},
@@ -1743,7 +1743,7 @@ const dataset = [
 	{
 		name: "tag",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Tag,
 			outline: Outline.Tag,
 		},
@@ -1752,7 +1752,7 @@ const dataset = [
 	{
 		name: "template",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Template,
 			outline: Outline.Template,
 		},
@@ -1761,7 +1761,7 @@ const dataset = [
 	{
 		name: "terminal",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Terminal,
 			outline: Outline.Terminal,
 		},
@@ -1770,7 +1770,7 @@ const dataset = [
 	{
 		name: "thumb-down",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ThumbDown,
 			outline: Outline.ThumbDown,
 		},
@@ -1779,7 +1779,7 @@ const dataset = [
 	{
 		name: "thumb-up",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ThumbUp,
 			outline: Outline.ThumbUp,
 		},
@@ -1788,7 +1788,7 @@ const dataset = [
 	{
 		name: "ticket",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Ticket,
 			outline: Outline.Ticket,
 		},
@@ -1797,7 +1797,7 @@ const dataset = [
 	{
 		name: "translate",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Translate,
 			outline: Outline.Translate,
 		},
@@ -1806,7 +1806,7 @@ const dataset = [
 	{
 		name: "trash",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Trash,
 			outline: Outline.Trash,
 		},
@@ -1815,7 +1815,7 @@ const dataset = [
 	{
 		name: "trending-down",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.TrendingDown,
 			outline: Outline.TrendingDown,
 		},
@@ -1824,7 +1824,7 @@ const dataset = [
 	{
 		name: "trending-up",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.TrendingUp,
 			outline: Outline.TrendingUp,
 		},
@@ -1833,7 +1833,7 @@ const dataset = [
 	{
 		name: "truck",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Truck,
 			outline: Outline.Truck,
 		},
@@ -1842,7 +1842,7 @@ const dataset = [
 	{
 		name: "upload",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Upload,
 			outline: Outline.Upload,
 		},
@@ -1851,7 +1851,7 @@ const dataset = [
 	{
 		name: "user",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.User,
 			outline: Outline.User,
 		},
@@ -1860,7 +1860,7 @@ const dataset = [
 	{
 		name: "user-add",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.UserAdd,
 			outline: Outline.UserAdd,
 		},
@@ -1869,7 +1869,7 @@ const dataset = [
 	{
 		name: "user-circle",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.UserCircle,
 			outline: Outline.UserCircle,
 		},
@@ -1878,7 +1878,7 @@ const dataset = [
 	{
 		name: "user-group",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.UserGroup,
 			outline: Outline.UserGroup,
 		},
@@ -1887,7 +1887,7 @@ const dataset = [
 	{
 		name: "user-remove",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.UserRemove,
 			outline: Outline.UserRemove,
 		},
@@ -1896,7 +1896,7 @@ const dataset = [
 	{
 		name: "users",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Users,
 			outline: Outline.Users,
 		},
@@ -1905,7 +1905,7 @@ const dataset = [
 	{
 		name: "variable",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Variable,
 			outline: Outline.Variable,
 		},
@@ -1914,7 +1914,7 @@ const dataset = [
 	{
 		name: "video-camera",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.VideoCamera,
 			outline: Outline.VideoCamera,
 		},
@@ -1923,7 +1923,7 @@ const dataset = [
 	{
 		name: "view-boards",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ViewBoards,
 			outline: Outline.ViewBoards,
 		},
@@ -1932,7 +1932,7 @@ const dataset = [
 	{
 		name: "view-grid",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ViewGrid,
 			outline: Outline.ViewGrid,
 		},
@@ -1941,7 +1941,7 @@ const dataset = [
 	{
 		name: "view-grid-add",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ViewGridAdd,
 			outline: Outline.ViewGridAdd,
 		},
@@ -1950,7 +1950,7 @@ const dataset = [
 	{
 		name: "view-list",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ViewList,
 			outline: Outline.ViewList,
 		},
@@ -1959,7 +1959,7 @@ const dataset = [
 	{
 		name: "volume-off",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.VolumeOff,
 			outline: Outline.VolumeOff,
 		},
@@ -1968,7 +1968,7 @@ const dataset = [
 	{
 		name: "volume-up",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.VolumeUp,
 			outline: Outline.VolumeUp,
 		},
@@ -1977,7 +1977,7 @@ const dataset = [
 	{
 		name: "wifi",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.Wifi,
 			outline: Outline.Wifi,
 		},
@@ -1986,7 +1986,7 @@ const dataset = [
 	{
 		name: "x",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.X,
 			outline: Outline.X,
 		},
@@ -1995,7 +1995,7 @@ const dataset = [
 	{
 		name: "x-circle",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.XCircle,
 			outline: Outline.XCircle,
 		},
@@ -2004,7 +2004,7 @@ const dataset = [
 	{
 		name: "zoom-in",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ZoomIn,
 			outline: Outline.ZoomIn,
 		},
@@ -2013,7 +2013,7 @@ const dataset = [
 	{
 		name: "zoom-out",
 		tags: [],
-		icons: {
+		svgs: {
 			solid: Solid.ZoomOut,
 			outline: Outline.ZoomOut,
 		},
