@@ -355,13 +355,7 @@ const LightTooltip = ({ apply, children }) => (
 		<Apply className="rounded-1 shadow-px-2">
 			<div className="px-3 py-2 bg-white">
 				<Apply className={apply}>
-					<p
-						className="font-medium text-gray-700"
-						style={{
-							fontSize: px(14),
-							letterSpacing: "0.0125em",
-						}}
-					>
+					<p className="font-medium tracking-wide text-gray-700" style={{ fontSize: px(14) }}>
 						{children}
 					</p>
 				</Apply>
@@ -375,13 +369,7 @@ const DarkTooltip = ({ apply, children }) => (
 		<Apply className="rounded-1 shadow-2">
 			<div className="px-3 py-2 bg-gray-800">
 				<Apply className={apply}>
-					<p
-						className="font-medium text-gray-100"
-						style={{
-							fontSize: px(14),
-							letterSpacing: "0.0125em",
-						}}
-					>
+					<p className="font-medium tracking-wide text-gray-100" style={{ fontSize: px(14) }}>
 						{children}
 					</p>
 				</Apply>
@@ -662,16 +650,10 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => (
 			</div>
 
 			{/* Name */}
-			<div className="p-4 absolute inset-x-0 bottom-0 select-text no-underline hover:underline">
-				<div className="flex flex-row justify-center">
+			<div className="p-4 absolute inset-x-0 bottom-0">
+				<div className="-mx-2 -my-1 flex flex-row justify-center">
 					<ApplyReset className="subpixel-antialiased">
-						<p
-							className="text-center text-xs leading-tight text-gray-600"
-							style={{
-								fontSize: px(13),
-								letterSpacing: "0.0125em",
-							}}
-						>
+						<p className="px-2 py-1 tracking-wide leading-tight text-gray-600 cursor-text select-text" style={{ fontSize: px(13) }}>
 							{!copyAsJSX ? (
 								icon.name
 							) : (
@@ -745,7 +727,7 @@ const IconApp = ({ state, dispatch }) => {
 
 #app-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(calc(160px - 1px), 1fr));
 
 	/* NOTE: Use gap: 1px to make the 1px outline appear as 0.5px. */
 	gap: 1px;
@@ -880,6 +862,14 @@ const Layout = () => {
 
 	return (
 		<div>
+			<style>{`
+
+html {
+	--theme: hsl(270, 100%, 50%);
+}
+
+`}
+			</style>
 			<Hero
 				state={state}
 				dispatch={dispatch}
