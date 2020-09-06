@@ -212,7 +212,7 @@ const Sponsors = () => (
 		{/* Center (<= xl) */}
 		<ApplyDisplay className="block xl:hidden">
 			<div className="py-3 absolute inset-x-0 bottom-full">
-				<h6 className="text-center font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
+				<p className="text-center font-bold tracking-wide leading-none text-purple-50" style={{ fontSize: "0.6875rem" }}>
 					<TextRow>
 						OUR SPONSORS
 						<EnSpace />
@@ -220,25 +220,25 @@ const Sponsors = () => (
 						<EnSpace />
 						UNAFFILIATED WITH TAILWIND LABS
 					</TextRow>
-				</h6>
+				</p>
 			</div>
 		</ApplyDisplay>
 
 		{/* LHS */}
 		<ApplyDisplay className="hidden xl:block">
 			<div className="px-8 py-3 absolute left-0 bottom-full">
-				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
+				<p className="font-bold tracking-wide leading-none text-purple-50" style={{ fontSize: "0.6875rem" }}>
 					OUR SPONSORS
-				</h6>
+				</p>
 			</div>
 		</ApplyDisplay>
 
 		{/* RHS */}
 		<ApplyDisplay className="hidden xl:block">
 			<div className="px-8 py-3 absolute right-0 bottom-full">
-				<h6 className="font-bold tracking-wide leading-none text-purple-50 opacity-75" style={{ fontSize: "0.6875rem" }}>
+				<p className="font-bold tracking-wide leading-none text-purple-50" style={{ fontSize: "0.6875rem" }}>
 					UNAFFILIATED WITH TAILWIND LABS
-				</h6>
+				</p>
 			</div>
 		</ApplyDisplay>
 
@@ -536,6 +536,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							paddingLeft: tw(8 + 6 + 4),
 							paddingRight: tw(4 + (10 + 1) + (1 + 10 + 1) + (1 + 10) + 8),
 						}}
+						type="text"
 						placeholder={!inputFocused ? "Search (Press \"/\" to Focus)" : "Search"}
 						value={query}
 						onFocus={e => setInputFocused(true)}
@@ -543,6 +544,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						onChange={e => setQuery(e.target.value)}
 						autoFocus
 						{...disableAutoCorrect}
+						aria-label={!inputFocused ? "Search (Press \"/\" to Focus)" : "Search"}
 					/>
 				</ApplyReset>
 
@@ -574,6 +576,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 												value: true,
 											})
 										)}
+										aria-label={`Click to Switch to ${!state.controls.variant.solid ? "Solid" : "Outline"} Icons`}
 									>
 										<Apply className="w-6 h-6 overflow-visible">
 											{!state.controls.variant.solid ? (
@@ -622,6 +625,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 												value: true,
 											})
 										)}
+										aria-label={`Click to Enable Copy as ${!state.controls.copyAs.jsx ? "JSX" : "SVG"}`}
 									>
 										<Apply className="w-6 h-6 overflow-visible">
 											{!state.controls.copyAs.jsx ? (
@@ -670,6 +674,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						{/* 						value: true, */}
 						{/* 					}) */}
 						{/* 				)} */}
+						{/* 				aria-label={`Click to Switch to ${!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}`} */}
 						{/* 			> */}
 						{/* 				<Apply className="w-6 h-6 overflow-visible"> */}
 						{/* 					{!state.controls.theme.darkMode ? ( */}
@@ -766,6 +771,7 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => {
 				ref={buttonRef}
 				className="group relative"
 				onClick={handleClick}
+				aria-label={`Click to Copy ${icon.name} as ${!copyAsJSX ? "SVG" : "JSX"}`}
 			>
 
 				{/* Icon */}
