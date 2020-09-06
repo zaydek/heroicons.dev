@@ -457,7 +457,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 			<form className="relative" onSubmit={e => e.preventDefault()}>
 
 				{/* LHS */}
-				<div className="absolute left-0 inset-y-0">
+				<div className="absolute left-0 inset-y-0 pointer-events-none">
 					<div className="px-8 pr-4 flex flex-row h-full">
 						<div className="flex flex-row items-center">
 							<Apply className="w-6 h-6 text-cool-gray-400 dark:text-cool-gray-600" style={{ color: inputFocused && "var(--purple-500)" }}>
@@ -478,7 +478,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						className="px-16 text-xl placeholder-cool-gray-400 dark:placeholder-cool-gray-600 text-cool-gray-800 dark:text-cool-gray-200"
 						style={{
 							paddingLeft: tw(8 + 6 + 4),
-							paddingRight: tw(4 + (10 + 1) + (1 + 10 + 1) + (1 + 10) + 8), // TODO: Add media.sm here.
+							paddingRight: tw(4 + (10 + 1) + (1 + 10 + 1) + (1 + 10) + 8),
 						}}
 						placeholder="Search"
 						value={query}
@@ -570,14 +570,6 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 									>
 										{/* NOTE: Use SVGs not components. */}
 										<Apply className="w-6 h-6 overflow-visible">
-											{/* <svg viewBox="-11.5 -10.23174 23 20.46348" xmlns="http://www.w3.org/2000/svg"> */}
-											{/* 	<circle fill="currentColor" cx={0} cy={0} r={2.05} /> */}
-											{/* 	<g fill="none" stroke="currentColor" strokeWidth={1}> */}
-											{/* 		<ellipse rx={11} ry={4.2} /> */}
-											{/* 		<ellipse rx={11} ry={4.2} transform="rotate(60)" /> */}
-											{/* 		<ellipse rx={11} ry={4.2} transform="rotate(120)" /> */}
-											{/* 	</g> */}
-											{/* </svg> */}
 											{!state.controls.copyAs.jsx ? (
 												<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -874,8 +866,8 @@ const Layout = () => {
 			<style>
 				{css`
 					html {
-						--search-bar-height: ${tw(20)};
-						--search-bar-negative-margin: ${tw(20 + 6)};
+						--search-bar-height: ${tw(18)};
+						--search-bar-negative-margin: ${tw(18 + 6)};
 					}
 				`}
 			</style>
