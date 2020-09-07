@@ -4,7 +4,7 @@ A set of free MIT-licensed high-quality SVG icons for you to use in your web pro
 
 <br>
 <div align="center">
-	<img src="https://heroicons.dev/social.png" width="600">
+	<img src="https://heroicons.dev/static/social.png" width="600">
 </div>
 <br>
 
