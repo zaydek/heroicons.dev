@@ -242,7 +242,7 @@ const Sponsors = () => (
 
 		{/* LHS */}
 		<Media className="hidden xl:block">
-			<div className="px-4 py-6 absolute left-0 bottom-full">
+			<div className="py-6 absolute left-0 bottom-full">
 				<p className="font-bold tracking-wide leading-none text-purple-50 opacity-87.5" style={{ fontSize: "0.6875rem" }}>
 					OUR SPONSORS
 				</p>
@@ -251,7 +251,7 @@ const Sponsors = () => (
 
 		{/* RHS */}
 		<Media className="hidden xl:block">
-			<div className="px-4 py-6 absolute right-0 bottom-full">
+			<div className="py-6 absolute right-0 bottom-full">
 				<p className="font-bold tracking-wide leading-none text-purple-50 opacity-87.5" style={{ fontSize: "0.6875rem" }}>
 					UNAFFILIATED WITH TAILWIND LABS
 				</p>
@@ -296,8 +296,8 @@ const Sponsors = () => (
 						key={each.href}
 						className="mx-4 my-2 opacity-87.5 dark:opacity-81.25 hover:opacity-100"
 						href={each.href}
-						button data-splitbee-event="Click Plan"
-						data-splitbee-event-type="Business"
+						data-splitbee-event="Click Sponsor"
+						data-splitbee-event-type={each.name}
 						{...target_blank}
 					>
 						<img className="h-11" src={each.src} />
@@ -599,8 +599,8 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						onBlur={e => setInputFocused(false)}
 						onChange={e => setQuery(e.target.value)}
 						autoFocus
-						{...disableAutoCorrect}
 						aria-label={(media.sm || inputFocused) ? "Search" : "Search (Press \"/\" to Focus)"}
+						{...disableAutoCorrect}
 					/>
 				</Reset>
 
