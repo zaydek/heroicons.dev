@@ -17,8 +17,6 @@ class Document extends NextDocument {
 					)}
 
 					{/* Layout dark mode */}
-					{/* */}
-					{/* https://github.com/nikita-rudenko/nikitarudenko.dev/blob/master/src/pages/_document.tsx */}
 					<style>
 						{`
 							html {

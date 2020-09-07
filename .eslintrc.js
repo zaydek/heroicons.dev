@@ -1,4 +1,4 @@
-// https://github.com/codex-src/dot-eslintrc.js (2483dfa)
+// https://github.com/zaydek/dot-eslintrc.js
 module.exports = {
 	env: {
 		browser: true,
@@ -6,9 +6,13 @@ module.exports = {
 		jest:    true,
 		node:    true,
 	},
-	extends: ["eslint:recommended"],
+	extends: [
+		"eslint:recommended",
+	],
 	parser: "babel-eslint",
-	parserOptions: { sourceType: "module" },
+	parserOptions: {
+		sourceType: "module",
+	},
 	rules: {
 		"array-bracket-newline":            [1, "consistent"], // enforce linebreaks after opening and before closing array brackets
 		"array-bracket-spacing":            1, // enforce consistent spacing inside array brackets
@@ -84,7 +88,7 @@ module.exports = {
 		"prefer-numeric-literals":          1, // disallow `parseInt()` and `Number.parseInt()` in favor of binary, octal, and hexadecimal literals
 		"prefer-object-spread":             1, // disallow using Object.assign with an object literal as the first argument and prefer the use of object spread instead.
 		"prefer-template":                  0, // require template literals instead of string concatenation
-		"quote-props":                      0, // require quotes around object literal property names
+		"quote-props":                      [1, "consistent-as-needed"], // require quotes around object literal property names
 		"quotes":                           1, // enforce the consistent use of either backticks, double, or single quotes
 		"rest-spread-spacing":              1, // enforce spacing between rest and spread operators and their expressions
 		"semi":                             [1, "never"], // require or disallow semicolons instead of ASI

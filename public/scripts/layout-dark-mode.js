@@ -1,15 +1,9 @@
-const KEY = "heroicons.dev"
-
+// https://github.com/tailwindlabs/tailwindcss/pull/2279#issuecomment-684997169
 ;(() => {
-	document.documentElement.classList.add("dark")
-
-	// try {
-	// 	const ls = JSON.parse(localStorage.getItem(KEY))
-	// 	if (!ls) {
-	// 		// No-op
-	// 		return
-	// 	}
-	// } catch (error) {
-	// 	console.error(`layout-dark-mode.js: ${error}`)
-	// }
+	const html = document.documentElement
+	if (("themePreference" in localStorage) && localStorage.themePreference === "dark") {
+		html.classList.add("dark")
+	} else if (!("themePreference" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+		html.classList.add("dark")
+	}
 })()

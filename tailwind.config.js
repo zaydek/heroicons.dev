@@ -17,12 +17,12 @@ module.exports = {
 	theme: {
 		extend: {
 			borderRadius: {
-				"1": tw(1),
-				"2": tw(2),
-				"3": tw(3),
-				"4": tw(4),
-				"5": tw(5),
-				"6": tw(6),
+				1: tw(1),
+				2: tw(2),
+				3: tw(3),
+				4: tw(4),
+				5: tw(5),
+				6: tw(6),
 			},
 			boxShadow: {
 				"px": defaultTheme.boxShadow.xs,
@@ -40,7 +40,7 @@ module.exports = {
 				"px-6": defaultTheme.boxShadow.xs + ", " + defaultTheme.boxShadow["2xl"],
 			},
 			colors: {
-				theme: "hsl(270, 100%, 50%)",
+				"theme": "hsl(270, 100%, 50%)",
 				"dark-theme": "hsl(270, 100%, 43.75%)",
 			},
 			fontFamily: {
@@ -71,8 +71,17 @@ module.exports = {
 		},
 	},
 	variants: {
-		opacity: ({ after }) => after(["group-hover", "group-focus"]),
-		scale: ({ after }) => after(["group-hover", "group-focus"]),
-		textColor: ({ after }) => after(["group-hover", "group-focus"]),
+		opacity: ({ after }) => after([
+			"group-hover",
+			"group-focus",
+		]),
+		scale: ({ after }) => after([
+			"group-hover",
+			"group-focus",
+		]),
+		textColor: ({ after }) => after([
+			"group-hover",
+			"group-focus",
+		]),
 	},
 }

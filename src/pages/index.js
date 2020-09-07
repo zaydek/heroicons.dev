@@ -1,12 +1,11 @@
-import Apply from "lib/x/Apply"
-import ApplyDisplay from "lib/x/ApplyDisplay"
-import ApplyReset from "lib/x/ApplyReset"
 import copyToClipboardPolyfill from "utils/copyToClipboardPolyfill"
 import css from "lib/x/tpl"
 import dataset from "data/dataset"
 import disableAutoCorrect from "lib/x/disableAutoCorrect"
 import DocumentTitle from "lib/x/DocumentTitle"
 import Head from "next/Head"
+import SEO from "./_SEO"
+import Style from "lib/x/Style"
 import SVG from "components/SVG"
 import target_blank from "lib/x/target_blank"
 import toCamelCase from "utils/toCamelCase"
@@ -36,8 +35,11 @@ const screens = {
 	xl: (24 + 1280 + 24) + "px",
 }
 
+const Reset = Style
+const Media = Style
+
 const AbsoluteExternalLinks = () => (
-	<ApplyDisplay className="hidden lg:block">
+	<Media className="hidden lg:block">
 		<nav className="p-4 absolute left-0 top-0">
 
 			<style>
@@ -62,15 +64,15 @@ const AbsoluteExternalLinks = () => (
 				<a href={`https://twitter.com/intent/tweet?text=${"Thanks @steveschoger for Heroicons and @username_ZAYDEK for heroicons.dev! 🔥"}&url=https://heroicons.dev`} {...target_blank}>
 					<p className="twemoji py-1 font-medium no-underline hover:underline text-purple-50">
 						<TextRow>
-							<Apply className="w-6 h-6 overflow-visible">
+							<Style className="w-6 h-6 overflow-visible">
 								<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
 									<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
 									<path fill="#664500" d="M18 21.849c-2.966 0-4.935-.346-7.369-.819-.557-.106-1.638 0-1.638 1.638 0 3.275 3.763 7.369 9.007 7.369s9.007-4.094 9.007-7.369c0-1.638-1.082-1.745-1.638-1.638-2.434.473-4.402.819-7.369.819" />
-									<Apply className="twemoji-eyes origin-center">
+									<Style className="twemoji-eyes origin-center">
 										<path fill="#dd2e44" d="M16.65 3.281C15.791.85 13.126-.426 10.694.431c-1.476.52-2.521 1.711-2.928 3.104-1.191-.829-2.751-1.1-4.225-.58C1.111 3.813-.167 6.48.692 8.911c.122.344.284.663.472.958 1.951 3.582 7.588 6.1 11.001 6.131 2.637-2.167 5.446-7.665 4.718-11.677-.038-.348-.113-.698-.233-1.042zm2.7 0C20.209.85 22.875-.426 25.306.431c1.476.52 2.521 1.711 2.929 3.104 1.191-.829 2.751-1.1 4.225-.58 2.43.858 3.707 3.525 2.85 5.956-.123.344-.284.663-.473.958-1.951 3.582-7.588 6.1-11.002 6.131-2.637-2.167-5.445-7.665-4.717-11.677.037-.348.112-.698.232-1.042z" />
-									</Apply>
+									</Style>
 								</svg>
-							</Apply>
+							</Style>
 							<EmSpace />
 							Share with your friends on Twitter!
 						</TextRow>
@@ -80,16 +82,16 @@ const AbsoluteExternalLinks = () => (
 				<a href="https://github.com/codex-zaydek/heroicons.dev" {...target_blank}>
 					<p className="twemoji py-1 font-medium no-underline hover:underline text-purple-50">
 						<TextRow>
-							<Apply className="w-6 h-6 overflow-visible">
+							<Style className="w-6 h-6 overflow-visible">
 								<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
 									<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
 									<path fill="#664500" d="M18 21c-3.623 0-6.027-.422-9-1-.679-.131-2 0-2 2 0 4 4.595 9 11 9 6.404 0 11-5 11-9 0-2-1.321-2.132-2-2-2.973.578-5.377 1-9 1z" />
 									<path fill="#ffffff" d="M9 22s3 1 9 1 9-1 9-1-2 4-9 4-9-4-9-4z" />
-									<Apply className="twemoji-eyes origin-center">
+									<Style className="twemoji-eyes origin-center">
 										<path fill="#e95f28" d="M15.682 4.413l-4.542.801L8.8.961C8.542.492 8.012.241 7.488.333c-.527.093-.937.511-1.019 1.039l-.745 4.797-4.542.801c-.535.094-.948.525-1.021 1.064s.211 1.063.703 1.297l4.07 1.932-.748 4.812c-.083.536.189 1.064.673 1.309.179.09.371.133.562.133.327 0 .65-.128.891-.372l3.512-3.561 4.518 2.145c.49.232 1.074.123 1.446-.272.372-.395.446-.984.185-1.459L13.625 9.73l3.165-3.208c.382-.387.469-.977.217-1.459-.254-.482-.793-.743-1.325-.65zm4.636 0l4.542.801L27.2.961c.258-.469.788-.72 1.312-.628.526.093.936.511 1.018 1.039l.745 4.797 4.542.801c.536.094.949.524 1.021 1.063s-.211 1.063-.703 1.297l-4.07 1.932.748 4.812c.083.536-.189 1.064-.673 1.309-.179.09-.371.133-.562.133-.327 0-.65-.128-.891-.372l-3.512-3.561-4.518 2.145c-.49.232-1.074.123-1.446-.272-.372-.395-.446-.984-.185-1.459l2.348-4.267-3.165-3.208c-.382-.387-.469-.977-.217-1.459.255-.482.794-.743 1.326-.65z" />
-									</Apply>
+									</Style>
 								</svg>
-							</Apply>
+							</Style>
 							<EmSpace />
 							Star viewer on GitHub
 						</TextRow>
@@ -99,12 +101,12 @@ const AbsoluteExternalLinks = () => (
 			</div>
 
 		</nav>
-	</ApplyDisplay>
+	</Media>
 )
 
 const HeroiconsLogo = () => (
 	<div className="relative">
-		<Apply className="h-14 text-purple-50">
+		<Style className="h-14 text-purple-50">
 			<svg fill="currentColor" viewBox="0 0 240 56" xmlns="http://www.w3.org/2000/svg">
 				<path fillRule="evenodd" clipRule="evenodd" d="M23.856 19.2222V30.4883H9.68802V19.2241H3.75201V30.4883V34.5203V47.0001H9.68802V34.5203H23.856V46.9982H29.792V34.5203V30.4883V19.2222H23.856Z" />
 				<path d="M46.9706 47.6722C44.2453 47.6722 41.8186 47.0748 39.6906 45.8802C37.5999 44.6482 35.9572 42.9495 34.7626 40.7842C33.5679 38.6188 32.9706 36.0988 32.9706 33.2242C32.9706 30.3122 33.5492 27.7548 34.7066 25.5522C35.9012 23.3495 37.5439 21.6322 39.6346 20.4002C41.7626 19.1682 44.2266 18.5522 47.0266 18.5522C49.7519 18.5522 52.1226 19.1682 54.1386 20.4002C56.1546 21.5948 57.7226 23.2002 58.8426 25.2162C59.9626 27.2322 60.5226 29.4535 60.5226 31.8802C60.5226 32.2535 60.5039 32.6642 60.4666 33.1122C60.4666 33.5228 60.4479 33.9895 60.4106 34.5122H38.7946C38.9812 37.2002 39.8586 39.2535 41.4266 40.6722C43.0319 42.0535 44.8799 42.7442 46.9706 42.7442C48.6506 42.7442 50.0506 42.3708 51.1706 41.6242C52.3279 40.8402 53.1866 39.7948 53.7466 38.4882H59.6826C58.9359 41.1015 57.4426 43.2855 55.2026 45.0402C52.9999 46.7948 50.2559 47.6722 46.9706 47.6722ZM46.9706 23.4242C44.9919 23.4242 43.2372 24.0215 41.7066 25.2162C40.1759 26.3735 39.2426 28.1282 38.9066 30.4802H54.5866C54.4746 28.3148 53.7093 26.5975 52.2906 25.3282C50.8719 24.0588 49.0986 23.4242 46.9706 23.4242Z" />
@@ -116,12 +118,12 @@ const HeroiconsLogo = () => (
 				<path d="M184.358 47.0002V19.2242H189.622L190.07 24.0962C190.929 22.3788 192.18 21.0348 193.822 20.0642C195.502 19.0562 197.425 18.5522 199.59 18.5522C202.95 18.5522 205.582 19.5975 207.486 21.6882C209.428 23.7788 210.398 26.8962 210.398 31.0402V47.0002H204.518V31.6562C204.518 26.2802 202.316 23.5922 197.91 23.5922C195.708 23.5922 193.878 24.3762 192.422 25.9442C191.004 27.5122 190.294 29.7522 190.294 32.6642V47.0002H184.358Z" />
 				<path d="M225.678 47.6722C222.168 47.6722 219.275 46.8135 216.998 45.0962C214.72 43.3788 213.414 41.1015 213.078 38.2642H219.07C219.368 39.5335 220.078 40.6348 221.198 41.5682C222.318 42.4642 223.792 42.9122 225.622 42.9122C227.414 42.9122 228.72 42.5388 229.542 41.7922C230.363 41.0455 230.774 40.1868 230.774 39.2162C230.774 37.7975 230.195 36.8455 229.038 36.3602C227.918 35.8375 226.35 35.3708 224.334 34.9602C222.766 34.6242 221.198 34.1762 219.63 33.6162C218.099 33.0562 216.811 32.2722 215.766 31.2642C214.758 30.2188 214.254 28.8188 214.254 27.0642C214.254 24.6375 215.187 22.6215 217.054 21.0162C218.92 19.3735 221.534 18.5522 224.894 18.5522C227.992 18.5522 230.494 19.2988 232.398 20.7922C234.339 22.2855 235.478 24.3948 235.814 27.1202H230.102C229.915 25.9255 229.355 24.9922 228.422 24.3202C227.526 23.6482 226.312 23.3122 224.782 23.3122C223.288 23.3122 222.131 23.6295 221.31 24.2642C220.488 24.8615 220.078 25.6455 220.078 26.6162C220.078 27.5868 220.638 28.3522 221.758 28.9122C222.915 29.4722 224.427 29.9762 226.294 30.4242C228.16 30.8348 229.878 31.3202 231.446 31.8802C233.051 32.4028 234.339 33.1868 235.31 34.2322C236.28 35.2775 236.766 36.8082 236.766 38.8242C236.803 41.3628 235.814 43.4722 233.798 45.1522C231.819 46.8322 229.112 47.6722 225.678 47.6722Z" />
 			</svg>
-		</Apply>
+		</Style>
 		<div className="absolute left-full inset-y-0">
 			<div className="flex flex-row items-center h-full">
-				<Apply className="-mb-1 w-11 h-11 text-purple-50 opacity-50">
+				<Style className="-mb-1 w-11 h-11 text-purple-50 opacity-50">
 					<SVGFlag />
-				</Apply>
+				</Style>
 			</div>
 		</div>
 	</div>
@@ -165,12 +167,12 @@ const Attribution = () => (
 const CTAButtons = () => (
 	<div className="flex flex-col sm:flex-row w-full sm:w-auto">
 
-		<ApplyReset className="block">
+		<Reset className="block">
 			<a href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}>
 				<div className="p-5 bg-purple-50 bg-opacity-18.75 dark:bg-opacity-12.5 rounded-3">
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
 						<TextRow>
-							<Apply className="w-4 h-4 transform scale-110" style={{ filter: "brightness(125%)" }}>
+							<Style className="w-4 h-4 transform scale-110" style={{ filter: "brightness(125%)" }}>
 								<svg viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg">
 									<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
 									<path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
@@ -178,33 +180,33 @@ const CTAButtons = () => (
 									<path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" />
 									<path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
 								</svg>
-							</Apply>
+							</Style>
 							<EnSpace />
 							Open in Figma
 						</TextRow>
 					</p>
 				</div>
 			</a>
-		</ApplyReset>
+		</Reset>
 
 		<div className="w-3 h-3" />
-		<ApplyReset className="block">
+		<Reset className="block">
 			<a href="https://github.colwindlabs/heroicons" {...target_blank}>
 				<div className="p-5 bg-purple-50 bg-opacity-18.75 dark:bg-opacity-12.5 rounded-3">
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
 						<TextRow>
-							<Apply className="w-4 h-4 transform scale-110">
+							<Style className="w-4 h-4 transform scale-110">
 								<svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
 									<path d="M7.975 16a9.39 9.39 0 003.169-.509c-.473.076-.652-.229-.652-.486l.004-.572c.003-.521.01-1.3.01-2.197 0-.944-.316-1.549-.68-1.863 2.24-.252 4.594-1.108 4.594-4.973 0-1.108-.39-2.002-1.032-2.707.1-.251.453-1.284-.1-2.668 0 0-.844-.277-2.77 1.032A9.345 9.345 0 008 .717c-.856 0-1.712.113-2.518.34C3.556-.24 2.712.025 2.712.025c-.553 1.384-.2 2.417-.1 2.668-.642.705-1.033 1.612-1.033 2.707 0 3.852 2.342 4.72 4.583 4.973-.29.252-.554.692-.642 1.347-.58.264-2.027.692-2.933-.831-.19-.302-.756-1.045-1.549-1.032-.843.012-.34.478.013.667.428.239.919 1.133 1.032 1.422.201.567.856 1.65 3.386 1.184 0 .55.006 1.079.01 1.447l.003.428c0 .265-.189.567-.692.479 1.007.34 1.926.516 3.185.516z" />
 								</svg>
-							</Apply>
+							</Style>
 							<EnSpace />
 							Open in GitHub
 						</TextRow>
 					</p>
 				</div>
 			</a>
-		</ApplyReset>
+		</Reset>
 
 	</div>
 )
@@ -213,7 +215,7 @@ const Sponsors = () => (
 	<div className="relative">
 
 		{/* Center (<= xl) */}
-		<ApplyDisplay className="block xl:hidden">
+		<Media className="block xl:hidden">
 			<div className="py-3 absolute inset-x-0 bottom-full">
 				<p className="text-center font-bold tracking-wide leading-none text-purple-50" style={{ fontSize: "0.6875rem" }}>
 					<TextRow>
@@ -225,25 +227,25 @@ const Sponsors = () => (
 					</TextRow>
 				</p>
 			</div>
-		</ApplyDisplay>
+		</Media>
 
 		{/* LHS */}
-		<ApplyDisplay className="hidden xl:block">
+		<Media className="hidden xl:block">
 			<div className="px-8 py-3 absolute left-0 bottom-full">
 				<p className="font-bold tracking-wide leading-none text-purple-50" style={{ fontSize: "0.6875rem" }}>
 					OUR SPONSORS
 				</p>
 			</div>
-		</ApplyDisplay>
+		</Media>
 
 		{/* RHS */}
-		<ApplyDisplay className="hidden xl:block">
+		<Media className="hidden xl:block">
 			<div className="px-8 py-3 absolute right-0 bottom-full">
 				<p className="font-bold tracking-wide leading-none text-purple-50" style={{ fontSize: "0.6875rem" }}>
 					UNAFFILIATED WITH TAILWIND LABS
 				</p>
 			</div>
-		</ApplyDisplay>
+		</Media>
 
 		<div className="-mx-2 -my-1.5 flex flex-row flex-wrap justify-center items-center">
 
@@ -252,19 +254,19 @@ const Sponsors = () => (
 				[1, 2, 3, 4, 5, 6].map(each => (
 					<div key={each} className="mx-2 my-1.5 relative">
 						<div className="h-14 bg-purple-50 bg-opacity-18.75 rounded-full" style={{ width: tw(36 + Math.floor(Math.random() * (48 - 36))) }} />
-						{/* <ApplyDisplay className="hidden xl:block"> */}
+						{/* <Media className="hidden xl:block"> */}
 						{/* 	<div className="p-2 absolute inset-x-0 top-full"> */}
 						{/* 		<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-87.5"> */}
 						{/* 			<TextRow> */}
 						{/* 				“10x Browser Tests” */}
 						{/* 				<Space /> */}
-						{/* 				<Apply className="w-3 h-3 opacity-75"> */}
+						{/* 				<Style className="w-3 h-3 opacity-75"> */}
 						{/* 					<SVGExternalLink /> */}
-						{/* 				</Apply> */}
+						{/* 				</Style> */}
 						{/* 			</TextRow> */}
 						{/* 		</p> */}
 						{/* 	</div> */}
-						{/* </ApplyDisplay> */}
+						{/* </Media> */}
 					</div>
 				))
 			), [])}
@@ -274,8 +276,8 @@ const Sponsors = () => (
 	</div>
 )
 
-const Hero = ({ state, dispatch }) => (
-	<div className="relative">
+const SectionHero = ({ state, dispatch }) => (
+	<section className="relative">
 
 		<AbsoluteExternalLinks />
 
@@ -314,11 +316,11 @@ const Hero = ({ state, dispatch }) => (
 
 		{/* Background */}
 		<div className="absolute inset-x-0 top-full pointer-events-none">
-			<Apply className="text-theme dark:text-dark-theme">
+			<Style className="text-theme dark:text-dark-theme">
 				<svg fill="currentColor" viewBox="0 0 32 1" xmlns="http://www.w3.org/2000/svg">
 					<path d="M16 1C4 1 0 0 0 0H32C32 0 28 1 16 1Z" />
 				</svg>
-			</Apply>
+			</Style>
 		</div>
 
 		{/* Background (attached) */}
@@ -329,6 +331,7 @@ const Hero = ({ state, dispatch }) => (
 						background-attachment:
 							fixed,
 							fixed;
+						/* https://yoksel.github.io/url-encoder */
 						background-image:
 							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
 							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C4 1 0 0 0 0H32C32 0 28 1 16 1Z' /%3E%3C/svg%3E");
@@ -348,7 +351,7 @@ const Hero = ({ state, dispatch }) => (
 						background-attachment:
 							fixed,
 							fixed;
-						/* NOTE: fill='var(--theme)' does not work. */
+						/* https://yoksel.github.io/url-encoder */
 						background-image:
 							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 43.75%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
 							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 43.75%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C4 1 0 0 0 0H32C32 0 28 1 16 1Z' /%3E%3C/svg%3E");
@@ -366,15 +369,15 @@ const Hero = ({ state, dispatch }) => (
 			`}
 		</style>
 
-	</div>
+	</section>
 )
 
 // NOTE: Matches <DarkTooltip> for dark mode.
 const Tooltip = ({ apply, children }) => (
 	<div className="rounded-1 shadow-4">
-		<Apply className="rounded-1 shadow-px-2 dark:shadow-2">
+		<Style className="rounded-1 shadow-px-2 dark:shadow-2">
 			<div className="px-3 py-2 bg-white dark:bg-cool-gray-800">
-				<Apply className={apply}>
+				<Style className={apply}>
 					<p
 						className="font-medium text-cool-gray-800 dark:text-cool-gray-100"
 						style={{
@@ -384,17 +387,17 @@ const Tooltip = ({ apply, children }) => (
 					>
 						{children}
 					</p>
-				</Apply>
+				</Style>
 			</div>
-		</Apply>
+		</Style>
 	</div>
 )
 
 const DarkTooltip = ({ apply, children }) => (
 	<div className="rounded-1 shadow-4">
-		<Apply className="rounded-1 shadow-2">
+		<Style className="rounded-1 shadow-2">
 			<div className="px-3 py-2 bg-cool-gray-800">
-				<Apply className={apply}>
+				<Style className={apply}>
 					<p
 						className="font-medium text-cool-gray-100"
 						style={{
@@ -404,9 +407,9 @@ const DarkTooltip = ({ apply, children }) => (
 					>
 						{children}
 					</p>
-				</Apply>
+				</Style>
 			</div>
-		</Apply>
+		</Style>
 	</div>
 )
 
@@ -510,26 +513,26 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 	return (
 		// NOTE: Use h-full because of the absolute context.
-		<ApplyReset className="h-full">
+		<Reset className="h-full">
 			<form className="relative" onSubmit={e => e.preventDefault()}>
 
 				{/* LHS */}
 				<div className="absolute left-0 inset-y-0 pointer-events-none">
 					<div className="px-8 pr-4 flex flex-row h-full">
 						<div className="flex flex-row items-center">
-							<Apply className="w-6 h-6 text-cool-gray-400 dark:text-cool-gray-600" style={{ color: inputFocused && "var(--purple-500)" }}>
-								<Apply className="transition duration-200 ease-in-out">
+							<Style className="w-6 h-6 text-cool-gray-400 dark:text-cool-gray-600" style={{ color: inputFocused && "var(--purple-500)" }}>
+								<Style className="transition duration-200 ease-in-out">
 									<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
 									</svg>
-								</Apply>
-							</Apply>
+								</Style>
+							</Style>
 						</div>
 					</div>
 				</div>
 
 				{/* Search */}
-				<ApplyReset className="block w-full h-full bg-transparent focus:outline-none">
+				<Reset className="block w-full h-full bg-transparent focus:outline-none">
 					<input
 						ref={inputRef}
 						className="px-16 text-xl placeholder-cool-gray-400 dark:placeholder-cool-gray-600 text-cool-gray-800 dark:text-cool-gray-200"
@@ -547,7 +550,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						{...disableAutoCorrect}
 						aria-label={!inputFocused ? "Search (Press \"/\" to Focus)" : "Search"}
 					/>
-				</ApplyReset>
+				</Reset>
 
 				{/* RHS */}
 				<div className="absolute right-0 inset-y-0">
@@ -561,8 +564,8 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							onMouseEnter={e => setTooltip("variant")}
 							onMouseLeave={e => setTooltip("")}
 						>
-							<ApplyReset className="focus:outline-none">
-								<Apply className="transition duration-200 ease-in-out">
+							<Reset className="focus:outline-none">
+								<Style className="transition duration-200 ease-in-out">
 									<button
 										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full"
 										style={{
@@ -579,7 +582,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										)}
 										aria-label={`Click to Switch to ${!state.controls.variant.solid ? "Solid" : "Outline"} Icons`}
 									>
-										<Apply className="w-6 h-6 overflow-visible">
+										<Style className="w-6 h-6 overflow-visible">
 											{!state.controls.variant.solid ? (
 												<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
@@ -589,7 +592,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 													<path fillRule="evenodd" clipRule="evenodd" d="M2.166 4.99836C5.06114 4.96236 7.84481 3.87682 10 1.94336C12.155 3.87718 14.9387 4.96308 17.834 4.99936C17.944 5.64936 18 6.31936 18 7.00036C18 12.2254 14.66 16.6704 10 18.3174C5.34 16.6694 2 12.2244 2 6.99936C2 6.31736 2.057 5.64936 2.166 4.99836Z" />
 												</svg>
 											)}
-										</Apply>
+										</Style>
 										{tooltip === "variant" && (
 											<div className="pt-2 absolute right-0 top-full">
 												<Tooltip apply="text-left whitespace-pre">
@@ -598,8 +601,8 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 											</div>
 										)}
 									</button>
-								</Apply>
-							</ApplyReset>
+								</Style>
+							</Reset>
 						</div>
 
 						{/* Button */}
@@ -610,8 +613,8 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							onMouseEnter={e => setTooltip("copyAs")}
 							onMouseLeave={e => setTooltip("")}
 						>
-							<ApplyReset className="focus:outline-none">
-								<Apply className="transition duration-200 ease-in-out">
+							<Reset className="focus:outline-none">
+								<Style className="transition duration-200 ease-in-out">
 									<button
 										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full"
 										style={{
@@ -628,7 +631,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										)}
 										aria-label={`Click to Enable Copy as ${!state.controls.copyAs.jsx ? "JSX" : "SVG"}`}
 									>
-										<Apply className="w-6 h-6 overflow-visible">
+										<Style className="w-6 h-6 overflow-visible">
 											{!state.controls.copyAs.jsx ? (
 												<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -638,7 +641,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 													<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
 												</svg>
 											)}
-										</Apply>
+										</Style>
 										{tooltip === "copyAs" && (
 											<div className="pt-2 absolute right-0 top-full">
 												<Tooltip apply="text-left whitespace-pre">
@@ -647,8 +650,8 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 											</div>
 										)}
 									</button>
-								</Apply>
-							</ApplyReset>
+								</Style>
+							</Reset>
 						</div>
 
 						{/* Button */}
@@ -659,8 +662,8 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							onMouseEnter={e => setTooltip("theme")}
 							onMouseLeave={e => setTooltip("")}
 						>
-							<ApplyReset className="focus:outline-none">
-								<Apply className="transition duration-200 ease-in-out">
+							<Reset className="focus:outline-none">
+								<Style className="transition duration-200 ease-in-out">
 									<button
 										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full"
 										style={{
@@ -677,7 +680,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										)}
 										aria-label={`Click to Switch to ${!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}`}
 									>
-										<Apply className="w-6 h-6 overflow-visible">
+										<Style className="w-6 h-6 overflow-visible">
 											{!state.controls.theme.darkMode ? (
 												<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
@@ -687,7 +690,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 													<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
 												</svg>
 											)}
-										</Apply>
+										</Style>
 										{tooltip === "theme" && (
 											<div className="pt-2 absolute right-0 top-full">
 												<Tooltip apply="text-left whitespace-pre">
@@ -696,15 +699,15 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 											</div>
 										)}
 									</button>
-								</Apply>
-							</ApplyReset>
+								</Style>
+							</Reset>
 						</div>
 
 					</div>
 				</div>
 
 			</form>
-		</ApplyReset>
+		</Reset>
 	)
 }, (prev, next) => {
 	const ok = (
@@ -767,7 +770,7 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => {
 
 	return (
 		// NOTE: Use h-full because of the absolute context.
-		<ApplyReset className="block w-full h-full focus:outline-none">
+		<Reset className="block w-full h-full focus:outline-none">
 			<button
 				ref={buttonRef}
 				className="group relative"
@@ -777,25 +780,25 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => {
 
 				{/* Icon */}
 				<div className="flex flex-row justify-center items-center h-full">
-					<Apply className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transform scale-0 group-hover:scale-100 group-focus:scale-100">
+					<Style className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transform scale-0 group-hover:scale-100 group-focus:scale-100">
 						{/* NOTE: Use ease-out not ease-in-out. */}
-						<Apply className="transition duration-200 ease-out">
+						<Style className="transition duration-200 ease-out">
 							<div className="w-20 h-20 bg-transparent bg-purple-500 dark:bg-purple-600 bg-opacity-12.5 dark:bg-opacity-100 rounded-full" />
-						</Apply>
-					</Apply>
+						</Style>
+					</Style>
 				</div>
 				<div className="absolute inset-0">
 					<div className="flex flex-row justify-center items-center h-full">
-						<Apply className="w-8 h-8 text-cool-gray-800 dark:text-cool-gray-200 group-hover:text-purple-600 group-focus:text-purple-600 dark:group-hover:text-purple-50 dark:group-focus:text-purple-50">
+						<Style className="w-8 h-8 text-cool-gray-800 dark:text-cool-gray-200 group-hover:text-purple-600 group-focus:text-purple-600 dark:group-hover:text-purple-50 dark:group-focus:text-purple-50">
 							<SVG id={icon.name} svg={icon.svgs[variant]} />
-						</Apply>
+						</Style>
 					</div>
 				</div>
 
 				{/* Name */}
 				<div className="p-4 absolute inset-x-0 bottom-0">
 					<div className="-mx-2 -my-1 flex flex-row justify-center">
-						<ApplyReset className="subpixel-antialiased">
+						<Reset className="subpixel-antialiased">
 							<p className="px-2 py-1 tracking-wide leading-tight text-cool-gray-600 dark:text-cool-gray-400 cursor-text select-text" style={{ fontSize: px(13) }}>
 								{!copyAsJSX ? (
 									icon.name
@@ -803,103 +806,113 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => {
 									toCamelCase(icon.name)
 								)}
 							</p>
-						</ApplyReset>
+						</Reset>
 					</div>
 				</div>
 
 			</button>
-		</ApplyReset>
+		</Reset>
 	)
 })
 
-const IconApp = ({ state, dispatch }) => {
+const SectionApp = ({ state, dispatch }) => {
 	const media = useLayoutBreakpoints(screens)
 
 	return (
-		<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: "calc(-1 * var(--search-bar-negative-margin))" }}>
-			{/* NOTE: Do not use w-full max-w-screen-xl because of px-*. */}
-			<main
-				className="z-10"
-				style={{
-					width: "100%",
-					maxWidth: 1152,
-				}}
-			>
+		<section>
 
-				{/* Search */}
-				<Apply className="mt-0 lg:-mt-4 pt-0 lg:pt-4">
-					<div className="sticky top-0 z-10">
-						<ApplyDisplay className="hidden lg:block">
-							<div className="-mx-6 absolute inset-x-0 top-0 pointer-events-none" style={{ zIndex: -1 }}>
-								<div className="h-4 bg-theme dark:bg-dark-theme" />
-								<div className="bg-theme dark:bg-dark-theme" style={{ height: "calc(var(--search-bar-height) / 2)" }} />
-							</div>
-						</ApplyDisplay>
-						<Apply className="rounded-t-0 lg:rounded-t-6 shadow-2">
-							<div className="box-content bg-white dark:bg-cool-gray-900 border-b border-transparent dark:border-cool-gray-800" style={{ height: "var(--search-bar-height)" }}>
-								<MemoSearch state={state} dispatch={dispatch} />
-							</div>
-						</Apply>
-					</div>
-				</Apply>
+			<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: "calc(-1 * var(--search-bar-negative-margin))" }}>
 
-				<style>
-					{css`
-						#app-grid {
-							display: grid;
-							grid-template-columns: repeat(auto-fill, minmax(calc(160px - 1px), 1fr));
-							gap: 1px;
-						}
+				{/* NOTE: Do not use w-full max-w-screen-xl because of px-*. */}
+				<main
+					className="z-10"
+					style={{
+						width: "100%",
+						maxWidth: 1152,
+					}}
+				>
 
-						#app-grid > * {
-							outline: 1px solid var(--cool-gray-200);
-						}
-						.dark #app-grid > * {
-							outline: 1px solid var(--cool-gray-800);
-						}
-					`}
-				</style>
-
-				{/* Icons */}
-				<Apply className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
-					<div
-						className="bg-white dark:bg-cool-gray-900 overflow-hidden"
-						style={{
-							marginTop: "calc(-1 * var(--search-bar-height))",
-							paddingTop: "var(--search-bar-height)",
-							minHeight: `calc(100vh - ${tw(media.lg ? 0 : 4 + 24)})`,
-						}}
-					>
-						<div id="app-grid">
-							{state.search.__results.length < dataset.length && (
-								<DocumentTitle title={`${state.search.__results.length} result${state.search.__results.length === 1 ? "" : "s"}`} />
-							)}
-							{state.search.__results.map((each, x) => (
-								<article key={each.name} className="pb-full relative">
-									<div className="absolute inset-0">
-										<MemoIcon
-											variant={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
-											copyAsJSX={state.controls.copyAs.jsx}
-											icon={each}
-										/>
-									</div>
-								</article>
-							))}
+					{/* Search */}
+					<Style className="mt-0 lg:-mt-4 pt-0 lg:pt-4">
+						<div className="sticky top-0 z-10">
+							<Media className="hidden lg:block">
+								<div className="-mx-6 absolute inset-x-0 top-0 pointer-events-none" style={{ zIndex: -1 }}>
+									<div className="h-4 bg-theme dark:bg-dark-theme" />
+									<div className="bg-theme dark:bg-dark-theme" style={{ height: "calc(var(--search-bar-height) / 2)" }} />
+								</div>
+							</Media>
+							<Style className="rounded-t-0 lg:rounded-t-6 shadow-2">
+								<div className="box-content bg-white dark:bg-cool-gray-900 border-b border-transparent dark:border-cool-gray-800" style={{ height: "var(--search-bar-height)" }}>
+									<MemoSearch state={state} dispatch={dispatch} />
+								</div>
+							</Style>
 						</div>
-					</div>
-				</Apply>
+					</Style>
 
-			</main>
-		</div>
+					<style>
+						{css`
+							#app-grid {
+								display: grid;
+								grid-template-columns: repeat(auto-fill, minmax(calc(160px - 1px), 1fr));
+								gap: 1px;
+							}
+
+							#app-grid > * {
+								outline: 1px solid var(--cool-gray-200);
+							}
+							.dark #app-grid > * {
+								outline: 1px solid var(--cool-gray-800);
+							}
+						`}
+					</style>
+
+					{/* Icons */}
+					<Style className="rounded-0 lg:rounded-6 shadow-none lg:shadow-2">
+						<div
+							className="bg-white dark:bg-cool-gray-900 overflow-hidden"
+							style={{
+								marginTop: "calc(-1 * var(--search-bar-height))",
+								paddingTop: "var(--search-bar-height)",
+								minHeight: `calc(100vh - ${tw(media.lg ? 0 : 4 + 24)})`,
+							}}
+						>
+							<div id="app-grid">
+								{state.search.__results.length < dataset.length && (
+									<DocumentTitle title={`${state.search.__results.length} result${state.search.__results.length === 1 ? "" : "s"}`} />
+								)}
+								{state.search.__results.map((each, x) => (
+									<article key={each.name} className="pb-full relative">
+										<div className="absolute inset-0">
+											<MemoIcon
+												variant={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
+												copyAsJSX={state.controls.copyAs.jsx}
+												icon={each}
+											/>
+										</div>
+									</article>
+								))}
+							</div>
+						</div>
+					</Style>
+
+				</main>
+
+			</div>
+
+			<Media className="hidden lg:block">
+				<div className="h-24" />
+			</Media>
+
+		</section>
 	)
 }
 
 const TextRow = ({ children }) => (
-	<ApplyReset className="align-top">
+	<Reset className="align-top">
 		<span className="inline-flex flex-row items-center">
 			{children}
 		</span>
-	</ApplyReset>
+	</Reset>
 )
 
 const AppNotification = ({ state, dispatch }) => (
@@ -914,9 +927,9 @@ const AppNotification = ({ state, dispatch }) => (
 			<DarkTooltip>
 				<span className="flex flex-row">
 					<span className="flex flex-row items-center" style={{ height: px(14 * 1.5) }}>
-						<Apply className="w-4 h-4">
+						<Style className="w-4 h-4">
 							<SVGPaperClip />
-						</Apply>
+						</Style>
 					</span>
 					<EnSpace />
 					<span>
@@ -1038,6 +1051,13 @@ const Layout = () => {
 		}
 	}, [state])
 
+	// Sets localStorage (themePreference).
+	React.useEffect(() => {
+		const key = "themePreference"
+		const value = !state.controls.theme.darkMode ? "light" : "dark"
+		localStorage.setItem(key, value)
+	}, [state.controls.theme.darkMode])
+
 	React.useEffect(
 		React.useCallback(() => {
 			const media = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)")
@@ -1063,6 +1083,7 @@ const Layout = () => {
 
 	const mounted = React.useRef(false)
 	React.useEffect(() => {
+		// No-op the mounted effect:
 		if (!mounted.current) {
 			mounted.current = true
 			return
@@ -1078,32 +1099,7 @@ const Layout = () => {
 	return (
 		<>
 
-			<Head>
-
-				{/* Meta */}
-				<meta charSet="utf-8" />
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<link rel="icon" href="/static/favicon.ico" />
-
-				<title>Heroicons — Open Source SVG Icons</title>
-				<meta name="title" content="Heroicons — Open Source SVG Icons" />
-				<meta name="description" content="Beautiful, free MIT-licensed SVG icons, designed by Steve Schoger. 200+ icons solid and stroke icons, one-click copy-paste, dark mode, and Figma file." />
-
-				{/* Facebook */}
-				<meta property="og:type" content="website" />
-				<meta property="og:url" content="https://heroicons.dev" />
-				<meta property="og:title" content="Heroicons — Open Source SVG Icons" />
-				<meta property="og:description" content="Beautiful, free MIT-licensed SVG icons, designed by Steve Schoger. 200+ icons solid and stroke icons, one-click copy-paste, dark mode, and Figma file." />
-				<meta property="og:image" content="/static/social.png" />
-
-				{/* Twitter */}
-				<meta property="twitter:card" content="summary_large_image" />
-				<meta property="twitter:url" content="https://heroicons.dev" />
-				<meta property="twitter:title" content="Heroicons — Open Source SVG Icons" />
-				<meta property="twitter:description" content="Beautiful, free MIT-licensed SVG icons, designed by Steve Schoger. 200+ icons solid and stroke icons, one-click copy-paste, dark mode, and Figma file." />
-				<meta property="twitter:image" content="/static/social.png" />
-
-			</Head>
+			<SEO />
 
 			<style>
 				{css`
@@ -1114,11 +1110,8 @@ const Layout = () => {
 				`}
 			</style>
 
-			<Hero state={state} dispatch={dispatch} />
-			<IconApp state={state} dispatch={dispatch} />
-			<ApplyDisplay className="hidden lg:block">
-				<div className="h-24" />
-			</ApplyDisplay>
+			<SectionHero state={state} dispatch={dispatch} />
+			<SectionApp state={state} dispatch={dispatch} />
 			<AppNotification state={state} dispatch={dispatch} />
 
 		</>
