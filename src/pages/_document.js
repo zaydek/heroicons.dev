@@ -20,12 +20,12 @@ class Document extends NextDocument {
 					<style>
 						{`
 							html {
+								/* cool-gray-50 */
 								background-color: #f8fafc;
-								background-color: var(--cool-gray-50);
 							}
 							html.dark {
-								background-color: #000000;
-								background-color: var(--black);
+								/* cool-gray-950 */
+								background-color: #0d1017;
 							}
 						`}
 					</style>
