@@ -10,10 +10,29 @@ class Document extends NextDocument {
 		return (
 			<Html className="antialiased" lang="en">
 				<Head>
+
 					<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 					{process.env.NODE_ENV === "production" && (
 						<script async src="https://cdn.splitbee.io/sb.js" />
 					)}
+
+					{/* Layout dark mode */}
+					{/* */}
+					{/* https://github.com/nikita-rudenko/nikitarudenko.dev/blob/master/src/pages/_document.tsx */}
+					<style>
+						{`
+							html {
+								background-color: #f8fafc;
+								background-color: var(--cool-gray-50);
+							}
+							html.dark {
+								background-color: #000000;
+								background-color: var(--black);
+							}
+						`}
+					</style>
+					<script src="/scripts/layout-dark-mode.js" />
+
 				</Head>
 				<body>
 					<Main />

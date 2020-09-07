@@ -1053,7 +1053,6 @@ const Layout = () => {
 					value: true,
 				})
 			}
-			handler() // Once
 			media.addListener(handler)
 			return () => {
 				media.removeListener(handler)
@@ -1062,7 +1061,12 @@ const Layout = () => {
 		[],
 	)
 
+	const mounted = React.useRef(false)
 	React.useEffect(() => {
+		if (!mounted.current) {
+			mounted.current = true
+			return
+		}
 		const html = document.documentElement
 		if (!state.controls.theme.darkMode) {
 			html.classList.remove("dark")
@@ -1100,17 +1104,6 @@ const Layout = () => {
 				<meta property="twitter:image" content="/static/social.png" />
 
 			</Head>
-
-			<style>
-				{css`
-					html {
-						background-color: var(--gray-50);
-					}
-					html.dark {
-						background-color: var(--black);
-					}
-				`}
-			</style>
 
 			<style>
 				{css`
