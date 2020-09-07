@@ -12,7 +12,7 @@ const SEO = () => (
 		/>
 		<link
 			rel="icon"
-			href="/static/favicon.ico"
+			href="https://heroicons.dev/static/favicon.ico"
 		/>
 		<title>
 			Heroicons — Open Source SVG Icons
@@ -45,7 +45,7 @@ const SEO = () => (
 		/>
 		<meta
 			property="og:image"
-			content="/static/social.png"
+			content="https://heroicons.dev/static/social.png"
 		/>
 
 		{/* Twitter */}
@@ -67,7 +67,7 @@ const SEO = () => (
 		/>
 		<meta
 			property="twitter:image"
-			content="/static/social.png"
+			content="https://heroicons.dev/static/social.png"
 		/>
 
 	</Head>
