@@ -3,9 +3,9 @@ const defaultTheme = require("tailwindcss/defaultTheme")
 const tw = n => `${n * 4 / 16}rem`
 
 module.exports = {
-	// dark: "class",
+	dark: "class",
 	experimental: {
-		// darkModeVariant: true,
+		darkModeVariant: true,
 		uniformColorPalette: true,
 	},
 	plugins: [
@@ -68,9 +68,6 @@ module.exports = {
 			md: (768) + "px",
 			lg: (24 + 1024 + 24) + "px",
 			xl: (24 + 1280 + 24) + "px",
-			dark: {
-				raw: "(prefers-color-scheme: dark)",
-			},
 		},
 	},
 	variants: {

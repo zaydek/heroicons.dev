@@ -316,7 +316,7 @@ const Hero = ({ state, dispatch }) => (
 		<div className="absolute inset-x-0 top-full pointer-events-none">
 			<Apply className="text-theme dark:text-dark-theme">
 				<svg fill="currentColor" viewBox="0 0 32 1" xmlns="http://www.w3.org/2000/svg">
-					<path d="M16 1C8 1 2.66667 0.333333 0 0H32C29.3333 0.333333 24 1 16 1Z" />
+					<path d="M16 1C4 1 0 0 0 0H32C32 0 28 1 16 1Z" />
 				</svg>
 			</Apply>
 		</div>
@@ -331,7 +331,7 @@ const Hero = ({ state, dispatch }) => (
 							fixed;
 						background-image:
 							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
-							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C8 1 2.66667 0.333333 0 0H32C29.3333 0.333333 24 1 16 1Z' /%3E%3C/svg%3E");
+							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C4 1 0 0 0 0H32C32 0 28 1 16 1Z' /%3E%3C/svg%3E");
 						background-repeat:
 							repeat-x,
 							no-repeat;
@@ -343,26 +343,24 @@ const Hero = ({ state, dispatch }) => (
 							0 112px;
 					}
 				}
-				/* NOTE: fill='var(--theme)' does not work. */
 				@media (min-width: ${screens.lg}) {
-					@media (prefers-color-scheme: dark) {
-						html {
-							background-attachment:
-								fixed,
-								fixed;
-							background-image:
-								url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 43.75%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
-								url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 43.75%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C8 1 2.66667 0.333333 0 0H32C29.3333 0.333333 24 1 16 1Z' /%3E%3C/svg%3E");
-							background-repeat:
-								repeat-x,
-								no-repeat;
-							background-size:
-								112px,
-								100%;
-							background-position:
-								0 0,
-								0 112px;
-						}
+					html.dark {
+						background-attachment:
+							fixed,
+							fixed;
+						/* NOTE: fill='var(--theme)' does not work. */
+						background-image:
+							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 43.75%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
+							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 43.75%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C4 1 0 0 0 0H32C32 0 28 1 16 1Z' /%3E%3C/svg%3E");
+						background-repeat:
+							repeat-x,
+							no-repeat;
+						background-size:
+							112px,
+							100%;
+						background-position:
+							0 0,
+							0 112px;
 					}
 				}
 			`}
@@ -654,53 +652,53 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 						</div>
 
 						{/* Button */}
-						{/* <div */}
-						{/* 	className="group px-1 flex flex-row items-center" */}
-						{/* 	onFocus={e => setTooltip("theme")} */}
-						{/* 	onBlur={e => setTooltip("")} */}
-						{/* 	onMouseEnter={e => setTooltip("theme")} */}
-						{/* 	onMouseLeave={e => setTooltip("")} */}
-						{/* > */}
-						{/* 	<ApplyReset className="focus:outline-none"> */}
-						{/* 		<Apply className="transition duration-200 ease-in-out"> */}
-						{/* 			<button */}
-						{/* 				className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full" */}
-						{/* 				style={{ */}
-						{/* 					color: state.controls.theme.darkMode && "var(--purple-50)", */}
-						{/* 					backgroundColor: state.controls.theme.darkMode && "var(--purple-500)", */}
-						{/* 				}} */}
-						{/* 				onClick={e => ( */}
-						{/* 					dispatch({ */}
-						{/* 						type: "UPDATE_CONTROLS", */}
-						{/* 						controlType: "theme", */}
-						{/* 						key: !state.controls.theme.darkMode ? "darkMode" : "lightMode", */}
-						{/* 						value: true, */}
-						{/* 					}) */}
-						{/* 				)} */}
-						{/* 				aria-label={`Click to Switch to ${!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}`} */}
-						{/* 			> */}
-						{/* 				<Apply className="w-6 h-6 overflow-visible"> */}
-						{/* 					{!state.controls.theme.darkMode ? ( */}
-						{/* 						<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> */}
-						{/* 							<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /> */}
-						{/* 						</svg> */}
-						{/* 					) : ( */}
-						{/* 						<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
-						{/* 							<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /> */}
-						{/* 						</svg> */}
-						{/* 					)} */}
-						{/* 				</Apply> */}
-						{/* 				{tooltip === "theme" && ( */}
-						{/* 					<div className="pt-2 absolute right-0 top-full"> */}
-						{/* 						<Tooltip apply="text-left whitespace-pre"> */}
-						{/* 							Click to Switch to {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"} */}
-						{/* 						</Tooltip> */}
-						{/* 					</div> */}
-						{/* 				)} */}
-						{/* 			</button> */}
-						{/* 		</Apply> */}
-						{/* 	</ApplyReset> */}
-						{/* </div> */}
+						<div
+							className="group px-1 flex flex-row items-center"
+							onFocus={e => setTooltip("theme")}
+							onBlur={e => setTooltip("")}
+							onMouseEnter={e => setTooltip("theme")}
+							onMouseLeave={e => setTooltip("")}
+						>
+							<ApplyReset className="focus:outline-none">
+								<Apply className="transition duration-200 ease-in-out">
+									<button
+										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full"
+										style={{
+											color: state.controls.theme.darkMode && "var(--purple-50)",
+											backgroundColor: state.controls.theme.darkMode && "var(--purple-500)",
+										}}
+										onClick={e => (
+											dispatch({
+												type: "UPDATE_CONTROLS",
+												controlType: "theme",
+												key: !state.controls.theme.darkMode ? "darkMode" : "lightMode",
+												value: true,
+											})
+										)}
+										aria-label={`Click to Switch to ${!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}`}
+									>
+										<Apply className="w-6 h-6 overflow-visible">
+											{!state.controls.theme.darkMode ? (
+												<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+												</svg>
+											) : (
+												<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+													<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+												</svg>
+											)}
+										</Apply>
+										{tooltip === "theme" && (
+											<div className="pt-2 absolute right-0 top-full">
+												<Tooltip apply="text-left whitespace-pre">
+													Click to Switch to {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}
+												</Tooltip>
+											</div>
+										)}
+									</button>
+								</Apply>
+							</ApplyReset>
+						</div>
 
 					</div>
 				</div>
@@ -819,15 +817,12 @@ const IconApp = ({ state, dispatch }) => {
 
 	return (
 		<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: "calc(-1 * var(--search-bar-negative-margin))" }}>
-
-			{/* LHS */}
-			{/* */}
 			{/* NOTE: Do not use w-full max-w-screen-xl because of px-*. */}
 			<main
 				className="z-10"
 				style={{
 					width: "100%",
-					maxWidth: 1280,
+					maxWidth: 1152,
 				}}
 			>
 
@@ -855,13 +850,12 @@ const IconApp = ({ state, dispatch }) => {
 							grid-template-columns: repeat(auto-fill, minmax(calc(160px - 1px), 1fr));
 							gap: 1px;
 						}
+
 						#app-grid > * {
 							outline: 1px solid var(--cool-gray-200);
 						}
-						@media (prefers-color-scheme: dark) {
-							#app-grid > * {
-								outline: 1px solid var(--cool-gray-800);
-							}
+						.dark #app-grid > * {
+							outline: 1px solid var(--cool-gray-800);
 						}
 					`}
 				</style>
@@ -896,7 +890,6 @@ const IconApp = ({ state, dispatch }) => {
 				</Apply>
 
 			</main>
-
 		</div>
 	)
 }
@@ -970,6 +963,43 @@ const AppNotification = ({ state, dispatch }) => (
 
 const KEY = "heroicons.dev"
 
+// function useDarkModeMatchesCallback(matchesCallback) {
+// 	React.useEffect(() => {
+// 		const media = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)")
+// 		if (!media) {
+// 			// No-op
+// 			return
+// 		}
+// 		const handler = () => {
+// 			matchesCallback(media.matches)
+// 		}
+// 		handler() // Once
+// 		media.addListener(handler)
+// 		return () => {
+// 			media.removeListener(handler)
+// 		}
+// 	}, [matchesCallback])
+// }
+//
+// function useDarkModeCallbacks(lightModeCallback, darkModeCallback) {
+// 	React.useEffect(() => {
+// 		const media = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)")
+// 		if (!media) {
+// 			// No-op
+// 			return
+// 		}
+// 		const handler = () => {
+// 			const callback = !media.matches ? lightModeCallback : darkModeCallback
+// 			callback()
+// 		}
+// 		handler() // Once
+// 		media.addListener(handler)
+// 		return () => {
+// 			media.removeListener(handler)
+// 		}
+// 	}, [lightModeCallback, darkModeCallback])
+// }
+
 const Layout = () => {
 	const [state, dispatch] = useIconsReducer()
 
@@ -1002,51 +1032,44 @@ const Layout = () => {
 				},
 				"\t",
 			))
-		}, 1e3)
+		}, 100)
 		return () => {
 			clearTimeout(id)
 		}
 	}, [state])
 
-	// const [darkMode, setDarkMode] = React.useState(false)
-	//
-	// React.useEffect(() => {
-	// 	const media = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)")
-	// 	if (!media) {
-	// 		// No-op
-	// 		return
-	// 	}
-	// 	const handler = () => {
-	// 		setDarkMode(media.matches)
-	// 	}
-	// 	handler() // Once
-	// 	media.addListener(handler)
-	// 	return () => {
-	// 		media.removeListener(handler)
-	// 	}
-	// }, [])
-	//
-	// // html.dark
-	// React.useEffect(() => {
-	// 	const h = document.documentElement
-	// 	if (!darkMode) {
-	// 		h.classList.remove("dark")
-	// 	} else {
-	// 		h.classList.add("dark")
-	// 	}
-	// }, [darkMode])
-	//
-	// // html.bg-*
-	// React.useEffect(() => {
-	// 	const h = document.documentElement
-	// 	if (!darkMode) {
-	// 		h.classList.remove("bg-black")
-	// 		h.classList.add("bg-gray-50")
-	// 	} else {
-	// 		h.classList.remove("bg-gray-50")
-	// 		h.classList.add("bg-black")
-	// 	}
-	// }, [darkMode])
+	React.useEffect(
+		React.useCallback(() => {
+			const media = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)")
+			if (!media) {
+				// No-op
+				return
+			}
+			const handler = () => {
+				dispatch({
+					type: "UPDATE_CONTROLS",
+					controlType: "theme",
+					key: media.matches ? "darkMode" : "lightMode",
+					value: true,
+				})
+			}
+			handler() // Once
+			media.addListener(handler)
+			return () => {
+				media.removeListener(handler)
+			}
+		}, [state, dispatch]),
+		[],
+	)
+
+	React.useEffect(() => {
+		const html = document.documentElement
+		if (!state.controls.theme.darkMode) {
+			html.classList.remove("dark")
+		} else {
+			html.classList.add("dark")
+		}
+	}, [state.controls.theme.darkMode])
 
 	return (
 		<>
@@ -1077,6 +1100,17 @@ const Layout = () => {
 				<meta property="twitter:image" content="/static/social.png" />
 
 			</Head>
+
+			<style>
+				{css`
+					html {
+						background-color: var(--gray-50);
+					}
+					html.dark {
+						background-color: var(--black);
+					}
+				`}
+			</style>
 
 			<style>
 				{css`
