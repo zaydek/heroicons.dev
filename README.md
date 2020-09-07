@@ -1,4 +1,4 @@
-# heroicons.dev
+# Heroicons Web Viewer
 
 A set of free MIT-licensed high-quality SVG icons for you to use in your web projects.
 
@@ -14,15 +14,12 @@ Icons created by [Steve Schoger](https://twitter.com/steveschoger), [heroicons.d
 
 ## Features
 
-- Click-to-copy to the clipboard
-- Support for copy as HTML and JSX ⚛️
-- Paste-support for Figma ✨
-- Search support and persisted search URLs
-- Search for only new icons using ‘new’: https://heroicons.dev/?query=new
-
-## License
-
-Open source software licensed as MIT.
+✨ Tag-based search<br>
+✨ Search for only new icons using ‘new’: https://heroicons.dev/?query=new<br>
+✨ Click-to-copy to the clipboard as SVG or JSX<br>
+✨ Dark mode 😎<br>
+✨ Preferences sync to localStorage<br>
+✨ _No ads!_<br>
 
 ## Contributing Guide
 
@@ -33,6 +30,10 @@ Contributions are welcome! I’m actively maintaining this website.
 That’s pretty much it. I’m using a [custom ESLint configuration file](https://github.com/zaydek/dot-eslintrc.js) for formatting, but you can ignore this yourself when contributing.
 
 Thank you for contributing!
+
+## License
+
+Open source software licensed as MIT.
 
 <br>
 
