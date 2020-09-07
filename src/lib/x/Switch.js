@@ -17,9 +17,10 @@ export const Case = ({ children }) => (
 // </Switch>
 //
 export const Switch = ({ on, children }) => {
-	const child = children.find(each => each.props.case === on)
-	if (!child) {
-		throw new Error(`Switch: no such case; on=${on}`)
-	}
-	return child
+	// const child = children.find(each => each.props.case === on)
+	// if (!child) {
+	// 	throw new Error(`Switch: no such case; on=${on}`)
+	// }
+	// return child
+	return children.find(each => each.props.case === on) || null
 }

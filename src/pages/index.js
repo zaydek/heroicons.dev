@@ -19,16 +19,15 @@ import { Switch, Case } from "lib/x/Switch"
 
 import SVGCheck from "heroicons-0.4.1/solid/Check"
 import SVGCode from "heroicons-0.4.1/solid/Code"
-import SVGCursorClick from "heroicons-0.4.1/solid/CursorClick"
 import SVGExternalLink from "heroicons-0.4.1/solid/ExternalLink"
 import SVGFlag from "heroicons-0.4.1/solid/Flag"
-import SVGGift from "heroicons-0.4.1/solid/Sparkles"
+import SVGMoon from "heroicons-0.4.1/solid/Moon"
 import SVGPaperClip from "heroicons-0.4.1/solid/PaperClip"
-import SVGSwitchHorizontal from "heroicons-0.4.1/solid/SwitchHorizontal"
 
-import SVGCodeOutline from "heroicons-0.4.1/outline/Code"
-import SVGFlagOutline from "heroicons-0.4.1/outline/Flag"
-import SVGSearchOutline from "heroicons-0.4.1/outline/Search"
+import SVGCodeStroke from "heroicons-0.4.1/outline/Code"
+import SVGMoonStroke from "heroicons-0.4.1/outline/Moon"
+
+const LOCALSTORAGE_KEY = "heroicons.dev"
 
 const screens = {
 	sm: (640) + "px",
@@ -39,6 +38,14 @@ const screens = {
 
 const Reset = Style
 const Media = Style
+
+const TextRow = ({ children }) => (
+	<Reset className="align-top">
+		<span className="inline-flex flex-row items-center">
+			{children}
+		</span>
+	</Reset>
+)
 
 const AbsoluteExternalLinks = () => (
 	<Media className="hidden lg:block">
@@ -908,18 +915,10 @@ const SectionApp = ({ state, dispatch }) => {
 	)
 }
 
-const TextRow = ({ children }) => (
-	<Reset className="align-top">
-		<span className="inline-flex flex-row items-center">
-			{children}
-		</span>
-	</Reset>
-)
-
-const Toast = ({ state, dispatch }) => (
+const MemoToast = React.memo(({ state, dispatch }) => (
 	<Transition
 		on={state.__toast.visible && (state.__toast.key + (!state.__toast.value ? "" : "-" + state.__toast.value))}
-		className="transition duration-200 ease-in-out"
+		className="transition duration-100 ease-out"
 		from="opacity-0 transform translate-y-4 pointer-events-none"
 		to="opacity-100 transform translate-y-0 pointer-events-auto"
 	>
@@ -927,58 +926,54 @@ const Toast = ({ state, dispatch }) => (
 			<DarkTooltip>
 				<span className="flex flex-row">
 					<span className="flex flex-row items-center" style={{ height: px(14 * 1.5) }}>
-						{state.__toast.key === "localStorage" && (
-							<Style className="w-4 h-4">
-								<SVGCheck />
-							</Style>
-						)}
-						{state.__toast.key === "variant:solid" && (
-							<Style className="w-4 h-4">
-								<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-									<path fillRule="evenodd" clipRule="evenodd" d="M2.166 4.99836C5.06114 4.96236 7.84481 3.87682 10 1.94336C12.155 3.87718 14.9387 4.96308 17.834 4.99936C17.944 5.64936 18 6.31936 18 7.00036C18 12.2254 14.66 16.6704 10 18.3174C5.34 16.6694 2 12.2244 2 6.99936C2 6.31736 2.057 5.64936 2.166 4.99836Z" />
-								</svg>
-							</Style>
-						)}
-						{state.__toast.key === "variant:outline" && (
-							<Style className="w-4 h-4">
-								<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
-								</svg>
-							</Style>
-						)}
-						{state.__toast.key === "copyAs:jsx" && (
-							<Style className="w-4 h-4">
-								<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-									<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
-								</svg>
-							</Style>
-						)}
-						{state.__toast.key === "copyAs:svg" && (
-							<Style className="w-4 h-4">
-								<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-								</svg>
-							</Style>
-						)}
-						{state.__toast.key === "theme:darkMode" && (
-							<Style className="w-4 h-4">
-								<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-									<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-								</svg>
-							</Style>
-						)}
-						{state.__toast.key === "theme:lightMode" && (
-							<Style className="w-4 h-4">
-								<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-								</svg>
-							</Style>
-						)}
-						{state.__toast.key === "clipboard" && (
-							<Style className="w-4 h-4">
-								<SVGPaperClip />
-							</Style>
-						)}
+
+						<Switch on={state.__toast.key}>
+							<Case case="localStorage">
+								<Style className="w-4 h-4">
+									<SVGCheck />
+								</Style>
+							</Case>
+							<Case case="variant:solid">
+								<Style className="w-4 h-4">
+									<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+										<path fillRule="evenodd" clipRule="evenodd" d="M2.166 4.99836C5.06114 4.96236 7.84481 3.87682 10 1.94336C12.155 3.87718 14.9387 4.96308 17.834 4.99936C17.944 5.64936 18 6.31936 18 7.00036C18 12.2254 14.66 16.6704 10 18.3174C5.34 16.6694 2 12.2244 2 6.99936C2 6.31736 2.057 5.64936 2.166 4.99836Z" />
+									</svg>
+								</Style>
+							</Case>
+							<Case case="variant:outline">
+								<Style className="w-4 h-4">
+									<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
+									</svg>
+								</Style>
+							</Case>
+							<Case case="copyAs:jsx">
+								<Style className="w-4 h-4">
+									<SVGCode />
+								</Style>
+							</Case>
+							<Case case="copyAs:svg">
+								<Style className="w-4 h-4">
+									<SVGCodeStroke />
+								</Style>
+							</Case>
+							<Case case="theme:darkMode">
+								<Style className="w-4 h-4">
+									<SVGMoon />
+								</Style>
+							</Case>
+							<Case case="theme:lightMode">
+								<Style className="w-4 h-4">
+									<SVGMoonStroke />
+								</Style>
+							</Case>
+							<Case case="clipboard">
+								<Style className="w-4 h-4">
+									<SVGPaperClip />
+								</Style>
+							</Case>
+						</Switch>
+
 					</span>
 					<EmSpace />
 					<span>
@@ -1010,39 +1005,18 @@ const Toast = ({ state, dispatch }) => (
 							</Case>
 						</Switch>
 
-						{/* {state.__toast.key === "localStorage" && ( */}
-						{/* 	<>Restored Preferences</> */}
-						{/* )} */}
-						{/* {state.__toast.key === "variant:solid" && ( */}
-						{/* 	<>Enabled Solid Icons</> */}
-						{/* )} */}
-						{/* {state.__toast.key === "variant:outline" && ( */}
-						{/* 	<>Enabled Outline Icons</> */}
-						{/* )} */}
-						{/* {state.__toast.key === "copyAs:jsx" && ( */}
-						{/* 	<>Enabled Copy as JSX</> */}
-						{/* )} */}
-						{/* {state.__toast.key === "copyAs:svg" && ( */}
-						{/* 	<>Enabled Copy as SVG</> */}
-						{/* )} */}
-						{/* {state.__toast.key === "theme:darkMode" && ( */}
-						{/* 	<>Enabled Dark Mode</> */}
-						{/* )} */}
-						{/* {state.__toast.key === "theme:lightMode" && ( */}
-						{/* 	<>Enabled Light Mode</> */}
-						{/* )} */}
-						{/* {state.__toast.key === "clipboard" && ( */}
-						{/* 	<>Copied `{!state.controls.copyAs.jsx ? state.__toast.value : toCamelCase(state.__toast.value)}` as {!state.controls.copyAs.jsx ? "SVG" : "JSX"}</> */}
-						{/* )} */}
-
 					</span>
 				</span>
 			</DarkTooltip>
 		</div>
 	</Transition>
-)
-
-const LOCALSTORAGE_KEY = "heroicons.dev"
+), (prev, next) => {
+	const ok = (
+		prev.state.controls.copyAs === next.state.controls.copyAs &&
+		prev.state.__toast === next.state.__toast
+	)
+	return ok
+})
 
 const Layout = () => {
 	const [state, dispatch] = useIconsReducer()
@@ -1054,7 +1028,7 @@ const Layout = () => {
 				dispatch({
 					type: "HIDE_TOAST",
 				})
-			}, 2.2e3)
+			}, 2.1e3)
 			return () => {
 				clearTimeout(id)
 			}
@@ -1161,8 +1135,15 @@ const Layout = () => {
 				</>
 			), [])}
 
-			<SectionApp state={state} dispatch={dispatch} />
-			<Toast state={state} dispatch={dispatch} />
+			<SectionApp
+				state={state}
+				dispatch={dispatch}
+			/>
+
+			<MemoToast
+				state={state}
+				dispatch={dispatch}
+			/>
 
 		</>
 	)
