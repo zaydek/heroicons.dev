@@ -16,6 +16,7 @@ import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 import { rem, px, tw } from "lib/x/cssUnits"
 import { Space, EnSpace, EmSpace } from "lib/x/Spaces"
 
+import SVGCheckCircle from "heroicons-0.4.1/solid/CheckCircle"
 import SVGCode from "heroicons-0.4.1/solid/Code"
 import SVGCursorClick from "heroicons-0.4.1/solid/CursorClick"
 import SVGExternalLink from "heroicons-0.4.1/solid/ExternalLink"
@@ -917,7 +918,7 @@ const TextRow = ({ children }) => (
 const AppNotification = ({ state, dispatch }) => (
 	// TODO
 	<Transition
-		on={state.__notif.visible + (!state.__notif.context ? "" : "-" + state.__notif.context)}
+		on={state.__toast.key}
 		className="transition duration-200 ease-in-out"
 		from="opacity-0 transform translate-y-4 pointer-events-none"
 		to="opacity-100 transform translate-y-0 pointer-events-auto"
@@ -926,13 +927,17 @@ const AppNotification = ({ state, dispatch }) => (
 			<DarkTooltip>
 				<span className="flex flex-row">
 					<span className="flex flex-row items-center" style={{ height: px(14 * 1.5) }}>
-						<Style className="w-4 h-4">
-							<SVGPaperClip />
+						{/* <SVGPaperClip /> */}
+
+						<Style className="w-4 h-4 text-green-400">
+							<SVGCheckCircle />
 						</Style>
+
 					</span>
 					<EnSpace />
 					<span>
-						Copied badge-check to the Clipboard!
+						{/* Copied badge-check to the Clipboard! */}
+						Restored Preferences from localStorage
 					</span>
 				</span>
 			</DarkTooltip>
@@ -973,59 +978,37 @@ const AppNotification = ({ state, dispatch }) => (
 // {/* 	</p> */}
 // {/* )} */}
 
-const KEY = "heroicons.dev"
-
-// function useDarkModeMatchesCallback(matchesCallback) {
-// 	React.useEffect(() => {
-// 		const media = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)")
-// 		if (!media) {
-// 			// No-op
-// 			return
-// 		}
-// 		const handler = () => {
-// 			matchesCallback(media.matches)
-// 		}
-// 		handler() // Once
-// 		media.addListener(handler)
-// 		return () => {
-// 			media.removeListener(handler)
-// 		}
-// 	}, [matchesCallback])
-// }
-//
-// function useDarkModeCallbacks(lightModeCallback, darkModeCallback) {
-// 	React.useEffect(() => {
-// 		const media = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)")
-// 		if (!media) {
-// 			// No-op
-// 			return
-// 		}
-// 		const handler = () => {
-// 			const callback = !media.matches ? lightModeCallback : darkModeCallback
-// 			callback()
-// 		}
-// 		handler() // Once
-// 		media.addListener(handler)
-// 		return () => {
-// 			media.removeListener(handler)
-// 		}
-// 	}, [lightModeCallback, darkModeCallback])
-// }
+const LOCALSTORAGE_KEY = "heroicons.dev"
 
 const Layout = () => {
 	const [state, dispatch] = useIconsReducer()
 
+	// Auto-hide toast.
+	React.useEffect(
+		React.useCallback(() => {
+			const id = setTimeout(() => {
+				dispatch({
+					type: "HIDE_TOAST",
+				})
+			}, 2.2e3)
+			return () => {
+				clearTimeout(id)
+			}
+		}, [dispatch]),
+		[state.__toast.key],
+	)
+
 	// Gets localStorage (once).
 	React.useEffect(
 		React.useCallback(() => {
-			const prefs = JSON.parse(localStorage.getItem(KEY))
-			if (!prefs) {
+			const localStoragePrefs = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY))
+			if (!localStoragePrefs) {
 				// No-op
 				return
 			}
 			dispatch({
 				type: "RESTORE_PREFERENCES",
-				prefs,
+				localStoragePrefs,
 			})
 		}, [dispatch]),
 		[],
@@ -1034,7 +1017,7 @@ const Layout = () => {
 	// Sets localStorage.
 	React.useEffect(() => {
 		const id = setTimeout(() => {
-			localStorage.setItem(KEY, JSON.stringify(
+			localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(
 				state,
 				(key, value) => {
 					if (key.startsWith("__")) {
@@ -1115,7 +1098,7 @@ const Layout = () => {
 			), [])}
 
 			<SectionApp state={state} dispatch={dispatch} />
-			{/* <AppNotification state={state} dispatch={dispatch} /> */}
+			<AppNotification state={state} dispatch={dispatch} />
 
 		</>
 	)

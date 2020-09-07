@@ -31,14 +31,9 @@ const initialState = {
 			darkMode: false,
 		},
 	},
-	__notif: {
-		visible: false,
-		controlType: {
-			variant: false,
-			copyAs: false,
-			theme: false,
-		},
-		context: "", // TODO: Rename?
+	__toast: {
+		key: "",
+		show: false,
 	},
 }
 
@@ -54,26 +49,25 @@ const initialState = {
 // })
 
 const actions = state => ({
-	restorePreferences(prefs) {
-		merge(state, prefs)
-		// TODO
-		console.log(JSON.parse(JSON.stringify(state)))
+	restorePreferences(localStoragePrefs) {
+		merge(state, localStoragePrefs)
+		this.showToast("local-storage")
 	},
 	search(query) {
 		state.search.query.user = query
 		state.search.query.__safe = query.trim().toLowerCase().replace(/ +/g, "-")
-		const __safe = state.search.query.__safe
-		if (__safe === "") {
+		const safe = state.search.query.__safe
+		if (safe === "") {
 			state.search.__results = dataset
 			return
 		}
-		if (__safe === "new") {
+		if (safe === "new") {
 			state.search.__results = dataset.filter(each => each.new)
 			return
 		}
 		state.search.__results = dataset.filter(each => {
 			return each.tags.some(each => {
-				return each.startsWith(__safe)
+				return each.startsWith(safe)
 			})
 		})
 	},
@@ -82,23 +76,20 @@ const actions = state => ({
 			disableAll(state.controls[controlType])
 		}
 		state.controls[controlType][key] = value
-		this.emitNotification(controlType)
+		// TODO: Add showToast(...).
 	},
-	emitNotification(controlType, context = "") {
-		state.__notif.visible = true
-		disableAll(state.__notif.controlType)
-		state.__notif.controlType[controlType] = true
-		state.__notif.context = context
+	showToast(key) {
+		state.__toast.key = key
 	},
-	hideNotification() {
-		state.__notif.visible = false
+	hideToast() {
+		state.__toast.key = ""
 	},
 })
 
 function IconsReducer(state, action) {
 	switch (action.type) {
 	case "RESTORE_PREFERENCES":
-		actions(state).restorePreferences(action.prefs)
+		actions(state).restorePreferences(action.localStoragePrefs)
 		return
 	case "SEARCH":
 		actions(state).search(action.query)
@@ -106,11 +97,11 @@ function IconsReducer(state, action) {
 	case "UPDATE_CONTROLS":
 		actions(state).updateControls(action.controlType, action.key, action.value)
 		return
-	case "EMIT_NOTIFICATION":
-		actions(state).emitNotification(action.controlType, action.context)
+	case "SHOW_TOAST":
+		actions(state).showToast(action.key)
 		return
-	case "HIDE_NOTIFICATION":
-		actions(state).hideNotification()
+	case "HIDE_TOAST":
+		actions(state).hideToast()
 		return
 	default:
 		throw new Error(`IconsReducer: type mismatch; action.type=${action.type}`)
