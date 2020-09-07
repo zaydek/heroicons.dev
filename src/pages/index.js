@@ -495,8 +495,9 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 	React.useEffect(() => {
 		const handler = e => {
 			const userPressedShortcut = (
-				(e.keyCode === 27 || e.key === "Escape") ||
-				(e.keyCode === 191 || e.key === "/")
+				(e.keyCode === 27 || e.key === "Escape") || // "esc"
+				((e.ctrlKey || e.metaKey) && (e.keyCode === 75 || e.key === "k")) || // cmd-k
+				(e.keyCode === 191 || e.key === "/") // "/"
 			)
 			if (!userPressedShortcut) {
 				// No-op
