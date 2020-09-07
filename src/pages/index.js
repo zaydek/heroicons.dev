@@ -225,61 +225,90 @@ const Sponsors = () => (
 
 		{/* Center (<= xl) */}
 		<Media className="block xl:hidden">
-			<div className="py-3 absolute inset-x-0 bottom-full">
-				<p className="text-center font-bold tracking-wide leading-none text-purple-50" style={{ fontSize: "0.6875rem" }}>
-					<TextRow>
-						OUR SPONSORS
-						<EnSpace />
-						&middot;
-						<EnSpace />
-						UNAFFILIATED WITH TAILWIND LABS
-					</TextRow>
-				</p>
+			<div className="py-6 absolute inset-x-0 bottom-full">
+				<Style className="text-center">
+					<p className="font-bold tracking-wide leading-none text-purple-50 opacity-87.5" style={{ fontSize: "0.6875rem" }}>
+						<TextRow>
+							PROUDLY SPONSORED BY
+							<EnSpace />
+							&middot;
+							<EnSpace />
+							UNAFFILIATED WITH TAILWIND LABS
+						</TextRow>
+					</p>
+				</Style>
 			</div>
 		</Media>
 
 		{/* LHS */}
 		<Media className="hidden xl:block">
-			<div className="px-8 py-3 absolute left-0 bottom-full">
-				<p className="font-bold tracking-wide leading-none text-purple-50" style={{ fontSize: "0.6875rem" }}>
-					OUR SPONSORS
+			<div className="py-3 absolute left-0 bottom-full">
+				<p className="font-bold tracking-wide leading-none text-purple-50 opacity-87.5" style={{ fontSize: "0.6875rem" }}>
+					PROUDLY SPONSORED BY
 				</p>
 			</div>
 		</Media>
 
 		{/* RHS */}
 		<Media className="hidden xl:block">
-			<div className="px-8 py-3 absolute right-0 bottom-full">
-				<p className="font-bold tracking-wide leading-none text-purple-50" style={{ fontSize: "0.6875rem" }}>
+			<div className="py-3 absolute right-0 bottom-full">
+				<p className="font-bold tracking-wide leading-none text-purple-50 opacity-87.5" style={{ fontSize: "0.6875rem" }}>
 					UNAFFILIATED WITH TAILWIND LABS
 				</p>
 			</div>
 		</Media>
 
-		<div className="-mx-2 -my-1.5 flex flex-row flex-wrap justify-center items-center">
-
-			{/* TODO */}
-			{React.useMemo(() => (
-				[1, 2, 3, 4, 5, 6].map(each => (
-					<div key={each} className="mx-2 my-1.5 relative">
-						<div className="h-14 bg-purple-50 bg-opacity-18.75 rounded-full" style={{ width: tw(36 + Math.floor(Math.random() * (48 - 36))) }} />
-						{/* <Media className="hidden xl:block"> */}
-						{/* 	<div className="p-2 absolute inset-x-0 top-full"> */}
-						{/* 		<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-87.5"> */}
-						{/* 			<TextRow> */}
-						{/* 				“10x Browser Tests” */}
-						{/* 				<Space /> */}
-						{/* 				<Style className="w-3 h-3 opacity-75"> */}
-						{/* 					<SVGExternalLink /> */}
-						{/* 				</Style> */}
-						{/* 			</TextRow> */}
-						{/* 		</p> */}
-						{/* 	</div> */}
-						{/* </Media> */}
-					</div>
-				))
-			), [])}
-
+		<div className="-mx-4 -my-2 flex flex-row flex-wrap justify-center items-center">
+			{[
+				{
+					name: "QA Wolf",
+					href: "https://github.com/qawolf/qawolf",
+					src: "/static/images/sponsor-qawolf.png",
+					tagline: "10x Browser Tests",
+				},
+				{
+					name: "Landing Page Hot Tips Ebook",
+					href: "https://onepagelove.com/go/heroicons",
+					src: "/static/images/sponsor-landing-page-hot-tips-ebook.png",
+					tagline: "Landing Page Hot Tips",
+				},
+				{
+					name: "SkillSyncer",
+					href: "https://skillsyncer.com",
+					src: "/static/images/sponsor-skillsyncer.png",
+					tagline: "Resumé Optimizer",
+				},
+				{
+					name: "CodeTisans",
+					href: "https://codetisans.com",
+					src: "/static/images/sponsor-codetisans_.png",
+					tagline: "Laravel Softwarehouse",
+				},
+				{
+					name: "Streamline",
+					href: "https://streamlineicons.com",
+					src: "/static/images/sponsor-streamline.png",
+					tagline: "Download 30k Icons",
+				},
+			].map(each => (
+				<Style className="transition duration-200 ease-in-out">
+					<a className="mx-4 my-2 opacity-81.25 hover:opacity-100" key={each.href} href={each.href} {...target_blank}>
+						<img className="h-12 " src={each.src} />
+						<div className="h-2" />
+						<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-87.5">
+							<TextRow>
+								{/* &ldquo; */}
+								{each.tagline}
+								{/* &rdquo; */}
+								<Space />
+								<Style style={{ width: "1em", height: "1em" }}>
+									<SVGExternalLink />
+								</Style>
+							</TextRow>
+						</p>
+					</a>
+				</Style>
+			))}
 		</div>
 
 	</div>
