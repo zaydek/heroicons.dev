@@ -17,6 +17,7 @@ import { rem, px, tw } from "lib/x/cssUnits"
 import { Space, EnSpace, EmSpace } from "lib/x/Spaces"
 import { Switch, Case } from "lib/x/Switch"
 
+import SVGBookOpen from "heroicons-0.4.1/solid/BookOpen"
 import SVGCheck from "heroicons-0.4.1/solid/Check"
 import SVGCode from "heroicons-0.4.1/solid/Code"
 import SVGExternalLink from "heroicons-0.4.1/solid/ExternalLink"
@@ -140,8 +141,12 @@ const HeroiconsLogo = () => (
 
 const Attribution = () => (
 	<h2 className="text-center font-medium text-xl text-purple-50">
-		<span className="inline-flex flex-row flex-wrap justify-center items-center">
-			<span className="inline-flex flex-row flex-wrap justify-center items-center">
+		<span className="inline-flex flex-row flex-wrap justify-center items-center align-top">
+			<span className="inline-flex flex-row flex-wrap justify-center items-center align-top">
+				<Style className="w-7 h-7">
+					<SVGBookOpen />
+				</Style>
+				<Space />
 				<span className="inline sm:hidden">
 					MIT icons by
 				</span>
@@ -155,13 +160,14 @@ const Attribution = () => (
 				{"."}
 			</span>
 			<Space />
-			<span className="inline-flex lg:flex-row flex-wrap justify-center items-center">
-				<span className="inline sm:hidden">
-					Viewer by
-				</span>
-				<span className="hidden sm:inline">
-					Unofficial viewer by
-				</span>
+			<span className="inline-flex flex-row flex-wrap justify-center items-center align-top">
+				Viewer by
+				{/* <span className="inline sm:hidden"> */}
+				{/* 	Viewer by */}
+				{/* </span> */}
+				{/* <span className="hidden sm:inline"> */}
+				{/* 	Unofficial viewer by */}
+				{/* </span> */}
 				<Space />
 				<a className="font-semibold no-underline hover:underline" href="https://twitter.com/username_ZAYDEK" {...target_blank}>
 					@username_ZAYDEK
@@ -229,7 +235,7 @@ const Sponsors = () => (
 				<Style className="text-center">
 					<p className="font-bold tracking-wide leading-none text-purple-50 opacity-87.5" style={{ fontSize: "0.6875rem" }}>
 						<TextRow>
-							OUR SPONSORS
+							HEROICONS.DEV IS SPONSORED BY
 							<EnSpace />
 							&middot;
 							<EnSpace />
@@ -244,7 +250,7 @@ const Sponsors = () => (
 		<Media className="hidden xl:block">
 			<div className="py-6 absolute left-0 bottom-full">
 				<p className="font-bold tracking-wide leading-none text-purple-50 opacity-87.5" style={{ fontSize: "0.6875rem" }}>
-					OUR SPONSORS
+					HEROICONS.DEV IS SPONSORED BY
 				</p>
 			</div>
 		</Media>
