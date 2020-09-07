@@ -276,7 +276,7 @@ const Sponsors = () => (
 	</div>
 )
 
-const SectionHero = ({ state, dispatch }) => (
+const SectionHero = () => (
 	<section className="relative">
 
 		<AbsoluteExternalLinks />
@@ -1108,9 +1108,12 @@ const Layout = () => {
 				`}
 			</style>
 
-			<SectionHero state={state} dispatch={dispatch} />
+			{React.useMemo(() => (
+				<SectionHero />
+			), [])}
+
 			<SectionApp state={state} dispatch={dispatch} />
-			<AppNotification state={state} dispatch={dispatch} />
+			{/* <AppNotification state={state} dispatch={dispatch} /> */}
 
 		</>
 	)
