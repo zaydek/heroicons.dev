@@ -40,8 +40,13 @@ module.exports = {
 				"px-6": defaultTheme.boxShadow.xs + ", " + defaultTheme.boxShadow["2xl"],
 			},
 			colors: {
-				"theme": "hsl(270, 100%, 50%)",
-				"dark-theme": "hsl(270, 100%, 43.75%)",
+
+				// hsl(270, 100%, 50%)
+				"theme": "#8000ff",
+
+				// hsl(270, 100%, 43.75%)
+				"dark-theme": "#7000df",
+
 			},
 			fontFamily: {
 				sans: [

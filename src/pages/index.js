@@ -291,7 +291,7 @@ const Sponsors = () => (
 					tagline: "Download 30k Icons",
 				},
 			].map(each => (
-				<Style className="transition duration-200 ease-in-out">
+				<Style className="transition duration-200 ease-out">
 					<a
 						key={each.href}
 						className="mx-4 my-2 opacity-87.5 dark:opacity-81.25 hover:opacity-100"
@@ -573,7 +573,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 					<div className="px-8 pr-4 flex flex-row h-full">
 						<div className="flex flex-row items-center">
 							<Style className="w-6 h-6 text-cool-gray-400 dark:text-cool-gray-600" style={{ color: inputFocused && "var(--purple-500)" }}>
-								<Style className="transition duration-200 ease-in-out">
+								<Style className="transition duration-200 ease-out">
 									<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
 									</svg>
@@ -619,7 +619,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							onMouseLeave={e => setTooltip("")}
 						>
 							<Reset className="focus:outline-none">
-								<Style className="transition duration-200 ease-in-out">
+								<Style className="transition duration-200 ease-out">
 									<button
 										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 focus:bg-opacity-25 rounded-full"
 										style={{
@@ -668,7 +668,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							onMouseLeave={e => setTooltip("")}
 						>
 							<Reset className="focus:outline-none">
-								<Style className="transition duration-200 ease-in-out">
+								<Style className="transition duration-200 ease-out">
 									<button
 										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 focus:bg-opacity-25 rounded-full"
 										style={{
@@ -717,7 +717,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							onMouseLeave={e => setTooltip("")}
 						>
 							<Reset className="focus:outline-none">
-								<Style className="transition duration-200 ease-in-out">
+								<Style className="transition duration-200 ease-out">
 									<button
 										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 focus:bg-opacity-25 rounded-full"
 										style={{
@@ -835,7 +835,6 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon, dispatch }) => {
 				{/* Icon */}
 				<div className="flex flex-row justify-center items-center h-full">
 					<Style className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transform scale-0 group-hover:scale-100 group-focus:scale-100">
-						{/* NOTE: Use ease-out not ease-in-out. */}
 						<Style className="transition duration-200 ease-out">
 							<div className="w-20 h-20 bg-transparent bg-purple-500 dark:bg-purple-600 bg-opacity-12.5 dark:bg-opacity-100 rounded-full" />
 						</Style>
