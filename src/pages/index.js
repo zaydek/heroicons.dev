@@ -304,12 +304,12 @@ const SectionHero = () => (
 					<Attribution />
 				</div>
 
-				<div className="hidden sm:block">
-					<div className="h-8" />
-					<div className="flex flex-row justify-center">
-						<CTAButtons />
-					</div>
+				{/* <div className="hidden sm:block"> */}
+				<div className="h-8" />
+				<div className="flex flex-row justify-center">
+					<CTAButtons />
 				</div>
+				{/* </div> */}
 
 				<div className="hidden sm:block">
 					<div className="h-16" />
