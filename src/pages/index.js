@@ -15,6 +15,7 @@ import useIconsReducer from "components/useIconsReducer"
 import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 import { rem, px, tw } from "lib/x/cssUnits"
 import { Space, EnSpace, EmSpace } from "lib/x/Spaces"
+import { Switch, Case } from "lib/x/Switch"
 
 import SVGCheck from "heroicons-0.4.1/solid/Check"
 import SVGCode from "heroicons-0.4.1/solid/Code"
@@ -981,30 +982,59 @@ const Toast = ({ state, dispatch }) => (
 					</span>
 					<EmSpace />
 					<span>
-						{state.__toast.key === "localStorage" && (
-							<>Restored Preferences</>
-						)}
-						{state.__toast.key === "variant:solid" && (
-							<>Enabled Solid Icons</>
-						)}
-						{state.__toast.key === "variant:outline" && (
-							<>Enabled Outline Icons</>
-						)}
-						{state.__toast.key === "copyAs:jsx" && (
-							<>Enabled Copy as JSX</>
-						)}
-						{state.__toast.key === "copyAs:svg" && (
-							<>Enabled Copy as SVG</>
-						)}
-						{state.__toast.key === "theme:darkMode" && (
-							<>Enabled Dark Mode</>
-						)}
-						{state.__toast.key === "theme:lightMode" && (
-							<>Enabled Light Mode</>
-						)}
-						{state.__toast.key === "clipboard" && (
-							<>Copied `{!state.controls.copyAs.jsx ? state.__toast.value : toCamelCase(state.__toast.value)}` as {!state.controls.copyAs.jsx ? "SVG" : "JSX"}</>
-						)}
+
+						<Switch on={state.__toast.key}>
+							<Case case="localStorage">
+								Restored Preferences
+							</Case>
+							<Case case="variant:solid">
+								Enabled Solid Icons
+							</Case>
+							<Case case="variant:outline">
+								Enabled Outline Icons
+							</Case>
+							<Case case="copyAs:jsx">
+								Enabled Copy as JSX
+							</Case>
+							<Case case="copyAs:svg">
+								Enabled Copy as SVG
+							</Case>
+							<Case case="theme:darkMode">
+								Enabled Dark Mode
+							</Case>
+							<Case case="theme:lightMode">
+								Enabled Light Mode
+							</Case>
+							<Case case="clipboard">
+								Copied `{!state.controls.copyAs.jsx ? state.__toast.value : toCamelCase(state.__toast.value)}` as {!state.controls.copyAs.jsx ? "SVG" : "JSX"}
+							</Case>
+						</Switch>
+
+						{/* {state.__toast.key === "localStorage" && ( */}
+						{/* 	<>Restored Preferences</> */}
+						{/* )} */}
+						{/* {state.__toast.key === "variant:solid" && ( */}
+						{/* 	<>Enabled Solid Icons</> */}
+						{/* )} */}
+						{/* {state.__toast.key === "variant:outline" && ( */}
+						{/* 	<>Enabled Outline Icons</> */}
+						{/* )} */}
+						{/* {state.__toast.key === "copyAs:jsx" && ( */}
+						{/* 	<>Enabled Copy as JSX</> */}
+						{/* )} */}
+						{/* {state.__toast.key === "copyAs:svg" && ( */}
+						{/* 	<>Enabled Copy as SVG</> */}
+						{/* )} */}
+						{/* {state.__toast.key === "theme:darkMode" && ( */}
+						{/* 	<>Enabled Dark Mode</> */}
+						{/* )} */}
+						{/* {state.__toast.key === "theme:lightMode" && ( */}
+						{/* 	<>Enabled Light Mode</> */}
+						{/* )} */}
+						{/* {state.__toast.key === "clipboard" && ( */}
+						{/* 	<>Copied `{!state.controls.copyAs.jsx ? state.__toast.value : toCamelCase(state.__toast.value)}` as {!state.controls.copyAs.jsx ? "SVG" : "JSX"}</> */}
+						{/* )} */}
+
 					</span>
 				</span>
 			</DarkTooltip>
