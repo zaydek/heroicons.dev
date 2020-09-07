@@ -326,7 +326,7 @@ const Sponsors = () => (
 					name: "Streamline",
 					href: "https://streamlineicons.com",
 					src: "/static/images/sponsor-streamline.png",
-					tagline: "Download 30k Icons",
+					tagline: "Download 30,000 Icons",
 				},
 			].map(each => (
 				<Style className="transition duration-200 ease-out">
@@ -1198,6 +1198,18 @@ const Layout = () => {
 		}
 	}, [state])
 
+	// Dark mode.
+	//
+	// TODO: Marc @seven11nash found a bug that dark mode
+	// **does not** fire for first-time users. This is
+	// probably because UPDATE_CONTROLS only fires on
+	// media.addListener(handler) and not before.
+	//
+	// Please note that public/scripts/layout-dark-mode.js
+	// is used to eagerly set the dark class to <html>. This
+	// prevents a flashing light mode before dark mode for
+	// non-first time users.
+	//
 	React.useEffect(
 		React.useCallback(() => {
 			const media = window.matchMedia &&
@@ -1210,7 +1222,7 @@ const Layout = () => {
 				dispatch({
 					type: "UPDATE_CONTROLS",
 					controlType: "theme",
-					key: media.matches ? "darkMode" : "lightMode",
+					key: !media.matches ? "lightMode" : "darkMode",
 					value: true,
 				})
 			}
