@@ -264,7 +264,7 @@ const Sponsors = () => (
 					name: "QA Wolf",
 					href: "https://github.com/qawolf/qawolf",
 					src: "/static/images/sponsor-qawolf.png",
-					tagline: "Browser-Based Tests",
+					tagline: "Create Faster Tests",
 				},
 				{
 					name: "Landing Page Hot Tips Ebook",
