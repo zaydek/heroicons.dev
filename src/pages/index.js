@@ -963,10 +963,10 @@ const MemoToast = React.memo(({ state, dispatch }) => (
 		// NOTE: Use duration-100 not duration-200.
 		on={state.__toast.visible && (state.__toast.key + (!state.__toast.value ? "" : "-" + state.__toast.value))}
 		className="transition duration-100 ease-out"
-		from="opacity-0 transform translate-y-4 pointer-events-none"
-		to="opacity-100 transform translate-y-0 pointer-events-auto"
+		from="opacity-0 transform translate-y-4"
+		to="opacity-100 transform translate-y-0"
 	>
-		<div className="p-3 fixed left-0 bottom-0 z-30">
+		<div className="px-4 sm:px-6 py-4 fixed left-0 bottom-0 z-30">
 			<DarkTooltip>
 				<span className="flex flex-row">
 					<span className="flex flex-row items-center" style={{ height: px(14 * 1.5) }}>
