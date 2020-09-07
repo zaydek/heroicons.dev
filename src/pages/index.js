@@ -835,7 +835,8 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon, dispatch }) => {
 				{/* Icon */}
 				<div className="flex flex-row justify-center items-center h-full">
 					<Style className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transform scale-0 group-hover:scale-100 group-focus:scale-100">
-						<Style className="transition duration-200 ease-out">
+						{/* NOTE: Use duration-300 not duration-200. */}
+						<Style className="transition duration-300 ease-out">
 							<div className="w-20 h-20 bg-transparent bg-purple-500 dark:bg-purple-600 bg-opacity-12.5 dark:bg-opacity-100 rounded-full" />
 						</Style>
 					</Style>
@@ -959,6 +960,7 @@ const SectionApp = ({ state, dispatch }) => {
 
 const MemoToast = React.memo(({ state, dispatch }) => (
 	<Transition
+		// NOTE: Use duration-100 not duration-200.
 		on={state.__toast.visible && (state.__toast.key + (!state.__toast.value ? "" : "-" + state.__toast.value))}
 		className="transition duration-100 ease-out"
 		from="opacity-0 transform translate-y-4 pointer-events-none"
