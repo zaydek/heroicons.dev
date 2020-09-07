@@ -10,7 +10,7 @@ A set of free MIT-licensed high-quality SVG icons for you to use in your web pro
 
 Icons created by [Steve Schoger](https://twitter.com/steveschoger), [heroicons.dev](https://heroicons.dev) created by me ([@username_ZAYDEK](https://twitter.com/username_ZAYDEK)).
 
-[Tweet thank you on Twitter! ❤️](https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev)
+[Share with your friends on Twitter!](https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev)
 
 ## Features
 
@@ -19,13 +19,6 @@ Icons created by [Steve Schoger](https://twitter.com/steveschoger), [heroicons.d
 - Paste-support for Figma ✨
 - Search support and persisted search URLs
 - Search for only new icons using ‘new’: https://heroicons.dev/?query=new
-
-## Links
-
-- [Open in GitHub](https://github.com/tailwindlabs/heroicons/)
-- [Open in Figma](https://www.figma.com/file/vfjBXrSSOCgmVEX5fdvV4L)
-- [Share with your friends on Twitter!](https://twitter.com/intent/tweet?text=Thanks%20@steveschoger,%20@adamwathan,%20and%20@username_ZAYDEK%20for%20Heroicons!%20%F0%9F%A4%A9&url=https://heroicons.dev)
-- [Sponsor **@zaydek**!](https://github.com/sponsors/zaydek)
 
 ## License
 
