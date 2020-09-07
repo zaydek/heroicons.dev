@@ -96,6 +96,18 @@ Follow me on Twitter [@username_ZAYDEK](https://twitter.com/username_ZAYDEK)! �
 
 -->
 
+# Contributing Guide
+
+Contributions are welcome! I’m actively maintaining this website.
+
+[heroicons.dev](https://heroicons.dev) is built on top of [Next.js](https://nextjs.org), [Tailwind CSS](https://tailwindcss.com), and [Splitbee](https://splitbee.io) for analytics. If you plan on contributing, the only thing you need to know is before you can build the development server, you need to run `yarn tailwind-dev` to build the Tailwind configuration file. `yarn tailwind-build` is the command for building the Tailwind configuration file for production (you probably don’t need to use this one).
+
+That’s pretty much it. I’m using a [custom ESLint configuration file](https://github.com/zaydek/dot-eslintrc.js) for formatting, but you can ignore this yourself when contributing.
+
+Thank you for contributing!
+
+<br>
+
 # Next.js
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
