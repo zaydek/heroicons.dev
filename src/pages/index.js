@@ -569,7 +569,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							<Reset className="focus:outline-none">
 								<Style className="transition duration-200 ease-in-out">
 									<button
-										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full"
+										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 focus:bg-opacity-25 rounded-full"
 										style={{
 											color: state.controls.variant.solid && "var(--purple-50)",
 											backgroundColor: state.controls.variant.solid && "var(--purple-500)",
@@ -618,7 +618,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							<Reset className="focus:outline-none">
 								<Style className="transition duration-200 ease-in-out">
 									<button
-										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full"
+										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 focus:bg-opacity-25 rounded-full"
 										style={{
 											color: state.controls.copyAs.jsx && "var(--purple-50)",
 											backgroundColor: state.controls.copyAs.jsx && "var(--purple-500)",
@@ -667,7 +667,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							<Reset className="focus:outline-none">
 								<Style className="transition duration-200 ease-in-out">
 									<button
-										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 rounded-full"
+										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 focus:bg-opacity-25 rounded-full"
 										style={{
 											color: state.controls.theme.darkMode && "var(--purple-50)",
 											backgroundColor: state.controls.theme.darkMode && "var(--purple-500)",
