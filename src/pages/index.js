@@ -16,7 +16,7 @@ import useLayoutBreakpoints from "lib/x/useLayoutBreakpoints"
 import { rem, px, tw } from "lib/x/cssUnits"
 import { Space, EnSpace, EmSpace } from "lib/x/Spaces"
 
-import SVGCheckCircle from "heroicons-0.4.1/solid/CheckCircle"
+import SVGCheck from "heroicons-0.4.1/solid/Check"
 import SVGCode from "heroicons-0.4.1/solid/Code"
 import SVGCursorClick from "heroicons-0.4.1/solid/CursorClick"
 import SVGExternalLink from "heroicons-0.4.1/solid/ExternalLink"
@@ -723,10 +723,11 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 	return ok
 })
 
-const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => {
+const MemoIcon = React.memo(({ variant, copyAsJSX, icon, dispatch }) => {
 	const buttonRef = React.useRef(null)
 
 	const handleClick = e => {
+
 		// No-op {icon.name}:
 		const selection = document.getSelection()
 		if (selection.rangeCount) {
@@ -736,6 +737,7 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => {
 				return
 			}
 		}
+
 		try {
 			const svg = document.getElementById(icon.name)
 			const clonedSVG = svg.cloneNode(true)
@@ -760,16 +762,13 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon }) => {
 		} catch (error) {
 			console.error(`MemoIcon.handleClick: ${error}`)
 		}
-		// const notifType = "icon"
-		// const notifInfo = {
-		// 	name: icon.name,
-		// 	icon: icon[!state.form.showOutline ? "solid" : "outline"],
-		// }
-		// dispatch({
-		// 	type: "UPDATE_NOTIFICATION",
-		// 	notifType,
-		// 	notifInfo,
-		// })
+
+		dispatch({
+			type: "SHOW_TOAST",
+			key: "clipboard",
+			value: icon.name,
+		})
+
 	}
 
 	return (
@@ -888,6 +887,7 @@ const SectionApp = ({ state, dispatch }) => {
 												variant={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
 												copyAsJSX={state.controls.copyAs.jsx}
 												icon={each}
+												dispatch={dispatch}
 											/>
 										</div>
 									</article>
@@ -915,10 +915,9 @@ const TextRow = ({ children }) => (
 	</Reset>
 )
 
-const AppNotification = ({ state, dispatch }) => (
-	// TODO
+const Toast = ({ state, dispatch }) => (
 	<Transition
-		on={state.__toast.key}
+		on={state.__toast.visible && (state.__toast.key + (!state.__toast.value ? "" : "-" + state.__toast.value))}
 		className="transition duration-200 ease-in-out"
 		from="opacity-0 transform translate-y-4 pointer-events-none"
 		to="opacity-100 transform translate-y-0 pointer-events-auto"
@@ -927,56 +926,91 @@ const AppNotification = ({ state, dispatch }) => (
 			<DarkTooltip>
 				<span className="flex flex-row">
 					<span className="flex flex-row items-center" style={{ height: px(14 * 1.5) }}>
-						{/* <SVGPaperClip /> */}
-
-						<Style className="w-4 h-4 text-green-400">
-							<SVGCheckCircle />
-						</Style>
-
+						{state.__toast.key === "localStorage" && (
+							<Style className="w-4 h-4">
+								<SVGCheck />
+							</Style>
+						)}
+						{state.__toast.key === "variant:solid" && (
+							<Style className="w-4 h-4">
+								<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+									<path fillRule="evenodd" clipRule="evenodd" d="M2.166 4.99836C5.06114 4.96236 7.84481 3.87682 10 1.94336C12.155 3.87718 14.9387 4.96308 17.834 4.99936C17.944 5.64936 18 6.31936 18 7.00036C18 12.2254 14.66 16.6704 10 18.3174C5.34 16.6694 2 12.2244 2 6.99936C2 6.31736 2.057 5.64936 2.166 4.99836Z" />
+								</svg>
+							</Style>
+						)}
+						{state.__toast.key === "variant:outline" && (
+							<Style className="w-4 h-4">
+								<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
+								</svg>
+							</Style>
+						)}
+						{state.__toast.key === "copyAs:jsx" && (
+							<Style className="w-4 h-4">
+								<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+									<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
+								</svg>
+							</Style>
+						)}
+						{state.__toast.key === "copyAs:svg" && (
+							<Style className="w-4 h-4">
+								<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+								</svg>
+							</Style>
+						)}
+						{state.__toast.key === "theme:darkMode" && (
+							<Style className="w-4 h-4">
+								<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+									<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+								</svg>
+							</Style>
+						)}
+						{state.__toast.key === "theme:lightMode" && (
+							<Style className="w-4 h-4">
+								<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+								</svg>
+							</Style>
+						)}
+						{state.__toast.key === "clipboard" && (
+							<Style className="w-4 h-4">
+								<SVGPaperClip />
+							</Style>
+						)}
 					</span>
-					<EnSpace />
+					<EmSpace />
 					<span>
-						{/* Copied badge-check to the Clipboard! */}
-						Restored Preferences from localStorage
+						{state.__toast.key === "localStorage" && (
+							<>Restored Preferences</>
+						)}
+						{state.__toast.key === "variant:solid" && (
+							<>Enabled Solid Icons</>
+						)}
+						{state.__toast.key === "variant:outline" && (
+							<>Enabled Outline Icons</>
+						)}
+						{state.__toast.key === "copyAs:jsx" && (
+							<>Enabled Copy as JSX</>
+						)}
+						{state.__toast.key === "copyAs:svg" && (
+							<>Enabled Copy as SVG</>
+						)}
+						{state.__toast.key === "theme:darkMode" && (
+							<>Enabled Dark Mode</>
+						)}
+						{state.__toast.key === "theme:lightMode" && (
+							<>Enabled Light Mode</>
+						)}
+						{state.__toast.key === "clipboard" && (
+							<>Copied `{!state.controls.copyAs.jsx ? state.__toast.value : toCamelCase(state.__toast.value)}` as {!state.controls.copyAs.jsx ? "SVG" : "JSX"}</>
+						)}
 					</span>
 				</span>
 			</DarkTooltip>
 		</div>
 	</Transition>
 )
-
-// {/* {state.notif.notifInfo && ( */}
-// {/* 	<div className="flex flex-row items-center h-6"> */}
-// {/* 		<SVG className="mr-3 w-5 h-5 text-indigo-50" svg={state.notif.notifInfo.icon} /> */}
-// {/* 	</div> */}
-// {/* )} */}
-//
-// {/* Form */}
-// {/* {state.notif.notifType.startsWith("form") && ( */}
-// {/* 	<p className="font-semibold text-indigo-50"> */}
-// {/* 		{state.notif.notifType === "form-jsx" && ( */}
-// {/* 			!state.form.copyAsReact */}
-// {/* 				? "Enabled Copy as HTML" */}
-// {/* 				: "Enabled Copy as JSX" */}
-// {/* 		)} */}
-// {/* 		{state.notif.notifType === "form-alt" && ( */}
-// {/* 			!state.form.showOutline */}
-// {/* 				? "Switched to Solid Icons" */}
-// {/* 				: "Switched to Outline Icons" */}
-// {/* 		)} */}
-// {/* 	</p> */}
-// {/* )} */}
-//
-// {/* Icon */}
-// {/* {state.notif.notifType === "icon" && ( */}
-// {/* 	<p className="font-semibold text-indigo-50"> */}
-// {/* 		Copied{" "} */}
-// {/* 		<span className="font-mono"> */}
-// {/* 			{state.notif.notifInfo.name} */}
-// {/* 		</span>{" "} */}
-// {/* 		as {!state.form.copyAsReact ? "HTML" : "JSX"} */}
-// {/* 	</p> */}
-// {/* )} */}
 
 const LOCALSTORAGE_KEY = "heroicons.dev"
 
@@ -995,7 +1029,7 @@ const Layout = () => {
 				clearTimeout(id)
 			}
 		}, [dispatch]),
-		[state.__toast.key],
+		[state.__toast],
 	)
 
 	// Gets localStorage (once).
@@ -1098,7 +1132,7 @@ const Layout = () => {
 			), [])}
 
 			<SectionApp state={state} dispatch={dispatch} />
-			<AppNotification state={state} dispatch={dispatch} />
+			<Toast state={state} dispatch={dispatch} />
 
 		</>
 	)

@@ -33,7 +33,8 @@ const initialState = {
 	},
 	__toast: {
 		key: "",
-		show: false,
+		value: "",
+		visible: false,
 	},
 }
 
@@ -51,7 +52,7 @@ const initialState = {
 const actions = state => ({
 	restorePreferences(localStoragePrefs) {
 		merge(state, localStoragePrefs)
-		this.showToast("local-storage")
+		this.showToast("localStorage")
 	},
 	search(query) {
 		state.search.query.user = query
@@ -76,13 +77,15 @@ const actions = state => ({
 			disableAll(state.controls[controlType])
 		}
 		state.controls[controlType][key] = value
-		// TODO: Add showToast(...).
+		this.showToast(`${controlType}:${key}`)
 	},
-	showToast(key) {
+	showToast(key, value = "") {
 		state.__toast.key = key
+		state.__toast.value = value
+		state.__toast.visible = true
 	},
 	hideToast() {
-		state.__toast.key = ""
+		state.__toast.visible = false
 	},
 })
 
@@ -98,7 +101,7 @@ function IconsReducer(state, action) {
 		actions(state).updateControls(action.controlType, action.key, action.value)
 		return
 	case "SHOW_TOAST":
-		actions(state).showToast(action.key)
+		actions(state).showToast(action.key, action.value)
 		return
 	case "HIDE_TOAST":
 		actions(state).hideToast()
