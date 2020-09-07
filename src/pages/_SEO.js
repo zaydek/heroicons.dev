@@ -3,12 +3,17 @@ import Head from "next/head"
 const SEO = () => (
 	<Head>
 
-		<meta charSet="utf-8" />
+		<meta
+			charSet="utf-8"
+		/>
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1"
 		/>
-		<link rel="icon" href="/static/favicon.ico" />
+		<link
+			rel="icon"
+			href="/static/favicon.ico"
+		/>
 		<title>
 			Heroicons — Open Source SVG Icons
 		</title>
