@@ -1097,19 +1097,21 @@ const Layout = () => {
 	return (
 		<>
 
-			<SEO />
-
-			<style>
-				{css`
-					html {
-						--search-bar-height: ${tw(18)};
-						--search-bar-negative-margin: ${tw(18 + 6)};
-					}
-				`}
-			</style>
-
 			{React.useMemo(() => (
-				<SectionHero />
+				<>
+					<SEO />
+
+					<style>
+						{css`
+							html {
+								--search-bar-height: ${tw(18)};
+								--search-bar-negative-margin: ${tw(18 + 6)};
+							}
+						`}
+					</style>
+
+					<SectionHero />
+				</>
 			), [])}
 
 			<SectionApp state={state} dispatch={dispatch} />
