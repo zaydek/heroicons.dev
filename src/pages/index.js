@@ -178,22 +178,24 @@ const CTAButtons = () => (
 
 		<Reset className="block">
 			<a href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}>
-				<div className="p-5 bg-purple-50 bg-opacity-18.75 dark:bg-opacity-12.5 rounded-3">
-					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
-						<TextRow>
-							<Style className="w-4 h-4 transform scale-110" style={{ filter: "brightness(125%)" }}>
-								<svg viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg">
-									<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
-									<path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
-									<path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" />
-									<path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" />
-									<path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
-								</svg>
-							</Style>
-							<EnSpace />
-							Open in Figma
-						</TextRow>
-					</p>
+				<div className="px-4 py-3 bg-purple-50 bg-opacity-18.75 dark:bg-opacity-12.5 rounded-3">
+					<div className="p-1.5">
+						<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
+							<TextRow>
+								<Style className="w-5 h-5" style={{ filter: "brightness(125%)" }}>
+									<svg viewBox="0 0 38 57" xmlns="http://www.w3.org/2000/svg">
+										<path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
+										<path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" />
+										<path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" />
+										<path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" />
+										<path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
+									</svg>
+								</Style>
+								<EmSpace />
+								Open in Figma
+							</TextRow>
+						</p>
+					</div>
 				</div>
 			</a>
 		</Reset>
@@ -201,18 +203,20 @@ const CTAButtons = () => (
 		<div className="w-3 h-3" />
 		<Reset className="block">
 			<a href="https://github.colwindlabs/heroicons" {...target_blank}>
-				<div className="p-5 bg-purple-50 bg-opacity-18.75 dark:bg-opacity-12.5 rounded-3">
-					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
-						<TextRow>
-							<Style className="w-4 h-4 transform scale-110">
-								<svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-									<path d="M7.975 16a9.39 9.39 0 003.169-.509c-.473.076-.652-.229-.652-.486l.004-.572c.003-.521.01-1.3.01-2.197 0-.944-.316-1.549-.68-1.863 2.24-.252 4.594-1.108 4.594-4.973 0-1.108-.39-2.002-1.032-2.707.1-.251.453-1.284-.1-2.668 0 0-.844-.277-2.77 1.032A9.345 9.345 0 008 .717c-.856 0-1.712.113-2.518.34C3.556-.24 2.712.025 2.712.025c-.553 1.384-.2 2.417-.1 2.668-.642.705-1.033 1.612-1.033 2.707 0 3.852 2.342 4.72 4.583 4.973-.29.252-.554.692-.642 1.347-.58.264-2.027.692-2.933-.831-.19-.302-.756-1.045-1.549-1.032-.843.012-.34.478.013.667.428.239.919 1.133 1.032 1.422.201.567.856 1.65 3.386 1.184 0 .55.006 1.079.01 1.447l.003.428c0 .265-.189.567-.692.479 1.007.34 1.926.516 3.185.516z" />
-								</svg>
-							</Style>
-							<EnSpace />
-							Open in GitHub
-						</TextRow>
-					</p>
+				<div className="px-4 py-3 bg-purple-50 bg-opacity-18.75 dark:bg-opacity-12.5 rounded-3">
+					<div className="p-1.5">
+						<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
+							<TextRow>
+								<Style className="w-5 h-5">
+									<svg fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+										<path d="M7.975 16a9.39 9.39 0 003.169-.509c-.473.076-.652-.229-.652-.486l.004-.572c.003-.521.01-1.3.01-2.197 0-.944-.316-1.549-.68-1.863 2.24-.252 4.594-1.108 4.594-4.973 0-1.108-.39-2.002-1.032-2.707.1-.251.453-1.284-.1-2.668 0 0-.844-.277-2.77 1.032A9.345 9.345 0 008 .717c-.856 0-1.712.113-2.518.34C3.556-.24 2.712.025 2.712.025c-.553 1.384-.2 2.417-.1 2.668-.642.705-1.033 1.612-1.033 2.707 0 3.852 2.342 4.72 4.583 4.973-.29.252-.554.692-.642 1.347-.58.264-2.027.692-2.933-.831-.19-.302-.756-1.045-1.549-1.032-.843.012-.34.478.013.667.428.239.919 1.133 1.032 1.422.201.567.856 1.65 3.386 1.184 0 .55.006 1.079.01 1.447l.003.428c0 .265-.189.567-.692.479 1.007.34 1.926.516 3.185.516z" />
+									</svg>
+								</Style>
+								<EmSpace />
+								Open in GitHub
+							</TextRow>
+						</p>
+					</div>
 				</div>
 			</a>
 		</Reset>
@@ -258,7 +262,7 @@ const Sponsors = () => (
 			</div>
 		</Media>
 
-		<div className="-mx-4 -my-2 flex flex-row flex-wrap justify-center items-center">
+		<div className="-mx-4 -my-2 -mb-4 flex flex-row flex-wrap justify-center items-center">
 			{[
 				{
 					name: "QA Wolf",
@@ -270,7 +274,7 @@ const Sponsors = () => (
 					name: "Landing Page Hot Tips Ebook",
 					href: "https://onepagelove.com/go/heroicons",
 					src: "/static/images/sponsor-landing-page-hot-tips-ebook.png",
-					tagline: "Landing Page Hot Tips",
+					tagline: "Landing Page Ebook",
 				},
 				{
 					name: "SkillSyncer",
@@ -292,16 +296,21 @@ const Sponsors = () => (
 				},
 			].map(each => (
 				<Style className="transition duration-200 ease-in-out">
-					<a className="mx-4 my-2 opacity-81.25 hover:opacity-100" key={each.href} href={each.href} {...target_blank}>
-						<img className="h-12 " src={each.src} />
+					<a
+						key={each.href}
+						className="mx-4 my-2 opacity-87.5 dark:opacity-81.25 hover:opacity-100"
+						href={each.href}
+						button data-splitbee-event="Click Plan"
+						data-splitbee-event-type="Business"
+						{...target_blank}
+					>
+						<img className="h-11" src={each.src} />
 						<div className="h-2" />
-						<p className="text-center font-medium text-xs leading-none text-purple-50 opacity-87.5">
+						<p className="text-center font-medium text-xs leading-none text-purple-50">
 							<TextRow>
-								{/* &ldquo; */}
 								{each.tagline}
-								{/* &rdquo; */}
 								<Space />
-								<Style style={{ width: "1em", height: "1em" }}>
+								<Style className="opacity-75" style={{ width: "1em", height: "1em" }}>
 									<SVGExternalLink />
 								</Style>
 							</TextRow>
