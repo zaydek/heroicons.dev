@@ -71,7 +71,12 @@ const AbsoluteExternalLinks = () => (
 
 			<div className="-my-1">
 
-				<a href={`https://twitter.com/intent/tweet?text=${"Thanks @steveschoger for Heroicons and @username_ZAYDEK for heroicons.dev! 🔥"}&url=https://heroicons.dev`} {...target_blank}>
+				<a
+					href={`https://twitter.com/intent/tweet?text=${"Thanks @steveschoger for Heroicons and @username_ZAYDEK for heroicons.dev! 🔥"}&url=https://heroicons.dev`}
+					data-splitbee-event="Click Share Link"
+					data-splitbee-event-type="Twitter"
+					{...target_blank}
+				>
 					<p className="twemoji py-1 font-medium no-underline hover:underline text-purple-50">
 						<TextRow>
 							<Style className="w-6 h-6 overflow-visible">
@@ -89,7 +94,12 @@ const AbsoluteExternalLinks = () => (
 					</p>
 				</a>
 
-				<a href="https://github.com/codex-zaydek/heroicons.dev" {...target_blank}>
+				<a
+					href="https://github.com/zaydek/heroicons.dev"
+					data-splitbee-event="Click Share Link"
+					data-splitbee-event-type="GitHub"
+					{...target_blank}
+				>
 					<p className="twemoji py-1 font-medium no-underline hover:underline text-purple-50">
 						<TextRow>
 							<Style className="w-6 h-6 overflow-visible">
@@ -154,7 +164,13 @@ const Attribution = () => (
 					MIT-licensed icons by
 				</span>
 				<Space />
-				<a className="font-semibold no-underline hover:underline" href="https://twitter.com/steveschoger" {...target_blank}>
+				<a
+					className="font-semibold no-underline hover:underline"
+					href="https://twitter.com/steveschoger"
+					data-splitbee-event="Click Author Link"
+					data-splitbee-event-type="Steve Schoger"
+					{...target_blank}
+				>
 					@steveschoger
 				</a>
 				{"."}
@@ -169,7 +185,13 @@ const Attribution = () => (
 				{/* 	Unofficial viewer by */}
 				{/* </span> */}
 				<Space />
-				<a className="font-semibold no-underline hover:underline" href="https://twitter.com/username_ZAYDEK" {...target_blank}>
+				<a
+					className="font-semibold no-underline hover:underline"
+					href="https://twitter.com/username_ZAYDEK"
+					data-splitbee-event="Click Author Link"
+					data-splitbee-event-type="Zaydek Michels-Gualtieri"
+					{...target_blank}
+				>
 					@username_ZAYDEK
 				</a>
 				{"."}
@@ -183,7 +205,12 @@ const CTAButtons = () => (
 	<div className="flex flex-col sm:flex-row w-full sm:w-auto">
 
 		<Reset className="block">
-			<a href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L" {...target_blank}>
+			<a
+				href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L"
+				data-splitbee-event="Click CTA Link"
+				data-splitbee-event-type="Figma"
+				{...target_blank}
+			>
 				<div className="p-5 bg-purple-50 bg-opacity-18.75 dark:bg-opacity-12.5 rounded-3">
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
 						<TextRow>
@@ -206,7 +233,12 @@ const CTAButtons = () => (
 
 		<div className="w-3 h-3" />
 		<Reset className="block">
-			<a href="https://github.com/tailwindlabs/heroicons" {...target_blank}>
+			<a
+				href="https://github.com/tailwindlabs/heroicons"
+				data-splitbee-event="Click CTA Link"
+				data-splitbee-event-type="GitHub"
+				{...target_blank}
+			>
 				<div className="p-5 bg-purple-50 bg-opacity-18.75 dark:bg-opacity-12.5 rounded-3">
 					<p className="text-center sm:text-left font-medium text-lg leading-none text-purple-50">
 						<TextRow>
@@ -302,7 +334,7 @@ const Sponsors = () => (
 						key={each.href}
 						className="mx-4 my-2 opacity-87.5 dark:opacity-81.25 hover:opacity-100"
 						href={each.href}
-						data-splitbee-event="Click Sponsor"
+						data-splitbee-event="Click Sponsor Link"
 						data-splitbee-event-type={each.name}
 						{...target_blank}
 					>
