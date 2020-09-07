@@ -836,21 +836,19 @@ const SectionApp = ({ state, dispatch }) => {
 				>
 
 					{/* Search */}
-					<Style className="mt-0 lg:-mt-4 pt-0 lg:pt-4">
-						<div className="sticky top-0 z-10">
-							<Media className="hidden lg:block">
-								<div className="-mx-6 absolute inset-x-0 top-0 pointer-events-none" style={{ zIndex: -1 }}>
-									<div className="h-4 bg-theme dark:bg-dark-theme" />
-									<div className="bg-theme dark:bg-dark-theme" style={{ height: "calc(var(--search-bar-height) / 2)" }} />
-								</div>
-							</Media>
-							<Style className="rounded-t-0 lg:rounded-t-6 shadow-2">
-								<div className="box-content bg-white dark:bg-cool-gray-900 border-b border-transparent dark:border-cool-gray-800" style={{ height: "var(--search-bar-height)" }}>
-									<MemoSearch state={state} dispatch={dispatch} />
-								</div>
-							</Style>
-						</div>
-					</Style>
+					<div className="mt-0 lg:-mt-4 pt-0 lg:pt-4 sticky top-0 z-10">
+						<Media className="hidden lg:block">
+							<div className="-mx-6 absolute inset-x-0 top-0 pointer-events-none" style={{ zIndex: -1 }}>
+								<div className="h-4 bg-theme dark:bg-dark-theme" />
+								<div className="bg-theme dark:bg-dark-theme" style={{ height: "calc(var(--search-bar-height) / 2)" }} />
+							</div>
+						</Media>
+						<Style className="rounded-t-0 lg:rounded-t-6 shadow-2 dark:shadow-none">
+							<div className="box-content bg-white dark:bg-cool-gray-900 border-b border-transparent dark:border-cool-gray-800" style={{ height: "var(--search-bar-height)" }}>
+								<MemoSearch state={state} dispatch={dispatch} />
+							</div>
+						</Style>
+					</div>
 
 					<style>
 						{css`
@@ -1048,22 +1046,21 @@ const Layout = () => {
 				},
 				"\t",
 			))
+			// Sets themePreference for layout dark mode.
+			localStorage.setItem(
+				"themePreference",
+				!state.controls.theme.darkMode ? "light" : "dark",
+			)
 		}, 100)
 		return () => {
 			clearTimeout(id)
 		}
 	}, [state])
 
-	// Sets localStorage (themePreference).
-	React.useEffect(() => {
-		const key = "themePreference"
-		const value = !state.controls.theme.darkMode ? "light" : "dark"
-		localStorage.setItem(key, value)
-	}, [state.controls.theme.darkMode])
-
 	React.useEffect(
 		React.useCallback(() => {
-			const media = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)")
+			const media = window.matchMedia &&
+				window.matchMedia("(prefers-color-scheme: dark)")
 			if (!media) {
 				// No-op
 				return

@@ -71,6 +71,9 @@ module.exports = {
 		},
 	},
 	variants: {
+		boxShadow: ({ after }) => after([
+			"dark",
+		]),
 		opacity: ({ after }) => after([
 			"group-hover",
 			"group-focus",
