@@ -825,7 +825,6 @@ const SectionApp = ({ state, dispatch }) => {
 		<section>
 
 			<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: "calc(-1 * var(--search-bar-negative-margin))" }}>
-
 				{/* NOTE: Do not use w-full max-w-screen-xl because of px-*. */}
 				<main
 					className="z-10"
@@ -874,7 +873,7 @@ const SectionApp = ({ state, dispatch }) => {
 							style={{
 								marginTop: "calc(-1 * var(--search-bar-height))",
 								paddingTop: "var(--search-bar-height)",
-								minHeight: `calc(100vh - ${tw(media.lg ? 0 : 4 + 24)})`,
+								minHeight: media.lg ? "100vh" : `calc(100vh - ${tw(4 + 24)})`,
 							}}
 						>
 							<div id="app-grid">
@@ -897,7 +896,6 @@ const SectionApp = ({ state, dispatch }) => {
 					</Style>
 
 				</main>
-
 			</div>
 
 			<Media className="hidden lg:block">
