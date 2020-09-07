@@ -554,7 +554,9 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 				{/* RHS */}
 				<div className="absolute right-0 inset-y-0">
-					<div className="-mx-1 px-8 pl-4 flex flex-row h-full">
+					<div className="px-8 pl-4 flex flex-row h-full">
+						{/* NOTE: Do not use -mx-1 on the parent element. */}
+						<div className="-mr-1" />
 
 						{/* Button */}
 						<div
@@ -703,6 +705,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							</Reset>
 						</div>
 
+						<div className="-ml-1" />
 					</div>
 				</div>
 
