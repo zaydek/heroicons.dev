@@ -329,7 +329,7 @@ const Sponsors = () => (
 					tagline: "Download 30,000 Icons",
 				},
 			].map(each => (
-				<Style className="transition duration-200 ease-out">
+				<Style key={each.href} className="transition duration-200 ease-out">
 					<a
 						key={each.href}
 						className="mx-4 my-2 opacity-87.5 dark:opacity-81.25 hover:opacity-100"
@@ -338,7 +338,9 @@ const Sponsors = () => (
 						data-splitbee-event-type={each.name}
 						{...target_blank}
 					>
-						<img className="h-11" src={each.src} />
+						<Style className="h-11">
+							<img src={each.src} alt={each.name} />
+						</Style>
 						<div className="h-2" />
 						<p className="text-center font-medium text-xs leading-none text-purple-50">
 							<TextRow>
