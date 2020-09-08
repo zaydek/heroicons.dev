@@ -72,7 +72,7 @@ const AbsoluteExternalLinks = () => (
 			<div className="-my-1">
 
 				<a
-					href={`https://twitter.com/intent/tweet?text=${"Thanks @steveschoger for Heroicons and @username_ZAYDEK for heroicons.dev! 🔥"}&url=https://heroicons.dev`}
+					href={`https://twitter.com/intent/tweet?text=${encodeURI("Check out Heroicons! 🔥\n\nMIT open source icons designed by @steveschoger. Web viewer by @username_ZAYDEK.")}&url=https://heroicons.dev`}
 					data-splitbee-event="Click Share Link"
 					data-splitbee-event-type="Twitter"
 					{...target_blank}
