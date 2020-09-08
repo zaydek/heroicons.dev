@@ -1006,7 +1006,7 @@ const MemoToast = React.memo(({ state, dispatch }) => (
 		from="opacity-0 transform translate-y-4"
 		to="opacity-100 transform translate-y-0"
 	>
-		<div className="px-4 sm:px-6 py-4 fixed left-0 bottom-0 z-30">
+		<div className="px-4 sm:px-6 py-4 fixed left-0 bottom-0 z-30 opacity-0 transform translate-y-4">
 			<DarkTooltip>
 				<span className="flex flex-row">
 					<span className="flex flex-row items-center" style={{ height: px(14 * 1.5) }}>
