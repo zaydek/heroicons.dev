@@ -1018,13 +1018,11 @@ const SectionApp = ({ state, dispatch }) => {
 
 const MemoToast = React.memo(({ state, dispatch }) => (
 	<Transition
-		// NOTE: Use duration-100 not duration-200.
 		on={state.__toast.visible && (state.__toast.key + (!state.__toast.value ? "" : "-" + state.__toast.value))}
-		className="transition duration-100 ease-out"
-		from="opacity-0 transform translate-y-4"
-		to="opacity-100 transform translate-y-0"
+		from="transition duration-300 ease-out opacity-0 transform translate-y-8"
+		to="transition duration-100 ease-out opacity-100 transform translate-y-0"
 	>
-		<div className="px-4 sm:px-6 py-4 fixed left-0 bottom-0 z-30 opacity-0 transform translate-y-4">
+		<div className="px-4 sm:px-6 py-4 fixed left-0 bottom-0 opacity-0 transform translate-y-8 z-30">
 			<DarkTooltip>
 				<span className="flex flex-row">
 					<span className="flex flex-row items-center" style={{ height: px(14 * 1.5) }}>
@@ -1032,11 +1030,15 @@ const MemoToast = React.memo(({ state, dispatch }) => (
 						<Switch on={state.__toast.key}>
 							<Case case="localStorage">
 								<Style
+									// className="text-green-300"
 									style={{
 										width: "1em",
 										height: "1em",
 									}}
 								>
+									{/* <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
+									{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" /> */}
+									{/* </svg> */}
 									<SVGCheck />
 								</Style>
 							</Case>
