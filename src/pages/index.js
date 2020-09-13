@@ -527,7 +527,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 	// Gets query from ?query=etc (once).
 	React.useEffect(() => {
-		if (!window.URLSearchParams) {
+		if (!("URLSearchParams" in window)) {
 			// No-op
 			return
 		}
@@ -537,7 +537,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 
 	// Sets ?query=etc (on query).
 	React.useEffect(() => {
-		if (!window.URLSearchParams) {
+		if (!("URLSearchParams" in window)) {
 			// No-op
 			return
 		}
@@ -1142,7 +1142,7 @@ const MemoToast = React.memo(({ state, dispatch }) => (
 								Enabled Dark Mode
 							</Case>
 							<Case case="theme:lightMode">
-								Enabled Light Mode
+								Disabled Dark Mode
 							</Case>
 							<Case case="clipboard">
 								Copied `{!state.controls.copyAs.jsx ? state.__toast.value : toCamelCase(state.__toast.value)}` as {!state.controls.copyAs.jsx ? "SVG" : "JSX"}
@@ -1220,20 +1220,35 @@ const Layout = () => {
 		}
 	}, [state])
 
-	// Dark mode.
-	//
-	// TODO: Marc @seven11nash found a bug that dark mode
-	// **does not** fire for first-time users. This is
-	// probably because UPDATE_CONTROLS only fires on
-	// media.addListener(handler) and not before.
-	//
-	// Please note that public/scripts/layout-dark-mode.js
-	// is used to eagerly set the dark class to <html>. This
-	// prevents a flashing light mode before dark mode for
-	// non-first time users.
-	//
+	// (prefers-color-scheme: dark)
 	React.useEffect(
 		React.useCallback(() => {
+
+			// See public/scripts/layout-dark-mode.js.
+			const themePreferenceDark = () => {
+				const ok = (
+					"themePreference" in localStorage &&
+					localStorage.themePreference === "dark"
+				)
+				return ok
+			}
+			const prefersColorShemeDark = () => {
+				const ok = (
+					window.matchMedia &&
+					window.matchMedia("(prefers-color-scheme: dark)").matches
+				)
+				return ok
+			}
+			if (themePreferenceDark() || prefersColorShemeDark()) {
+				dispatch({
+					type: "UPDATE_CONTROLS",
+					controlType: "theme",
+					key: "darkMode",
+					value: true,
+				})
+			}
+
+			// Media listener:
 			const media = window.matchMedia &&
 				window.matchMedia("(prefers-color-scheme: dark)")
 			if (!media) {
@@ -1252,10 +1267,12 @@ const Layout = () => {
 			return () => {
 				media.removeListener(handler)
 			}
+
 		}, [state, dispatch]),
 		[],
 	)
 
+	// Sets html.dark.
 	const mounted = React.useRef(false)
 	React.useEffect(() => {
 		// No-op the mounted effect:

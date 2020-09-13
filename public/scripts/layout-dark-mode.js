@@ -1,9 +1,22 @@
-// https://github.com/tailwindlabs/tailwindcss/pull/2279#issuecomment-684997169
+function themePreferenceDark() {
+	const ok = (
+		"themePreference" in localStorage &&
+		localStorage.themePreference === "dark"
+	)
+	return ok
+}
+
+function prefersColorShemeDark() {
+	const ok = (
+		window.matchMedia &&
+		window.matchMedia("(prefers-color-scheme: dark)").matches
+	)
+	return ok
+}
+
 ;(() => {
-	const html = document.documentElement
-	if (("themePreference" in localStorage) && localStorage.themePreference === "dark") {
-		html.classList.add("dark")
-	} else if (!("themePreference" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+	if (themePreferenceDark() || prefersColorShemeDark()) {
+		const html = document.documentElement
 		html.classList.add("dark")
 	}
 })()
