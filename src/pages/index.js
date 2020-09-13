@@ -72,7 +72,8 @@ const AbsoluteExternalLinks = () => (
 			<div className="-my-1">
 
 				<a
-					href={`https://twitter.com/intent/tweet?text=${encodeURI("Check out Heroicons! 🔥\n\nMIT open source icons designed by @steveschoger. Web viewer by @username_ZAYDEK.")}&url=https://heroicons.dev`}
+					// href={`https://twitter.com/intent/tweet?text=${encodeURI("Check out Heroicons! 🔥\n\nMIT open source icons designed by @steveschoger. Web viewer by @username_ZAYDEK.")}&url=https://heroicons.dev`}
+					href={`https://twitter.com/intent/tweet?text=${encodeURI("Check out Heroicons! 🔥\n\nThank you @steveschoger for Heroicons and @username_ZAYDEK for heroicons.dev!\n\nhttps://heroicons.dev")}`}
 					data-splitbee-event="Click Share Link"
 					data-splitbee-event-type="Twitter"
 					{...target_blank}
@@ -89,7 +90,7 @@ const AbsoluteExternalLinks = () => (
 								</svg>
 							</Style>
 							<EmSpace />
-							Share with your friends on Twitter!
+							Say thank you on Twitter!
 						</TextRow>
 					</p>
 				</a>
@@ -113,7 +114,7 @@ const AbsoluteExternalLinks = () => (
 								</svg>
 							</Style>
 							<EmSpace />
-							Star viewer on GitHub
+							Star on GitHub
 						</TextRow>
 					</p>
 				</a>
@@ -302,13 +303,13 @@ const Sponsors = () => (
 					name: "QA Wolf",
 					href: "https://github.com/qawolf/qawolf",
 					src: "/static/images/sponsor-qawolf.png",
-					tagline: "Create Faster Tests",
+					tagline: "10x Browser Tests",
 				},
 				{
 					name: "Landing Page Hot Tips Ebook",
 					href: "https://onepagelove.com/go/heroicons",
 					src: "/static/images/sponsor-landing-page-hot-tips-ebook.png",
-					tagline: "Landing Page Ebook",
+					tagline: "Marketing Ebook",
 				},
 				{
 					name: "SkillSyncer",
@@ -320,7 +321,7 @@ const Sponsors = () => (
 					name: "CodeTisans",
 					href: "https://codetisans.com",
 					src: "/static/images/sponsor-codetisans_.png",
-					tagline: "Laravel Softwarehouse",
+					tagline: "Full Stack Agency",
 				},
 				{
 					name: "Streamline",
@@ -338,7 +339,7 @@ const Sponsors = () => (
 						data-splitbee-event-type={each.name}
 						{...target_blank}
 					>
-						<Style className="h-11">
+						<Style className="mx-auto h-12">
 							<img src={each.src} alt={each.name} />
 						</Style>
 						<div className="h-2" />
