@@ -783,7 +783,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 												value: true,
 											})
 										)}
-										aria-label={`Click to Switch to ${!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}`}
+										aria-label={`Click to ${!state.controls.theme.darkMode ? "Enable Dark Mode" : "Disable Dark Mode"}`}
 									>
 										<Style className="w-6 h-6 overflow-visible">
 											{!state.controls.theme.darkMode ? (
@@ -799,7 +799,7 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 										{tooltip === "theme" && (
 											<div className="pt-2 absolute right-0 top-full">
 												<Tooltip apply="text-left whitespace-pre">
-													Click to Switch to {!state.controls.theme.darkMode ? "Dark Mode" : "Light Mode"}
+													Click to {!state.controls.theme.darkMode ? "Enable Dark Mode" : "Disable Dark Mode"}
 												</Tooltip>
 											</div>
 										)}
