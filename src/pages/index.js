@@ -872,6 +872,13 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon, dispatch }) => {
 				aria-label={`Click to Copy ${icon.name} as ${!copyAsJSX ? "SVG" : "JSX"}`}
 			>
 
+				{/* New */}
+				{icon.new && (
+					<div className="p-4 absolute right-0 top-0 pointer-events-none">
+						<div className="w-2.5 h-2.5 bg-purple-500 rounded-full" />
+					</div>
+				)}
+
 				{/* Icon */}
 				<div className="flex flex-row justify-center items-center h-full">
 					<Style className="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transform scale-0 group-hover:scale-100 group-focus:scale-100">
@@ -1104,7 +1111,7 @@ const MemoToast = React.memo(({ state, dispatch }) => (
 
 						<Switch on={state.__toast.key}>
 							<Case case="localStorage">
-								Restored Preferences
+								Synced Preferences from localStorage
 							</Case>
 							<Case case="variant:solid">
 								Enabled Solid Icons
