@@ -73,7 +73,7 @@ const AbsoluteExternalLinks = () => (
 
 				<a
 					// href={`https://twitter.com/intent/tweet?text=${encodeURI("Check out Heroicons! 🔥\n\nMIT open source icons designed by @steveschoger. Web viewer by @username_ZAYDEK.")}&url=https://heroicons.dev`}
-					href={`https://twitter.com/intent/tweet?text=${encodeURI("Check out Heroicons! 🔥\n\nThank you @steveschoger for Heroicons and @username_ZAYDEK for heroicons.dev!\n\nhttps://heroicons.dev")}`}
+					href={`https://twitter.com/intent/tweet?text=${encodeURI("Check out Heroicons! 🔥\n\nThanks @steveschoger for Heroicons and @username_ZAYDEK for heroicons.dev!\n\nhttps://heroicons.dev")}`}
 					data-splitbee-event="Click Share Link"
 					data-splitbee-event-type="Twitter"
 					{...target_blank}
