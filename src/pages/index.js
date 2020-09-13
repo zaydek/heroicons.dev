@@ -644,13 +644,13 @@ const MemoSearch = React.memo(({ state, dispatch }) => {
 							paddingRight: tw(4 + (10 + 1) + (1 + 10 + 1) + (1 + 10) + 8),
 						}}
 						type="text"
-						placeholder={(media.sm || inputFocused) ? "Search" : "Search (Press \"/\" to Focus)"}
+						placeholder={!inputFocused ? "Search (Press \"/\" to Focus)" : "Search"}
 						value={query}
 						onFocus={e => setInputFocused(true)}
 						onBlur={e => setInputFocused(false)}
 						onChange={e => setQuery(e.target.value)}
 						autoFocus
-						aria-label={(media.sm || inputFocused) ? "Search" : "Search (Press \"/\" to Focus)"}
+						aria-label={!inputFocused ? "Search (Press \"/\" to Focus)" : "Search"}
 						{...disableAutoCorrect}
 					/>
 				</Reset>
