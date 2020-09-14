@@ -986,20 +986,21 @@ const SectionApp = ({ state, dispatch }) => {
 							}}
 						>
 							<div id="app-grid">
-								<DocumentTitle title={state.search.__results.length !== dataset.length ? `Heroicons – ${state.search.__results.length} result${state.search.__results.length === 1 ? "" : "s"}` : "Heroicons"}>
-									{state.search.__results.map((each, x) => (
-										<article key={each.name} className="pb-full relative">
-											<div className="absolute inset-0">
-												<MemoIcon
-													variant={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
-													copyAsJSX={state.controls.copyAs.jsx}
-													icon={each}
-													dispatch={dispatch}
-												/>
-											</div>
-										</article>
-									))}
-								</DocumentTitle>
+								{state.search.__results.length < dataset.length && (
+									<DocumentTitle title={`Heroicons – ${state.search.__results.length} result${state.search.__results.length === 1 ? "" : "s"}`} />
+								)}
+								{state.search.__results.map((each, x) => (
+									<article key={each.name} className="pb-full relative">
+										<div className="absolute inset-0">
+											<MemoIcon
+												variant={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
+												copyAsJSX={state.controls.copyAs.jsx}
+												icon={each}
+												dispatch={dispatch}
+											/>
+										</div>
+									</article>
+								))}
 							</div>
 						</div>
 					</Style>
