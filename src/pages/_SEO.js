@@ -1,9 +1,7 @@
 import Head from "next/head"
 
-const seo = {
-	title: "Heroicons – Open Source SVG Icon Library",
-	description: "New, MIT open source SVG icon library designed by Steve Schoger. Solid and stroke variants, one-click copy-paste, and Figma file. Built with Tailwind CSS."
-}
+const TITLE = "Heroicons – Free Open Source SVG Icon Library"
+const DESCRIPTION = "New MIT open source SVG icon library designed by Steve Schoger. Solid and stroke variants, one-click copy-paste, and Figma file. Built with Tailwind CSS."
 
 const SEO = () => (
 	<Head>
@@ -20,15 +18,15 @@ const SEO = () => (
 			href="https://heroicons.dev/static/favicon.ico"
 		/>
 		<title>
-			{seo.title}
+			{TITLE}
 		</title>
 		<meta
 			name="title"
-			content={seo.title}
+			content={TITLE}
 		/>
 		<meta
 			name="description"
-			content={seo.description}
+			content={DESCRIPTION}
 		/>
 
 		{/* Facebook */}
@@ -42,11 +40,11 @@ const SEO = () => (
 		/>
 		<meta
 			property="og:title"
-			content={seo.title}
+			content={TITLE}
 		/>
 		<meta
 			property="og:description"
-			content={seo.description}
+			content={DESCRIPTION}
 		/>
 		<meta
 			property="og:image"
@@ -64,15 +62,21 @@ const SEO = () => (
 		/>
 		<meta
 			property="twitter:title"
-			content={seo.title}
+			content={TITLE}
 		/>
 		<meta
 			property="twitter:description"
-			content={seo.description}
+			content={DESCRIPTION}
 		/>
 		<meta
 			property="twitter:image"
 			content="https://heroicons.dev/static/social.png"
+		/>
+
+		{/* New */}
+		<meta
+			name="twitter:creator"
+			content="@username_ZAYDEK"
 		/>
 
 	</Head>

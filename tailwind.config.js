@@ -1,7 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme")
 
-const tw = n => `${n * 4 / 16}rem`
-
 module.exports = {
 	dark: "class",
 	experimental: {
@@ -17,12 +15,12 @@ module.exports = {
 	theme: {
 		extend: {
 			borderRadius: {
-				1: tw(1),
-				2: tw(2),
-				3: tw(3),
-				4: tw(4),
-				5: tw(5),
-				6: tw(6),
+				1: `${1 * 0.25}`,
+				2: `${2 * 0.25}`,
+				3: `${3 * 0.25}`,
+				4: `${4 * 0.25}`,
+				5: `${5 * 0.25}`,
+				6: `${6 * 0.25}`,
 			},
 			boxShadow: {
 				"px": defaultTheme.boxShadow.xs,
@@ -40,13 +38,12 @@ module.exports = {
 				"px-6": defaultTheme.boxShadow.xs + ", " + defaultTheme.boxShadow["2xl"],
 			},
 			colors: {
-
-				// hsl(270, 100%, 50%)
+				// html {
+				//   --theme: hsl(270, 100%, 50%);
+				//   --dark-theme: hsl(270, 100%, 43.75%);
+				// }
 				"theme": "#8000ff",
-
-				// hsl(270, 100%, 43.75%)
 				"dark-theme": "#7000df",
-
 			},
 			fontFamily: {
 				sans: [
@@ -76,20 +73,9 @@ module.exports = {
 		},
 	},
 	variants: {
-		boxShadow: ({ after }) => after([
-			"dark",
-		]),
-		opacity: ({ after }) => after([
-			"group-hover",
-			"group-focus",
-		]),
-		scale: ({ after }) => after([
-			"group-hover",
-			"group-focus",
-		]),
-		textColor: ({ after }) => after([
-			"group-hover",
-			"group-focus",
-		]),
+		boxShadow: ({ after }) => after(["dark"]),
+		opacity: ({ after }) => after(["group-hover", "group-focus"]),
+		scale: ({ after }) => after(["group-hover", "group-focus"]),
+		textColor: ({ after }) => after(["group-hover", "group-focus"]),
 	},
 }
