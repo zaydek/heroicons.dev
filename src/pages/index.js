@@ -343,9 +343,9 @@ const Sponsors = () => (
 			].map(each => (
 				<Style key={each.href} className="transition duration-200 ease-out">
 					<a
-						key={each.href + "?ref=heroicons.dev"}
-						className="mx-4 my-2 opacity-87.5 dark:opacity-81.25 hover:opacity-100"
-						href={each.href}
+						key={each.href}
+						className="mx-4 my-2 opacity-93.75 dark:opacity-87.5 hover:opacity-100"
+						href={each.href + "?ref=heroicons.dev"}
 						data-splitbee-event="Click Sponsor Link"
 						data-splitbee-event-type={each.name}
 						{...target_blank}
