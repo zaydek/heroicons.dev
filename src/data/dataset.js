@@ -1,5 +1,5 @@
-import * as Outline from "heroicons-0.4.1/outline"
-import * as Solid from "heroicons-0.4.1/solid"
+import * as Outline from "heroicons-0.4.x/outline"
+import * as Solid from "heroicons-0.4.x/solid"
 import tags from "data/tags"
 
 const dataset = [

@@ -17,16 +17,16 @@ import { rem, px, tw } from "lib/x/cssUnits"
 import { Space, EnSpace, EmSpace } from "lib/x/Spaces"
 import { Switch, Case } from "lib/x/Switch"
 
-import SVGBookOpen from "heroicons-0.4.1/solid/BookOpen"
-import SVGCheck from "heroicons-0.4.1/solid/Check"
-import SVGCode from "heroicons-0.4.1/solid/Code"
-import SVGExternalLink from "heroicons-0.4.1/solid/ExternalLink"
-import SVGFlag from "heroicons-0.4.1/solid/Flag"
-import SVGMoon from "heroicons-0.4.1/solid/Moon"
-import SVGPaperClip from "heroicons-0.4.1/solid/PaperClip"
+import SVGBookOpen from "heroicons-0.4.x/solid/BookOpen"
+import SVGCheck from "heroicons-0.4.x/solid/Check"
+import SVGCode from "heroicons-0.4.x/solid/Code"
+import SVGExternalLink from "heroicons-0.4.x/solid/ExternalLink"
+import SVGFlag from "heroicons-0.4.x/solid/Flag"
+import SVGMoon from "heroicons-0.4.x/solid/Moon"
+import SVGPaperClip from "heroicons-0.4.x/solid/PaperClip"
 
-import SVGCodeStroke from "heroicons-0.4.1/outline/Code"
-import SVGMoonStroke from "heroicons-0.4.1/outline/Moon"
+import SVGCodeStroke from "heroicons-0.4.x/outline/Code"
+import SVGMoonStroke from "heroicons-0.4.x/outline/Moon"
 
 const LOCALSTORAGE_KEY = "heroicons.dev"
 
@@ -313,13 +313,13 @@ const Sponsors = () => (
 					name: "QA Wolf",
 					href: "https://github.com/qawolf/qawolf",
 					src: "/static/images/sponsor-qawolf.png",
-					tagline: "10x Browser Tests",
+					tagline: "Create Browser Tests Faster",
 				},
 				{
-					name: "Landing Page Hot Tips Ebook",
-					href: "https://onepagelove.com/go/heroicons",
-					src: "/static/images/sponsor-landing-page-hot-tips-ebook.png",
-					tagline: "Marketing Ebook",
+					name: "SPELLL",
+					href: "https://spelll.design",
+					src: "/static/images/sponsor-spelll.png",
+					tagline: "Spell Checker for Figma",
 				},
 				{
 					name: "SkillSyncer",
@@ -328,21 +328,22 @@ const Sponsors = () => (
 					tagline: "Resumé Optimizer",
 				},
 				{
-					name: "CodeTisans",
-					href: "https://codetisans.com",
-					src: "/static/images/sponsor-codetisans_.png",
-					tagline: "Full Stack Agency",
-				},
-				{
 					name: "Streamline",
 					href: "https://streamlineicons.com",
 					src: "/static/images/sponsor-streamline.png",
 					tagline: "Download 30,000 Icons",
 				},
+				{
+					name: "CodeTisans",
+					href: "https://codetisans.com",
+					src: "/static/images/sponsor-codetisans.png",
+					// tagline: "Full Stack Agency",
+					tagline: "Laravel Softwarehouse",
+				},
 			].map(each => (
 				<Style key={each.href} className="transition duration-200 ease-out">
 					<a
-						key={each.href}
+						key={each.href + "?ref=heroicons.dev"}
 						className="mx-4 my-2 opacity-87.5 dark:opacity-81.25 hover:opacity-100"
 						href={each.href}
 						data-splitbee-event="Click Sponsor Link"
@@ -355,9 +356,9 @@ const Sponsors = () => (
 						<div className="h-2" />
 						<p className="text-center font-medium text-xs leading-none text-purple-50">
 							<TextRow>
-								&ldquo;
+								{/* &ldquo; */}
 								{each.tagline}
-								&rdquo;
+								{/* &rdquo; */}
 								<Space />
 								<Style
 									className="opacity-75"

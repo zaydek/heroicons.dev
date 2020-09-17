@@ -1,27 +1,27 @@
 {
 	"name": "heroicons.dev",
 	"scripts": {
-		"tailwind-dev": "tailwind build -o src/stylesheets/tailwindcss/tailwind.generated.css",
-		"tailwind-build": "NODE_ENV=production yarn tailwind-dev",
+		"tw-dev": "tailwind build -o src/stylesheets/tailwindcss/out.css",
+		"tw-build": "NODE_ENV=production yarn tw-dev",
 		"dev": "next dev",
 		"build": "next build",
-		"out": "rm -rf .next && yarn tailwind-build && yarn build && yarn next export && osascript -e 'display notification \"Production build ready\" with title \"yarn compile\"' && yarn tailwind-dev && osascript -e 'display notification \"Development build ready\" with title \"yarn tailwind-dev\"'",
+		"out": "rm -rf .next && yarn tw-build && yarn build && yarn next export && osascript -e 'display notification \"Production build ready\" with title \"yarn compile\"' && yarn tw-dev && osascript -e 'display notification \"Development build ready\" with title \"yarn tw-dev\"'",
 		"start": "next start"
 	},
 	"dependencies": {
-		"immer": "latest",
-		"lodash": "latest",
+		"immer": "^7.0.9",
+		"lodash": "^4.17.20",
 		"next": "^9.5.3",
-		"react": "latest",
-		"react-dom": "latest",
-		"use-immer": "latest"
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"use-immer": "^0.4.1"
 	},
 	"devDependencies": {
-		"@tailwindcss/ui": "latest",
-		"babel-eslint": "latest",
-		"babel-jest": "latest",
-		"eslint": "latest",
-		"jest": "latest",
-		"tailwindcss": "latest"
+		"@tailwindcss/ui": "^0.6.2",
+		"babel-eslint": "^10.1.0",
+		"babel-jest": "^26.3.0",
+		"eslint": "^7.9.0",
+		"jest": "^26.4.2",
+		"tailwindcss": "^1.8.10"
 	}
 }
