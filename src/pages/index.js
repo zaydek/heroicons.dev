@@ -337,7 +337,6 @@ const Sponsors = () => (
 					name: "CodeTisans",
 					href: "https://codetisans.com",
 					src: "/static/images/sponsor-codetisans.png",
-					// tagline: "Full Stack Agency",
 					tagline: "Laravel Softwarehouse",
 				},
 			].map(each => (
