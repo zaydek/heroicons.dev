@@ -419,7 +419,7 @@ const SectionHero = () => (
 		{/* Background */}
 		<div className="absolute inset-x-0 top-full pointer-events-none">
 			<Style className="text-theme dark:text-dark-theme">
-				<svg fill="currentColor" viewBox="0 0 32 1" xmlns="http://www.w3.org/2000/svg">
+				<svg className="h-intrinsic" fill="currentColor" viewBox="0 0 32 1" xmlns="http://www.w3.org/2000/svg">
 					<path d="M16 1C4 1 0 0 0 0H32C32 0 28 1 16 1Z" />
 				</svg>
 			</Style>
@@ -1300,6 +1300,9 @@ const Layout = () => {
 							html {
 								--search-bar-height: ${tw(18)};
 								--search-bar-negative-margin: ${tw(18 + 6)};
+							}
+							.h-intrinsic{
+								height:intrinsic
 							}
 						`}
 					</style>
