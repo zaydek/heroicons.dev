@@ -10,7 +10,7 @@ const dataset = [
 			solid: Solid.AcademicCap,
 			outline: Outline.AcademicCap,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "adjustments",
@@ -172,7 +172,7 @@ const dataset = [
 			solid: Solid.Backspace,
 			outline: Outline.Backspace,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "badge-check",
@@ -199,7 +199,7 @@ const dataset = [
 			solid: Solid.Beaker,
 			outline: Outline.Beaker,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "bell",
@@ -253,7 +253,7 @@ const dataset = [
 			solid: Solid.Cake,
 			outline: Outline.Cake,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "calculator",
@@ -262,7 +262,7 @@ const dataset = [
 			solid: Solid.Calculator,
 			outline: Outline.Calculator,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "calendar",
@@ -370,7 +370,7 @@ const dataset = [
 			solid: Solid.ChevronDoubleDown,
 			outline: Outline.ChevronDoubleDown,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "chevron-double-left",
@@ -379,7 +379,7 @@ const dataset = [
 			solid: Solid.ChevronDoubleLeft,
 			outline: Outline.ChevronDoubleLeft,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "chevron-double-right",
@@ -388,7 +388,7 @@ const dataset = [
 			solid: Solid.ChevronDoubleRight,
 			outline: Outline.ChevronDoubleRight,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "chevron-double-up",
@@ -397,7 +397,7 @@ const dataset = [
 			solid: Solid.ChevronDoubleUp,
 			outline: Outline.ChevronDoubleUp,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "chevron-down",
@@ -442,7 +442,7 @@ const dataset = [
 			solid: Solid.Chip,
 			outline: Outline.Chip,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "clipboard",
@@ -496,7 +496,7 @@ const dataset = [
 			solid: Solid.Cloud,
 			outline: Outline.Cloud,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "cloud-download",
@@ -505,7 +505,7 @@ const dataset = [
 			solid: Solid.CloudDownload,
 			outline: Outline.CloudDownload,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "cloud-upload",
@@ -514,7 +514,7 @@ const dataset = [
 			solid: Solid.CloudUpload,
 			outline: Outline.CloudUpload,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "code",
@@ -568,7 +568,7 @@ const dataset = [
 			solid: Solid.Cube,
 			outline: Outline.Cube,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "cube-transparent",
@@ -577,7 +577,7 @@ const dataset = [
 			solid: Solid.CubeTransparent,
 			outline: Outline.CubeTransparent,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "currency-bangladeshi",
@@ -586,7 +586,7 @@ const dataset = [
 			solid: Solid.CurrencyBangladeshi,
 			outline: Outline.CurrencyBangladeshi,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "currency-dollar",
@@ -649,7 +649,7 @@ const dataset = [
 			solid: Solid.Database,
 			outline: Outline.Database,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "desktop-computer",
@@ -667,7 +667,7 @@ const dataset = [
 			solid: Solid.DeviceMobile,
 			outline: Outline.DeviceMobile,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "device-tablet",
@@ -676,7 +676,7 @@ const dataset = [
 			solid: Solid.DeviceTablet,
 			outline: Outline.DeviceTablet,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "document",
@@ -739,7 +739,7 @@ const dataset = [
 			solid: Solid.DocumentSearch,
 			outline: Outline.DocumentSearch,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "document-text",
@@ -748,7 +748,7 @@ const dataset = [
 			solid: Solid.DocumentText,
 			outline: Outline.DocumentText,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "dots-circle-horizontal",
@@ -865,7 +865,7 @@ const dataset = [
 			solid: Solid.FastForward,
 			outline: Outline.FastForward,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "film",
@@ -874,7 +874,7 @@ const dataset = [
 			solid: Solid.Film,
 			outline: Outline.Film,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "filter",
@@ -892,7 +892,7 @@ const dataset = [
 			solid: Solid.FingerPrint,
 			outline: Outline.FingerPrint,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "fire",
@@ -946,7 +946,7 @@ const dataset = [
 			solid: Solid.FolderOpen,
 			outline: Outline.FolderOpen,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "folder-remove",
@@ -964,7 +964,7 @@ const dataset = [
 			solid: Solid.Gift,
 			outline: Outline.Gift,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "globe",
@@ -1027,7 +1027,7 @@ const dataset = [
 			solid: Solid.Identification,
 			outline: Outline.Identification,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "inbox",
@@ -1135,7 +1135,7 @@ const dataset = [
 			solid: Solid.Login,
 			outline: Outline.Login,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "logout",
@@ -1144,7 +1144,7 @@ const dataset = [
 			solid: Solid.Logout,
 			outline: Outline.Logout,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "mail",
@@ -1171,7 +1171,7 @@ const dataset = [
 			solid: Solid.Map,
 			outline: Outline.Map,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "menu",
@@ -1234,7 +1234,7 @@ const dataset = [
 			solid: Solid.Minus,
 			outline: Outline.Minus,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "minus-circle",
@@ -1261,7 +1261,7 @@ const dataset = [
 			solid: Solid.MusicNote,
 			outline: Outline.MusicNote,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "newspaper",
@@ -1288,7 +1288,7 @@ const dataset = [
 			solid: Solid.PaperAirplane,
 			outline: Outline.PaperAirplane,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "paper-clip",
@@ -1351,7 +1351,7 @@ const dataset = [
 			solid: Solid.PhoneMissedCall,
 			outline: Outline.PhoneMissedCall,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "phone-outgoing",
@@ -1387,7 +1387,7 @@ const dataset = [
 			solid: Solid.Plus,
 			outline: Outline.Plus,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "plus-circle",
@@ -1405,7 +1405,7 @@ const dataset = [
 			solid: Solid.PresentationChartBar,
 			outline: Outline.PresentationChartBar,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "presentation-chart-line",
@@ -1414,7 +1414,7 @@ const dataset = [
 			solid: Solid.PresentationChartLine,
 			outline: Outline.PresentationChartLine,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "printer",
@@ -1468,7 +1468,7 @@ const dataset = [
 			solid: Solid.ReceiptTax,
 			outline: Outline.ReceiptTax,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "refresh",
@@ -1495,7 +1495,7 @@ const dataset = [
 			solid: Solid.Rewind,
 			outline: Outline.Rewind,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "rss",
@@ -1504,7 +1504,7 @@ const dataset = [
 			solid: Solid.Rss,
 			outline: Outline.Rss,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "save",
@@ -1513,7 +1513,7 @@ const dataset = [
 			solid: Solid.Save,
 			outline: Outline.Save,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "save-as",
@@ -1522,7 +1522,7 @@ const dataset = [
 			solid: Solid.SaveAs,
 			outline: Outline.SaveAs,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "scale",
@@ -1540,7 +1540,7 @@ const dataset = [
 			solid: Solid.Scissors,
 			outline: Outline.Scissors,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "search",
@@ -1558,7 +1558,7 @@ const dataset = [
 			solid: Solid.SearchCircle,
 			outline: Outline.SearchCircle,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "selector",
@@ -1576,7 +1576,7 @@ const dataset = [
 			solid: Solid.Server,
 			outline: Outline.Server,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "share",
@@ -1675,7 +1675,7 @@ const dataset = [
 			solid: Solid.StatusOffline,
 			outline: Outline.StatusOffline,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "status-online",
@@ -1684,7 +1684,7 @@ const dataset = [
 			solid: Solid.StatusOnline,
 			outline: Outline.StatusOnline,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "stop",
@@ -1738,7 +1738,7 @@ const dataset = [
 			solid: Solid.Table,
 			outline: Outline.Table,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "tag",
@@ -1837,7 +1837,7 @@ const dataset = [
 			solid: Solid.Truck,
 			outline: Outline.Truck,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "upload",
@@ -1909,7 +1909,7 @@ const dataset = [
 			solid: Solid.Variable,
 			outline: Outline.Variable,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "video-camera",
@@ -1918,7 +1918,7 @@ const dataset = [
 			solid: Solid.VideoCamera,
 			outline: Outline.VideoCamera,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "view-boards",
@@ -1981,7 +1981,7 @@ const dataset = [
 			solid: Solid.Wifi,
 			outline: Outline.Wifi,
 		},
-		new: true,
+		new: false,
 	},
 	{
 		name: "x",
