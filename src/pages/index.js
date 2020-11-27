@@ -31,10 +31,10 @@ import SVGMoonStroke from "heroicons-0.4.x/outline/Moon"
 const LOCALSTORAGE_KEY = "heroicons.dev"
 
 const screens = {
-	sm: (640) + "px",
-	md: (768) + "px",
-	lg: (24 + 1024 + 24) + "px",
-	xl: (24 + 1280 + 24) + "px",
+	sm: 640 + "px",
+	md: 768 + "px",
+	lg: 24 + 1024 + 24 + "px",
+	xl: 24 + 1280 + 24 + "px",
 }
 
 const Reset = Style
@@ -42,16 +42,13 @@ const Media = Style
 
 const TextRow = ({ children }) => (
 	<Reset className="align-top">
-		<span className="inline-flex flex-row items-center">
-			{children}
-		</span>
+		<span className="inline-flex flex-row items-center">{children}</span>
 	</Reset>
 )
 
 const AbsoluteExternalLinks = () => (
 	<Media className="hidden lg:block">
 		<nav className="p-4 absolute left-0 top-0">
-
 			<style>
 				{css`
 					.twemoji .twemoji-eyes {
@@ -59,7 +56,8 @@ const AbsoluteExternalLinks = () => (
 					}
 
 					@keyframes cartoon-eyes {
-						0%, 100% {
+						0%,
+						100% {
 							transform: scale(1);
 						}
 						50% {
@@ -70,10 +68,11 @@ const AbsoluteExternalLinks = () => (
 			</style>
 
 			<div className="-my-1">
-
 				<a
 					// href={`https://twitter.com/intent/tweet?text=${encodeURI("Check out Heroicons! 🔥\n\nMIT open source icons designed by @steveschoger. Web viewer by @username_ZAYDEK.")}&url=https://heroicons.dev`}
-					href={`https://twitter.com/intent/tweet?text=${encodeURI("Check out Heroicons! 🔥\n\nThanks @steveschoger for Heroicons and @username_ZAYDEK for heroicons.dev!\n\nhttps://heroicons.dev")}`}
+					href={`https://twitter.com/intent/tweet?text=${encodeURI(
+						"Check out Heroicons! 🔥\n\nThanks @steveschoger for Heroicons and @username_ZAYDEK for heroicons.dev!\n\nhttps://heroicons.dev",
+					)}`}
 					data-splitbee-event="Click Share Link"
 					data-splitbee-event-type="Twitter"
 					{...target_blank}
@@ -87,9 +86,15 @@ const AbsoluteExternalLinks = () => (
 									{/* </svg> */}
 									<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
 										<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
-										<path fill="#664500" d="M18 21.849c-2.966 0-4.935-.346-7.369-.819-.557-.106-1.638 0-1.638 1.638 0 3.275 3.763 7.369 9.007 7.369s9.007-4.094 9.007-7.369c0-1.638-1.082-1.745-1.638-1.638-2.434.473-4.402.819-7.369.819" />
+										<path
+											fill="#664500"
+											d="M18 21.849c-2.966 0-4.935-.346-7.369-.819-.557-.106-1.638 0-1.638 1.638 0 3.275 3.763 7.369 9.007 7.369s9.007-4.094 9.007-7.369c0-1.638-1.082-1.745-1.638-1.638-2.434.473-4.402.819-7.369.819"
+										/>
 										<Style className="twemoji-eyes origin-center">
-											<path fill="#dd2e44" d="M16.65 3.281C15.791.85 13.126-.426 10.694.431c-1.476.52-2.521 1.711-2.928 3.104-1.191-.829-2.751-1.1-4.225-.58C1.111 3.813-.167 6.48.692 8.911c.122.344.284.663.472.958 1.951 3.582 7.588 6.1 11.001 6.131 2.637-2.167 5.446-7.665 4.718-11.677-.038-.348-.113-.698-.233-1.042zm2.7 0C20.209.85 22.875-.426 25.306.431c1.476.52 2.521 1.711 2.929 3.104 1.191-.829 2.751-1.1 4.225-.58 2.43.858 3.707 3.525 2.85 5.956-.123.344-.284.663-.473.958-1.951 3.582-7.588 6.1-11.002 6.131-2.637-2.167-5.445-7.665-4.717-11.677.037-.348.112-.698.232-1.042z" />
+											<path
+												fill="#dd2e44"
+												d="M16.65 3.281C15.791.85 13.126-.426 10.694.431c-1.476.52-2.521 1.711-2.928 3.104-1.191-.829-2.751-1.1-4.225-.58C1.111 3.813-.167 6.48.692 8.911c.122.344.284.663.472.958 1.951 3.582 7.588 6.1 11.001 6.131 2.637-2.167 5.446-7.665 4.718-11.677-.038-.348-.113-.698-.233-1.042zm2.7 0C20.209.85 22.875-.426 25.306.431c1.476.52 2.521 1.711 2.929 3.104 1.191-.829 2.751-1.1 4.225-.58 2.43.858 3.707 3.525 2.85 5.956-.123.344-.284.663-.473.958-1.951 3.582-7.588 6.1-11.002 6.131-2.637-2.167-5.445-7.665-4.717-11.677.037-.348.112-.698.232-1.042z"
+											/>
 										</Style>
 									</svg>
 								</Style>
@@ -115,10 +120,16 @@ const AbsoluteExternalLinks = () => (
 									{/* </svg> */}
 									<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
 										<path fill="#ffcc4d" d="M36 18c0 9.941-8.059 18-18 18S0 27.941 0 18 8.059 0 18 0s18 8.059 18 18" />
-										<path fill="#664500" d="M18 21c-3.623 0-6.027-.422-9-1-.679-.131-2 0-2 2 0 4 4.595 9 11 9 6.404 0 11-5 11-9 0-2-1.321-2.132-2-2-2.973.578-5.377 1-9 1z" />
+										<path
+											fill="#664500"
+											d="M18 21c-3.623 0-6.027-.422-9-1-.679-.131-2 0-2 2 0 4 4.595 9 11 9 6.404 0 11-5 11-9 0-2-1.321-2.132-2-2-2.973.578-5.377 1-9 1z"
+										/>
 										<path fill="#ffffff" d="M9 22s3 1 9 1 9-1 9-1-2 4-9 4-9-4-9-4z" />
 										<Style className="twemoji-eyes origin-center">
-											<path fill="#e95f28" d="M15.682 4.413l-4.542.801L8.8.961C8.542.492 8.012.241 7.488.333c-.527.093-.937.511-1.019 1.039l-.745 4.797-4.542.801c-.535.094-.948.525-1.021 1.064s.211 1.063.703 1.297l4.07 1.932-.748 4.812c-.083.536.189 1.064.673 1.309.179.09.371.133.562.133.327 0 .65-.128.891-.372l3.512-3.561 4.518 2.145c.49.232 1.074.123 1.446-.272.372-.395.446-.984.185-1.459L13.625 9.73l3.165-3.208c.382-.387.469-.977.217-1.459-.254-.482-.793-.743-1.325-.65zm4.636 0l4.542.801L27.2.961c.258-.469.788-.72 1.312-.628.526.093.936.511 1.018 1.039l.745 4.797 4.542.801c.536.094.949.524 1.021 1.063s-.211 1.063-.703 1.297l-4.07 1.932.748 4.812c.083.536-.189 1.064-.673 1.309-.179.09-.371.133-.562.133-.327 0-.65-.128-.891-.372l-3.512-3.561-4.518 2.145c-.49.232-1.074.123-1.446-.272-.372-.395-.446-.984-.185-1.459l2.348-4.267-3.165-3.208c-.382-.387-.469-.977-.217-1.459.255-.482.794-.743 1.326-.65z" />
+											<path
+												fill="#e95f28"
+												d="M15.682 4.413l-4.542.801L8.8.961C8.542.492 8.012.241 7.488.333c-.527.093-.937.511-1.019 1.039l-.745 4.797-4.542.801c-.535.094-.948.525-1.021 1.064s.211 1.063.703 1.297l4.07 1.932-.748 4.812c-.083.536.189 1.064.673 1.309.179.09.371.133.562.133.327 0 .65-.128.891-.372l3.512-3.561 4.518 2.145c.49.232 1.074.123 1.446-.272.372-.395.446-.984.185-1.459L13.625 9.73l3.165-3.208c.382-.387.469-.977.217-1.459-.254-.482-.793-.743-1.325-.65zm4.636 0l4.542.801L27.2.961c.258-.469.788-.72 1.312-.628.526.093.936.511 1.018 1.039l.745 4.797 4.542.801c.536.094.949.524 1.021 1.063s-.211 1.063-.703 1.297l-4.07 1.932.748 4.812c.083.536-.189 1.064-.673 1.309-.179.09-.371.133-.562.133-.327 0-.65-.128-.891-.372l-3.512-3.561-4.518 2.145c-.49.232-1.074.123-1.446-.272-.372-.395-.446-.984-.185-1.459l2.348-4.267-3.165-3.208c-.382-.387-.469-.977-.217-1.459.255-.482.794-.743 1.326-.65z"
+											/>
 										</Style>
 									</svg>
 								</Style>
@@ -128,9 +139,7 @@ const AbsoluteExternalLinks = () => (
 						</p>
 					</Style>
 				</a>
-
 			</div>
-
 		</nav>
 	</Media>
 )
@@ -139,7 +148,11 @@ const HeroiconsLogo = () => (
 	<div className="relative">
 		<Style className="h-14 text-purple-50">
 			<svg fill="currentColor" viewBox="0 0 240 56" xmlns="http://www.w3.org/2000/svg">
-				<path fillRule="evenodd" clipRule="evenodd" d="M23.856 19.2222V30.4883H9.68802V19.2241H3.75201V30.4883V34.5203V47.0001H9.68802V34.5203H23.856V46.9982H29.792V34.5203V30.4883V19.2222H23.856Z" />
+				<path
+					fillRule="evenodd"
+					clipRule="evenodd"
+					d="M23.856 19.2222V30.4883H9.68802V19.2241H3.75201V30.4883V34.5203V47.0001H9.68802V34.5203H23.856V46.9982H29.792V34.5203V30.4883V19.2222H23.856Z"
+				/>
 				<path d="M46.9706 47.6722C44.2453 47.6722 41.8186 47.0748 39.6906 45.8802C37.5999 44.6482 35.9572 42.9495 34.7626 40.7842C33.5679 38.6188 32.9706 36.0988 32.9706 33.2242C32.9706 30.3122 33.5492 27.7548 34.7066 25.5522C35.9012 23.3495 37.5439 21.6322 39.6346 20.4002C41.7626 19.1682 44.2266 18.5522 47.0266 18.5522C49.7519 18.5522 52.1226 19.1682 54.1386 20.4002C56.1546 21.5948 57.7226 23.2002 58.8426 25.2162C59.9626 27.2322 60.5226 29.4535 60.5226 31.8802C60.5226 32.2535 60.5039 32.6642 60.4666 33.1122C60.4666 33.5228 60.4479 33.9895 60.4106 34.5122H38.7946C38.9812 37.2002 39.8586 39.2535 41.4266 40.6722C43.0319 42.0535 44.8799 42.7442 46.9706 42.7442C48.6506 42.7442 50.0506 42.3708 51.1706 41.6242C52.3279 40.8402 53.1866 39.7948 53.7466 38.4882H59.6826C58.9359 41.1015 57.4426 43.2855 55.2026 45.0402C52.9999 46.7948 50.2559 47.6722 46.9706 47.6722ZM46.9706 23.4242C44.9919 23.4242 43.2372 24.0215 41.7066 25.2162C40.1759 26.3735 39.2426 28.1282 38.9066 30.4802H54.5866C54.4746 28.3148 53.7093 26.5975 52.2906 25.3282C50.8719 24.0588 49.0986 23.4242 46.9706 23.4242Z" />
 				<path d="M63.8817 47.0002V19.2242H69.2017L69.7057 24.4882C70.6764 22.6588 72.0204 21.2215 73.7377 20.1762C75.4924 19.0935 77.6017 18.5522 80.0657 18.5522V24.7682H78.4417C76.799 24.7682 75.3244 25.0482 74.0177 25.6082C72.7484 26.1308 71.7217 27.0455 70.9377 28.3522C70.191 29.6215 69.8177 31.3948 69.8177 33.6722V47.0002H63.8817Z" />
 				<path d="M94.5815 47.6722C91.9309 47.6722 89.5415 47.0748 87.4135 45.8802C85.3229 44.6482 83.6615 42.9495 82.4295 40.7842C81.1975 38.5815 80.5815 36.0242 80.5815 33.1122C80.5815 30.2002 81.1975 27.6615 82.4295 25.4962C83.6989 23.2935 85.3975 21.5948 87.5255 20.4002C89.6535 19.1682 92.0242 18.5522 94.6375 18.5522C97.2882 18.5522 99.6589 19.1682 101.75 20.4002C103.878 21.5948 105.558 23.2935 106.79 25.4962C108.059 27.6615 108.694 30.2002 108.694 33.1122C108.694 36.0242 108.059 38.5815 106.79 40.7842C105.558 42.9495 103.878 44.6482 101.75 45.8802C99.6215 47.0748 97.2322 47.6722 94.5815 47.6722ZM94.5815 42.5762C96.0002 42.5762 97.3069 42.2215 98.5015 41.5122C99.7335 40.8028 100.723 39.7575 101.47 38.3762C102.216 36.9575 102.59 35.2028 102.59 33.1122C102.59 31.0215 102.216 29.2855 101.47 27.9042C100.76 26.4855 99.7895 25.4215 98.5575 24.7122C97.3629 24.0028 96.0562 23.6482 94.6375 23.6482C93.2189 23.6482 91.8935 24.0028 90.6615 24.7122C89.4669 25.4215 88.4962 26.4855 87.7495 27.9042C87.0029 29.2855 86.6295 31.0215 86.6295 33.1122C86.6295 35.2028 87.0029 36.9575 87.7495 38.3762C88.4962 39.7575 89.4669 40.8028 90.6615 41.5122C91.8562 42.2215 93.1629 42.5762 94.5815 42.5762Z" />
@@ -168,12 +181,8 @@ const Attribution = () => (
 					<SVGBookOpen />
 				</Style>
 				<Space />
-				<span className="inline sm:hidden">
-					MIT icons by
-				</span>
-				<span className="hidden sm:inline">
-					MIT-licensed icons by
-				</span>
+				<span className="inline sm:hidden">MIT icons by</span>
+				<span className="hidden sm:inline">MIT-licensed icons by</span>
 				<Space />
 				<a
 					className="font-semibold no-underline hover:underline"
@@ -214,7 +223,6 @@ const Attribution = () => (
 // <a href="https://github.com/tailwindlabs/heroicons/archive/v0.4.1.zip" {...target_blank}>
 const CTAButtons = () => (
 	<div className="flex flex-col sm:flex-row w-full sm:w-auto">
-
 		<Reset className="block">
 			<a
 				href="https://figma.com/file/vfjBXrSSOCgmVEX5fdvV4L"
@@ -265,18 +273,19 @@ const CTAButtons = () => (
 				</div>
 			</a>
 		</Reset>
-
 	</div>
 )
 
 const Sponsors = () => (
 	<div className="relative">
-
 		{/* Center (<= xl) */}
 		<Media className="block xl:hidden">
 			<div className="py-6 absolute inset-x-0 bottom-full">
 				<Style className="text-center">
-					<p className="font-bold tracking-wide leading-none text-purple-50 opacity-87.5" style={{ fontSize: "0.6875rem" }}>
+					<p
+						className="font-bold tracking-wide leading-none text-purple-50 opacity-87.5"
+						style={{ fontSize: "0.6875rem" }}
+					>
 						<TextRow>
 							HEROICONS.DEV IS SPONSORED BY
 							<EnSpace />
@@ -292,7 +301,10 @@ const Sponsors = () => (
 		{/* LHS */}
 		<Media className="hidden xl:block">
 			<div className="py-6 absolute left-0 bottom-full">
-				<p className="font-bold tracking-wide leading-none text-purple-50 opacity-87.5" style={{ fontSize: "0.6875rem" }}>
+				<p
+					className="font-bold tracking-wide leading-none text-purple-50 opacity-87.5"
+					style={{ fontSize: "0.6875rem" }}
+				>
 					HEROICONS.DEV IS SPONSORED BY
 				</p>
 			</div>
@@ -301,7 +313,10 @@ const Sponsors = () => (
 		{/* RHS */}
 		<Media className="hidden xl:block">
 			<div className="py-6 absolute right-0 bottom-full">
-				<p className="font-bold tracking-wide leading-none text-purple-50 opacity-87.5" style={{ fontSize: "0.6875rem" }}>
+				<p
+					className="font-bold tracking-wide leading-none text-purple-50 opacity-87.5"
+					style={{ fontSize: "0.6875rem" }}
+				>
 					UNAFFILIATED WITH TAILWIND LABS
 				</p>
 			</div>
@@ -321,18 +336,18 @@ const Sponsors = () => (
 					src: "/static/images/sponsor-spelll.png",
 					tagline: "Spell Checker for Figma",
 				},
-				{
-					name: "SkillSyncer",
-					href: "https://skillsyncer.com",
-					src: "/static/images/sponsor-skillsyncer.png",
-					tagline: "Resumé Optimizer",
-				},
-				{
-					name: "Streamline",
-					href: "https://streamlineicons.com",
-					src: "/static/images/sponsor-streamline.png",
-					tagline: "Download 30,000 Icons",
-				},
+				// {
+				// 	name: "SkillSyncer",
+				// 	href: "https://skillsyncer.com",
+				// 	src: "/static/images/sponsor-skillsyncer.png",
+				// 	tagline: "Resumé Optimizer",
+				// },
+				// {
+				// 	name: "Streamline",
+				// 	href: "https://streamlineicons.com",
+				// 	src: "/static/images/sponsor-streamline.png",
+				// 	tagline: "Download 30,000 Icons",
+				// },
 				{
 					name: "CodeTisans",
 					href: "https://codetisans.com",
@@ -349,7 +364,7 @@ const Sponsors = () => (
 						data-splitbee-event-type={each.name}
 						{...target_blank}
 					>
-						<Style className="mx-auto h-12">
+						<Style className="mx-auto h-13">
 							<img src={each.src} alt={each.name} />
 						</Style>
 						<div className="h-2" />
@@ -374,13 +389,11 @@ const Sponsors = () => (
 				</Style>
 			))}
 		</div>
-
 	</div>
 )
 
 const SectionHero = () => (
 	<section className="relative">
-
 		<AbsoluteExternalLinks />
 
 		{/* NOTE: Use px-* here because of backgrounds. */}
@@ -430,47 +443,28 @@ const SectionHero = () => (
 			{css`
 				@media (min-width: ${screens.lg}) {
 					html {
-						background-attachment:
-							fixed,
-							fixed;
+						background-attachment: fixed, fixed;
 						/* https://yoksel.github.io/url-encoder */
-						background-image:
-							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
+						background-image: url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
 							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 50%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C4 1 0 0 0 0H32C32 0 28 1 16 1Z' /%3E%3C/svg%3E");
-						background-repeat:
-							repeat-x,
-							no-repeat;
-						background-size:
-							112px,
-							100%;
-						background-position:
-							0 0,
-							0 112px;
+						background-repeat: repeat-x, no-repeat;
+						background-size: 112px, 100%;
+						background-position: 0 0, 0 112px;
 					}
 				}
 				@media (min-width: ${screens.lg}) {
 					html.dark {
-						background-attachment:
-							fixed,
-							fixed;
+						background-attachment: fixed, fixed;
 						/* https://yoksel.github.io/url-encoder */
-						background-image:
-							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 43.75%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
+						background-image: url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 43.75%25)' viewBox='0 0 1 1' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' /%3E%3C/svg%3E"),
 							url("data:image/svg+xml,%3Csvg fill='hsl(270, 100%25, 43.75%25)' viewBox='0 0 32 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1C4 1 0 0 0 0H32C32 0 28 1 16 1Z' /%3E%3C/svg%3E");
-						background-repeat:
-							repeat-x,
-							no-repeat;
-						background-size:
-							112px,
-							100%;
-						background-position:
-							0 0,
-							0 112px;
+						background-repeat: repeat-x, no-repeat;
+						background-size: 112px, 100%;
+						background-position: 0 0, 0 112px;
 					}
 				}
 			`}
 		</style>
-
 	</section>
 )
 
@@ -515,321 +509,354 @@ const DarkTooltip = ({ apply, children }) => (
 	</div>
 )
 
-const MemoSearch = React.memo(({ state, dispatch }) => {
-	const inputRef = React.useRef(null)
+const MemoSearch = React.memo(
+	({ state, dispatch }) => {
+		const inputRef = React.useRef(null)
 
-	const media = useLayoutBreakpoints(screens)
+		const media = useLayoutBreakpoints(screens)
 
-	const [inputFocused, setInputFocused] = React.useState(true)
-	const [query, setQuery] = React.useState(() => state.search.query.user)
+		const [inputFocused, setInputFocused] = React.useState(true)
+		const [query, setQuery] = React.useState(() => state.search.query.user)
 
-	const [tooltip, setTooltip] = React.useState("")
+		const [tooltip, setTooltip] = React.useState("")
 
-	// Gets query from ?query=etc (once).
-	React.useEffect(() => {
-		if (!("URLSearchParams" in window)) {
-			// No-op
-			return
-		}
-		const params = new URLSearchParams(window.location.search)
-		setQuery(params.get("query") || "")
-	}, [])
-
-	// Sets ?query=etc (on query).
-	React.useEffect(() => {
-		if (!("URLSearchParams" in window)) {
-			// No-op
-			return
-		}
-		if (!query) {
-			window.history.pushState(null, "", "/")
-		} else {
-			const params = new URLSearchParams(window.location.search)
-			params.set("query", query)
-			window.history.pushState(null, "", `/?${params}`)
-		}
-	}, [query])
-
-	// Forces autofocus.
-	React.useEffect(() => {
-		if (inputRef.current.autofocus) {
-			inputRef.current.focus()
-		}
-	}, [])
-
-	// Auto-scroll handler.
-	const mounted = React.useRef(false)
-	React.useEffect(() => {
-		if (process.env.NODE_ENV === "production") {
-			if (!mounted.current && !query) {
-				mounted.current = true
-				return
-			}
-			const y = document.documentElement.scrollTop + (!media.lg ? -16 : 0) +
-				inputRef.current.getBoundingClientRect().y
-			window.scrollTo(0, y)
-		}
-	}, [media.lg, query])
-
-	// Search handler.
-	React.useEffect(() => {
-		const id = setTimeout(() => {
-			dispatch({
-				type: "SEARCH",
-				query,
-			})
-		}, 30)
-		return () => {
-			clearTimeout(id)
-		}
-	}, [query, dispatch])
-
-	// Shortcut handler.
-	React.useEffect(() => {
-		const handler = e => {
-			const userPressedShortcut = (
-				(e.keyCode === 27 || e.key === "Escape") || // "esc"
-				((e.ctrlKey || e.metaKey) && (e.keyCode === 75 || e.key === "k")) || // cmd-k
-				(e.keyCode === 191 || e.key === "/") // "/"
-			)
-			if (!userPressedShortcut) {
+		// Gets query from ?query=etc (once).
+		React.useEffect(() => {
+			if (!("URLSearchParams" in window)) {
 				// No-op
 				return
 			}
-			// Not focused:
-			if (document.activeElement !== inputRef.current) {
-				e.preventDefault()
-				inputRef.current.focus()
-			// Focused:
+			const params = new URLSearchParams(window.location.search)
+			setQuery(params.get("query") || "")
+		}, [])
+
+		// Sets ?query=etc (on query).
+		React.useEffect(() => {
+			if (!("URLSearchParams" in window)) {
+				// No-op
+				return
+			}
+			if (!query) {
+				window.history.pushState(null, "", "/")
 			} else {
-				if (e.keyCode === 27 || e.key === "Escape") {
+				const params = new URLSearchParams(window.location.search)
+				params.set("query", query)
+				window.history.pushState(null, "", `/?${params}`)
+			}
+		}, [query])
+
+		// Forces autofocus.
+		React.useEffect(() => {
+			if (inputRef.current.autofocus) {
+				inputRef.current.focus()
+			}
+		}, [])
+
+		// Auto-scroll handler.
+		const mounted = React.useRef(false)
+		React.useEffect(() => {
+			if (process.env.NODE_ENV === "production") {
+				if (!mounted.current && !query) {
+					mounted.current = true
+					return
+				}
+				const y =
+					document.documentElement.scrollTop + (!media.lg ? -16 : 0) + inputRef.current.getBoundingClientRect().y
+				window.scrollTo(0, y)
+			}
+		}, [media.lg, query])
+
+		// Search handler.
+		React.useEffect(() => {
+			const id = setTimeout(() => {
+				dispatch({
+					type: "SEARCH",
+					query,
+				})
+			}, 30)
+			return () => {
+				clearTimeout(id)
+			}
+		}, [query, dispatch])
+
+		// Shortcut handler.
+		React.useEffect(() => {
+			const handler = e => {
+				const userPressedShortcut =
+					e.keyCode === 27 ||
+					e.key === "Escape" || // "esc"
+					((e.ctrlKey || e.metaKey) && (e.keyCode === 75 || e.key === "k")) || // cmd-k
+					e.keyCode === 191 ||
+					e.key === "/" // "/"
+				if (!userPressedShortcut) {
+					// No-op
+					return
+				}
+				// Not focused:
+				if (document.activeElement !== inputRef.current) {
 					e.preventDefault()
-					setQuery("")
+					inputRef.current.focus()
+					// Focused:
+				} else {
+					if (e.keyCode === 27 || e.key === "Escape") {
+						e.preventDefault()
+						setQuery("")
+					}
 				}
 			}
-		}
-		document.addEventListener("keydown", handler)
-		return () => {
-			document.removeEventListener("keydown", handler)
-		}
-	}, [query])
+			document.addEventListener("keydown", handler)
+			return () => {
+				document.removeEventListener("keydown", handler)
+			}
+		}, [query])
 
-	return (
-		// NOTE: Use h-full because of the absolute context.
-		<Reset className="h-full">
-			<form className="relative" onSubmit={e => e.preventDefault()}>
-
-				{/* LHS */}
-				<div className="absolute left-0 inset-y-0 pointer-events-none">
-					<div className="px-8 pr-4 flex flex-row h-full">
-						<div className="flex flex-row items-center">
-							<Style className="w-6 h-6 text-cool-gray-400 dark:text-cool-gray-600" style={{ color: inputFocused && "var(--purple-500)" }}>
-								<Style className="transition duration-200 ease-out">
-									<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-									</svg>
+		return (
+			// NOTE: Use h-full because of the absolute context.
+			<Reset className="h-full">
+				<form className="relative" onSubmit={e => e.preventDefault()}>
+					{/* LHS */}
+					<div className="absolute left-0 inset-y-0 pointer-events-none">
+						<div className="px-8 pr-4 flex flex-row h-full">
+							<div className="flex flex-row items-center">
+								<Style
+									className="w-6 h-6 text-cool-gray-400 dark:text-cool-gray-600"
+									style={{ color: inputFocused && "var(--purple-500)" }}
+								>
+									<Style className="transition duration-200 ease-out">
+										<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth={2}
+												d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+											/>
+										</svg>
+									</Style>
 								</Style>
-							</Style>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				{/* Search */}
-				<Reset className="block w-full h-full bg-transparent focus:outline-none">
-					<input
-						ref={inputRef}
-						className="px-16 text-xl placeholder-cool-gray-400 dark:placeholder-cool-gray-600 text-cool-gray-800 dark:text-cool-gray-200"
-						style={{
-							paddingLeft: tw(8 + 6 + 4),
-							paddingRight: tw(4 + (10 + 1) + (1 + 10 + 1) + (1 + 10) + 8),
-						}}
-						type="text"
-						placeholder={!inputFocused ? "Search (Press \"/\" to Focus)" : "Search"}
-						value={query}
-						onFocus={e => setInputFocused(true)}
-						onBlur={e => setInputFocused(false)}
-						onChange={e => setQuery(e.target.value)}
-						autoFocus
-						aria-label={!inputFocused ? "Search (Press \"/\" to Focus)" : "Search"}
-						{...disableAutoCorrect}
-					/>
-				</Reset>
+					{/* Search */}
+					<Reset className="block w-full h-full bg-transparent focus:outline-none">
+						<input
+							ref={inputRef}
+							className="px-16 text-xl placeholder-cool-gray-400 dark:placeholder-cool-gray-600 text-cool-gray-800 dark:text-cool-gray-200"
+							style={{
+								paddingLeft: tw(8 + 6 + 4),
+								paddingRight: tw(4 + (10 + 1) + (1 + 10 + 1) + (1 + 10) + 8),
+							}}
+							type="text"
+							placeholder={!inputFocused ? 'Search (Press "/" to Focus)' : "Search"}
+							value={query}
+							onFocus={e => setInputFocused(true)}
+							onBlur={e => setInputFocused(false)}
+							onChange={e => setQuery(e.target.value)}
+							autoFocus
+							aria-label={!inputFocused ? 'Search (Press "/" to Focus)' : "Search"}
+							{...disableAutoCorrect}
+						/>
+					</Reset>
 
-				{/* RHS */}
-				<div className="absolute right-0 inset-y-0">
-					<div className="px-8 pl-4 flex flex-row h-full">
-						{/* NOTE: Do not use -mx-1 on the parent element. */}
-						<div className="-mr-1" />
+					{/* RHS */}
+					<div className="absolute right-0 inset-y-0">
+						<div className="px-8 pl-4 flex flex-row h-full">
+							{/* NOTE: Do not use -mx-1 on the parent element. */}
+							<div className="-mr-1" />
 
-						{/* Button */}
-						<div
-							className="group px-1 flex flex-row items-center"
-							onFocus={e => setTooltip("variant")}
-							onBlur={e => setTooltip("")}
-							onMouseEnter={e => setTooltip("variant")}
-							onMouseLeave={e => setTooltip("")}
-						>
-							<Reset className="focus:outline-none">
-								<Style className="transition duration-200 ease-out">
-									<button
-										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 focus:bg-opacity-25 rounded-full"
-										style={{
-											color: state.controls.variant.solid && "var(--purple-50)",
-											backgroundColor: state.controls.variant.solid && "var(--purple-500)",
-										}}
-										onClick={e => (
-											dispatch({
-												type: "UPDATE_CONTROLS",
-												controlType: "variant",
-												key: !state.controls.variant.solid ? "solid" : "outline",
-												value: true,
-											})
-										)}
-										aria-label={`Click to Switch to ${!state.controls.variant.solid ? "Solid" : "Outline"} Icons`}
-									>
-										<Style className="w-6 h-6 overflow-visible">
-											{!state.controls.variant.solid ? (
-												<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
-												</svg>
-											) : (
-												<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-													<path fillRule="evenodd" clipRule="evenodd" d="M2.166 4.99836C5.06114 4.96236 7.84481 3.87682 10 1.94336C12.155 3.87718 14.9387 4.96308 17.834 4.99936C17.944 5.64936 18 6.31936 18 7.00036C18 12.2254 14.66 16.6704 10 18.3174C5.34 16.6694 2 12.2244 2 6.99936C2 6.31736 2.057 5.64936 2.166 4.99836Z" />
-												</svg>
+							{/* Button */}
+							<div
+								className="group px-1 flex flex-row items-center"
+								onFocus={e => setTooltip("variant")}
+								onBlur={e => setTooltip("")}
+								onMouseEnter={e => setTooltip("variant")}
+								onMouseLeave={e => setTooltip("")}
+							>
+								<Reset className="focus:outline-none">
+									<Style className="transition duration-200 ease-out">
+										<button
+											className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 focus:bg-opacity-25 rounded-full"
+											style={{
+												color: state.controls.variant.solid && "var(--purple-50)",
+												backgroundColor: state.controls.variant.solid && "var(--purple-500)",
+											}}
+											onClick={e =>
+												dispatch({
+													type: "UPDATE_CONTROLS",
+													controlType: "variant",
+													key: !state.controls.variant.solid ? "solid" : "outline",
+													value: true,
+												})
+											}
+											aria-label={`Click to Switch to ${!state.controls.variant.solid ? "Solid" : "Outline"} Icons`}
+										>
+											<Style className="w-6 h-6 overflow-visible">
+												{!state.controls.variant.solid ? (
+													<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+														<path
+															strokeLinecap="round"
+															strokeLinejoin="round"
+															strokeWidth={2}
+															d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z"
+														/>
+													</svg>
+												) : (
+													<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+														<path
+															fillRule="evenodd"
+															clipRule="evenodd"
+															d="M2.166 4.99836C5.06114 4.96236 7.84481 3.87682 10 1.94336C12.155 3.87718 14.9387 4.96308 17.834 4.99936C17.944 5.64936 18 6.31936 18 7.00036C18 12.2254 14.66 16.6704 10 18.3174C5.34 16.6694 2 12.2244 2 6.99936C2 6.31736 2.057 5.64936 2.166 4.99836Z"
+														/>
+													</svg>
+												)}
+											</Style>
+											{tooltip === "variant" && (
+												<div className="pt-2 absolute right-0 top-full">
+													<Tooltip apply="text-left whitespace-pre">
+														Click to Switch to {!state.controls.variant.solid ? "Solid" : "Outline"} Icons
+													</Tooltip>
+												</div>
 											)}
-										</Style>
-										{tooltip === "variant" && (
-											<div className="pt-2 absolute right-0 top-full">
-												<Tooltip apply="text-left whitespace-pre">
-													Click to Switch to {!state.controls.variant.solid ? "Solid" : "Outline"} Icons
-												</Tooltip>
-											</div>
-										)}
-									</button>
-								</Style>
-							</Reset>
-						</div>
+										</button>
+									</Style>
+								</Reset>
+							</div>
 
-						{/* Button */}
-						<div
-							className="group px-1 flex flex-row items-center"
-							onFocus={e => setTooltip("copyAs")}
-							onBlur={e => setTooltip("")}
-							onMouseEnter={e => setTooltip("copyAs")}
-							onMouseLeave={e => setTooltip("")}
-						>
-							<Reset className="focus:outline-none">
-								<Style className="transition duration-200 ease-out">
-									<button
-										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 focus:bg-opacity-25 rounded-full"
-										style={{
-											color: state.controls.copyAs.jsx && "var(--purple-50)",
-											backgroundColor: state.controls.copyAs.jsx && "var(--purple-500)",
-										}}
-										onClick={e => (
-											dispatch({
-												type: "UPDATE_CONTROLS",
-												controlType: "copyAs",
-												key: !state.controls.copyAs.jsx ? "jsx" : "svg",
-												value: true,
-											})
-										)}
-										aria-label={`Click to Enable Copy as ${!state.controls.copyAs.jsx ? "JSX" : "SVG"}`}
-									>
-										<Style className="w-6 h-6 overflow-visible">
-											{!state.controls.copyAs.jsx ? (
-												<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-												</svg>
-											) : (
-												<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-													<path fillRule="evenodd" clipRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" />
-												</svg>
+							{/* Button */}
+							<div
+								className="group px-1 flex flex-row items-center"
+								onFocus={e => setTooltip("copyAs")}
+								onBlur={e => setTooltip("")}
+								onMouseEnter={e => setTooltip("copyAs")}
+								onMouseLeave={e => setTooltip("")}
+							>
+								<Reset className="focus:outline-none">
+									<Style className="transition duration-200 ease-out">
+										<button
+											className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 focus:bg-opacity-25 rounded-full"
+											style={{
+												color: state.controls.copyAs.jsx && "var(--purple-50)",
+												backgroundColor: state.controls.copyAs.jsx && "var(--purple-500)",
+											}}
+											onClick={e =>
+												dispatch({
+													type: "UPDATE_CONTROLS",
+													controlType: "copyAs",
+													key: !state.controls.copyAs.jsx ? "jsx" : "svg",
+													value: true,
+												})
+											}
+											aria-label={`Click to Enable Copy as ${!state.controls.copyAs.jsx ? "JSX" : "SVG"}`}
+										>
+											<Style className="w-6 h-6 overflow-visible">
+												{!state.controls.copyAs.jsx ? (
+													<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+														<path
+															strokeLinecap="round"
+															strokeLinejoin="round"
+															strokeWidth={2}
+															d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+														/>
+													</svg>
+												) : (
+													<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+														<path
+															fillRule="evenodd"
+															clipRule="evenodd"
+															d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+														/>
+													</svg>
+												)}
+											</Style>
+											{tooltip === "copyAs" && (
+												<div className="pt-2 absolute right-0 top-full">
+													<Tooltip apply="text-left whitespace-pre">
+														Click to Enable Copy as {!state.controls.copyAs.jsx ? "JSX" : "SVG"}
+													</Tooltip>
+												</div>
 											)}
-										</Style>
-										{tooltip === "copyAs" && (
-											<div className="pt-2 absolute right-0 top-full">
-												<Tooltip apply="text-left whitespace-pre">
-													Click to Enable Copy as {!state.controls.copyAs.jsx ? "JSX" : "SVG"}
-												</Tooltip>
-											</div>
-										)}
-									</button>
-								</Style>
-							</Reset>
-						</div>
+										</button>
+									</Style>
+								</Reset>
+							</div>
 
-						{/* Button */}
-						<div
-							className="group px-1 flex flex-row items-center"
-							onFocus={e => setTooltip("theme")}
-							onBlur={e => setTooltip("")}
-							onMouseEnter={e => setTooltip("theme")}
-							onMouseLeave={e => setTooltip("")}
-						>
-							<Reset className="focus:outline-none">
-								<Style className="transition duration-200 ease-out">
-									<button
-										className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 focus:bg-opacity-25 rounded-full"
-										style={{
-											color: state.controls.theme.darkMode && "var(--purple-50)",
-											backgroundColor: state.controls.theme.darkMode && "var(--purple-500)",
-										}}
-										onClick={e => (
-											dispatch({
-												type: "UPDATE_CONTROLS",
-												controlType: "theme",
-												key: !state.controls.theme.darkMode ? "darkMode" : "lightMode",
-												value: true,
-											})
-										)}
-										aria-label={`Click to ${!state.controls.theme.darkMode ? "Enable Dark Mode" : "Disable Dark Mode"}`}
-									>
-										<Style className="w-6 h-6 overflow-visible">
-											{!state.controls.theme.darkMode ? (
-												<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-													<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-												</svg>
-											) : (
-												<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-													<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-												</svg>
+							{/* Button */}
+							<div
+								className="group px-1 flex flex-row items-center"
+								onFocus={e => setTooltip("theme")}
+								onBlur={e => setTooltip("")}
+								onMouseEnter={e => setTooltip("theme")}
+								onMouseLeave={e => setTooltip("")}
+							>
+								<Reset className="focus:outline-none">
+									<Style className="transition duration-200 ease-out">
+										<button
+											className="p-2 relative text-purple-500 bg-purple-500 bg-opacity-12.5 focus:bg-opacity-25 rounded-full"
+											style={{
+												color: state.controls.theme.darkMode && "var(--purple-50)",
+												backgroundColor: state.controls.theme.darkMode && "var(--purple-500)",
+											}}
+											onClick={e =>
+												dispatch({
+													type: "UPDATE_CONTROLS",
+													controlType: "theme",
+													key: !state.controls.theme.darkMode ? "darkMode" : "lightMode",
+													value: true,
+												})
+											}
+											aria-label={`Click to ${
+												!state.controls.theme.darkMode ? "Enable Dark Mode" : "Disable Dark Mode"
+											}`}
+										>
+											<Style className="w-6 h-6 overflow-visible">
+												{!state.controls.theme.darkMode ? (
+													<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+														<path
+															strokeLinecap="round"
+															strokeLinejoin="round"
+															strokeWidth={2}
+															d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+														/>
+													</svg>
+												) : (
+													<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+														<path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+													</svg>
+												)}
+											</Style>
+											{tooltip === "theme" && (
+												<div className="pt-2 absolute right-0 top-full">
+													<Tooltip apply="text-left whitespace-pre">
+														Click to {!state.controls.theme.darkMode ? "Enable Dark Mode" : "Disable Dark Mode"}
+													</Tooltip>
+												</div>
 											)}
-										</Style>
-										{tooltip === "theme" && (
-											<div className="pt-2 absolute right-0 top-full">
-												<Tooltip apply="text-left whitespace-pre">
-													Click to {!state.controls.theme.darkMode ? "Enable Dark Mode" : "Disable Dark Mode"}
-												</Tooltip>
-											</div>
-										)}
-									</button>
-								</Style>
-							</Reset>
-						</div>
+										</button>
+									</Style>
+								</Reset>
+							</div>
 
-						<div className="-ml-1" />
+							<div className="-ml-1" />
+						</div>
 					</div>
-				</div>
-
-			</form>
-		</Reset>
-	)
-}, (prev, next) => {
-	const ok = (
-		// NOTE: search.query updates search.__results.
-		prev.state.search.query === next.state.search.query &&
-		prev.state.controls === next.state.controls &&
-		prev.dispatch === next.dispatch
-	)
-	return ok
-})
+				</form>
+			</Reset>
+		)
+	},
+	(prev, next) => {
+		const ok =
+			// NOTE: search.query updates search.__results.
+			prev.state.search.query === next.state.search.query &&
+			prev.state.controls === next.state.controls &&
+			prev.dispatch === next.dispatch
+		return ok
+	},
+)
 
 const MemoIcon = React.memo(({ variant, copyAsJSX, icon, dispatch }) => {
 	const buttonRef = React.useRef(null)
 
 	const handleClick = e => {
-
 		// No-op {icon.name}:
 		const selection = document.getSelection()
 		if (selection.rangeCount) {
@@ -870,7 +897,6 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon, dispatch }) => {
 			key: "clipboard",
 			value: icon.name,
 		})
-
 	}
 
 	return (
@@ -882,7 +908,6 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon, dispatch }) => {
 				onClick={handleClick}
 				aria-label={`Click to Copy ${icon.name} as ${!copyAsJSX ? "SVG" : "JSX"}`}
 			>
-
 				{/* New */}
 				{icon.new && (
 					<div className="p-4 absolute right-0 top-0 pointer-events-none">
@@ -911,17 +936,15 @@ const MemoIcon = React.memo(({ variant, copyAsJSX, icon, dispatch }) => {
 				<div className="p-4 absolute inset-x-0 bottom-0">
 					<div className="-mx-2 -my-1 flex flex-row justify-center">
 						<Reset className="subpixel-antialiased">
-							<p className="px-2 py-1 tracking-wide leading-tight text-cool-gray-600 dark:text-cool-gray-400 cursor-text select-text" style={{ fontSize: px(13) }}>
-								{!copyAsJSX ? (
-									icon.name
-								) : (
-									toCamelCase(icon.name)
-								)}
+							<p
+								className="px-2 py-1 tracking-wide leading-tight text-cool-gray-600 dark:text-cool-gray-400 cursor-text select-text"
+								style={{ fontSize: px(13) }}
+							>
+								{!copyAsJSX ? icon.name : toCamelCase(icon.name)}
 							</p>
 						</Reset>
 					</div>
 				</div>
-
 			</button>
 		</Reset>
 	)
@@ -932,8 +955,10 @@ const SectionApp = ({ state, dispatch }) => {
 
 	return (
 		<section>
-
-			<div className="px-0 lg:px-6 flex flex-row justify-center items-start" style={{ marginTop: "calc(-1 * var(--search-bar-negative-margin))" }}>
+			<div
+				className="px-0 lg:px-6 flex flex-row justify-center items-start"
+				style={{ marginTop: "calc(-1 * var(--search-bar-negative-margin))" }}
+			>
 				{/* NOTE: Do not use w-full max-w-screen-xl because of px-*. */}
 				<main
 					className="z-10"
@@ -942,7 +967,6 @@ const SectionApp = ({ state, dispatch }) => {
 						maxWidth: 1152,
 					}}
 				>
-
 					{/* Search */}
 					<div className="mt-0 lg:-mt-4 pt-0 lg:pt-4 sticky top-0 z-10">
 						<Media className="hidden lg:block">
@@ -952,7 +976,10 @@ const SectionApp = ({ state, dispatch }) => {
 							</div>
 						</Media>
 						<Style className="rounded-t-0 lg:rounded-t-6 shadow-2 dark:shadow-none">
-							<div className="box-content bg-white dark:bg-cool-gray-900 border-b border-transparent dark:border-cool-gray-800" style={{ height: "var(--search-bar-height)" }}>
+							<div
+								className="box-content bg-white dark:bg-cool-gray-900 border-b border-transparent dark:border-cool-gray-800"
+								style={{ height: "var(--search-bar-height)" }}
+							>
 								<MemoSearch state={state} dispatch={dispatch} />
 							</div>
 						</Style>
@@ -987,13 +1014,19 @@ const SectionApp = ({ state, dispatch }) => {
 						>
 							<div id="app-grid">
 								{state.search.__results.length < dataset.length && (
-									<DocumentTitle title={`Heroicons – ${state.search.__results.length} result${state.search.__results.length === 1 ? "" : "s"}`} />
+									<DocumentTitle
+										title={`Heroicons – ${state.search.__results.length} result${
+											state.search.__results.length === 1 ? "" : "s"
+										}`}
+									/>
 								)}
 								{state.search.__results.map((each, x) => (
 									<article key={each.name} className="pb-full relative">
 										<div className="absolute inset-0">
 											<MemoIcon
-												variant={Object.keys(state.controls.variant).find(each => state.controls.variant[each] === true)}
+												variant={Object.keys(state.controls.variant).find(
+													each => state.controls.variant[each] === true,
+												)}
 												copyAsJSX={state.controls.copyAs.jsx}
 												icon={each}
 												dispatch={dispatch}
@@ -1004,163 +1037,153 @@ const SectionApp = ({ state, dispatch }) => {
 							</div>
 						</div>
 					</Style>
-
 				</main>
 			</div>
 
 			<Media className="hidden lg:block">
 				<div className="h-24" />
 			</Media>
-
 		</section>
 	)
 }
 
-const MemoToast = React.memo(({ state, dispatch }) => (
-	<Transition
-		on={state.__toast.visible && (state.__toast.key + (!state.__toast.value ? "" : "-" + state.__toast.value))}
-		from="transition duration-300 ease-out opacity-0 transform scale-90"
-		to="transition duration-75 ease-out opacity-100 transform scale-100"
-	>
-		<div className="px-4 sm:px-6 py-4 fixed left-0 bottom-0 opacity-0 transform scale-90 z-30">
-			<DarkTooltip>
-				<span className="flex flex-row">
-					<span className="flex flex-row items-center" style={{ height: px(14 * 1.5) }}>
-
-						<Switch on={state.__toast.key}>
-							<Case case="localStorage">
-								<Style
-									// className="text-green-300"
-									style={{
-										width: "1em",
-										height: "1em",
-									}}
-								>
-									{/* <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
-									{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" /> */}
-									{/* </svg> */}
-									<SVGCheck />
-								</Style>
-							</Case>
-							<Case case="variant:solid">
-								<Style
-									style={{
-										width: "1em",
-										height: "1em",
-									}}
-								>
-									<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-										<path fillRule="evenodd" clipRule="evenodd" d="M2.166 4.99836C5.06114 4.96236 7.84481 3.87682 10 1.94336C12.155 3.87718 14.9387 4.96308 17.834 4.99936C17.944 5.64936 18 6.31936 18 7.00036C18 12.2254 14.66 16.6704 10 18.3174C5.34 16.6694 2 12.2244 2 6.99936C2 6.31736 2.057 5.64936 2.166 4.99836Z" />
-									</svg>
-								</Style>
-							</Case>
-							<Case case="variant:outline">
-								<Style
-									style={{
-										width: "1em",
-										height: "1em",
-									}}
-								>
-									<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z" />
-									</svg>
-								</Style>
-							</Case>
-							<Case case="copyAs:jsx">
-								<Style
-									style={{
-										width: "1em",
-										height: "1em",
-									}}
-								>
-									<SVGCode />
-								</Style>
-							</Case>
-							<Case case="copyAs:svg">
-								<Style
-									style={{
-										width: "1em",
-										height: "1em",
-									}}
-								>
-									<SVGCodeStroke />
-								</Style>
-							</Case>
-							<Case case="theme:darkMode">
-								<Style
-									style={{
-										width: "1em",
-										height: "1em",
-									}}
-								>
-									<SVGMoon />
-								</Style>
-							</Case>
-							<Case case="theme:lightMode">
-								<Style
-									style={{
-										width: "1em",
-										height: "1em",
-									}}
-								>
-									<SVGMoonStroke />
-								</Style>
-							</Case>
-							<Case case="clipboard">
-								<Style
-									style={{
-										width: "1em",
-										height: "1em",
-									}}
-								>
-									<SVGPaperClip />
-								</Style>
-							</Case>
-						</Switch>
-
+const MemoToast = React.memo(
+	({ state, dispatch }) => (
+		<Transition
+			on={state.__toast.visible && state.__toast.key + (!state.__toast.value ? "" : "-" + state.__toast.value)}
+			from="transition duration-300 ease-out opacity-0 transform scale-90"
+			to="transition duration-75 ease-out opacity-100 transform scale-100"
+		>
+			<div className="px-4 sm:px-6 py-4 fixed left-0 bottom-0 opacity-0 transform scale-90 z-30">
+				<DarkTooltip>
+					<span className="flex flex-row">
+						<span className="flex flex-row items-center" style={{ height: px(14 * 1.5) }}>
+							<Switch on={state.__toast.key}>
+								<Case case="localStorage">
+									<Style
+										// className="text-green-300"
+										style={{
+											width: "1em",
+											height: "1em",
+										}}
+									>
+										{/* <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> */}
+										{/* 	<path fillRule="evenodd" clipRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" /> */}
+										{/* </svg> */}
+										<SVGCheck />
+									</Style>
+								</Case>
+								<Case case="variant:solid">
+									<Style
+										style={{
+											width: "1em",
+											height: "1em",
+										}}
+									>
+										<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+											<path
+												fillRule="evenodd"
+												clipRule="evenodd"
+												d="M2.166 4.99836C5.06114 4.96236 7.84481 3.87682 10 1.94336C12.155 3.87718 14.9387 4.96308 17.834 4.99936C17.944 5.64936 18 6.31936 18 7.00036C18 12.2254 14.66 16.6704 10 18.3174C5.34 16.6694 2 12.2244 2 6.99936C2 6.31736 2.057 5.64936 2.166 4.99836Z"
+											/>
+										</svg>
+									</Style>
+								</Case>
+								<Case case="variant:outline">
+									<Style
+										style={{
+											width: "1em",
+											height: "1em",
+										}}
+									>
+										<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth={2}
+												d="M12 2.94336C14.3567 5.05797 17.4561 6.15127 20.618 5.98336C20.867 6.94736 21 7.95736 21 8.99936C21 14.5914 17.176 19.2894 12 20.6214C6.824 19.2894 3 14.5904 3 8.99936C2.99918 7.98191 3.12754 6.96847 3.382 5.98336C6.5439 6.15127 9.64327 5.05797 12 2.94336Z"
+											/>
+										</svg>
+									</Style>
+								</Case>
+								<Case case="copyAs:jsx">
+									<Style
+										style={{
+											width: "1em",
+											height: "1em",
+										}}
+									>
+										<SVGCode />
+									</Style>
+								</Case>
+								<Case case="copyAs:svg">
+									<Style
+										style={{
+											width: "1em",
+											height: "1em",
+										}}
+									>
+										<SVGCodeStroke />
+									</Style>
+								</Case>
+								<Case case="theme:darkMode">
+									<Style
+										style={{
+											width: "1em",
+											height: "1em",
+										}}
+									>
+										<SVGMoon />
+									</Style>
+								</Case>
+								<Case case="theme:lightMode">
+									<Style
+										style={{
+											width: "1em",
+											height: "1em",
+										}}
+									>
+										<SVGMoonStroke />
+									</Style>
+								</Case>
+								<Case case="clipboard">
+									<Style
+										style={{
+											width: "1em",
+											height: "1em",
+										}}
+									>
+										<SVGPaperClip />
+									</Style>
+								</Case>
+							</Switch>
+						</span>
+						<EmSpace />
+						<span>
+							<Switch on={state.__toast.key}>
+								<Case case="localStorage">Synced Preferences from localStorage</Case>
+								<Case case="variant:solid">Enabled Solid Icons</Case>
+								<Case case="variant:outline">Enabled Outline Icons</Case>
+								<Case case="copyAs:jsx">Enabled Copy as JSX</Case>
+								<Case case="copyAs:svg">Enabled Copy as SVG</Case>
+								<Case case="theme:darkMode">Enabled Dark Mode</Case>
+								<Case case="theme:lightMode">Disabled Dark Mode</Case>
+								<Case case="clipboard">
+									Copied `{!state.controls.copyAs.jsx ? state.__toast.value : toCamelCase(state.__toast.value)}` as{" "}
+									{!state.controls.copyAs.jsx ? "SVG" : "JSX"}
+								</Case>
+							</Switch>
+						</span>
 					</span>
-					<EmSpace />
-					<span>
-
-						<Switch on={state.__toast.key}>
-							<Case case="localStorage">
-								Synced Preferences from localStorage
-							</Case>
-							<Case case="variant:solid">
-								Enabled Solid Icons
-							</Case>
-							<Case case="variant:outline">
-								Enabled Outline Icons
-							</Case>
-							<Case case="copyAs:jsx">
-								Enabled Copy as JSX
-							</Case>
-							<Case case="copyAs:svg">
-								Enabled Copy as SVG
-							</Case>
-							<Case case="theme:darkMode">
-								Enabled Dark Mode
-							</Case>
-							<Case case="theme:lightMode">
-								Disabled Dark Mode
-							</Case>
-							<Case case="clipboard">
-								Copied `{!state.controls.copyAs.jsx ? state.__toast.value : toCamelCase(state.__toast.value)}` as {!state.controls.copyAs.jsx ? "SVG" : "JSX"}
-							</Case>
-						</Switch>
-
-					</span>
-				</span>
-			</DarkTooltip>
-		</div>
-	</Transition>
-), (prev, next) => {
-	const ok = (
-		prev.state.controls.copyAs === next.state.controls.copyAs &&
-		prev.state.__toast === next.state.__toast
-	)
-	return ok
-})
+				</DarkTooltip>
+			</div>
+		</Transition>
+	),
+	(prev, next) => {
+		const ok = prev.state.controls.copyAs === next.state.controls.copyAs && prev.state.__toast === next.state.__toast
+		return ok
+	},
+)
 
 const Layout = () => {
 	const [state, dispatch] = useIconsReducer()
@@ -1199,21 +1222,21 @@ const Layout = () => {
 	// Sets localStorage.
 	React.useEffect(() => {
 		const id = setTimeout(() => {
-			localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(
-				state,
-				(key, value) => {
-					if (key.startsWith("__")) {
-						return undefined
-					}
-					return value
-				},
-				"\t",
-			))
-			// Sets themePreference for layout dark mode.
 			localStorage.setItem(
-				"themePreference",
-				!state.controls.theme.darkMode ? "light" : "dark",
+				LOCALSTORAGE_KEY,
+				JSON.stringify(
+					state,
+					(key, value) => {
+						if (key.startsWith("__")) {
+							return undefined
+						}
+						return value
+					},
+					"\t",
+				),
 			)
+			// Sets themePreference for layout dark mode.
+			localStorage.setItem("themePreference", !state.controls.theme.darkMode ? "light" : "dark")
 		}, 100)
 		return () => {
 			clearTimeout(id)
@@ -1223,20 +1246,13 @@ const Layout = () => {
 	// (prefers-color-scheme: dark)
 	React.useEffect(
 		React.useCallback(() => {
-
 			// See public/scripts/layout-dark-mode.js.
 			const themePreferenceDark = () => {
-				const ok = (
-					"themePreference" in localStorage &&
-					localStorage.themePreference === "dark"
-				)
+				const ok = "themePreference" in localStorage && localStorage.themePreference === "dark"
 				return ok
 			}
 			const prefersColorShemeDark = () => {
-				const ok = (
-					window.matchMedia &&
-					window.matchMedia("(prefers-color-scheme: dark)").matches
-				)
+				const ok = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
 				return ok
 			}
 			if (themePreferenceDark() || prefersColorShemeDark()) {
@@ -1249,8 +1265,7 @@ const Layout = () => {
 			}
 
 			// Media listener:
-			const media = window.matchMedia &&
-				window.matchMedia("(prefers-color-scheme: dark)")
+			const media = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)")
 			if (!media) {
 				// No-op
 				return
@@ -1267,7 +1282,6 @@ const Layout = () => {
 			return () => {
 				media.removeListener(handler)
 			}
-
 		}, [state, dispatch]),
 		[],
 	)
@@ -1290,34 +1304,29 @@ const Layout = () => {
 
 	return (
 		<>
+			{React.useMemo(
+				() => (
+					<>
+						<SEO />
 
-			{React.useMemo(() => (
-				<>
-					<SEO />
+						<style>
+							{css`
+								html {
+									--search-bar-height: ${tw(18)};
+									--search-bar-negative-margin: ${tw(18 + 6)};
+								}
+							`}
+						</style>
 
-					<style>
-						{css`
-							html {
-								--search-bar-height: ${tw(18)};
-								--search-bar-negative-margin: ${tw(18 + 6)};
-							}
-						`}
-					</style>
+						<SectionHero />
+					</>
+				),
+				[],
+			)}
 
-					<SectionHero />
-				</>
-			), [])}
+			<SectionApp state={state} dispatch={dispatch} />
 
-			<SectionApp
-				state={state}
-				dispatch={dispatch}
-			/>
-
-			<MemoToast
-				state={state}
-				dispatch={dispatch}
-			/>
-
+			<MemoToast state={state} dispatch={dispatch} />
 		</>
 	)
 }
