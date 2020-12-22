@@ -348,12 +348,12 @@ const Sponsors = () => (
 				// 	src: "/static/images/sponsor-streamline.png",
 				// 	tagline: "Download 30,000 Icons",
 				// },
-				{
-					name: "CodeTisans",
-					href: "https://codetisans.com",
-					src: "/static/images/sponsor-codetisans.png",
-					tagline: "Laravel Softwarehouse",
-				},
+				// {
+				// 	name: "CodeTisans",
+				// 	href: "https://codetisans.com",
+				// 	src: "/static/images/sponsor-codetisans.png",
+				// 	tagline: "Laravel Softwarehouse",
+				// },
 			].map(each => (
 				<Style key={each.href} className="transition duration-200 ease-out">
 					<a
