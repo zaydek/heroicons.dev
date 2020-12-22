@@ -300,18 +300,18 @@ const Sponsors = () => (
 
 		{/* LHS */}
 		<Media className="hidden xl:block">
-			<div className="py-6 absolute left-0 bottom-full">
+			<div className="py-6 absolute left-0 bottom-full inset-x-0 flex flex-row justify-center">
 				<p
-					className="font-bold tracking-wide leading-none text-purple-50 opacity-87.5"
+					className="text-center font-bold tracking-wide leading-none text-purple-50 opacity-87.5"
 					style={{ fontSize: "0.6875rem" }}
 				>
-					HEROICONS.DEV IS SPONSORED BY
+					OUR SPONSORS (UNAFFILIATED WITH TAILWIND LABS)
 				</p>
 			</div>
 		</Media>
 
 		{/* RHS */}
-		<Media className="hidden xl:block">
+		{/* <Media className="hidden xl:block">
 			<div className="py-6 absolute right-0 bottom-full">
 				<p
 					className="font-bold tracking-wide leading-none text-purple-50 opacity-87.5"
@@ -320,7 +320,7 @@ const Sponsors = () => (
 					UNAFFILIATED WITH TAILWIND LABS
 				</p>
 			</div>
-		</Media>
+		</Media> */}
 
 		<div className="-mx-4 -my-2 -mb-4 flex flex-row flex-wrap justify-center items-center">
 			{[
@@ -348,12 +348,12 @@ const Sponsors = () => (
 				// 	src: "/static/images/sponsor-streamline.png",
 				// 	tagline: "Download 30,000 Icons",
 				// },
-				{
-					name: "CodeTisans",
-					href: "https://codetisans.com",
-					src: "/static/images/sponsor-codetisans.png",
-					tagline: "Laravel Softwarehouse",
-				},
+				// {
+				// 	name: "CodeTisans",
+				// 	href: "https://codetisans.com",
+				// 	src: "/static/images/sponsor-codetisans.png",
+				// 	tagline: "Laravel Softwarehouse",
+				// },
 			].map(each => (
 				<Style key={each.href} className="transition duration-200 ease-out">
 					<a
