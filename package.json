@@ -9,7 +9,7 @@
 		"start": "next start"
 	},
 	"dependencies": {
-		"immer": "^7.0.9",
+		"immer": "^8.0.1",
 		"lodash": "^4.17.20",
 		"next": "^9.5.3",
 		"react": "^16.13.1",
