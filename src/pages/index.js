@@ -328,7 +328,7 @@ const Sponsors = () => (
 					name: "QA Wolf",
 					href: "https://github.com/qawolf/qawolf",
 					src: "/static/images/sponsor-qawolf.png",
-					tagline: "Create Browser Tests Faster",
+					tagline: "Ship Confidently",
 				},
 				{
 					name: "SPELLL",
@@ -336,24 +336,12 @@ const Sponsors = () => (
 					src: "/static/images/sponsor-spelll.png",
 					tagline: "Spell Checker for Figma",
 				},
-				// {
-				// 	name: "SkillSyncer",
-				// 	href: "https://skillsyncer.com",
-				// 	src: "/static/images/sponsor-skillsyncer.png",
-				// 	tagline: "Resumé Optimizer",
-				// },
-				// {
-				// 	name: "Streamline",
-				// 	href: "https://streamlineicons.com",
-				// 	src: "/static/images/sponsor-streamline.png",
-				// 	tagline: "Download 30,000 Icons",
-				// },
-				// {
-				// 	name: "CodeTisans",
-				// 	href: "https://codetisans.com",
-				// 	src: "/static/images/sponsor-codetisans.png",
-				// 	tagline: "Laravel Softwarehouse",
-				// },
+				{
+					name: "Splitbee",
+					href: "https://splitbee.io/",
+					src: "/static/images/sponsor-splitbee.png",
+					tagline: "Analytics & Conversion Tool",
+				},
 			].map(each => (
 				<Style key={each.href} className="transition duration-200 ease-out">
 					<a
@@ -537,11 +525,11 @@ const MemoSearch = React.memo(
 				return
 			}
 			if (!query) {
-				window.history.pushState(null, "", "/")
+				window.history.replaceState(null, "", "/")
 			} else {
 				const params = new URLSearchParams(window.location.search)
 				params.set("query", query)
-				window.history.pushState(null, "", `/?${params}`)
+				window.history.replaceState(null, "", `/?${params}`)
 			}
 		}, [query])
 
