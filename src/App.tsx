@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { SearchBar, SearchResults } from "./contents-search"
 import { LayoutSidebar1 } from "./contents-sidebar-1"
 import { LayoutSidebar2 } from "./contents-sidebar-2"
 import { styled } from "./css/styled"
+import { DispatchProgressBarContext, ProgressBarContext } from "./progress-bar"
 
 const StyledSearchBarContainer = styled({
 	position: "fixed",
