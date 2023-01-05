@@ -1,7 +1,8 @@
 import "the-new-css-reset"
 import "uno.css"
 
-import "./index.scss"
+import "./css/base.scss"
+import "./css/vars.scss"
 
 import ReactDOM from "react-dom/client"
 import { App } from "./app"

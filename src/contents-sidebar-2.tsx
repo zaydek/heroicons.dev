@@ -107,9 +107,13 @@ export function SectionSize() {
 	return <>
 		<section className="py-$sidebar-y-inset px-$sidebar-x-inset flex flex-col gap-10 [&:nth-child(1)]:pt-48">
 			<div className="flex justify-space-between align-center h-20">
-				<Label>SIZE</Label>
+				<Label>
+					SIZE
+				</Label>
 				<div className="flex align-center gap-10">
-					<AltLabel>{size.toFixed(0)} PX</AltLabel>
+					<AltLabel>
+						{size.toFixed(0)} PX
+					</AltLabel>
 					<div className="flex justify-center align-center w-32 h-32 rounded-1e3 bg-color-red">
 						<div className="w-16 h-16 rounded-1e3 bg-color-white"></div>
 					</div>
@@ -133,9 +137,13 @@ function SectionStrokeWidth() {
 	return <>
 		<section className="py-$sidebar-y-inset px-$sidebar-x-inset flex flex-col gap-10 [&:nth-child(1)]:pt-48">
 			<div className="flex justify-space-between align-center h-20">
-				<Label>STROKE WIDTH</Label>
+				<Label>
+					STROKE WIDTH
+				</Label>
 				<div className="flex align-center gap-10">
-					<AltLabel>{strokeWidth.toFixed(2)}</AltLabel>
+					<AltLabel>
+						{strokeWidth.toFixed(2)}
+					</AltLabel>
 					<div className="flex justify-center align-center w-32 h-32 rounded-1e3 bg-color-red">
 						<div className="w-16 h-16 rounded-1e3 bg-color-white"></div>
 					</div>
@@ -171,7 +179,9 @@ function SectionClipboard() {
 	return <>
 		<section className="py-$sidebar-y-inset px-$sidebar-x-inset flex flex-col gap-10 [&:nth-child(1)]:pt-48">
 			<div className="flex justify-space-between align-center h-20">
-				<Label>COPY AS</Label>
+				<Label>
+					COPY AS
+				</Label>
 				<div className="flex justify-center align-center w-32 h-32 rounded-1e3 bg-color-red">
 					<div className="w-16 h-16 rounded-1e3 bg-color-white"></div>
 				</div>
