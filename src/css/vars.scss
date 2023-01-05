@@ -1,16 +1,94 @@
 @use "sass:math";
 
 :root {
-  --sidebar-1-width:   250px;
-  --sidebar-2-width:   400px;
+	// Sizes
+	--sidebar-1-width:         250px;
+	--sidebar-2-width:         400px;
+	--inset-y:                 50px;
+	--inset-x:                 40px;
+  --sidebar-y-inset:         16px;
+  --sidebar-x-inset:         32px;
+	--search-bar-height:       60px;
+	--grid-item-size:          70px;
+	--form-size:               32px;
 
-  --inset-y:           48px;
-  --inset-x:           64px;
-  --sidebar-y-inset:   16px;
-  --sidebar-x-inset:   32px;
+	// Radii
+	--magic-ratio:             0.4375;
 
-  --search-bar-height: 64px;
-  --grid-item-size:    64px;
+	// Color channels
+	--base-h:                  200;
+	--base-s:                  50%;
+
+	// Colors
+	--base-color:              hsl(var(--base-h), var(--base-s), 100%);
+	--base-gray-color:         hsl(var(--base-h), var(--base-s), 95%);
+	--trim-color:              hsl(var(--base-h), 100%, 60%);
+	--form-color:              var(--base-color);
+	--hairline-color:          hsl(var(--base-h), var(--base-s), 50%, calc(100% / 3));
+	--placeholder-color:       hsl(var(--base-h), var(--base-s), 40%, 0.2);
+	--fill-color:              hsl(var(--base-h), var(--base-s), 25%);
+	--fill-hard-color:         hsl(var(--base-h), var(--base-s), 10%);
+	--fill-soft-color:         hsl(var(--base-h), var(--base-s), 40%);
+	--highlight-color:         hsl(45, 100%, 80%);
+	--anchor-blue:             hsl(200, 75%, 60%);
+	--svg-orange:              hsl(36, 100%, 62%); // Never changes
+	--react-blue:              hsl(193, 95%, 68%); // Never changes
+	--vue-green:               hsl(153, 47%, 53%); // Never changes
+	--github-gray:             hsl(0, 2%, 9%);     // Never changes
+	--twitter-blue:            hsl(203, 89%, 53%); // Never changes
+
+	// Shadows
+	--depth-shadow:
+		0  1px  2px  -1px hsl(var(--base-h), var(--base-s), 50%, 0.25),
+		0  2px  4px  -2px hsl(var(--base-h), var(--base-s), 50%, 0.25),
+		0  4px  8px  -4px hsl(var(--base-h), var(--base-s), 50%, 0.25),
+		0  8px 16px  -8px hsl(var(--base-h), var(--base-s), 50%, 0.25),
+		0 16px 32px -16px hsl(var(--base-h), var(--base-s), 50%, 0.25),
+		0 32px 64px -32px hsl(var(--base-h), var(--base-s), 50%, 0.25);
+
+	--inset-hairline-shadow:   inset  0     0   0 1px var(--hairline-color);
+	--inset-hairline-shadow-t: inset  0    -1px 0 0   var(--hairline-color);
+	--inset-hairline-shadow-r: inset  1px   0   0 0   var(--hairline-color);
+	--inset-hairline-shadow-b: inset  0     1px 0 0   var(--hairline-color);
+	--inset-hairline-shadow-l: inset -1px   0   0 0   var(--hairline-color);
+	--hairline-shadow:                0     0   0 1px var(--hairline-color);
+	--hairline-shadow-t:              0    -1px 0 0   var(--hairline-color);
+	--hairline-shadow-r:              1px   0   0 0   var(--hairline-color);
+	--hairline-shadow-b:              0     1px 0 0   var(--hairline-color);
+	--hairline-shadow-l:             -1px   0   0 0   var(--hairline-color);
+
+	--inset-shadow:
+		var(--inset-hairline-shadow),
+		var(--depth-shadow);
+	--shadow:
+		var(--hairline-shadow),
+		var(--depth-shadow);
+}
+
+:root.dark-mode {
+	// Color-channels
+	--base-h:                  220;
+	--base-s:                  30%;
+
+	// Colors
+	--base-color:              hsl(var(--base-h), var(--base-s), 5%);
+	--base-gray-color:         hsl(var(--base-h), var(--base-s), 10%);
+	--form-color:              var(--base-gray-color);
+	--placeholder-color:       hsl(var(--base-h), var(--base-s), 70%, 0.2);
+	--fill-color:              hsl(var(--base-h), var(--base-s), 90%);
+	--fill-hard-color:         hsl(var(--base-h), var(--base-s), 100%);
+	--fill-soft-color:         hsl(var(--base-h), var(--base-s), 70%);
+	--highlight-color:         hsl(200, 75%, 60%, 0.5);
+	--anchor-blue:             hsl(200, 75%, 60%);
+
+	// Shadows
+	--depth-shadow:
+		0  1px  2px  -1px hsl(0, 0%, 0%, 0.5),
+		0  2px  4px  -2px hsl(0, 0%, 0%, 0.5),
+		0  4px  8px  -4px hsl(0, 0%, 0%, 0.5),
+		0  8px 16px  -8px hsl(0, 0%, 0%, 0.5),
+		0 16px 32px -16px hsl(0, 0%, 0%, 0.5),
+		0 32px 64px -32px hsl(0, 0%, 0%, 0.5);
 }
 
 @media (max-width: 750px) {

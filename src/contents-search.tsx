@@ -21,8 +21,9 @@ export function SearchBar() {
 	const { setSearch } = useContext(SetSearchContext)!
 
 	return <>
-		<div className="px-[calc($search-bar-height_/_8)] flex align-center h-$search-bar-height rounded-1e3 bg-color-lightgray
-				[&:is(:hover,_:focus-within)]:(bg-color-white shadow-[0_0_0_1px_lightgray]) [&_>_*:nth-child(2)]:flex-grow-1">
+		<div className="
+			px-[calc($search-bar-height_/_8)] flex align-center h-$search-bar-height rounded-1e3 bg-color-$base-gray-color
+				[&:is(:hover,_:focus)]:(bg-color-$base-color shadow-[0_0_0_1px_$hairline-color]) [&_>_*:nth-child(2)]:flex-grow-1">
 			<div className="flex justify-center align-center h-75% aspect-1 rounded-1e3 bg-color-red [@media_(max-width:_750px)]:[display:_none]">
 				<div className="h-24 w-24 rounded-1e3 bg-color-white"></div>
 			</div>
@@ -76,10 +77,10 @@ function SkeletonFallback() {
 			{iota(searchResults.length).map(index =>
 				<div key={index} className="flex flex-col gap-10">
 					<div className="flex justify-center align-center h-$grid-item-size w-$grid-item-size">
-						<div className="h-32 w-32 rounded-1e3 bg-color-red" style={placeholderIconStyles} />
+						<div className="h-32 w-32 rounded-1e3 bg-color-$placeholder-color" style={placeholderIconStyles} />
 					</div>
 					<div className="flex justify-center align-center h-24">
-						<div className="h-6 w-67% rounded-1e3 bg-color-red"></div>
+						<div className="h-6 w-67% rounded-1e3 bg-color-$placeholder-color"></div>
 					</div>
 				</div>
 			)}
@@ -113,13 +114,16 @@ export function SearchResults() {
 			<GridScaffold>
 				{searchResults.map(({ name, indexes }) =>
 					<div key={name} className="flex flex-col gap-10">
-						<div className="flex justify-center align-center h-$grid-item-size w-$grid-item-size" onClick={e => {
+						{/* Don't use <AriaButton> here (create fewer DOM elements) */}
+						<button className="flex justify-center align-center h-$grid-item-size w-$grid-item-size" onClick={e => {
 							setSelectedName(name)
 							setSelectedSvgElement(e.currentTarget.querySelector("svg"))
 						}}>
 							<Icon className="h-32 w-32 color-red" style={iconStyles} name={name} />
-						</div>
-						<div className="flex justify-center align-center h-24">
+						</button>
+						{/* TODO: Why can't we use [user-select]-all syntax? */}
+						{/* TODO: Do we need a vendor fallback here? */}
+						<div className="flex justify-center align-center h-24 [user-select:_all]">
 							<Highlight indexes={indexes}>
 								{name}
 							</Highlight>

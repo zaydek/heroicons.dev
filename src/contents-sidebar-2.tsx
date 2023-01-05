@@ -3,6 +3,8 @@ import { AriaButton } from "./aria/aria-button"
 import { AriaCheckbox } from "./aria/aria-checkbox"
 import { AriaRadio, AriaRadiogroup } from "./aria/aria-radio"
 import { AriaSlider } from "./aria/aria-slider"
+import { StyledCheckbox, StyledCheckboxIcon, StyledRadio, StyledRadioIcon, StyledSlider, StyledSliderThumb, StyledSliderTrack } from "./form-controls"
+import { cx } from "./lib/cx"
 import { download } from "./lib/download"
 import { SearchConfigContext, SetSearchConfigContext } from "./state"
 
@@ -22,22 +24,32 @@ function AltLabel({ children }: PropsWithChildren) {
 	</>
 }
 
-function LabelValue({ children }: PropsWithChildren) {
+function LabelValue({ children, center }: PropsWithChildren<{ center?: boolean }>) {
 	return <>
-		<div className="px-16 flex align-center h-32 rounded-1e3 shadow-[0_0_0_1px_red]">
+		<div className={cx(`px-[calc($form-size_/_2)] flex ${center ? "justify-center" : ""} align-center h-$form-size rounded-1e3 shadow-[0_0_0_1px_$hairline-color]`)}>
 			{children}
 		</div>
 	</>
 }
 
-function Radio({ children, ...props }: PropsWithChildren<{ value: string }>) {
+function RevertButton(props: HTMLAttributes<HTMLDivElement>) {
+	return <>
+		<AriaButton {...props}>
+			<div className="flex justify-center align-center h-24 w-24 rounded-1e3 bg-color-red">
+				<div className="h-8 w-8 rounded-1e3 bg-color-white"></div>
+			</div>
+		</AriaButton>
+	</>
+}
+
+function Radio({ children, center, ...props }: PropsWithChildren<{ value: string, center?: boolean }>) {
 	return <>
 		<AriaRadio {...props}>
 			<div className="flex gap-10 [&_>_*:nth-child(2)]:flex-grow-1">
-				<div className="flex justify-center align-center h-32 w-32 rounded-1e3 bg-color-red">
-					<div className="w-10 h-10 rounded-1e3 bg-color-white [[role=radio][aria-checked=false]_&]:[display:_none]"></div>
-				</div>
-				<LabelValue>
+				<StyledRadio className="flex justify-center align-center">
+					<StyledRadioIcon />
+				</StyledRadio>
+				<LabelValue center={center}>
 					{children}
 				</LabelValue>
 			</div>
@@ -49,9 +61,9 @@ function Checkbox({ children, ...props }: PropsWithChildren<{ checked: boolean, 
 	return <>
 		<AriaCheckbox {...props}>
 			<div className="flex gap-10 [&_>_*:nth-child(2)]:flex-grow-1">
-				<div className="flex justify-center align-center h-32 w-32 rounded-14 bg-color-red">
-					<div className="w-10 h-10 rounded-1e3 bg-color-white [[role=checkbox][aria-checked=false]_&]:[display:_none]"></div>
-				</div>
+				<StyledCheckbox className="flex justify-center align-center">
+					<StyledCheckboxIcon />
+				</StyledCheckbox>
 				<LabelValue>
 					{children}
 				</LabelValue>
@@ -66,34 +78,20 @@ function Slider(props: { min: number, max: number, step: number, value: number, 
 
 	return <>
 		<AriaSlider track={track} thumb={thumb} {...props}>
-			<div ref={setTrack} className="flex flex-col justify-center h-40">
-				<div className="flex align-center h-6 rounded-1e3 bg-color-red">
-					<div ref={setThumb} className="h-32 w-32 rounded-1e3 bg-color-pink"></div>
-				</div>
-			</div>
+			<StyledSlider.Forward ref={setTrack} className="flex flex-col justify-center">
+				<StyledSliderTrack className="flex align-center">
+					<StyledSliderThumb.Forward ref={setThumb} />
+				</StyledSliderTrack>
+			</StyledSlider.Forward>
 		</AriaSlider>
 	</>
 }
 
-//// //// function ReadOnlyTextarea({ placeholder, value, rows }: { placeholder: string, value: string, rows: number }) {
-//// function ReadOnlyTextarea({ placeholder, value }: { placeholder: string, value: string }) {
-//// 	return <>
-//// 		<textarea
-//// 			className="aspect-10_/_6 rounded-24 bg-color-lightgray
-//// 				[&:is(:hover,_:focus)]:(bg-color-white shadow-[0_0_0_1px_lightgray])"
-//// 			placeholder={placeholder}
-//// 			value={value}
-//// 			//// rows={rows}
-//// 			readOnly
-//// 		/>
-//// 	</>
-//// }
-
 function TextareaButton({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {
 	return <>
 		<AriaButton {...props}>
-			<div className="px-16 flex align-center gap-8 h-32 rounded-1e3 bg-color-orange">
-				<div className="h-16 w-16 rounded-1e3 bg-color-white"></div>
+			<div className="px-[calc($form-size_/_2)] flex align-center gap-8 h-$form-size rounded-1e3 bg-color-$form-color shadow-$shadow">
+				<div className="h-16 w-16 rounded-1e3 bg-color-$trim-color"></div>
 				{children}
 			</div>
 		</AriaButton>
@@ -114,9 +112,7 @@ export function SectionSize() {
 					<AltLabel>
 						{size.toFixed(0)} PX
 					</AltLabel>
-					<div className="flex justify-center align-center w-32 h-32 rounded-1e3 bg-color-red">
-						<div className="w-16 h-16 rounded-1e3 bg-color-white"></div>
-					</div>
+					<RevertButton />
 				</div>
 			</div>
 			<Slider
@@ -144,9 +140,7 @@ function SectionStrokeWidth() {
 					<AltLabel>
 						{strokeWidth.toFixed(2)}
 					</AltLabel>
-					<div className="flex justify-center align-center w-32 h-32 rounded-1e3 bg-color-red">
-						<div className="w-16 h-16 rounded-1e3 bg-color-white"></div>
-					</div>
+					<RevertButton />
 				</div>
 			</div>
 			<Slider
@@ -182,9 +176,7 @@ function SectionClipboard() {
 				<Label>
 					COPY AS
 				</Label>
-				<div className="flex justify-center align-center w-32 h-32 rounded-1e3 bg-color-red">
-					<div className="w-16 h-16 rounded-1e3 bg-color-white"></div>
-				</div>
+				<RevertButton />
 			</div>
 			<AriaRadiogroup groupValue={copyAs} setGroupValue={setCopyAs as Dispatch<SetStateAction<string>>}>
 				<div className="grid grid-cols-2 gap-10">
@@ -199,8 +191,8 @@ function SectionClipboard() {
 			{/* Use flex flex-col to reset <textarea> */}
 			<div className="relative my-16 -mx-8 flex flex-col">
 				<textarea
-					className="p-24 aspect-1.75 rounded-24 bg-color-lightgray
-						[&:is(:hover,_:focus)]:(bg-color-white shadow-[0_0_0_1px_lightgray])"
+					className="p-24 aspect-1.75 rounded-24 bg-color-$base-gray-color
+						[&:is(:hover,_:focus)]:(bg-color-$base-color shadow-[0_0_0_1px_$hairline-color])"
 					placeholder="Click an icon to get started"
 					value={clipboard}
 					readOnly
@@ -241,14 +233,17 @@ function SectionClipboard() {
 				</Checkbox>
 				<AriaRadiogroup groupValue={framework} setGroupValue={setFramework as Dispatch<SetStateAction<string>>}>
 					<div className="grid grid-cols-3 gap-10">
-						<Radio value="svg">
-							SVG
+						<Radio value="svg" center>
+							<div className="h-20 w-20 rounded-1e3
+								bg-color-$svg-orange"></div>
 						</Radio>
-						<Radio value="react">
-							REACT
+						<Radio value="react" center>
+							<div className="h-20 w-20 rounded-1e3
+								bg-color-$react-blue"></div>
 						</Radio>
-						<Radio value="vue">
-							VUE
+						<Radio value="vue" center>
+							<div className="h-20 w-20 rounded-1e3
+								bg-color-$vue-green"></div>
 						</Radio>
 					</div>
 				</AriaRadiogroup>
@@ -260,10 +255,10 @@ function SectionClipboard() {
 export function LayoutSidebar2() {
 	return <>
 		<SectionSize />
-		<hr className="h-1 bg-color-gray" />
+		<hr className="h-1 bg-color-$hairline-color" />
 		<SectionStrokeWidth />
-		<hr className="h-1 bg-color-gray" />
+		<hr className="h-1 bg-color-$hairline-color" />
 		<SectionClipboard />
-		<hr className="h-1 bg-color-gray" />
+		<hr className="h-1 bg-color-$hairline-color" />
 	</>
 }

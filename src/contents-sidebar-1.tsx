@@ -18,8 +18,8 @@ function MenuTitle({ children }: PropsWithChildren) {
 function MenuItem({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {
 	return <>
 		<AriaButton {...props}>
-			<div className="px-16 flex align-center gap-16 h-32 [&:hover]:bg-color-orange">
-				<div className="h-24 w-24 rounded-1e3 bg-color-red"></div>
+			<div className="px-16 flex align-center gap-8 h-32 [&:hover,_[role=button][data-active=true]_&]:bg-color-$base-gray-color">
+				<div className="h-16 w-16 rounded-1e3 bg-color-$trim-color"></div>
 				<div>
 					{children}
 				</div>
@@ -30,8 +30,8 @@ function MenuItem({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLD
 
 function NavItem({ children }: PropsWithChildren) {
 	return <>
-		<div className="px-16 flex align-center gap-16 h-32 [&:hover]:bg-color-orange">
-			<div className="h-24 w-24 rounded-1e3 bg-color-red"></div>
+		<div className="px-16 flex align-center gap-8 h-32 [&:hover]:bg-color-$base-gray-color">
+			<div className="h-16 w-16 rounded-1e3 bg-color-$trim-color"></div>
 			<div>
 				{children}
 			</div>
@@ -40,8 +40,8 @@ function NavItem({ children }: PropsWithChildren) {
 }
 
 export function LayoutSidebar1() {
+	const { iconset } = useContext(SearchContext)!
 	const { start, end } = useContext(DispatchProgressBarContext)!
-	//// const search = useContext(SearchContext)!
 	const { setIconset: _setIconset } = useContext(SetSearchContext)!
 
 	const [pending, startTransition] = useTransition()
@@ -79,13 +79,19 @@ export function LayoutSidebar1() {
 					<MenuTitle>
 						V2
 					</MenuTitle>
-					<MenuItem onClick={e => setIconset("v2-20-solid")}>
+					<MenuItem onClick={e => setIconset("v2-20-solid")}
+						data-active={iconset === "v2-20-solid"}
+					>
 						20 PX SOLID
 					</MenuItem>
-					<MenuItem onClick={e => setIconset("v2-24-outline")}>
+					<MenuItem onClick={e => setIconset("v2-24-outline")}
+						data-active={iconset === "v2-24-outline"}
+					>
 						24 PX OUTLINE
 					</MenuItem>
-					<MenuItem onClick={e => setIconset("v2-24-solid")}>
+					<MenuItem onClick={e => setIconset("v2-24-solid")}
+						data-active={iconset === "v2-24-solid"}
+					>
 						24 PX SOLID
 					</MenuItem>
 				</div>
@@ -93,16 +99,20 @@ export function LayoutSidebar1() {
 					<MenuTitle>
 						V1 (LEGACY)
 					</MenuTitle>
-					<MenuItem onClick={e => setIconset("v1-20-solid")}>
+					<MenuItem onClick={e => setIconset("v1-20-solid")}
+						data-active={iconset === "v1-20-solid"}
+					>
 						20 PX SOLID
 					</MenuItem>
-					<MenuItem onClick={e => setIconset("v1-24-outline")}>
+					<MenuItem onClick={e => setIconset("v1-24-outline")}
+						data-active={iconset === "v1-24-outline"}
+					>
 						24 PX OUTLINE
 					</MenuItem>
 				</div>
 			</div>
 		</section>
-		<section className="absolute inset-b-0 py-32 flex flex-col gap-20 bg-color-white shadow-[0_-1px_0_0_gray]">
+		<section className="absolute inset-b-0 py-32 flex flex-col gap-20 bg-color-white shadow-[0_-1px_0_0_$hairline-color]">
 			<nav>
 				<NavItem>
 					GitHub

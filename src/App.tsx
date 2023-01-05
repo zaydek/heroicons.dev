@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { SearchBar, SearchResults } from "./contents-search"
 import { LayoutSidebar1 } from "./contents-sidebar-1"
 import { LayoutSidebar2 } from "./contents-sidebar-2"
 import { styled } from "./css/styled"
-import { DispatchProgressBarContext, ProgressBarContext } from "./progress-bar"
 
 const StyledSearchBarContainer = styled({
 	position: "fixed",
@@ -32,8 +31,8 @@ const StyledSearchBarMask = styled({
 		"$sidebar-1-width",
 	],
 	zIndex: StyledSearchBarContainer.style.zIndex - 10,
-	height: "calc($inset-y + $search-bar-height + $inset-y / 2)",
-	backgroundImage: "linear-gradient(white calc($inset-y + $search-bar-height), red)",
+	height: "calc($inset-y + $search-bar-height + $inset-y)",
+	backgroundImage: "linear-gradient($base-color calc($inset-y + $search-bar-height), TRANSPARENT)",
 	"[data-column-1-open=false] &": { left:  0 },
 	"[data-column-2-open=false] &": { right: 0 },
 	"@media (max-width: 1500px)": {
@@ -73,7 +72,7 @@ const StyledSidebar1 = styled({
 	zIndex: 200,
 	width: "$sidebar-1-width",
 	backgroundColor: "white",
-	boxShadow: "1px 0 0 0 gray",
+	boxShadow: "1px 0 0 0 $hairline-color",
 	transition: "300ms transform ease",
 	"[data-column-1-open=false] &":	{ transform: "translateX(-100%)" },
 	"@media (max-width: 750px)":    { transform: "translateX(-100%)" },
@@ -89,7 +88,7 @@ const StyledSidebar2 = styled({
 	zIndex: 300,
 	width: "$sidebar-2-width",
 	backgroundColor: "white",
-	boxShadow: "-1px 0 0 0 gray",
+	boxShadow: "-1px 0 0 0 $hairline-color",
 	transition: "300ms transform ease",
 	"[data-column-2-open=false] &": { transform: "translateX(100%)" },
 	"@media (max-width: 750px)":    { transform: "translateX(100%)" },
