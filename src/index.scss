@@ -1,0 +1,23 @@
+@use "sass:math";
+
+:root {
+  --sidebar-1-width:   200px;
+  --sidebar-2-width:   400px;
+
+  --inset-y:           48px;
+  --inset-x:           64px;
+  --sidebar-y-inset:   16px;
+  --sidebar-x-inset:   32px;
+
+  --search-bar-height: 64px;
+  --grid-item-size:    64px;
+}
+
+@media (max-width: 750px) {
+	:root {
+		--inset-y:               20px;
+		--inset-x:               20px;
+		--search-bar-height:     #{math.floor(60px * 0.75)};
+		--grid-item-size:        #{math.floor(70px * 0.75)};
+	}
+}
