@@ -31,44 +31,6 @@ function desugar(rawValue: undefined | string, { sign, px }: { sign?: string, px
 			return sign + value
 		}
 	}
-
-	//// sign ??= ""
-	//// px   ??= true
-	////
-	//// // Hacky fix
-	//// if (rawValue.startsWith("$")) {
-	//// 	px = false
-	//// }
-	////
-	//// if (rawValue === undefined) { return undefined }
-	//// if (rawValue.startsWith("[") && rawValue.endsWith("]")) {
-	//// 	// @ts-expect-error
-	//// 	return rawValue.slice(1, -1).replaceAll("_", " ")
-	//// }
-	////
-	//// //// if (raw === "0") { return 0 }
-	//// //// if (!raw) { return }
-	////
-	//// let desugared = "" // Return variable
-	//// const str = "" + rawValue
-	//// if (sign) {
-	//// 	//// if (str.startsWith("(") && str.endsWith(")")) {
-	//// 	//// 	desugared = `calc(-1*(${str.slice(1, -1) + (px ? "px" : "")}))`
-	//// 	//// } else {
-	//// 		desugared = `calc(-1*(${str + (px ? "px" : "")}))`
-	//// 	//// }
-	//// } else {
-	//// 	//// if (str.startsWith("(") && str.endsWith(")")) {
-	//// 	//// 	desugared = `calc(${str.slice(1, -1) + (px ? "px" : "")})`
-	//// 	//// } else {
-	//// 		desugared = `${str + (px ? "px" : "")}`
-	//// 	//// }
-	//// }
-	//// // @ts-expect-error
-	//// desugared = desugared.replaceAll(/\$([a-zA-Z][a-zA-Z-0-9]*)/g, "var(--$1)")
-	//// // @ts-expect-error
-	//// desugared = desugared.replaceAll("_", " ")
-	//// return desugared
 }
 
 const rules: Rule[] = [
@@ -175,8 +137,8 @@ const rules: Rule[] = [
 	 * Gap
 	 */
 	[/^gap-(.+)$/,               ([_, value]) => ({ "gap":        desugar(value) })],
-	[/^row-gap-(.+)$/,           ([_, value]) => ({ "row-gap":    desugar(value) })],
-	[/^col-gap-(.+)$/,           ([_, value]) => ({ "column-gap": desugar(value) })],
+	[/^gap-y-(.+)$/,             ([_, value]) => ({ "row-gap":    desugar(value) })],
+	[/^gap-x-(.+)$/,             ([_, value]) => ({ "column-gap": desugar(value) })],
 
 	/*
 	 * Sizing
@@ -205,8 +167,9 @@ const rules: Rule[] = [
 	/*
 	 * Decoration
 	 */
-	[/^c-(.+)$/,                 ([_, value]) => ({ "color":            desugar(value, { px: false }) })],
-	[/^bg-(.+)$/,                ([_, value]) => ({ "background-color": desugar(value, { px: false }) })],
+	[/^color-(.+)$/,             ([_, value]) => ({ "color":            desugar(value, { px: false }) })],
+	[/^bg-color-(.+)$/,          ([_, value]) => ({ "background-color": desugar(value, { px: false }) })],
+	[/^bg-image-(.+)$/,          ([_, value]) => ({ "background-image": desugar(value, { px: false }) })],
 	[/^shadow-(.+)$/,            ([_, value]) => ({ "box-shadow":       desugar(value, { px: false }) })],
 ]
 
