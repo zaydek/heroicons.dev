@@ -1,0 +1,101 @@
+.typography-search-bar {
+	white-space: normal;
+	font: 400 16px "/" 1.7 + (
+		Inter,
+		var(--sans),
+	);
+	font-feature-settings: "tnum";
+	letter-spacing: null;
+	color: var(--text-color);
+	&::placeholder {
+		color: var(--soft-text-color);
+	}
+}
+
+.typography-grid-item-name {
+	white-space: pre;         // Ellipsis
+	font: 400 13px "/" normal + (
+		Inter,
+		var(--sans),
+	);
+	font-feature-settings: "tnum";
+	letter-spacing: null;
+	color: var(--soft-text-color);
+	overflow: hidden;         // Ellipsis
+	text-overflow: ellipsis;  // Ellipsis
+	-webkit-user-select: all; // User select
+	user-select: all;         // User select
+}
+
+.typography-sans {
+	white-space: normal;
+	font: 400 15px "/" 1.5 (
+		Inter,
+		var(--sans),
+  );
+	font-feature-settings: "tnum";
+	letter-spacing: null;
+	color: var(--text-color);
+}
+
+.typography-legalese {
+	white-space: normal;
+	font: 400 13px "/" 1.4 + (
+		Inter,
+		var(--sans),
+	);
+	font-feature-settings: "tnum";
+	letter-spacing: null;
+	color: var(--soft-text-color);
+}
+
+.typography-caps {
+	white-space: normal;
+	font: 500 11px "/" normal + (
+		Inter,
+		var(--sans),
+	);
+	font-feature-settings: "tnum";
+	letter-spacing: 0.1em;
+	color: var(--text-color);
+}
+
+.typography-alt-caps {
+	white-space: normal;
+	font: 500 11px "/" normal + (
+		Inter,
+		var(--sans),
+	);
+	font-feature-settings: "tnum";
+	letter-spacing: 0.1em;
+	color: var(--soft-text-color);
+}
+
+.typography-textarea-button {
+	white-space: normal;
+	font: 500 11px "/" normal + (
+		Inter,
+		var(--sans),
+	);
+	font-feature-settings: "tnum";
+	letter-spacing: 0.1em;
+	color: var(--text-color);
+	[role=button]:hover:active & {
+		color: WHITE;
+	}
+}
+
+.typography-code {
+	// BUG: Error: "&" may only used at the beginning of a compound selector.
+	$selector: "" + &;
+	white-space: pre;
+	font: 400 14px "/" normal + (
+		var(--code),
+	);
+	font-feature-settings: "tnum";
+	letter-spacing: null;
+	color: var(--text-color);
+	textarea#{$selector}::placeholder { // Must prepend <textarea>
+		color: var(--soft-text-color);
+	}
+}

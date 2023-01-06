@@ -1,9 +1,8 @@
-import layout from "./css/layout.module.scss"
-
 import { useEffect, useState } from "react"
 import { SearchBar, SearchResults } from "./contents-search"
 import { LayoutSidebar1 } from "./contents-sidebar-1"
 import { LayoutSidebar2 } from "./contents-sidebar-2"
+import { MainContainer, SearchBarContainer, SearchBarMask, Sidebar1, Sidebar2, Sidebar2Backdrop } from "./css/layout"
 
 export function App() {
 	const [column1Open, setColumn1Open] = useState(true)
@@ -27,19 +26,19 @@ export function App() {
 	}, [column1Open, column2Open])
 
 	return <>
-		<div className={layout.searchBarContainer}>
+		<SearchBarContainer>
 			<SearchBar />
-		</div>
-		<div className={layout.searchBarMask} />
-		<main className={layout.mainContainer}>
+		</SearchBarContainer>
+		<SearchBarMask />
+		<MainContainer tag="main">
 			<SearchResults />
-		</main>
-		<aside className={layout.sidebar1}>
+		</MainContainer>
+		<Sidebar1 tag="aside">
 			<LayoutSidebar1 />
-		</aside>
-		<aside className={layout.sidebar2}>
+		</Sidebar1>
+		<Sidebar2 tag="aside">
 			<LayoutSidebar2 />
-		</aside>
-		<div className={layout.sidebar2Backdrop} onClick={e => setColumn2Open(false)} />
+		</Sidebar2>
+		<Sidebar2Backdrop onClick={e => setColumn2Open(false)} />
 	</>
 }

@@ -43,12 +43,12 @@ $sidebar-2-z-index:  300;
 .main-container {
 	position: absolute;
 	inset: (
-		calc(var(--inset-y) + var(--search-bar-height) + var(--inset-y))
+		calc(var(--inset-y) + var(--search-bar-height))
 		var(--sidebar-2-width)
 		auto
 		var(--sidebar-1-width)
 	);
-	// No z-index (only use z-index for fixed elements)
+	// Omit z-index (only use z-index for fixed elements)
 	@media (max-width: 1500px) {
 		right: 0;
 		@media (max-width: 750px) {

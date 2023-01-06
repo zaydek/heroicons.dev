@@ -70,7 +70,7 @@ export function LayoutSidebar1() {
 
 	return <>
 		<section className="absolute inset-t-0 py-48">
-			<div className="px-16 flex flex-col gap-10 h-[calc($inset-y_+_$search-bar-height_+_$inset-y)]">
+			<div className="px-16 flex flex-col gap-10 h-[calc($inset-y_+_$search-bar-height)]">
 				<div>HELLO</div>
 				<div>HELLO</div>
 			</div>
