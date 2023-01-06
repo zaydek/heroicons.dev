@@ -1,7 +1,9 @@
-import { SetState } from "../lib/react/extra-types"
-import { DOMProps } from "../lib/react/extra-types.dom"
+import { Dispatch, HTMLAttributes, SetStateAction } from "react"
 
-export function AriaCheckbox({ checked, setChecked, children, ...props }: { checked: boolean, setChecked: SetState<boolean> } & DOMProps) {
+export function AriaCheckbox({ checked, setChecked, children, ...props }: {
+	checked:    boolean
+	setChecked: Dispatch<SetStateAction<boolean>>
+} & HTMLAttributes<HTMLDivElement>) {
 	return <>
 		<div
 			onClick={e => {

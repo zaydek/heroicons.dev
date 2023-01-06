@@ -2,12 +2,11 @@
 import type { manifest as manifestV1 } from "./data/manifest@1.0.6"
 import type { manifest as manifestV2 } from "./data/manifest@2.0.13"
 
-import { createContext, LazyExoticComponent, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react"
+import { createContext, Dispatch, LazyExoticComponent, PropsWithChildren, SetStateAction, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react"
 import { stringifySvgElement } from "../scripts/stringify-svg-element"
 import { cache } from "./cache"
 import { toTitleCase } from "./lib/cases"
 import { detab, tab } from "./lib/format"
-import { SetState } from "./lib/react/extra-types"
 import { searchParams } from "./lib/search-params"
 import { CopyAs, CopyAsValue, Frameworks, FrameworkValue, Iconsets, IconsetValue } from "./types"
 
@@ -27,16 +26,16 @@ export const SearchConfigContext =
 	} | null>(null)
 export const SetSearchConfigContext =
 	createContext<{
-		setSize:               SetState<number>
-		setStrokeWidth:        SetState<number>
-		setSelectedName:       SetState<string>
-		setSelectedSvgElement: SetState<SVGSVGElement | null>
-		setCopyAs:             SetState<CopyAsValue>
-		setStrictJsx:          SetState<boolean>
-		setExportComponent:    SetState<boolean>
-		setTypescript:         SetState<boolean>
-		setAddImportStatement: SetState<boolean>
-		setFramework:          SetState<FrameworkValue>
+		setSize:               Dispatch<SetStateAction<number>>
+		setStrokeWidth:        Dispatch<SetStateAction<number>>
+		setSelectedName:       Dispatch<SetStateAction<string>>
+		setSelectedSvgElement: Dispatch<SetStateAction<SVGSVGElement | null>>
+		setCopyAs:             Dispatch<SetStateAction<CopyAsValue>>
+		setStrictJsx:          Dispatch<SetStateAction<boolean>>
+		setExportComponent:    Dispatch<SetStateAction<boolean>>
+		setTypescript:         Dispatch<SetStateAction<boolean>>
+		setAddImportStatement: Dispatch<SetStateAction<boolean>>
+		setFramework:          Dispatch<SetStateAction<FrameworkValue>>
 		resetAll:              () => void
 		resetClipboard:        () => void
 	} | null>(null)
@@ -50,8 +49,8 @@ export const SearchContext =
 	} | null>(null)
 export const SetSearchContext =
 	createContext<{
-		setIconset:            SetState<IconsetValue>
-		setSearch:             SetState<string>
+		setIconset:            Dispatch<SetStateAction<IconsetValue>>
+		setSearch:             Dispatch<SetStateAction<string>>
 		resetAll:              () => void
 	} | null>(null)
 

@@ -1,15 +1,16 @@
-import { createContext, PropsWithChildren, useContext, useEffect, useMemo, useRef, useState } from "react"
-import { SetState } from "../lib/react/extra-types"
-import { DOMProps } from "../lib/react/extra-types.dom"
+import { createContext, Dispatch, HTMLAttributes, PropsWithChildren, SetStateAction, useContext, useEffect, useMemo, useRef, useState } from "react"
 
 const RadiogroupContext = createContext<{
 	groupValue:    string
-	setGroupValue: SetState<string>
+	setGroupValue: Dispatch<SetStateAction<string>>
 	values:        string[]
-	setValues:     SetState<string[]>
+	setValues:     Dispatch<SetStateAction<string[]>>
 } | null>(null)
 
-export function AriaRadiogroup({ groupValue, setGroupValue, children, ...props }: PropsWithChildren<{ groupValue: string, setGroupValue: SetState<string> }> & DOMProps) {
+export function AriaRadiogroup({ groupValue, setGroupValue, children, ...props }: PropsWithChildren<{
+	groupValue:    string
+	setGroupValue: Dispatch<SetStateAction<string>>
+}> & HTMLAttributes<HTMLDivElement>) {
 	const [values, setValues] = useState<string[]>([])
 
 	return <>
@@ -29,7 +30,7 @@ export function AriaRadiogroup({ groupValue, setGroupValue, children, ...props }
 	</>
 }
 
-export function AriaRadio({ value, children, ...props }: { value: string } & DOMProps) {
+export function AriaRadio({ value, children, ...props }: { value: string } & HTMLAttributes<HTMLDivElement>) {
 	const radiogroup = useContext(RadiogroupContext)!
 	const checked = useMemo(() => radiogroup.groupValue === value, [radiogroup.groupValue, value])
 

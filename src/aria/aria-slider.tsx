@@ -1,7 +1,5 @@
-import { CSSProperties, PropsWithChildren, useEffect, useMemo, useRef } from "react"
+import { CSSProperties, Dispatch, HTMLAttributes, PropsWithChildren, SetStateAction, useEffect, useMemo, useRef } from "react"
 import { clamp, round } from "../lib/precision"
-import { SetState } from "../lib/react/extra-types"
-import { DOMProps } from "../lib/react/extra-types.dom"
 
 export type AriaSliderProps = PropsWithChildren<{
 	track:    HTMLElement | null
@@ -10,10 +8,10 @@ export type AriaSliderProps = PropsWithChildren<{
 	max:      number
 	step:     number
 	value:    number
-	setValue: SetState<number>
+	setValue: Dispatch<SetStateAction<number>>
 }>
 
-export function AriaSlider({ track, thumb, min, max, step, value, setValue, children, ...props }: AriaSliderProps & DOMProps) {
+export function AriaSlider({ track, thumb, min, max, step, value, setValue, children, ...props }: AriaSliderProps & HTMLAttributes<HTMLDivElement>) {
 	const pointerDownRef = useRef(false)
 
 	const progress = useMemo(() => {

@@ -1,6 +1,6 @@
-import { DOMProps } from "../lib/react/extra-types.dom"
+import { HTMLAttributes } from "react"
 
-export function AriaButton({ children, ...props }: DOMProps) {
+export function AriaButton({ children, ...props }: HTMLAttributes<HTMLDivElement>) {
 	return <>
 		<div
 			onKeyDown={e => {
