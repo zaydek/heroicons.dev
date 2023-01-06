@@ -1,6 +1,7 @@
 import { HTMLAttributes, PropsWithChildren, useCallback, useContext, useEffect, useRef, useTransition } from "react"
 import { AriaButton } from "./aria/aria-button"
 import { cache } from "./cache"
+import { TypographyLegalese } from "./css/bindings"
 import { DispatchProgressBarContext } from "./progress-bar"
 import { SearchContext, SetSearchContext } from "./state"
 import { IconsetValue } from "./types"
@@ -129,10 +130,10 @@ export function Sidebar1Contents() {
 				Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello
 			</div>
 			<div className="px-16">
-				<div>
+				<TypographyLegalese>
 					Heroicons are MIT-licensed.{" "}
 					You may use them for commercial and personal application without attribution.
-				</div>
+				</TypographyLegalese>
 			</div>
 		</section>
 	</>
