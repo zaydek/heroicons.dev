@@ -1,4 +1,4 @@
-import form from "./css/form.module.scss"
+import * as styled from "./css/bindings"
 
 import { Dispatch, HTMLAttributes, PropsWithChildren, SetStateAction, useContext, useMemo, useState } from "react"
 import { AriaButton } from "./aria/aria-button"
@@ -47,9 +47,9 @@ function Radio({ children, center, ...props }: PropsWithChildren<{ value: string
 	return <>
 		<AriaRadio {...props}>
 			<div className="flex gap-10 [&_>_*:nth-child(2)]:flex-grow-1">
-				<div className={cx(form.radio, "flex justify-center align-center")}>
-					<div className={form.radioIcon} />
-				</div>
+				<styled.Radio className="flex justify-center align-center">
+					<styled.RadioIcon />
+				</styled.Radio>
 				<LabelValue center={center}>
 					{children}
 				</LabelValue>
@@ -62,9 +62,9 @@ function Checkbox({ children, ...props }: PropsWithChildren<{ checked: boolean, 
 	return <>
 		<AriaCheckbox {...props}>
 			<div className="flex gap-10 [&_>_*:nth-child(2)]:flex-grow-1">
-				<div className={cx(form.checkbox, "flex justify-center align-center")}>
-					<div className={cx(form.checkboxIcon)} />
-				</div>
+				<styled.Checkbox className="flex justify-center align-center">
+					<styled.CheckboxIcon />
+				</styled.Checkbox>
 				<LabelValue>
 					{children}
 				</LabelValue>
@@ -79,11 +79,11 @@ function Slider(props: { min: number, max: number, step: number, value: number, 
 
 	return <>
 		<AriaSlider track={track} thumb={thumb} {...props}>
-			<div ref={setTrack} className={cx(form.slider, "flex flex-col justify-center")}>
-				<div className={cx(form.sliderTrack, "flex align-center")}>
-					<div ref={setThumb} className={form.sliderThumb} />
-				</div>
-			</div>
+			<styled.Slider.Forward ref={setTrack} className="flex flex-col justify-center">
+				<styled.SliderTrack className="flex align-center">
+					<styled.SliderThumb.Forward ref={setThumb} />
+				</styled.SliderTrack>
+			</styled.Slider.Forward>
 		</AriaSlider>
 	</>
 }
@@ -253,7 +253,7 @@ function SectionClipboard() {
 	</>
 }
 
-export function LayoutSidebar2() {
+export function Sidebar2Contents() {
 	return <>
 		<SectionSize />
 		<hr className="h-1 bg-color-$hairline-color" />

@@ -1,8 +1,9 @@
+import * as styled from "./css/bindings"
+
 import { useEffect, useState } from "react"
 import { SearchBar, SearchResults } from "./contents-search"
-import { LayoutSidebar1 } from "./contents-sidebar-1"
-import { LayoutSidebar2 } from "./contents-sidebar-2"
-import { MainContainer, SearchBarContainer, SearchBarMask, Sidebar1, Sidebar2, Sidebar2Backdrop } from "./css/layout"
+import { Sidebar1Contents as Sidebar1 } from "./contents-sidebar-1"
+import { Sidebar2Contents as Sidebar2 } from "./contents-sidebar-2"
 
 export function App() {
 	const [column1Open, setColumn1Open] = useState(true)
@@ -26,19 +27,19 @@ export function App() {
 	}, [column1Open, column2Open])
 
 	return <>
-		<SearchBarContainer>
+		<styled.SearchBarContainer>
 			<SearchBar />
-		</SearchBarContainer>
-		<SearchBarMask />
-		<MainContainer tag="main">
+		</styled.SearchBarContainer>
+		<styled.SearchBarMask />
+		<styled.MainContainer tag="main">
 			<SearchResults />
-		</MainContainer>
-		<Sidebar1 tag="aside">
-			<LayoutSidebar1 />
-		</Sidebar1>
-		<Sidebar2 tag="aside">
-			<LayoutSidebar2 />
-		</Sidebar2>
-		<Sidebar2Backdrop onClick={e => setColumn2Open(false)} />
+		</styled.MainContainer>
+		<styled.Sidebar1 tag="aside">
+			<Sidebar1 />
+		</styled.Sidebar1>
+		<styled.Sidebar2 tag="aside">
+			<Sidebar2 />
+		</styled.Sidebar2>
+		<styled.Sidebar2Backdrop onClick={e => setColumn2Open(false)} />
 	</>
 }

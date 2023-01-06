@@ -39,7 +39,7 @@ function NavItem({ children }: PropsWithChildren) {
 	</>
 }
 
-export function LayoutSidebar1() {
+export function Sidebar1Contents() {
 	const { iconset } = useContext(SearchContext)!
 	const { start, end } = useContext(DispatchProgressBarContext)!
 	const { setIconset: _setIconset } = useContext(SetSearchContext)!
