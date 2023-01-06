@@ -112,7 +112,7 @@ export function LayoutSidebar1() {
 				</div>
 			</div>
 		</section>
-		<section className="absolute inset-b-0 py-32 flex flex-col gap-20 bg-color-white shadow-[0_-1px_0_0_$hairline-color]">
+		<section className="absolute inset-b-0 py-32 flex flex-col gap-20 bg-$base-color shadow-[0_-1px_0_0_$hairline-color]">
 			<nav>
 				<NavItem>
 					GitHub

@@ -68,7 +68,7 @@ $sidebar-2-z-index:  300;
 	);
 	z-index: $sidebar-1-z-index;
 	width: var(--sidebar-1-width);
-	background-color: white;
+	background-color: var(--base-color);
 	box-shadow: 1px 0 0 0 var(--hairline-color);
 	transition: 300ms transform ease;
 	[data-column-1-open=false] & { transform: translateX(-100%); }
@@ -84,7 +84,7 @@ $sidebar-2-z-index:  300;
 	);
 	z-index: $sidebar-2-z-index;
 	width: var(--sidebar-2-width);
-	background-color: white;
+	background-color: var(--base-color);
 	box-shadow: -1px 0 0 0 var(--hairline-color);
 	transition: 300ms transform ease;
 	[data-column-2-open=false] & { transform: translateX(100%); }

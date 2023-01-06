@@ -3,6 +3,8 @@
 //// 	outline-offset: -0.5px;
 //// }
 
+:focus-visible { outline: revert; }
+
 $sans: (
 	system-ui,
 	'Segoe UI',
@@ -37,8 +39,8 @@ $code: (
 	--code: #{$code};
 	background-color: var(--base-color);
 }
-:root:not(.dark-mode) { color-scheme: light; }
-:root.dark-mode       { color-scheme: dark;  }
+:root:not(.dark) { color-scheme: light; }
+:root.dark       { color-scheme: dark;  }
 
 svg { overflow: visible; }
 
@@ -47,6 +49,5 @@ svg { overflow: visible; }
 :is(input[type=radio], [role=radio])       { cursor: pointer; user-select: none; }
 :is(input[type=range], [role=slider])      { cursor: pointer; user-select: none; &:active { cursor: grabbing; } }
 
-:focus-visible { outline: revert; }
 input[type=text]:focus { outline: none; }
 textarea:focus         { outline: none; }
