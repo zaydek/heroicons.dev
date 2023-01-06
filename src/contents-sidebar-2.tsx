@@ -1,9 +1,10 @@
+import form from "./css/form.module.scss"
+
 import { Dispatch, HTMLAttributes, PropsWithChildren, SetStateAction, useContext, useMemo, useState } from "react"
 import { AriaButton } from "./aria/aria-button"
 import { AriaCheckbox } from "./aria/aria-checkbox"
 import { AriaRadio, AriaRadiogroup } from "./aria/aria-radio"
 import { AriaSlider } from "./aria/aria-slider"
-import { StyledCheckbox, StyledCheckboxIcon, StyledRadio, StyledRadioIcon, StyledSlider, StyledSliderThumb, StyledSliderTrack } from "./form-controls"
 import { cx } from "./lib/cx"
 import { download } from "./lib/download"
 import { SearchConfigContext, SetSearchConfigContext } from "./state"
@@ -46,9 +47,9 @@ function Radio({ children, center, ...props }: PropsWithChildren<{ value: string
 	return <>
 		<AriaRadio {...props}>
 			<div className="flex gap-10 [&_>_*:nth-child(2)]:flex-grow-1">
-				<StyledRadio className="flex justify-center align-center">
-					<StyledRadioIcon />
-				</StyledRadio>
+				<div className={cx(form.radio, "flex justify-center align-center")}>
+					<div className={form.radioIcon} />
+				</div>
 				<LabelValue center={center}>
 					{children}
 				</LabelValue>
@@ -61,9 +62,9 @@ function Checkbox({ children, ...props }: PropsWithChildren<{ checked: boolean, 
 	return <>
 		<AriaCheckbox {...props}>
 			<div className="flex gap-10 [&_>_*:nth-child(2)]:flex-grow-1">
-				<StyledCheckbox className="flex justify-center align-center">
-					<StyledCheckboxIcon />
-				</StyledCheckbox>
+				<div className={cx(form.checkbox, "flex justify-center align-center")}>
+					<div className={cx(form.checkboxIcon)} />
+				</div>
 				<LabelValue>
 					{children}
 				</LabelValue>
@@ -78,11 +79,11 @@ function Slider(props: { min: number, max: number, step: number, value: number, 
 
 	return <>
 		<AriaSlider track={track} thumb={thumb} {...props}>
-			<StyledSlider.Forward ref={setTrack} className="flex flex-col justify-center">
-				<StyledSliderTrack className="flex align-center">
-					<StyledSliderThumb.Forward ref={setThumb} />
-				</StyledSliderTrack>
-			</StyledSlider.Forward>
+			<div ref={setTrack} className={cx(form.slider, "flex flex-col justify-center")}>
+				<div className={cx(form.sliderTrack, "flex align-center")}>
+					<div ref={setThumb} className={form.sliderThumb} />
+				</div>
+			</div>
 		</AriaSlider>
 	</>
 }
@@ -197,7 +198,7 @@ function SectionClipboard() {
 					value={clipboard}
 					readOnly
 				/>
-				<div className="absolute inset-br-16 flex gap-16">
+				<div className="absolute inset-br-16 flex gap-8">
 					{copyAs === "code" &&
 						<TextareaButton onClick={e => {
 							if (clipboard === "") { return }
