@@ -10,11 +10,11 @@ import { ProgressBarProvider } from "./progress-bar"
 import { StateProvider } from "./state"
 
 ReactDOM
-  .createRoot(document.getElementById("root")!)
-  .render(<>
-    <ProgressBarProvider>
-      <StateProvider>
-        <App />
-      </StateProvider>
-    </ProgressBarProvider>
-  </>)
+	.createRoot(document.getElementById("root")!)
+	.render(<>
+		<ProgressBarProvider>
+			<StateProvider>
+				<App />
+			</StateProvider>
+		</ProgressBarProvider>
+	</>)

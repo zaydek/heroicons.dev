@@ -5,8 +5,8 @@ import { lazy, LazyExoticComponent } from "react"
 import { IconsetValue } from "./types"
 
 export type CacheEntry = readonly [
-  Manifest: typeof manifestV1 | typeof manifestV2,
-  Icon:     LazyExoticComponent<any>,
+	Manifest: typeof manifestV1 | typeof manifestV2,
+	Icon:     LazyExoticComponent<any>,
 ]
 
 function createCache() {

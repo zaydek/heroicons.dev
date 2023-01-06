@@ -1,28 +1,28 @@
 @use "sass:math";
 
 :root {
-  //////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////
 	// Sizes
 	--sidebar-1-width:   250px;
 	--sidebar-2-width:   400px;
 	--inset-y:           50px;
 	--inset-x:           40px;
-  --sidebar-y-inset:   16px;
-  --sidebar-x-inset:   32px;
+	--sidebar-y-inset:   16px;
+	--sidebar-x-inset:   32px;
 	--search-bar-height: 60px;
 	--grid-item-size:    70px;
 	--form-size:         32px;
 
-  //////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////
 	// Radii
 	--magic-ratio: 0.4375;
 
-  //////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////
 	// Color channels
 	--base-h: 200;
 	--base-s: 50%;
 
-  //////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////
 	// Colors
 	--base-color:        hsl(var(--base-h), var(--base-s), 100%);
 	--base-gray-color:   hsl(var(--base-h), var(--base-s), 95%);
@@ -41,7 +41,7 @@
 	--github-gray:       hsl(0, 2%, 9%);     // Never changes
 	--twitter-blue:      hsl(203, 89%, 53%); // Never changes
 
-  //////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////
 	// Shadows
 	--depth-shadow:
 		0  1px  2px  -1px hsl(var(--base-h), var(--base-s), 50%, 0.25),
@@ -51,7 +51,7 @@
 		0 16px 32px -16px hsl(var(--base-h), var(--base-s), 50%, 0.25),
 		0 32px 64px -32px hsl(var(--base-h), var(--base-s), 50%, 0.25);
 
-  // TODO: DEPRECATE?
+	// TODO: DEPRECATE?
 	--inset-hairline-shadow:   inset  0     0   0 1px var(--hairline-color);
 	--inset-hairline-shadow-t: inset  0    -1px 0 0   var(--hairline-color);
 	--inset-hairline-shadow-r: inset  1px   0   0 0   var(--hairline-color);
@@ -63,7 +63,7 @@
 	--hairline-shadow-b:              0     1px 0 0   var(--hairline-color);
 	--hairline-shadow-l:             -1px   0   0 0   var(--hairline-color);
 
-  // TODO: DEPRECATE?
+	// TODO: DEPRECATE?
 	--inset-shadow:
 		var(--inset-hairline-shadow),
 		var(--depth-shadow);
@@ -73,12 +73,12 @@
 }
 
 :root.dark {
-  //////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////
 	// Color-channels
 	--base-h: 220;
 	--base-s: 30%;
 
-  //////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////
 	// Colors
 	--base-color:        hsl(var(--base-h), var(--base-s), 5%);
 	--base-gray-color:   hsl(var(--base-h), var(--base-s), 10%);
@@ -90,7 +90,7 @@
 	--highlight-color:   hsl(200, 75%, 60%, 0.5);
 	--anchor-blue:       hsl(200, 75%, 60%);
 
-  //////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////
 	// Shadows
 	--depth-shadow:
 		0  1px  2px  -1px hsl(0, 0%, 0%, 0.5),
