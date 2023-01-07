@@ -5,7 +5,7 @@
 	width: var(--form-size);
 	border-radius: 1e3px;
 	background-color: var(--form-color);
-	box-shadow: var(--shadow);
+	box-shadow: var(--inset-shadow);
 	transition: box-shadow 75ms cubic-bezier(0, 1, 0.25, 1.25);
 }
 [role=radio][aria-checked=true] .radio {
@@ -47,7 +47,7 @@
 	width: var(--form-size);
 	border-radius: calc(var(--form-size) * var(--magic-ratio));
 	background-color: var(--form-color);
-	box-shadow: var(--shadow);
+	box-shadow: var(--inset-shadow);
 	transition: box-shadow 75ms cubic-bezier(0, 1, 0.25, 1.25);
 }
 [role=checkbox][aria-checked=true] .checkbox {
@@ -99,6 +99,6 @@
 	width: calc(var(--form-size) + 4px);
 	border-radius: 1e3px;
 	background-color: var(--form-color);
-	box-shadow: var(--shadow);
+	box-shadow: var(--shadow); // Use var(--shadow) instead of var(--inset-shadow) here
 	transition: box-shadow 75ms cubic-bezier(0, 1, 0.25, 1.25);
 }

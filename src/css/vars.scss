@@ -1,19 +1,22 @@
 @use "sass:math";
 
+$search-bar-height: 64px;
+$grid-item-size:    72px;
+
 :root {
 	//////////////////////////////////////////////////////////////////////////////
 	// Sizes
 
-	--inset-y:           50px;
+	--inset-y:           40px;
 	--inset-x:           40px;
-	--sidebar-1-inset-y: 24px;
-	--sidebar-1-inset-x: 24px;
-	--sidebar-2-inset-y: 24px;
+	--sidebar-1-inset-y: 20px;
+	--sidebar-1-inset-x: 20px;
+	--sidebar-2-inset-y: 20px;
 	--sidebar-2-inset-x: 32px;
-	--sidebar-1-width:   280px;
+	--sidebar-1-width:   250px;
 	--sidebar-2-width:   400px;
-	--search-bar-height: 60px;
-	--grid-item-size:    70px;
+	--search-bar-height: #{$search-bar-height};
+	--grid-item-size:    #{$grid-item-size};
 	--form-size:         32px;
 
 	//////////////////////////////////////////////////////////////////////////////
@@ -57,24 +60,11 @@
 		0  8px 16px  -8px hsl(var(--base-h), var(--base-s), 50%, 0.25),
 		0 16px 32px -16px hsl(var(--base-h), var(--base-s), 50%, 0.25),
 		0 32px 64px -32px hsl(var(--base-h), var(--base-s), 50%, 0.25);
-
-	--inset-hairline-shadow:   inset  0     0   0 1px var(--hairline-color);
-	--inset-hairline-shadow-t: inset  0    -1px 0 0   var(--hairline-color);
-	--inset-hairline-shadow-r: inset  1px   0   0 0   var(--hairline-color);
-	--inset-hairline-shadow-b: inset  0     1px 0 0   var(--hairline-color);
-	--inset-hairline-shadow-l: inset -1px   0   0 0   var(--hairline-color);
-	--hairline-shadow:                0     0   0 1px var(--hairline-color);
-	--hairline-shadow-t:              0    -1px 0 0   var(--hairline-color);
-	--hairline-shadow-r:              1px   0   0 0   var(--hairline-color);
-	--hairline-shadow-b:              0     1px 0 0   var(--hairline-color);
-	--hairline-shadow-l:             -1px   0   0 0   var(--hairline-color);
-
 	--inset-shadow:
-		var(--inset-hairline-shadow),
+		inset 0 0 0 1px var(--hairline-color),
 		var(--depth-shadow);
-
 	--shadow:
-		var(--hairline-shadow),
+		0 0 0 1px var(--hairline-color),
 		var(--depth-shadow);
 }
 
@@ -114,7 +104,7 @@
 	:root {
 		--inset-y:           20px;
 		--inset-x:           20px;
-		--search-bar-height: #{math.floor(60px * 0.75)};
-		--grid-item-size:    #{math.floor(70px * 0.75)};
+		--search-bar-height: #{math.floor($search-bar-height * 0.75)};
+		--grid-item-size:    #{math.floor($grid-item-size * 0.75)};
 	}
 }

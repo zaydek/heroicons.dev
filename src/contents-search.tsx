@@ -12,7 +12,7 @@ export function SearchBar() {
 	return <>
 		<div
 			className="px-calc($search-bar-height_/_8) flex align-center h-$search-bar-height rounded-1e3 bg-color-$base-gray-color
-				[&:is(:hover,_:focus)]:(bg-color-$base-color shadow-0_0_0_1px_$hairline-color) [&_>_*:nth-child(2)]:flex-grow-1"
+				[&:is(:hover,_:focus)]:(bg-color-$base-color shadow-inset_0_0_0_1px_$hairline-color) [&_>_*:nth-child(2)]:flex-grow-1"
 		>
 			<div className="flex justify-center align-center h-75% aspect-1 rounded-1e3 bg-color-red [@media_(max-width:_750px)]:[display]-none">
 				<div className="h-24 w-24 rounded-1e3 bg-color-white"></div>
@@ -36,7 +36,7 @@ export function SearchBar() {
 
 function GridScaffold({ children }: PropsWithChildren) {
 	return <>
-		<div className="p-$inset-y p-$inset-x grid grid-cols-repeat(auto-fill,_minmax($grid-item-size,_1fr)) gap-y-20 gap-x-10">
+		<div className="py-$inset-y px-$inset-x grid grid-cols-repeat(auto-fill,_minmax($grid-item-size,_1fr)) gap-y-20 gap-x-10">
 			{children}
 		</div>
 	</>

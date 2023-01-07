@@ -32,13 +32,13 @@ function OutlinedValue({ children, center }: PropsWithChildren<{ center?: boolea
 	center ??= false
 	if (center) {
 		return <>
-			<div className="flex justify-center align-center h-$form-size rounded-1e3 shadow-0_0_0_1px_$hairline-color">
+			<div className="flex justify-center align-center h-$form-size rounded-1e3 shadow-inset_0_0_0_1px_$hairline-color">
 				{children}
 			</div>
 		</>
 	} else {
 		return <>
-			<div className="px-calc($form-size_/_2) flex align-center h-$form-size rounded-1e3 shadow-0_0_0_1px_$hairline-color">
+			<div className="px-calc($form-size_/_2) flex align-center h-$form-size rounded-1e3 shadow-inset_0_0_0_1px_$hairline-color">
 				<styled.TypographyCaps className="color-$fill-color">
 					{children}
 				</styled.TypographyCaps>
@@ -105,8 +105,8 @@ function Slider(props: { min: number, max: number, step: number, value: number, 
 function TextareaButton({ icon, children, ...props }: { icon: (_: SVGAttributes<SVGSVGElement>) => JSX.Element } & HTMLAttributes<HTMLDivElement>) {
 	return <>
 		<AriaButton {...props}>
-			<div className="px-calc($form-size_/_2) flex align-center gap-8 h-$form-size rounded-1e3 bg-color-$form-color shadow-$shadow [[role=button]:hover:active_&]:(bg-color-$trim-color shadow-$inset-shadow)">
-				<Icon className="h-16 w-16 [stroke-width]-2.5 color-$trim-color [[role=button]:hover:active_&]:color-WHITE"
+			<div className="px-calc($form-size_/_2) flex align-center gap-8 h-$form-size rounded-1e3 bg-color-$form-color shadow-$inset-shadow [[role=button]:hover:active_&]:(bg-color-$trim-color shadow-$inset-shadow)">
+				<Icon className="h-16 w-16 [stroke-width]-2 color-$trim-color [[role=button]:hover:active_&]:color-WHITE"
 					icon={icon} />
 				<styled.TypographyCaps className="color-$fill-color [[role=button]:hover:active_&]:color-WHITE">
 					{children}
@@ -175,7 +175,7 @@ function SectionStrokeWidth() {
 
 function SectionClipboard() {
 	const { selectedName, copyAs, strictJsx, exportComponent, typescript, addImportStatement, framework, clipboard } = useContext(SearchConfigContext)!
-	const { setCopyAs, setStrictJsx, setExportComponent, setTypescript, setAddImportStatement, setFramework } = useContext(SetSearchConfigContext)!
+	const { setCopyAs, setStrictJsx, setExportComponent, setTypescript, setAddImportStatement, setFramework, resetClipboard } = useContext(SetSearchConfigContext)!
 
 	const extension = useMemo(() => {
 		let extension = "svg"
@@ -195,7 +195,7 @@ function SectionClipboard() {
 				<Label>
 					COPY AS
 				</Label>
-				<RevertButton />
+				<RevertButton onClick={resetClipboard} />
 			</div>
 			<AriaRadiogroup groupValue={copyAs} setGroupValue={setCopyAs as Dispatch<SetStateAction<string>>}>
 				<div className="grid grid-cols-2 gap-10">
@@ -213,7 +213,7 @@ function SectionClipboard() {
 				<styled.TypographyCode
 					tag="textarea"
 					className="p-24 aspect-1.75 rounded-24 color-$fill-color bg-color-$base-gray-color
-						[&::placeholder]:color-$soft-fill-color [&:is(:hover,_:focus)]:(bg-color-$base-color shadow-0_0_0_1px_$hairline-color)"
+						[&::placeholder]:color-$soft-fill-color [&:is(:hover,_:focus)]:(bg-color-$base-color shadow-inset_0_0_0_1px_$hairline-color)"
 					placeholder="Click an icon to get started"
 					value={clipboard}
 					readOnly
@@ -250,9 +250,11 @@ function SectionClipboard() {
 				<Checkbox checked={exportComponent} setChecked={setExportComponent}>
 					EXPORT COMPONENT
 				</Checkbox>
-				<Checkbox checked={typescript} setChecked={setTypescript}>
-					TYPESCRIPT
-				</Checkbox>
+				{exportComponent &&
+					<Checkbox checked={typescript} setChecked={setTypescript}>
+						TYPESCRIPT
+					</Checkbox>
+				}
 			</>}
 			{copyAs === "name" && <>
 				<Checkbox checked={addImportStatement} setChecked={setAddImportStatement}>
