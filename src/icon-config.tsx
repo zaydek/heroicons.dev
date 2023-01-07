@@ -1,7 +1,7 @@
 import { SVGAttributes } from "react"
 
 // v1/20/solid
-export function HeroiconsLogomark(props: SVGAttributes<SVGElement>) {
+export function HeroiconsLogomarkIcon(props: SVGAttributes<SVGElement>) {
 	return (
 		<svg fill="currentColor" /* width="20" height="20" */ viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
 			<path clipRule="evenodd" fillRule="evenodd" d="M2.166 4.999C5.06114 4.963 7.84481 3.87746 10 1.944C12.155 3.87782 14.9387 4.96373 17.834 5C17.944 5.65 18 6.32 18 7.001C18 12.226 14.66 16.671 10 18.318C5.34 16.67 2 12.225 2 7C2 6.318 2.057 5.65 2.166 4.999Z" />
@@ -9,7 +9,7 @@ export function HeroiconsLogomark(props: SVGAttributes<SVGElement>) {
 	)
 }
 
-export function HeroiconsLogotext(props: SVGAttributes<SVGElement>) {
+export function HeroiconsLogotextIcon(props: SVGAttributes<SVGElement>) {
 	return (
 		<svg fill="currentColor" /* height="47" width="298" */ viewBox="0 0 298 47" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
 			<path clipRule="evenodd" fillRule="evenodd" d="M114.103 44.784C116.919 46.064 120.055 46.704 123.511 46.704C127.01 46.704 130.125 46.064 132.855 44.784C135.629 43.4613 137.826 41.584 139.447 39.152C141.069 36.6773 141.879 33.6693 141.879 30.128C141.879 26.6293 141.069 23.6427 139.447 21.168C137.826 18.6507 135.629 16.7307 132.855 15.408C130.125 14.0853 127.01 13.424 123.511 13.424C120.055 13.424 116.919 14.0853 114.103 15.408C111.33 16.7307 109.133 18.6507 107.511 21.168C105.89 23.6427 105.079 26.6293 105.079 30.128C105.079 33.6693 105.89 36.6773 107.511 39.152C109.133 41.584 111.33 43.4613 114.103 44.784ZM129.143 39.728C127.437 40.5387 125.559 40.944 123.511 40.944C121.463 40.944 119.565 40.5387 117.815 39.728C116.109 38.8747 114.743 37.6373 113.719 36.016C112.738 34.3947 112.247 32.432 112.247 30.128C112.247 27.7813 112.759 25.7973 113.783 24.176C114.807 22.5547 116.173 21.3173 117.879 20.464C119.629 19.6107 121.506 19.184 123.511 19.184C125.602 19.184 127.479 19.6107 129.143 20.464C130.85 21.3173 132.194 22.576 133.175 24.24C134.199 25.8613 134.711 27.824 134.711 30.128C134.711 32.432 134.199 34.3947 133.175 36.016C132.194 37.6373 130.85 38.8747 129.143 39.728Z" />
@@ -36,7 +36,7 @@ export function CheckIcon(props: SVGAttributes<SVGElement>) {
 }
 
 // v2/24/outline
-export function XMark(props: SVGAttributes<SVGElement>) {
+export function XMarkIcon(props: SVGAttributes<SVGElement>) {
 	return (
 		<svg fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
 			<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -79,15 +79,6 @@ export function ArrowDownTrayIcon(props: SVGAttributes<SVGElement>) {
 		</svg>
 	)
 }
-
-//// // v2/24/outline
-//// export function PlusIcon(props: SVGAttributes<SVGElement>) {
-//// 	return (
-//// 		<svg fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
-//// 			<path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-//// 		</svg>
-//// 	)
-//// }
 
 // v2/24/outline
 export function DocumentDuplicateIcon(props: SVGAttributes<SVGElement>) {

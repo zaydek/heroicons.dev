@@ -3,7 +3,7 @@ import * as styled from "./css/bindings"
 import { AnchorHTMLAttributes, HTMLAttributes, PropsWithChildren, SVGAttributes, useCallback, useContext, useEffect, useRef, useTransition } from "react"
 import { AriaButton } from "./aria/aria-button"
 import { cache } from "./cache"
-import { ArrowTopRightOnSquareIcon, FigmaIcon, GitHubIcon, HeartIcon, HeroiconsLogomark, HeroiconsLogotext, LightningIcon, PencilSquareIcon, ScaleIcon, TwitterIcon } from "./icon-config"
+import { ArrowTopRightOnSquareIcon, FigmaIcon, GitHubIcon, HeartIcon, HeroiconsLogomarkIcon, HeroiconsLogotextIcon, LightningIcon, PencilSquareIcon, ScaleIcon, TwitterIcon } from "./icon-config"
 import { Icon } from "./lib/react/icon"
 import { DispatchProgressBarContext } from "./progress-bar"
 import { SearchContext, SetSearchContext } from "./state"
@@ -74,8 +74,8 @@ export function Sidebar1Contents() {
 		<section className="absolute inset-t-0 py-$inset-y pb-$sidebar-1-inset-y">
 			<div className="px-$sidebar-1-inset-x flex flex-col gap-16 h-calc($inset-y_+_$search-bar-height)">
 				<div className="flex align-center gap-6">
-					<HeroiconsLogomark className="h-24 w-24 color-$trim-color [transform]-translateY(15%)" />
-					<HeroiconsLogotext className="h-20 color-$hard-fill-color" />
+					<HeroiconsLogomarkIcon className="h-24 w-24 color-$trim-color [transform]-translateY(15%)" />
+					<HeroiconsLogotextIcon className="h-20 color-$hard-fill-color" />
 				</div>
 				<styled.TypographySans className="color-$fill-color">
 					<span className="inline-flex align-baseline gap-6">

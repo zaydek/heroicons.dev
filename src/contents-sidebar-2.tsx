@@ -5,7 +5,7 @@ import { AriaButton } from "./aria/aria-button"
 import { AriaCheckbox } from "./aria/aria-checkbox"
 import { AriaRadio, AriaRadiogroup } from "./aria/aria-radio"
 import { AriaSlider } from "./aria/aria-slider"
-import { ArrowDownTrayIcon, CheckIcon, DocumentDuplicateIcon, ReactIcon, SVGIcon, VueIcon } from "./icon-config"
+import { ArrowDownTrayIcon, CheckIcon, DocumentDuplicateIcon, ReactIcon, SVGIcon, VueIcon, XMarkIcon } from "./icon-config"
 import { download } from "./lib/download"
 import { Icon } from "./lib/react/icon"
 import { SearchConfigContext, SearchContext, SetSearchConfigContext } from "./state"
@@ -48,8 +48,10 @@ function OutlinedValue({ children, center }: PropsWithChildren<{ center?: boolea
 function RevertButton(props: HTMLAttributes<HTMLDivElement>) {
 	return <>
 		<AriaButton {...props}>
-			<div className="flex justify-center align-center h-24 w-24 rounded-1e3 bg-color-red">
-				<div className="h-8 w-8 rounded-1e3 bg-color-white"></div>
+			{/* <div className="flex justify-center align-center h-24 w-24 rounded-1e3 bg-color-red"> */}
+			<div className="flex justify-center align-center h-20 w-20 rounded-1e3 bg-color-$base-gray-color">
+				{/* <div className="h-8 w-8 rounded-1e3 bg-color-white"></div> */}
+				<Icon className="h-12 w-12 [stroke-width]-3 color-$soft-fill-color" icon={XMarkIcon} />
 			</div>
 		</AriaButton>
 	</>
