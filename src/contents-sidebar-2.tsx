@@ -12,11 +12,9 @@ import { SearchConfigContext, SetSearchConfigContext } from "./state"
 
 function Label({ children }: PropsWithChildren) {
 	return <>
-		<div className="px-calc($form-size_/_2)">
-			<styled.TypographyCaps className="color-$fill-color">
-				{children}
-			</styled.TypographyCaps>
-		</div>
+		<styled.TypographyCaps className="color-$fill-color">
+			{children}
+		</styled.TypographyCaps>
 	</>
 }
 
@@ -214,7 +212,7 @@ function SectionClipboard() {
 					tag="textarea"
 					className="p-24 aspect-1.75 rounded-24 color-$fill-color bg-color-$base-gray-color
 						[&::placeholder]:color-$soft-fill-color [&:is(:hover,_:focus)]:(bg-color-$base-color shadow-inset_0_0_0_1px_$hairline-color)"
-					placeholder="Click an icon to get started"
+					placeholder="Click an icon to copy"
 					value={clipboard}
 					readOnly
 				/>

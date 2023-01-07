@@ -81,9 +81,9 @@ export function Sidebar1Contents() {
 					<span className="inline-flex align-baseline gap-6">
 						<Icon className="h-16 w-16 color-$hard-fill-color [transform]-translateY(15%)"
 							icon={ScaleIcon} />
-						MIT
-					</span>
-					open source icons by
+						MIT-licensed
+					</span>{" "}
+					open source icons by{" "}
 					<a
 						className="inline-flex align-baseline gap-6 color-$anchor-blue [&:hover]:[text-decoration]-underline"
 						href="https://twitter.com/steveschoger"
@@ -99,7 +99,7 @@ export function Sidebar1Contents() {
 			<div className="flex flex-col gap-16">
 				<div>
 					<MenuTitle>
-						V2
+						VERSION 2
 					</MenuTitle>
 					<MenuItem
 						icon={LightningIcon.V2_20_solid}
@@ -125,7 +125,7 @@ export function Sidebar1Contents() {
 				</div>
 				<div>
 					<MenuTitle>
-						V1 (LEGACY)
+						VERSION 1 (LEGACY)
 					</MenuTitle>
 					<MenuItem
 						icon={LightningIcon.v1_20_solid}
@@ -194,7 +194,7 @@ export function Sidebar1Contents() {
 			</nav>
 			<div className="px-$sidebar-1-inset-x">
 				<styled.TypographySans className="color-$fill-color">
-					Web app and design by
+					Website design and app by
 					<a
 						className="inline-flex align-baseline gap-6 color-$anchor-blue [&:hover]:[text-decoration]-underline"
 						href="https://twitter.com/username_ZAYDEK"
@@ -209,13 +209,12 @@ export function Sidebar1Contents() {
 			</div>
 			<div className="px-$sidebar-1-inset-x">
 				<styled.TypographySmallSans className="color-$soft-fill-color">
-					Heroicons are
+					Heroicons are{" "}
 					<span className="inline-flex align-baseline gap-6">
 						MIT-licensed.
 						<Icon className="h-16 w-16 color-$fill-color [transform]-translateY(15%)"
 							icon={ScaleIcon} />
 					</span>
-					<br />
 					You may use them for commercial and personal application without attribution.
 				</styled.TypographySmallSans>
 			</div>

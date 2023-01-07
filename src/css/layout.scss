@@ -94,7 +94,7 @@ $sidebar-2-z-index:  300;
 	position: fixed;
 	inset: 0;
 	z-index: $sidebar-2-z-index - 10;
-	background-color: hsl(0, 0%, 0%, 0.5);
+	background-color: hsl(var(--base-h), var(--base-s), 10%, 0.25);
 	transition: opacity 300ms ease;
 	pointer-events: auto;
 	[data-column-2-open=false] &                   { opacity: 0; pointer-events: none; }
