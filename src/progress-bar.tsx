@@ -52,11 +52,10 @@ export function ProgressBarProvider({ children }: PropsWithChildren) {
 				end,
 			}), [end, start])}>
 				<div
-					// NOTE: z-1e3 doesn't work; use z-1000
-					className="fixed inset-t-0 z-1000 h-4 bg-color-hsl(200,_100%,_50%)"
+					className="fixed inset-t-0 z-999 h-4 bg-color-hsl(200,_100%,_50%)"
 					style={{
 						"width": `${progress * 100}%`,
-						"opacity": working ? 1 : 0,
+						"opacity": working ? "initial" : 0,
 						"transition": [
 							`width ${TICK}ms ease`,
 							!working && `opacity ${TICK_END}ms ease ${TICK}ms`,

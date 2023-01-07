@@ -76,7 +76,7 @@ export function StateProvider({ children }: PropsWithChildren) {
 
 	//////////////////////////////////////////////////////////////////////////////
 
-	const [iconset, setIconset] = useState(() => searchParams.string<IconsetValue>({ key: "iconset", oneOf: Iconsets, initialValue: "v2-20-solid" }))
+	const [iconset, setIconset] = useState(() => searchParams.string<IconsetValue>({ key: "iconset", oneOf: Iconsets, initialValue: "v2-24-outline" }))
 
 	const [manifest, Icon] = useMemo(() => {
 		return cache.get(iconset)
@@ -299,16 +299,16 @@ function URLSearchParamsEffect() {
 	useEffect(() => {
 		const timeoutId = window.setTimeout(() => {
 			const params = new URLSearchParams({
-				...(search.iconset                  !== "v2-20-solid" && { "iconset":            "" + search.iconset }),
-				...(search.search                   !== ""            && { "search":             "" + search.search }), // Alias
-				...(searchConfig.size               !== 30            && { "size":               "" + searchConfig.size.toFixed(0) }),
-				...(searchConfig.strokeWidth        !== 2             && { "strokeWidth":        "" + searchConfig.strokeWidth.toFixed(2) }),
-				...(searchConfig.copyAs             !== "code"        && { "copyAs":             "" + searchConfig.copyAs }),
-				...(searchConfig.strictJsx          !== false         && { "strictJsx":          "" + searchConfig.strictJsx }),
-				...(searchConfig.exportComponent    !== false         && { "exportComponent":    "" + searchConfig.exportComponent }),
-				...(searchConfig.typescript         !== false         && { "typescript":         "" + searchConfig.typescript }),
-				...(searchConfig.addImportStatement !== true          && { "addImportStatement": "" + searchConfig.addImportStatement }),
-				...(searchConfig.framework          !== "svg"         && { "framework":          "" + searchConfig.framework }),
+				...(search.iconset                  !== "v2-24-outline" && { "iconset":            "" + search.iconset }),
+				...(search.search                   !== ""              && { "search":             "" + search.search }), // Alias
+				...(searchConfig.size               !== 30              && { "size":               "" + searchConfig.size.toFixed(0) }),
+				...(searchConfig.strokeWidth        !== 2               && { "strokeWidth":        "" + searchConfig.strokeWidth.toFixed(2) }),
+				...(searchConfig.copyAs             !== "code"          && { "copyAs":             "" + searchConfig.copyAs }),
+				...(searchConfig.strictJsx          !== false           && { "strictJsx":          "" + searchConfig.strictJsx }),
+				...(searchConfig.exportComponent    !== false           && { "exportComponent":    "" + searchConfig.exportComponent }),
+				...(searchConfig.typescript         !== false           && { "typescript":         "" + searchConfig.typescript }),
+				...(searchConfig.addImportStatement !== true            && { "addImportStatement": "" + searchConfig.addImportStatement }),
+				...(searchConfig.framework          !== "svg"           && { "framework":          "" + searchConfig.framework }),
 			})
 			const paramsStr = params.toString()
 			window.history.replaceState({}, "", paramsStr === "" ? "/" : `/?${paramsStr}`)

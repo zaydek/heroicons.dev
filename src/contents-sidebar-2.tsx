@@ -8,7 +8,7 @@ import { AriaSlider } from "./aria/aria-slider"
 import { ArrowDownTrayIcon, CheckIcon, DocumentDuplicateIcon, ReactIcon, SVGIcon, VueIcon } from "./icon-config"
 import { download } from "./lib/download"
 import { Icon } from "./lib/react/icon"
-import { SearchConfigContext, SetSearchConfigContext } from "./state"
+import { SearchConfigContext, SearchContext, SetSearchConfigContext } from "./state"
 
 function Label({ children }: PropsWithChildren) {
 	return <>
@@ -122,7 +122,7 @@ export function SectionSize() {
 		<section className="py-$sidebar-2-inset-y px-$sidebar-2-inset-x flex flex-col gap-10 [&:nth-child(1)]:pt-48">
 			<div className="flex justify-space-between align-center h-20">
 				<Label>
-					SIZE
+					PREVIEW SIZE
 				</Label>
 				<div className="flex align-center gap-8">
 					<AltLabel>
@@ -134,7 +134,7 @@ export function SectionSize() {
 			<Slider
 				min={0}
 				max={60}
-				step={1}
+				step={2}
 				value={size}
 				setValue={setSize}
 			/>
@@ -150,7 +150,7 @@ function SectionStrokeWidth() {
 		<section className="py-$sidebar-2-inset-y px-$sidebar-2-inset-x flex flex-col gap-10 [&:nth-child(1)]:pt-48">
 			<div className="flex justify-space-between align-center h-20">
 				<Label>
-					STROKE WIDTH
+					PREVIEW STROKE WIDTH
 				</Label>
 				<div className="flex align-center gap-8">
 					<AltLabel>
@@ -210,7 +210,7 @@ function SectionClipboard() {
 			<div className="relative flex flex-col">
 				<styled.TypographyCode
 					tag="textarea"
-					className="p-24 aspect-1.75 rounded-24 color-$fill-color bg-color-$base-gray-color
+					className="p-calc($form-size_*_2_/_3) aspect-1.75 rounded-24 color-$fill-color bg-color-$base-gray-color
 						[&::placeholder]:color-$soft-fill-color [&:is(:hover,_:focus)]:(bg-color-$base-color shadow-inset_0_0_0_1px_$hairline-color)"
 					placeholder="Click an icon to copy"
 					value={clipboard}
@@ -280,10 +280,14 @@ function SectionClipboard() {
 }
 
 export function Sidebar2Contents() {
+	const { iconset } = useContext(SearchContext)!
+
 	return <>
 		<SectionSize />
-		<hr className="h-1 bg-color-$hairline-color" />
-		<SectionStrokeWidth />
+		{iconset.includes("outline") && <>
+			<hr className="h-1 bg-color-$hairline-color" />
+			<SectionStrokeWidth />
+		</>}
 		<hr className="h-1 bg-color-$hairline-color" />
 		<SectionClipboard />
 		<hr className="h-1 bg-color-$hairline-color" />

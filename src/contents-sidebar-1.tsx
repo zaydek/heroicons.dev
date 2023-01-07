@@ -144,7 +144,7 @@ export function Sidebar1Contents() {
 				</div>
 			</div>
 		</section>
-		<section className="absolute inset-b-0 py-$inset-y pt-$sidebar-1-inset-y flex flex-col gap-16 bg-$base-color">
+		<section className="absolute inset-b-0 py-$inset-y pt-$sidebar-1-inset-y flex flex-col gap-16 bg-color-$base-color">
 			<nav>
 				<NavLink
 					icon={GitHubIcon}
