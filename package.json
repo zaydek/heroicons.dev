@@ -22,6 +22,7 @@
 		"eslint-config-react-app": "^7.0.1",
 		"playwright": "^1.29.1",
 		"sass": "^1.57.1",
+		"styled-jsx": "^5.1.1",
 		"typescript": "^4.9.3",
 		"unocss": "^0.48.0",
 		"vite": "^4.0.0"

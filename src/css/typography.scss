@@ -1,8 +1,10 @@
+// TODO
 .typography-search-bar {
 	white-space: normal;
-	font: 400 16px / 1.7
-		var(--sans);
+	font-family: var(--sans);
 	font-feature-settings: "tnum";
+	font-size: 16px;
+	font-weight: 400;
 	letter-spacing: null;
 	color: var(--fill-color);
 	&::placeholder {
@@ -10,13 +12,19 @@
 	}
 }
 
+// TODO
 .typography-search-result {
+	// TODO
 	white-space: pre;         // Ellipsis
-	font: 400 13px / normal
-		var(--sans);
+
+	font-family: var(--sans);
 	font-feature-settings: "tnum";
+	font-size: 13px;
+	font-weight: 400;
 	letter-spacing: null;
 	color: var(--fill-soft-color);
+
+	// TODO
 	overflow: hidden;         // Ellipsis
 	text-overflow: ellipsis;  // Ellipsis
 	-webkit-user-select: all; // User select
@@ -25,59 +33,53 @@
 
 .typography-sans {
 	white-space: normal;
-	font: 400 15px / 1.5
-		var(--sans);
+	font-family: var(--sans);
 	font-feature-settings: "tnum";
+	font-size: 15px;
+	font-weight: 400;
 	letter-spacing: null;
 	color: var(--fill-color);
 }
 
-.typography-legalese {
+.typography-small-alt-sans {
 	white-space: normal;
-	font: 400 13px / 1.4
-		var(--sans);
+	font-family: var(--sans);
 	font-feature-settings: "tnum";
+	font-size: 13px;
+	font-weight: 400;
 	letter-spacing: null;
 	color: var(--fill-soft-color);
 }
 
 .typography-caps {
 	white-space: normal;
-	font: 500 11px / normal
-		var(--sans);
+	font-family: var(--sans);
 	font-feature-settings: "tnum";
+	font-size: 11px;
+	font-weight: 500;
 	letter-spacing: 0.1em;
 	color: var(--fill-color);
 }
 
 .typography-alt-caps {
 	white-space: normal;
-	font: 500 11px / normal
-		var(--sans);
+	font-family: var(--sans);
 	font-feature-settings: "tnum";
+	font-size: 11px;
+	font-weight: 500;
 	letter-spacing: 0.1em;
 	color: var(--fill-soft-color);
 }
 
-.typography-textarea-button {
-	white-space: normal;
-	font: 500 11px / normal
-		var(--sans);
-	font-feature-settings: "tnum";
-	letter-spacing: 0.1em;
-	color: var(--fill-color);
-	[role=button]:hover:active & {
-		color: WHITE;
-	}
-}
-
+// TODO
 .typography-code {
 	// BUG: Error: "&" may only used at the beginning of a compound selector.
 	$selector: "" + &;
 	white-space: pre;
-	font: 400 14px / normal
-		var(--code);
+	font-family: var(--code);
 	font-feature-settings: "tnum";
+	font-size: 14px;
+	font-weight: 400;
 	letter-spacing: null;
 	color: var(--fill-color);
 	textarea#{$selector}::placeholder { // Must prepend <textarea> for ::placeholdert color to work

@@ -11,6 +11,9 @@ export default defineConfig({
 	plugins: [
 		unoCss(),
 		reactJs({
+			babel: {
+				"plugins": ["styled-jsx/babel"],
+			},
 			fastRefresh: false,
 		}),
 	],

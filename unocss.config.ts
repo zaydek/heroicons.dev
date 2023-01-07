@@ -20,7 +20,7 @@ function desugar(rawValue: undefined | string, { sign, px }: { sign?: string, px
 	const value = convertSpaces(extractCSSVariables(rawValue))
 	if (value.startsWith("$")) {
 		return value
-	} else if (value.startsWith("[") && value.endsWith("]")) {
+	} else if (value.startsWith("[") && value.endsWith("]")) { // TODO
 		return value.slice(1, -1)
 	} else {
 		if (px) {
@@ -47,10 +47,18 @@ const rules: Rule[] = [
 	//// 	return {}
 	//// }],
 
-	[/^\[(-)?((?:$)?[a-z]+(?:-[a-z]+)*):(.+)\]$/, ([_, sign, key, value]) => {
-	//// [/^$/, ([, sign, key, value]) => {
-		return { [key]: desugar(value, { sign, px: false }) }
+
+	[/^\[(-)?((?:$)?[a-z]+(?:-[a-z]+)*)\]-(.+)$/, ([_, sign, key, value]) => {
+		return {
+			[key]: desugar(value, { sign, px: false }),
+		}
 	}],
+
+	//// [/^\[(-)?((?:$)?[a-z]+(?:-[a-z]+)*):(.+)\]$/, ([_, sign, key, value]) => {
+	//// 	return {
+	//// 		[key]: desugar(value, { sign, px: false }),
+	//// 	}
+	//// }],
 
 	/*
 	 * Positioning
@@ -118,9 +126,9 @@ const rules: Rule[] = [
 	 */
 	["grid", { "display": "grid" }],
 
-	[/^grid-(\d+)$/,        ([_, value]) => ({ "display": "grid", "grid-template":         value === "1" ? "1fr" : `repeat(${desugar(value, { px: false })}, 1fr)` })],
-	[/^grid-rows-(\d+)$/,   ([_, value]) => ({ "display": "grid", "grid-template-rows":    value === "1" ? "1fr" : `repeat(${desugar(value, { px: false })}, 1fr)` })],
-	[/^grid-cols-(\d+)$/,   ([_, value]) => ({ "display": "grid", "grid-template-columns": value === "1" ? "1fr" : `repeat(${desugar(value, { px: false })}, 1fr)` })],
+	[/^grid-(.+)$/,         ([_, value]) => ({ "display": "grid", "grid-template":         Number.isNaN(+value) ? desugar(value, { px: false }) : `repeat(${desugar(value, { px: false })}, 1fr)` })],
+	[/^grid-rows-(.+)$/,    ([_, value]) => ({ "display": "grid", "grid-template-rows":    Number.isNaN(+value) ? desugar(value, { px: false }) : `repeat(${desugar(value, { px: false })}, 1fr)` })],
+	[/^grid-cols-(.+)$/,    ([_, value]) => ({ "display": "grid", "grid-template-columns": Number.isNaN(+value) ? desugar(value, { px: false }) : `repeat(${desugar(value, { px: false })}, 1fr)` })],
 
 	/*
 	 * Gap

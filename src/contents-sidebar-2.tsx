@@ -25,9 +25,9 @@ function AltLabel({ children }: PropsWithChildren) {
 	</>
 }
 
-function LabelValue({ children, center }: PropsWithChildren<{ center?: boolean }>) {
+function OutlinedValue({ children, center }: PropsWithChildren<{ center?: boolean }>) {
 	return <>
-		<div className={cx(`px-[calc($form-size_/_2)] flex ${center ? "justify-center" : ""} align-center h-$form-size rounded-1e3 shadow-[0_0_0_1px_$hairline-color]`)}>
+		<div className={cx(`px-[calc($form-size_/_2)] flex ${center ? "justify-center" : ""} align-center h-calc($form-size_-_4px) rounded-1e3 shadow-[0_0_0_1px_$hairline-color]`)}>
 			<styled.TypographyCaps>
 				{children}
 			</styled.TypographyCaps>
@@ -48,13 +48,13 @@ function RevertButton(props: HTMLAttributes<HTMLDivElement>) {
 function Radio({ children, center, ...props }: PropsWithChildren<{ value: string, center?: boolean }>) {
 	return <>
 		<AriaRadio {...props}>
-			<div className="flex gap-10 [&_>_*:nth-child(2)]:flex-grow-1">
+			<div className="flex align-center gap-10 [&_>_*:nth-child(2)]:flex-grow-1">
 				<styled.Radio className="flex justify-center align-center">
 					<styled.RadioIcon />
 				</styled.Radio>
-				<LabelValue center={center}>
+				<OutlinedValue center={center}>
 					{children}
-				</LabelValue>
+				</OutlinedValue>
 			</div>
 		</AriaRadio>
 	</>
@@ -63,13 +63,13 @@ function Radio({ children, center, ...props }: PropsWithChildren<{ value: string
 function Checkbox({ children, ...props }: PropsWithChildren<{ checked: boolean, setChecked: Dispatch<SetStateAction<boolean>> }>) {
 	return <>
 		<AriaCheckbox {...props}>
-			<div className="flex gap-10 [&_>_*:nth-child(2)]:flex-grow-1">
+			<div className="flex align-center gap-10 [&_>_*:nth-child(2)]:flex-grow-1">
 				<styled.Checkbox className="flex justify-center align-center">
 					<styled.CheckboxIcon />
 				</styled.Checkbox>
-				<LabelValue>
+				<OutlinedValue>
 					{children}
-				</LabelValue>
+				</OutlinedValue>
 			</div>
 		</AriaCheckbox>
 	</>
@@ -95,9 +95,9 @@ function TextareaButton({ children, ...props }: PropsWithChildren<HTMLAttributes
 		<AriaButton {...props}>
 			<div className="px-[calc($form-size_/_2)] flex align-center gap-8 h-$form-size rounded-1e3 bg-color-$form-color shadow-$shadow [&:hover]:bg-color-$trim-color">
 				<div className="h-16 w-16 rounded-1e3 bg-color-$trim-color"></div>
-				<styled.TypographyTextareaButton>
+				<styled.TypographyCaps>
 					{children}
-				</styled.TypographyTextareaButton>
+				</styled.TypographyCaps>
 			</div>
 		</AriaButton>
 	</>
