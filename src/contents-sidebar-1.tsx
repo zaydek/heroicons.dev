@@ -12,9 +12,9 @@ import { IconsetValue } from "./types"
 function MenuTitle({ children }: PropsWithChildren) {
 	return <>
 		<div className="px-$sidebar-inset-x flex align-center h-36">
-			<styled.TypographyAltCaps>
+			<styled.TypographyCaps className="color-$soft-fill-color">
 				{children}
-			</styled.TypographyAltCaps>
+			</styled.TypographyCaps>
 		</div>
 	</>
 }
@@ -24,7 +24,7 @@ function MenuItem({ icon, children, ...props }: { icon: (_: SVGAttributes<SVGSVG
 		<AriaButton {...props}>
 			<div className="px-$sidebar-inset-x flex align-center gap-8 h-36 [&:hover,_[role=button][data-active=true]_&]:bg-color-$base-gray-color">
 				<Icon className="h-20 h-20 color-$trim-color" icon={icon} />
-				<styled.TypographyCaps>
+				<styled.TypographyCaps className="color-$fill-color">
 					{children}
 				</styled.TypographyCaps>
 			</div>
@@ -79,7 +79,7 @@ export function Sidebar1Contents() {
 				</div>
 				<styled.TypographySans className="[line-height]-1.6">
 					<span className="inline-flex align-baseline gap-4">
-						<Icon className="h-16 w-16 color-$fill-hard-color [transform]-translateY(2px)"
+						<Icon className="h-16 w-16 color-$hard-fill-color [transform]-translateY(2px)"
 							icon={ScaleIcon} />
 						MIT
 					</span>{" "}
@@ -201,7 +201,7 @@ export function Sidebar1Contents() {
 				</styled.TypographySans>
 			</div>
 			<div className="px-$sidebar-inset-x">
-				<styled.TypographySmallAltSans className="[line-height]-1.6">
+				<styled.TypographySmallSans className="[line-height]-1.6 color-$soft-fill-color">
 					Heroicons are{" "}
 					<span className="inline-flex align-baseline gap-4">
 						MIT-licensed.{" "}
@@ -210,7 +210,7 @@ export function Sidebar1Contents() {
 					</span>
 					<br />
 					You may use them for commercial and personal application without attribution.
-				</styled.TypographySmallAltSans>
+				</styled.TypographySmallSans>
 			</div>
 		</section>
 	</>

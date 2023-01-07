@@ -5,36 +5,46 @@ import { AriaButton } from "./aria/aria-button"
 import { AriaCheckbox } from "./aria/aria-checkbox"
 import { AriaRadio, AriaRadiogroup } from "./aria/aria-radio"
 import { AriaSlider } from "./aria/aria-slider"
-import { ArrowDownTrayIcon, CheckIcon, DocumentDuplicateIcon } from "./icon-config"
-import { cx } from "./lib/cx"
+import { ArrowDownTrayIcon, CheckIcon, DocumentDuplicateIcon, ReactIcon, SVGIcon, VueIcon } from "./icon-config"
 import { download } from "./lib/download"
 import { Icon } from "./lib/react/icon"
 import { SearchConfigContext, SetSearchConfigContext } from "./state"
 
 function Label({ children }: PropsWithChildren) {
 	return <>
-		<styled.TypographyCaps>
-			{children}
-		</styled.TypographyCaps>
+		<div className="px-calc($form-size_/_2)">
+			<styled.TypographyCaps className="color-$fill-color">
+				{children}
+			</styled.TypographyCaps>
+		</div>
 	</>
 }
 
 function AltLabel({ children }: PropsWithChildren) {
 	return <>
-		<styled.TypographyAltCaps>
+		<styled.TypographyCaps className="color-$soft-fill-color">
 			{children}
-		</styled.TypographyAltCaps>
+		</styled.TypographyCaps>
 	</>
 }
 
 function OutlinedValue({ children, center }: PropsWithChildren<{ center?: boolean }>) {
-	return <>
-		<div className={cx(`px-calc($form-size_/_2) flex ${center ? "justify-center" : ""} align-center h-$form-size rounded-1e3 shadow-0_0_0_1px_$hairline-color`)}>
-			<styled.TypographyCaps>
+	center ??= false
+	if (center) {
+		return <>
+			<div className="flex justify-center align-center h-$form-size rounded-1e3 shadow-0_0_0_1px_$hairline-color">
 				{children}
-			</styled.TypographyCaps>
-		</div>
-	</>
+			</div>
+		</>
+	} else {
+		return <>
+			<div className="px-calc($form-size_/_2) flex align-center h-$form-size rounded-1e3 shadow-0_0_0_1px_$hairline-color">
+				<styled.TypographyCaps className="color-$fill-color">
+					{children}
+				</styled.TypographyCaps>
+			</div>
+		</>
+	}
 }
 
 function RevertButton(props: HTMLAttributes<HTMLDivElement>) {
@@ -98,7 +108,7 @@ function TextareaButton({ icon, children, ...props }: { icon: (_: SVGAttributes<
 			<div className="px-calc($form-size_/_2) flex align-center gap-8 h-$form-size rounded-1e3 bg-color-$form-color shadow-$shadow [[role=button]:hover:active_&]:(bg-color-$trim-color shadow-$inset-shadow)">
 				<Icon className="h-16 w-16 [stroke-width]-2.5 color-$trim-color [[role=button]:hover:active_&]:color-WHITE"
 					icon={icon} />
-				<styled.TypographyCaps className="[[role=button]:hover:active_&]:color-WHITE">
+				<styled.TypographyCaps className="color-$fill-color [[role=button]:hover:active_&]:color-WHITE">
 					{children}
 				</styled.TypographyCaps>
 			</div>
@@ -202,7 +212,7 @@ function SectionClipboard() {
 			<div className="relative flex flex-col">
 				<styled.TypographyCode
 					tag="textarea"
-					className="p-24 aspect-1.75 rounded-24 bg-color-$base-gray-color
+					className="p-24 aspect-1.75 rounded-24 color-$fill-color bg-color-$base-gray-color
 						[&:is(:hover,_:focus)]:(bg-color-$base-color shadow-0_0_0_1px_$hairline-color)"
 					placeholder="Click an icon to get started"
 					value={clipboard}
@@ -249,16 +259,16 @@ function SectionClipboard() {
 				<AriaRadiogroup groupValue={framework} setGroupValue={setFramework as Dispatch<SetStateAction<string>>}>
 					<div className="grid grid-cols-3 gap-10">
 						<Radio value="svg" center>
-							<div className="h-20 w-20 rounded-1e3
-							                bg-color-$svg-orange"></div>
+							<Icon className="h-20 w-20"
+								icon={SVGIcon} />
 						</Radio>
 						<Radio value="react" center>
-							<div className="h-20 w-20 rounded-1e3
-							                bg-color-$react-blue"></div>
+							<Icon className="h-20 w-20"
+								icon={ReactIcon} />
 						</Radio>
 						<Radio value="vue" center>
-							<div className="h-20 w-20 rounded-1e3
-							                bg-color-$vue-green"></div>
+							<Icon className="h-20 w-20"
+								icon={VueIcon} />
 						</Radio>
 					</div>
 				</AriaRadiogroup>

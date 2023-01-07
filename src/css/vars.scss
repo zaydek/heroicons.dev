@@ -6,10 +6,10 @@
 
 	--inset-y:           50px;
 	--inset-x:           40px;
-	--sidebar-1-width:   280px;
-	--sidebar-2-width:   400px;
 	--sidebar-inset-y:   24px;
 	--sidebar-inset-x:   32px;
+	--sidebar-1-width:   280px;
+	--sidebar-2-width:   400px;
 	--search-bar-height: 60px;
 	--grid-item-size:    70px;
 	--form-size:         32px;
@@ -35,8 +35,8 @@
 	--hairline-color:    hsl(var(--base-h), var(--base-s), 50%, calc(100% / 3));
 	--placeholder-color: hsl(var(--base-h), var(--base-s), 40%, 0.2);
 	--fill-color:        hsl(var(--base-h), var(--base-s), 25%);
-	--fill-hard-color:   hsl(var(--base-h), var(--base-s), 10%);
-	--fill-soft-color:   hsl(var(--base-h), var(--base-s), 40%);
+	--hard-fill-color:   hsl(var(--base-h), var(--base-s), 10%);
+	--soft-fill-color:   hsl(var(--base-h), var(--base-s), 40%);
 	--highlight-color:   hsl(45, 100%, 80%);
 	--anchor-blue:       hsl(200, 75%, 60%);
 	--svg-orange:        hsl(36, 100%, 62%); // Never changes
@@ -91,8 +91,8 @@
 	--form-color:        var(--base-gray-color);
 	--placeholder-color: hsl(var(--base-h), var(--base-s), 70%, 0.2);
 	--fill-color:        hsl(var(--base-h), var(--base-s), 90%);
-	--fill-hard-color:   hsl(var(--base-h), var(--base-s), 100%);
-	--fill-soft-color:   hsl(var(--base-h), var(--base-s), 70%);
+	--hard-fill-color:   hsl(var(--base-h), var(--base-s), 100%);
+	--soft-fill-color:   hsl(var(--base-h), var(--base-s), 70%);
 	--highlight-color:   hsl(200, 75%, 60%, 0.5);
 	--anchor-blue:       hsl(200, 75%, 60%);
 

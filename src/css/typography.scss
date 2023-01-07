@@ -1,92 +1,82 @@
-// TODO
-.typography-search-bar {
-	white-space: normal;
-	font-family: var(--sans);
-	font-feature-settings: "tnum";
-	font-size: 16px;
-	font-weight: 400;
-	letter-spacing: null;
-	color: var(--fill-color);
+//// @layer typography, utilities;
 
-	// TODO
-	&::placeholder {
-		color: var(--fill-soft-color);
+//// @layer utilities {
+	.ellipsis {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: pre;
 	}
-}
+//// }
 
-// TODO
-.typography-search-result {
+//// @layer typography {
 	// TODO
-	white-space: pre;         // Ellipsis
+	.typography-search-bar {
+		white-space: normal;
+		font-family: var(--sans);
+		font-feature-settings: "tnum";
+		font-size: 16px;
+		font-weight: 400;
+		letter-spacing: null;
+		color: var(--fill-color);
 
-	font-family: var(--sans);
-	font-feature-settings: "tnum";
-	font-size: 13px;
-	font-weight: 400;
-	letter-spacing: null;
-	color: var(--fill-soft-color);
-
-	// TODO
-	overflow: hidden;         // Ellipsis
-	text-overflow: ellipsis;  // Ellipsis
-	-webkit-user-select: all; // User select
-	user-select: all;         // User select
-}
-
-.typography-sans {
-	white-space: normal;
-	font-family: var(--sans);
-	font-feature-settings: "tnum";
-	font-size: 15px;
-	font-weight: 400;
-	letter-spacing: null;
-	color: var(--fill-color);
-}
-
-.typography-small-alt-sans {
-	white-space: normal;
-	font-family: var(--sans);
-	font-feature-settings: "tnum";
-	font-size: 13px;
-	font-weight: 400;
-	letter-spacing: null;
-	color: var(--fill-soft-color);
-}
-
-.typography-caps {
-	white-space: normal;
-	font-family: var(--sans);
-	font-feature-settings: "tnum";
-	font-size: 11px;
-	font-weight: 500;
-	letter-spacing: 0.1em;
-	color: var(--fill-color);
-}
-
-.typography-alt-caps {
-	white-space: normal;
-	font-family: var(--sans);
-	font-feature-settings: "tnum";
-	font-size: 11px;
-	font-weight: 500;
-	letter-spacing: 0.1em;
-	color: var(--fill-soft-color);
-}
-
-.typography-code {
-	white-space: pre;
-	font-family: var(--code);
-	font-feature-settings: "tnum";
-	font-size: 14px;
-	font-weight: 400;
-	letter-spacing: null;
-	color: var(--fill-color);
-
-	// TODO
-	@at-root {
- 		// NOTE: Must prepend <textarea> for ::placeholdert color to work
-		textarea#{&}::placeholder {
-			color: var(--fill-soft-color);
+		// TODO
+		&::placeholder {
+			color: var(--soft-fill-color);
 		}
 	}
-}
+
+	// TODO
+	.typography-search-result {
+		font-family: var(--sans);
+		font-feature-settings: "tnum";
+		font-size: 13px;
+		font-weight: 400;
+		letter-spacing: null;
+	}
+
+	.typography-sans {
+		white-space: normal;
+		font-family: var(--sans);
+		font-feature-settings: "tnum";
+		font-size: 15px;
+		font-weight: 400;
+		letter-spacing: null;
+		//// color: var(--fill-color);
+	}
+
+	.typography-small-sans {
+		white-space: normal;
+		font-family: var(--sans);
+		font-feature-settings: "tnum";
+		font-size: 13px;
+		font-weight: 400;
+		letter-spacing: null;
+	}
+
+	.typography-caps {
+		white-space: normal;
+		font-family: var(--sans);
+		font-feature-settings: "tnum";
+		font-size: 11px;
+		font-weight: 500;
+		letter-spacing: 0.1em;
+	}
+
+	.typography-code {
+		white-space: pre;
+		font-family: var(--code);
+		font-feature-settings: "tnum";
+		font-size: 14px;
+		font-weight: 400;
+		letter-spacing: null;
+		//// color: var(--fill-color);
+
+		// TODO
+		@at-root {
+			// NOTE: Must prepend <textarea> for ::placeholdert color to work
+			textarea#{&}::placeholder {
+				color: var(--soft-fill-color);
+			}
+		}
+	}
+//// }

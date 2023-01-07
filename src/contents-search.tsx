@@ -86,7 +86,7 @@ function Highlight({ children, indexes }: PropsWithChildren<{ indexes: readonly 
 		const parts = [name.slice(0, indexes[0]), name.slice(indexes[0], indexes[1]), name.slice(indexes[1])]
 		return <>
 			{parts[0]}
-			<span className="color-$fill-hard-color bg-color-$highlight-color">
+			<span className="color-$hard-fill-color bg-color-$highlight-color">
 				{parts[1]}
 			</span>
 			{parts[2]}
@@ -111,7 +111,7 @@ export function SearchResults() {
 							<Icon className="h-32 w-32 color-$fill-color" style={iconStyles} name={name} />
 						</button>
 						<div className="flex justify-center align-center h-24">
-							<styled.TypographySearchResult>
+							<styled.TypographySearchResult className="color-$soft-fill-color ellipsis [-webkit-user-select]-all [user-select]-all">
 								<Highlight indexes={indexes}>
 									{name}
 								</Highlight>

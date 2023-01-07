@@ -48,7 +48,7 @@ const rules: Rule[] = [
 	//// }],
 
 
-	[/^\[(-)?((?:$)?[a-z]+(?:-[a-z]+)*)\]-(.+)$/, ([_, sign, key, value]) => {
+	[/^(-)?\[([^\\]+)\]-(.+)$/, ([_, sign, key, value]) => {
 		return {
 			[key]: desugar(value, { sign, px: false }),
 		}

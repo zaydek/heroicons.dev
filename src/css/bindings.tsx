@@ -22,10 +22,9 @@ export const SliderTrack            = createStyled("slider-track")
 export const SliderThumb            = createStyled("slider-thumb")
 
 // Typography
-export const TypographySearchBar    = createStyled("typography-search-bar")
-export const TypographySearchResult = createStyled("typography-search-result")
+export const TypographySearchBar    = createStyled("typography-search-bar")    // TODO
+export const TypographySearchResult = createStyled("typography-search-result") // TODO
 export const TypographySans         = createStyled("typography-sans")
-export const TypographySmallAltSans = createStyled("typography-small-alt-sans")
+export const TypographySmallSans    = createStyled("typography-small-sans")
 export const TypographyCaps         = createStyled("typography-caps")
-export const TypographyAltCaps      = createStyled("typography-alt-caps")
 export const TypographyCode         = createStyled("typography-code")
