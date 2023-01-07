@@ -1,12 +1,14 @@
 import * as styled from "./css/bindings"
 
-import { Dispatch, HTMLAttributes, PropsWithChildren, SetStateAction, useContext, useMemo, useState } from "react"
+import { Dispatch, HTMLAttributes, PropsWithChildren, SetStateAction, SVGAttributes, useContext, useMemo, useState } from "react"
 import { AriaButton } from "./aria/aria-button"
 import { AriaCheckbox } from "./aria/aria-checkbox"
 import { AriaRadio, AriaRadiogroup } from "./aria/aria-radio"
 import { AriaSlider } from "./aria/aria-slider"
+import { ArrowDownTrayIcon, CheckIcon, DocumentDuplicateIcon } from "./icon-config"
 import { cx } from "./lib/cx"
 import { download } from "./lib/download"
+import { Icon } from "./lib/react/icon"
 import { SearchConfigContext, SetSearchConfigContext } from "./state"
 
 function Label({ children }: PropsWithChildren) {
@@ -27,7 +29,7 @@ function AltLabel({ children }: PropsWithChildren) {
 
 function OutlinedValue({ children, center }: PropsWithChildren<{ center?: boolean }>) {
 	return <>
-		<div className={cx(`px-[calc($form-size_/_2)] flex ${center ? "justify-center" : ""} align-center h-calc($form-size_-_4px) rounded-1e3 shadow-[0_0_0_1px_$hairline-color]`)}>
+		<div className={cx(`px-calc($form-size_/_2) flex ${center ? "justify-center" : ""} align-center h-$form-size rounded-1e3 shadow-0_0_0_1px_$hairline-color`)}>
 			<styled.TypographyCaps>
 				{children}
 			</styled.TypographyCaps>
@@ -65,7 +67,7 @@ function Checkbox({ children, ...props }: PropsWithChildren<{ checked: boolean, 
 		<AriaCheckbox {...props}>
 			<div className="flex align-center gap-10 [&_>_*:nth-child(2)]:flex-grow-1">
 				<styled.Checkbox className="flex justify-center align-center">
-					<styled.CheckboxIcon />
+					<styled.CheckboxIcon as={CheckIcon} />
 				</styled.Checkbox>
 				<OutlinedValue>
 					{children}
@@ -90,12 +92,13 @@ function Slider(props: { min: number, max: number, step: number, value: number, 
 	</>
 }
 
-function TextareaButton({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {
+function TextareaButton({ icon, children, ...props }: { icon: (_: SVGAttributes<SVGSVGElement>) => JSX.Element } & HTMLAttributes<HTMLDivElement>) {
 	return <>
 		<AriaButton {...props}>
-			<div className="px-[calc($form-size_/_2)] flex align-center gap-8 h-$form-size rounded-1e3 bg-color-$form-color shadow-$shadow [&:hover]:bg-color-$trim-color">
-				<div className="h-16 w-16 rounded-1e3 bg-color-$trim-color"></div>
-				<styled.TypographyCaps>
+			<div className="px-calc($form-size_/_2) flex align-center gap-8 h-$form-size rounded-1e3 bg-color-$form-color shadow-$shadow [[role=button]:hover:active_&]:(bg-color-$trim-color shadow-$inset-shadow)">
+				<Icon className="h-16 w-16 [stroke-width]-2.5 color-$trim-color [[role=button]:hover:active_&]:color-WHITE"
+					icon={icon} />
+				<styled.TypographyCaps className="[[role=button]:hover:active_&]:color-WHITE">
 					{children}
 				</styled.TypographyCaps>
 			</div>
@@ -108,16 +111,16 @@ export function SectionSize() {
 	const { setSize } = useContext(SetSearchConfigContext)!
 
 	return <>
-		<section className="py-$sidebar-y-inset px-$sidebar-x-inset flex flex-col gap-10 [&:nth-child(1)]:pt-48">
+		<section className="py-$sidebar-inset-y px-$sidebar-inset-x flex flex-col gap-10 [&:nth-child(1)]:pt-48">
 			<div className="flex justify-space-between align-center h-20">
 				<Label>
 					SIZE
 				</Label>
-				<div className="flex align-center gap-10">
+				<div className="flex align-center gap-8">
 					<AltLabel>
 						{size.toFixed(0)} PX
 					</AltLabel>
-					<RevertButton />
+					<RevertButton onClick={e => setSize(30)} />
 				</div>
 			</div>
 			<Slider
@@ -136,16 +139,17 @@ function SectionStrokeWidth() {
 	const { setStrokeWidth } = useContext(SetSearchConfigContext)!
 
 	return <>
-		<section className="py-$sidebar-y-inset px-$sidebar-x-inset flex flex-col gap-10 [&:nth-child(1)]:pt-48">
+		<section className="py-$sidebar-inset-y px-$sidebar-inset-x flex flex-col gap-10 [&:nth-child(1)]:pt-48">
 			<div className="flex justify-space-between align-center h-20">
 				<Label>
 					STROKE WIDTH
 				</Label>
-				<div className="flex align-center gap-10">
+				<div className="flex align-center gap-8">
 					<AltLabel>
 						{strokeWidth.toFixed(2)}
 					</AltLabel>
-					<RevertButton />
+					{/* TODO */}
+					<RevertButton onClick={e => setStrokeWidth(2)} />
 				</div>
 			</div>
 			<Slider
@@ -176,7 +180,7 @@ function SectionClipboard() {
 	}, [exportComponent, typescript])
 
 	return <>
-		<section className="py-$sidebar-y-inset px-$sidebar-x-inset flex flex-col gap-10 [&:nth-child(1)]:pt-48">
+		<section className="py-$sidebar-inset-y px-$sidebar-inset-x flex flex-col gap-10 [&:nth-child(1)]:pt-48">
 			<div className="flex justify-space-between align-center h-20">
 				<Label>
 					COPY AS
@@ -194,33 +198,39 @@ function SectionClipboard() {
 				</div>
 			</AriaRadiogroup>
 			{/* Use flex flex-col to reset <textarea> */}
-			<div className="relative my-16 -mx-8 flex flex-col">
+			<div></div>
+			<div className="relative flex flex-col">
 				<styled.TypographyCode
 					tag="textarea"
 					className="p-24 aspect-1.75 rounded-24 bg-color-$base-gray-color
-						[&:is(:hover,_:focus)]:(bg-color-$base-color shadow-[0_0_0_1px_$hairline-color])"
+						[&:is(:hover,_:focus)]:(bg-color-$base-color shadow-0_0_0_1px_$hairline-color)"
 					placeholder="Click an icon to get started"
 					value={clipboard}
 					readOnly
 				/>
-				<div className="absolute inset-br-16 flex gap-8">
+				<div className="absolute inset-br-16 flex gap-10">
 					{copyAs === "code" &&
-						<TextareaButton onClick={e => {
-							if (clipboard === "") { return }
-							const filename = `${selectedName}.${extension}`
-							download(filename, clipboard)
-						}}>
+						<TextareaButton
+							icon={ArrowDownTrayIcon}
+							onClick={e => {
+								if (clipboard === "") { return }
+								const filename = `${selectedName}.${extension}`
+								download(filename, clipboard)
+							}}>
 							DOWNLOAD
 						</TextareaButton>
 					}
-					<TextareaButton onClick={e => {
-						if (clipboard === "") { return }
-						navigator.clipboard.writeText(clipboard)
-					}}>
+					<TextareaButton
+						icon={DocumentDuplicateIcon}
+						onClick={e => {
+							if (clipboard === "") { return }
+							navigator.clipboard.writeText(clipboard)
+						}}>
 						COPY
 					</TextareaButton>
 				</div>
 			</div>
+			<div></div>
 			{copyAs === "code" && <>
 				<Checkbox checked={strictJsx} setChecked={setStrictJsx}>
 					STRICT JSX

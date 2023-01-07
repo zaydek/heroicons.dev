@@ -162,7 +162,7 @@ const rules: Rule[] = [
 	[/^rounded-tl-(.+)$/,   ([_, value]) => ({ "border-top-left-radius":     desugar(value) })],
 
 	/*
-	 * Decoration
+	 * Decoration (shorthands)
 	 */
 	[/^color-(.+)$/,        ([_, value]) => ({ "color":            desugar(value, { px: false }) })],
 	[/^bg-color-(.+)$/,     ([_, value]) => ({ "background-color": desugar(value, { px: false }) })],

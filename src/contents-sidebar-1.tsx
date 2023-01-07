@@ -3,15 +3,15 @@ import * as styled from "./css/bindings"
 import { AnchorHTMLAttributes, HTMLAttributes, PropsWithChildren, SVGAttributes, useCallback, useContext, useEffect, useRef, useTransition } from "react"
 import { AriaButton } from "./aria/aria-button"
 import { cache } from "./cache"
+import { ArrowTopRightOnSquareIcon, FigmaIcon, GitHubIcon, LightningIcon, ScaleIcon, TwitterIcon } from "./icon-config"
+import { Icon } from "./lib/react/icon"
 import { DispatchProgressBarContext } from "./progress-bar"
 import { SearchContext, SetSearchContext } from "./state"
 import { IconsetValue } from "./types"
-import { Icon } from "./lib/react/icon"
-import { ArrowTopRightOnSquareIcon, FigmaIcon, GitHubIcon, LightningIcon, ScaleIcon, TwitterIcon } from "./icon-config"
 
 function MenuTitle({ children }: PropsWithChildren) {
 	return <>
-		<div className="px-$sidebar-x-inset flex align-center h-36">
+		<div className="px-$sidebar-inset-x flex align-center h-36">
 			<styled.TypographyAltCaps>
 				{children}
 			</styled.TypographyAltCaps>
@@ -22,7 +22,7 @@ function MenuTitle({ children }: PropsWithChildren) {
 function MenuItem({ icon, children, ...props }: { icon: (_: SVGAttributes<SVGSVGElement>) => JSX.Element } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {
 	return <>
 		<AriaButton {...props}>
-			<div className="px-$sidebar-x-inset flex align-center gap-8 h-36 [&:hover,_[role=button][data-active=true]_&]:bg-color-$base-gray-color">
+			<div className="px-$sidebar-inset-x flex align-center gap-8 h-36 [&:hover,_[role=button][data-active=true]_&]:bg-color-$base-gray-color">
 				<Icon className="h-20 h-20 color-$trim-color" icon={icon} />
 				<styled.TypographyCaps>
 					{children}
@@ -34,7 +34,7 @@ function MenuItem({ icon, children, ...props }: { icon: (_: SVGAttributes<SVGSVG
 
 function NavLink({ icon, children, ...props }: { icon: (_: SVGAttributes<SVGSVGElement>) => JSX.Element } & AnchorHTMLAttributes<HTMLAnchorElement>) {
 	return <>
-		<a className="px-$sidebar-x-inset flex align-center gap-8 h-36 [&:hover]:bg-color-$base-gray-color" {...props}>
+		<a className="px-$sidebar-inset-x flex align-center gap-8 h-36 [&:hover]:bg-color-$base-gray-color" {...props}>
 			<Icon className="h-20 w-20" icon={icon} />
 			{children}
 		</a>
@@ -71,8 +71,8 @@ export function Sidebar1Contents() {
 	}, [end, pending, start])
 
 	return <>
-		<section className="absolute inset-t-0 py-$sidebar-y-inset">
-			<div className="px-$sidebar-x-inset flex flex-col gap-20 h-[calc($inset-y_+_$search-bar-height)]">
+		<section className="absolute inset-t-0 py-$inset-y pb-$sidebar-inset-y">
+			<div className="px-$sidebar-inset-x flex flex-col gap-16 h-calc($inset-y_+_$search-bar-height)">
 				<div className="flex align-center gap-8">
 					<div className="h-24 w-24 rounded-1e3 bg-color-orange"></div>
 					<div className="h-16 w-96 rounded-1e3 bg-color-orange"></div>
@@ -91,7 +91,7 @@ export function Sidebar1Contents() {
 					</span>
 				</styled.TypographySans>
 			</div>
-			<div className="flex flex-col gap-20">
+			<div className="flex flex-col gap-16">
 				<div>
 					<MenuTitle>
 						V2
@@ -139,7 +139,7 @@ export function Sidebar1Contents() {
 				</div>
 			</div>
 		</section>
-		<section className="absolute inset-b-0 py-$sidebar-y-inset flex flex-col gap-20 bg-$base-color shadow-[0_-1px_0_0_$hairline-color]">
+		<section className="absolute inset-b-0 py-$inset-y pt-$sidebar-inset-y flex flex-col gap-16 bg-$base-color">
 			<nav>
 				<NavLink
 					icon={GitHubIcon}
@@ -184,7 +184,7 @@ export function Sidebar1Contents() {
 					</styled.TypographySans>
 				</NavLink>
 			</nav>
-			<div className="px-$sidebar-x-inset">
+			<div className="px-$sidebar-inset-x">
 				<styled.TypographySans className="[line-height]-1.6">
 					{/* <span className="inline-flex align-baseline gap-4">
 						Icons by @steveschoger{" "}
@@ -200,7 +200,7 @@ export function Sidebar1Contents() {
 					</span>
 				</styled.TypographySans>
 			</div>
-			<div className="px-$sidebar-x-inset">
+			<div className="px-$sidebar-inset-x">
 				<styled.TypographySmallAltSans className="[line-height]-1.6">
 					Heroicons are{" "}
 					<span className="inline-flex align-baseline gap-4">

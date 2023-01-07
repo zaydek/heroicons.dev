@@ -7,6 +7,8 @@
 	font-weight: 400;
 	letter-spacing: null;
 	color: var(--fill-color);
+
+	// TODO
 	&::placeholder {
 		color: var(--fill-soft-color);
 	}
@@ -71,10 +73,7 @@
 	color: var(--fill-soft-color);
 }
 
-// TODO
 .typography-code {
-	// BUG: Error: "&" may only used at the beginning of a compound selector.
-	$selector: "" + &;
 	white-space: pre;
 	font-family: var(--code);
 	font-feature-settings: "tnum";
@@ -82,7 +81,12 @@
 	font-weight: 400;
 	letter-spacing: null;
 	color: var(--fill-color);
-	textarea#{$selector}::placeholder { // Must prepend <textarea> for ::placeholdert color to work
-		color: var(--fill-soft-color);
+
+	// TODO
+	@at-root {
+ 		// NOTE: Must prepend <textarea> for ::placeholdert color to work
+		textarea#{&}::placeholder {
+			color: var(--fill-soft-color);
+		}
 	}
 }
