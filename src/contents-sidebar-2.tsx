@@ -11,24 +11,26 @@ import { SearchConfigContext, SetSearchConfigContext } from "./state"
 
 function Label({ children }: PropsWithChildren) {
 	return <>
-		<div className="color-blue">
+		<styled.TypographyCaps>
 			{children}
-		</div>
+		</styled.TypographyCaps>
 	</>
 }
 
 function AltLabel({ children }: PropsWithChildren) {
 	return <>
-		<div className="color-pink">
+		<styled.TypographyAltCaps>
 			{children}
-		</div>
+		</styled.TypographyAltCaps>
 	</>
 }
 
 function LabelValue({ children, center }: PropsWithChildren<{ center?: boolean }>) {
 	return <>
 		<div className={cx(`px-[calc($form-size_/_2)] flex ${center ? "justify-center" : ""} align-center h-$form-size rounded-1e3 shadow-[0_0_0_1px_$hairline-color]`)}>
-			{children}
+			<styled.TypographyCaps>
+				{children}
+			</styled.TypographyCaps>
 		</div>
 	</>
 }
@@ -91,9 +93,11 @@ function Slider(props: { min: number, max: number, step: number, value: number, 
 function TextareaButton({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {
 	return <>
 		<AriaButton {...props}>
-			<div className="px-[calc($form-size_/_2)] flex align-center gap-8 h-$form-size rounded-1e3 bg-color-$form-color shadow-$shadow">
+			<div className="px-[calc($form-size_/_2)] flex align-center gap-8 h-$form-size rounded-1e3 bg-color-$form-color shadow-$shadow [&:hover]:bg-color-$trim-color">
 				<div className="h-16 w-16 rounded-1e3 bg-color-$trim-color"></div>
-				{children}
+				<styled.TypographyTextareaButton>
+					{children}
+				</styled.TypographyTextareaButton>
 			</div>
 		</AriaButton>
 	</>
@@ -191,7 +195,8 @@ function SectionClipboard() {
 			</AriaRadiogroup>
 			{/* Use flex flex-col to reset <textarea> */}
 			<div className="relative my-16 -mx-8 flex flex-col">
-				<textarea
+				<styled.TypographyCode
+					tag="textarea"
 					className="p-24 aspect-1.75 rounded-24 bg-color-$base-gray-color
 						[&:is(:hover,_:focus)]:(bg-color-$base-color shadow-[0_0_0_1px_$hairline-color])"
 					placeholder="Click an icon to get started"
@@ -203,8 +208,7 @@ function SectionClipboard() {
 						<TextareaButton onClick={e => {
 							if (clipboard === "") { return }
 							const filename = `${selectedName}.${extension}`
-							const contents = clipboard
-							download(filename, contents)
+							download(filename, clipboard)
 						}}>
 							DOWNLOAD
 						</TextareaButton>
@@ -236,15 +240,15 @@ function SectionClipboard() {
 					<div className="grid grid-cols-3 gap-10">
 						<Radio value="svg" center>
 							<div className="h-20 w-20 rounded-1e3
-								bg-color-$svg-orange"></div>
+							                bg-color-$svg-orange"></div>
 						</Radio>
 						<Radio value="react" center>
 							<div className="h-20 w-20 rounded-1e3
-								bg-color-$react-blue"></div>
+							                bg-color-$react-blue"></div>
 						</Radio>
 						<Radio value="vue" center>
 							<div className="h-20 w-20 rounded-1e3
-								bg-color-$vue-green"></div>
+							                bg-color-$vue-green"></div>
 						</Radio>
 					</div>
 				</AriaRadiogroup>

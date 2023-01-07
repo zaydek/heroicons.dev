@@ -1,3 +1,5 @@
+import * as styled from "./css/bindings"
+
 import { PropsWithChildren, Suspense, useContext, useEffect } from "react"
 import { iota } from "./lib/iota"
 import { DispatchProgressBarContext } from "./progress-bar"
@@ -13,7 +15,8 @@ export function SearchBar() {
 			<div className="flex justify-center align-center h-75% aspect-1 rounded-1e3 bg-color-red [@media_(max-width:_750px)]:[display:_none]">
 				<div className="h-24 w-24 rounded-1e3 bg-color-white"></div>
 			</div>
-			<input
+			<styled.TypographySearchBar
+				tag="input"
 				type="text"
 				className="px-16 flex align-center h-$search-bar-height"
 				placeholder="Search Heroicons"
@@ -83,7 +86,7 @@ function Highlight({ children, indexes }: PropsWithChildren<{ indexes: readonly 
 		const parts = [name.slice(0, indexes[0]), name.slice(indexes[0], indexes[1]), name.slice(indexes[1])]
 		return <>
 			{parts[0]}
-			<span className="bg-color-orange">
+			<span className="bg-color-$highlight-color">
 				{parts[1]}
 			</span>
 			{parts[2]}
@@ -101,18 +104,18 @@ export function SearchResults() {
 				{searchResults.map(({ name, indexes }) =>
 					<div key={name} className="flex flex-col gap-10">
 						{/* Don't use <AriaButton> here (create fewer DOM elements) */}
-						<button className="flex justify-center align-center h-$grid-item-size w-$grid-item-size" onClick={e => {
+						<button className="flex justify-center align-center h-$grid-item-size w-$grid-item-size " onClick={e => {
 							setSelectedName(name)
 							setSelectedSvgElement(e.currentTarget.querySelector("svg"))
 						}}>
-							<Icon className="h-32 w-32 color-red" style={iconStyles} name={name} />
+							<Icon className="h-32 w-32 color-$fill-color" style={iconStyles} name={name} />
 						</button>
-						{/* TODO: Why can't we use [user-select]-all syntax? */}
-						{/* TODO: Do we need a vendor fallback here? */}
-						<div className="flex justify-center align-center h-24 [user-select:_all]">
-							<Highlight indexes={indexes}>
-								{name}
-							</Highlight>
+						<div className="flex justify-center align-center h-24">
+							<styled.TypographySearchResult>
+								<Highlight indexes={indexes}>
+									{name}
+								</Highlight>
+							</styled.TypographySearchResult>
 						</div>
 					</div>
 				)}

@@ -104,9 +104,10 @@ const rules: Rule[] = [
 	[/^flex-shrink-(.+)$/,  ([_, value]) => ({ "flex-shrink":  desugar(value, { px: false }) })],
 	[/^flex-basis-(.+)$/,   ([_, value]) => ({ "flex-basis":   desugar(value) })],
 
-	["flex",     { "display": "flex" }],
-	["flex-row", { "flex-direction": "row" }],
-	["flex-col", { "flex-direction": "column" }],
+	["flex",        { "display": "flex" }],
+	["inline-flex", { "display": "inline-flex" }],
+	["flex-row",    { "flex-direction": "row" }],
+	["flex-col",    { "flex-direction": "column" }],
 
 	[/^justify-(.+)$/,      ([_, value]) => ({ "justify-content": desugar(value, { px: false }) })],
 	[/^align-(.+)$/,        ([_, value]) => ({ "align-items":     desugar(value, { px: false }) })],

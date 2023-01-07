@@ -23,7 +23,7 @@ export const SliderThumb              = createStyled("slider-thumb")
 
 // Typography
 export const TypographySearchBar      = createStyled("typography-search-bar")
-export const TypographyGridItemName   = createStyled("typography-grid-item-name")
+export const TypographySearchResult   = createStyled("typography-search-result")
 export const TypographySans           = createStyled("typography-sans")
 export const TypographyLegalese       = createStyled("typography-legalese")
 export const TypographyCaps           = createStyled("typography-caps")

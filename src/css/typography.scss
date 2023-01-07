@@ -4,19 +4,19 @@
 		var(--sans);
 	font-feature-settings: "tnum";
 	letter-spacing: null;
-	color: var(--text-color);
+	color: var(--fill-color);
 	&::placeholder {
-		color: var(--soft-text-color);
+		color: var(--fill-soft-color);
 	}
 }
 
-.typography-grid-item-name {
+.typography-search-result {
 	white-space: pre;         // Ellipsis
 	font: 400 13px / normal
 		var(--sans);
 	font-feature-settings: "tnum";
 	letter-spacing: null;
-	color: var(--soft-text-color);
+	color: var(--fill-soft-color);
 	overflow: hidden;         // Ellipsis
 	text-overflow: ellipsis;  // Ellipsis
 	-webkit-user-select: all; // User select
@@ -29,7 +29,7 @@
 		var(--sans);
 	font-feature-settings: "tnum";
 	letter-spacing: null;
-	color: var(--text-color);
+	color: var(--fill-color);
 }
 
 .typography-legalese {
@@ -38,7 +38,7 @@
 		var(--sans);
 	font-feature-settings: "tnum";
 	letter-spacing: null;
-	color: var(--soft-text-color);
+	color: var(--fill-soft-color);
 }
 
 .typography-caps {
@@ -47,7 +47,7 @@
 		var(--sans);
 	font-feature-settings: "tnum";
 	letter-spacing: 0.1em;
-	color: var(--text-color);
+	color: var(--fill-color);
 }
 
 .typography-alt-caps {
@@ -56,7 +56,7 @@
 		var(--sans);
 	font-feature-settings: "tnum";
 	letter-spacing: 0.1em;
-	color: var(--soft-text-color);
+	color: var(--fill-soft-color);
 }
 
 .typography-textarea-button {
@@ -65,7 +65,7 @@
 		var(--sans);
 	font-feature-settings: "tnum";
 	letter-spacing: 0.1em;
-	color: var(--text-color);
+	color: var(--fill-color);
 	[role=button]:hover:active & {
 		color: WHITE;
 	}
@@ -79,8 +79,8 @@
 		var(--code);
 	font-feature-settings: "tnum";
 	letter-spacing: null;
-	color: var(--text-color);
+	color: var(--fill-color);
 	textarea#{$selector}::placeholder { // Must prepend <textarea> for ::placeholdert color to work
-		color: var(--soft-text-color);
+		color: var(--fill-soft-color);
 	}
 }

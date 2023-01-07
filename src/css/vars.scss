@@ -3,27 +3,31 @@
 :root {
 	//////////////////////////////////////////////////////////////////////////////
 	// Sizes
-	--sidebar-1-width:   250px;
+
+	--sidebar-1-width:   280px;
 	--sidebar-2-width:   400px;
 	--inset-y:           50px;
 	--inset-x:           40px;
-	--sidebar-y-inset:   16px;
-	--sidebar-x-inset:   32px;
+	--sidebar-y-inset:   32px;
+	--sidebar-x-inset:   24px;
 	--search-bar-height: 60px;
 	--grid-item-size:    70px;
 	--form-size:         32px;
 
 	//////////////////////////////////////////////////////////////////////////////
 	// Radii
+
 	--magic-ratio: 0.4375;
 
 	//////////////////////////////////////////////////////////////////////////////
 	// Color channels
+
 	--base-h: 200;
 	--base-s: 50%;
 
 	//////////////////////////////////////////////////////////////////////////////
 	// Colors
+
 	--base-color:        hsl(var(--base-h), var(--base-s), 100%);
 	--base-gray-color:   hsl(var(--base-h), var(--base-s), 95%);
 	--trim-color:        hsl(var(--base-h), 100%, 60%);
@@ -43,6 +47,7 @@
 
 	//////////////////////////////////////////////////////////////////////////////
 	// Shadows
+
 	--depth-shadow:
 		0  1px  2px  -1px hsl(var(--base-h), var(--base-s), 50%, 0.25),
 		0  2px  4px  -2px hsl(var(--base-h), var(--base-s), 50%, 0.25),
@@ -52,6 +57,7 @@
 		0 32px 64px -32px hsl(var(--base-h), var(--base-s), 50%, 0.25);
 
 	// TODO: DEPRECATE?
+
 	--inset-hairline-shadow:   inset  0     0   0 1px var(--hairline-color);
 	--inset-hairline-shadow-t: inset  0    -1px 0 0   var(--hairline-color);
 	--inset-hairline-shadow-r: inset  1px   0   0 0   var(--hairline-color);
@@ -64,6 +70,7 @@
 	--hairline-shadow-l:             -1px   0   0 0   var(--hairline-color);
 
 	// TODO: DEPRECATE?
+
 	--inset-shadow:
 		var(--inset-hairline-shadow),
 		var(--depth-shadow);
@@ -75,11 +82,13 @@
 :root.dark {
 	//////////////////////////////////////////////////////////////////////////////
 	// Color-channels
+
 	--base-h: 220;
 	--base-s: 30%;
 
 	//////////////////////////////////////////////////////////////////////////////
 	// Colors
+
 	--base-color:        hsl(var(--base-h), var(--base-s), 5%);
 	--base-gray-color:   hsl(var(--base-h), var(--base-s), 10%);
 	--form-color:        var(--base-gray-color);
@@ -92,6 +101,7 @@
 
 	//////////////////////////////////////////////////////////////////////////////
 	// Shadows
+
 	--depth-shadow:
 		0  1px  2px  -1px hsl(0, 0%, 0%, 0.5),
 		0  2px  4px  -2px hsl(0, 0%, 0%, 0.5),

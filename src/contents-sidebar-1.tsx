@@ -1,17 +1,18 @@
-import { HTMLAttributes, PropsWithChildren, useCallback, useContext, useEffect, useRef, useTransition } from "react"
+import * as styled from "./css/bindings"
+
+import { AnchorHTMLAttributes, HTMLAttributes, PropsWithChildren, useCallback, useContext, useEffect, useRef, useTransition } from "react"
 import { AriaButton } from "./aria/aria-button"
 import { cache } from "./cache"
-import { TypographyLegalese } from "./css/bindings"
 import { DispatchProgressBarContext } from "./progress-bar"
 import { SearchContext, SetSearchContext } from "./state"
 import { IconsetValue } from "./types"
 
 function MenuTitle({ children }: PropsWithChildren) {
 	return <>
-		<div className="px-16 flex align-center h-32">
-			<div>
+		<div className="px-$sidebar-x-inset flex align-center h-32">
+			<styled.TypographyAltCaps>
 				{children}
-			</div>
+			</styled.TypographyAltCaps>
 		</div>
 	</>
 }
@@ -19,24 +20,27 @@ function MenuTitle({ children }: PropsWithChildren) {
 function MenuItem({ children, ...props }: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {
 	return <>
 		<AriaButton {...props}>
-			<div className="px-16 flex align-center gap-8 h-32 [&:hover,_[role=button][data-active=true]_&]:bg-color-$base-gray-color">
+			<div className="px-$sidebar-x-inset flex align-center gap-8 h-32 [&:hover,_[role=button][data-active=true]_&]:bg-color-$base-gray-color">
 				<div className="h-16 w-16 rounded-1e3 bg-color-$trim-color"></div>
-				<div>
+				<styled.TypographyCaps>
 					{children}
-				</div>
+				</styled.TypographyCaps>
 			</div>
 		</AriaButton>
 	</>
 }
 
-function NavItem({ children }: PropsWithChildren) {
+// TODO
+//// function NavLink({ icon, children, ...props }: { icon?: (_: HTMLAttributes<SVGSVGElement>) => JSX.Element } & HTMLAttributes<HTMLAnchorElement>) {
+function NavLink({ children, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) {
 	return <>
-		<div className="px-16 flex align-center gap-8 h-32 [&:hover]:bg-color-$base-gray-color">
+		<a className="px-$sidebar-x-inset flex align-center gap-8 h-32 [&:hover]:bg-color-$base-gray-color" {...props}>
 			<div className="h-16 w-16 rounded-1e3 bg-color-$trim-color"></div>
-			<div>
+			{/* <styled.TypographySans>
 				{children}
-			</div>
-		</div>
+			</styled.TypographySans> */}
+			{children}
+		</a>
 	</>
 }
 
@@ -70,10 +74,23 @@ export function Sidebar1Contents() {
 	}, [end, pending, start])
 
 	return <>
-		<section className="absolute inset-t-0 py-48">
-			<div className="px-16 flex flex-col gap-10 h-[calc($inset-y_+_$search-bar-height)]">
-				<div>HELLO</div>
-				<div>HELLO</div>
+		<section className="absolute inset-t-0 py-$sidebar-y-inset">
+			<div className="px-$sidebar-x-inset flex flex-col gap-20 h-[calc($inset-y_+_$search-bar-height)]">
+				<div className="flex align-center gap-8">
+					<div className="h-24 w-24 rounded-1e3 bg-color-orange"></div>
+					<div className="h-16 w-96 rounded-1e3 bg-color-orange"></div>
+				</div>
+				<styled.TypographySans>
+					<span className="inline-flex align-baseline gap-4">
+						<div className="h-16 w-16 rounded-1e3 bg-color-orange [transform:_translateY(3px)]"></div>{" "}
+						MIT
+					</span>{" "}
+					open source icons by{" "}
+					<span className="inline-flex align-baseline gap-4">
+						@steveschoger{" "}
+						<div className="h-16 w-16 rounded-1e3 bg-color-orange [transform:_translateY(3px)]"></div>
+					</span>
+				</styled.TypographySans>
 			</div>
 			<div className="flex flex-col gap-20">
 				<div>
@@ -113,27 +130,68 @@ export function Sidebar1Contents() {
 				</div>
 			</div>
 		</section>
-		<section className="absolute inset-b-0 py-32 flex flex-col gap-20 bg-$base-color shadow-[0_-1px_0_0_$hairline-color]">
+		<section className="absolute inset-b-0 py-$sidebar-y-inset flex flex-col gap-20 bg-$base-color shadow-[0_-1px_0_0_$hairline-color]">
 			<nav>
-				<NavItem>
-					GitHub
-				</NavItem>
-				<NavItem>
-					Figma
-				</NavItem>
-				<NavItem>
-					Share on Twitter
-				</NavItem>
+				<NavLink
+					href="https://github.com/tailwindlabs/heroicons"
+					rel="noopener noreferrer"
+					target="_blank"
+				>
+					<styled.TypographySans>
+						<span className="inline-flex align-baseline gap-4">
+							GitHub{" "}
+							<div className="h-16 w-16 rounded-1e3 bg-color-orange [transform:_translateY(3px)]"></div>
+						</span>
+					</styled.TypographySans>
+				</NavLink>
+				<NavLink
+					href="https://www.figma.com/community/file/1143911270904274171"
+					rel="noopener noreferrer"
+					target="_blank"
+				>
+					<styled.TypographySans>
+						<span className="inline-flex align-baseline gap-4">
+							Figma{" "}
+							<div className="h-16 w-16 rounded-1e3 bg-color-orange [transform:_translateY(3px)]"></div>
+						</span>
+					</styled.TypographySans>
+				</NavLink>
+				<NavLink
+					href={`http://twitter.com/intent/tweet?text=${encodeURI("Check out Hericons 💯\n\nThanks @steveschoger for designing Heroicons and @username_ZAYDEK for the new heroicons.dev\n\nheroicons.dev")}`}
+					rel="noopener noreferrer"
+					target="_blank"
+				>
+					<styled.TypographySans>
+						<span className="inline-flex align-baseline gap-4">
+							Share on Twitter{" "}
+							<div className="h-16 w-16 rounded-1e3 bg-color-orange [transform:_translateY(3px)]"></div>
+						</span>
+					</styled.TypographySans>
+				</NavLink>
 			</nav>
-			<div></div>
-			<div className="px-16">
-				Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello
+			<div className="px-$sidebar-x-inset">
+				<styled.TypographySans>
+					{/* <span className="inline-flex align-baseline gap-4">
+						Icons by @steveschoger{" "}
+						<div className="h-16 w-16 rounded-1e3 bg-color-orange [transform:_translateY(3px)]"></div>
+					</span>
+					<br /> */}
+					Site by{" "}
+					<span className="inline-flex align-baseline gap-4">
+						@username_ZAYDEK{" "}
+						<div className="h-16 w-16 rounded-1e3 bg-color-orange [transform:_translateY(3px)]"></div>
+					</span>
+				</styled.TypographySans>
 			</div>
-			<div className="px-16">
-				<TypographyLegalese>
-					Heroicons are MIT-licensed.{" "}
+			<div className="px-$sidebar-x-inset">
+				<styled.TypographyLegalese>
+					Heroicons are{" "}
+					<span className="inline-flex align-baseline gap-4">
+						MIT-licensed.{" "}
+						<div className="h-16 w-16 rounded-1e3 bg-color-orange [transform:_translateY(3px)]"></div>
+					</span>{" "}
 					You may use them for commercial and personal application without attribution.
-				</TypographyLegalese>
+				</styled.TypographyLegalese>
 			</div>
 		</section>
 	</>
