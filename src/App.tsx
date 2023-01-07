@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { SearchBar, SearchResults } from "./contents-search"
 import { Sidebar1Contents as Sidebar1 } from "./contents-sidebar-1"
 import { Sidebar2Contents as Sidebar2 } from "./contents-sidebar-2"
+import { isMac } from "./lib/platform"
 
 export function App() {
 	const [column1Open, setColumn1Open] = useState(true)
@@ -12,10 +13,18 @@ export function App() {
 	useEffect(() => {
 		window.addEventListener("keydown", e => {
 			if (window.innerWidth > 750) {
-				if (e.key === "1") {
-					setColumn1Open(curr => !curr)
-				} else if (e.key === "2") {
-					setColumn2Open(curr => !curr)
+				if (isMac()) {
+					if (e.metaKey && e.key === "[") {
+						setColumn1Open(curr => !curr)
+					} else if (e.metaKey && e.key === "]") {
+						setColumn2Open(curr => !curr)
+					}
+				} else {
+					if (e.ctrlKey && e.key === "[") {
+						setColumn1Open(curr => !curr)
+					} else if (e.ctrlKey && e.key === "]") {
+						setColumn2Open(curr => !curr)
+					}
 				}
 			}
 		})
