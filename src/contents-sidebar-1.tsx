@@ -11,7 +11,7 @@ import { IconsetValue } from "./types"
 
 function MenuTitle({ children }: PropsWithChildren) {
 	return <>
-		<div className="px-$sidebar-inset-x flex align-center h-36">
+		<div className="px-$sidebar-1-inset-x flex align-center h-36">
 			<styled.TypographyCaps className="color-$soft-fill-color">
 				{children}
 			</styled.TypographyCaps>
@@ -22,7 +22,7 @@ function MenuTitle({ children }: PropsWithChildren) {
 function MenuItem({ icon, children, ...props }: { icon: (_: SVGAttributes<SVGSVGElement>) => JSX.Element } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {
 	return <>
 		<AriaButton {...props}>
-			<div className="px-$sidebar-inset-x flex align-center gap-8 h-36 [&:hover,_[role=button][data-active=true]_&]:bg-color-$base-gray-color">
+			<div className="px-$sidebar-1-inset-x flex align-center gap-8 h-36 [&:hover,_[role=button][data-active=true]_&]:bg-color-$base-gray-color">
 				<Icon className="h-20 h-20 color-$trim-color" icon={icon} />
 				<styled.TypographyCaps className="color-$fill-color">
 					{children}
@@ -34,7 +34,7 @@ function MenuItem({ icon, children, ...props }: { icon: (_: SVGAttributes<SVGSVG
 
 function NavLink({ icon, children, ...props }: { icon: (_: SVGAttributes<SVGSVGElement>) => JSX.Element } & AnchorHTMLAttributes<HTMLAnchorElement>) {
 	return <>
-		<a className="px-$sidebar-inset-x flex align-center gap-8 h-36 [&:hover]:bg-color-$base-gray-color" {...props}>
+		<a className="px-$sidebar-1-inset-x flex align-center gap-8 h-36 [&:hover]:bg-color-$base-gray-color" {...props}>
 			<Icon className="h-20 w-20" icon={icon} />
 			{children}
 		</a>
@@ -71,20 +71,20 @@ export function Sidebar1Contents() {
 	}, [end, pending, start])
 
 	return <>
-		<section className="absolute inset-t-0 py-$inset-y pb-$sidebar-inset-y">
-			<div className="px-$sidebar-inset-x flex flex-col gap-16 h-calc($inset-y_+_$search-bar-height)">
+		<section className="absolute inset-t-0 py-$inset-y pb-$sidebar-1-inset-y">
+			<div className="px-$sidebar-1-inset-x flex flex-col gap-16 h-calc($inset-y_+_$search-bar-height)">
 				<div className="flex align-center gap-8">
 					<div className="h-24 w-24 rounded-1e3 bg-color-orange"></div>
 					<div className="h-16 w-96 rounded-1e3 bg-color-orange"></div>
 				</div>
 				<styled.TypographySans className="[line-height]-1.6">
-					<span className="inline-flex align-baseline gap-4">
+					<span className="inline-flex align-baseline gap-[0.6ch]">
 						<Icon className="h-16 w-16 color-$hard-fill-color [transform]-translateY(2px)"
 							icon={ScaleIcon} />
 						MIT
 					</span>{" "}
 					open source icons by{" "}
-					<span className="inline-flex align-baseline gap-4">
+					<span className="inline-flex align-baseline gap-[0.6ch]">
 						@steveschoger{" "}
 						<Icon className="h-16 w-16 color-$anchor-blue [transform]-translateY(2px)"
 							icon={ArrowTopRightOnSquareIcon} />
@@ -139,7 +139,7 @@ export function Sidebar1Contents() {
 				</div>
 			</div>
 		</section>
-		<section className="absolute inset-b-0 py-$inset-y pt-$sidebar-inset-y flex flex-col gap-16 bg-$base-color">
+		<section className="absolute inset-b-0 py-$inset-y pt-$sidebar-1-inset-y flex flex-col gap-16 bg-$base-color">
 			<nav>
 				<NavLink
 					icon={GitHubIcon}
@@ -148,7 +148,7 @@ export function Sidebar1Contents() {
 					target="_blank"
 				>
 					<styled.TypographySans>
-						<span className="inline-flex align-baseline gap-4">
+						<span className="inline-flex align-baseline gap-[0.6ch]">
 							GitHub{" "}
 							<Icon className="h-16 w-16 color-$anchor-blue [transform]-translateY(2px)"
 								icon={ArrowTopRightOnSquareIcon} />
@@ -162,7 +162,7 @@ export function Sidebar1Contents() {
 					target="_blank"
 				>
 					<styled.TypographySans>
-						<span className="inline-flex align-baseline gap-4">
+						<span className="inline-flex align-baseline gap-[0.6ch]">
 							Figma{" "}
 							<Icon className="h-16 w-16 color-$anchor-blue [transform]-translateY(2px)"
 								icon={ArrowTopRightOnSquareIcon} />
@@ -176,7 +176,7 @@ export function Sidebar1Contents() {
 					target="_blank"
 				>
 					<styled.TypographySans>
-						<span className="inline-flex align-baseline gap-4">
+						<span className="inline-flex align-baseline gap-[0.6ch]">
 							Share on Twitter{" "}
 							<Icon className="h-16 w-16 color-$anchor-blue [transform]-translateY(2px)"
 								icon={ArrowTopRightOnSquareIcon} />
@@ -184,26 +184,26 @@ export function Sidebar1Contents() {
 					</styled.TypographySans>
 				</NavLink>
 			</nav>
-			<div className="px-$sidebar-inset-x">
+			<div className="px-$sidebar-1-inset-x">
 				<styled.TypographySans className="[line-height]-1.6">
-					{/* <span className="inline-flex align-baseline gap-4">
+					{/* <span className="inline-flex align-baseline gap-[0.6ch]">
 						Icons by @steveschoger{" "}
 						<Icon className="h-16 w-16 color-$anchor-blue [transform]-translateY(2px)"
 							icon={ArrowTopRightOnSquareIcon} />
 					</span>
 					<br /> */}
 					Web app and design by{" "}
-					<span className="inline-flex align-baseline gap-4">
+					<span className="inline-flex align-baseline gap-[0.6ch]">
 						@username_ZAYDEK{" "}
 						<Icon className="h-16 w-16 color-$anchor-blue [transform]-translateY(2px)"
 							icon={ArrowTopRightOnSquareIcon} />
 					</span>
 				</styled.TypographySans>
 			</div>
-			<div className="px-$sidebar-inset-x">
+			<div className="px-$sidebar-1-inset-x">
 				<styled.TypographySmallSans className="[line-height]-1.6 color-$soft-fill-color">
 					Heroicons are{" "}
-					<span className="inline-flex align-baseline gap-4">
+					<span className="inline-flex align-baseline gap-[0.6ch]">
 						MIT-licensed.{" "}
 						<Icon className="h-16 w-16 color-$fill-color [transform]-translateY(2px)"
 							icon={ScaleIcon} />

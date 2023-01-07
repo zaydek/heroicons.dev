@@ -3,11 +3,6 @@ import unoCss from "unocss/vite"
 import { defineConfig } from "vite"
 
 export default defineConfig({
-	css: {
-		modules: {
-			localsConvention: "camelCase",
-		},
-	},
 	plugins: [
 		unoCss(),
 		reactJs({

@@ -10,15 +10,18 @@ export function SearchBar() {
 	const { setSearch } = useContext(SetSearchContext)!
 
 	return <>
-		<div className="px-calc($search-bar-height_/_8) flex align-center h-$search-bar-height rounded-1e3 bg-color-$base-gray-color
-			[&:is(:hover,_:focus)]:(bg-color-$base-color shadow-0_0_0_1px_$hairline-color) [&_>_*:nth-child(2)]:flex-grow-1">
+		<div
+			className="px-calc($search-bar-height_/_8) flex align-center h-$search-bar-height rounded-1e3 bg-color-$base-gray-color
+				[&:is(:hover,_:focus)]:(bg-color-$base-color shadow-0_0_0_1px_$hairline-color) [&_>_*:nth-child(2)]:flex-grow-1"
+		>
 			<div className="flex justify-center align-center h-75% aspect-1 rounded-1e3 bg-color-red [@media_(max-width:_750px)]:[display]-none">
 				<div className="h-24 w-24 rounded-1e3 bg-color-white"></div>
 			</div>
 			<styled.TypographySearchBar
 				tag="input"
 				type="text"
-				className="px-16 flex align-center h-$search-bar-height"
+				className="px-16 flex align-center h-$search-bar-height color-$fill-color
+					[&::placeholder]:color-$soft-fill-color"
 				placeholder="Search Heroicons"
 				value={search}
 				onChange={e => setSearch(e.currentTarget.value)}

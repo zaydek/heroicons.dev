@@ -121,7 +121,7 @@ export function SectionSize() {
 	const { setSize } = useContext(SetSearchConfigContext)!
 
 	return <>
-		<section className="py-$sidebar-inset-y px-$sidebar-inset-x flex flex-col gap-10 [&:nth-child(1)]:pt-48">
+		<section className="py-$sidebar-2-inset-y px-$sidebar-2-inset-x flex flex-col gap-10 [&:nth-child(1)]:pt-48">
 			<div className="flex justify-space-between align-center h-20">
 				<Label>
 					SIZE
@@ -149,7 +149,7 @@ function SectionStrokeWidth() {
 	const { setStrokeWidth } = useContext(SetSearchConfigContext)!
 
 	return <>
-		<section className="py-$sidebar-inset-y px-$sidebar-inset-x flex flex-col gap-10 [&:nth-child(1)]:pt-48">
+		<section className="py-$sidebar-2-inset-y px-$sidebar-2-inset-x flex flex-col gap-10 [&:nth-child(1)]:pt-48">
 			<div className="flex justify-space-between align-center h-20">
 				<Label>
 					STROKE WIDTH
@@ -190,7 +190,7 @@ function SectionClipboard() {
 	}, [exportComponent, typescript])
 
 	return <>
-		<section className="py-$sidebar-inset-y px-$sidebar-inset-x flex flex-col gap-10 [&:nth-child(1)]:pt-48">
+		<section className="py-$sidebar-2-inset-y px-$sidebar-2-inset-x flex flex-col gap-10 [&:nth-child(1)]:pt-48">
 			<div className="flex justify-space-between align-center h-20">
 				<Label>
 					COPY AS
@@ -213,7 +213,7 @@ function SectionClipboard() {
 				<styled.TypographyCode
 					tag="textarea"
 					className="p-24 aspect-1.75 rounded-24 color-$fill-color bg-color-$base-gray-color
-						[&:is(:hover,_:focus)]:(bg-color-$base-color shadow-0_0_0_1px_$hairline-color)"
+						[&::placeholder]:color-$soft-fill-color [&:is(:hover,_:focus)]:(bg-color-$base-color shadow-0_0_0_1px_$hairline-color)"
 					placeholder="Click an icon to get started"
 					value={clipboard}
 					readOnly
