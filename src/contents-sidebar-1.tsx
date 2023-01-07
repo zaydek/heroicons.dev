@@ -77,14 +77,14 @@ export function Sidebar1Contents() {
 					<div className="h-24 w-24 rounded-1e3 bg-color-orange"></div>
 					<div className="h-16 w-96 rounded-1e3 bg-color-orange"></div>
 				</div>
-				<styled.TypographySans className="[line-height]-1.6">
-					<span className="inline-flex align-baseline gap-[0.6ch]">
+				<styled.TypographySans>
+					<span className="inline-flex align-baseline gap-6">
 						<Icon className="h-16 w-16 color-$hard-fill-color [transform]-translateY(2px)"
 							icon={ScaleIcon} />
 						MIT
 					</span>{" "}
 					open source icons by{" "}
-					<span className="inline-flex align-baseline gap-[0.6ch]">
+					<span className="inline-flex align-baseline gap-6">
 						@steveschoger{" "}
 						<Icon className="h-16 w-16 color-$anchor-blue [transform]-translateY(2px)"
 							icon={ArrowTopRightOnSquareIcon} />
@@ -148,7 +148,7 @@ export function Sidebar1Contents() {
 					target="_blank"
 				>
 					<styled.TypographySans>
-						<span className="inline-flex align-baseline gap-[0.6ch]">
+						<span className="inline-flex align-baseline gap-6">
 							GitHub{" "}
 							<Icon className="h-16 w-16 color-$anchor-blue [transform]-translateY(2px)"
 								icon={ArrowTopRightOnSquareIcon} />
@@ -162,7 +162,7 @@ export function Sidebar1Contents() {
 					target="_blank"
 				>
 					<styled.TypographySans>
-						<span className="inline-flex align-baseline gap-[0.6ch]">
+						<span className="inline-flex align-baseline gap-6">
 							Figma{" "}
 							<Icon className="h-16 w-16 color-$anchor-blue [transform]-translateY(2px)"
 								icon={ArrowTopRightOnSquareIcon} />
@@ -176,7 +176,7 @@ export function Sidebar1Contents() {
 					target="_blank"
 				>
 					<styled.TypographySans>
-						<span className="inline-flex align-baseline gap-[0.6ch]">
+						<span className="inline-flex align-baseline gap-6">
 							Share on Twitter{" "}
 							<Icon className="h-16 w-16 color-$anchor-blue [transform]-translateY(2px)"
 								icon={ArrowTopRightOnSquareIcon} />
@@ -185,15 +185,9 @@ export function Sidebar1Contents() {
 				</NavLink>
 			</nav>
 			<div className="px-$sidebar-1-inset-x">
-				<styled.TypographySans className="[line-height]-1.6">
-					{/* <span className="inline-flex align-baseline gap-[0.6ch]">
-						Icons by @steveschoger{" "}
-						<Icon className="h-16 w-16 color-$anchor-blue [transform]-translateY(2px)"
-							icon={ArrowTopRightOnSquareIcon} />
-					</span>
-					<br /> */}
+				<styled.TypographySans>
 					Web app and design by{" "}
-					<span className="inline-flex align-baseline gap-[0.6ch]">
+					<span className="inline-flex align-baseline gap-6">
 						@username_ZAYDEK{" "}
 						<Icon className="h-16 w-16 color-$anchor-blue [transform]-translateY(2px)"
 							icon={ArrowTopRightOnSquareIcon} />
@@ -201,9 +195,9 @@ export function Sidebar1Contents() {
 				</styled.TypographySans>
 			</div>
 			<div className="px-$sidebar-1-inset-x">
-				<styled.TypographySmallSans className="[line-height]-1.6 color-$soft-fill-color">
+				<styled.TypographySmallSans className="color-$soft-fill-color">
 					Heroicons are{" "}
-					<span className="inline-flex align-baseline gap-[0.6ch]">
+					<span className="inline-flex align-baseline gap-6">
 						MIT-licensed.{" "}
 						<Icon className="h-16 w-16 color-$fill-color [transform]-translateY(2px)"
 							icon={ScaleIcon} />

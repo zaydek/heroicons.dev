@@ -226,7 +226,8 @@ function SectionClipboard() {
 								if (clipboard === "") { return }
 								const filename = `${selectedName}.${extension}`
 								download(filename, clipboard)
-							}}>
+							}}
+						>
 							DOWNLOAD
 						</TextareaButton>
 					}
@@ -235,7 +236,8 @@ function SectionClipboard() {
 						onClick={e => {
 							if (clipboard === "") { return }
 							navigator.clipboard.writeText(clipboard)
-						}}>
+						}}
+					>
 						COPY
 					</TextareaButton>
 				</div>

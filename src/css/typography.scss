@@ -1,52 +1,44 @@
-//// @layer utilities {
-	.ellipsis {
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: pre;
-	}
-//// }
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 
-//// @layer typography {
-	.typography-search-bar {
-		font-family: var(--sans);
-		font-feature-settings: "tnum";
-		font-size: 16px;
-		font-weight: 400;
-		letter-spacing: null;
-	}
-	.typography-search-result {
-		font-family: var(--sans);
-		font-feature-settings: "tnum";
-		font-size: 13px;
-		font-weight: 400;
-		letter-spacing: null;
-	}
-	.typography-sans {
-		font-family: var(--sans);
-		font-feature-settings: "tnum";
-		font-size: 15px;
-		font-weight: 400;
-		letter-spacing: null;
-	}
-	.typography-small-sans {
-		font-family: var(--sans);
-		font-feature-settings: "tnum";
-		font-size: 13px;
-		font-weight: 400;
-		letter-spacing: null;
-	}
-	.typography-caps {
-		font-family: var(--sans);
-		font-feature-settings: "tnum";
-		font-size: 11px;
-		font-weight: 500;
-		letter-spacing: 0.1em;
-	}
-	.typography-code {
-		font-family: var(--code);
-		font-feature-settings: "tnum";
-		font-size: 14px;
-		font-weight: 400;
-		letter-spacing: null;
-	}
-//// }
+[class^=typography] { font-feature-settings: "tnum"; }
+
+.typography-search-bar {
+	white-space: normal;
+	font: 400 16px /
+		normal var(--sans);
+	letter-spacing: null;
+}
+.typography-search-result {
+	white-space: normal;
+	font: 400 13px /
+		normal var(--sans);
+	letter-spacing: null;
+}
+
+.typography-sans {
+	white-space: normal;
+	font: 400 15px /
+		1.6 var(--sans);
+	letter-spacing: null;
+}
+.typography-small-sans {
+	white-space: normal;
+	font: 400 13px /
+		1.6 var(--sans);
+	letter-spacing: null;
+}
+.typography-caps {
+	white-space: normal;
+	font: 500 11px /
+		normal var(--sans);
+	letter-spacing: 0.1em;
+}
+.typography-code {
+	white-space: pre;
+	font: 400 14px /
+		normal var(--code);
+	letter-spacing: null;
+}
