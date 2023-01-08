@@ -31,7 +31,7 @@ heroicons.dev has been around for a while (the first Heroicons website in existe
 🥞 [Hand-rolled static-site generation 🔗](TODO)<br>
 🥞 [Playwright 🔗](https://playwright.dev) for scraping icon source code<br>
 🥞 A lot of custom TypeScript 🤖
-🥞 Open source analytics by [Plausible 🔗](https://plausible.io/heroicons.dev) -- Click to see live analytics 🍿<br>
+🥞 Open source analytics by [Plausible 🔗](https://plausible.io/heroicons.dev)<br>
 
 ## Get Started (Vite)
 
@@ -55,10 +55,6 @@ Serve the production-ready build:
 npm run preview
 # Or npx vite preview
 ```
-
-## Contributing
-
-Have an idea for a fix or a feature? Create an issue or submit a pull request. You may also DM me [@username_ZAYDEK](twitter.com/username_ZAYDEK) on Twitter.
 
 ## License
 
