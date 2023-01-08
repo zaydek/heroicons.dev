@@ -36,9 +36,21 @@
 		normal var(--sans);
 	letter-spacing: 0.1em;
 }
+.typography-small-caps {
+	white-space: normal;
+	font: 500 10px /
+		normal var(--sans);
+	letter-spacing: 0.1em;
+}
 .typography-code {
 	white-space: pre;
 	font: 400 14px /
+		normal var(--code);
+	letter-spacing: null;
+}
+.typography-small-code {
+	white-space: pre;
+	font: 400 10px /
 		normal var(--code);
 	letter-spacing: null;
 }
