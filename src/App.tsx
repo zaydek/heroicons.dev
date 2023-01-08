@@ -5,7 +5,6 @@ import { AriaButton } from "./aria/aria-button"
 import { SearchBar, SearchResults } from "./contents-search"
 import { Sidebar1Contents as Sidebar1 } from "./contents-sidebar-1"
 import { Sidebar2Contents as Sidebar2 } from "./contents-sidebar-2"
-import { isMac } from "./lib/platform"
 
 export function App() {
 	const [column1Open, setColumn1Open] = useState(true)
