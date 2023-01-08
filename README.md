@@ -9,7 +9,7 @@ attribution required.
 
 <small>_Looking for the official Heroicons [website](https://heroicons.com)?_</small>
 
-## Features
+## Site Features
 
 ✨ Dark mode 😎<br>
 ✨ Flexible search (search camel-case, kebabCase, space case)<br>
@@ -20,7 +20,6 @@ attribution required.
 ✨ Format as JSX, Strict JSX, and TypeScript JSX 🦾<br>
 ✨ Download icon source, auto-generates filename and extension based on settings<br>
 ✨ All state is pesisted via search parameters<br>
-✨ Open source<br>
 
 ## Technology Stack
 
