@@ -154,7 +154,21 @@ export function Sidebar1Contents() {
 				>
 					<styled.TypographySans className="color-$fill-color">
 						<span className="inline-flex align-baseline gap-6">
-							GitHub
+							Icons GitHub
+							<Icon className="h-16 w-16 [stroke-width]-2 color-$anchor-blue [transform]-translateY(15%)"
+								icon={ArrowTopRightOnSquareIcon} />
+						</span>
+					</styled.TypographySans>
+				</NavLink>
+				<NavLink
+					icon={GitHubIcon}
+					href="https://github.com/zaydek/heroicons.dev"
+					rel="noopener noreferrer"
+					target="_blank"
+				>
+					<styled.TypographySans className="color-$fill-color">
+						<span className="inline-flex align-baseline gap-6">
+							Website GitHub
 							<Icon className="h-16 w-16 [stroke-width]-2 color-$anchor-blue [transform]-translateY(15%)"
 								icon={ArrowTopRightOnSquareIcon} />
 						</span>
