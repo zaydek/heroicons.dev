@@ -11,8 +11,10 @@ export function SearchBar() {
 
 	return <>
 		<div
-			className="px-calc($search-bar-height_/_4) flex align-center h-$search-bar-height rounded-1e3 bg-color-$base-gray-color
-				[&:is(:hover,_:focus-within)]:(bg-color-$base-color shadow-inset_0_0_0_1px_$hairline-color) [&_>_*:nth-child(2)]:flex-grow-1"
+			//// className="px-calc($search-bar-height_/_4) flex align-center h-$search-bar-height rounded-1e3 bg-color-$base-gray-color
+			//// 	[&:is(:hover,_:focus-within)]:(bg-color-$base-color shadow-inset_0_0_0_1px_$hairline-color) [&_>_*:nth-child(2)]:flex-grow-1"
+			className="flex align-center h-$search-bar-height rounded-1e3 bg-color-$base-gray-color
+				[&:is(:hover,_:focus-within)]:(bg-color-$base-color shadow-inset_0_0_0_1px_$hairline-color) [&_>_*:nth-child(1)]:flex-grow-1"
 		>
 			{/* <div className="flex justify-center align-center h-32 w-32 rounded-1e3 bg-color-red [@media_(max-width:_750px)]:[display]-none">
 				<div className="h-24 w-24 rounded-1e3 bg-color-white"></div>
@@ -20,7 +22,7 @@ export function SearchBar() {
 			<styled.TypographySearchBar
 				tag="input"
 				type="text"
-				className="px-calc($search-bar-height_/_4) flex align-center h-$search-bar-height color-$fill-color
+				className="px-calc($search-bar-height_/_2) flex align-center h-$search-bar-height color-$fill-color
 					[&::placeholder]:color-$soft-fill-color"
 				placeholder="Search Heroicons"
 				value={search}

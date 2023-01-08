@@ -57,7 +57,7 @@ export function stringifySvgElement(element: Element, config: Configuration) {
 			if (config.strictJsx) {
 				arr.push(`${tabs}<${tag} ${sortedAttrStr} />`)
 			} else {
-				arr.push(`${tabs}<${tag} ${sortedAttrStr}><${tag}>`)
+				arr.push(`${tabs}<${tag} ${sortedAttrStr}></${tag}>`)
 			}
 		}
 		return arr
