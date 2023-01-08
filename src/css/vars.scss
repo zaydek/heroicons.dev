@@ -1,0 +1,112 @@
+@use "sass:math";
+
+$search-bar-height: 64px;
+$grid-item-size:    72px;
+
+:root {
+	//////////////////////////////////////////////////////////////////////////////
+	// Sizes
+
+	--inset-y:           48px;
+	--inset-x:           64px;
+	--sidebar-1-inset-y: 20px;
+	--sidebar-1-inset-x: 20px;
+	--sidebar-2-inset-y: 20px;
+	--sidebar-2-inset-x: 32px;
+	--sidebar-1-width:   250px;
+	--sidebar-2-width:   400px;
+	--search-bar-height: #{$search-bar-height};
+	--grid-item-size:    #{$grid-item-size};
+	--form-size:         32px;
+
+	//////////////////////////////////////////////////////////////////////////////
+	// Radii
+
+	--magic-ratio: 0.4375;
+
+	//////////////////////////////////////////////////////////////////////////////
+	// Color channels
+
+	//// --base-h: 260;
+	--base-h: 200;
+	--base-s: 50%;
+
+	//////////////////////////////////////////////////////////////////////////////
+	// Colors
+
+	--base-color:        hsl(var(--base-h), var(--base-s), 100%);
+	--base-gray-color:   hsl(var(--base-h), var(--base-s), 95%);
+	--trim-color:        hsl(var(--base-h), 100%, 60%);
+	--form-color:        var(--base-color);
+	--hairline-color:    hsl(var(--base-h), var(--base-s), 50%, calc(100% / 3));
+	--placeholder-color: hsl(var(--base-h), var(--base-s), 40%, 0.2);
+	--fill-color:        hsl(var(--base-h), var(--base-s), 25%);
+	--hard-fill-color:   hsl(var(--base-h), var(--base-s), 10%);
+	--soft-fill-color:   hsl(var(--base-h), var(--base-s), 40%);
+	--highlight-color:   hsl(45, 100%, 80%);
+	--anchor-blue:       hsl(200, 75%, 60%);
+	--svg-orange:        hsl(36, 100%, 62%); // Never changes
+	--react-blue:        hsl(193, 95%, 68%); // Never changes
+	--vue-green:         hsl(153, 47%, 53%); // Never changes
+	--github-gray:       hsl(0, 2%, 9%);     // Never changes
+	--twitter-blue:      hsl(203, 89%, 53%); // Never changes
+
+	//////////////////////////////////////////////////////////////////////////////
+	// Shadows
+
+	--depth-shadow:
+		0  1px  2px  -1px hsl(var(--base-h), var(--base-s), 50%, 0.25),
+		0  2px  4px  -2px hsl(var(--base-h), var(--base-s), 50%, 0.25),
+		0  4px  8px  -4px hsl(var(--base-h), var(--base-s), 50%, 0.25),
+		0  8px 16px  -8px hsl(var(--base-h), var(--base-s), 50%, 0.25),
+		0 16px 32px -16px hsl(var(--base-h), var(--base-s), 50%, 0.25),
+		0 32px 64px -32px hsl(var(--base-h), var(--base-s), 50%, 0.25);
+	--inset-shadow:
+		inset 0 0 0 1px var(--hairline-color),
+		var(--depth-shadow);
+	--shadow:
+		0 0 0 1px var(--hairline-color),
+		var(--depth-shadow);
+}
+
+:root.dark {
+	//////////////////////////////////////////////////////////////////////////////
+	// Color-channels
+
+	//// --base-h: 250;
+	--base-h: 220;
+	--base-s: 10%;
+
+	//////////////////////////////////////////////////////////////////////////////
+	// Colors
+
+	--base-color:        hsl(var(--base-h), var(--base-s), 5%);
+	--base-gray-color:   hsl(var(--base-h), var(--base-s), 10%);
+	--form-color:        var(--base-gray-color);
+	--placeholder-color: hsl(var(--base-h), var(--base-s), 70%, 0.2);
+	--fill-color:        hsl(var(--base-h), var(--base-s), 90%);
+	--hard-fill-color:   hsl(var(--base-h), var(--base-s), 100%);
+	--soft-fill-color:   hsl(var(--base-h), var(--base-s), 70%);
+	--highlight-color:   hsl(200, 75%, 60%, 0.5);
+	--anchor-blue:       hsl(200, 75%, 60%);
+
+	//////////////////////////////////////////////////////////////////////////////
+	// Shadows
+
+	--depth-shadow:
+		0  1px  2px  -1px hsl(0, 0%, 0%, 0.5),
+		0  2px  4px  -2px hsl(0, 0%, 0%, 0.5),
+		0  4px  8px  -4px hsl(0, 0%, 0%, 0.5),
+		0  8px 16px  -8px hsl(0, 0%, 0%, 0.5),
+		0 16px 32px -16px hsl(0, 0%, 0%, 0.5),
+		0 32px 64px -32px hsl(0, 0%, 0%, 0.5);
+}
+
+@media (max-width: 750px) {
+	:root {
+		--inset-y:           20px;
+		--inset-x:           20px;
+		--search-bar-height: #{math.floor($search-bar-height * 0.75)};
+		--grid-item-size:    #{math.floor($grid-item-size * 0.75)};
+	}
+}

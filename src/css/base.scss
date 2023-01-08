@@ -1,0 +1,54 @@
+//// * {
+//// 	outline: 1px solid hsl(200, 100%, 50%, 0.5);
+//// 	outline-offset: -0.5px;
+//// }
+
+:focus-visible { outline: revert; }
+
+$sans: (
+	'Inter', // Added
+	system-ui,
+	'Segoe UI',
+	Roboto,
+	Helvetica,
+	Arial,
+	sans-serif,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+);
+
+$code: (
+	ui-monospace,
+	SFMono-Regular,
+	Consolas,
+	'Liberation Mono',
+	Menlo,
+	monospace,
+);
+
+:root {
+	-webkit-font-smoothing:  antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	overflow-y: scroll; // COMPAT/Windows
+	scroll-behavior: smooth;
+	@media (min-width: 1200px) { overscroll-behavior: none; }
+}
+
+:root {
+	--sans: #{$sans};
+	--code: #{$code};
+	background-color: var(--base-color);
+}
+:root:not(.dark) { color-scheme: light; }
+:root.dark       { color-scheme: dark;  }
+
+svg { overflow: visible; }
+
+:is(button, [role=button])                 { cursor: pointer; user-select: none; }
+:is(input[type=checkbox], [role=checkbox]) { cursor: pointer; user-select: none; }
+:is(input[type=radio], [role=radio])       { cursor: pointer; user-select: none; }
+:is(input[type=range], [role=slider])      { cursor: pointer; user-select: none; &:active { cursor: grabbing; } }
+
+input[type=text]:focus { outline: none; }
+textarea:focus         { outline: none; }
