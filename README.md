@@ -26,11 +26,9 @@ attribution required.
 
 heroicons.dev has been around for a while (the first Heroicons website in existence 🤭) and has evolved. 🦕 The current technology stack is:
 
-🥞 [TypeScript 🔗](https://typescriptlang.org) [React 🔗](https://reactjs.org) using [Vite 🔗](https://vitejs.dev)<br>
-🥞 [UnoCSS 🔗](https://github.com/unocss/unocss) [Sass 🔗](https://sass-lang.com/)<br>
-🥞 [Hand-rolled static-site generation 🔗](TODO)<br>
-🥞 [Playwright 🔗](https://playwright.dev) for scraping icon source code<br>
-🥞 A lot of custom TypeScript 🤖
+🥞 Written with [TypeScript 🔗](https://typescriptlang.org) / [React 🔗](https://reactjs.org) using [Vite 🔗](https://vitejs.dev)<br>
+🥞 Styled with [UnoCSS 🔗](https://github.com/unocss/unocss) [Sass 🔗](https://sass-lang.com/)<br>
+🥞 Deployed with [Netlify 🔗](https://playwright.dev)<br>
 🥞 Open source analytics by [Plausible 🔗](https://plausible.io/heroicons.dev)<br>
 
 ## Get Started (Vite)
