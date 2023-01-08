@@ -60,7 +60,6 @@ export function App() {
 				</styled.TypographySmallCaps>
 			</AriaButton>
 		</div>
-
 		<styled.SearchBarContainer>
 			<SearchBar />
 		</styled.SearchBarContainer>
