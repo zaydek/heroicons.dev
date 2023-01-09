@@ -322,7 +322,7 @@ export function Sidebar2() {
 						<styled.TypographySans className="![font-weight]-500 color-$hard-fill-color">
 							spelll.design
 						</styled.TypographySans>
-						<styled.TypographySmallCaps className="flex justify-center align-center py-5 px-10 rounded-1e3
+						<styled.TypographySmallCaps className="py-5 px-10 flex justify-center align-center rounded-1e3
 							[font-weight]-700 color-white
 								bg-color-black">
 							SPONSOR
