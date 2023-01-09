@@ -37,4 +37,10 @@ function createSearchParams(url: string) {
 	}
 }
 
-export const searchParams = createSearchParams(window.location.search)
+//// export let searchParams: ReturnType<typeof createSearchParams> | null
+//// if (typeof window !== "undefined") {
+//// 	searchParams = createSearchParams(window.location.search)
+//// }
+
+export const searchParams =
+	createSearchParams(typeof window === "undefined" ? "" : window.location.search)

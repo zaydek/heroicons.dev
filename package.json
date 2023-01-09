@@ -14,10 +14,12 @@
 		"the-new-css-reset": "^1.8.2"
 	},
 	"devDependencies": {
+		"@types/node": "^18.11.18",
 		"@types/react": "^18.0.26",
 		"@types/react-dom": "^18.0.9",
 		"@unocss/transformer-variant-group": "^0.48.0",
 		"@vitejs/plugin-react": "^3.0.0",
+		"esbuild": "^0.16.16",
 		"eslint": "^8.31.0",
 		"eslint-config-react-app": "^7.0.1",
 		"playwright": "^1.29.1",

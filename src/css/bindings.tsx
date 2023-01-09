@@ -1,7 +1,3 @@
-import "./layout.scss"
-import "./form.scss"
-import "./typography.scss"
-
 import { createStyled } from "../lib/react/create-styled"
 
 // layout.scss
