@@ -281,7 +281,7 @@ function SectionClipboard() {
 	</>
 }
 
-export function Sidebar2Contents() {
+export function Sidebar2() {
 	const { iconset } = useContext(SearchContext)!
 
 	return <>

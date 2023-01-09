@@ -41,7 +41,7 @@ function NavLink({ icon, children, ...props }: { icon: (_: SVGAttributes<SVGSVGE
 	</>
 }
 
-export function Sidebar1Contents() {
+export function Sidebar1() {
 	const { iconset } = useContext(SearchContext)!
 	const { start, end } = useContext(DispatchProgressBarContext)!
 	const { setIconset: _setIconset } = useContext(SetSearchContext)!

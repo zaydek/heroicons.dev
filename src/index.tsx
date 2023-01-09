@@ -8,12 +8,17 @@ import "./css/form.scss"
 import "./css/layout.scss"
 import "./css/typography.scss"
 
-import { createRoot, hydrateRoot } from "react-dom/client"
+import { createRoot } from "react-dom/client"
 import { App } from "./app"
 
-const root = document.getElementById("root")!
-if (typeof window === "undefined") {
-	hydrateRoot(root, <App />)
-} else {
-	createRoot(root).render(<App />)
-}
+//// const root = document.getElementById("root")!
+//// if (import.meta.env.DEV) {
+//// 	console.log("[DEBUG] createRoot")
+//// 	createRoot(root).render(<App />)
+//// } else {
+//// 	console.log("[DEBUG] hydrateRoot")
+//// 	hydrateRoot(root, <App />)
+//// }
+
+createRoot(document.getElementById("root")!)
+	.render(<App />)

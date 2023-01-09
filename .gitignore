@@ -24,5 +24,4 @@ dist-ssr
 *.sw?
 
 # Userland
-_ssg.*
-*.ssg.*
+*.generated.*

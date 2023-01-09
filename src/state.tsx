@@ -63,26 +63,38 @@ function searchImpl(str: string, substr: string) {
 }
 
 export function StateProvider({ children }: PropsWithChildren) {
-	const [size, setSize] = useState(() => searchParams.number({ key: "size", min: 0, max: 60, initialValue: 30 }))
-	const [strokeWidth, setStrokeWidth] = useState(() => searchParams.number({ key: "strokeWidth", min: 0, max: 4, initialValue: 2 }))
+	const [size, setSize] = useState(30)
+	const [strokeWidth, setStrokeWidth] = useState(2)
 	const [selectedName, setSelectedName] = useState("")
 	const [selectedSvgElement, setSelectedSvgElement] = useState<SVGSVGElement | null>(null)
-	const [copyAs, setCopyAs] = useState(() => searchParams.string<CopyAsValue>({ key: "copyAs", oneOf: CopyAs, initialValue: "code" }))
-	const [strictJsx, setStrictJsx] = useState(() => searchParams.bool({ key: "strictJsx", initialValue: false }))
-	const [exportComponent, setExportComponent] = useState(() => searchParams.bool({ key: "exportComponent", initialValue: false }))
-	const [typescript, setTypescript] = useState(() => searchParams.bool({ key: "typescript", initialValue: false }))
-	const [addImportStatement, setAddImportStatement] = useState(() => searchParams.bool({ key: "addImportStatement", initialValue: true }))
-	const [framework, setFramework] = useState(() => searchParams.string<FrameworkValue>({ key: "framework", oneOf: Frameworks, initialValue: "svg" }))
+	const [copyAs, setCopyAs] = useState<CopyAsValue>("code")
+	const [strictJsx, setStrictJsx] = useState(false)
+	const [exportComponent, setExportComponent] = useState(false)
+	const [typescript, setTypescript] = useState(false)
+	const [addImportStatement, setAddImportStatement] = useState(true)
+	const [framework, setFramework] = useState<FrameworkValue>("svg")
+
+	// Sync search parameters
+	useEffect(() => {
+		setSize(searchParams.number({ key: "size", min: 0, max: 60, initialValue: 30 }))
+		setStrokeWidth(searchParams.number({ key: "strokeWidth", min: 0, max: 4, initialValue: 2 }))
+		setCopyAs(searchParams.string<CopyAsValue>({ key: "copyAs", oneOf: CopyAs, initialValue: "code" }))
+		setStrictJsx(searchParams.bool({ key: "strictJsx", initialValue: false }))
+		setExportComponent(searchParams.bool({ key: "exportComponent", initialValue: false }))
+		setTypescript(searchParams.bool({ key: "typescript", initialValue: false }))
+		setAddImportStatement(searchParams.bool({ key: "addImportStatement", initialValue: true }))
+		setFramework(searchParams.string<FrameworkValue>({ key: "framework", oneOf: Frameworks, initialValue: "svg" }))
+	}, [])
 
 	//////////////////////////////////////////////////////////////////////////////
 
-	const [iconset, setIconset] = useState(() => searchParams.string<IconsetValue>({ key: "iconset", oneOf: Iconsets, initialValue: "v2-24-outline" }))
+	const [iconset, setIconset] = useState<IconsetValue>("v2-24-outline")
 
 	const [manifest, Icon] = useMemo(() => {
 		return cache.get(iconset)
 	}, [iconset])
 
-	const [search, setSearch] = useState(() => searchParams.string({ key: "search", initialValue: "" }))
+	const [search, setSearch] = useState("")
 	const _canonicalSearch = useMemo(() => {
 		const str = search.replace(/^[\s-]+|[\s-]+$/g, "") // [··]Hello,··world![··]
 			.replace(/[\s-]+/g, " ")                         // Hello[··]world!
@@ -102,6 +114,12 @@ export function StateProvider({ children }: PropsWithChildren) {
 		}
 		return results
 	}, [_canonicalSearch, _searchResultsFallback, manifest])
+
+	// Sync search parameters
+	useEffect(() => {
+		setIconset(searchParams.string<IconsetValue>({ key: "iconset", oneOf: Iconsets, initialValue: "v2-24-outline" }))
+		setSearch(searchParams.string({ key: "search", initialValue: "" }))
+	}, [])
 
 	//////////////////////////////////////////////////////////////////////////////
 
