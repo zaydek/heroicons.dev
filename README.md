@@ -22,7 +22,7 @@ attribution required.
 
 ## Technology Stack
 
-[heroicons.dev](https://heroicons-viewer.netlify.app) has been around for a while (the first Heroicons website in existence 🤭) and has evolved. 🦕 The current technology stack is:
+[heroicons.dev](https://heroicons-viewer.netlify.app) has been around for a while (the first Heroicons website in existence 🤭) and has evolved. The current technology stack is:
 
 🥞 [Vite 🔗](https://vitejs.dev)<br>
 🥞 [TypeScript 🔗](https://typescriptlang.org)<br>
