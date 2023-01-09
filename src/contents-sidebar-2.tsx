@@ -304,7 +304,7 @@ export function Sidebar2() {
 		<hr className="h-1 bg-color-$hairline-color" />
 		<SectionClipboard />
 		<hr className="h-1 bg-color-$hairline-color" />
-		<div className="absolute inset-b-0 py-$sidebar-2-inset-y px-$sidebar-2-inset-x shadow-0_-1px_0_0_$hairline-color">
+		<div className="absolute inset-b-0 py-$sidebar-2-inset-y px-$sidebar-2-inset-x bg-color-$base-color shadow-0_-1px_0_0_$hairline-color">
 			<a
 				className="flex gap-20 [&_>_:nth-child(2)]:flex-grow-1"
 				href="https://spelll.design?ref=heroicons.dev"
