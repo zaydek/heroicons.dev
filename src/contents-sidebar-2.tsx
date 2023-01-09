@@ -50,9 +50,7 @@ function OutlinedValue({ children, center }: PropsWithChildren<{ center?: boolea
 function RevertButton(props: HTMLAttributes<HTMLDivElement>) {
 	return <>
 		<AriaButton {...props}>
-			{/* <div className="flex justify-center align-center h-24 w-24 rounded-1e3 bg-color-red"> */}
 			<div className="flex justify-center align-center h-20 w-20 rounded-1e3 bg-color-$gray-color">
-				{/* <div className="h-8 w-8 rounded-1e3 bg-color-white"></div> */}
 				<Icon className="h-12 w-12 [stroke-width]-3 color-$soft-fill-color" icon={XMarkIcon} />
 			</div>
 		</AriaButton>
@@ -160,7 +158,6 @@ function SectionStrokeWidth() {
 					<AltLabel>
 						{strokeWidth.toFixed(2)}
 					</AltLabel>
-					{/* TODO */}
 					<RevertButton onClick={e => setStrokeWidth(2)} />
 				</div>
 			</div>
