@@ -315,7 +315,6 @@ export function Sidebar2() {
 					<img className="h-45%" src={spelllDesign} alt="Spelll Design -- Spell Checker for Figma" />
 				</div>
 				<div className="flex flex-col gap-2">
-					{/* Use h-24 to constrain sponsor badge bounding box */}
 					<div className="flex align-center gap-8 h-24">
 						{/* TODO: Unfortunately we need to use !important here because UnoCSS
 						seems to sort class names */}
@@ -332,7 +331,7 @@ export function Sidebar2() {
 					seems to sort class names */}
 					<styled.TypographySans className="![line-height]-1.4 color-$fill-color">
 						{/* Don't let <span className="[text-decoration]-underline_red_wavy">mistaks</span> ruin your design. */}
-						<span className="[text-decoration]-underline_red_wavy">Spellng</span> and Grammer Checker for Figma
+						<span className="[text-decoration]-underline_red_wavy">Spellng</span> and Grammar Checker for Figma
 					</styled.TypographySans>
 				</div>
 			</a>
