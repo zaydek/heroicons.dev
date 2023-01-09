@@ -16,19 +16,19 @@ attribution required.
 ✨ View icons from all variants and versions (includes legacy icons)<br>
 ✨ Preview icon size and stroke width 💪<br>
 ✨ Copy to the clipboard as code or [@heroicons 🔗](https://github.com/tailwindlabs/heroicons) import<br>
-✨ Copy-paste support for Figma 🖼️ (copy as SVG)<br>
 ✨ Format as JSX, Strict JSX, and TypeScript JSX 🦾<br>
-✨ Download icon source, auto-generates filename and extension based on settings<br>
+✨ Download icons, filenames and extensions are auto-generated from settings<br>
 ✨ All state is pesisted via search parameters<br>
 
 ## Technology Stack
 
 heroicons.dev has been around for a while (the first Heroicons website in existence 🤭) and has evolved. 🦕 The current technology stack is:
 
-🥞 Written with [TypeScript 🔗](https://typescriptlang.org) / [React 🔗](https://reactjs.org) using [Vite 🔗](https://vitejs.dev)<br>
-🥞 Styled with [UnoCSS 🔗](https://github.com/unocss/unocss) [Sass 🔗](https://sass-lang.com/)<br>
-🥞 Deployed with [Netlify 🔗](https://playwright.dev)<br>
-🥞 Open source analytics by [Plausible 🔗](https://plausible.io/heroicons.dev)<br>
+🥞 [Vite 🔗](https://vitejs.dev)<br>
+🥞 [TypeScript 🔗](https://typescriptlang.org)<br>
+🥞 [React 🔗](https://reactjs.org)<br>
+🥞 [UnoCSS 🔗](https://github.com/unocss/unocss)<br>
+🥞 [Sass 🔗](https://sass-lang.com)<br>
 
 ## Get Started (Vite)
 
