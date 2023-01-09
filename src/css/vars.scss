@@ -35,7 +35,7 @@ $grid-item-size:    72px;
 	// Colors
 
 	--base-color:        hsl(var(--base-h), var(--base-s), 100%);
-	--base-gray-color:   hsl(var(--base-h), var(--base-s), 95%);
+	--gray-color:        hsl(var(--base-h), var(--base-s), 95%);
 	--trim-color:        hsl(var(--base-h), 100%, 60%);
 	--form-color:        var(--base-color);
 	--hairline-color:    hsl(var(--base-h), var(--base-s), 50%, calc(100% / 3));
@@ -81,8 +81,8 @@ $grid-item-size:    72px;
 	// Colors
 
 	--base-color:        hsl(var(--base-h), var(--base-s), 5%);
-	--base-gray-color:   hsl(var(--base-h), var(--base-s), 10%);
-	--form-color:        var(--base-gray-color);
+	--gray-color:        hsl(var(--base-h), var(--base-s), 10%);
+	--form-color:        var(--gray-color);
 	--placeholder-color: hsl(var(--base-h), var(--base-s), 70%, 0.2);
 	--fill-color:        hsl(var(--base-h), var(--base-s), 90%);
 	--hard-fill-color:   hsl(var(--base-h), var(--base-s), 100%);

@@ -3,13 +3,13 @@ import * as styled from "./css/bindings"
 import { AnchorHTMLAttributes, HTMLAttributes, PropsWithChildren, SVGAttributes, useCallback, useContext, useEffect, useRef, useTransition } from "react"
 import { AriaButton } from "./aria/aria-button"
 import { cache } from "./cache"
-import { ArrowTopRightOnSquareIcon, FigmaIcon, GitHubIcon, HeartIcon, HeroiconsLogomarkIcon, HeroiconsLogotextIcon, LightningIcon, PencilSquareIcon, ScaleIcon, TwitterIcon } from "./icon-config"
+import { FigmaIcon, GitHubIcon, HeartIcon, HeroiconsLogomarkIcon, HeroiconsLogotextIcon, LightningIcon, ScaleIcon, TwitterIcon } from "./icon-config"
 import { Icon } from "./lib/react/icon"
 import { DispatchProgressBarContext } from "./progress-bar"
 import { SearchContext, SetSearchContext } from "./state"
 import { IconsetValue } from "./types"
 
-function MenuTitle({ children }: PropsWithChildren) {
+function NavItemTitle({ children }: PropsWithChildren) {
 	return <>
 		<div className="px-$sidebar-1-inset-x flex align-center h-36">
 			<styled.TypographyCaps className="color-$soft-fill-color">
@@ -19,10 +19,10 @@ function MenuTitle({ children }: PropsWithChildren) {
 	</>
 }
 
-function MenuItem({ icon, children, ...props }: PropsWithChildren<{ icon: (_: SVGAttributes<SVGSVGElement>) => JSX.Element } & HTMLAttributes<HTMLDivElement>>) {
+function NavItem({ icon, children, ...props }: PropsWithChildren<{ icon: (_: SVGAttributes<SVGSVGElement>) => JSX.Element } & HTMLAttributes<HTMLDivElement>>) {
 	return <>
 		<AriaButton {...props}>
-			<div className="px-$sidebar-1-inset-x flex align-center gap-10 h-36 [&:hover,_[role=button][data-active=true]_&]:bg-color-$base-gray-color">
+			<div className="px-$sidebar-1-inset-x flex align-center gap-10 h-36 [&:hover,_[role=button][data-active=true]_&]:bg-color-$gray-color">
 				<Icon className="h-20 h-20 color-$trim-color" icon={icon} />
 				<styled.TypographyCaps className="color-$fill-color">
 					{children}
@@ -32,9 +32,9 @@ function MenuItem({ icon, children, ...props }: PropsWithChildren<{ icon: (_: SV
 	</>
 }
 
-function NavLink({ icon, children, ...props }: { icon: (_: SVGAttributes<SVGSVGElement>) => JSX.Element } & AnchorHTMLAttributes<HTMLAnchorElement>) {
+function NavItemLink({ icon, children, ...props }: { icon: (_: SVGAttributes<SVGSVGElement>) => JSX.Element } & AnchorHTMLAttributes<HTMLAnchorElement>) {
 	return <>
-		<a className="px-$sidebar-1-inset-x flex align-center gap-10 h-36 [&:hover]:bg-color-$base-gray-color" {...props}>
+		<a className="px-$sidebar-1-inset-x flex align-center gap-10 h-36 [&:hover]:bg-color-$gray-color" {...props}>
 			<Icon className="h-20 w-20" icon={icon} />
 			{children}
 		</a>
@@ -71,7 +71,7 @@ export function Sidebar1() {
 	}, [end, pending, start])
 
 	return <>
-		<section className="absolute inset-t-0 py-$inset-y pb-$sidebar-1-inset-y">
+		<section className="py-$inset-y pb-$sidebar-1-inset-y shadow-0_1px_0_0_$hairline-color">
 			<div className="px-$sidebar-1-inset-x flex flex-col gap-16 h-calc($inset-y_+_$search-bar-height)">
 				<div className="flex align-center gap-6">
 					<HeroiconsLogomarkIcon className="h-24 w-24 color-$trim-color [transform]-translateY(15%)" />
@@ -85,139 +85,123 @@ export function Sidebar1() {
 					</span>{" "}
 					open source icons by{" "}
 					<a
-						className="inline-flex align-baseline gap-6 color-$anchor-blue [&:hover]:[text-decoration]-underline"
+						className="color-$anchor-blue [&:hover]:[text-decoration]-underline"
 						href="https://twitter.com/steveschoger"
 						rel="noopener noreferrer"
 						target="_blank"
 					>
 						@steveschoger
-						<Icon className="h-16 w-16 [stroke-width]-2 color-$anchor-blue [transform]-translateY(15%)"
-							icon={ArrowTopRightOnSquareIcon} />
 					</a>
 				</styled.TypographySans>
 			</div>
-			<div className="flex flex-col gap-16">
+			<nav className="flex flex-col gap-16">
 				<div>
-					<MenuTitle>
+					<NavItemTitle>
 						VERSION 2
-					</MenuTitle>
-					<MenuItem
+					</NavItemTitle>
+					<NavItem
 						icon={LightningIcon.V2_20_solid}
 						onClick={e => setIconset("v2-20-solid")}
 						data-active={iconset === "v2-20-solid"}
 					>
 						20 PX SOLID
-					</MenuItem>
-					<MenuItem
+					</NavItem>
+					<NavItem
 						icon={LightningIcon.v2_24_outline}
 						onClick={e => setIconset("v2-24-outline")}
 						data-active={iconset === "v2-24-outline"}
 					>
 						24 PX OUTLINE
-					</MenuItem>
-					<MenuItem
+					</NavItem>
+					<NavItem
 						icon={LightningIcon.v2_24_solid}
 						onClick={e => setIconset("v2-24-solid")}
 						data-active={iconset === "v2-24-solid"}
 					>
 						24 PX SOLID
-					</MenuItem>
+					</NavItem>
 				</div>
 				<div>
-					<MenuTitle>
+					<NavItemTitle>
 						VERSION 1 (LEGACY)
-					</MenuTitle>
-					<MenuItem
+					</NavItemTitle>
+					<NavItem
 						icon={LightningIcon.v1_20_solid}
 						onClick={e => setIconset("v1-20-solid")}
 						data-active={iconset === "v1-20-solid"}
 					>
 						20 PX SOLID
-					</MenuItem>
-					<MenuItem
+					</NavItem>
+					<NavItem
 						icon={LightningIcon.v1_24_outline}
 						onClick={e => setIconset("v1-24-outline")}
 						data-active={iconset === "v1-24-outline"}
 					>
 						24 PX OUTLINE
-					</MenuItem>
+					</NavItem>
 				</div>
-			</div>
+			</nav>
 		</section>
-		<section className="absolute inset-b-0 py-$inset-y pt-$sidebar-1-inset-y flex flex-col gap-16 bg-color-$base-color">
+		<section className="absolute inset-b-0 py-$inset-y pt-$sidebar-1-inset-y flex flex-col gap-16 bg-color-$base-color shadow-0_-1px_0_$hairline-color">
 			<nav>
-				<NavLink
+				<NavItemTitle>
+					LINKS
+				</NavItemTitle>
+				<NavItemLink
 					icon={GitHubIcon}
 					href="https://github.com/tailwindlabs/heroicons"
 					rel="noopener noreferrer"
 					target="_blank"
 				>
 					<styled.TypographySans className="color-$fill-color">
-						<span className="inline-flex align-baseline gap-6">
-							Icons GitHub
-							<Icon className="h-16 w-16 [stroke-width]-2 color-$anchor-blue [transform]-translateY(15%)"
-								icon={ArrowTopRightOnSquareIcon} />
-						</span>
+						Icons
 					</styled.TypographySans>
-				</NavLink>
-				<NavLink
+				</NavItemLink>
+				<NavItemLink
 					icon={GitHubIcon}
 					href="https://github.com/zaydek/heroicons.dev"
 					rel="noopener noreferrer"
 					target="_blank"
 				>
 					<styled.TypographySans className="color-$fill-color">
-						<span className="inline-flex align-baseline gap-6">
-							Website GitHub
-							<Icon className="h-16 w-16 [stroke-width]-2 color-$anchor-blue [transform]-translateY(15%)"
-								icon={ArrowTopRightOnSquareIcon} />
-						</span>
+						Website
 					</styled.TypographySans>
-				</NavLink>
-				<NavLink
+				</NavItemLink>
+				<NavItemLink
 					icon={FigmaIcon}
 					href="https://figma.com/community/file/1143911270904274171"
 					rel="noopener noreferrer"
 					target="_blank"
 				>
 					<styled.TypographySans className="color-$fill-color">
-						<span className="inline-flex align-baseline gap-6">
-							Figma
-							<Icon className="h-16 w-16 [stroke-width]-2 color-$anchor-blue [transform]-translateY(15%)"
-								icon={ArrowTopRightOnSquareIcon} />
-						</span>
+						File
 					</styled.TypographySans>
-				</NavLink>
-				<NavLink
+				</NavItemLink>
+				<NavItemLink
 					icon={TwitterIcon}
 					href={`http://twitter.com/intent/tweet?text=${encodeURI("Check out Hericons 💯\n\nThanks @steveschoger for designing Heroicons and @username_ZAYDEK for the new heroicons.dev\n\nheroicons.dev")}`}
 					rel="noopener noreferrer"
 					target="_blank"
 				>
 					<styled.TypographySans className="color-$fill-color">
-						<span className="inline-flex align-baseline gap-6">
+						<span className="inline-flex align-center gap-6">
 							Share on Twitter
-							<Icon className="h-16 w-16 [stroke-width]-2 color-$anchor-blue [transform]-translateY(15%)"
-								icon={PencilSquareIcon} />
-							{/* Use [transform]-translateY(20%) for alignment */}
-							<Icon className="h-20 w-20 [stroke-width]-2 color-$twitter-blue [transform]-translateY(20%)"
+							<Icon className="h-24 w-24 [stroke-width]-2 color-$twitter-blue"
 								icon={HeartIcon} />
 						</span>
 					</styled.TypographySans>
-				</NavLink>
+				</NavItemLink>
 			</nav>
 			<div className="px-$sidebar-1-inset-x">
 				<styled.TypographySans className="color-$fill-color">
 					Website design and app by
 					<a
-						className="inline-flex align-baseline gap-6 color-$anchor-blue [&:hover]:[text-decoration]-underline"
+						className="color-$anchor-blue [&:hover]:[text-decoration]-underline"
 						href="https://twitter.com/username_ZAYDEK"
 						rel="noopener noreferrer"
 						target="_blank"
 					>
 						@username_ZAYDEK
-						<Icon className="h-16 w-16 [stroke-width]-2 color-$anchor-blue [transform]-translateY(15%)"
-							icon={ArrowTopRightOnSquareIcon} />
 					</a>
 				</styled.TypographySans>
 			</div>

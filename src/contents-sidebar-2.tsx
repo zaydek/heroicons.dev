@@ -1,5 +1,7 @@
 import * as styled from "./css/bindings"
 
+import spelllDesign from "./assets/spelll-design.png"
+
 import { CSSProperties, Dispatch, HTMLAttributes, PropsWithChildren, SetStateAction, SVGAttributes, useContext, useMemo, useState } from "react"
 import { AriaButton } from "./aria/aria-button"
 import { AriaCheckbox } from "./aria/aria-checkbox"
@@ -49,7 +51,7 @@ function RevertButton(props: HTMLAttributes<HTMLDivElement>) {
 	return <>
 		<AriaButton {...props}>
 			{/* <div className="flex justify-center align-center h-24 w-24 rounded-1e3 bg-color-red"> */}
-			<div className="flex justify-center align-center h-20 w-20 rounded-1e3 bg-color-$base-gray-color">
+			<div className="flex justify-center align-center h-20 w-20 rounded-1e3 bg-color-$gray-color">
 				{/* <div className="h-8 w-8 rounded-1e3 bg-color-white"></div> */}
 				<Icon className="h-12 w-12 [stroke-width]-3 color-$soft-fill-color" icon={XMarkIcon} />
 			</div>
@@ -60,7 +62,7 @@ function RevertButton(props: HTMLAttributes<HTMLDivElement>) {
 function Radio({ children, center, ...props }: PropsWithChildren<{ value: string, center?: boolean } & HTMLAttributes<HTMLDivElement>>) {
 	return <>
 		<AriaRadio {...props}>
-			<div className="flex align-center gap-10 [&_>_*:nth-child(2)]:flex-grow-1">
+			<div className="flex align-center gap-10 [&_>_:nth-child(2)]:flex-grow-1">
 				<styled.Radio className="flex justify-center align-center">
 					<styled.RadioIcon />
 				</styled.Radio>
@@ -75,7 +77,7 @@ function Radio({ children, center, ...props }: PropsWithChildren<{ value: string
 function Checkbox({ children, ...props }: PropsWithChildren<{ checked: boolean, setChecked: Dispatch<SetStateAction<boolean>> } & HTMLAttributes<HTMLDivElement>>) {
 	return <>
 		<AriaCheckbox {...props}>
-			<div className="flex align-center gap-10 [&_>_*:nth-child(2)]:flex-grow-1">
+			<div className="flex align-center gap-10 [&_>_:nth-child(2)]:flex-grow-1">
 				<styled.Checkbox className="flex justify-center align-center">
 					<styled.CheckboxIcon as={CheckIcon} />
 				</styled.Checkbox>
@@ -212,9 +214,9 @@ function SectionClipboard() {
 			<div className="relative flex flex-col">
 				<styled.TypographyCode
 					tag="textarea"
-					className="p-calc($form-size_*_2_/_3) aspect-1.75 rounded-24 color-$fill-color bg-color-$base-gray-color
+					className="p-calc($form-size_*_2_/_3) aspect-1.75 rounded-24 color-$fill-color bg-color-$gray-color
 						[&::placeholder]:color-$soft-fill-color [&:is(:hover,_:focus)]:(bg-color-$base-color shadow-inset_0_0_0_1px_$hairline-color)"
-					placeholder="Click an icon to copy"
+					placeholder="Click to copy an icon"
 					value={clipboard}
 					readOnly
 				/>
@@ -305,5 +307,47 @@ export function Sidebar2() {
 		<hr className="h-1 bg-color-$hairline-color" />
 		<SectionClipboard />
 		<hr className="h-1 bg-color-$hairline-color" />
+		<div className="absolute inset-b-0 py-$sidebar-2-inset-y px-$sidebar-2-inset-x shadow-0_-1px_0_0_$hairline-color">
+		{/* <div className="absolute inset-b-0 py-$sidebar-2-inset-y px-$sidebar-2-inset-x"> */}
+			{/* TODO */}
+			<div className="flex flex-col gap-10">
+				{/* <styled.TypographySmallCaps className="flex justify-center align-center py-4 px-10 rounded-1e3
+					[font-weight]-700 color-white
+						bg-color-black">
+					SPONSOR
+				</styled.TypographySmallCaps> */}
+				<a
+					className="flex gap-20 [&_>_:nth-child(2)]:flex-grow-1"
+					href="https://spelll.design?ref=heroicons.dev"
+					rel="noopener noreferrer"
+					target="_blank"
+				>
+					<div className="flex justify-center align-center h-80 aspect-1.67 rounded-16 bg-color-#4f27fa">
+						<img className="h-45%" src={spelllDesign} alt="Spelll Design -- Spell Checker for Figma" />
+					</div>
+					<div className="flex flex-col gap-2">
+						{/* Use h-24 to constrain sponsor badge bounding box */}
+						<div className="flex align-center gap-8 h-24">
+							{/* TODO: Unfortunately we need to use !important here because UnoCSS
+							seems to sort class names */}
+							<styled.TypographySans className="![font-weight]-500 color-$hard-fill-color">
+								spelll.design
+							</styled.TypographySans>
+							<styled.TypographySmallCaps className="flex justify-center align-center py-5 px-10 rounded-1e3
+								[font-weight]-700 color-white
+									bg-color-black">
+								SPONSOR
+							</styled.TypographySmallCaps>
+						</div>
+						{/* TODO: Unfortunately we need to use !important here because UnoCSS
+						seems to sort class names */}
+						<styled.TypographySans className="![line-height]-1.4 color-$fill-color">
+							{/* Don't let <span className="[text-decoration]-underline_red_wavy">mistaks</span> ruin your design. */}
+							<span className="[text-decoration]-underline_red_wavy">Spellng</span> and Grammer Checker for Figma
+						</styled.TypographySans>
+					</div>
+				</a>
+			</div>
+		</div>
 	</>
 }
