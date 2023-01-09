@@ -19,7 +19,7 @@ function MenuTitle({ children }: PropsWithChildren) {
 	</>
 }
 
-function MenuItem({ icon, children, ...props }: { icon: (_: SVGAttributes<SVGSVGElement>) => JSX.Element } & PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {
+function MenuItem({ icon, children, ...props }: PropsWithChildren<{ icon: (_: SVGAttributes<SVGSVGElement>) => JSX.Element } & HTMLAttributes<HTMLDivElement>>) {
 	return <>
 		<AriaButton {...props}>
 			<div className="px-$sidebar-1-inset-x flex align-center gap-10 h-36 [&:hover,_[role=button][data-active=true]_&]:bg-color-$base-gray-color">

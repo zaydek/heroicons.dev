@@ -1,6 +1,6 @@
 import * as styled from "./css/bindings"
 
-import { Dispatch, HTMLAttributes, PropsWithChildren, SetStateAction, SVGAttributes, useContext, useMemo, useState } from "react"
+import { CSSProperties, Dispatch, HTMLAttributes, PropsWithChildren, SetStateAction, SVGAttributes, useContext, useMemo, useState } from "react"
 import { AriaButton } from "./aria/aria-button"
 import { AriaCheckbox } from "./aria/aria-checkbox"
 import { AriaRadio, AriaRadiogroup } from "./aria/aria-radio"
@@ -57,7 +57,7 @@ function RevertButton(props: HTMLAttributes<HTMLDivElement>) {
 	</>
 }
 
-function Radio({ children, center, ...props }: PropsWithChildren<{ value: string, center?: boolean }>) {
+function Radio({ children, center, ...props }: PropsWithChildren<{ value: string, center?: boolean } & HTMLAttributes<HTMLDivElement>>) {
 	return <>
 		<AriaRadio {...props}>
 			<div className="flex align-center gap-10 [&_>_*:nth-child(2)]:flex-grow-1">
@@ -72,7 +72,7 @@ function Radio({ children, center, ...props }: PropsWithChildren<{ value: string
 	</>
 }
 
-function Checkbox({ children, ...props }: PropsWithChildren<{ checked: boolean, setChecked: Dispatch<SetStateAction<boolean>> }>) {
+function Checkbox({ children, ...props }: PropsWithChildren<{ checked: boolean, setChecked: Dispatch<SetStateAction<boolean>> } & HTMLAttributes<HTMLDivElement>>) {
 	return <>
 		<AriaCheckbox {...props}>
 			<div className="flex align-center gap-10 [&_>_*:nth-child(2)]:flex-grow-1">
@@ -262,15 +262,27 @@ function SectionClipboard() {
 				</Checkbox>
 				<AriaRadiogroup groupValue={framework} setGroupValue={setFramework as Dispatch<SetStateAction<string>>}>
 					<div className="grid grid-cols-3 gap-10">
-						<Radio value="svg" center>
+						<Radio
+							style={{ "--color": "var(--svg-orange)" } as CSSProperties}
+							value="svg"
+							center
+						>
 							<Icon className="h-20 w-20"
 								icon={SVGIcon} />
 						</Radio>
-						<Radio value="react" center>
+						<Radio
+							style={{ "--color": "var(--react-blue)" } as CSSProperties}
+							value="react"
+							center
+						>
 							<Icon className="h-20 w-20"
 								icon={ReactIcon} />
 						</Radio>
-						<Radio value="vue" center>
+						<Radio
+							style={{ "--color": "var(--vue-green)"  } as CSSProperties}
+							value="vue"
+							center
+						>
 							<Icon className="h-20 w-20"
 								icon={VueIcon} />
 						</Radio>
