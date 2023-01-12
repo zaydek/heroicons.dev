@@ -12,9 +12,9 @@ export function SearchBar() {
 	return <>
 		<div
 			//// className="px-calc($search-bar-height_/_4) flex align-center h-$search-bar-height rounded-1e3 bg-$gray-color
-			//// 	[&:is(:hover,_:focus-within)]:(bg-$base-color shadow-inset_0_0_0_1px_$hairline-color) [&_>_:nth-child(2)]:flex-grow-1"
+			//// 	[&:is(:hover,_:focus-within)]:(bg-$base-color shadow-inset_0_0_0_1px_$hairline-color) [&_>_:nth-child(2)]:grow-1"
 			className="flex align-center h-$search-bar-height rounded-1e3 bg-$gray-color
-				[&:is(:hover,_:focus-within)]:(bg-$base-color shadow-inset_0_0_0_1px_$hairline-color) [&_>_:nth-child(1)]:flex-grow-1"
+				[&:is(:hover,_:focus-within)]:(bg-$base-color shadow-inset_0_0_0_1px_$hairline-color) [&_>_:nth-child(1)]:grow-1"
 		>
 			{/* <div className="flex justify-center align-center h-32 w-32 rounded-1e3 bg-red [@media_(max-width:_750px)]:[display]-none">
 				<div className="h-24 w-24 rounded-1e3 bg-white"></div>
@@ -45,14 +45,12 @@ function GridScaffold({ children }: PropsWithChildren) {
 }
 
 const placeholderIconStyles = {
-	width: "var(--grid-item-icon-size)",
-	height: "var(--grid-item-icon-size)",
+	transform: `scale(var(--grid-item-icon-scale))`
 }
 
 const iconStyles = {
-	width: "var(--grid-item-icon-size)",
-	height: "var(--grid-item-icon-size)",
 	strokeWidth: "var(--grid-item-icon-stroke-width)",
+	transform: `scale(var(--grid-item-icon-scale))`
 }
 
 function SkeletonFallback() {

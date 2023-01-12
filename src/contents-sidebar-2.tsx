@@ -7,10 +7,15 @@ import { AriaButton } from "./aria/aria-button"
 import { AriaCheckbox } from "./aria/aria-checkbox"
 import { AriaRadio, AriaRadiogroup } from "./aria/aria-radio"
 import { AriaSlider } from "./aria/aria-slider"
+import { ICON_SIZE_MAX, ICON_SIZE_MIN, ICON_STROKE_WIDTH_MAX, ICON_STROKE_WIDTH_MIN } from "./constants"
 import { ArrowDownTrayIcon, CheckIcon, DocumentDuplicateIcon, ReactIcon, SVGIcon, VueIcon, XMarkIcon } from "./icon-config"
 import { download } from "./lib/download"
 import { Icon } from "./lib/react/icon"
 import { SearchConfigContext, SearchContext, SetSearchConfigContext } from "./state"
+
+function Hairline() {
+	return <hr className="h-1 bg-$hairline-color" />
+}
 
 function Label({ children }: PropsWithChildren) {
 	return <>
@@ -60,7 +65,7 @@ function RevertButton(props: HTMLAttributes<HTMLDivElement>) {
 function Radio({ children, center, ...props }: PropsWithChildren<{ value: string, center?: boolean } & HTMLAttributes<HTMLDivElement>>) {
 	return <>
 		<AriaRadio {...props}>
-			<div className="flex align-center gap-10 [&_>_:nth-child(2)]:flex-grow-1">
+			<div className="flex align-center gap-10 [&_>_:nth-child(2)]:grow-1">
 				<styled.Radio className="flex justify-center align-center">
 					<styled.RadioIcon />
 				</styled.Radio>
@@ -75,7 +80,7 @@ function Radio({ children, center, ...props }: PropsWithChildren<{ value: string
 function Checkbox({ children, ...props }: PropsWithChildren<{ checked: boolean, setChecked: Dispatch<SetStateAction<boolean>> } & HTMLAttributes<HTMLDivElement>>) {
 	return <>
 		<AriaCheckbox {...props}>
-			<div className="flex align-center gap-10 [&_>_:nth-child(2)]:flex-grow-1">
+			<div className="flex align-center gap-10 [&_>_:nth-child(2)]:grow-1">
 				<styled.Checkbox className="flex justify-center align-center">
 					<styled.CheckboxIcon as={CheckIcon} />
 				</styled.Checkbox>
@@ -134,9 +139,9 @@ export function SectionSize() {
 				</div>
 			</div>
 			<Slider
-				min={0}
-				max={60}
-				step={2}
+				min={ICON_SIZE_MIN}
+				max={ICON_SIZE_MAX}
+				step={1}
 				value={size}
 				setValue={setSize}
 			/>
@@ -162,8 +167,8 @@ function SectionStrokeWidth() {
 				</div>
 			</div>
 			<Slider
-				min={0}
-				max={4}
+				min={ICON_STROKE_WIDTH_MIN}
+				max={ICON_STROKE_WIDTH_MAX}
 				step={0.125}
 				value={strokeWidth}
 				setValue={setStrokeWidth}
@@ -176,6 +181,7 @@ function SectionClipboard() {
 	const { selectedName, copyAs, strictJsx, exportComponent, typescript, addImportStatement, framework, clipboard } = useContext(SearchConfigContext)!
 	const { setCopyAs, setStrictJsx, setExportComponent, setTypescript, setAddImportStatement, setFramework, resetClipboard } = useContext(SetSearchConfigContext)!
 
+	// TODO: Move to primary state
 	const extension = useMemo(() => {
 		let extension = "svg"
 		if (exportComponent) {
@@ -298,15 +304,15 @@ export function Sidebar2() {
 	return <>
 		<SectionSize />
 		{iconset.includes("outline") && <>
-			<hr className="h-1 bg-$hairline-color" />
+			<Hairline />
 			<SectionStrokeWidth />
 		</>}
-		<hr className="h-1 bg-$hairline-color" />
+		<Hairline />
 		<SectionClipboard />
-		<hr className="h-1 bg-$hairline-color" />
+		<Hairline />
 		<div className="absolute b-0 x-0 py-$sidebar-2-inset-y px-$sidebar-2-inset-x bg-$base-color shadow-0_-1px_0_0_$hairline-color">
 			<a
-				className="flex gap-20 [&_>_:nth-child(2)]:flex-grow-1"
+				className="flex gap-20 [&_>_:nth-child(2)]:grow-1"
 				href="https://spelll.design?ref=heroicons.dev"
 				rel="noopener noreferrer"
 				target="_blank"

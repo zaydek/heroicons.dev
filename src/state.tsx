@@ -5,8 +5,10 @@ import type { manifest as manifestV2 } from "./data/manifest@2.0.13"
 import { createContext, Dispatch, LazyExoticComponent, PropsWithChildren, SetStateAction, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react"
 import { stringifySvgElement } from "../scripts/stringify-svg-element"
 import { cache } from "./cache"
+import { ICON_SIZE_MAX, ICON_SIZE_MIN, ICON_STROKE_WIDTH_MAX, ICON_STROKE_WIDTH_MIN, INITIAL_ICONSET, INITIAL_ICON_SIZE, INITIAL_ICON_STROKE_WIDTH } from "./constants"
 import { toTitleCase } from "./lib/cases"
 import { detab, tab } from "./lib/format"
+import { round } from "./lib/precision"
 import { searchParams } from "./lib/search-params"
 import { CopyAs, CopyAsValue, Frameworks, FrameworkValue, Iconsets, IconsetValue } from "./types"
 
@@ -63,8 +65,8 @@ function searchImpl(str: string, substr: string) {
 }
 
 export function StateProvider({ children }: PropsWithChildren) {
-	const [size, setSize] = useState(30)
-	const [strokeWidth, setStrokeWidth] = useState(2)
+	const [size, setSize] = useState(INITIAL_ICON_SIZE)
+	const [strokeWidth, setStrokeWidth] = useState(INITIAL_ICON_STROKE_WIDTH)
 	const [selectedName, setSelectedName] = useState("")
 	const [selectedSvgElement, setSelectedSvgElement] = useState<SVGSVGElement | null>(null)
 	const [copyAs, setCopyAs] = useState<CopyAsValue>("code")
@@ -76,8 +78,8 @@ export function StateProvider({ children }: PropsWithChildren) {
 
 	// Sync search parameters
 	useEffect(() => {
-		setSize(searchParams.number({ key: "size", min: 0, max: 60, initialValue: 30 }))
-		setStrokeWidth(searchParams.number({ key: "strokeWidth", min: 0, max: 4, initialValue: 2 }))
+		setSize(searchParams.number({ key: "size", min: ICON_SIZE_MIN, max: ICON_SIZE_MAX, initialValue: INITIAL_ICON_SIZE }))
+		setStrokeWidth(searchParams.number({ key: "strokeWidth", min: ICON_STROKE_WIDTH_MIN, max: ICON_STROKE_WIDTH_MAX, initialValue: INITIAL_ICON_STROKE_WIDTH }))
 		setCopyAs(searchParams.string<CopyAsValue>({ key: "copyAs", oneOf: CopyAs, initialValue: "code" }))
 		setStrictJsx(searchParams.bool({ key: "strictJsx", initialValue: false }))
 		setExportComponent(searchParams.bool({ key: "exportComponent", initialValue: false }))
@@ -88,7 +90,7 @@ export function StateProvider({ children }: PropsWithChildren) {
 
 	//////////////////////////////////////////////////////////////////////////////
 
-	const [iconset, setIconset] = useState<IconsetValue>("v2-24-outline")
+	const [iconset, setIconset] = useState(INITIAL_ICONSET)
 
 	const [manifest, Icon] = useMemo(() => {
 		return cache.get(iconset)
@@ -117,7 +119,7 @@ export function StateProvider({ children }: PropsWithChildren) {
 
 	// Sync search parameters
 	useEffect(() => {
-		setIconset(searchParams.string<IconsetValue>({ key: "iconset", oneOf: Iconsets, initialValue: "v2-24-outline" }))
+		setIconset(searchParams.string<IconsetValue>({ key: "iconset", oneOf: Iconsets, initialValue: INITIAL_ICONSET }))
 		setSearch(searchParams.string({ key: "search", initialValue: "" }))
 	}, [])
 
@@ -169,8 +171,8 @@ export function StateProvider({ children }: PropsWithChildren) {
 	//////////////////////////////////////////////////////////////////////////////
 
 	const resetAllSearchConfig = useCallback(() => {
-		setSize(30)
-		setStrokeWidth(2)
+		setSize(INITIAL_ICON_SIZE)
+		setStrokeWidth(INITIAL_ICON_STROKE_WIDTH)
 		setSelectedName("")
 		setSelectedSvgElement(null)
 		setCopyAs("code")
@@ -319,8 +321,9 @@ function CastSizeAndStrokeWidthAsCSSVariablesEffect() {
 	const searchConfig = useContext(SearchConfigContext)!
 
 	useEffect(() => {
-		document.body.style.setProperty("--grid-item-icon-size", `${searchConfig.size}px`)
+		//// document.body.style.setProperty("--grid-item-icon-size", `${searchConfig.size}px`)
 		document.body.style.setProperty("--grid-item-icon-stroke-width", `${searchConfig.strokeWidth}`)
+		document.body.style.setProperty("--grid-item-icon-scale", `${round(searchConfig.size / INITIAL_ICON_SIZE, { precision: 2 })}`)
 	}, [searchConfig.size, searchConfig.strokeWidth])
 
 	return <></>
@@ -333,16 +336,16 @@ function URLSearchParamsEffect() {
 	useEffect(() => {
 		const timeoutId = window.setTimeout(() => {
 			const params = new URLSearchParams({
-				...(search.iconset                  !== "v2-24-outline" && { "iconset":            "" + search.iconset }),
-				...(search.search                   !== ""              && { "search":             "" + search.search }), // Alias
-				...(searchConfig.size               !== 30              && { "size":               "" + searchConfig.size.toFixed(0) }),
-				...(searchConfig.strokeWidth        !== 2               && { "strokeWidth":        "" + searchConfig.strokeWidth.toFixed(2) }),
-				...(searchConfig.copyAs             !== "code"          && { "copyAs":             "" + searchConfig.copyAs }),
-				...(searchConfig.strictJsx          !== false           && { "strictJsx":          "" + searchConfig.strictJsx }),
-				...(searchConfig.exportComponent    !== false           && { "exportComponent":    "" + searchConfig.exportComponent }),
-				...(searchConfig.typescript         !== false           && { "typescript":         "" + searchConfig.typescript }),
-				...(searchConfig.addImportStatement !== true            && { "addImportStatement": "" + searchConfig.addImportStatement }),
-				...(searchConfig.framework          !== "svg"           && { "framework":          "" + searchConfig.framework }),
+				...(search.iconset                  !== INITIAL_ICONSET           && { "iconset":            "" + search.iconset }),
+				...(search.search                   !== ""                        && { "search":             "" + search.search }), // Alias
+				...(searchConfig.size               !== INITIAL_ICON_SIZE         && { "size":               "" + searchConfig.size.toFixed(0) }),
+				...(searchConfig.strokeWidth        !== INITIAL_ICON_STROKE_WIDTH && { "strokeWidth":        "" + searchConfig.strokeWidth.toFixed(2) }),
+				...(searchConfig.copyAs             !== "code"                    && { "copyAs":             "" + searchConfig.copyAs }),
+				...(searchConfig.strictJsx          !== false                     && { "strictJsx":          "" + searchConfig.strictJsx }),
+				...(searchConfig.exportComponent    !== false                     && { "exportComponent":    "" + searchConfig.exportComponent }),
+				...(searchConfig.typescript         !== false                     && { "typescript":         "" + searchConfig.typescript }),
+				...(searchConfig.addImportStatement !== true                      && { "addImportStatement": "" + searchConfig.addImportStatement }),
+				...(searchConfig.framework          !== "svg"                     && { "framework":          "" + searchConfig.framework }),
 			})
 			const paramsStr = params.toString()
 			window.history.replaceState({}, "", paramsStr === "" ? "/" : `/?${paramsStr}`)

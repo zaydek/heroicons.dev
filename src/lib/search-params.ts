@@ -22,7 +22,8 @@ function createSearchParams(url: string) {
 				return initialValue
 			}
 			const parsedValue = +value
-			if (isNaN(parsedValue) || !(parsedValue >= min && parsedValue <= max)) { return initialValue }
+			if (isNaN(parsedValue))                          { return initialValue }
+			if (!(parsedValue >= min && parsedValue <= max)) { return initialValue }
 			return parsedValue
 		},
 		string<T extends string>({ key, oneOf, initialValue }: { key: string, oneOf?: readonly T[], initialValue: T }) {
@@ -31,7 +32,8 @@ function createSearchParams(url: string) {
 				// No-op; return initial value
 				return initialValue as Mutable<T>
 			}
-			if (oneOf !== undefined && !oneOf.includes(value as T)) { return initialValue as Mutable<T> }
+			if (oneOf === undefined)         { return initialValue as Mutable<T> }
+			if (!oneOf.includes(value as T)) { return initialValue as Mutable<T> }
 			return value as Mutable<T>
 		},
 	}
