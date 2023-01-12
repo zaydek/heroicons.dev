@@ -310,7 +310,7 @@ export function Sidebar2() {
 		<Hairline />
 		<SectionClipboard />
 		<Hairline />
-		<div className="absolute b-0 x-0 py-$sidebar-2-inset-y px-$sidebar-2-inset-x bg-$base-color shadow-$inset-hairline-shadow-l">
+		<div className="absolute b-0 x-0 py-$sidebar-2-inset-y px-$sidebar-2-inset-x bg-$base-color shadow-$hairline-shadow-t">
 			<a
 				className="flex gap-20 [&_>_:nth-child(2)]:grow-1"
 				href="https://spelll.design?ref=heroicons.dev"
