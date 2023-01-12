@@ -78,13 +78,13 @@ export function StateProvider({ children }: PropsWithChildren) {
 
 	//////////////////////////////////////////////////////////////////////////////
 
-	const [iconset, setIconset] = useState(searchParams.string<IconsetValue>({ key: "iconset", oneOf: Iconsets, initialValue: INITIAL_ICONSET }))
+	const [iconset, setIconset] = useState(() => searchParams.string<IconsetValue>({ key: "iconset", oneOf: Iconsets, initialValue: INITIAL_ICONSET }))
 
 	const [manifest, Icon] = useMemo(() => {
 		return cache.get(iconset)
 	}, [iconset])
 
-	const [search, setSearch] = useState(searchParams.string({ key: "search", initialValue: "" }))
+	const [search, setSearch] = useState(() => searchParams.string({ key: "search", initialValue: "" }))
 	const _canonicalSearch = useMemo(() => {
 		const str = search.replace(/^[\s-]+|[\s-]+$/g, "") // [··]Hello,··world![··]
 			.replace(/[\s-]+/g, " ")                         // Hello[··]world!

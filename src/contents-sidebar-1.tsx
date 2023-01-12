@@ -71,7 +71,7 @@ export function Sidebar1() {
 	}, [end, pending, start])
 
 	return <>
-		<section className="py-$inset-y pb-$sidebar-1-inset-y shadow-0_1px_0_0_$hairline-color">
+		<section className="py-$inset-y pb-$sidebar-1-inset-y">
 			<div className="px-$sidebar-1-inset-x flex flex-col gap-16 h-calc($inset-y_+_$search-bar-height)">
 				<div className="flex align-center gap-6">
 					<HeroiconsLogomarkIcon className="h-24 w-24 [color]-$trim-color [transform]-translateY(15%)" />
@@ -142,7 +142,7 @@ export function Sidebar1() {
 				</div>
 			</nav>
 		</section>
-		<section className="absolute b-0 x-0 py-$inset-y pt-$sidebar-1-inset-y flex flex-col gap-16 bg-$base-color shadow-0_-1px_0_$hairline-color">
+		<section className="absolute b-0 x-0 py-$inset-y pt-$sidebar-1-inset-y flex flex-col gap-16 bg-$base-color shadow-$hairline-shadow-t">
 			<nav>
 				<NavItemTitle>
 					LINKS

@@ -61,11 +61,23 @@ $grid-item-size:    72px;
 		0  8px 16px  -8px hsl(var(--base-h), var(--base-s), 50%, 0.25),
 		0 16px 32px -16px hsl(var(--base-h), var(--base-s), 50%, 0.25),
 		0 32px 64px -32px hsl(var(--base-h), var(--base-s), 50%, 0.25);
+
+	--inset-hairline-shadow:   inset 0 0 0 1px var(--hairline-color);
+	--inset-hairline-shadow-t: inset 0 1px 0 0 var(--hairline-color);
+	--inset-hairline-shadow-r: inset calc(-1 * 1px) 0 0 0 var(--hairline-color);
+	--inset-hairline-shadow-b: inset 0 calc(-1 * 1px) 0 0 var(--hairline-color);
+	--inset-hairline-shadow-l: inset 1px 0 0 0 var(--hairline-color);
+	--hairline-shadow:         0 0 0 1px var(--hairline-color);
+	--hairline-shadow-t:       0 calc(-1 * 1px) 0 0 var(--hairline-color);
+	--hairline-shadow-r:       1px 0 0 0 var(--hairline-color);
+	--hairline-shadow-b:       0 1px 0 0 var(--hairline-color);
+	--hairline-shadow-l:       calc(-1 * 1px) 0 0 0 var(--hairline-color);
+
 	--inset-shadow:
-		inset 0 0 0 1px var(--hairline-color),
+		var(--inset-hairline-shadow),
 		var(--depth-shadow);
 	--shadow:
-		0 0 0 1px var(--hairline-color),
+		var(--hairline-shadow),
 		var(--depth-shadow);
 }
 

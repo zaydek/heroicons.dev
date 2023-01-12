@@ -12,26 +12,6 @@ function AppImpl() {
 	const [column1Open, setColumn1Open] = useState(true)
 	const [column2Open, setColumn2Open] = useState(true)
 
-	//// useEffect(() => {
-	//// 	window.addEventListener("keydown", e => {
-	//// 		if (window.innerWidth > 750) {
-	//// 			if (isMac()) {
-	//// 				if (e.metaKey && e.key === "[") {
-	//// 					setColumn1Open(curr => !curr)
-	//// 				} else if (e.metaKey && e.key === "]") {
-	//// 					setColumn2Open(curr => !curr)
-	//// 				}
-	//// 			} else {
-	//// 				if (e.ctrlKey && e.key === "[") {
-	//// 					setColumn1Open(curr => !curr)
-	//// 				} else if (e.ctrlKey && e.key === "]") {
-	//// 					setColumn2Open(curr => !curr)
-	//// 				}
-	//// 			}
-	//// 		}
-	//// 	})
-	//// }, [])
-
 	useEffect(() => {
 		document.body.setAttribute("data-column-1-open", "" + column1Open)
 		document.body.setAttribute("data-column-2-open", "" + column2Open)
@@ -42,11 +22,6 @@ function AppImpl() {
 			<AriaButton onClick={e => setColumn1Open(curr => !curr)}>
 				<styled.TypographySmallCaps className="[color]-$soft-fill-color">
 					TOGGLE SIDEBAR
-					{/* CLICK OR{" "}
-					<styled.TypographySmallCode tag="span" className="py-2 px-4 rounded-4 shadow-inset_0_0_0_1px_$soft-fill-color">
-						{isMac() ? "CMD" : "CTRL"}+[
-					</styled.TypographySmallCode>{" "}
-					TO TOGGLE */}
 				</styled.TypographySmallCaps>
 			</AriaButton>
 		</div>
@@ -54,11 +29,6 @@ function AppImpl() {
 			<AriaButton onClick={e => setColumn2Open(curr => !curr)}>
 				<styled.TypographySmallCaps className="[color]-$soft-fill-color">
 					TOGGLE SIDEBAR
-					{/* CLICK OR{" "}
-					<styled.TypographySmallCode tag="span" className="py-2 px-4 rounded-4 shadow-inset_0_0_0_1px_$soft-fill-color">
-						{isMac() ? "CMD" : "CTRL"}+]
-					</styled.TypographySmallCode>{" "}
-					TO TOGGLE */}
 				</styled.TypographySmallCaps>
 			</AriaButton>
 		</div>

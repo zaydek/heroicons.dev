@@ -37,13 +37,13 @@ function OutlinedValue({ children, center }: PropsWithChildren<{ center?: boolea
 	center ??= false
 	if (center) {
 		return <>
-			<div className="flex justify-center align-center h-$form-size rounded-1e3 shadow-inset_0_0_0_1px_$hairline-color">
+			<div className="flex justify-center align-center h-$form-size rounded-1e3 shadow-$inset-hairline-shadow">
 				{children}
 			</div>
 		</>
 	} else {
 		return <>
-			<div className="px-calc($form-size_/_2) flex align-center h-$form-size rounded-1e3 shadow-inset_0_0_0_1px_$hairline-color">
+			<div className="px-calc($form-size_/_2) flex align-center h-$form-size rounded-1e3 shadow-$inset-hairline-shadow">
 				<styled.TypographyCaps className="[color]-$fill-color">
 					{children}
 				</styled.TypographyCaps>
@@ -218,7 +218,7 @@ function SectionClipboard() {
 				<styled.TypographyCode
 					tag="textarea"
 					className="p-calc($form-size_*_2_/_3) aspect-1.75 rounded-24 [color]-$fill-color bg-$gray-color
-						[&::placeholder]:[color]-$soft-fill-color [&:is(:hover,_:focus)]:(bg-$base-color shadow-inset_0_0_0_1px_$hairline-color)"
+						[&::placeholder]:[color]-$soft-fill-color [&:is(:hover,_:focus)]:(bg-$base-color shadow-$inset-hairline-shadow)"
 					placeholder="Click to copy an icon"
 					value={clipboard}
 					readOnly
@@ -310,7 +310,7 @@ export function Sidebar2() {
 		<Hairline />
 		<SectionClipboard />
 		<Hairline />
-		<div className="absolute b-0 x-0 py-$sidebar-2-inset-y px-$sidebar-2-inset-x bg-$base-color shadow-0_-1px_0_0_$hairline-color">
+		<div className="absolute b-0 x-0 py-$sidebar-2-inset-y px-$sidebar-2-inset-x bg-$base-color shadow-$inset-hairline-shadow-l">
 			<a
 				className="flex gap-20 [&_>_:nth-child(2)]:grow-1"
 				href="https://spelll.design?ref=heroicons.dev"
