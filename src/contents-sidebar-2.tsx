@@ -232,10 +232,10 @@ function SectionClipboard() {
 					}
 					<TextareaButton
 						icon={DocumentDuplicateIcon}
-						onClick={e => {
-							if (clipboard === "") { return }
-							navigator.clipboard.writeText(clipboard)
-						}}
+						//// onClick={e => {
+						//// 	if (clipboard === "") { return }
+						//// 	navigator.clipboard.writeText(clipboard)
+						//// }}
 					>
 						COPY
 					</TextareaButton>

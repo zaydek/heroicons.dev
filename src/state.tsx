@@ -238,7 +238,8 @@ export function StateProvider({ children }: PropsWithChildren) {
 						setSearch,
 						resetAll: resetAllSearch,
 					}), [resetAllSearch])}>
-						<RestoreSelectedSvgElementEffect />
+						<ClipboardEffect />
+						{/* <RestoreSelectedSvgElementEffect /> */}
 						<VisibilityChangeEffect />
 						<CastSizeAndStrokeWidthAsCSSVariablesEffect />
 						<URLSearchParamsEffect />
@@ -250,30 +251,45 @@ export function StateProvider({ children }: PropsWithChildren) {
 	</>
 }
 
-function RestoreSelectedSvgElementEffect() {
+function ClipboardEffect() {
 	const searchConfig = useContext(SearchConfigContext)!
-	const setSearchConfig = useContext(SetSearchConfigContext)!
-	const search = useContext(SearchContext)!
 
-	const prevIconset = useRef(search.iconset)
+	const onceRef = useRef(false)
 	useEffect(() => {
-		queueMicrotask(() => prevIconset.current = search.iconset)
-
-		if (searchConfig.selectedName === "") { return }
-		if (prevIconset.current.slice(0, 2) === search.iconset.slice(0, 2)) {
-			const svgElement = document
-				?.getElementById(searchConfig.selectedName)
-				?.querySelector("svg")
-			if (svgElement === undefined || svgElement === null) { return }
-			setSearchConfig.setSelectedSvgElement(svgElement)
-		} else {
-			setSearchConfig.setSelectedName("")
-			setSearchConfig.setSelectedSvgElement(null)
+		if (!onceRef.current) {
+			onceRef.current = true
+			return
 		}
-	}, [search.iconset, searchConfig.selectedName, setSearchConfig])
+		navigator.clipboard.writeText(searchConfig.clipboard)
+	}, [searchConfig.clipboard])
 
 	return <></>
 }
+
+//// function RestoreSelectedSvgElementEffect() {
+//// 	const searchConfig = useContext(SearchConfigContext)!
+//// 	const setSearchConfig = useContext(SetSearchConfigContext)!
+//// 	const search = useContext(SearchContext)!
+////
+//// 	const prevIconset = useRef(search.iconset)
+//// 	useEffect(() => {
+//// 		queueMicrotask(() => prevIconset.current = search.iconset)
+////
+//// 		if (searchConfig.selectedName === "") { return }
+//// 		if (prevIconset.current.slice(0, 2) === search.iconset.slice(0, 2)) {
+//// 			const svgElement = document
+//// 				?.getElementById(searchConfig.selectedName)
+//// 				?.querySelector("svg")
+//// 			if (svgElement === undefined || svgElement === null) { return }
+//// 			setSearchConfig.setSelectedSvgElement(svgElement)
+//// 		} else {
+//// 			setSearchConfig.setSelectedName("")
+//// 			setSearchConfig.setSelectedSvgElement(null)
+//// 		}
+//// 	}, [search.iconset, searchConfig.selectedName, setSearchConfig])
+////
+//// 	return <></>
+//// }
 
 function VisibilityChangeEffect() {
 	const search = useContext(SearchContext)!
