@@ -8,7 +8,7 @@ import { AriaCheckbox } from "./aria/aria-checkbox"
 import { AriaRadio, AriaRadiogroup } from "./aria/aria-radio"
 import { AriaSlider } from "./aria/aria-slider"
 import { ICON_SIZE_MAX, ICON_SIZE_MIN, ICON_STROKE_WIDTH_MAX, ICON_STROKE_WIDTH_MIN } from "./constants"
-import { ArrowDownTrayIcon, CheckIcon, DocumentDuplicateIcon, ReactIcon, SVGIcon, VueIcon, XMarkIcon } from "./icon-config"
+import { ArrowDownTrayIcon, ArrowPathIcon, CheckIcon, DocumentDuplicateIcon, ReactIcon, SVGIcon, VueIcon } from "./icon-config"
 import { download } from "./lib/download"
 import { Icon } from "./lib/react/icon"
 import { SearchConfigContext, SearchContext, SetSearchConfigContext } from "./state"
@@ -56,7 +56,7 @@ function RevertButton(props: HTMLAttributes<HTMLDivElement>) {
 	return <>
 		<AriaButton {...props}>
 			<div className="flex justify-center align-center h-20 w-20 rounded-1e3 bg-$gray-color">
-				<Icon className="h-12 w-12 [stroke-width]-3 [color]-$soft-fill-color" icon={XMarkIcon} />
+				<Icon className="h-12 w-12 [stroke-width]-3 [color]-$soft-fill-color [transform]-scaleX(-1)" icon={ArrowPathIcon} />
 			</div>
 		</AriaButton>
 	</>
