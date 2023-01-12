@@ -12,7 +12,7 @@ import { IconsetValue } from "./types"
 function NavItemTitle({ children }: PropsWithChildren) {
 	return <>
 		<div className="px-$sidebar-1-inset-x flex align-center h-36">
-			<styled.TypographyCaps className="color-$soft-fill-color">
+			<styled.TypographyCaps className="[color]-$soft-fill-color">
 				{children}
 			</styled.TypographyCaps>
 		</div>
@@ -22,9 +22,9 @@ function NavItemTitle({ children }: PropsWithChildren) {
 function NavItem({ icon, children, ...props }: PropsWithChildren<{ icon: (_: SVGAttributes<SVGSVGElement>) => JSX.Element } & HTMLAttributes<HTMLDivElement>>) {
 	return <>
 		<AriaButton {...props}>
-			<div className="px-$sidebar-1-inset-x flex align-center gap-10 h-36 [&:hover,_[role=button][data-active=true]_&]:bg-color-$gray-color">
-				<Icon className="h-20 h-20 color-$trim-color" icon={icon} />
-				<styled.TypographyCaps className="color-$fill-color">
+			<div className="px-$sidebar-1-inset-x flex align-center gap-10 h-36 [&:hover,_[role=button][data-active=true]_&]:bg-$gray-color">
+				<Icon className="h-20 h-20 [color]-$trim-color" icon={icon} />
+				<styled.TypographyCaps className="[color]-$fill-color">
 					{children}
 				</styled.TypographyCaps>
 			</div>
@@ -34,7 +34,7 @@ function NavItem({ icon, children, ...props }: PropsWithChildren<{ icon: (_: SVG
 
 function NavItemLink({ icon, children, ...props }: { icon: (_: SVGAttributes<SVGSVGElement>) => JSX.Element } & AnchorHTMLAttributes<HTMLAnchorElement>) {
 	return <>
-		<a className="px-$sidebar-1-inset-x flex align-center gap-10 h-36 [&:hover]:bg-color-$gray-color" {...props}>
+		<a className="px-$sidebar-1-inset-x flex align-center gap-10 h-36 [&:hover]:bg-$gray-color" {...props}>
 			<Icon className="h-20 w-20" icon={icon} />
 			{children}
 		</a>
@@ -74,18 +74,18 @@ export function Sidebar1() {
 		<section className="py-$inset-y pb-$sidebar-1-inset-y shadow-0_1px_0_0_$hairline-color">
 			<div className="px-$sidebar-1-inset-x flex flex-col gap-16 h-calc($inset-y_+_$search-bar-height)">
 				<div className="flex align-center gap-6">
-					<HeroiconsLogomarkIcon className="h-24 w-24 color-$trim-color [transform]-translateY(15%)" />
-					<HeroiconsLogotextIcon className="h-20 color-$hard-fill-color" />
+					<HeroiconsLogomarkIcon className="h-24 w-24 [color]-$trim-color [transform]-translateY(15%)" />
+					<HeroiconsLogotextIcon className="h-20 [color]-$hard-fill-color" />
 				</div>
-				<styled.TypographySans className="color-$fill-color">
+				<styled.TypographySans className="[color]-$fill-color">
 					<span className="inline-flex align-baseline gap-6">
-						<Icon className="h-16 w-16 color-$hard-fill-color [transform]-translateY(15%)"
+						<Icon className="h-16 w-16 [color]-$hard-fill-color [transform]-translateY(15%)"
 							icon={ScaleIcon} />
 						MIT-licensed
 					</span>{" "}
 					open source icons by{" "}
 					<a
-						className="color-$anchor-blue [&:hover]:[text-decoration]-underline"
+						className="[color]-$anchor-blue [&:hover]:[text-decoration]-underline"
 						href="https://twitter.com/steveschoger"
 						rel="noopener noreferrer"
 						target="_blank"
@@ -142,7 +142,7 @@ export function Sidebar1() {
 				</div>
 			</nav>
 		</section>
-		<section className="absolute inset-b-0 py-$inset-y pt-$sidebar-1-inset-y flex flex-col gap-16 bg-color-$base-color shadow-0_-1px_0_$hairline-color">
+		<section className="absolute b-0 x-0 py-$inset-y pt-$sidebar-1-inset-y flex flex-col gap-16 bg-$base-color shadow-0_-1px_0_$hairline-color">
 			<nav>
 				<NavItemTitle>
 					LINKS
@@ -153,7 +153,7 @@ export function Sidebar1() {
 					rel="noopener noreferrer"
 					target="_blank"
 				>
-					<styled.TypographySans className="color-$fill-color">
+					<styled.TypographySans className="[color]-$fill-color">
 						Icons
 					</styled.TypographySans>
 				</NavItemLink>
@@ -163,7 +163,7 @@ export function Sidebar1() {
 					rel="noopener noreferrer"
 					target="_blank"
 				>
-					<styled.TypographySans className="color-$fill-color">
+					<styled.TypographySans className="[color]-$fill-color">
 						Website
 					</styled.TypographySans>
 				</NavItemLink>
@@ -173,7 +173,7 @@ export function Sidebar1() {
 					rel="noopener noreferrer"
 					target="_blank"
 				>
-					<styled.TypographySans className="color-$fill-color">
+					<styled.TypographySans className="[color]-$fill-color">
 						File
 					</styled.TypographySans>
 				</NavItemLink>
@@ -183,20 +183,20 @@ export function Sidebar1() {
 					rel="noopener noreferrer"
 					target="_blank"
 				>
-					<styled.TypographySans className="color-$fill-color">
+					<styled.TypographySans className="[color]-$fill-color">
 						<span className="inline-flex align-center gap-6">
 							Share on Twitter
-							<Icon className="h-24 w-24 [stroke-width]-2 color-$twitter-blue"
+							<Icon className="h-24 w-24 [stroke-width]-2 [color]-$twitter-blue"
 								icon={HeartIcon} />
 						</span>
 					</styled.TypographySans>
 				</NavItemLink>
 			</nav>
 			<div className="px-$sidebar-1-inset-x">
-				<styled.TypographySans className="color-$fill-color">
+				<styled.TypographySans className="[color]-$fill-color">
 					Website design and app by
 					<a
-						className="color-$anchor-blue [&:hover]:[text-decoration]-underline"
+						className="[color]-$anchor-blue [&:hover]:[text-decoration]-underline"
 						href="https://twitter.com/username_ZAYDEK"
 						rel="noopener noreferrer"
 						target="_blank"
@@ -206,11 +206,11 @@ export function Sidebar1() {
 				</styled.TypographySans>
 			</div>
 			<div className="px-$sidebar-1-inset-x">
-				<styled.TypographySmallSans className="color-$soft-fill-color">
+				<styled.TypographySmallSans className="[color]-$soft-fill-color">
 					Heroicons are{" "}
 					<span className="inline-flex align-baseline gap-6">
 						MIT-licensed.
-						<Icon className="h-16 w-16 color-$fill-color [transform]-translateY(15%)"
+						<Icon className="h-16 w-16 [color]-$fill-color [transform]-translateY(15%)"
 							icon={ScaleIcon} />
 					</span>
 					You may use them for commercial and personal application without attribution.

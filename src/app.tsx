@@ -40,7 +40,7 @@ function AppImpl() {
 	return <>
 		<div className="fixed t-10 l-$sidebar-1-inset-x z-500 [@media_(max-width:_750px)]:[display]-none">
 			<AriaButton onClick={e => setColumn1Open(curr => !curr)}>
-				<styled.TypographySmallCaps className="color-$soft-fill-color">
+				<styled.TypographySmallCaps className="[color]-$soft-fill-color">
 					TOGGLE SIDEBAR
 					{/* CLICK OR{" "}
 					<styled.TypographySmallCode tag="span" className="py-2 px-4 rounded-4 shadow-inset_0_0_0_1px_$soft-fill-color">
@@ -52,7 +52,7 @@ function AppImpl() {
 		</div>
 		<div className="fixed t-10 r-$sidebar-2-inset-x z-500 [@media_(max-width:_750px)]:[display]-none">
 			<AriaButton onClick={e => setColumn2Open(curr => !curr)}>
-				<styled.TypographySmallCaps className="color-$soft-fill-color">
+				<styled.TypographySmallCaps className="[color]-$soft-fill-color">
 					TOGGLE SIDEBAR
 					{/* CLICK OR{" "}
 					<styled.TypographySmallCode tag="span" className="py-2 px-4 rounded-4 shadow-inset_0_0_0_1px_$soft-fill-color">

@@ -52,7 +52,7 @@ export function ProgressBarProvider({ children }: PropsWithChildren) {
 				end,
 			}), [end, start])}>
 				<div
-					className="fixed inset-t-0 z-999 h-4 bg-color-hsl(200,_100%,_50%)"
+					className="fixed inset-t-0 z-999 h-4 bg-hsl(200,_100%,_50%)"
 					style={{
 						"width": `${progress * 100}%`,
 						"opacity": working ? "initial" : 0,

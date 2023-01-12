@@ -14,7 +14,7 @@ import { SearchConfigContext, SearchContext, SetSearchConfigContext } from "./st
 
 function Label({ children }: PropsWithChildren) {
 	return <>
-		<styled.TypographyCaps className="color-$fill-color">
+		<styled.TypographyCaps className="[color]-$fill-color">
 			{children}
 		</styled.TypographyCaps>
 	</>
@@ -22,7 +22,7 @@ function Label({ children }: PropsWithChildren) {
 
 function AltLabel({ children }: PropsWithChildren) {
 	return <>
-		<styled.TypographyCaps className="color-$soft-fill-color">
+		<styled.TypographyCaps className="[color]-$soft-fill-color">
 			{children}
 		</styled.TypographyCaps>
 	</>
@@ -39,7 +39,7 @@ function OutlinedValue({ children, center }: PropsWithChildren<{ center?: boolea
 	} else {
 		return <>
 			<div className="px-calc($form-size_/_2) flex align-center h-$form-size rounded-1e3 shadow-inset_0_0_0_1px_$hairline-color">
-				<styled.TypographyCaps className="color-$fill-color">
+				<styled.TypographyCaps className="[color]-$fill-color">
 					{children}
 				</styled.TypographyCaps>
 			</div>
@@ -50,8 +50,8 @@ function OutlinedValue({ children, center }: PropsWithChildren<{ center?: boolea
 function RevertButton(props: HTMLAttributes<HTMLDivElement>) {
 	return <>
 		<AriaButton {...props}>
-			<div className="flex justify-center align-center h-20 w-20 rounded-1e3 bg-color-$gray-color">
-				<Icon className="h-12 w-12 [stroke-width]-3 color-$soft-fill-color" icon={XMarkIcon} />
+			<div className="flex justify-center align-center h-20 w-20 rounded-1e3 bg-$gray-color">
+				<Icon className="h-12 w-12 [stroke-width]-3 [color]-$soft-fill-color" icon={XMarkIcon} />
 			</div>
 		</AriaButton>
 	</>
@@ -105,10 +105,10 @@ function Slider(props: { min: number, max: number, step: number, value: number, 
 function TextareaButton({ icon, children, ...props }: { icon: (_: SVGAttributes<SVGSVGElement>) => JSX.Element } & HTMLAttributes<HTMLDivElement>) {
 	return <>
 		<AriaButton {...props}>
-			<div className="px-calc($form-size_/_2) flex align-center gap-8 h-$form-size rounded-1e3 bg-color-$form-color shadow-$inset-shadow [[role=button]:hover:active_&]:(bg-color-$trim-color shadow-$inset-shadow)">
-				<Icon className="h-16 w-16 [stroke-width]-2 color-$trim-color [[role=button]:hover:active_&]:color-WHITE"
+			<div className="px-calc($form-size_/_2) flex align-center gap-8 h-$form-size rounded-1e3 bg-$form-color shadow-$inset-shadow [[role=button]:hover:active_&]:(bg-$trim-color shadow-$inset-shadow)">
+				<Icon className="h-16 w-16 [stroke-width]-2 [color]-$trim-color [[role=button]:hover:active_&]:[color]-WHITE"
 					icon={icon} />
-				<styled.TypographyCaps className="color-$fill-color [[role=button]:hover:active_&]:color-WHITE">
+				<styled.TypographyCaps className="[color]-$fill-color [[role=button]:hover:active_&]:[color]-WHITE">
 					{children}
 				</styled.TypographyCaps>
 			</div>
@@ -211,13 +211,13 @@ function SectionClipboard() {
 			<div className="relative flex flex-col">
 				<styled.TypographyCode
 					tag="textarea"
-					className="p-calc($form-size_*_2_/_3) aspect-1.75 rounded-24 color-$fill-color bg-color-$gray-color
-						[&::placeholder]:color-$soft-fill-color [&:is(:hover,_:focus)]:(bg-color-$base-color shadow-inset_0_0_0_1px_$hairline-color)"
+					className="p-calc($form-size_*_2_/_3) aspect-1.75 rounded-24 [color]-$fill-color bg-$gray-color
+						[&::placeholder]:[color]-$soft-fill-color [&:is(:hover,_:focus)]:(bg-$base-color shadow-inset_0_0_0_1px_$hairline-color)"
 					placeholder="Click to copy an icon"
 					value={clipboard}
 					readOnly
 				/>
-				<div className="absolute inset-br-16 flex gap-10">
+				<div className="absolute br-16 flex gap-10">
 					{copyAs === "code" &&
 						<TextareaButton
 							icon={ArrowDownTrayIcon}
@@ -232,10 +232,10 @@ function SectionClipboard() {
 					}
 					<TextareaButton
 						icon={DocumentDuplicateIcon}
-						//// onClick={e => {
-						//// 	if (clipboard === "") { return }
-						//// 	navigator.clipboard.writeText(clipboard)
-						//// }}
+						onClick={e => {
+							if (clipboard === "") { return }
+							navigator.clipboard.writeText(clipboard)
+						}}
 					>
 						COPY
 					</TextareaButton>
@@ -298,38 +298,38 @@ export function Sidebar2() {
 	return <>
 		<SectionSize />
 		{iconset.includes("outline") && <>
-			<hr className="h-1 bg-color-$hairline-color" />
+			<hr className="h-1 bg-$hairline-color" />
 			<SectionStrokeWidth />
 		</>}
-		<hr className="h-1 bg-color-$hairline-color" />
+		<hr className="h-1 bg-$hairline-color" />
 		<SectionClipboard />
-		<hr className="h-1 bg-color-$hairline-color" />
-		<div className="absolute inset-b-0 py-$sidebar-2-inset-y px-$sidebar-2-inset-x bg-color-$base-color shadow-0_-1px_0_0_$hairline-color">
+		<hr className="h-1 bg-$hairline-color" />
+		<div className="absolute b-0 x-0 py-$sidebar-2-inset-y px-$sidebar-2-inset-x bg-$base-color shadow-0_-1px_0_0_$hairline-color">
 			<a
 				className="flex gap-20 [&_>_:nth-child(2)]:flex-grow-1"
 				href="https://spelll.design?ref=heroicons.dev"
 				rel="noopener noreferrer"
 				target="_blank"
 			>
-				<div className="flex justify-center align-center h-80 aspect-1.67 rounded-16 bg-color-#4f27fa">
+				<div className="flex justify-center align-center h-80 aspect-1.67 rounded-16 bg-#4f27fa">
 					<img className="h-45%" src={spelllDesign} alt="Spelll Design -- Spell Checker for Figma" />
 				</div>
 				<div className="flex flex-col gap-2">
 					<div className="flex align-center gap-8 h-24">
 						{/* TODO: Unfortunately we need to use !important here because UnoCSS
 						seems to sort class names */}
-						<styled.TypographySans className="![font-weight]-500 color-$hard-fill-color">
+						<styled.TypographySans className="![font-weight]-500 [color]-$hard-fill-color">
 							spelll.design
 						</styled.TypographySans>
 						<styled.TypographySmallCaps className="py-5 px-10 flex justify-center align-center rounded-1e3
-							[font-weight]-700 color-white
-								bg-color-black">
+							[font-weight]-700 [color]-white
+								bg-black">
 							SPONSOR
 						</styled.TypographySmallCaps>
 					</div>
 					{/* TODO: Unfortunately we need to use !important here because UnoCSS
 					seems to sort class names */}
-					<styled.TypographySans className="![line-height]-1.4 color-$fill-color">
+					<styled.TypographySans className="![line-height]-1.4 [color]-$fill-color">
 						<span className="[text-decoration]-underline_red_wavy">Spellng</span> and Grammar Checker for Figma
 					</styled.TypographySans>
 				</div>

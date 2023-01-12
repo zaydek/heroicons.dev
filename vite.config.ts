@@ -9,7 +9,6 @@ export default defineConfig({
 			babel: {
 				"plugins": ["styled-jsx/babel"],
 			},
-			fastRefresh: false,
 		}),
 	],
 	preview: { host: true, port: 3000 },
