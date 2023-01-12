@@ -186,7 +186,7 @@ export function Sidebar1() {
 					<styled.TypographySans className="[color]-$fill-color">
 						<span className="inline-flex align-center gap-6">
 							Share on Twitter
-							<Icon className="h-24 w-24 [stroke-width]-2 [color]-$twitter-blue"
+							<Icon className="h-20 w-20 [stroke-width]-2 [color]-$twitter-blue"
 								icon={HeartIcon} />
 						</span>
 					</styled.TypographySans>

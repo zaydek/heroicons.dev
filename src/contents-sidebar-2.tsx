@@ -7,7 +7,7 @@ import { AriaButton } from "./aria/aria-button"
 import { AriaCheckbox } from "./aria/aria-checkbox"
 import { AriaRadio, AriaRadiogroup } from "./aria/aria-radio"
 import { AriaSlider } from "./aria/aria-slider"
-import { ICON_SIZE_MAX, ICON_SIZE_MIN, ICON_STROKE_WIDTH_MAX, ICON_STROKE_WIDTH_MIN } from "./constants"
+import { ICON_SIZE_MAX, ICON_SIZE_MIN, ICON_STROKE_WIDTH_MAX, ICON_STROKE_WIDTH_MIN, INITIAL_ICON_SIZE, INITIAL_ICON_STROKE_WIDTH } from "./constants"
 import { ArrowDownTrayIcon, ArrowPathIcon, CheckIcon, DocumentDuplicateIcon, ReactIcon, SVGIcon, VueIcon } from "./icon-config"
 import { download } from "./lib/download"
 import { Icon } from "./lib/react/icon"
@@ -135,7 +135,7 @@ export function SectionSize() {
 					<AltLabel>
 						{size.toFixed(0)} PX
 					</AltLabel>
-					<RevertButton onClick={e => setSize(30)} />
+					<RevertButton onClick={e => setSize(INITIAL_ICON_SIZE)} />
 				</div>
 			</div>
 			<Slider
@@ -163,7 +163,7 @@ function SectionStrokeWidth() {
 					<AltLabel>
 						{strokeWidth.toFixed(2)}
 					</AltLabel>
-					<RevertButton onClick={e => setStrokeWidth(2)} />
+					<RevertButton onClick={e => setStrokeWidth(INITIAL_ICON_STROKE_WIDTH)} />
 				</div>
 			</div>
 			<Slider
