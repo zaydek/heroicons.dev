@@ -1,6 +1,6 @@
 import { IconsetValue } from "./types"
 
-export const INITIAL_ICONSET: IconsetValue = "v1-24-outline"
+export const INITIAL_ICONSET: IconsetValue = "v2-24-outline"
 
 export const ICON_SIZE_MIN = 32 - 16
 export const ICON_SIZE_MAX = 32 + 16

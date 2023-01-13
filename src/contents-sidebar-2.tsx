@@ -141,7 +141,7 @@ export function SectionSize() {
 			<Slider
 				min={ICON_SIZE_MIN}
 				max={ICON_SIZE_MAX}
-				step={1}
+				step={0.5}
 				value={size}
 				setValue={setSize}
 			/>

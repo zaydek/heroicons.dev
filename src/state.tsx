@@ -8,7 +8,6 @@ import { cache } from "./cache"
 import { ICON_SIZE_MAX, ICON_SIZE_MIN, ICON_STROKE_WIDTH_MAX, ICON_STROKE_WIDTH_MIN, INITIAL_ICONSET, INITIAL_ICON_SIZE, INITIAL_ICON_STROKE_WIDTH } from "./constants"
 import { toTitleCase } from "./lib/cases"
 import { detab, tab } from "./lib/format"
-import { round } from "./lib/precision"
 import { searchParams } from "./lib/search-params"
 import { CopyAs, CopyAsValue, Frameworks, FrameworkValue, Iconsets, IconsetValue } from "./types"
 
@@ -305,7 +304,7 @@ function CastSizeAndStrokeWidthAsCSSVariablesEffect() {
 	useEffect(() => {
 		//// document.body.style.setProperty("--grid-item-icon-size", `${searchConfig.size}px`)
 		document.body.style.setProperty("--grid-item-icon-stroke-width", `${searchConfig.strokeWidth}`)
-		document.body.style.setProperty("--grid-item-icon-scale", `${round(searchConfig.size / INITIAL_ICON_SIZE, { precision: 2 })}`)
+		document.body.style.setProperty("--grid-item-icon-scale", `${searchConfig.size / INITIAL_ICON_SIZE}`)
 	}, [searchConfig.size, searchConfig.strokeWidth])
 
 	return <></>
