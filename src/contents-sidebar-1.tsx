@@ -194,7 +194,7 @@ export function Sidebar1() {
 			</nav>
 			<div className="px-$sidebar-1-inset-x">
 				<styled.TypographySans className="[color]-$fill-color">
-					Website design and app by
+					Website design and app by{" "}
 					<a
 						className="[color]-$anchor-blue [&:hover]:[text-decoration]-underline"
 						href="https://twitter.com/username_ZAYDEK"
