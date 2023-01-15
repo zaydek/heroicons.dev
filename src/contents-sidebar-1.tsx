@@ -142,7 +142,7 @@ export function Sidebar1() {
 				</div>
 			</nav>
 		</section>
-		<section className="absolute b-0 x-0 py-$inset-y pt-$sidebar-1-inset-y flex flex-col gap-16 bg-$base-color shadow-$hairline-shadow-t">
+		<section className="absolute b-0 x-0 py-$sidebar-1-inset-y flex flex-col gap-16 bg-$base-color shadow-$hairline-shadow-t">
 			<nav>
 				<NavItemTitle>
 					LINKS
