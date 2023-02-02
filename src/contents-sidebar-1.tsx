@@ -179,7 +179,7 @@ export function Sidebar1() {
 				</NavItemLink>
 				<NavItemLink
 					icon={TwitterIcon}
-					href={`http://twitter.com/intent/tweet?text=${encodeURI("Check out Hericons 💯\n\nThanks @steveschoger for designing Heroicons and @username_ZAYDEK for the new heroicons.dev\n\nheroicons.dev")}`}
+					href={`http://twitter.com/intent/tweet?text=${encodeURI("Check out Heroicons 💯\n\nThanks @steveschoger for designing Heroicons and @username_ZAYDEK for the new heroicons.dev\n\nheroicons.dev")}`}
 					rel="noopener noreferrer"
 					target="_blank"
 				>
