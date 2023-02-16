@@ -136,7 +136,7 @@ export function StateProvider({ children }: PropsWithChildren) {
 			}
 			return contents.replace(/\t/g, "  ")
 		} else if (copyAs === "name") {
-			let contents = `<${selectedName}Icon ${framework === "react" ? "className" : "class"}="h-6 h-6 text-gray-500" />`
+			let contents = `<${selectedName}Icon ${framework === "react" ? "className" : "class"}="h-6 w-6 text-gray-500" />`
 			if (addImportStatement) {
 				contents = detab(`
 					import { ${selectedName}Icon } from "@heroicons${version === 1 ? "@1.0.6" : ""}${framework === "svg" ? "" : `/${framework}`}/${variant.replace("-", "/")}";
