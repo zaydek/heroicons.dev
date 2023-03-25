@@ -11,6 +11,9 @@ import { detab, tab } from "./lib/format"
 import { searchParams } from "./lib/search-params"
 import { CopyAs, CopyAsValue, Frameworks, FrameworkValue, Iconsets, IconsetValue } from "./types"
 
+//// import TAGS_V1 from "./data/hero-v1-tags.json"
+//// import TAGS_V2 from "./data/hero-v1-tags.json"
+
 export const SearchConfigContext =
 	createContext<{
 		size:                  number
