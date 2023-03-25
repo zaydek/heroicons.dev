@@ -218,7 +218,7 @@ function SectionClipboard() {
 				<styled.TypographyCode
 					tag="textarea"
 					className="p-calc($form-size_*_2_/_3) aspect-1.75 rounded-24 [color]-$fill-color bg-$gray-color
-						[&::placeholder]:[color]-$soft-fill-color [&:is(:hover,_:focus)]:(bg-$base-color shadow-$inset-hairline-shadow)"
+						[&::placeholder]:[color]-$soft-fill-color [&:focus]:(bg-$base-color shadow-$inset-hairline-shadow)"
 					placeholder="Click to copy an icon"
 					value={clipboard}
 					readOnly

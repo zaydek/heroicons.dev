@@ -9,7 +9,7 @@ export const SidebarContext = createContext<{
 
 export function SidebarProvider({ children }: PropsWithChildren) {
 	const [sidebar1, setSidebar1] = useState(true)
-	const [sidebar2, setSidebar2] = useState(true)
+	const [sidebar2, setSidebar2] = useState(() => window.innerWidth >= 1500)
 
 	useEffect(() => {
 		document.body.setAttribute("data-column-1-open", "" + sidebar1)
