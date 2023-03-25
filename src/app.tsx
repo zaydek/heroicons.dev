@@ -8,7 +8,7 @@ import { Sidebar2 } from "./contents-sidebar-2"
 import { ProgressBarProvider } from "./progress-bar"
 import { StateProvider } from "./state"
 
-function AppImpl() {
+function App() {
 	const [column1Open, setColumn1Open] = useState(true)
 	const [column2Open, setColumn2Open] = useState(true)
 
@@ -49,11 +49,11 @@ function AppImpl() {
 	</>
 }
 
-export function App() {
+export function ProvidedApp() {
 	return <>
 		<ProgressBarProvider>
 			<StateProvider>
-				<AppImpl />
+				<App />
 			</StateProvider>
 		</ProgressBarProvider>
 	</>

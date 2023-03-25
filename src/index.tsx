@@ -9,7 +9,7 @@ import "./css/layout.scss"
 import "./css/typography.scss"
 
 import { createRoot } from "react-dom/client"
-import { App } from "./app"
+import { ProvidedApp } from "./app"
 
 //// const root = document.getElementById("root")!
 //// if (import.meta.env.DEV) {
@@ -21,4 +21,4 @@ import { App } from "./app"
 //// }
 
 createRoot(document.getElementById("root")!)
-	.render(<App />)
+	.render(<ProvidedApp />)
