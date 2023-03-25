@@ -1,12 +1,8 @@
 {
-	"name": "app-heroicons",
-	"private": true,
-	"version": "0.0.0",
-	"type": "module",
 	"scripts": {
-		"dev": "vite",
-		"build": "tsc && vite build",
-		"preview": "vite preview"
+    "dev": "vite",
+    "build": "vite build",
+    "deploy": "npm run build && netlify deploy --dir=./dist --message=\"$(git log -1 --pretty=format:'(%h) %s%n%n%bAuthor: %an <%ae>%nDate: %ad%nBranch: %D')\" --prod --site=heroicons.dev"
 	},
 	"dependencies": {
 		"react": "^18.2.0",
