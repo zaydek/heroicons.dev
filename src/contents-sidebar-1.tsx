@@ -9,7 +9,7 @@ import {
 	useContext,
 	useEffect,
 	useRef,
-	useTransition,
+	useTransition
 } from "react";
 import { AriaButton } from "./aria/aria-button";
 import { cache } from "./cache";
@@ -21,7 +21,7 @@ import {
 	HeroiconsLogotextIcon,
 	LightningIcon,
 	ScaleIcon,
-	TwitterIcon,
+	TwitterIcon
 } from "./icon-config";
 import { Icon } from "./lib/react/icon";
 import { DispatchProgressBarContext } from "./progress-bar";

@@ -6,13 +6,13 @@ import { createContext, Dispatch, LazyExoticComponent, PropsWithChildren, SetSta
 import { stringifySvgElement } from "../scripts/stringify-svg-element"
 import { cache } from "./cache"
 import { ICON_SIZE_MAX, ICON_SIZE_MIN, ICON_STROKE_WIDTH_MAX, ICON_STROKE_WIDTH_MIN, INITIAL_ICONSET, INITIAL_ICON_SIZE, INITIAL_ICON_STROKE_WIDTH } from "./constants"
-import { toTitleCase } from "./lib/cases"
+import { toKebabCase, toTitleCase } from "./lib/cases"
 import { detab, tab } from "./lib/format"
 import { searchParams } from "./lib/search-params"
 import { CopyAs, CopyAsValue, Frameworks, FrameworkValue, Iconsets, IconsetValue } from "./types"
 
-//// import TAGS_V1 from "./data/hero-v1-tags.json"
-//// import TAGS_V2 from "./data/hero-v1-tags.json"
+import TAGS_V1 from "./data/hero-v1-tags.json"
+import TAGS_V2 from "./data/hero-v2-tags.json"
 
 export const SearchConfigContext =
 	createContext<{
@@ -94,18 +94,68 @@ export function StateProvider({ children }: PropsWithChildren) {
 		return toTitleCase(str)
 	}, [search])
 
+	//// const searchResults = React.useMemo(() => {
+	//// 	if (_results === null) return null
+	//// 	const canonSearch = toCanonCase(search)
+	//// 	if (canonSearch === "") {
+	//// 		return _results
+	//// 	} else {
+	//// 		const a: [string, Icon][] = []
+	//// 		const b: [string, Icon][] = []
+	//// 		for (const [name, icon] of _results) {
+	//// 			const kebabName = toKebabCase(name)
+	//// 			if (kebabName.includes(canonSearch)) {
+	//// 				a.push([name, icon])
+	//// 			} else {
+	//// 				const tags = TAGS[kebabName as keyof typeof TAGS]
+	//// 				// Must check
+	//// 				if (tags !== undefined) {
+	//// 					for (const tag of tags) {
+	//// 						if (tag.startsWith(canonSearch)) {
+	//// 							b.push([name, icon])
+	//// 							break
+	//// 						}
+	//// 					}
+	//// 				}
+	//// 			}
+	//// 		}
+	//// 		return [...a, ...b]
+	//// 	}
+	//// }, [_results, search])
+
 	const _searchResultsFallback = useMemo(() => manifest.map(name => ({ name, indexes: null })), [manifest])
 	const searchResults = useMemo(() => {
-		const results: { name: string, indexes: readonly [number, number] | null }[] = []
+		const a: { name: string, indexes: readonly [number, number] | null }[] = []
+		const b: { name: string, indexes: readonly [number, number] | null }[] = []
 		if (_canonicalSearch === "") { return _searchResultsFallback }
 		for (const name of manifest) {
 			const indexes = searchImpl(name, _canonicalSearch)
 			if (indexes !== null) {
-				results.push({ name, indexes })
+				a.push({ name, indexes })
+			} else {
+				let TAGS: typeof TAGS_V1 |  typeof TAGS_V2
+				if (iconset.startsWith("v2")) {
+					TAGS = TAGS_V2
+				} else {
+					TAGS = TAGS_V1
+				}
+				const tags = TAGS[toKebabCase(name) as keyof typeof TAGS]
+				//// console.log(tags)
+				if (tags !== undefined) {
+					//// console.log({ tags, key: _canonicalSearch.toLowerCase() })
+					//// console.log(JSON.stringify({ search: _canonicalSearch.toLowerCase(), name: toKebabCase(name), tags }))
+					console.log({ tags })
+					for (const tag of tags) {
+						if (tag.startsWith(_canonicalSearch.toLowerCase())) {
+							b.push({ name, indexes: null })
+							break
+						}
+					}
+				}
 			}
 		}
-		return results
-	}, [_canonicalSearch, _searchResultsFallback, manifest])
+		return [...a, ...b]
+	}, [_canonicalSearch, _searchResultsFallback, iconset, manifest])
 
 	//////////////////////////////////////////////////////////////////////////////
 
