@@ -11,6 +11,7 @@ import "./css/typography.scss"
 import { createRoot } from "react-dom/client"
 import { App } from "./app"
 import { ProgressBarProvider } from "./progress-bar"
+import { SidebarProvider } from "./providers/sidebars"
 import { StateProvider } from "./providers/state"
 
 //// const root = document.getElementById("root")!
@@ -22,13 +23,14 @@ import { StateProvider } from "./providers/state"
 //// 	hydrateRoot(root, <App />)
 //// }
 
-
 function ProvidedApp() {
 	return <>
 		<ProgressBarProvider>
-			<StateProvider>
-				<App />
-			</StateProvider>
+			<SidebarProvider>
+				<StateProvider>
+					<App />
+				</StateProvider>
+			</SidebarProvider>
 		</ProgressBarProvider>
 	</>
 }

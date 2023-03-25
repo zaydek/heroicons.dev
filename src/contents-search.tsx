@@ -3,6 +3,7 @@ import * as styled from "./css/bindings"
 import { PropsWithChildren, Suspense, useContext, useEffect } from "react"
 import { iota } from "./lib/iota"
 import { DispatchProgressBarContext } from "./progress-bar"
+import { SidebarContext } from "./providers/sidebars"
 import { SearchContext, SetSearchConfigContext, SetSearchContext } from "./providers/state"
 
 export function SearchBar() {
@@ -98,6 +99,7 @@ function Highlight({ children, indexes }: PropsWithChildren<{ indexes: readonly 
 }
 
 export function SearchResults() {
+	const { setSidebar2 } = useContext(SidebarContext)!
 	const { Icon, searchResults } = useContext(SearchContext)!
 	const { setSelectedName, setSelectedSvgElement } = useContext(SetSearchConfigContext)!
 
@@ -109,6 +111,7 @@ export function SearchResults() {
 						{/* Don't use <AriaButton> here (create fewer DOM elements) */}
 						<button className="flex justify-center align-center h-$grid-item-size w-$grid-item-size" onClick={e => {
 							//// document.body.setAttribute("data-column-2-open", "" + true)
+							setSidebar2(true)
 							setSelectedName(name)
 							setSelectedSvgElement(e.currentTarget.querySelector("svg"))
 						}}>
