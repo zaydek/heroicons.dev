@@ -9,7 +9,9 @@ import "./css/layout.scss"
 import "./css/typography.scss"
 
 import { createRoot } from "react-dom/client"
-import { ProvidedApp } from "./app"
+import { App } from "./app"
+import { ProgressBarProvider } from "./progress-bar"
+import { StateProvider } from "./providers/state"
 
 //// const root = document.getElementById("root")!
 //// if (import.meta.env.DEV) {
@@ -20,5 +22,16 @@ import { ProvidedApp } from "./app"
 //// 	hydrateRoot(root, <App />)
 //// }
 
-createRoot(document.getElementById("root")!)
-	.render(<ProvidedApp />)
+
+function ProvidedApp() {
+	return <>
+		<ProgressBarProvider>
+			<StateProvider>
+				<App />
+			</StateProvider>
+		</ProgressBarProvider>
+	</>
+}
+
+const root = document.getElementById("root")!
+createRoot(root).render(<ProvidedApp />)

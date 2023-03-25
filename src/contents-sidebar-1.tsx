@@ -25,7 +25,7 @@ import {
 } from "./icon-config";
 import { Icon } from "./lib/react/icon";
 import { DispatchProgressBarContext } from "./progress-bar";
-import { SearchContext, SetSearchContext } from "./state";
+import { SearchContext, SetSearchContext } from "./providers/state";
 import { IconsetValue } from "./types";
 
 function NavItemTitle({ children }: PropsWithChildren) {

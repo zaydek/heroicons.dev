@@ -3,7 +3,7 @@ import * as styled from "./css/bindings"
 import { PropsWithChildren, Suspense, useContext, useEffect } from "react"
 import { iota } from "./lib/iota"
 import { DispatchProgressBarContext } from "./progress-bar"
-import { SearchContext, SetSearchConfigContext, SetSearchContext } from "./state"
+import { SearchContext, SetSearchConfigContext, SetSearchContext } from "./providers/state"
 
 export function SearchBar() {
 	const { search } = useContext(SearchContext)!

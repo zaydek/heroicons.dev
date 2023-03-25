@@ -1,18 +1,18 @@
 // Only import types here
-import type { manifest as manifestV1 } from "./data/manifest@1.0.6"
-import type { manifest as manifestV2 } from "./data/manifest@2.0.13"
+import type { manifest as manifestV1 } from "../data/manifest@1.0.6"
+import type { manifest as manifestV2 } from "../data/manifest@2.0.13"
 
 import { createContext, Dispatch, LazyExoticComponent, PropsWithChildren, SetStateAction, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react"
-import { stringifySvgElement } from "../scripts/stringify-svg-element"
-import { cache } from "./cache"
-import { ICON_SIZE_MAX, ICON_SIZE_MIN, ICON_STROKE_WIDTH_MAX, ICON_STROKE_WIDTH_MIN, INITIAL_ICONSET, INITIAL_ICON_SIZE, INITIAL_ICON_STROKE_WIDTH } from "./constants"
-import { toKebabCase, toTitleCase } from "./lib/cases"
-import { detab, tab } from "./lib/format"
-import { searchParams } from "./lib/search-params"
-import { CopyAs, CopyAsValue, Frameworks, FrameworkValue, Iconsets, IconsetValue } from "./types"
+import { stringifySvgElement } from "../../scripts/stringify-svg-element"
+import { cache } from "../cache"
+import { ICON_SIZE_MAX, ICON_SIZE_MIN, ICON_STROKE_WIDTH_MAX, ICON_STROKE_WIDTH_MIN, INITIAL_ICONSET, INITIAL_ICON_SIZE, INITIAL_ICON_STROKE_WIDTH } from "../constants"
+import { toKebabCase, toTitleCase } from "../lib/cases"
+import { detab, tab } from "../lib/format"
+import { searchParams } from "../lib/search-params"
+import { CopyAs, CopyAsValue, Frameworks, FrameworkValue, Iconsets, IconsetValue } from "../types"
 
-import TAGS_V1 from "./data/hero-v1-tags.json"
-import TAGS_V2 from "./data/hero-v2-tags.json"
+import TAGS_V1 from "../data/hero-v1-tags.json"
+import TAGS_V2 from "../data/hero-v2-tags.json"
 
 export const SearchConfigContext =
 	createContext<{

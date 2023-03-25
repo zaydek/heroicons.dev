@@ -5,10 +5,8 @@ import { AriaButton } from "./aria/aria-button"
 import { SearchBar, SearchResults } from "./contents-search"
 import { Sidebar1 } from "./contents-sidebar-1"
 import { Sidebar2 } from "./contents-sidebar-2"
-import { ProgressBarProvider } from "./progress-bar"
-import { StateProvider } from "./state"
 
-function App() {
+export function App() {
 	const [column1Open, setColumn1Open] = useState(true)
 	const [column2Open, setColumn2Open] = useState(true)
 
@@ -46,15 +44,5 @@ function App() {
 			<Sidebar2 />
 		</styled.Sidebar2>
 		<styled.Sidebar2Backdrop onClick={e => setColumn2Open(false)} />
-	</>
-}
-
-export function ProvidedApp() {
-	return <>
-		<ProgressBarProvider>
-			<StateProvider>
-				<App />
-			</StateProvider>
-		</ProgressBarProvider>
 	</>
 }

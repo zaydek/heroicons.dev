@@ -11,7 +11,7 @@ import { ICON_SIZE_MAX, ICON_SIZE_MIN, ICON_STROKE_WIDTH_MAX, ICON_STROKE_WIDTH_
 import { ArrowDownTrayIcon, ArrowPathIcon, CheckIcon, DocumentDuplicateIcon, ReactIcon, SVGIcon, VueIcon } from "./icon-config"
 import { download } from "./lib/download"
 import { Icon } from "./lib/react/icon"
-import { SearchConfigContext, SearchContext, SetSearchConfigContext } from "./state"
+import { SearchConfigContext, SearchContext, SetSearchConfigContext } from "./providers/state"
 
 function Hairline() {
 	return <hr className="h-1 bg-$hairline-color" />
