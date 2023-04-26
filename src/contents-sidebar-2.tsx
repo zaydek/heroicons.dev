@@ -364,7 +364,7 @@ export function Sidebar2() {
 			<div className="absolute b-0 x-0 py-$sidebar-2-inset-y px-$sidebar-2-inset-x bg-$base-color shadow-$hairline-shadow-t">
 				{DICE_ROLL ? (
 					<a
-						className="flex gap-20 [&_>_:nth-child(2)]:grow-1"
+						className="flex gap-16 [&_>_:nth-child(2)]:grow-1"
 						href="https://spelll.design?ref=heroicons.dev"
 						rel="noopener noreferrer"
 						target="_blank"
@@ -396,14 +396,19 @@ export function Sidebar2() {
 					</a>
 				) : (
 					<a
-						className="flex gap-20 [&_>_:nth-child(2)]:grow-1"
+						className="flex gap-16 [&_>_:nth-child(2)]:grow-1"
 						href="https://pixelresort.gumroad.com/l/emojitoolkit?ref=heroicons.dev"
 						rel="noopener noreferrer"
 						target="_blank"
 					>
-						<div className="flex justify-center align-center h-80 aspect-1.67 rounded-16">
+						{/* <div className="flex justify-center align-center h-80 aspect-1.67 rounded-16">
 							<img src={vectorEmojiToolkit} alt="Vector Emoji Toolkit" />
-						</div>
+						</div> */}
+						<img
+							className="h-80 aspect-1.67 rounded-16 shadow-$hairline-shadow"
+							src={vectorEmojiToolkit}
+							alt="Vector Emoji Toolkit"
+						/>
 						<div className="flex flex-col gap-2">
 							<div className="flex align-center gap-8 h-24">
 								{/* TODO: Unfortunately we need to use !important here because UnoCSS
