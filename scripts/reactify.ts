@@ -1,4 +1,4 @@
-import { detab, tab } from "../src/utils/vanilla/format"
+import { detab, tab } from "../src/lib/format"
 
 export function reactify({ href, name, svg }: { href: string, name: string, svg: string }) {
 	const svgProps = svg.replace(/<svg ([^>]+)>/, "<svg $1 {...props}>")
