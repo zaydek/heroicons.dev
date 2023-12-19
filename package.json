@@ -2,7 +2,7 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
-		"deploy": "npm run build && netlify deploy --dir=./dist --message=\"$(git log -1 --pretty=format:'(%h) %s%n%n%bAuthor: %an <%ae>%nDate: %ad%nBranch: %D')\" --prod --site=heroicons.dev"
+		"deploy": "npm run build && npx netlify deploy --dir=./dist --message=\"$(git log -1 --pretty=format:'(%h) %s%n%n%bAuthor: %an <%ae>%nDate: %ad%nBranch: %D')\" --prod --site=heroicons.dev"
 	},
 	"dependencies": {
 		"@types/lodash": "^4.14.202",
@@ -20,6 +20,7 @@
 		"esbuild": "^0.16.16",
 		"eslint": "^8.31.0",
 		"eslint-config-react-app": "^7.0.1",
+		"netlify-cli": "^17.10.1",
 		"playwright": "^1.29.1",
 		"sass": "^1.57.1",
 		"styled-jsx": "^5.1.1",

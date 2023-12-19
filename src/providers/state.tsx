@@ -85,7 +85,6 @@ export function StateProvider({ children }: PropsWithChildren) {
 	const [manifest, Icon] = useMemo(() => {
 		return cache.get(iconset)
 	}, [iconset])
-	console.log(manifest)
 
 	const [search, setSearch] = useState(() => searchParams.string({ key: "search", initialValue: "" }))
 	const _canonicalSearch = useMemo(() => {

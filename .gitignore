@@ -26,3 +26,6 @@ dist-ssr
 # Userland
 *.generated.*
 /notes.*
+
+# Local Netlify folder
+.netlify
