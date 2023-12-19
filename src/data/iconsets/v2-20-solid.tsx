@@ -1,5 +1,5 @@
-import type { manifest } from "../manifest@2.0.13"
-import * as icons from "../heroicons@2.0.13/20/solid"
+import * as icons from "../heroicons@2.1.1/20/solid"
+import type { manifest } from "../manifest@2.1.1"
 
 import { createElement, SVGAttributes } from "react"
 

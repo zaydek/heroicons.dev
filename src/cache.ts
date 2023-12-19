@@ -1,5 +1,5 @@
 import { manifest as manifestV1 } from "./data/manifest@1.0.6"
-import { manifest as manifestV2 } from "./data/manifest@2.0.13"
+import { manifest as manifestV2 } from "./data/manifest@2.1.1"
 
 import { lazy, LazyExoticComponent } from "react"
 import { IconsetValue } from "./types"
@@ -28,6 +28,10 @@ function createCache() {
 				case "v1-24-outline":
 					manifest = manifestV1
 					Icon = lazy(() => import("./data/iconsets/v1-24-outline"))
+					break
+				case "v2-16-solid":
+					manifest = manifestV2
+					Icon = lazy(() => import("./data/iconsets/v2-16-solid"))
 					break
 				case "v2-20-solid":
 					manifest = manifestV2

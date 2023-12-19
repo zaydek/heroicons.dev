@@ -108,9 +108,7 @@ export function SearchResults() {
 			<GridScaffold>
 				{searchResults.map(({ name, indexes }) =>
 					<div key={name} className="flex flex-col gap-8">
-						{/* Don't use <AriaButton> here (create fewer DOM elements) */}
 						<button className="flex justify-center align-center h-$grid-item-size w-$grid-item-size" onClick={e => {
-							//// document.body.setAttribute("data-column-2-open", "" + true)
 							setSidebar2(true)
 							setSelectedName(name)
 							setSelectedSvgElement(e.currentTarget.querySelector("svg"))

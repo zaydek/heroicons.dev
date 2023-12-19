@@ -147,6 +147,13 @@ export function Sidebar1() {
 						<NavItemTitle>VERSION 2</NavItemTitle>
 						<NavItem
 							icon={LightningIcon.V2_20_solid}
+							onClick={(e) => setIconset("v2-16-solid")}
+							data-active={iconset === "v2-16-solid"}
+						>
+							16 PX SOLID
+						</NavItem>
+						<NavItem
+							icon={LightningIcon.V2_20_solid}
 							onClick={(e) => setIconset("v2-20-solid")}
 							data-active={iconset === "v2-20-solid"}
 						>

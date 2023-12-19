@@ -1,7 +1,6 @@
 import * as styled from "./css/bindings"
 
 import spelllDesign from "./assets/spelll-design.png"
-import vectorEmojiToolkit from "./assets/vector-emoji-toolkit.png"
 
 import {
 	CSSProperties,
@@ -344,7 +343,7 @@ function SectionClipboard() {
 	)
 }
 
-const DICE_ROLL = Math.random() < 0.5
+//// const DICE_ROLL = Math.random() < 0.5
 
 export function Sidebar2() {
 	const { iconset } = useContext(SearchContext)!
@@ -362,76 +361,37 @@ export function Sidebar2() {
 			<SectionClipboard />
 			<Hairline />
 			<div className="absolute b-0 x-0 py-$sidebar-2-inset-y px-$sidebar-2-inset-x bg-$base-color shadow-$hairline-shadow-t">
-				{DICE_ROLL ? (
-					<a
-						className="flex gap-16 [&_>_:nth-child(2)]:grow-1"
-						href="https://spelll.design?ref=heroicons.dev"
-						rel="noopener noreferrer"
-						target="_blank"
-					>
-						<div className="flex justify-center align-center h-80 aspect-1.67 rounded-16 bg-#4f27fa">
-							<img className="h-45%" src={spelllDesign} alt="Spelll Design -- Spell Checker for Figma" />
-						</div>
-						<div className="flex flex-col gap-2">
-							<div className="flex align-center gap-8 h-24">
-								{/* TODO: Unfortunately we need to use !important here because UnoCSS
-								seems to sort class names */}
-								<styled.TypographySans className="![font-weight]-500 [color]-$hard-fill-color">
-									spelll.design
-								</styled.TypographySans>
-								<styled.TypographySmallCaps
-									className="py-5 px-10 flex justify-center align-center rounded-1e3
-								[font-weight]-700 [color]-white
-									bg-black"
-								>
-									SPONSOR
-								</styled.TypographySmallCaps>
-							</div>
+				<a
+					className="flex gap-16 [&_>_:nth-child(2)]:grow-1"
+					href="https://spelll.design?ref=heroicons.dev"
+					rel="noopener noreferrer"
+					target="_blank"
+				>
+					<div className="flex justify-center align-center h-80 aspect-1.67 rounded-16 bg-#4f27fa">
+						<img className="h-45%" src={spelllDesign} alt="Spelll Design -- Spell Checker for Figma" />
+					</div>
+					<div className="flex flex-col gap-2">
+						<div className="flex align-center gap-8 h-24">
 							{/* TODO: Unfortunately we need to use !important here because UnoCSS
 							seems to sort class names */}
-							<styled.TypographySans className="![line-height]-1.4 [color]-$fill-color">
-								<span className="[text-decoration]-underline_red_wavy">Spellng</span> and Grammar Checker for Figma
+							<styled.TypographySans className="![font-weight]-500 [color]-$hard-fill-color">
+								spelll.design
 							</styled.TypographySans>
+							<styled.TypographySmallCaps
+								className="py-5 px-10 flex justify-center align-center rounded-1e3
+							[font-weight]-700 [color]-white
+								bg-black"
+							>
+								SPONSOR
+							</styled.TypographySmallCaps>
 						</div>
-					</a>
-				) : (
-					<a
-						className="flex gap-16 [&_>_:nth-child(2)]:grow-1"
-						href="https://pixelresort.gumroad.com/l/emojitoolkit?ref=heroicons.dev"
-						rel="noopener noreferrer"
-						target="_blank"
-					>
-						{/* <div className="flex justify-center align-center h-80 aspect-1.67 rounded-16">
-							<img src={vectorEmojiToolkit} alt="Vector Emoji Toolkit" />
-						</div> */}
-						<img
-							className="h-80 aspect-1.67 rounded-16 shadow-$hairline-shadow"
-							src={vectorEmojiToolkit}
-							alt="Vector Emoji Toolkit"
-						/>
-						<div className="flex flex-col gap-2">
-							<div className="flex align-center gap-8 h-24">
-								{/* TODO: Unfortunately we need to use !important here because UnoCSS
-								seems to sort class names */}
-								<styled.TypographySans className="![font-weight]-500 [color]-$hard-fill-color">
-									Vector Emoji
-								</styled.TypographySans>
-								<styled.TypographySmallCaps
-									className="py-5 px-10 flex justify-center align-center rounded-1e3
-								[font-weight]-700 [color]-white
-									bg-black"
-								>
-									SPONSOR
-								</styled.TypographySmallCaps>
-							</div>
-							{/* TODO: Unfortunately we need to use !important here because UnoCSS
-							seems to sort class names */}
-							<styled.TypographySans className="![line-height]-1.4 [color]-$fill-color">
-								Design with vector based emoji
-							</styled.TypographySans>
-						</div>
-					</a>
-				)}
+						{/* TODO: Unfortunately we need to use !important here because UnoCSS
+						seems to sort class names */}
+						<styled.TypographySans className="![line-height]-1.4 [color]-$fill-color">
+							<span className="[text-decoration]-underline_red_wavy">Spellng</span> and Grammar Checker for Figma
+						</styled.TypographySans>
+					</div>
+				</a>
 			</div>
 		</>
 	)

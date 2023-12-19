@@ -1,11 +1,11 @@
 // Only import types here
 import type { manifest as manifestV1 } from "../data/manifest@1.0.6"
-import type { manifest as manifestV2 } from "../data/manifest@2.0.13"
+import type { manifest as manifestV2 } from "../data/manifest@2.1.1"
 
 import { createContext, Dispatch, LazyExoticComponent, PropsWithChildren, SetStateAction, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react"
 import { stringifySvgElement } from "../../scripts/stringify-svg-element"
 import { cache } from "../cache"
-import { ICON_SIZE_MAX, ICON_SIZE_MIN, ICON_STROKE_WIDTH_MAX, ICON_STROKE_WIDTH_MIN, INITIAL_ICONSET, INITIAL_ICON_SIZE, INITIAL_ICON_STROKE_WIDTH } from "../constants"
+import { ICON_SIZE_MAX, ICON_SIZE_MIN, ICON_STROKE_WIDTH_MAX, ICON_STROKE_WIDTH_MIN, INITIAL_ICON_SIZE, INITIAL_ICON_STROKE_WIDTH, INITIAL_ICONSET } from "../constants"
 import { toKebabCase, toTitleCase } from "../lib/cases"
 import { detab, tab } from "../lib/format"
 import { searchParams } from "../lib/search-params"
@@ -85,6 +85,7 @@ export function StateProvider({ children }: PropsWithChildren) {
 	const [manifest, Icon] = useMemo(() => {
 		return cache.get(iconset)
 	}, [iconset])
+	console.log(manifest)
 
 	const [search, setSearch] = useState(() => searchParams.string({ key: "search", initialValue: "" }))
 	const _canonicalSearch = useMemo(() => {

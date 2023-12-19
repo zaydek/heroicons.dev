@@ -1,4 +1,5 @@
 export const Iconsets = [
+	"v2-16-solid",
 	"v1-20-solid",
 	"v1-24-outline",
 	"v2-20-solid",
